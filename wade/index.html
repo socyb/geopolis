@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geopolítica Internacional Aplicada a los Negocios Internacionales — Actividad</title>
+  <meta name="description" content="Actividad de clase basada en lecturas y videos: regreso del conflicto entre grandes potencias (Wade)" />
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+  <style>
+    :root{
+      --bg:#0a0f14;           /* base oscuro*/
+      --bg-2:#0e1822;         /* segundo tono*/
+      --ink:#e6f0ff;          /* texto principal */
+      --ink-dim:#b7c6de;      /* texto tenue */
+      --accent:#00c1ff;       /* azul espectral (inspiración Omnisphere) */
+      --accent-2:#7fe3ff;     /* azul claro */
+      --gold:#d4a856;         /* detalle dorado art-deco */
+      --card:#111a23;         /* tarjetas */
+      --muted:#0c131b;
+      --maxw:1100px;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    html,body{background:var(--bg);color:var(--ink);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    header.hero{
+      position:relative;overflow:hidden;isolation:isolate;
+      background:radial-gradient(1200px 600px at 80% -10%, rgba(0,193,255,.25), transparent 60%),
+                 radial-gradient(900px 500px at 10% 10%, rgba(212,168,86,.15), transparent 60%),
+                 linear-gradient(180deg, #0b1420 0%, #081018 100%);
+      border-bottom:1px solid rgba(212,168,86,.15);
+    }
+    .hero .wrap{padding:72px 20px 56px}
+    .kicker{letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;font-size:.88rem}
+    h1{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.1;margin:.3rem 0 0}
+    .subtitle{margin-top:.6rem;color:var(--ink-dim);font-size:clamp(1rem,2.2vw,1.25rem)}
+    .meta{margin-top:1rem;color:var(--accent-2);font-weight:500}
+    .cta-row{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 16px;border-radius:999px;border:1px solid rgba(127,227,255,.4);background:rgba(12,19,27,.6);backdrop-filter:blur(4px);text-decoration:none}
+    .btn--gold{border-color:rgba(212,168,86,.4);color:#fff}
+
+    /* Nav */
+    nav.sticky{position:sticky;top:0;z-index:20;background:rgba(8,16,24,.72);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,168,86,.12)}
+    nav .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;padding:10px 0}
+    .brand b{color:var(--ink);font-weight:700}
+    .brand small{color:var(--ink-dim)}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
+    .navlinks a{padding:10px 8px;color:var(--ink-dim);text-decoration:none;font-size:.95rem}
+    .navlinks a:hover{color:var(--ink)}
+
+    section{padding:56px 0;border-top:1px solid rgba(127,227,255,.08)}
+    section .h{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 10px;letter-spacing:.01em}
+    .lead{color:var(--ink-dim)}
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{background:linear-gradient(180deg,rgba(17,26,35,.9),rgba(12,19,27,.9));border:1px solid rgba(127,227,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card .pad{padding:16px}
+    .tag{display:inline-block;border:1px solid rgba(212,168,86,.35);color:var(--gold);border-radius:999px;padding:2px 8px;font-size:.75rem}
+    .card h3{margin:8px 0 6px;font-size:1.05rem}
+    .muted{color:var(--ink-dim)}
+    .ratio{position:relative;width:100%;padding-top:56.25%;background:#000}
+    .ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    /* Pullquotes & highlights */
+    .quote{border-left:3px solid var(--gold);padding:10px 14px;margin:16px 0;background:rgba(212,168,86,.06);border-radius:8px}
+
+    /* Timeline */
+    .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+    .step{background:var(--card);border:1px solid rgba(127,227,255,.08);border-radius:14px;padding:14px}
+    .step b{color:var(--accent-2)}
+
+    /* Footer */
+    footer{padding:36px 0;background:linear-gradient(180deg, #0b1420, #070d12);border-top:1px solid rgba(212,168,86,.12)}
+    footer p{color:var(--ink-dim);margin:.3rem 0}
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(12px);transition:all .7s ease}
+    .reveal.in{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="kicker">Geopolítica Internacional Aplicada a los Negocios Internacionales</div>
+      <h1>El regreso del conflicto entre grandes potencias</h1>
+      <p class="subtitle">Actividad de clase inspirada en R. H. Wade (<em>New Cold War: US–China + Rusia</em>) y materiales audiovisuales seleccionados.</p>
+      <div class="meta">Facultad de Contaduría y Administración · UNAM</div>
+      <div class="cta-row">
+        <a class="btn" href="#intro">Introducción</a>
+        <a class="btn btn--gold" href="#videos">Video-galería</a>
+        <a class="btn" href="#lectura">Lectura / PDF</a>
+        <a class="btn" href="#debate">Preguntas de discusión</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sticky">
+    <div class="wrap">
+      <div class="brand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="rgba(212,168,86,.9)" stroke-width="1.5"/><path d="M12 3v18M3 12h18" stroke="rgba(127,227,255,.9)" stroke-width="1.2"/></svg>
+        <b>GIANI</b><small> · Actividad</small>
+      </div>
+      <div class="navlinks">
+        <a href="#intro">Intro</a>
+        <a href="#videos">Videos</a>
+        <a href="#lectura">Lectura</a>
+        <a href="#linea">Línea de tiempo</a>
+        <a href="#debate">Debate</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Intro -->
+    <section id="intro">
+      <div class="wrap">
+        <h2 class="h reveal">Geopolítica en la era de la interdependencia</h2>
+        <p class="lead reveal">Punto de partida: la competencia entre potencias regresa con nuevas reglas —interdependencias profundas, cadenas de suministro tensas y tecnologías estratégicas—, pero sin abandonar los riesgos clásicos de escalamiento.</p>
+        <div class="quote reveal">Conceptos clave de la lectura: <strong>‘Mutual Assured Disruption (MAD2)’</strong>, ‘autonomía estratégica’ y disputa por estándares tecnológicos. <em>(Añadiremos extractos puntuales aquí.)</em></div>
+      </div>
+    </section>
+
+    <!-- Videos -->
+    <section id="videos">
+      <div class="wrap">
+        <h2 class="h reveal">Video‑galería temática</h2>
+        <p class="lead reveal">Material audiovisual para activar ejemplos, tensiones y casos. Cada tarjeta puede abrirse en clase y disparar preguntas breves.</p>
+        <div class="grid">
+          <!-- 1 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/U_7CGl6VWaQ" title="Video 1"></iframe></div>
+            <div class="pad"><span class="tag">EE.UU.</span><h3>Hegemonía y reglas</h3><p class="muted">Dólar, pagos y poder estructural.</p></div>
+          </article>
+          <!-- 2 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/1olyHeEeSh8" title="Video 2"></iframe></div>
+            <div class="pad"><span class="tag">China</span><h3>Ambición nacional y tecnología</h3><p class="muted">Estado desarrollista, I+D, BRI.</p></div>
+          </article>
+          <!-- 3 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/ALjRSf13OX0" title="Video 3"></iframe></div>
+            <div class="pad"><span class="tag">Rusia</span><h3>Reconfiguración estratégica</h3><p class="muted">Proyección y costos de sanciones.</p></div>
+          </article>
+          <!-- 4 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/GyvGS9P2BKc" title="Video 4"></iframe></div>
+            <div class="pad"><span class="tag">Cadenas</span><h3>Reshoring y friend‑shoring</h3><p class="muted">De JIT a JIC: redundancias.</p></div>
+          </article>
+          <!-- 5 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/HExhxPDOewE" title="Video 5"></iframe></div>
+            <div class="pad"><span class="tag">Tecnología</span><h3>Guerra de semiconductores</h3><p class="muted">CHIPS Act, controles a exportación.</p></div>
+          </article>
+          <!-- 6 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/-JbIOGGTRTY" title="Video 6"></iframe></div>
+            <div class="pad"><span class="tag">Ciber</span><h3>Superficie de ataque</h3><p class="muted">Zero‑days, infraestructura crítica.</p></div>
+          </article>
+          <!-- 7 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/kMhle4o0uk0" title="Video 7"></iframe></div>
+            <div class="pad"><span class="tag">Asia</span><h3>Alianzas & estándares</h3><p class="muted">RCEP, AIIB, 5G Pacífico.</p></div>
+          </article>
+          <!-- 8 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/qmn46KrztJ0" title="Video 8"></iframe></div>
+            <div class="pad"><span class="tag">Mercado</span><h3>Comercio: fase 1</h3><p class="muted">Tarifas y (de)globalización.</p></div>
+          </article>
+          <!-- 9 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/Shuv9-MJBEU" title="Video 9"></iframe></div>
+            <div class="pad"><span class="tag">Capital</span><h3>Mercados e IPOs</h3><p class="muted">Tecnología estratégica y financiamiento.</p></div>
+          </article>
+          <!-- 10 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/NhwtfSyZ3Rc" title="Video 10"></iframe></div>
+            <div class="pad"><span class="tag">Transporte</span><h3>Alta velocidad</h3><p class="muted">Infraestructura y poder.</p></div>
+          </article>
+          <!-- 11 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/Ug83_o2hKEw" title="Video 11"></iframe></div>
+            <div class="pad"><span class="tag">Energía</span><h3>Seguridad energética</h3><p class="muted">Shale, importaciones y rutas.</p></div>
+          </article>
+          <!-- 12 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/pEAi92VmBd4" title="Video 12"></iframe></div>
+            <div class="pad"><span class="tag">Demografía</span><h3>Ventanas y riesgos</h3><p class="muted">Envejecimiento, inequidad.</p></div>
+          </article>
+          <!-- 13 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/XHteRHDI3dU" title="Video 13"></iframe></div>
+            <div class="pad"><span class="tag">E‑vehicles</span><h3>Competencia industrial</h3><p class="muted">Campeones nacionales.</p></div>
+          </article>
+          <!-- 14 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/H2qLoaetLJM" title="Video 14"></iframe></div>
+            <div class="pad"><span class="tag">Nuclear</span><h3>Escalada y disuasión</h3><p class="muted">Tabú nuclear y tácticos.</p></div>
+          </article>
+          <!-- 15 -->
+          <article class="card reveal">
+            <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/V8Vtb0bn30M" title="Video 15"></iframe></div>
+            <div class="pad"><span class="tag">Global South</span><h3>No‑alineados hoy</h3><p class="muted">Persuasión y márgenes de maniobra.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lectura / PDF -->
+    <section id="lectura">
+      <div class="wrap">
+        <h2 class="h reveal">Lectura base (Wade) y extractos guiados</h2>
+        <p class="lead reveal">Añadiremos aquí los fragmentos marcados para la discusión. Por ahora, el botón abre el PDF completo si está en la misma carpeta del sitio.</p>
+        <p class="reveal"><a class="btn btn--gold" href="./WADE_conflict_between_great_powers.pdf" target="_blank" rel="noopener">Abrir PDF (Wade)</a></p>
+        <div class="grid">
+          <div class="card reveal"><div class="pad"><span class="tag">Concepto</span><h3>MAD2 — Mutual Assured Disruption</h3><p class="muted">Interdependencias densas → riesgo de disrupción cruzada. <em>(Pegar cita corta aquí.)</em></p></div></div>
+          <div class="card reveal"><div class="pad"><span class="tag">Trampa</span><h3>Thucydides Trap</h3><p class="muted">Potencia retadora vs. hegemon regional/global. <em>(Pegar cita corta.)</em></p></div></div>
+          <div class="card reveal"><div class="pad"><span class="tag">Tecnología</span><h3>MIC 2025 / chips</h3><p class="muted">Industrial policy y controles a exportación. <em>(Pegar cita corta.)</em></p></div></div>
+          <div class="card reveal"><div class="pad"><span class="tag">Ciber</span><h3>Zero‑days & infraestructura</h3><p class="muted">Superficie de ataque y ‘air‑gaps’. <em>(Pegar cita corta.)</em></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Línea de tiempo -->
+    <section id="linea">
+      <div class="wrap">
+        <h2 class="h reveal">Etapas de la “nueva Guerra Fría”</h2>
+        <div class="timeline">
+          <div class="step reveal"><b>1. Guerra comercial</b><p class="muted">Tarifas, antidumping, fase 1. Cobertura >50% del comercio bilateral.</p></div>
+          <div class="step reveal"><b>2. Guerra del capital</b><p class="muted">Listados, restricciones a flujos e industrias estratégicas.</p></div>
+          <div class="step reveal"><b>3. Guerra tecnológica</b><p class="muted">Semiconductores, IA, 5G, estándares y subsidios.</p></div>
+          <div class="step reveal"><b>4. Guerra cibernética</b><p class="muted">Operaciones ofensivas/defensivas, infraestructura crítica.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Debate -->
+    <section id="debate">
+      <div class="wrap">
+        <h2 class="h reveal">Preguntas para discusión en clase</h2>
+        <ul>
+          <li class="reveal">¿Cómo tensiona Wade la relación entre <em>hegemonía</em> y <em>dependencia</em> en la economía política global?</li>
+          <li class="reveal">¿Qué mecanismos tecnológicos (chips, 5G, supercómputo) reordenan el poder y por qué?</li>
+          <li class="reveal">Para los negocios internacionales: ¿qué riesgos emergen de <em>friend‑shoring</em> y controles tecnológicos?</li>
+          <li class="reveal">¿Qué rol juega el “Sur Global” como bloque no‑alineado en esta configuración?</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Geopolítica Internacional Aplicada a los Negocios Internacionales</strong> · Actividad de clase</p>
+      <p>Docente: Jorge Cardiel Herrera · UNAM · Semestre 2026‑1</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal minimalista
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Smooth anchor nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
