@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentación: Nueva Guerra Fría y Conflicto de Grandes Potencias</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0f14;
+      --bg-slide: #0e1822;
+      --ink: #e6f0ff;
+      --ink-dim: #b7c6de;
+      --accent: #00c1ff;
+      --accent-2: #7fe3ff;
+      --gold: #d4a856;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* SLIDES CONTAINER */
+    .slides-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1400px;
+      height: 100%;
+      max-height: 800px;
+      background: linear-gradient(135deg, var(--bg-slide) 0%, #0b1420 100%);
+      border: 2px solid rgba(127, 227, 255, 0.2);
+      border-radius: 24px;
+      padding: 4rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideIn 0.6s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* SLIDE HEADER */
+    .slide h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-2);
+      text-shadow: 0 2px 10px rgba(0, 193, 255, 0.4);
+      line-height: 1.2;
+    }
+
+    .slide h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .slide h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      line-height: 1.3;
+    }
+
+    .slide p {
+      font-size: 1.8rem;
+      line-height: 1.6;
+      color: var(--ink-dim);
+      margin-bottom: 1rem;
+    }
+
+    .slide ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .slide li {
+      font-size: 1.8rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      padding-left: 2.5rem;
+      position: relative;
+      color: var(--ink);
+    }
+
+    .slide li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    /* ANIMATED ELEMENTS */
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 2rem auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .icon-chip {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 193, 255, 0.3);
+    }
+
+    .icon-chip::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 60%;
+      background: var(--bg);
+      border-radius: 10px;
+    }
+
+    .icon-globe {
+      background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(127, 227, 255, 0.4);
+      position: relative;
+    }
+
+    .icon-globe::before,
+    .icon-globe::after {
+      content: '';
+      position: absolute;
+      background: var(--bg);
+      border-radius: 2px;
+    }
+
+    .icon-globe::before {
+      width: 100%;
+      height: 4px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .icon-globe::after {
+      width: 4px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .icon-shield {
+      background: linear-gradient(135deg, var(--gold) 0%, #e6c270 100%);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      box-shadow: 0 10px 30px rgba(212, 168, 86, 0.4);
+    }
+
+    .icon-lock {
+      background: var(--accent);
+      border-radius: 15px 15px 30px 30px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 193, 255, 0.4);
+    }
+
+    .icon-lock::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 20px;
+      width: 80px;
+      height: 60px;
+      border: 12px solid var(--accent);
+      border-bottom: none;
+      border-radius: 80px 80px 0 0;
+    }
+
+    .icon-rocket {
+      background: linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
+      clip-path: polygon(50% 0%, 70% 30%, 100% 100%, 50% 85%, 0% 100%, 30% 30%);
+      box-shadow: 0 10px 30px rgba(127, 227, 255, 0.5);
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .icon-factory {
+      background: var(--gold);
+      border-radius: 10px 10px 0 0;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(212, 168, 86, 0.4);
+    }
+
+    .icon-factory::before,
+    .icon-factory::after {
+      content: '';
+      position: absolute;
+      background: var(--ink-dim);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .icon-factory::before {
+      width: 15px;
+      height: 40px;
+      top: -40px;
+      left: 20px;
+    }
+
+    .icon-factory::after {
+      width: 15px;
+      height: 60px;
+      top: -60px;
+      right: 30px;
+    }
+
+    /* EMPHASIS BOX */
+    .emphasis {
+      background: rgba(212, 168, 86, 0.1);
+      border-left: 5px solid var(--gold);
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      font-size: 1.9rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* GRID LAYOUT FOR SOME SLIDES */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    /* NAVIGATION BAR */
+    .nav-bar {
+      background: rgba(8, 16, 24, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid rgba(212, 168, 86, 0.2);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: rgba(127, 227, 255, 0.1);
+      border: 2px solid var(--accent);
+      color: var(--accent-2);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-btn:hover {
+      background: rgba(127, 227, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 193, 255, 0.3);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .nav-btn:disabled:hover {
+      background: rgba(127, 227, 255, 0.1);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .nav-btn.home {
+      background: rgba(212, 168, 86, 0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .nav-btn.home:hover {
+      background: rgba(212, 168, 86, 0.2);
+      box-shadow: 0 5px 15px rgba(212, 168, 86, 0.3);
+    }
+
+    .slide-counter {
+      font-size: 1.2rem;
+      color: var(--ink-dim);
+      font-weight: 600;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    /* SLIDE NUMBER INDICATOR */
+    .slide-number {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 1.2rem;
+      color: var(--ink-dim);
+      opacity: 0.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .slide {
+        padding: 2.5rem;
+      }
+
+      .slide h1 { font-size: 2.5rem; }
+      .slide h2 { font-size: 2rem; }
+      .slide h3 { font-size: 1.7rem; }
+      .slide p, .slide li { font-size: 1.4rem; }
+
+      .icon { width: 80px; height: 80px; }
+      
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slides-wrapper {
+        padding: 1rem;
+      }
+
+      .slide {
+        padding: 2rem;
+      }
+
+      .slide h1 { font-size: 2rem; }
+      .slide h2 { font-size: 1.6rem; }
+      .slide h3 { font-size: 1.4rem; }
+      .slide p, .slide li { font-size: 1.2rem; }
+
+      .nav-bar {
+        padding: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .icon { width: 60px; height: 60px; }
+    }
+
+    /* PULSE ANIMATION FOR EMPHASIS */
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slides-wrapper">
+    
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide active" data-slide="1">
+      <div class="slide-number">1/15</div>
+      <h1 style="text-align: center; margin-top: 4rem;">🌍 La Nueva Guerra Fría</h1>
+      <h2 style="text-align: center; color: var(--ink-dim); font-size: 2.2rem;">Conflicto entre Grandes Potencias</h2>
+      <div class="icon icon-globe" style="margin: 3rem auto;"></div>
+      <p style="text-align: center; font-size: 1.6rem;">EE.UU. vs China + Rusia</p>
+      <p style="text-align: center; font-size: 1.4rem; color: var(--ink-dim);">Geopolítica Internacional Aplicada a los Negocios Internacionales</p>
+    </div>
+
+    <!-- SLIDE 2: INTRODUCCIÓN -->
+    <div class="slide" data-slide="2">
+      <div class="slide-number">2/15</div>
+      <h2>Geopolítica en la era de interdependencia</h2>
+      <div class="icon icon-globe"></div>
+      <ul>
+        <li>Competencia entre potencias con nuevas reglas</li>
+        <li>Interdependencias profundas</li>
+        <li>Cadenas de suministro tensas</li>
+        <li>Tecnologías estratégicas</li>
+        <li>Viejos riesgos de escalamiento</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 3: MAD2 -->
+    <div class="slide" data-slide="3">
+      <div class="slide-number">3/15</div>
+      <h2>MAD2: Disrupción Mutuamente Asegurada</h2>
+      <div class="icon icon-shield pulse"></div>
+      <div class="emphasis">
+        "Si en la primera Guerra Fría el nombre del juego fue la destrucción mutuamente asegurada, en la actual lo es la <strong>disrupción mutuamente asegurada (MAD2)</strong>, limitada por una <strong>dependencia mutuamente asegurada (MAD3)</strong>."
+      </div>
+      <p style="text-align: right; font-style: italic;">— Robert H. Wade, 2023</p>
+    </div>
+
+    <!-- SLIDE 4: TRAMPA DE TUCÍDIDES -->
+    <div class="slide" data-slide="4">
+      <div class="slide-number">4/15</div>
+      <h2>La trampa de Tucídides</h2>
+      <ul style="margin-top: 2rem;">
+        <li>Ascenso de China como potencia emergente</li>
+        <li>Intento de contención por parte de EE.UU.</li>
+        <li>Cuando una potencia emergente amenaza con desplazar a la hegemónica...</li>
+        <li style="color: var(--gold); font-weight: 600;">...la guerra se vuelve probable</li>
+      </ul>
+      <p style="margin-top: 3rem; font-size: 1.6rem; color: var(--ink-dim);">¿Podremos evitar el conflicto histórico?</p>
+    </div>
+
+    <!-- SLIDE 5: ETAPAS - GUERRA COMERCIAL -->
+    <div class="slide" data-slide="5">
+      <div class="slide-number">5/15</div>
+      <h2>Etapa 1: Guerra Comercial 💵</h2>
+      <div class="icon icon-factory"></div>
+      <ul>
+        <li>Tarifas y aranceles recíprocos</li>
+        <li>Medidas antidumping</li>
+        <li>Acuerdo "Phase One" (2020)</li>
+        <li>Cobertura amplia del comercio bilateral</li>
+        <li>Impacto en cadenas de suministro globales</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 6: ETAPAS - GUERRA DEL CAPITAL -->
+    <div class="slide" data-slide="6">
+      <div class="slide-number">6/15</div>
+      <h2>Etapa 2: Guerra del Capital 💰</h2>
+      <ul style="margin-top: 2rem;">
+        <li>Restricciones a flujos de inversión</li>
+        <li>Listados negros de empresas estratégicas</li>
+        <li>Control de sectores sensibles</li>
+        <li>Predominancia del dólar como arma</li>
+        <li>Sanciones financieras internacionales</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 7: ETAPAS - GUERRA TECNOLÓGICA -->
+    <div class="slide" data-slide="7">
+      <div class="slide-number">7/15</div>
+      <h2>Etapa 3: Guerra Tecnológica 💻</h2>
+      <div class="icon icon-chip pulse"></div>
+      <ul>
+        <li><strong>Semiconductores:</strong> control de la cadena de producción</li>
+        <li><strong>Inteligencia Artificial:</strong> competencia por el liderazgo</li>
+        <li><strong>5G:</strong> infraestructura de telecomunicaciones</li>
+        <li><strong>Estándares:</strong> quién define las reglas técnicas</li>
+        <li><strong>Subsidios:</strong> políticas industriales masivas</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 8: SEMICONDUCTORES -->
+    <div class="slide" data-slide="8">
+      <div class="slide-number">8/15</div>
+      <h2>🔬 La batalla por los semiconductores</h2>
+      <div class="two-col">
+        <div>
+          <h3 style="color: var(--accent);">Actores clave</h3>
+          <ul style="font-size: 1.5rem;">
+            <li>TSMC (Taiwán)</li>
+            <li>ASML (Países Bajos)</li>
+            <li>Intel, AMD (EE.UU.)</li>
+            <li>SMIC (China)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color: var(--gold);">¿Por qué importan?</h3>
+          <p style="font-size: 1.5rem;">Los chips avanzados son esenciales para:</p>
+          <ul style="font-size: 1.4rem;">
+            <li>IA y computación</li>
+            <li>Defensa y armas</li>
+            <li>Telecomunicaciones</li>
+            <li>Economía digital</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: ETAPAS - GUERRA CIBERNÉTICA -->
+    <div class="slide" data-slide="9">
+      <div class="slide-number">9/15</div>
+      <h2>Etapa 4: Guerra Cibernética 🔐</h2>
+      <div class="icon icon-lock"></div>
+      <ul>
+        <li>Operaciones ofensivas y defensivas</li>
+        <li>Ataques a infraestructura crítica</li>
+        <li>Espionaje digital y robo de propiedad intelectual</li>
+        <li>Degradar capacidades sin destruir físicamente</li>
+        <li>Disuasión en el ciberespacio</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 10: AUTONOMÍA ESTRATÉGICA -->
+    <div class="slide" data-slide="10">
+      <div class="slide-number">10/15</div>
+      <h2>🎯 Autonomía Estratégica</h2>
+      <div class="emphasis">
+        Los Estados buscan <strong>control de nodos críticos</strong> en las cadenas de suministro para reducir dependencias y aumentar resiliencia.
+      </div>
+      <ul style="margin-top: 2rem;">
+        <li>Reshoring y nearshoring de manufactura</li>
+        <li>Subsidios a industrias estratégicas</li>
+        <li>Creación de "campeones nacionales"</li>
+        <li>Alianzas selectivas (friend-shoring)</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 11: CARRERA ESPACIAL -->
+    <div class="slide" data-slide="11">
+      <div class="slide-number">11/15</div>
+      <h2>🚀 La nueva carrera espacial</h2>
+      <div class="icon icon-rocket"></div>
+      <ul>
+        <li>Estaciones espaciales propias (ISS vs. Tiangong)</li>
+        <li>Exploración lunar y marciana</li>
+        <li>Satélites de comunicaciones y vigilancia</li>
+        <li>Proyección de poder más allá de la Tierra</li>
+        <li>Recursos espaciales y minería de asteroides</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 12: ENERGÍA Y CLIMA -->
+    <div class="slide" data-slide="12">
+      <div class="slide-number">12/15</div>
+      <h2>⚡ Competencia energética</h2>
+      <div class="two-col">
+        <div>
+          <h3 style="color: var(--accent);">Energía solar</h3>
+          <p style="font-size: 1.5rem;">China domina:</p>
+          <ul style="font-size: 1.4rem;">
+            <li>Producción de paneles</li>
+            <li>Costos más bajos</li>
+            <li>Curva de aprendizaje</li>
+            <li>Escala industrial</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color: var(--gold);">Implicaciones</h3>
+          <p style="font-size: 1.5rem;">La transición energética es también un campo de batalla geopolítico.</p>
+          <p style="font-size: 1.4rem; margin-top: 1rem;">Control de minerales críticos (litio, cobalto, tierras raras).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: POPULISMO -->
+    <div class="slide" data-slide="13">
+      <div class="slide-number">13/15</div>
+      <h2>📢 Populismo y cohesión interna</h2>
+      <div class="emphasis">
+        "Un enemigo externo refuerza la cooperación interna. Las potencias utilizan el conflicto como mecanismo de cohesión y legitimidad doméstica."
+      </div>
+      <ul style="margin-top: 2rem;">
+        <li>Desconfianza en instituciones globales</li>
+        <li>Movimientos nacionalistas</li>
+        <li>La soberanía como eje de orgullo</li>
+        <li>Ruptura con el discurso liberal</li>
+      </ul>
+    </div>
+
+    <!-- SLIDE 14: RIESGOS Y ESCALAMIENTO -->
+    <div class="slide" data-slide="14">
+      <div class="slide-number">14/15</div>
+      <h2>⚠️ Riesgos de escalamiento</h2>
+      <ul style="margin-top: 2rem;">
+        <li><strong>Conflicto armado:</strong> Taiwán como punto crítico</li>
+        <li><strong>Nuclear:</strong> tabú en riesgo, armas tácticas</li>
+        <li><strong>Ciber-caos:</strong> ataques a infraestructura vital</li>
+        <li><strong>Desacople económico:</strong> fragmentación global</li>
+        <li><strong>Accidentes y malentendidos:</strong> falta de canales de comunicación</li>
+      </ul>
+      <p style="margin-top: 2rem; font-size: 1.7rem; color: var(--gold); font-weight: 600;">¿Cómo evitar la escalada?</p>
+    </div>
+
+    <!-- SLIDE 15: CONCLUSIÓN -->
+    <div class="slide" data-slide="15">
+      <div class="slide-number">15/15</div>
+      <h2 style="text-align: center; margin-bottom: 2rem;">🌐 Conclusiones clave</h2>
+      <ul style="font-size: 1.6rem;">
+        <li>La interdependencia no garantiza la paz</li>
+        <li>La tecnología es el nuevo campo de batalla</li>
+        <li>La autonomía estratégica redefine la globalización</li>
+        <li>El ciberespacio es un dominio crítico</li>
+        <li>La gestión de riesgos es fundamental</li>
+      </ul>
+      <div class="emphasis" style="margin-top: 3rem; text-align: center;">
+        <strong>Pregunta final:</strong> ¿Hacia dónde nos dirigimos?
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <div class="nav-bar">
+    <a href="index.html" class="nav-btn home">🏠 Volver al inicio</a>
+    
+    <div class="nav-controls">
+      <button class="nav-btn" id="firstBtn" onclick="goToSlide(1)">⏮️ Primera</button>
+      <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">⬅️ Anterior</button>
+      <span class="slide-counter" id="counter">1 / 15</span>
+      <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente ➡️</button>
+      <button class="nav-btn" id="lastBtn" onclick="goToSlide(15)">Última ⏭️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 15;
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      
+      if (n > totalSlides) { currentSlide = totalSlides; }
+      if (n < 1) { currentSlide = 1; }
+      else { currentSlide = n; }
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+
+      // Update counter
+      document.getElementById('counter').textContent = `${currentSlide} / ${totalSlides}`;
+
+      // Update button states
+      document.getElementById('prevBtn').disabled = (currentSlide === 1);
+      document.getElementById('firstBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+      document.getElementById('lastBtn').disabled = (currentSlide === totalSlides);
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    function goToSlide(n) {
+      showSlide(n);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'Home') goToSlide(1);
+      if (e.key === 'End') goToSlide(totalSlides);
+    });
+
+    // Initialize
+    showSlide(1);
+  </script>
+
+</body>
+</html>
