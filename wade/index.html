@@ -10,57 +10,70 @@
     :root{--bg:#0a0f14;--bg-2:#0e1822;--ink:#e6f0ff;--ink-dim:#b7c6de;--accent:#00c1ff;--accent-2:#7fe3ff;--gold:#d4a856;--card:#111a23;--muted:#0c131b;--maxw:1100px;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35)}
     html,body{background:var(--bg);color:var(--ink);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.55}
     a{color:var(--accent)}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-    header.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(1200px 600px at 80% -10%, rgba(0,193,255,.25), transparent 60%),radial-gradient(900px 500px at 10% 10%, rgba(212,168,86,.15), transparent 60%),linear-gradient(180deg, #0b1420 0%, #081018 100%);border-bottom:1px solid rgba(212,168,86,.15)}
-    .hero .wrap{padding:72px 20px 56px}
+    .wrap{width:95%;max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+    header.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(1200px 600px at 80% -10%,rgba(0,193,255,.25),transparent 60%),radial-gradient(900px 500px at 10% 10%,rgba(212,168,86,.15),transparent 60%),linear-gradient(180deg,#0b1420 0%,#081018 100%);border-bottom:1px solid rgba(212,168,86,.15)}
+    .hero .wrap{padding:4rem 1rem 3rem}
+    @media (max-width:640px){.hero .wrap{padding:3rem 1rem 2rem}}
     .kicker{letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;font-size:.88rem}
-    h1{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.1;margin:.3rem 0 0}
-    .subtitle{margin-top:.6rem;color:var(--ink-dim);font-size:clamp(1rem,2.2vw,1.25rem)}
+    h1{font-size:clamp(1.75rem,5vw,3.4rem);line-height:1.1;margin:.3rem 0 0}
+    .subtitle{margin-top:.6rem;color:var(--ink-dim);font-size:clamp(.9rem,2vw,1.25rem)}
     .context{margin-top:.35rem;color:var(--ink-dim);opacity:.9;font-size:.96rem}
     .meta{margin-top:1rem;color:var(--accent-2);font-weight:500}
     .cta-row{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:12px 16px;border-radius:999px;border:1px solid rgba(127,227,255,.4);background:rgba(12,19,27,.6);backdrop-filter:blur(4px);text-decoration:none}
+    .btn{display:inline-block;padding:.75rem 1rem;border-radius:999px;border:1px solid rgba(127,227,255,.4);background:rgba(12,19,27,.6);backdrop-filter:blur(4px);text-decoration:none;font-size:.95rem}
     .btn--gold{border-color:rgba(212,168,86,.4);color:#fff}
+    @media (max-width:480px){
+      .cta-row{flex-direction:column}
+      .btn{text-align:center}
+      h1{font-size:clamp(1.5rem,6vw,2rem)}
+    }
 
-    nav.sticky{position:sticky;top:0;z-index:20;background:rgba(8,16,24,.72);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,168,86,.12)}
-    nav .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:10px;padding:10px 0}
+    nav.sticky{position:sticky;top:0;z-index:20;background:rgba(8,16,24,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,168,86,.12)}
+    nav .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:.5rem 1rem}
+    @media (max-width:640px){nav .wrap{flex-direction:column;align-items:flex-start;gap:8px}}
+    .brand{display:flex;align-items:center;gap:10px;padding:8px 0}
     .brand b{color:var(--ink);font-weight:700}
     .brand small{color:var(--ink-dim)}
     .navlinks{display:flex;gap:14px;flex-wrap:wrap}
-    .navlinks a{padding:10px 8px;color:var(--ink-dim);text-decoration:none;font-size:.95rem}
+    @media (max-width:640px){.navlinks{width:100%;justify-content:space-between}}
+    .navlinks a{padding:8px;color:var(--ink-dim);text-decoration:none;font-size:.95rem}
     .navlinks a:hover{color:var(--ink)}
 
-    section{padding:56px 0;border-top:1px solid rgba(127,227,255,.08)}
-    section .h{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 10px;letter-spacing:.01em}
-    .lead{color:var(--ink-dim)}
+    section{padding:3rem 0;border-top:1px solid rgba(127,227,255,.08)}
+    @media (max-width:640px){section{padding:2rem 0}}
+    section .h{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 .75rem;letter-spacing:.01em}
+    .lead{color:var(--ink-dim);max-width:42rem}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem}
     .card{background:linear-gradient(180deg,rgba(17,26,35,.9),rgba(12,19,27,.9));border:1px solid rgba(127,227,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card .pad{padding:16px}
+    .card .pad{padding:1rem}
     .tag{display:inline-block;border:1px solid rgba(212,168,86,.35);color:var(--gold);border-radius:999px;padding:2px 8px;font-size:.75rem}
-    .card h3{margin:8px 0 6px;font-size:1.05rem}
-    .muted{color:var(--ink-dim)}
+    .card h3{margin:.5rem 0;font-size:1.05rem}
+    .muted{color:var(--ink-dim);margin:.5rem 0}
     .ratio{position:relative;width:100%;padding-top:56.25%;background:#000}
     .ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-    .quote{border-left:3px solid var(--gold);padding:10px 14px;margin:16px 0;background:rgba(212,168,86,.06);border-radius:8px}
+    .quote{border-left:3px solid var(--gold);padding:.75rem 1rem;margin:1rem 0;background:rgba(212,168,86,.06);border-radius:8px}
 
-    .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
-    .step{background:var(--card);border:1px solid rgba(127,227,255,.08);border-radius:14px;padding:14px}
+    .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
+    .step{background:var(--card);border:1px solid rgba(127,227,255,.08);border-radius:14px;padding:1rem}
     .step b{color:var(--accent-2)}
+    @media (max-width:640px){
+      .grid{gap:1rem}
+    }
 
-    .discussion{background:linear-gradient(rgba(14,20,28,.94), rgba(14,20,28,.94)),repeating-linear-gradient(45deg, rgba(212,168,86,.05) 0 2px, transparent 2px 6px);border-top:1px solid rgba(212,168,86,.15)}
-    .discussion .wrap{max-width:var(--maxw);padding:60px 20px}
+    .discussion{background:linear-gradient(rgba(14,20,28,.94),rgba(14,20,28,.94)),repeating-linear-gradient(45deg,rgba(212,168,86,.05) 0 2px,transparent 2px 6px);border-top:1px solid rgba(212,168,86,.15)}
+    .discussion .wrap{max-width:var(--maxw);padding:3.5rem 1rem}
+    @media (max-width:640px){.discussion .wrap{padding:2.5rem 1rem}}
     .disc-icon{display:inline-block;width:18px;height:18px;border:2px solid var(--gold);border-radius:50%;position:relative;margin-right:8px;top:2px}
     .disc-icon::after{content:'';position:absolute;top:4px;left:4px;width:6px;height:6px;background:var(--accent);border-radius:50%}
     .discussion h2{font-size:clamp(1.3rem,3vw,1.9rem);display:flex;align-items:center;gap:6px;margin-bottom:4px}
     .discussion em{color:var(--ink-dim);font-size:.95rem}
-    .discussion p{color:var(--ink-dim);max-width:900px;margin:12px 0}
+    .discussion p{color:var(--ink-dim);max-width:900px;margin:.75rem 0}
 
-    footer{padding:36px 0;background:linear-gradient(180deg, #0b1420, #070d12);border-top:1px solid rgba(212,168,86,.12)}
+    footer{padding:2.5rem 0;background:linear-gradient(180deg,#0b1420,#070d12);border-top:1px solid rgba(212,168,86,.12)}
     footer p{color:var(--ink-dim);margin:.3rem 0}
-    .ref-card{background:rgba(17,26,35,.8);border:1px solid rgba(212,168,86,.25);border-radius:12px;padding:18px;margin-top:28px;color:var(--ink-dim);font-size:.95rem}
+    .ref-card{background:rgba(17,26,35,.8);border:1px solid rgba(212,168,86,.25);border-radius:12px;padding:1.25rem;margin-top:1.75rem;color:var(--ink-dim);font-size:.95rem}
     .ref-card strong{color:var(--gold)}
 
     .reveal{opacity:0;transform:translateY(12px);transition:all .7s ease}
@@ -114,29 +127,93 @@
     </section>
 
     <!-- VIDEOS -->
-    <section id="videos">
-      <div class="wrap">
-        <h2 class="h reveal">Video‑galería temática</h2>
-        <p class="lead reveal">Material audiovisual para ilustrar tensiones y ejemplos de la lectura. Cada tarjeta puede usarse como punto de partida para preguntas en clase.</p>
-        <div class="grid">
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/U_7CGl6VWaQ" title="Hegemonía y reglas"></iframe></div><div class="pad"><span class="tag">EE.UU.</span><h3>Hegemonía y reglas</h3><p class="muted">El dólar y las instituciones como herramientas de poder estructural.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/1olyHeEeSh8" title="Ambición nacional y tecnología"></iframe></div><div class="pad"><span class="tag">China</span><h3>Ambición nacional y tecnología</h3><p class="muted">El Estado desarrollista y las políticas de innovación.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/ALjRSf13OX0" title="Reconfiguración estratégica"></iframe></div><div class="pad"><span class="tag">Rusia</span><h3>Reconfiguración estratégica</h3><p class="muted">El papel de las sanciones y la política energética.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/GyvGS9P2BKc" title="Reshoring y friend‑shoring"></iframe></div><div class="pad"><span class="tag">Cadenas</span><h3>Reshoring y friend‑shoring</h3><p class="muted">De la eficiencia a la resiliencia: transición de JIT (Just in Time) a JIC (Just in Case).</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/HExhxPDOewE" title="Guerra de semiconductores"></iframe></div><div class="pad"><span class="tag">Tecnología</span><h3>Guerra de semiconductores</h3><p class="muted">CHIPS Act y controles a la exportación.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/-JbIOGGTRTY" title="Superficie de ataque"></iframe></div><div class="pad"><span class="tag">Ciber</span><h3>Superficie de ataque</h3><p class="muted">Infraestructura crítica y vulnerabilidades globales.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/kMhle4o0uk0" title="Organización de Cooperación de Shanghái"></iframe></div><div class="pad"><span class="tag">Asia</span><h3>Organización de Cooperación de Shanghái</h3><p class="muted">Alianzas regionales y cooperación estratégica.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/qmn46KrztJ0" title="Comercio: Fase 1"></iframe></div><div class="pad"><span class="tag">Comercio</span><h3>Fase 1</h3><p class="muted">Tarifas, tensiones y desacoplamiento parcial.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/Shuv9-MJBEU" title="Mercados e IPOs"></iframe></div><div class="pad"><span class="tag">Capital</span><h3>Mercados e IPOs</h3><p class="muted">Restricciones y nuevas rutas de inversión.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/NhwtfSyZ3Rc" title="Alta velocidad"></iframe></div><div class="pad"><span class="tag">Transporte</span><h3>Alta velocidad</h3><p class="muted">Infraestructura y proyección de poder.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/Ug83_o2hKEw" title="Seguridad energética"></iframe></div><div class="pad"><span class="tag">Energía</span><h3>Seguridad energética</h3><p class="muted">El papel del gas y las rutas críticas.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/pEAi92VmBd4" title="Ventanas y riesgos demográficos"></iframe></div><div class="pad"><span class="tag">Demografía</span><h3>Ventanas y riesgos</h3><p class="muted">Envejecimiento poblacional y desigualdad.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/XHteRHDI3dU" title="Competencia industrial"></iframe></div><div class="pad"><span class="tag">Industria</span><h3>Competencia industrial</h3><p class="muted">Nuevos campeones nacionales.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/H2qLoaetLJM" title="Escalada y disuasión nuclear"></iframe></div><div class="pad"><span class="tag">Nuclear</span><h3>Escalada y disuasión</h3><p class="muted">Tabú nuclear y armas tácticas.</p></div></article>
-          <article class="card reveal"><div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/V8Vtb0bn30M" title="Sur Global y no‑alineados"></iframe></div><div class="pad"><span class="tag">Sur Global</span><h3>No‑alineados hoy</h3><p class="muted">Persuasión y márgenes de maniobra.</p></div></article>
-        </div>
-      </div>
-    </section>
+
+
+<section id="videos">
+  <div class="wrap">
+    <h2 class="h reveal">Video-galería temática</h2>
+    <p class="lead reveal">Material audiovisual para ilustrar tensiones y ejemplos de la lectura. Cada tarjeta puede usarse como punto de partida para preguntas en clase.</p>
+    <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/U_7CGl6VWaQ" title="Cómo funciona la ciberguerra" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Ciber</span><h3>Cómo funciona la ciberguerra</h3><p class="muted">Ataques dirigidos, vectores y capacidades en el dominio digital.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/1olyHeEeSh8" title="Guerras del siglo XXI (ARTE)" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Geopolítica</span><h3>Guerras del siglo XXI (ARTE)</h3><p class="muted">Conflictos contemporáneos y su cartografía política.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/ALjRSf13OX0" title="¿Quién dominará la IA? (DW)" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Tecnología</span><h3>¿Quién dominará la IA? (DW)</h3><p class="muted">Competencia por liderazgo en inteligencia artificial.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/GyvGS9P2BKc" title="China, Rusia y la OCS (ARTE)" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Asia</span><h3>China, Rusia y la OCS</h3><p class="muted">Cooperación y seguridad regional en Eurasia.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/HExhxPDOewE" title="Guerra de semiconductores" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Tecnología</span><h3>Guerra de semiconductores</h3><p class="muted">Controles, subsidios y reordenamiento de cadenas.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/-JbIOGGTRTY" title="Ciberseguridad y superficie de ataque" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Ciber</span><h3>Ciberseguridad y superficie de ataque</h3><p class="muted">Riesgos y protección de infraestructura crítica.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/kMhle4o0uk0" title="Taiwán en el centro" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Taiwán</span><h3>Taiwán en el centro</h3><p class="muted">Por qué Washington y Pekín compiten por la isla.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/qmn46KrztJ0" title="La batalla por TSMC" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Semiconductores</span><h3>La batalla por TSMC</h3><p class="muted">Dominio de la fundición líder y su peso geopolítico.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/Shuv9-MJBEU" title="ASML y la litografía EUV" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Semiconductores</span><h3>ASML y la litografía EUV</h3><p class="muted">La máquina clave que hace posibles los chips avanzados.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/NhwtfSyZ3Rc" title="Carrera espacial EE.UU.–China" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Espacio</span><h3>Carrera espacial EE.UU.–China</h3><p class="muted">Ambiciones orbitales y proyección de poder.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/Ug83_o2hKEw" title="Competencia en energía solar" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Energía</span><h3>Competencia en energía solar</h3><p class="muted">China vs. Occidente en capacidad y costos.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/pEAi92VmBd4" title="Globalización: crisis y cambio (DW)" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Economía</span><h3>Globalización: crisis y cambio (DW)</h3><p class="muted">Materias primas, clima y digitalización reconfigurando el orden.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/XHteRHDI3dU" title="Competencia industrial" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Industria</span><h3>Competencia industrial</h3><p class="muted">Estrategias de campeones nacionales y cadenas de valor.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/H2qLoaetLJM" title="Escalada y disuasión nuclear" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Nuclear</span><h3>Escalada y disuasión</h3><p class="muted">Riesgos, tabú y armas tácticas.</p></div>
+      </article>
+
+      <article class="card reveal" style="overflow:hidden;border-radius:16px;background:#111a23;border:1px solid rgba(127,227,255,.1);">
+        <div class="ratio"><iframe loading="lazy" src="https://www.youtube.com/embed/V8Vtb0bn30M" title="Cómo la energía solar se volvió tan barata" allowfullscreen></iframe></div>
+        <div class="pad"><span class="tag">Energía</span><h3>Cómo la energía solar se volvió tan barata</h3><p class="muted">Curva de aprendizaje, escala y política industrial.</p></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- LECTURA -->
     <section id="lectura">
@@ -159,8 +236,8 @@
       <div class="wrap">
         <h2 class="h reveal">Etapas de la guerra fría</h2>
         <div class="timeline">
-          <div class="step reveal"><b>1. Guerra comercial</b><p class="muted">Tarifas, antidumping y “fase 1”. Cobertura amplia del comercio bilateral.</p></div>
-          <div class="step reveal"><b>2. Guerra del capital</b><p class="muted">Listados y restricciones a flujos hacia industrias estratégicas.</p></div>
+          <div class="step reveal"><b>1. Guerra comercial</b><p class="muted">Tarifas, antidumping y acuerdo “Phase One”. Cobertura amplia del comercio bilateral.</p></div>
+          <div class="step reveal"><b>2. Guerra del capital</b><p class="muted">Listados y restricciones a flujos hacia industrias estratégicas. Predominancia del dólar.</p></div>
           <div class="step reveal"><b>3. Guerra tecnológica</b><p class="muted">Semiconductores, IA, 5G, estándares y subsidios.</p></div>
           <div class="step reveal"><b>4. Guerra cibernética</b><p class="muted">Operaciones ofensivas/defensivas y riesgo a infraestructura crítica.</p></div>
         </div>
