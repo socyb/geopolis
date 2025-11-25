@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modelo Apple–China (Dinámica de Sistemas)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0c10;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      padding: 12px 20px;
+      background: #141824;
+      border-bottom: 1px solid #242a3a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 1px solid #3b82f6;
+      background: transparent;
+      color: #e5e7eb;
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    button[data-loop="R1"] span.dot {
+      background: #22c55e;
+    }
+
+    button[data-loop="B1"] span.dot {
+      background: #f97316;
+    }
+
+    button:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    }
+
+    button.active {
+      background: #3b82f6;
+      box-shadow: 0 0 0 1px #60a5fa;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      overflow: hidden;
+    }
+
+    .canvas-wrapper {
+      margin: auto;
+      max-width: 1200px;
+      width: 100%;
+      max-height: 700px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    }
+
+    .stock {
+      fill: #0f172a;
+      stroke: #38bdf8;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.35));
+    }
+
+    .stock-label {
+      fill: #e5e7eb;
+      font-size: 12px;
+      text-anchor: middle;
+    }
+
+    .aux {
+      fill: #1e293b;
+      stroke: #a855f7;
+      stroke-width: 1.8;
+      filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.35));
+    }
+
+    .aux-label {
+      fill: #e5e7eb;
+      font-size: 11px;
+      text-anchor: middle;
+    }
+
+    .flow-arrow {
+      stroke: #64748b;
+      stroke-width: 1.6;
+      fill: none;
+      marker-end: url(#arrowhead);
+      opacity: 0.9;
+    }
+
+    .flow-label {
+      fill: #9ca3af;
+      font-size: 11px;
+      text-anchor: middle;
+    }
+
+    .loop-R1 {
+      /* reinforcing */
+    }
+
+    .loop-B1 {
+      /* balancing */
+    }
+
+    .active-R1 {
+      stroke: #22c55e !important;
+      stroke-width: 2.6 !important;
+      opacity: 1 !important;
+    }
+
+    .active-B1 {
+      stroke: #f97316 !important;
+      stroke-width: 2.6 !important;
+      opacity: 1 !important;
+    }
+
+    .glow-R1 {
+      filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.7));
+    }
+
+    .glow-B1 {
+      filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.7));
+    }
+
+    .hint {
+      position: fixed;
+      left: 16px;
+      bottom: 10px;
+      font-size: 11px;
+      color: #9ca3af;
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-block">
+      <h1>Apple en China — Esquema de Dinámica de Sistemas</h1>
+      <div class="subtitle">
+        Stocks, flujos y bucles causales (R1: refuerzo, B1: balance) inspirados en tu texto de geopolítica.
+      </div>
+    </div>
+    <div class="controls">
+      <button data-loop="R1">
+        <span class="dot"></span>
+        Resaltar bucle reforzador (R1)
+      </button>
+      <button data-loop="B1">
+        <span class="dot"></span>
+        Resaltar bucle de balance (B1)
+      </button>
+      <button data-loop="clear">
+        Limpiar resaltado
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="canvas-wrapper">
+      <svg viewBox="0 0 1200 650" xmlns="http://www.w3.org/2000/svg">
+        <!-- Definición de flecha -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7"
+                  refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#9ca3af" />
+          </marker>
+        </defs>
+
+        <!-- STOCKS -->
+        <!-- Producción Apple en China -->
+        <rect x="150" y="260" width="220" height="70" class="stock loop-R1 loop-B1" id="stock-produccion"/>
+        <text x="260" y="282" class="stock-label">Producción de Apple</text>
+        <text x="260" y="300" class="stock-label">en China</text>
+
+        <!-- Capacidades tecnológicas chinas -->
+        <rect x="740" y="120" width="250" height="70" class="stock loop-R1" id="stock-capacidades"/>
+        <text x="865" y="142" class="stock-label">Capacidades tecnológicas</text>
+        <text x="865" y="160" class="stock-label">chinas vinculadas a Apple</text>
+
+        <!-- Dependencia estructural Apple–China -->
+        <rect x="770" y="390" width="250" height="70" class="stock loop-B1" id="stock-dependencia"/>
+        <text x="895" y="412" class="stock-label">Dependencia estructural</text>
+        <text x="895" y="430" class="stock-label">Apple – China</text>
+
+        <!-- AUXILIARES -->
+        <!-- Inversión Apple en China -->
+        <circle cx="470" cy="260" r="40" class="aux loop-R1" id="aux-inversion"/>
+        <text x="470" y="255" class="aux-label">Inversión</text>
+        <text x="470" y="272" class="aux-label">Apple en</text>
+        <text x="470" y="289" class="aux-label">China</text>
+
+        <!-- Aprendizaje / upgrading -->
+        <circle cx="640" cy="150" r="40" class="aux loop-R1" id="aux-aprendizaje"/>
+        <text x="640" y="145" class="aux-label">Aprendizaje</text>
+        <text x="640" y="162" class="aux-label">desde Apple</text>
+
+        <!-- Atractivo China para Apple -->
+        <circle cx="640" cy="320" r="40" class="aux loop-R1" id="aux-atractivo"/>
+        <text x="640" y="315" class="aux-label">Atractivo</text>
+        <text x="640" y="332" class="aux-label">China &rarr; Apple</text>
+
+        <!-- Tensión geopolítica EEUU–China -->
+        <circle cx="640" cy="470" r="40" class="aux loop-B1" id="aux-tension"/>
+        <text x="640" y="465" class="aux-label">Tensión</text>
+        <text x="640" y="482" class="aux-label">EEUU–China</text>
+
+        <!-- Presión política Pekín -->
+        <circle cx="1040" cy="265" r="40" class="aux loop-B1" id="aux-presion"/>
+        <text x="1040" y="260" class="aux-label">Presión</text>
+        <text x="1040" y="277" class="aux-label">política</text>
+        <text x="1040" y="294" class="aux-label">Pekín</text>
+
+        <!-- FLECHAS / RELACIONES -->
+        <!-- R1: Producción -> Inversión -> Aprendizaje -> Capacidades -> Atractivo -> Producción -->
+        <path d="M370 295 C 400 295 420 280 440 270" class="flow-arrow loop-R1" id="f1"/>
+        <text x="410" y="285" class="flow-label">+ producción</text>
+
+        <path d="M510 260 C 560 230 590 210 615 190" class="flow-arrow loop-R1" id="f2"/>
+        <text x="565" y="220" class="flow-label">+ inversión</text>
+
+        <path d="M680 150 C 720 150 740 150 760 150" class="flow-arrow loop-R1" id="f3"/>
+        <text x="720" y="140" class="flow-label">+ aprendizaje</text>
+
+        <path d="M865 190 C 830 230 780 270 700 300" class="flow-arrow loop-R1" id="f4"/>
+        <text x="805" y="240" class="flow-label">+ capacidades</text>
+
+        <path d="M600 320 C 560 320 530 320 510 315" class="flow-arrow loop-R1" id="f5"/>
+        <text x="555" y="310" class="flow-label">+ atractivo</text>
+
+        <path d="M620 345 C 600 360 580 370 540 380 C 500 390 430 380 370 350" class="flow-arrow loop-R1" id="f6"/>
+        <text x="540" y="370" class="flow-label">más producción en China</text>
+
+        <!-- Producción -> Dependencia -->
+        <path d="M370 295 C 430 335 520 360 620 380 C 720 400 790 405 820 410" class="flow-arrow loop-B1" id="f7"/>
+        <text x="560" y="360" class="flow-label">+ concentración</text>
+
+        <!-- Dependencia -> Tensión -->
+        <path d="M895 460 C 840 470 760 480 690 480" class="flow-arrow loop-B1" id="f8"/>
+        <text x="790" y="470" class="flow-label">+ vulnerabilidad</text>
+
+        <!-- Tensión -> Presión -->
+        <path d="M680 450 C 780 380 900 330 995 290" class="flow-arrow loop-B1" id="f9"/>
+        <text x="840" y="360" class="flow-label">+ tensiones</text>
+
+        <!-- Presión -> Desacople (Dependencia, vía efecto en producción) -->
+        <path d="M1040 225 C 1000 200 960 190 900 190 C 840 190 780 200 720 230" class="flow-arrow loop-B1" id="f10"/>
+        <text x="900" y="200" class="flow-label">regulación, disciplina</text>
+
+        <!-- Presión -> Producción (reduciendo atractivo / incentivando diversificación) -->
+        <path d="M1005 295 C 930 340 820 370 720 380 C 640 390 560 380 430 320" class="flow-arrow loop-B1" id="f11"/>
+        <text x="840" y="340" class="flow-label">desacople / relocalización</text>
+
+      </svg>
+    </div>
+  </main>
+
+  <div class="hint">
+    Tip: usa este esquema como “pre-modelo” conceptual antes de construir el modelo formal en StochSD / Insight Maker.
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll("button[data-loop]");
+    const svg = document.querySelector("svg");
+
+    function clearHighlights() {
+      svg.querySelectorAll(".flow-arrow").forEach(el => {
+        el.classList.remove("active-R1", "active-B1");
+      });
+      svg.querySelectorAll(".stock, .aux").forEach(el => {
+        el.classList.remove("glow-R1", "glow-B1");
+      });
+      buttons.forEach(btn => btn.classList.remove("active"));
+    }
+
+    function highlightLoop(loop) {
+      clearHighlights();
+      if (loop === "R1") {
+        buttons.forEach(btn => {
+          if (btn.dataset.loop === "R1") btn.classList.add("active");
+        });
+        svg.querySelectorAll(".loop-R1.flow-arrow").forEach(el => {
+          el.classList.add("active-R1");
+        });
+        svg.querySelectorAll(".loop-R1.stock, .loop-R1.aux").forEach(el => {
+          el.classList.add("glow-R1");
+        });
+      } else if (loop === "B1") {
+        buttons.forEach(btn => {
+          if (btn.dataset.loop === "B1") btn.classList.add("active");
+        });
+        svg.querySelectorAll(".loop-B1.flow-arrow").forEach(el => {
+          el.classList.add("active-B1");
+        });
+        svg.querySelectorAll(".loop-B1.stock, .loop-B1.aux").forEach(el => {
+          el.classList.add("glow-B1");
+        });
+      }
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const loop = btn.dataset.loop;
+        if (loop === "clear") {
+          clearHighlights();
+        } else {
+          highlightLoop(loop);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
