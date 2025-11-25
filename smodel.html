@@ -277,98 +277,137 @@
 
   <main>
     <div class="canvas-wrapper">
-      <svg viewBox="0 0 1200 650" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 1300 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
         <!-- Definición de flecha -->
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7"
                   refX="10" refY="3.5" orient="auto">
             <polygon points="0 0, 10 3.5, 0 7" fill="#9ca3af" />
           </marker>
+          <!-- Filtro para fondo semi-transparente en etiquetas -->
+          <filter x="-0.1" y="-0.5" width="1.2" height="2" id="solid">
+            <feFlood flood-color="rgba(15, 23, 42, 0.85)"/>
+            <feComposite in="SourceGraphic" operator="over"/>
+          </filter>
         </defs>
 
-        <!-- STOCKS -->
+        <!-- FLECHAS / RELACIONES (dibujadas primero para que queden detrás) -->
+        <!-- R1: Producción -> Inversión -> Aprendizaje -> Capacidades -> Atractivo -> Producción -->
+        <path d="M390 310 L 420 290" class="flow-arrow loop-R1" id="f1"/>
+        
+        <path d="M500 250 L 580 210" class="flow-arrow loop-R1" id="f2"/>
+        
+        <path d="M700 180 L 780 165" class="flow-arrow loop-R1" id="f3"/>
+        
+        <path d="M900 220 Q 850 260 750 340" class="flow-arrow loop-R1" id="f4"/>
+        
+        <path d="M640 360 L 520 320" class="flow-arrow loop-R1" id="f5"/>
+        
+        <path d="M600 390 Q 500 420 390 360" class="flow-arrow loop-R1" id="f6"/>
+
+        <!-- Producción -> Dependencia -->
+        <path d="M350 360 Q 550 480 830 480" class="flow-arrow loop-B1" id="f7"/>
+
+        <!-- Dependencia -> Tensión -->
+        <path d="M870 530 L 710 570" class="flow-arrow loop-B1" id="f8"/>
+
+        <!-- Tensión -> Presión -->
+        <path d="M690 545 Q 850 430 1040 330" class="flow-arrow loop-B1" id="f9"/>
+
+        <!-- Presión -> Desacople -->
+        <path d="M1070 260 Q 970 200 750 210" class="flow-arrow loop-B1" id="f10"/>
+
+        <!-- Presión -> Producción -->
+        <path d="M1040 305 Q 800 450 430 360" class="flow-arrow loop-B1" id="f11"/>
+
+        <!-- STOCKS (dibujados después de las flechas) -->
         <!-- Producción Apple en China -->
-        <rect x="150" y="260" width="220" height="70" class="stock loop-R1 loop-B1" id="stock-produccion"/>
-        <text x="260" y="282" class="stock-label">Producción de Apple</text>
-        <text x="260" y="300" class="stock-label">en China</text>
+        <rect x="220" y="280" width="220" height="80" class="stock loop-R1 loop-B1" id="stock-produccion"/>
+        <text x="330" y="310" class="stock-label">Producción de Apple</text>
+        <text x="330" y="330" class="stock-label">en China</text>
 
         <!-- Capacidades tecnológicas chinas -->
-        <rect x="740" y="120" width="250" height="70" class="stock loop-R1" id="stock-capacidades"/>
-        <text x="865" y="142" class="stock-label">Capacidades tecnológicas</text>
-        <text x="865" y="160" class="stock-label">chinas vinculadas a Apple</text>
+        <rect x="780" y="130" width="260" height="80" class="stock loop-R1" id="stock-capacidades"/>
+        <text x="910" y="160" class="stock-label">Capacidades tecnológicas</text>
+        <text x="910" y="180" class="stock-label">chinas vinculadas a Apple</text>
 
         <!-- Dependencia estructural Apple–China -->
-        <rect x="770" y="390" width="250" height="70" class="stock loop-B1" id="stock-dependencia"/>
-        <text x="895" y="412" class="stock-label">Dependencia estructural</text>
-        <text x="895" y="430" class="stock-label">Apple – China</text>
+        <rect x="830" y="470" width="260" height="80" class="stock loop-B1" id="stock-dependencia"/>
+        <text x="960" y="500" class="stock-label">Dependencia estructural</text>
+        <text x="960" y="520" class="stock-label">Apple – China</text>
 
         <!-- AUXILIARES -->
         <!-- Inversión Apple en China -->
-        <circle cx="470" cy="260" r="40" class="aux loop-R1" id="aux-inversion"/>
-        <text x="470" y="255" class="aux-label">Inversión</text>
-        <text x="470" y="272" class="aux-label">Apple en</text>
-        <text x="470" y="289" class="aux-label">China</text>
+        <circle cx="470" cy="280" r="45" class="aux loop-R1" id="aux-inversion"/>
+        <text x="470" y="275" class="aux-label">Inversión</text>
+        <text x="470" y="290" class="aux-label">Apple en</text>
+        <text x="470" y="305" class="aux-label">China</text>
 
         <!-- Aprendizaje / upgrading -->
-        <circle cx="640" cy="150" r="40" class="aux loop-R1" id="aux-aprendizaje"/>
-        <text x="640" y="145" class="aux-label">Aprendizaje</text>
-        <text x="640" y="162" class="aux-label">desde Apple</text>
+        <circle cx="650" cy="180" r="45" class="aux loop-R1" id="aux-aprendizaje"/>
+        <text x="650" y="175" class="aux-label">Aprendizaje</text>
+        <text x="650" y="192" class="aux-label">desde Apple</text>
 
         <!-- Atractivo China para Apple -->
-        <circle cx="640" cy="320" r="40" class="aux loop-R1" id="aux-atractivo"/>
-        <text x="640" y="315" class="aux-label">Atractivo</text>
-        <text x="640" y="332" class="aux-label">China &rarr; Apple</text>
+        <circle cx="670" cy="360" r="45" class="aux loop-R1" id="aux-atractivo"/>
+        <text x="670" y="355" class="aux-label">Atractivo</text>
+        <text x="670" y="372" class="aux-label">China → Apple</text>
 
         <!-- Tensión geopolítica EEUU–China -->
-        <circle cx="640" cy="470" r="40" class="aux loop-B1" id="aux-tension"/>
-        <text x="640" y="465" class="aux-label">Tensión</text>
-        <text x="640" y="482" class="aux-label">EEUU–China</text>
+        <circle cx="650" cy="570" r="45" class="aux loop-B1" id="aux-tension"/>
+        <text x="650" y="565" class="aux-label">Tensión</text>
+        <text x="650" y="582" class="aux-label">EEUU–China</text>
 
         <!-- Presión política Pekín -->
-        <circle cx="1040" cy="265" r="40" class="aux loop-B1" id="aux-presion"/>
-        <text x="1040" y="260" class="aux-label">Presión</text>
-        <text x="1040" y="277" class="aux-label">política</text>
-        <text x="1040" y="294" class="aux-label">Pekín</text>
+        <circle cx="1090" cy="300" r="45" class="aux loop-B1" id="aux-presion"/>
+        <text x="1090" y="295" class="aux-label">Presión</text>
+        <text x="1090" y="310" class="aux-label">política</text>
+        <text x="1090" y="325" class="aux-label">Pekín</text>
 
-        <!-- FLECHAS / RELACIONES -->
-        <!-- R1: Producción -> Inversión -> Aprendizaje -> Capacidades -> Atractivo -> Producción -->
-        <path d="M370 295 C 400 295 420 280 440 270" class="flow-arrow loop-R1" id="f1"/>
-        <text x="410" y="285" class="flow-label">+ producción</text>
+        <!-- ETIQUETAS DE FLECHAS (con fondo para legibilidad) -->
+        <g filter="url(#solid)">
+          <text x="405" y="295" class="flow-label">+ producción</text>
+        </g>
+        
+        <g filter="url(#solid)">
+          <text x="540" y="225" class="flow-label">+ inversión</text>
+        </g>
+        
+        <g filter="url(#solid)">
+          <text x="735" y="165" class="flow-label">+ aprendizaje</text>
+        </g>
+        
+        <g filter="url(#solid)">
+          <text x="825" y="280" class="flow-label">+ capacidades</text>
+        </g>
+        
+        <g filter="url(#solid)">
+          <text x="575" y="335" class="flow-label">+ atractivo</text>
+        </g>
+        
+        <g filter="url(#solid)">
+          <text x="480" y="410" class="flow-label">más producción</text>
+        </g>
 
-        <path d="M510 260 C 560 230 590 210 615 190" class="flow-arrow loop-R1" id="f2"/>
-        <text x="565" y="220" class="flow-label">+ inversión</text>
+        <g filter="url(#solid)">
+          <text x="550" y="450" class="flow-label">+ concentración</text>
+        </g>
 
-        <path d="M680 150 C 720 150 740 150 760 150" class="flow-arrow loop-R1" id="f3"/>
-        <text x="720" y="140" class="flow-label">+ aprendizaje</text>
+        <g filter="url(#solid)">
+          <text x="780" y="555" class="flow-label">+ vulnerabilidad</text>
+        </g>
 
-        <path d="M865 190 C 830 230 780 270 700 300" class="flow-arrow loop-R1" id="f4"/>
-        <text x="805" y="240" class="flow-label">+ capacidades</text>
+        <g filter="url(#solid)">
+          <text x="850" y="475" class="flow-label">+ tensiones</text>
+        </g>
 
-        <path d="M600 320 C 560 320 530 320 510 315" class="flow-arrow loop-R1" id="f5"/>
-        <text x="555" y="310" class="flow-label">+ atractivo</text>
+        <g filter="url(#solid)">
+          <text x="890" y="225" class="flow-label">regulación</text>
+        </g>
 
-        <path d="M620 345 C 600 360 580 370 540 380 C 500 390 430 380 370 350" class="flow-arrow loop-R1" id="f6"/>
-        <text x="540" y="370" class="flow-label">más producción en China</text>
-
-        <!-- Producción -> Dependencia -->
-        <path d="M370 295 C 430 335 520 360 620 380 C 720 400 790 405 820 410" class="flow-arrow loop-B1" id="f7"/>
-        <text x="560" y="360" class="flow-label">+ concentración</text>
-
-        <!-- Dependencia -> Tensión -->
-        <path d="M895 460 C 840 470 760 480 690 480" class="flow-arrow loop-B1" id="f8"/>
-        <text x="790" y="470" class="flow-label">+ vulnerabilidad</text>
-
-        <!-- Tensión -> Presión -->
-        <path d="M680 450 C 780 380 900 330 995 290" class="flow-arrow loop-B1" id="f9"/>
-        <text x="840" y="360" class="flow-label">+ tensiones</text>
-
-        <!-- Presión -> Desacople (Dependencia, vía efecto en producción) -->
-        <path d="M1040 225 C 1000 200 960 190 900 190 C 840 190 780 200 720 230" class="flow-arrow loop-B1" id="f10"/>
-        <text x="900" y="200" class="flow-label">regulación, disciplina</text>
-
-        <!-- Presión -> Producción (reduciendo atractivo / incentivando diversificación) -->
-        <path d="M1005 295 C 930 340 820 370 720 380 C 640 390 560 380 430 320" class="flow-arrow loop-B1" id="f11"/>
-        <text x="840" y="340" class="flow-label">desacople / relocalización</text>
+        <g filter="url(#solid)">
+          <text x="750" y="420" class="flow-label">desacople / relocalización</text>
+        </g>
 
       </svg>
     </div>
