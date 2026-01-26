@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Actividad de Presentación - Geopolítica Internacional</title>
+  <meta name="description" content="Mesa de brújulas geopolíticas - Unidad 1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #cc0028;
+      --primary-glow: rgba(204, 0, 40, 0.3);
+      --bg: #f5f5f5;
+      --bg-dark: #e8e8e8;
+      --text: #2c2c2c;
+      --text-light: #555555;
+      --shadow: rgba(204, 0, 40, 0.2);
+      --border: #cc0028;
+      --content-bg: rgba(255, 255, 255, 0.9);
+      --box-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    body.dark-mode {
+      --primary: #ff0033;
+      --primary-glow: rgba(255, 0, 51, 0.4);
+      --bg: #0a0a0a;
+      --bg-dark: #000000;
+      --text: #ff3355;
+      --text-light: #ffccdd;
+      --shadow: rgba(255, 0, 51, 0.3);
+      --border: #ff0033;
+      --content-bg: rgba(0, 0, 0, 0.7);
+      --box-bg: rgba(20, 20, 20, 0.9);
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-dark) 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+      transition: all 0.5s ease;
+    }
+
+    /* Tablero de fondo */
+    .chessboard-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      perspective: 1500px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.15;
+      transition: opacity 0.5s ease;
+    }
+
+    body.dark-mode .chessboard-container {
+      opacity: 0.1;
+    }
+
+    .chessboard {
+      position: absolute;
+      width: min(80vw, 80vh, 900px);
+      height: min(80vw, 80vh, 900px);
+      top: 50%;
+      left: 50%;
+      transform-style: preserve-3d;
+      animation: rotateBoard 30s infinite linear;
+    }
+
+    @keyframes rotateBoard {
+      0% {
+        transform: translate(-50%, -50%) rotateX(60deg) rotateZ(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg);
+      }
+    }
+
+    .chess-square {
+      position: absolute;
+      width: 12.5%;
+      height: 12.5%;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 20px var(--shadow);
+      transform-style: preserve-3d;
+      transition: all 0.5s ease;
+    }
+
+    .chess-square.dark {
+      background: linear-gradient(135deg, var(--primary) 0%, rgba(180, 0, 35, 0.9) 100%);
+    }
+
+    .chess-square.light {
+      background: linear-gradient(135deg, rgba(220, 220, 220, 0.8) 0%, rgba(190, 190, 190, 0.9) 100%);
+    }
+
+    body.dark-mode .chess-square.dark {
+      background: linear-gradient(135deg, var(--primary) 0%, rgba(200, 0, 40, 0.8) 100%);
+    }
+
+    body.dark-mode .chess-square.light {
+      background: linear-gradient(135deg, rgba(50, 50, 50, 0.6) 0%, rgba(30, 30, 30, 0.8) 100%);
+    }
+
+    /* Contenido */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: var(--content-bg);
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      border: 3px solid var(--border);
+      box-shadow: 0 0 40px var(--shadow), inset 0 0 40px var(--primary-glow);
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--text-light);
+      font-style: italic;
+      text-shadow: 0 0 10px var(--shadow);
+    }
+
+    .duration {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .content-box {
+      background: var(--content-bg);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 3px solid var(--border);
+      box-shadow: 0 0 40px var(--shadow), inset 0 0 40px var(--primary-glow);
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 15px var(--primary-glow);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--primary);
+      margin: 2rem 0 1rem 0;
+      text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    h4 {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--text);
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: var(--text);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .step-box {
+      background: var(--box-bg);
+      border-left: 5px solid var(--primary);
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+
+    .step-box h4 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(204, 0, 40, 0.1), rgba(204, 0, 40, 0.05));
+      border: 2px solid var(--primary);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    body.dark-mode .highlight-box {
+      background: linear-gradient(135deg, rgba(255, 0, 51, 0.15), rgba(255, 0, 51, 0.08));
+    }
+
+    .questions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .question-card {
+      background: var(--box-bg);
+      border: 2px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .question-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px var(--primary-glow);
+    }
+
+    .question-card strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    strong {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 100;
+      background: var(--content-bg);
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: 0 0 20px var(--shadow);
+      transition: all 0.3s ease;
+      font-family: 'Georgia', 'Times New Roman', serif;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--content-bg);
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px var(--shadow);
+      transition: all 0.3s ease;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      margin-top: 2rem;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .emoji {
+      font-style: normal;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .header, .content-box {
+        padding: 1.5rem;
+      }
+
+      .step-box {
+        padding: 1rem 1.5rem;
+      }
+
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+      }
+
+      .questions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle">🌙</button>
+
+  <!-- Tablero de fondo -->
+  <div class="chessboard-container">
+    <div class="chessboard" id="chessboard"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1><span class="emoji">🧭</span> Mesa de Brújulas Geopolíticas</h1>
+      <p class="subtitle">Actividad de Presentación - Unidad 1</p>
+      <div class="duration">⏱️ Duración: 45–60 minutos</div>
+    </div>
+
+    <div class="content-box">
+      <h2><span class="emoji">🎯</span> Objetivo de la Actividad</h2>
+      <p>Crear un espacio de diálogo donde cada participante comparta su "brújula geopolítica" personal: los temas que le interesan, los lentes que usa para analizar el mundo, y las expectativas del curso. Esta dinámica nos permitirá construir un mapa colectivo de intereses y establecer las bases de nuestra comunidad de aprendizaje.</p>
+    </div>
+
+
+
+    <div class="content-box">
+      <h2><span class="emoji">📍</span> Desarrollo de la Actividad</h2>
+
+      <div class="step-box">
+        <h3><span class="emoji">1️⃣</span> Paso 1: Apertura del Profesor</h3>
+    
+        <p>El profesor compartirá sus preocupaciones actuales de análisis geopolítico, incluyendo su lente dominante y lo que espera del curso.</p>
+      </div>
+
+      <div class="step-box">
+        <h3><span class="emoji">2️⃣</span> Paso 2: Tu Presentación Corta</h3>
+
+        <p><strong>Prepárate para responder estas 5 preguntas:</strong></p>
+        <ol>
+          <li><strong>¿Cómo te llamas y qué estudias?</strong></li>
+          <li><strong>¿Qué haces en tu tiempo libre?</strong> (hobbies, intereses, películas, libros, música, deportes…)</li>
+          <li><strong>¿Qué tema geopolítico te interesa hoy y por qué?</strong> (conflicto, comercio, tecnología, clima, migración…)</li>
+          <li><strong>¿Qué región o país sigues más?</strong> (China, Europa, América Latina, Medio Oriente…)</li>
+          <li><strong>¿Qué te gustaría poder hacer mejor al final del curso?</strong> (argumentar, escribir un memo, analizar noticias, identificar sesgos…)</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <h3><span class="emoji">3️⃣</span> Paso 3: La Noticia que Traes en la Cabeza</h3>
+  
+        <p>Comparte una noticia o evento geopolítico que recuerdes (no necesitas traer el link). Piensa en:</p>
+        <ul>
+          <li><strong>¿Qué pasó?</strong> (resumen breve)</li>
+          <li><strong>¿Quiénes son los actores?</strong> (Estado, empresa, organización, red, movimiento social…)</li>
+          <li><strong>¿Qué está en juego?</strong> (territorio, recursos, narrativa, cadenas de valor, seguridad, soberanía digital…)</li>
+          <li><strong>¿Qué lente usarías para analizarlo?</strong> (poder, economía, tecnología, discurso, medio ambiente…)</li>
+        </ul>
+        
+        <div class="highlight-box">
+          <h4><span class="emoji">🔍</span> Marco Conceptual</h4>
+          <p>Durante esta ronda, exploraremos dos enfoques fundamentales:</p>
+          <ul>
+            <li><strong>Geopolítica Clásica:</strong> poder estatal, seguridad nacional, territorio, alianzas estratégicas, recursos naturales</li>
+            <li><strong>Geopolítica Crítica:</strong> discurso, medios, representaciones, producción de "amenazas", economía política, actores no estatales</li>
+          </ul>
+          <p>Trataremos de identificar qué enfoque predomina en cada noticia que compartamos.</p>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <h3><span class="emoji">4️⃣</span> Paso 4: Mapa del Grupo</h3>
+
+        <p>El profesor resumirá lo escuchado y trazará nuestro perfil colectivo:</p>
+        <ul>
+          <li>Temas dominantes en el grupo</li>
+          <li>Lentes analíticos que aparecieron</li>
+          <li>Regiones de interés</li>
+        </ul>
+        <p>Este se convierte en nuestro <strong>mapa inicial del curso</strong>, y usaremos estos ejemplos a lo largo de las sesiones.</p>
+      </div>
+
+
+    <div class="content-box">
+      <h2><span class="emoji">📝</span> Mini-Tarea para la Sesión 2</h2>
+
+        <h4>Preparación para la Sesión 2</h4>
+        <p>Trae <strong>1 noticia</strong> y escribe <strong>6 líneas breves</strong> sobre ella:</p>
+        <ol>
+          <li><strong>Actor principal:</strong> ¿quién actúa?</li>
+          <li><strong>Interés en juego:</strong> ¿qué quiere?</li>
+          <li><strong>Escala:</strong> ¿local, nacional, regional o global?</li>
+          <li><strong>Lente:</strong> ¿seguridad, economía, narrativa, tecnología…?</li>
+          <li><strong>Tu pregunta:</strong> algo que no entiendas o quieras explorar</li>
+          <li><strong>Fuente:</strong> link o medio donde lo leíste</li>
+        </ol>
+        <p><strong>Formato:</strong> Puede ser un párrafo breve en Word, Google Doc, o incluso notas en el celular. Lo importante es que vengas preparado para compartir.</p>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h2><span class="emoji">💡</span> Preguntas para Reflexionar</h2>
+   
+      
+      <div class="questions-grid">
+        <div class="question-card">
+          <strong>Fuentes de información</strong>
+          <p>¿Qué fuente te informa más: prensa tradicional, TikTok, X/Twitter, podcasts, YouTube, conversaciones familiares? ¿Qué crees que eso influye en tu visión del mundo?</p>
+        </div>
+
+        <div class="question-card">
+          <strong>Palabra clave</strong>
+          <p>¿Qué palabra asocias espontáneamente con "geopolítica"? (poder, guerra, petróleo, narrativa, China, imperialismo, mapas, frontera…)</p>
+        </div>
+
+        <div class="question-card">
+          <strong>Factor decisivo</strong>
+          <p>¿Qué te parece más decisivo en el mundo actual: territorio, finanzas, datos, energía o cultura?</p>
+        </div>
+
+        <div class="question-card">
+          <strong>Región de interés</strong>
+          <p>¿Hay algún país o región que sientas que "no entiendes" geopolíticamente pero te gustaría descifrar?</p>
+        </div>
+
+        <div class="question-card">
+          <strong>Brecha de conocimiento</strong>
+          <p>¿Hay algo que creas que "todo el mundo sabe de geopolítica menos tú"?</p>
+        </div>
+
+        <div class="question-card">
+          <strong>Aplicación práctica</strong>
+          <p>Si trabajaras en una empresa internacional o una ONG, ¿qué tipo de análisis geopolítico te gustaría poder hacer?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h2><span class="emoji">✅</span> Lo que Lograremos</h2>
+      <ul>
+        <li><strong>Conocernos:</strong> Identificar intereses, regiones y enfoques del grupo</li>
+        <li><strong>Crear comunidad:</strong> Establecer un ambiente de confianza y respeto mutuo</li>
+        <li><strong>Introducir conceptos:</strong> Primera aproximación práctica a geopolítica clásica vs crítica</li>
+
+        <li><strong>Conectar con el curso:</strong> Ver cómo nuestros intereses moldean el contenido
+  <script>
+    // Generar el tablero de ajedrez 3D
+    const chessboard = document.getElementById('chessboard');
+    const boardSize = 8;
+
+    for (let row = 0; row < boardSize; row++) {
+      for (let col = 0; col < boardSize; col++) {
+        const square = document.createElement('div');
+        square.className = 'chess-square';
+        
+        if ((row + col) % 2 === 0) {
+          square.classList.add('light');
+        } else {
+          square.classList.add('dark');
+        }
+        
+        square.style.left = `${col * 12.5}%`;
+        square.style.top = `${row * 12.5}%`;
+        
+        chessboard.appendChild(square);
+      }
+    }
+
+    // Funcionalidad del botón de cambio de modo
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        themeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
