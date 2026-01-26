@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Geopolítica Internacional Aplicada a los Negocios Internacionales</title>
-  <meta name="description" content="Curso Intersemestral 2026-1 - Facultad de Contaduría y Administración, UNAM" />
+  <title>Evaluación del Curso - Geopolítica Internacional</title>
+  <meta name="description" content="Sistema de evaluación - Curso Intersemestral 2026-1" />
   <style>
     * {
       margin: 0;
@@ -142,7 +142,7 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-size: clamp(2.5rem, 7vw, 5rem);
       font-weight: bold;
       line-height: 1.2;
       margin-bottom: 2rem;
@@ -165,36 +165,92 @@
       }
     }
 
-    .subtitle {
-      font-size: clamp(1.3rem, 3vw, 2.5rem);
-      margin-bottom: 1.5rem;
-      color: var(--text-light);
-      font-style: italic;
-      text-shadow: 0 0 10px var(--shadow);
-    }
-
-    .institution {
-      font-size: clamp(1.1rem, 2.5vw, 2rem);
-      margin-bottom: 1rem;
-      color: var(--text);
-      font-weight: 600;
-      text-shadow: 0 0 15px var(--shadow);
-    }
-
-    .professor {
-      font-size: clamp(1rem, 2.2vw, 1.8rem);
-      margin-top: 2rem;
-      color: var(--text-light);
-      font-style: italic;
-      text-shadow: 0 0 10px var(--shadow);
-    }
-
     .divider {
       width: 80%;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--primary), transparent);
       margin: 2rem auto;
       box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    /* Criterios de evaluación */
+    .evaluation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .eval-card {
+      background: var(--content-bg);
+      border: 2px solid var(--border);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 25px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .eval-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px var(--primary-glow);
+    }
+
+    .percentage {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: bold;
+      color: var(--primary);
+      text-shadow: 0 0 20px var(--primary-glow);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .eval-title {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px var(--shadow);
+    }
+
+    .eval-description {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--text-light);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Botones de navegación */
+    .nav-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--content-bg);
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      box-shadow: 0 0 20px var(--shadow);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
     }
 
     /* Botón de cambio de modo */
@@ -268,19 +324,32 @@
         padding: 2rem 1.5rem;
       }
 
+      .evaluation-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
       .theme-toggle {
         top: 1rem;
         right: 1rem;
         padding: 0.6rem 1.2rem;
         font-size: 1rem;
       }
+
+      .nav-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Botón de cambio de modo -->
-  <button class="theme-toggle" id="themeToggle">🌙
-  </button>
+  <button class="theme-toggle" id="themeToggle">🌙</button>
 
   <!-- Tablero de ajedrez 3D animado de fondo -->
   <div class="chessboard-container">
@@ -294,20 +363,40 @@
     <div class="corner-decoration bottom-left"></div>
     <div class="corner-decoration bottom-right"></div>
 
-    <h1>Geopolítica Internacional Aplicada a los Negocios Internacionales</h1>
+    <h1>Sistema de Evaluación</h1>
     
     <div class="divider"></div>
-    
-    <div class="subtitle">Curso Intersemestral 2026-1</div>
-    
-    <div class="institution">Facultad de Contaduría y Administración, UNAM</div>
-    
-    <div class="divider"></div>
-    
-    <div class="professor">Dr. Jorge Cardiel Herrera</div>
 
-    <div style="margin-top: 3rem;">
-      <a href="evaluacion.html" style="display: inline-block; padding: 1rem 2rem; background: var(--content-bg); border: 2px solid var(--border); border-radius: 50px; color: var(--text); text-decoration: none; font-size: 1.1rem; font-weight: 600; box-shadow: 0 0 20px var(--shadow); transition: all 0.3s ease; font-family: 'Georgia', 'Times New Roman', serif;">📊 Ver Sistema de Evaluación</a>
+    <div class="evaluation-grid">
+      <div class="eval-card">
+        <div class="percentage">40%</div>
+        <div class="eval-title">Participación</div>
+        <div class="eval-description">
+          Asistencia, intervenciones en clase, discusiones y contribuciones al análisis de casos geopolíticos
+        </div>
+      </div>
+
+      <div class="eval-card">
+        <div class="percentage">30%</div>
+        <div class="eval-title">Exámenes Parciales</div>
+        <div class="eval-description">
+          Evaluaciones sobre los temas tratados en el curso y comprensión de conceptos clave
+        </div>
+      </div>
+
+      <div class="eval-card">
+        <div class="percentage">30%</div>
+        <div class="eval-title">Trabajo Final</div>
+        <div class="eval-description">
+          Policy Memo: Documento de análisis geopolítico aplicado a un caso de negocios internacionales
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="nav-buttons">
+      <a href="index.html" class="btn">⬅️ Volver al Inicio</a>
     </div>
   </div>
 
