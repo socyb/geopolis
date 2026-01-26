@@ -1,0 +1,51 @@
+digraph actores {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    Geopolitica [shape=hexagon, fillcolor="#FFFFBA", label="GEOPOLÍTICA\n(actores múltiples)", fontsize=12];
+    
+    // Humanos
+    subgraph cluster_humanos {
+        label="Humanos";
+        style=filled;
+        color="#E5FFE5";
+        
+        Estados [fillcolor="#BAFFC9", label="Estados"];
+        Gobiernos [fillcolor="#BAFFC9", label="Gobiernos"];
+        Ciudadanos [fillcolor="#BAFFC9", label="Ciudadanos"];
+        Corporaciones [fillcolor="#BAFFC9", label="Corporaciones"];
+    }
+    
+    // No-humanos
+    subgraph cluster_nohumanos {
+        label="No-Humanos";
+        style=filled;
+        color="#FFE5E5";
+        
+        Clima [fillcolor="#FFB3BA", label="Clima"];
+        Ecologias [fillcolor="#FFB3BA", label="Ecologías"];
+        Recursos [fillcolor="#FFB3BA", label="Recursos\nmóviles"];
+    }
+    
+    // Infraestructura
+    subgraph cluster_infra {
+        label="Infraestructura";
+        style=filled;
+        color="#E5E5FF";
+        
+        Cables [fillcolor="#BAE1FF", label="Cables"];
+        Puertos [fillcolor="#BAE1FF", label="Puertos"];
+        Hielo [fillcolor="#BAE1FF", label="Hielo/\nPermafrost"];
+        Rutas [fillcolor="#BAE1FF", label="Rutas"];
+    }
+    
+    Geopolitica -> Estados;
+    Geopolitica -> Clima;
+    Geopolitica -> Cables;
+    
+    Estados -> Gobiernos;
+    Estados -> Ciudadanos;
+    Corporaciones -> Cables;
+    Clima -> Hielo;
+}

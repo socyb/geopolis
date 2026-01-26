@@ -1,0 +1,40 @@
+digraph clasica_vs_critica {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11];
+    edge [fontname="Arial", fontsize=9];
+    
+    // Cluster para geopolítica clásica
+    subgraph cluster_clasica {
+        label="Geopolítica Clásica";
+        style=filled;
+        color="#FFE5E5";
+        
+        Estado [fillcolor="#FFB3BA", label="Estado\n(actor central)"];
+        Territorio [fillcolor="#FFB3BA", label="Territorio"];
+        Recursos [fillcolor="#FFB3BA", label="Recursos"];
+        Geografia [fillcolor="#FFB3BA", label="Geografía\n(determinante)"];
+        
+        Estado -> Territorio;
+        Estado -> Recursos;
+        Geografia -> Estado [label="condiciona"];
+    }
+    
+    // Cluster para geopolítica crítica
+    subgraph cluster_critica {
+        label="Geopolítica Crítica";
+        style=filled;
+        color="#E5F5FF";
+        
+        Discurso [fillcolor="#BAE1FF", label="Discurso"];
+        Ideologia [fillcolor="#BAE1FF", label="Ideología"];
+        Cotidiano [fillcolor="#BAE1FF", label="Vida\nCotidiana"];
+        Interpretacion [fillcolor="#BAE1FF", label="Interpretación\n(construida)"];
+        
+        Discurso -> Interpretacion;
+        Ideologia -> Interpretacion;
+        Cotidiano -> Discurso;
+    }
+    
+    // Conexión entre ambos enfoques
+    Territorio -> Discurso [style=dashed, label="se interpreta", constraint=false];
+}

@@ -263,6 +263,30 @@
       border-top: none;
     }
 
+    .dia-link:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 0 30px var(--primary-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .dia-link:active {
+      transform: scale(0.98);
+    }
+
+    .unidad-container {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 768px) {
       .content {
         padding: 2rem 1.5rem;
@@ -308,6 +332,33 @@
 
     <div style="margin-top: 3rem;">
       <a href="evaluacion.html" style="display: inline-block; padding: 1rem 2rem; background: var(--content-bg); border: 2px solid var(--border); border-radius: 50px; color: var(--text); text-decoration: none; font-size: 1.1rem; font-weight: 600; box-shadow: 0 0 20px var(--shadow); transition: all 0.3s ease; font-family: 'Georgia', 'Times New Roman', serif;">📊 Ver Sistema de Evaluación</a>
+    </div>
+
+    <div class="divider" style="margin-top: 3rem;"></div>
+
+    <!-- Unidades del Curso -->
+    <div style="margin-top: 3rem;">
+      <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 2rem; color: var(--text); text-shadow: 0 0 15px var(--primary-glow);">Unidades del Curso</h2>
+      
+      <!-- Unidad 1 -->
+      <div class="unidad-container" style="margin-bottom: 2.5rem; padding: 2rem; background: var(--content-bg); border: 2px solid var(--border); border-radius: 15px; box-shadow: 0 0 20px var(--shadow);">
+        <h3 style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.5rem; color: var(--text); text-shadow: 0 0 10px var(--primary-glow);">📚 Unidad 1</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a href="geopoliticaDodds_slideshow.html" class="dia-link" style="display: inline-block; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary), rgba(180, 0, 35, 0.9)); border: 2px solid var(--border); border-radius: 50px; color: white; text-decoration: none; font-size: 1rem; font-weight: 600; box-shadow: 0 0 15px var(--shadow); transition: all 0.3s ease; font-family: 'Georgia', 'Times New Roman', serif;">🎯 Día 1: Geopolítica según Dodds</a>
+        </div>
+      </div>
+
+      <!-- Unidad 2 -->
+      <div class="unidad-container" style="margin-bottom: 2.5rem; padding: 2rem; background: var(--content-bg); border: 2px solid var(--border); border-radius: 15px; box-shadow: 0 0 20px var(--shadow); opacity: 0.6;">
+        <h3 style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.5rem; color: var(--text); text-shadow: 0 0 10px var(--primary-glow);">📚 Unidad 2</h3>
+        <div style="text-align: center; color: var(--text-light); font-style: italic;">Próximamente...</div>
+      </div>
+
+      <!-- Unidad 3 -->
+      <div class="unidad-container" style="margin-bottom: 2.5rem; padding: 2rem; background: var(--content-bg); border: 2px solid var(--border); border-radius: 15px; box-shadow: 0 0 20px var(--shadow); opacity: 0.6;">
+        <h3 style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.5rem; color: var(--text); text-shadow: 0 0 10px var(--primary-glow);">📚 Unidad 3</h3>
+        <div style="text-align: center; color: var(--text-light); font-style: italic;">Próximamente...</div>
+      </div>
     </div>
   </div>
 

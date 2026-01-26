@@ -1,0 +1,36 @@
+digraph marcos_frames {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    // Nodo central
+    Frames [shape=ellipse, fillcolor="#FFFFBA", label="MARCOS\nGEOPOLÍTICOS\n(frames)"];
+    
+    // Conceptos espaciales
+    Heartland [fillcolor="#BAFFC9", label="Heartland"];
+    Pivot [fillcolor="#BAFFC9", label="Pivot"];
+    Arc [fillcolor="#BAFFC9", label="Arc"];
+    Borderlands [fillcolor="#BAFFC9", label="Borderlands"];
+    
+    // Etiquetas políticas
+    IronCurtain [fillcolor="#FFB3BA", label="'Iron Curtain'"];
+    ThirdWorld [fillcolor="#FFB3BA", label="'Third World'"];
+    RogueState [fillcolor="#FFB3BA", label="'Rogue State'"];
+    
+    // Efectos
+    Simplificacion [fillcolor="#E5E5E5", label="Simplificación"];
+    Orientacion [fillcolor="#E5E5E5", label="Orientación\ndel debate"];
+    Invisibilizacion [fillcolor="#E5E5E5", label="Invisibilización\nde alternativas"];
+    
+    Frames -> Heartland;
+    Frames -> Pivot;
+    Frames -> Arc;
+    Frames -> Borderlands;
+    Frames -> IronCurtain;
+    Frames -> ThirdWorld;
+    Frames -> RogueState;
+    
+    Heartland -> Simplificacion;
+    IronCurtain -> Orientacion;
+    RogueState -> Invisibilizacion;
+}

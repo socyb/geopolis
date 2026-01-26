@@ -1,0 +1,35 @@
+digraph genealogia {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    // Origen
+    Kjellen [fillcolor="#FFFFBA", label="Kjellén\n(acuña 'geopolitics')\nTerritorio + Recursos"];
+    
+    // Primera generación
+    Mahan [fillcolor="#BAFFC9", label="Mahan\nSea Power"];
+    Ratzel [fillcolor="#BAFFC9", label="Ratzel\nEstado-organismo\nExpansión"];
+    Haushofer [fillcolor="#BAFFC9", label="Haushofer\nPan-regiones\nSpace-bound"];
+    
+    // Guerra Fría
+    GuerraFria [fillcolor="#FFB3BA", label="Guerra Fría\nRimlands, Shatterbelts\nNSC-68, Teoría Dominó"];
+    
+    // Post Guerra Fría
+    Estigma [fillcolor="#E5E5E5", label="Estigma\n(posguerra)"];
+    Revival [fillcolor="#BAE1FF", label="Revival\n(años 90-2000s)\nNuevos conflictos"];
+    
+    // Contemporáneo
+    Critica [fillcolor="#E5FFE5", label="Geopolítica Crítica\nDiscurso + Poder\nCotidianidad"];
+    
+    Kjellen -> Mahan;
+    Kjellen -> Ratzel;
+    Kjellen -> Haushofer;
+    
+    Mahan -> GuerraFria;
+    Ratzel -> GuerraFria;
+    Haushofer -> GuerraFria;
+    
+    GuerraFria -> Estigma;
+    Estigma -> Revival;
+    Revival -> Critica;
+}

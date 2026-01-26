@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geopolítica según Dodds — Presentación</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      /* Paleta académica seria */
+      --color-azul-principal: #1e3a5f;
+      --color-azul-oscuro: #0f1c2e;
+      --color-acento-principal: #c41e3a;
+      --color-acento-secundario: #6b7c93;
+      --color-gris-oscuro: #2c3e50;
+      --color-gris-medio: #5a6c7d;
+      --color-texto: #ffffff;
+      --color-texto-secundario: #e8edf2;
+      --color-definicion: #1a2332;
+    }
+    
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background: var(--color-azul-oscuro);
+      color: var(--color-texto);
+      overflow: hidden;
+      height: 100vh;
+    }
+    
+    /* Slide Container */
+    .presentation {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      background: linear-gradient(135deg, #1e3a5f 0%, #0d1929 100%);
+      padding: 40px 60px 80px 60px;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+      transform: translateX(0);
+      animation: slideIn 0.5s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .slide.prev {
+      transform: translateX(-100%);
+    }
+    
+    /* Slide Header */
+    .slide-header {
+      border-bottom: 3px solid #ff6b6b;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      flex-shrink: 0;
+    }
+    
+    .slide h1 {
+      font-size: 2.5rem;
+      color: var(--color-texto);
+      font-weight: 400;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    
+    .slide h2 {
+      font-size: 2rem;
+      color: var(--color-texto);
+      font-weight: 400;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    
+    .slide h3 {
+      font-size: 1.6rem;
+      color: #ff8c8c;
+      font-weight: 400;
+      margin: 20px 0 15px 0;
+    }
+    
+    /* Content */
+    .slide-content {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 20px;
+      min-height: 0;
+    }
+    
+    .slide-content::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    .slide-content::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.1);
+      border-radius: 5px;
+    }
+    
+    .slide-content::-webkit-scrollbar-thumb {
+      background: var(--color-naranja);
+      border-radius: 5px;
+    }
+    
+    .slide p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: var(--color-texto-secundario);
+    }
+    
+    .slide ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .slide li {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      color: var(--color-texto-secundario);
+    }
+    
+    .slide li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-acento-principal);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    
+    .slide strong {
+      color: #ff8c8c;
+      font-weight: 600;
+    }
+    
+    /* Definiciones emergentes */
+    .term {
+      color: #ff6b6b;
+      font-weight: 600;
+      cursor: help;
+      border-bottom: 2px dotted #ff6b6b;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .term:hover {
+      color: #ffffff;
+      background: #ff6b6b;
+      padding: 2px 5px;
+      border-radius: 3px;
+      border-bottom: 2px solid #ff6b6b;
+    }
+    
+    .definition-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInModal 0.3s ease;
+    }
+    
+    .definition-modal.active {
+      display: flex;
+    }
+    
+    @keyframes fadeInModal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .definition-content {
+      background: linear-gradient(135deg, var(--color-definicion) 0%, var(--color-gris-oscuro) 100%);
+      border: 3px solid #ff6b6b;
+      border-radius: 15px;
+      padding: 40px 50px;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: slideInModal 0.3s ease;
+    }
+    
+    @keyframes slideInModal {
+      from {
+        transform: scale(0.8) translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .definition-content h3 {
+      color: #ff6b6b;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      border-bottom: 2px solid #ff6b6b;
+      padding-bottom: 10px;
+    }
+    
+    .definition-content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    
+    .definition-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: #c41e3a;
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .definition-close:hover {
+      background: #ff6b6b;
+      transform: rotate(90deg);
+    }
+    
+    /* Boxes */
+    .box {
+      background: rgba(255,255,255,0.08);
+      border-left: 5px solid #ff6b6b;
+      padding: 18px 25px;
+      margin: 15px 0;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .box-highlight {
+      background: linear-gradient(135deg, rgba(139, 21, 56, 0.15), rgba(74, 85, 104, 0.15));
+      border-left: 5px solid var(--color-gris-medio);
+    }
+    
+    /* Grid Layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 20px 0;
+    }
+    
+    .grid-item {
+      background: rgba(255,255,255,0.08);
+      padding: 18px;
+      border-radius: 12px;
+      border: 2px solid #ff6b6b;
+    }
+    
+    .grid-item h4 {
+      color: #ff8c8c;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    
+    /* Diagram Container */
+    .diagram {
+      text-align: center;
+      margin: 15px 0;
+      padding: 15px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+    }
+    
+    .diagram img {
+      max-width: 100%;
+      max-height: 55vh;
+      height: auto;
+      width: auto;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    
+    /* SVG Animations */
+    .svg-container {
+      margin: 20px auto;
+      max-width: 700px;
+      max-height: 40vh;
+    }
+    
+    /* Navigation */
+    .nav-controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      padding: 15px 30px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+    
+    .nav-btn {
+      background: #c41e3a;
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-btn:hover {
+      background: #ff6b6b;
+      transform: scale(1.1);
+    }
+    
+    .nav-btn:disabled {
+      background: #555;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    
+    .slide-counter {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .home-btn {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0d1929 100%);
+      border: 2px solid #ff6b6b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .home-btn:hover {
+      background: linear-gradient(135deg, #2a4a75 0%, #1a2a3f 100%);
+      border-color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+    }
+    
+    /* Progress Bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: #ff6b6b;
+      transition: width 0.3s ease;
+      z-index: 1001;
+    }
+    
+    /* Title Slide */
+    .slide-title {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--color-azul-principal) 0%, var(--color-gris-oscuro) 100%);
+    }
+    
+    .slide-title h1 {
+      font-size: 4.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+    
+    .slide-title .subtitle {
+      font-size: 2rem;
+      color: var(--color-texto-secundario);
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+    
+    .slide-title .author {
+      font-size: 1.5rem;
+      color: var(--color-texto-secundario);
+      font-style: italic;
+    }
+    
+    /* Tags */
+    .tags {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    
+    .tag {
+      background: #2c3e50;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      border: 2px solid #ff6b6b;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 50px;
+      margin: 30px 0;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ff6b6b;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -43px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ff6b6b;
+      border: 4px solid var(--color-azul-oscuro);
+      box-shadow: 0 0 0 4px #ff6b6b;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+    
+    .timeline-year {
+      color: #ff6b6b;
+      font-weight: 700;
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .comparison-item.clasica {
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.12), rgba(107, 124, 147, 0.12));
+      border: 2px solid #ff6b6b;
+    }
+    
+    .comparison-item.critica {
+      background: linear-gradient(135deg, rgba(30, 58, 95, 0.12), rgba(90, 108, 125, 0.12));
+      border: 2px solid var(--color-gris-medio);
+    }
+    
+    /* Keyboard hint */
+    .keyboard-hint {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--color-texto-secundario);
+      z-index: 1000;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .slide {
+        padding: 40px 50px;
+      }
+      
+      .slide h1 {
+        font-size: 2.5rem;
+      }
+      
+      .slide h2 {
+        font-size: 2rem;
+      }
+      
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="keyboard-hint">Use ← → o clic en los botones para navegar</div>
+
+<div class="presentation" id="presentation">
+  
+  <!-- Slide 1: Título -->
+  <div class="slide slide-title active" data-slide="1">
+    <h1>🌍 GEOPOLÍTICA</h1>
+    <p class="subtitle">Según Klaus Dodds</p>
+    <p class="author">"What is geopolitics?"</p>
+    <div class="tags">
+      <span class="tag">Geopolítica Clásica</span>
+      <span class="tag">Geopolítica Crítica</span>
+      <span class="tag">Marcos & Frames</span>
+    </div>
+    <svg class="svg-container" width="200" height="200" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#ff6b6b" stroke-width="4">
+        <animate attributeName="r" values="80;85;80" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#ff8c8c" stroke-width="3">
+        <animate attributeName="r" values="60;65;60" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="100" r="40" fill="#1e3a5f" opacity="0.8">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="100" y="110" text-anchor="middle" fill="white" font-size="24" font-weight="bold">GEO</text>
+    </svg>
+  </div>
+
+  <!-- Slide 2: Ficha del Texto -->
+  <div class="slide" data-slide="2">
+    <div class="slide-header">
+      <h2>📖 Ficha del Texto</h2>
+    </div>
+    <div class="slide-content">
+      <p><strong>Obra:</strong> Geopolitics: A Very Short Introduction</p>
+      <p><strong>Editorial:</strong> Oxford University Press (3ª edición)</p>
+      <p><strong>Capítulo:</strong> "What is geopolitics?"</p>
+      
+      <div class="box box-highlight">
+        <h3>💡 Idea Central</h3>
+        <p>La <span class="term" data-def="geopolitica">geopolítica</span> funciona como <strong>"marcos"</strong> (<span class="term" data-def="frames">frames</span>) que simplifican y orientan decisiones. Es fundamental leerla con doble lente: <strong>clásica</strong> (<span class="term" data-def="tablero">tablero material</span>) y <strong>crítica</strong> (<span class="term" data-def="discurso">producción de sentido</span>).</p>
+      </div>
+      
+      <div class="box">
+        <h3>🔬 Método del Autor</h3>
+        <p>Introduce un <strong>incidente</strong> (Salisbury 2018, envenenamiento con Novichok) como mini-laboratorio que abre preguntas geográficas y políticas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Definición Operativa -->
+  <div class="slide" data-slide="3">
+    <div class="slide-header">
+      <h2>🎯 Definición Operativa</h2>
+    </div>
+    <div class="slide-content">
+      <p>Dodds propone <strong>tres cualidades</strong> de la geopolítica (todas disputables):</p>
+      
+      <div class="grid-3">
+        <div class="grid-item">
+          <h4>1️⃣ Poder</h4>
+          <p>Poder e influencia sobre espacio, territorio y sus condiciones</p>
+        </div>
+        <div class="grid-item">
+          <h4>2️⃣ Marcos</h4>
+          <p>Marcos geográficos: "esferas", "bloques", "vecindarios"</p>
+        </div>
+        <div class="grid-item">
+          <h4>3️⃣ Futuro</h4>
+          <p>Orientación al futuro: anticipar conductas por intereses "estables"</p>
+        </div>
+      </div>
+      
+      <div class="box box-highlight">
+        <h3>⚠️ Advertencia Crítica</h3>
+        <ul>
+          <li>Los intereses se <strong>negocian</strong></li>
+          <li>Los marcos se <strong>disputan</strong></li>
+          <li>Los futuros se <strong>narran</strong></li>
+          <li>Nada es "natural" o "inevitable"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Dos Modos de Lectura -->
+  <div class="slide" data-slide="4">
+    <div class="slide-header">
+      <h2>🔄 Dos Modos de Lectura</h2>
+    </div>
+    <div class="slide-content">
+      <div class="grid-2">
+        <div class="grid-item" style="border-color: #8b1538;">
+          <h4>🗺️ Geopolítica CLÁSICA</h4>
+          <ul>
+            <li><strong>Foco:</strong> Estado, territorio, recursos</li>
+            <li><strong>Método:</strong> Geografía como determinante</li>
+            <li><strong>Riesgo:</strong> Mapas-oráculos, determinismo</li>
+            <li><strong>Pregunta:</strong> "¿Qué dice la geografía?"</li>
+          </ul>
+        </div>
+        <div class="grid-item" style="border-color: #4a5568;">
+          <h4>👓 Geopolítica CRÍTICA</h4>
+          <ul>
+            <li><strong>Foco:</strong> Discurso, ideología, poder</li>
+            <li><strong>Método:</strong> Geografía como interpretación</li>
+            <li><strong>Amplía:</strong> Dimensiones cotidianas y populares</li>
+            <li><strong>Pregunta:</strong> "¿Quién narra la geografía?"</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="diagram">
+        <img src="diagrams/clasica_vs_critica.png" alt="Diagrama: Clásica vs Crítica" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Marcos y Frames -->
+  <div class="slide" data-slide="5">
+    <div class="slide-header">
+      <h2>🎭 Marcos Geopolíticos (Frames)</h2>
+    </div>
+    <div class="slide-content">
+      <p>La geopolítica seduce por su <strong>simplificación</strong> aparente y "objetividad" de los mapas.</p>
+      
+      <div class="box">
+        <h3>🗺️ Conceptos Espaciales</h3>
+        <div class="tags">
+          <span class="tag term" data-def="heartland" style="cursor: pointer;">Heartland</span>
+          <span class="tag term" data-def="pivot" style="cursor: pointer;">Pivot</span>
+          <span class="tag term" data-def="arc" style="cursor: pointer;">Arc</span>
+          <span class="tag term" data-def="borderlands" style="cursor: pointer;">Borderlands</span>
+          <span class="tag term" data-def="rimland" style="cursor: pointer;">Rimlands</span>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>🏷️ Etiquetas Políticas</h3>
+        <div class="tags">
+          <span class="tag term" data-def="ironcurtain" style="cursor: pointer;">"Iron Curtain"</span>
+          <span class="tag term" data-def="thirdworld" style="cursor: pointer;">"Third World"</span>
+          <span class="tag term" data-def="roguestate" style="cursor: pointer;">"Rogue State"</span>
+          <span class="tag term" data-def="axisofevil" style="cursor: pointer;">"Axis of Evil"</span>
+        </div>
+      </div>
+      
+      <div class="diagram">
+        <img src="diagrams/marcos_frames.png" alt="Diagrama: Marcos y Frames" />
+      </div>
+      
+      <div class="box box-highlight">
+        <h3>🤔 Preguntas Críticas</h3>
+        <ul>
+          <li>¿Qué hace "visible" este frame y qué vuelve "ruido"?</li>
+          <li>¿Qué alternativas semánticas quedan invisibilizadas?</li>
+          <li>¿Quién gana con esta lectura?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: Geo en Geopolitics -->
+  <div class="slide" data-slide="6">
+    <div class="slide-header">
+      <h2>🌎 "Geo" en Geopolitics</h2>
+    </div>
+    <div class="slide-content">
+      <p>La geografía <strong>no es un telón fijo</strong> — es dinámica y construida.</p>
+      
+      <div class="grid-2">
+        <div>
+          <div class="box">
+            <h3>📝 "Earth Writing"</h3>
+            <p>Describir y organizar <span class="term" data-def="espacio">espacios</span> es una <strong>forma de poder</strong>. La construcción de "lugares" no es neutral.</p>
+          </div>
+          
+          <div class="box">
+            <h3>🌡️ <span class="term" data-def="antropoceno">Antropoceno</span></h3>
+            <p>Presiones futuras sobre territorios, <span class="term" data-def="recursos">recursos</span> y habitabilidad. Vínculo con <strong>historias coloniales</strong>.</p>
+          </div>
+          
+          <div class="box box-highlight">
+            <h3>🔗 Concepto de Latencia</h3>
+            <p>Operaciones <strong>materiales</strong> (infraestructura, energía, clima, datos) que condicionan decisiones sin verse.</p>
+          </div>
+        </div>
+        
+        <div>
+          <svg class="svg-container" width="100%" height="400" viewBox="0 0 400 400">
+            <!-- Planeta animado -->
+            <defs>
+              <radialGradient id="earthGradient">
+                <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0f1c2e;stop-opacity:1" />
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="120" fill="url(#earthGradient)">
+              <animate attributeName="r" values="120;125;120" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Continentes simplificados -->
+            <path d="M 150 160 Q 170 150, 190 155 T 230 160 L 240 180 Q 235 195, 225 200 L 200 210 Q 180 205, 170 195 Z" 
+                  fill="#ff6b6b" opacity="0.7">
+              <animate attributeName="opacity" values="0.7;0.9;0.7" dur="4s" repeatCount="indefinite"/>
+            </path>
+            <path d="M 180 220 L 220 225 L 230 245 Q 225 260, 210 265 L 185 260 Q 175 250, 180 235 Z" 
+                  fill="#6b7c93" opacity="0.7">
+              <animate attributeName="opacity" values="0.7;0.9;0.7" dur="4s" begin="1s" repeatCount="indefinite"/>
+            </path>
+            <!-- Órbitas -->
+            <circle cx="200" cy="200" r="150" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.3">
+              <animate attributeName="r" values="150;155;150" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="200" r="170" fill="none" stroke="#ff8c8c" stroke-width="1" opacity="0.2">
+              <animate attributeName="r" values="170;175;170" dur="6s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Texto -->
+            <text x="200" y="360" text-anchor="middle" fill="#ff6b6b" font-size="20" font-weight="bold">
+              PLANETA MUTABLE
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Actores Múltiples -->
+  <div class="slide" data-slide="7">
+    <div class="slide-header">
+      <h2>👥 Actores Múltiples</h2>
+    </div>
+    <div class="slide-content">
+      <p>La geopolítica <strong>no es solo cosa de Estados</strong>. Involucra múltiples actores:</p>
+      
+      <div class="grid-3">
+        <div class="grid-item">
+          <h4>🧑‍🤝‍🧑 Humanos</h4>
+          <ul>
+            <li>Estados</li>
+            <li>Gobiernos</li>
+            <li>Ciudadanos</li>
+            <li>Corporaciones</li>
+            <li>ONGs</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h4>🌿 No-Humanos</h4>
+          <ul>
+            <li>Clima</li>
+            <li>Ecologías</li>
+            <li>Recursos móviles</li>
+            <li>Pandemias</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h4>🏗️ Infraestructura</h4>
+          <ul>
+            <li>Cables submarinos</li>
+            <li>Puertos</li>
+            <li>Hielo/Permafrost</li>
+            <li>Rutas comerciales</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="diagram">
+        <img src="diagrams/actores.png" alt="Diagrama: Actores en Geopolítica" />
+      </div>
+      
+      <div class="box box-highlight">
+        <h3>⚖️ Power-Geometries</h3>
+        <p>La geopolítica se vive de forma <strong>desigual</strong> — no todos la experimentan igual. Las posiciones en la red de poder determinan experiencias radicalmente diferentes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 8: Geopolítica Popular -->
+  <div class="slide" data-slide="8">
+    <div class="slide-header">
+      <h2>📺 Geopolítica Popular</h2>
+    </div>
+    <div class="slide-content">
+      <p>La geopolítica circula en <strong>medios, cultura y vida cotidiana</strong> — se aprende y se naturaliza.</p>
+      
+      <div class="grid-2">
+        <div class="box">
+          <h3>📰 Medios de Comunicación</h3>
+          <p>TV, prensa, redes sociales configuran el "sentido común" geopolítico. Las audiencias aprenden a "leer" el mundo a través de estos marcos.</p>
+        </div>
+        
+        <div class="box">
+          <h3>🎬 Cultura Popular</h3>
+          <p>Películas, series, videojuegos preparan el terreno para aceptar narrativas de vigilancia, amenaza y poder.</p>
+        </div>
+        
+        <div class="box">
+          <h3>👁️ <span class="term" data-def="vigilancia">Vigilancia</span> & Big Data</h3>
+          <p>Filtraciones (Snowden) revelan espionaje masivo y cooperación con corporaciones. Impacto diplomático global.</p>
+        </div>
+        
+        <div class="box box-highlight">
+          <h3>📋 Checklist Crítica</h3>
+          <ul>
+            <li>¿Qué amenaza se dramatiza?</li>
+            <li>¿Qué se presenta como "técnico" pero es político?</li>
+            <li>¿Qué público se interpela?</li>
+            <li>¿Qué emociones se activan?</li>
+          </ul>
+        </div>
+      </div>
+      
+      <svg class="svg-container" width="100%" height="200" viewBox="0 0 600 200">
+        <!-- Ondas de medios -->
+        <g id="mediaWaves">
+          <path d="M 0 100 Q 75 80, 150 100 T 300 100 T 450 100 T 600 100" 
+                stroke="#ff6b6b" stroke-width="3" fill="none" opacity="0.6">
+            <animate attributeName="d" 
+                     values="M 0 100 Q 75 80, 150 100 T 300 100 T 450 100 T 600 100;
+                             M 0 100 Q 75 120, 150 100 T 300 100 T 450 100 T 600 100;
+                             M 0 100 Q 75 80, 150 100 T 300 100 T 450 100 T 600 100"
+                     dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M 0 120 Q 75 100, 150 120 T 300 120 T 450 120 T 600 120" 
+                stroke="#ff8c8c" stroke-width="2" fill="none" opacity="0.4">
+            <animate attributeName="d" 
+                     values="M 0 120 Q 75 100, 150 120 T 300 120 T 450 120 T 600 120;
+                             M 0 120 Q 75 140, 150 120 T 300 120 T 450 120 T 600 120;
+                             M 0 120 Q 75 100, 150 120 T 300 120 T 450 120 T 600 120"
+                     dur="3s" begin="0.5s" repeatCount="indefinite"/>
+          </path>
+        </g>
+        <text x="300" y="30" text-anchor="middle" fill="#ff6b6b" font-size="24" font-weight="bold">
+          CIRCULACIÓN DE NARRATIVAS
+        </text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Slide 9: Genealogía -->
+  <div class="slide" data-slide="9">
+    <div class="slide-header">
+      <h2>📜 Genealogía del Término</h2>
+    </div>
+    <div class="slide-content">
+      <p>El concepto "geopolítica" tiene una <strong>historia con cargas políticas</strong>:</p>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">Kjellén (1899)</span>
+          <p>Acuña el término "geopolitics" — enfoque territorial y de recursos como leyes naturales.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Mahan (1890s)</span>
+          <p>"Sea power" como factor decisivo del poder nacional. Control de los océanos = dominio global.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Ratzel (1897)</span>
+          <p>Estado como super-organismo que requiere expansión territorial para sobrevivir.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Haushofer (1920s-30s)</span>
+          <p>Pan-regiones, conceptos "space-bound" y "space-hopping". Diseño de poder estatal.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Guerra Fría (1947-1991)</span>
+          <p>Rimlands, shatterbelts, NSC-68, teoría dominó. Marcos estratégicos bipolares.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Posguerra (1945-1980s)</span>
+          <p>Estigma del término por asociación con nazis. Continuidad en otras regiones.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Revival (1990s-presente)</span>
+          <p>Nuevos conflictos, surgimiento de la geopolítica crítica, énfasis en discurso y poder.</p>
+        </div>
+      </div>
+      
+      <div class="diagram">
+        <img src="diagrams/genealogia.png" alt="Diagrama: Genealogía" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 10: Cierre Crítico -->
+  <div class="slide" data-slide="10">
+    <div class="slide-header">
+      <h2>🎓 Cierre Crítico del Autor</h2>
+    </div>
+    <div class="slide-content">
+      <div class="box box-highlight" style="font-size: 1.5rem; text-align: center; padding: 40px;">
+        <p style="font-style: italic; color: #ff6b6b;">"Necesitamos más que diez mapas"</p>
+        <p style="font-size: 1.2rem; margin-top: 20px;">Los mapas 2D no bastan para captar la complejidad del mundo.</p>
+      </div>
+      
+      <div class="grid-2">
+        <div>
+          <div class="box">
+            <h3>❌ Rechazos</h3>
+            <ul>
+              <li><strong>Determinismo:</strong> No hay "leyes geográficas" que dicten el destino</li>
+              <li><strong>Reduccionismo:</strong> Los mapas planos ocultan volumen y escalas múltiples</li>
+              <li><strong>Sesgo de poder:</strong> Privilegia a ricos, poderosos y grandes actores</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div>
+          <div class="box">
+            <h3>✅ Aperturas</h3>
+            <ul>
+              <li><strong><span class="term" data-def="indigenous">Indigenous geopolitics</span>:</strong> Imaginación política, movilización, derechos</li>
+              <li><strong>Múltiples voces:</strong> No solo élites estatales</li>
+              <li><strong>Espacios vividos:</strong> Experiencias cotidianas y desiguales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box box-highlight">
+        <h3>🔍 Autoauditoría para el Análisis</h3>
+        <ul>
+          <li>¿Qué parte de mi argumento depende de un <strong>frame no declarado</strong>?</li>
+          <li>¿Qué <strong>evidencia me falta</strong> y qué sesgo crea esa ausencia?</li>
+          <li>¿Qué <strong>lectura alternativa</strong> podría disputar mi recomendación?</li>
+          <li>¿A quién <strong>beneficia</strong> esta narrativa y quién queda <strong>excluido</strong>?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 11: Conclusión -->
+  <div class="slide" data-slide="11">
+    <div class="slide-header">
+      <h2>🌍 Conclusiones Clave</h2>
+    </div>
+    <div class="slide-content" style="display: flex; flex-direction: column; justify-content: center;">
+      <div class="box box-highlight" style="margin-bottom: 30px;">
+        <h3>🔑 Puntos Centrales</h3>
+        <ul style="font-size: 1.4rem;">
+          <li>La geopolítica es tanto <strong>material</strong> (clásica) como <strong>discursiva</strong> (crítica)</li>
+          <li>Los <strong>marcos</strong> simplifican pero también ocultan y orientan</li>
+          <li>Los <strong>actores</strong> son múltiples: humanos, no-humanos, infraestructura</li>
+          <li>La geografía es <strong>dinámica</strong>, no un telón fijo</li>
+          <li>Siempre preguntar: <strong>¿quién narra? ¿quién gana? ¿qué se oculta?</strong></li>
+        </ul>
+      </div>
+      
+      <svg class="svg-container" width="100%" height="300" viewBox="0 0 600 300">
+        <defs>
+          <radialGradient id="conclusionGrad">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:0.3" />
+          </radialGradient>
+        </defs>
+        
+        <!-- Centro -->
+        <circle cx="300" cy="150" r="60" fill="url(#conclusionGrad)">
+          <animate attributeName="r" values="60;70;60" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="300" y="155" text-anchor="middle" fill="white" font-size="16" font-weight="bold">GEOPOLÍTICA</text>
+        
+        <!-- Nodos alrededor -->
+        <g id="node1">
+          <circle cx="150" cy="80" r="35" fill="#ff6b6b" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="150" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Clásica</text>
+        </g>
+        
+        <g id="node2">
+          <circle cx="450" cy="80" r="35" fill="#4a5568" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="450" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Crítica</text>
+        </g>
+        
+        <g id="node3">
+          <circle cx="150" cy="220" r="35" fill="#5a6c7d" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1s" repeatCount="indefinite"/>
+          </circle>
+          <text x="150" y="225" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Actores</text>
+        </g>
+        
+        <g id="node4">
+          <circle cx="450" cy="220" r="35" fill="#1e3a5f" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="450" y="225" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Marcos</text>
+        </g>
+        
+        <!-- Líneas conectoras -->
+        <line x1="300" y1="150" x2="150" y2="80" stroke="#ff6b6b" stroke-width="2" opacity="0.5"/>
+        <line x1="300" y1="150" x2="450" y2="80" stroke="#4a5568" stroke-width="2" opacity="0.5"/>
+        <line x1="300" y1="150" x2="150" y2="220" stroke="#5a6c7d" stroke-width="2" opacity="0.5"/>
+        <line x1="300" y1="150" x2="450" y2="220" stroke="#1e3a5f" stroke-width="2" opacity="0.5"/>
+      </svg>
+      
+      <p style="text-align: center; font-size: 1.3rem; margin-top: 30px; color: #cbd5e0;">
+        <strong>Gracias por su atención</strong>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation Controls -->
+<div class="nav-controls">
+  <button class="nav-btn" id="prevBtn" onclick="previousSlide()">◀</button>
+  <div class="slide-counter">
+    <span id="currentSlide">1</span> / <span id="totalSlides">11</span>
+  </div>
+  <button class="nav-btn" id="nextBtn" onclick="nextSlide()">▶</button>
+  <a href="index.html" class="home-btn">🏠 Regresar al Inicio</a>
+</div>
+
+<!-- Modal de Definiciones -->
+<div class="definition-modal" id="definitionModal">
+  <div class="definition-content">
+    <button class="definition-close" onclick="closeDefinition()">✕</button>
+    <div id="definitionText"></div>
+  </div>
+</div>
+
+<script>
+  // Definiciones de términos
+  const definitions = {
+    geopolitica: {
+      title: "Geopolítica",
+      content: `<p>Estudio de las relaciones entre poder político, espacio geográfico y territorio. Analiza cómo la geografía influye en las decisiones políticas y cómo el poder se ejerce sobre el espacio.</p>
+      <p><strong>Dos enfoques principales:</strong></p>
+      <ul>
+        <li><strong>Clásica:</strong> Enfatiza factores materiales (territorio, recursos, posición geográfica)</li>
+        <li><strong>Crítica:</strong> Examina cómo se construyen discursivamente los espacios geopolíticos</li>
+      </ul>`
+    },
+    frames: {
+      title: "Marcos (Frames)",
+      content: `<p>Estructuras interpretativas que organizan y simplifican la información geopolítica. Los marcos determinan qué aspectos de la realidad se vuelven visibles o invisibles.</p>
+      <p><strong>Ejemplos:</strong> "Heartland", "Rimland", "Eje del mal", "Tercer Mundo"</p>
+      <p><strong>Función:</strong> Orientan decisiones políticas pero también pueden naturalizar relaciones de poder desiguales.</p>`
+    },
+    tablero: {
+      title: "Tablero Material",
+      content: `<p>Metáfora que representa el espacio geográfico como un campo de juego donde los Estados compiten por recursos, territorio y posiciones estratégicas.</p>
+      <p><strong>Elementos clave:</strong></p>
+      <ul>
+        <li>Geografía física (montañas, ríos, costas)</li>
+        <li>Recursos naturales (petróleo, minerales, agua)</li>
+        <li>Infraestructura (puertos, rutas, cables)</li>
+        <li>Posición estratégica</li>
+      </ul>`
+    },
+    discurso: {
+      title: "Producción de Sentido / Discurso",
+      content: `<p>Proceso mediante el cual se construyen narrativas y significados sobre el espacio geográfico y las relaciones políticas.</p>
+      <p><strong>Geopolítica crítica:</strong> Examina cómo los discursos geopolíticos no solo describen sino que <em>producen</em> la realidad política.</p>
+      <p><strong>Pregunta clave:</strong> ¿Quién tiene el poder de narrar el espacio y con qué efectos?</p>`
+    },
+    espacio: {
+      title: "Espacio",
+      content: `<p>Dimensión física y social donde se desarrollan las relaciones políticas. No es un contenedor neutral sino un producto de relaciones sociales y de poder.</p>
+      <p><strong>Perspectiva crítica:</strong> El espacio se produce constantemente a través de prácticas sociales, económicas y políticas.</p>`
+    },
+    territorio: {
+      title: "Territorio",
+      content: `<p>Porción de espacio sobre la cual un Estado o actor político ejerce soberanía y control. Incluye dimensiones materiales (tierra, recursos) y simbólicas (identidad, pertenencia).</p>
+      <p><strong>Características:</strong></p>
+      <ul>
+        <li>Delimitado por fronteras</li>
+        <li>Objeto de soberanía estatal</li>
+        <li>Puede ser disputado</li>
+        <li>Tiene dimensiones físicas, políticas y culturales</li>
+      </ul>`
+    },
+    marcos: {
+      title: "Marcos Geográficos",
+      content: `<p>Conceptualizaciones espaciales que organizan el pensamiento geopolítico. Dividen el mundo en regiones, esferas de influencia, zonas estratégicas.</p>
+      <p><strong>Ejemplos históricos:</strong></p>
+      <ul>
+        <li><strong>Heartland:</strong> Zona pivote de Eurasia (Mackinder)</li>
+        <li><strong>Rimland:</strong> Zonas costeras que rodean el heartland (Spykman)</li>
+        <li><strong>Hemisferio occidental:</strong> América como esfera de influencia de EE.UU.</li>
+      </ul>
+      <p><strong>Efecto:</strong> Naturalizan ciertas divisiones del mundo y jerarquías de poder.</p>`
+    },
+    recursos: {
+      title: "Recursos Geopolíticos",
+      content: `<p>Elementos materiales y humanos que son objeto de competencia y control geopolítico.</p>
+      <p><strong>Tipos principales:</strong></p>
+      <ul>
+        <li><strong>Naturales:</strong> Petróleo, gas, minerales, agua, tierra arable</li>
+        <li><strong>Estratégicos:</strong> Rutas comerciales, estrechos, puertos</li>
+        <li><strong>Humanos:</strong> Población, conocimiento, capacidad productiva</li>
+        <li><strong>Tecnológicos:</strong> Infraestructura digital, capacidad militar</li>
+      </ul>`
+    },
+    heartland: {
+      title: "Heartland",
+      content: `<p>Concepto desarrollado por Halford Mackinder (1904) que identifica el corazón continental de Eurasia como zona pivote del poder mundial.</p>
+      <p><strong>Tesis:</strong> "Quien controla Europa del Este controla el Heartland; quien controla el Heartland controla la Isla-Mundo; quien controla la Isla-Mundo controla el mundo."</p>
+      <p><strong>Influencia:</strong> Moldeó estrategias de contención durante la Guerra Fría.</p>`
+    },
+    rimland: {
+      title: "Rimland",
+      content: `<p>Concepto de Nicholas Spykman que designa las zonas costeras de Eurasia que rodean el Heartland.</p>
+      <p><strong>Argumento:</strong> El control del Rimland (no del Heartland) es la clave del poder mundial, ya que concentra población, recursos y acceso marítimo.</p>
+      <p><strong>Regiones:</strong> Europa Occidental, Medio Oriente, Sur de Asia, Sudeste Asiático, Asia Oriental.</p>`
+    },
+    powergeometries: {
+      title: "Power-Geometries",
+      content: `<p>Concepto de Doreen Massey que describe cómo diferentes grupos experimentan de manera desigual los flujos globales (capital, información, migraciones).</p>
+      <p><strong>Idea central:</strong> La globalización no afecta a todos por igual. Algunos grupos tienen movilidad y control; otros sufren restricciones y vulnerabilidad.</p>
+      <p><strong>Implicación geopolítica:</strong> Las dinámicas de poder se distribuyen asimétricamente en el espacio.</p>`
+    },
+    antropoceno: {
+      title: "Antropoceno",
+      content: `<p>Época geológica propuesta en la que la actividad humana se ha convertido en la fuerza dominante que moldea el sistema terrestre.</p>
+      <p><strong>Dimensión geopolítica:</strong></p>
+      <ul>
+        <li>Cambio climático como factor geopolítico</li>
+        <li>Disputas por recursos en declive</li>
+        <li>Nuevas rutas marítimas (Ártico)</li>
+        <li>Migraciones climáticas</li>
+        <li>Desigualdad en vulnerabilidades ambientales</li>
+      </ul>`
+    },
+    vigilancia: {
+      title: "Vigilancia Geopolítica",
+      content: `<p>Sistemas de monitoreo y recolección de datos a escala global con implicaciones para el poder estatal y corporativo.</p>
+      <p><strong>Casos destacados:</strong></p>
+      <ul>
+        <li><strong>Revelaciones de Snowden (2013):</strong> Espionaje masivo de la NSA</li>
+        <li>Cooperación entre agencias de inteligencia (Five Eyes)</li>
+        <li>Vigilancia digital y big data</li>
+      </ul>
+      <p><strong>Dimensión geopolítica:</strong> Tensiones diplomáticas, soberanía digital, control de infraestructuras de datos.</p>`
+    },
+    indigenous: {
+      title: "Indigenous Geopolitics",
+      content: `<p>Perspectivas y prácticas geopolíticas de pueblos indígenas que desafían marcos estatales dominantes.</p>
+      <p><strong>Características:</strong></p>
+      <ul>
+        <li>Énfasis en soberanía territorial y autogobierno</li>
+        <li>Defensa de tierras y recursos naturales</li>
+        <li>Cosmologías alternativas sobre espacio y naturaleza</li>
+        <li>Movilización transnacional de derechos indígenas</li>
+      </ul>
+      <p><strong>Relevancia:</strong> Amplía la geopolítica más allá de actores estatales; incluye voces marginadas.</p>`
+    },
+    pivot: {
+      title: "Pivot / Zona Pivote",
+      content: `<p>Concepto de Halford Mackinder que identifica áreas geográficas de importancia estratégica crucial cuyo control puede determinar el equilibrio de poder global.</p>
+      <p><strong>Idea central:</strong> Ciertas regiones funcionan como "puntos de apoyo" o bisagras que permiten proyectar poder hacia múltiples direcciones.</p>
+      <p><strong>Ejemplo histórico:</strong> Europa del Este como zona pivote entre el Heartland y las potencias marítimas occidentales.</p>
+      <p><strong>Uso contemporáneo:</strong> "Pivot to Asia" de EE.UU. (reorientación estratégica hacia Asia-Pacífico).</p>`
+    },
+    arc: {
+      title: "Arc / Arco",
+      content: `<p>Término geopolítico que describe zonas curvas o semicirculares de importancia estratégica, generalmente definidas por características geográficas, culturales o de tensión política.</p>
+      <p><strong>Ejemplos notables:</strong></p>
+      <ul>
+        <li><strong>Arc of Instability:</strong> Franja desde África del Norte hasta Asia Central caracterizada por conflictos</li>
+        <li><strong>Arc of Crisis:</strong> Término usado en la Guerra Fría para zonas de conflicto en torno al Golfo Pérsico</li>
+        <li><strong>Island Arc:</strong> Cadenas de islas con importancia naval</li>
+      </ul>
+      <p><strong>Función:</strong> Simplifica regiones complejas mediante geometrías espaciales.</p>`
+    },
+    borderlands: {
+      title: "Borderlands / Tierras Fronterizas",
+      content: `<p>Zonas de transición entre diferentes entidades políticas, culturales o geográficas. Espacios de contacto, conflicto y mezcla.</p>
+      <p><strong>Características:</strong></p>
+      <ul>
+        <li>Identidades híbridas y múltiples lealtades</li>
+        <li>Frecuentemente disputadas o inestables</li>
+        <li>Zonas de intercambio económico y cultural</li>
+        <li>Pueden ser buffer zones (zonas colchón)</li>
+      </ul>
+      <p><strong>Perspectiva crítica:</strong> Las borderlands no son simples líneas divisorias sino espacios vividos con dinámicas propias.</p>
+      <p><strong>Ejemplos:</strong> Frontera México-EE.UU., Europa del Este, Asia Central.</p>`
+    },
+    ironcurtain: {
+      title: "Iron Curtain / Cortina de Hierro",
+      content: `<p>Metáfora popularizada por Winston Churchill (1946) para describir la división de Europa entre el bloque occidental capitalista y el bloque oriental comunista durante la Guerra Fría.</p>
+      <p><strong>Frase célebre:</strong> "Desde Stettin en el Báltico hasta Trieste en el Adriático, una cortina de hierro ha descendido sobre el continente."</p>
+      <p><strong>Efecto geopolítico:</strong></p>
+      <ul>
+        <li>Naturalizó la división de Europa</li>
+        <li>Cristalizó imaginarios de "Este vs. Oeste"</li>
+        <li>Justificó políticas de contención</li>
+      </ul>
+      <p><strong>Perspectiva crítica:</strong> La metáfora produjo una realidad política más que describirla; simplificó dinámicas complejas.</p>`
+    },
+    thirdworld: {
+      title: "Third World / Tercer Mundo",
+      content: `<p>Término acuñado durante la Guerra Fría para designar países no alineados ni con el bloque capitalista (Primer Mundo) ni con el bloque comunista (Segundo Mundo).</p>
+      <p><strong>Evolución del concepto:</strong></p>
+      <ul>
+        <li><strong>Origen (1952):</strong> Alfred Sauvy - referencia al "Tercer Estado" francés</li>
+        <li><strong>Movimiento No Alineados:</strong> Bandung (1955), afirmación de autonomía</li>
+        <li><strong>Deriva semántica:</strong> Pasó a significar "subdesarrollo" y "pobreza"</li>
+      </ul>
+      <p><strong>Crítica:</strong> Homogeniza regiones diversas; impone jerarquías implícitas; carga de inferioridad. Términos alternativos: "Sur Global", "países en desarrollo".</p>`
+    },
+    roguestate: {
+      title: "Rogue State / Estado Canalla",
+      content: `<p>Etiqueta aplicada por potencias occidentales (especialmente EE.UU.) a Estados considerados amenazas al orden internacional por violar normas, apoyar terrorismo o desarrollar armas de destrucción masiva.</p>
+      <p><strong>Ejemplos históricos:</strong> Irak (Saddam), Irán, Corea del Norte, Libia (Gadafi).</p>
+      <p><strong>Características atribuidas:</strong></p>
+      <ul>
+        <li>Autoritarismo</li>
+        <li>Violación de derechos humanos</li>
+        <li>Apoyo a grupos terroristas</li>
+        <li>Proliferación nuclear</li>
+      </ul>
+      <p><strong>Perspectiva crítica:</strong> La etiqueta justifica intervenciones; es selectiva (algunos aliados cometen actos similares); esencializa Estados complejos.</p>`
+    },
+    axisofevil: {
+      title: "Axis of Evil / Eje del Mal",
+      content: `<p>Frase usada por el presidente George W. Bush (2002) para designar a Irak, Irán y Corea del Norte como amenazas existenciales que apoyan el terrorismo y buscan armas de destrucción masiva.</p>
+      <p><strong>Contexto:</strong> Discurso del Estado de la Unión post-11S, marcó la doctrina de guerra preventiva.</p>
+      <p><strong>Referencia histórica:</strong> Evoca el "Eje" de la Segunda Guerra Mundial (Alemania, Italia, Japón).</p>
+      <p><strong>Efectos:</strong></p>
+      <ul>
+        <li>Legitimó invasión de Irak (2003)</li>
+        <li>Congeló relaciones con Irán</li>
+        <li>Simplificó política exterior en términos morales absolutos</li>
+      </ul>
+      <p><strong>Crítica:</strong> Frame maniqueo ("bien vs. mal") que oscurece complejidades históricas, políticas y regionales.</p>`
+    }
+  };
+  
+  // Funciones para las definiciones
+  function openDefinition(key) {
+    const def = definitions[key];
+    if (def) {
+      document.getElementById('definitionText').innerHTML = `
+        <h3>${def.title}</h3>
+        ${def.content}
+      `;
+      document.getElementById('definitionModal').classList.add('active');
+    }
+  }
+  
+  function closeDefinition() {
+    document.getElementById('definitionModal').classList.remove('active');
+  }
+  
+  // Event listeners para términos
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.term').forEach(term => {
+      term.addEventListener('click', function(e) {
+        e.preventDefault();
+        const defKey = this.getAttribute('data-def');
+        openDefinition(defKey);
+      });
+    });
+    
+    // Cerrar modal al hacer clic fuera
+    document.getElementById('definitionModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeDefinition();
+      }
+    });
+    
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDefinition();
+      }
+    });
+  });
+  
+  let currentSlide = 1;
+  const totalSlides = 11;
+  
+  function updateSlide() {
+    // Hide all slides
+    document.querySelectorAll('.slide').forEach(slide => {
+      slide.classList.remove('active', 'prev');
+    });
+    
+    // Show current slide
+    const current = document.querySelector(`[data-slide="${currentSlide}"]`);
+    current.classList.add('active');
+    
+    // Update counter
+    document.getElementById('currentSlide').textContent = currentSlide;
+    
+    // Update buttons
+    document.getElementById('prevBtn').disabled = currentSlide === 1;
+    document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+    
+    // Update progress bar
+    const progress = (currentSlide / totalSlides) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+    
+    // Reset scroll position
+    const content = current.querySelector('.slide-content');
+    if (content) content.scrollTop = 0;
+  }
+  
+  function nextSlide() {
+    if (currentSlide < totalSlides) {
+      currentSlide++;
+      updateSlide();
+    }
+  }
+  
+  function previousSlide() {
+    if (currentSlide > 1) {
+      currentSlide--;
+      updateSlide();
+    }
+  }
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      previousSlide();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      currentSlide = 1;
+      updateSlide();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      currentSlide = totalSlides;
+      updateSlide();
+    }
+  });
+  
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+      nextSlide();
+    }
+    if (touchEndX > touchStartX + 50) {
+      previousSlide();
+    }
+  }
+  
+  // Initialize
+  updateSlide();
+  document.getElementById('totalSlides').textContent = totalSlides;
+</script>
+
+</body>
+</html>
