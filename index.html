@@ -287,6 +287,150 @@
       }
     }
 
+    /* Modal CV */
+    .cv-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInModal 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .cv-modal.active {
+      display: flex;
+    }
+
+    @keyframes fadeInModal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .cv-content {
+      background: var(--content-bg);
+      border: 3px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 800px;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 0 60px var(--primary-glow), inset 0 0 40px var(--primary-glow);
+      animation: slideInModal 0.3s ease;
+      margin: 2rem;
+    }
+
+    @keyframes slideInModal {
+      from {
+        transform: scale(0.9) translateY(-30px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .cv-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: var(--primary);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px var(--shadow);
+    }
+
+    .cv-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      box-shadow: 0 0 25px var(--primary-glow);
+    }
+
+    .cv-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .cv-avatar {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .cv-title {
+      flex: 1;
+    }
+
+    .cv-title h2 {
+      font-size: 2rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .cv-title h3 {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .cv-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-section h4 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .cv-section p {
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .professor-link {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: var(--primary);
+    }
+
+    .professor-link:hover {
+      color: var(--primary);
+      text-shadow: 0 0 15px var(--primary-glow), 0 0 30px var(--primary-glow);
+      transform: scale(1.02);
+    }
+
     @media (max-width: 768px) {
       .content {
         padding: 2rem 1.5rem;
@@ -297,6 +441,21 @@
         right: 1rem;
         padding: 0.6rem 1.2rem;
         font-size: 1rem;
+      }
+
+      .cv-content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+      }
+
+      .cv-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cv-avatar {
+        width: 100px;
+        height: 100px;
       }
     }
   </style>
@@ -328,7 +487,7 @@
     
     <div class="divider"></div>
     
-    <div class="professor">Dr. Jorge Cardiel Herrera</div>
+    <div class="professor"><span class="professor-link" onclick="openCVModal()">Dr. Jorge Cardiel Herrera</span></div>
 
     <div style="margin-top: 3rem;">
       <a href="evaluacion.html" style="display: inline-block; padding: 1rem 2rem; background: var(--content-bg); border: 2px solid var(--border); border-radius: 50px; color: var(--text); text-decoration: none; font-size: 1.1rem; font-weight: 600; box-shadow: 0 0 20px var(--shadow); transition: all 0.3s ease; font-family: 'Georgia', 'Times New Roman', serif;">📊 Ver Sistema de Evaluación</a>
@@ -362,7 +521,115 @@
     </div>
   </div>
 
+  <!-- Modal CV -->
+  <div class="cv-modal" id="cvModal">
+    <div class="cv-content">
+      <button class="cv-close" onclick="closeCVModal()">✕</button>
+      
+      <div class="cv-header">
+        <svg class="cv-avatar" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fondo -->
+          <rect width="120" height="120" fill="#1e3a5f" rx="10"/>
+          
+          <!-- Cabeza -->
+          <rect x="40" y="30" width="40" height="40" fill="#ffdbac"/>
+          
+          <!-- Cabello -->
+          <rect x="35" y="25" width="50" height="10" fill="#2c2c2c"/>
+          <rect x="35" y="35" width="10" height="5" fill="#2c2c2c"/>
+          <rect x="75" y="35" width="10" height="5" fill="#2c2c2c"/>
+          
+          <!-- Ojos -->
+          <rect x="48" y="45" width="8" height="8" fill="#2c2c2c"/>
+          <rect x="64" y="45" width="8" height="8" fill="#2c2c2c"/>
+          <rect x="50" y="47" width="4" height="4" fill="#ffffff"/>
+          <rect x="66" y="47" width="4" height="4" fill="#ffffff"/>
+          
+          <!-- Lentes -->
+          <rect x="45" y="43" width="12" height="12" fill="none" stroke="#4a5568" stroke-width="2"/>
+          <rect x="63" y="43" width="12" height="12" fill="none" stroke="#4a5568" stroke-width="2"/>
+          <line x1="57" y1="49" x2="63" y2="49" stroke="#4a5568" stroke-width="2"/>
+          
+          <!-- Nariz -->
+          <rect x="58" y="55" width="4" height="6" fill="#e6b896"/>
+          
+          <!-- Boca (sonrisa) -->
+          <rect x="50" y="63" width="4" height="3" fill="#8b4513"/>
+          <rect x="54" y="65" width="4" height="2" fill="#8b4513"/>
+          <rect x="62" y="65" width="4" height="2" fill="#8b4513"/>
+          <rect x="66" y="63" width="4" height="3" fill="#8b4513"/>
+          
+          <!-- Cuello -->
+          <rect x="50" y="70" width="20" height="8" fill="#ffdbac"/>
+          
+          <!-- Camisa -->
+          <rect x="35" y="78" width="50" height="30" fill="#cc0028"/>
+          
+          <!-- Corbata -->
+          <rect x="57" y="78" width="6" height="20" fill="#1e3a5f"/>
+          <polygon points="57,98 63,98 60,105" fill="#1e3a5f"/>
+          
+          <!-- Detalles de la camisa -->
+          <rect x="45" y="88" width="8" height="3" fill="#a30020"/>
+          <rect x="67" y="88" width="8" height="3" fill="#a30020"/>
+          
+          <!-- Sombra/profundidad -->
+          <rect x="35" y="108" width="50" height="4" fill="#0a0a0a" opacity="0.3"/>
+        </svg>
+        
+        <div class="cv-title">
+          <h2>Dr. Jorge Cardiel Herrera</h2>
+          <h3>Universidad Nacional Autónoma de México</h3>
+        </div>
+      </div>
+      
+      <div class="cv-section">
+        <p>Jorge Cardiel Herrera es docente en la Universidad Nacional Autónoma de México (UNAM), especializado en sociocibernética, geopolítica y sistemas sociales. Es Doctor en Ciencias Políticas y Sociales por la UNAM, y su formación académica abarca la sociología, el arte moderno, la enseñanza del alemán como lengua extranjera y los estudios sobre ciencia, tecnología y sociedad (CTS).</p>
+      </div>
+      
+      <div class="cv-section">
+        <h4>🎓 Docencia</h4>
+        <p>En la UNAM es Profesor de Asignatura A en la Facultad de Contaduría y Administración y en la Facultad de Ciencias Políticas y Sociales, donde imparte cursos sobre geopolítica, globalización, gestión de energía y mercados emergentes. Su enfoque articula geopolítica crítica, economía política internacional y herramientas analíticas como el frame analysis y la observación de segundo orden, con atención a los regímenes contemporáneos de conocimiento, datos e inteligencia artificial.</p>
+      </div>
+      
+      <div class="cv-section">
+        <h4>🌐 Actividad Académica Internacional</h4>
+        <p>Desempeña un papel activo en la comunidad internacional de sociocibernética como tesorero del Research Committee 51 (RC51) de la International Sociological Association (ISA) y como editor del Journal of Sociocybernetics. Su investigación, presentada en congresos nacionales e internacionales, aborda temas como inteligencia artificial, teoría de la complejidad y procesos comunicativos contemporáneos.</p>
+      </div>
+      
+      <div class="cv-section">
+        <h4>🔬 Investigación y Enfoque</h4>
+        <p>Además, participa en actividades de evaluación académica y desarrollo de contenido didáctico, tendiendo puentes entre teoría y práctica para explorar las intersecciones entre tecnología, política y sociedad desde una perspectiva sistémica y reflexiva.</p>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Funciones del modal CV
+    function openCVModal() {
+      document.getElementById('cvModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCVModal() {
+      document.getElementById('cvModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cerrar modal al hacer clic fuera
+    document.getElementById('cvModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeCVModal();
+      }
+    });
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCVModal();
+      }
+    });
+
     // Generar el tablero de ajedrez 3D
     const chessboard = document.getElementById('chessboard');
     const boardSize = 8;
