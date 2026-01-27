@@ -1,0 +1,168 @@
+digraph BrujulaGeopolitica {
+    // Configuración general para 1440x900
+    graph [
+        rankdir=TB,
+        bgcolor="#fafafa",
+        fontname="Helvetica",
+        fontsize=12,
+        pad=0.5,
+        nodesep=0.6,
+        ranksep=0.8,
+        size="14,9!",
+        ratio=fill,
+        splines=curved,
+        overlap=false
+    ];
+    
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=11,
+        margin=0.15,
+        height=0.4
+    ];
+    
+    edge [
+        fontname="Helvetica",
+        fontsize=9,
+        color="#666666",
+        arrowsize=0.8
+    ];
+
+    // Nodos centrales (más prominentes)
+    "Cambio Climático" [fillcolor="#ff9999", style="rounded,filled,bold", fontsize=12];
+    "Desarrollo" [fillcolor="#99ccff", style="rounded,filled,bold", fontsize=12];
+    "Ciencia de Datos" [fillcolor="#ffcc99", style="rounded,filled,bold", fontsize=12];
+    "Migración" [fillcolor="#cc99ff", style="rounded,filled,bold", fontsize=12];
+    "América Latina" [fillcolor="#99ff99", style="rounded,filled,bold", fontsize=12];
+    "Clima" [fillcolor="#ffb3b3", style="rounded,filled,bold", fontsize=12];
+
+    // CLUSTER A: Clima / Antropoceno / Energía
+    subgraph cluster_clima {
+        label="Clima & Energía";
+        style=filled;
+        fillcolor="#ffe6e6";
+        fontsize=13;
+        fontname="Helvetica-Bold";
+        
+        "Antropoceno";
+        "Clima";
+        "Cambio Climático";
+        "Energías Renovables";
+        "Dinamarca";
+        "60% eólica";
+    }
+
+    // CLUSTER B: Datos / Infra / IA / Sesgos
+    subgraph cluster_datos {
+        label="Datos, IA & Sesgos";
+        style=filled;
+        fillcolor="#fff3e6";
+        fontsize=13;
+        fontname="Helvetica-Bold";
+        
+        "Ciencia de Datos";
+        "Servidores";
+        "LLMs";
+        "Identificar sesgos";
+        "Información";
+    }
+
+    // CLUSTER C: Política / Migración / Seguridad
+    subgraph cluster_politica {
+        label="Política & Migración";
+        style=filled;
+        fillcolor="#f0e6ff";
+        fontsize=13;
+        fontname="Helvetica-Bold";
+        
+        "Trump";
+        "Migración";
+        "ICE";
+    }
+
+    // CLUSTER D: Economía política / Desarrollo
+    subgraph cluster_economia {
+        label="Economía & Desarrollo";
+        style=filled;
+        fillcolor="#e6f3ff";
+        fontsize=13;
+        fontname="Helvetica-Bold";
+        
+        "Desarrollo";
+        "Recursos";
+        "Inversiones";
+        "Empresas";
+        "Emprendimiento";
+        "Innovación";
+        "Incentivos estatales";
+    }
+
+    // CLUSTER E: Regiones / Casos
+    subgraph cluster_regiones {
+        label="Regiones & Casos";
+        style=filled;
+        fillcolor="#e6ffe6";
+        fontsize=13;
+        fontname="Helvetica-Bold";
+        
+        "América Latina";
+        "Sur de México";
+        "Venezuela";
+        "Inglaterra";
+    }
+
+    // CLUSTER F: Metodología / Producción de texto
+    subgraph cluster_metodologia {
+        label="Metodología";
+        style=filled;
+        fillcolor="#fff9e6";
+        fontsize=13;
+        fontname="Helvetica-Bold";
+        
+        "Seguimiento de noticias";
+        "Policy memo";
+        "Argumentación";
+    }
+
+    // === RELACIONES: Núcleo clima-energía ===
+    "Antropoceno" -> "Cambio Climático";
+    "Cambio Climático" -> "Clima";
+    "Cambio Climático" -> "Energías Renovables";
+    "Energías Renovables" -> "Desarrollo";
+    "Energías Renovables" -> "Dinamarca";
+    "Dinamarca" -> "60% eólica";
+
+    // === RELACIONES: Núcleo datos-IA-sesgos ===
+    "Ciencia de Datos" -> "Servidores";
+    "Ciencia de Datos" -> "Información";
+    "Ciencia de Datos" -> "Identificar sesgos";
+    "LLMs" -> "Identificar sesgos";
+    "LLMs" -> "Información";
+
+    // === RELACIONES: Núcleo economía-innovación ===
+    "Recursos" -> "Desarrollo";
+    "Incentivos estatales" -> "Desarrollo";
+    "Desarrollo" -> "Inversiones";
+    "Inversiones" -> "Empresas";
+    "Empresas" -> "Emprendimiento";
+    "Emprendimiento" -> "Innovación";
+    "Innovación" -> "Desarrollo";
+
+    // === RELACIONES: Núcleo migración-política ===
+    "Trump" -> "Migración";
+    "Migración" -> "ICE";
+
+    // === PUENTES ENTRE NÚCLEOS ===
+    "Cambio Climático" -> "Recursos";
+    "Recursos" -> "Inversiones";
+    "Información" -> "Seguimiento de noticias";
+    "Seguimiento de noticias" -> "Policy memo";
+    "Policy memo" -> "Argumentación";
+    "América Latina" -> "Migración";
+    "América Latina" -> "Recursos";
+    "Sur de México" -> "América Latina";
+    "Venezuela" -> "América Latina";
+    "Inglaterra" -> "Desarrollo" [style=dashed, color="#999999"];
+}
