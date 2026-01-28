@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea del Tiempo - Geopolítica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #ecf0f1;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-color: #bdc3c7;
+            --hover-color: #f39c12;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+        }
+
+        .timeline-event {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-event:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .event-content {
+            width: 45%;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .event-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .event-date {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .event-summary {
+            color: #555;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.5;
+        }
+
+        .event-tags {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+            color: var(--primary-color);
+        }
+
+        .event-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border: 4px solid var(--card-bg);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 0 4px var(--secondary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .event-dot:hover {
+            transform: translateX(-50%) scale(1.5);
+            background: var(--hover-color);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-color);
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-date {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        .modal-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section h3 {
+            color: var(--secondary-color);
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-section p, .modal-section ul {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-section li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .modal-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Responsive para tablets */
+        @media (max-width: 1024px) {
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-event {
+                flex-direction: column !important;
+                padding-left: 60px;
+            }
+
+            .event-content {
+                width: 100%;
+            }
+
+            .event-dot {
+                left: 30px;
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 640px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .timeline-event {
+                padding-left: 50px;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .event-dot {
+                left: 20px;
+                width: 16px;
+                height: 16px;
+            }
+
+            .event-content {
+                padding: 1.2rem;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+                width: 95%;
+            }
+        }
+
+        /* Optimización para proyector */
+        @media (min-width: 1200px) {
+            body {
+                font-size: 18px;
+            }
+
+            .event-title {
+                font-size: 1.5rem;
+            }
+
+            .event-summary {
+                font-size: 1.15rem;
+            }
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📍 Línea del Tiempo Geopolítica</h1>
+        <p>Principales acontecimientos desde 1875 hasta 2004</p>
+    </header>
+
+    <div class="container">
+        <div class="timeline-container" id="timeline">
+            <div class="timeline-line"></div>
+            <!-- Los eventos se generarán con JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const events = [
+            {
+                id: "e1875_suez_shares",
+                date: "1875",
+                displayDate: "1875",
+                title: "Compra británica de acciones del Canal de Suez",
+                summary: "En la política de Disraeli, el imperialismo arranca con la compra de acciones del Canal de Suez.",
+                details: "El texto presenta la compra de acciones del Canal de Suez (1875) como un punto de arranque simbólico del \"imperio\" en la política británica del periodo.",
+                location: "Egipto / Reino Unido",
+                actors: ["Reino Unido", "Gobierno de Disraeli"],
+                tags: ["imperialismo", "infraestructura estratégica", "ruta marítima"]
+            },
+            {
+                id: "e1890_baring_crisis",
+                date: "1890",
+                displayDate: "1890",
+                title: "Crisis Baring",
+                summary: "Crisis financiera que el texto usa como marcador del periodo imperial.",
+                details: "Se menciona la \"Baring crisis\" (1890) como referencia dentro de la secuencia de hitos del imperialismo.",
+                location: "",
+                actors: [],
+                tags: ["finanzas internacionales", "imperialismo", "crisis"]
+            },
+            {
+                id: "e1898_spanish_empire_end",
+                date: "1898",
+                displayDate: "1898",
+                title: "Guerra de 1898 y fin del imperio español (Cuba, Puerto Rico, Filipinas)",
+                summary: "En 1898 EE. UU. toma Cuba, Puerto Rico y Filipinas; el texto lo marca como fin del imperio español.",
+                details: "El compilado señala que en la guerra de 1898 Estados Unidos se apodera de Cuba, Puerto Rico y Filipinas, interpretándolo como el cierre del imperio español.",
+                location: "Caribe / Filipinas / EE. UU. / España",
+                actors: ["Estados Unidos", "España", "Cuba", "Puerto Rico", "Filipinas"],
+                tags: ["cambio hegemónico", "imperialismo", "guerra"]
+            },
+            {
+                id: "e1899_1902_south_african_war",
+                date: "1899",
+                displayDate: "1899-1902",
+                title: "Guerra de Sudáfrica (1899–1902)",
+                summary: "El texto la enumera como hito (South African War 1899–1902).",
+                details: "Se menciona la guerra de Sudáfrica de 1899–1902 como uno de los hitos que acompañan la expansión imperial y sus conflictos.",
+                location: "Sudáfrica",
+                actors: ["Reino Unido", "Repúblicas bóeres"],
+                tags: ["imperialismo", "guerra", "colonialismo"]
+            },
+            {
+                id: "e1905_gunboat_diplomacy",
+                date: "1905",
+                displayDate: "1905",
+                title: "Auge de la 'diplomacia de cañonero' (gunboat diplomacy)",
+                summary: "El texto indica que hacia 1905 la 'diplomacia de la fuerza' se vuelve cada vez más frecuente.",
+                details: "El compilado registra que la \"diplomacia de cañonero\" (o \"diplomacia de la fuerza\") se volvió cada vez más frecuente alrededor de 1905, como indicador de coerción imperial.",
+                location: "",
+                actors: [],
+                tags: ["imperialismo", "coerción", "política exterior"]
+            },
+            {
+                id: "e1907_persia_spheres",
+                date: "1907",
+                displayDate: "1907",
+                title: "Acuerdo anglo-ruso de 1907 sobre esferas de influencia en Persia",
+                summary: "Acuerdo que fija esferas de influencia en Persia (y menciona Afganistán/Tíbet).",
+                details: "Se menciona el acuerdo de 1907 entre Gran Bretaña y Rusia, que reconoce esferas de influencia en Persia, e incluye la referencia a Afganistán y Tíbet.",
+                location: "Persia (Irán) / Asia Central",
+                actors: ["Reino Unido", "Rusia"],
+                tags: ["esferas de influencia", "imperialismo", "Asia Central"]
+            },
+            {
+                id: "e1914_africa_empires",
+                date: "1914",
+                displayDate: "1914",
+                title: "Para 1914, casi toda África pertenece a imperios europeos",
+                summary: "El texto dice que en 1914 casi toda África formaba parte de algún imperio.",
+                details: "El compilado afirma que para 1914 prácticamente toda África pertenecía a algún imperio, subrayando la culminación territorial del reparto colonial.",
+                location: "África",
+                actors: [],
+                tags: ["colonialismo", "imperios", "reparto territorial"]
+            },
+            {
+                id: "e1919_versailles_league",
+                date: "1919",
+                displayDate: "1919",
+                title: "1919: Versalles / proyecto de Sociedad de Naciones",
+                summary: "Se menciona la promoción de una League of Nations tras 1919.",
+                details: "El texto alude a la promoción de una Sociedad de Naciones después de 1919, vinculada al intento de regular el orden internacional tras la guerra.",
+                location: "",
+                actors: [],
+                tags: ["orden internacional", "multilateralismo", "posguerra"]
+            },
+            {
+                id: "e1925_geneva_protocol",
+                date: "1925",
+                displayDate: "1925",
+                title: "1925: Convención/Protocolo de Ginebra (armas químicas)",
+                summary: "El compilado menciona las Convenciones de Ginebra de 1925 como parte del marco legal.",
+                details: "Aparece la referencia a las Convenciones de Ginebra (1925) en el contexto del marco legal internacional sobre guerra y armamento.",
+                location: "",
+                actors: [],
+                tags: ["derecho internacional", "guerra", "armas químicas"]
+            },
+            {
+                id: "e1941_pearl_harbor",
+                date: "1941",
+                displayDate: "1941",
+                title: "1941: Ataque japonés a Pearl Harbor",
+                summary: "El texto lo invoca como mito/fundamento del 'good war' estadounidense.",
+                details: "El compilado señala la invocación del ataque japonés a Pearl Harbor (1941) como parte de narrativas que legitiman la guerra como respuesta a una agresión.",
+                location: "Pearl Harbor (base naval de EE. UU.)",
+                actors: ["Japón", "Estados Unidos"],
+                tags: ["guerra", "mitologías políticas", "EE. UU."]
+            },
+            {
+                id: "e1945_1955_occupation",
+                date: "1945",
+                displayDate: "1945-1955",
+                title: "1945–1955: Ocupación aliada de Austria y Alemania",
+                summary: "Austria y Alemania fueron ocupadas por fuerzas aliadas hasta 1955.",
+                details: "El texto contrasta la experiencia estadounidense con la europea y señala que Austria y Alemania fueron ocupadas por fuerzas aliadas (URSS, EE. UU., Reino Unido y Francia) hasta 1955.",
+                location: "Austria y Alemania",
+                actors: ["URSS", "Estados Unidos", "Reino Unido", "Francia", "Austria", "Alemania"],
+                tags: ["posguerra", "ocupación", "Europa"]
+            },
+            {
+                id: "e1949_geneva_conventions",
+                date: "1949",
+                displayDate: "1949",
+                title: "1949: Convenciones de Ginebra",
+                summary: "El compilado menciona 1949 como parte del marco legal internacional.",
+                details: "Se menciona el año 1949 (junto con 1925) como parte del conjunto de Convenciones de Ginebra, enmarcando regulaciones sobre conflictos.",
+                location: "",
+                actors: [],
+                tags: ["derecho internacional", "posguerra"]
+            },
+            {
+                id: "e1955_warsaw_pact",
+                date: "1955",
+                displayDate: "1955",
+                title: "1955: Creación del Pacto de Varsovia",
+                summary: "Se presenta como equivalente de la OTAN, creado en 1955.",
+                details: "En el pasaje sobre la Guerra Fría, el texto define al Pacto de Varsovia como equivalente de la OTAN y especifica su creación en 1955.",
+                location: "",
+                actors: ["URSS", "Estados del bloque oriental"],
+                tags: ["Guerra Fría", "alianzas militares", "Europa"]
+            },
+            {
+                id: "e1966_france_leaves_nato_command",
+                date: "1966",
+                displayDate: "1966",
+                title: "1966: Francia sale del mando integrado de la OTAN",
+                summary: "El texto señala que fue un movimiento 'shocking' para estadounidenses y británicos.",
+                details: "Se menciona la decisión francesa de abandonar la estructura de mando liderada por EE. UU. en la OTAN en 1966, y su carácter disruptivo dentro de la disciplina geopolítica del bloque occidental.",
+                location: "",
+                actors: ["Francia", "OTAN", "Estados Unidos", "Reino Unido"],
+                tags: ["Guerra Fría", "OTAN", "tensiones intra-alianza"]
+            },
+            {
+                id: "e1979_soviet_afghanistan",
+                date: "1979",
+                displayDate: "1979",
+                title: "1979: Invasión soviética de Afganistán",
+                summary: "El texto recuerda la invasión soviética de Afganistán en 1979.",
+                details: "Se registra la invasión soviética de Afganistán (1979) como parte de los episodios de intervención y conflicto que anteceden el giro posterior hacia el 'war on terror'.",
+                location: "Afganistán",
+                actors: ["URSS", "Afganistán"],
+                tags: ["Guerra Fría tardía", "Afganistán", "intervención"]
+            },
+            {
+                id: "e1989_soviet_withdrawal_afghanistan",
+                date: "1989-02",
+                displayDate: "Febrero 1989",
+                title: "1989 (febrero): Retiro soviético de Afganistán",
+                summary: "El texto indica que la eliminación/retirada soviética se completó en febrero de 1989.",
+                details: "El compilado afirma que la retirada soviética de Afganistán se completó en febrero de 1989.",
+                location: "Afganistán",
+                actors: ["URSS"],
+                tags: ["Afganistán", "Guerra Fría tardía", "retiro militar"]
+            },
+            {
+                id: "e1990_kuwait_invasion",
+                date: "1990-08",
+                displayDate: "Agosto 1990",
+                title: "1990 (agosto): Irak invade Kuwait; coalición liderada por EE. UU.",
+                summary: "El texto menciona la invasión iraquí de Kuwait en agosto de 1990 y la coalición posterior.",
+                details: "Se menciona la invasión iraquí de Kuwait en agosto de 1990 y que después una coalición (liderada por EE. UU.) liberó Kuwait en el marco de la Guerra del Golfo.",
+                location: "Kuwait / Irak",
+                actors: ["Irak", "Kuwait", "Estados Unidos", "coalición internacional"],
+                tags: ["Golfo", "coalición", "intervención"]
+            },
+            {
+                id: "e1993_srebrenica_safe_area",
+                date: "1993-04",
+                displayDate: "Abril 1993",
+                title: "1993 (abril): ONU declara Srebrenica 'safe area'",
+                summary: "Zona especial de orden/seguridad en medio de la guerra en Bosnia.",
+                details: "El texto indica que Srebrenica fue declarada por Naciones Unidas como \"safe area\" en abril de 1993, como intento de legislar una zona de seguridad en medio del conflicto bosnio.",
+                location: "Srebrenica (Bosnia)",
+                actors: ["ONU", "partes en conflicto en Bosnia"],
+                tags: ["ONU", "Bosnia", "zonas de seguridad", "humanitario"]
+            },
+            {
+                id: "e1995_srebrenica_massacre",
+                date: "1995-07",
+                displayDate: "Julio 1995",
+                title: "1995 (julio): Caída de Srebrenica y masacre",
+                summary: "El texto menciona ~7,000 hombres y niños bosnios musulmanes asesinados.",
+                details: "Se describe que en julio de 1995 Srebrenica fue sobrepasada por fuerzas serbobosnias y que alrededor de 7,000 hombres y niños bosnios musulmanes fueron asesinados, mientras fuerzas de paz cercanas no pudieron intervenir.",
+                location: "Srebrenica (Bosnia)",
+                actors: ["Fuerzas serbobosnias", "Bosnios musulmanes", "peacekeepers neerlandeses"],
+                tags: ["Bosnia", "crímenes masivos", "Europa", "ONU/peacekeeping"]
+            },
+            {
+                id: "e1995_dayton",
+                date: "1995-12",
+                displayDate: "Diciembre 1995",
+                title: "1995 (diciembre): Acuerdos de Dayton",
+                summary: "NATO (liderada por EE. UU.) interviene y se firma el acuerdo en Dayton, Ohio.",
+                details: "El texto afirma que no fue sino hasta la intervención de fuerzas de la OTAN lideradas por EE. UU. que se aseguró un arreglo de paz, firmado en Dayton, Ohio, en diciembre de 1995.",
+                location: "Dayton, Ohio (EE. UU.) / Bosnia (contexto)",
+                actors: ["OTAN", "Estados Unidos", "UE", "ONU"],
+                tags: ["OTAN", "diplomacia", "posconflicto", "Europa/EE. UU."]
+            },
+            {
+                id: "e1999_kosovo_nato_airstrikes",
+                date: "1999",
+                displayDate: "1999",
+                title: "1999: Violencia en Kosovo y bombardeos de la OTAN",
+                summary: "El texto menciona Kosovo como violencia posterior y señala bombardeos de la OTAN en 1999.",
+                details: "Kosovo aparece como caso de violencia posterior en la ex Yugoslavia; en otro pasaje, el texto señala que en 1999 los bombardeos de la OTAN forzaron la retirada serbia.",
+                location: "Kosovo / ex Yugoslavia",
+                actors: ["OTAN", "Serbia (fuerzas serbias)", "Estados Unidos (en el marco OTAN)"],
+                tags: ["Kosovo", "OTAN", "intervención", "Balcánes"]
+            },
+            {
+                id: "e2001_0911_attacks",
+                date: "2001-09-11",
+                displayDate: "11 de septiembre 2001",
+                title: "2001 (11 de septiembre): Atentados del 11-S",
+                summary: "El texto los menciona como punto de inflexión para justificar acciones en Afganistán e Irak.",
+                details: "Se refiere a los \"September 11th attacks\" como detonante/justificación discursiva en el giro hacia acciones beligerantes en Afganistán e Irak.",
+                location: "Estados Unidos",
+                actors: ["Al-Qaeda", "Estados Unidos"],
+                tags: ["11-S", "guerra contra el terror", "seguridad"]
+            },
+            {
+                id: "e2001_afghanistan_us_attack",
+                date: "2001",
+                displayDate: "2001",
+                title: "2001: EE. UU. ataca Afganistán y derroca al Talibán",
+                summary: "El texto dice que EE. UU. atacó Afganistán y derrocó al Talibán.",
+                details: "El compilado vincula la respuesta posterior al 11-S con acciones en Afganistán: \"America… overthrew the Taliban and attacked Afghanistan\".",
+                location: "Afganistán",
+                actors: ["Estados Unidos", "Talibán"],
+                tags: ["Afganistán", "guerra contra el terror", "intervención"]
+            },
+            {
+                id: "e2002_kagan_power_weakness",
+                date: "2002-07",
+                displayDate: "Verano 2002",
+                title: "2002 (verano): Kagan publica llamado a 'common understanding'",
+                summary: "El texto ubica el argumento de Kagan en el verano de 2002 (antes del 'build-up' de 2003).",
+                details: "Se indica que el llamado a un \"little common understanding\" apareció en el verano de 2002, previo a la escalada hacia la guerra de Irak en 2003.",
+                location: "",
+                actors: ["Robert Kagan", "Estados Unidos", "Europa/UE"],
+                tags: ["debate transatlántico", "poder", "multilateralismo"]
+            },
+            {
+                id: "e2003_feb_old_europe",
+                date: "2003-02",
+                displayDate: "Febrero 2003",
+                title: "2003 (febrero): Rumsfeld y la etiqueta 'Old Europe'",
+                summary: "Señala a Francia y Alemania como 'Old Europe' y contrasta con 'New Europe'.",
+                details: "El texto menciona que, furioso por la oposición pública de Francia y Alemania a los planes de invasión, Donald Rumsfeld (secretario de Defensa) en febrero de 2003 las descalificó como \"Old Europe\". También contrasta con países ex-Pacto de Varsovia o nuevos miembros de la OTAN como \"New Europe\".",
+                location: "Europa / EE. UU.",
+                actors: ["Donald Rumsfeld", "Estados Unidos", "Francia", "Alemania", "Polonia", "Hungría", "Bulgaria", "Estonia"],
+                tags: ["fractura transatlántica", "OTAN", "Irak 2003"]
+            },
+            {
+                id: "e2003_iraq_invasion_march",
+                date: "2003-03",
+                displayDate: "Marzo 2003",
+                title: "2003 (marzo): Invasión/asalto liderado por EE. UU. contra Irak",
+                summary: "El texto menciona la invasión de Irak en marzo de 2003.",
+                details: "Se menciona el episodio como \"US-led invasion of Iraq in March 2003\" y como parte de la guerra/asalto de 2003, en disputa con socios europeos.",
+                location: "Irak",
+                actors: ["Estados Unidos", "Irak", "aliados", "Francia", "Alemania"],
+                tags: ["Irak 2003", "intervención", "WMD"]
+            },
+            {
+                id: "e2004_eu_enlargement",
+                date: "2004-05",
+                displayDate: "Mayo 2004",
+                title: "2004 (mayo): Ampliación sustancial de la Unión Europea",
+                summary: "El texto indica que la membresía de la UE aumentó sustancialmente en mayo de 2004.",
+                details: "El compilado afirma que la membresía de la UE se incrementó de forma sustancial en mayo de 2004, en un contexto donde se discute su capacidad de proyección internacional en medio de expansión.",
+                location: "Europa",
+                actors: ["Unión Europea", "Estados miembros"],
+                tags: ["UE", "integración europea", "expansión"]
+            }
+        ];
+
+        // Renderizar timeline
+        function renderTimeline() {
+            const timeline = document.getElementById('timeline');
+            const timelineContainer = timeline.querySelector('.timeline-line').parentElement;
+
+            events.forEach((event, index) => {
+                const eventDiv = document.createElement('div');
+                eventDiv.className = 'timeline-event';
+                eventDiv.style.animationDelay = `${index * 0.1}s`;
+
+                const eventContent = document.createElement('div');
+                eventContent.className = 'event-content';
+                eventContent.onclick = () => openModal(event);
+
+                const tagsHTML = event.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+                eventContent.innerHTML = `
+                    <div class="event-date">${event.displayDate}</div>
+                    <div class="event-title">${event.title}</div>
+                    <div class="event-summary">${event.summary}</div>
+                    <div class="event-tags">${tagsHTML}</div>
+                `;
+
+                const eventDot = document.createElement('div');
+                eventDot.className = 'event-dot';
+                eventDot.onclick = () => openModal(event);
+
+                eventDiv.appendChild(eventContent);
+                eventDiv.appendChild(eventDot);
+                timelineContainer.appendChild(eventDiv);
+            });
+        }
+
+        // Abrir modal
+        function openModal(event) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modalBody');
+
+            const actorsHTML = event.actors.length > 0 ? `
+                <div class="modal-section">
+                    <h3>Actores</h3>
+                    <ul>
+                        ${event.actors.map(actor => `<li>${actor}</li>`).join('')}
+                    </ul>
+                </div>
+            ` : '';
+
+            const locationHTML = event.location ? `
+                <div class="modal-section">
+                    <h3>Ubicación</h3>
+                    <p>${event.location}</p>
+                </div>
+            ` : '';
+
+            const tagsHTML = `
+                <div class="modal-section">
+                    <h3>Etiquetas</h3>
+                    <div class="event-tags">
+                        ${event.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            modalBody.innerHTML = `
+                <div class="modal-date">${event.displayDate}</div>
+                <h2 class="modal-title">${event.title}</h2>
+                <div class="modal-section">
+                    <h3>Resumen</h3>
+                    <p>${event.summary}</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Detalles</h3>
+                    <p>${event.details}</p>
+                </div>
+                ${locationHTML}
+                ${actorsHTML}
+                ${tagsHTML}
+            `;
+
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cerrar modal
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modalClose').onclick = closeModal;
+        document.getElementById('modal').onclick = function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        };
+
+        // ESC para cerrar modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Inicializar
+        renderTimeline();
+    </script>
+</body>
+</html>
