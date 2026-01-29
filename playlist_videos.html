@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Geopolítica - 341 Videos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid #000000;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .stats {
+            font-size: 1.1rem;
+            color: #333333;
+            margin-top: 0.5rem;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid #000000;
+            background: #ffffff;
+            color: #000000;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: #666666;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box::placeholder {
+            color: #999999;
+        }
+
+        .filters {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #000000;
+            background: #ffffff;
+            color: #000000;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .filter-btn.active {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-card {
+            border: 1px solid #000000;
+            background: #ffffff;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            box-shadow: 4px 4px 0 #000000;
+            transform: translate(-2px, -2px);
+        }
+
+        .video-content {
+            padding: 1.5rem;
+        }
+
+        .video-index {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #666666;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            color: #000000;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .video-duration {
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .video-channel {
+            color: #666666;
+            font-size: 0.85rem;
+        }
+
+        .video-views {
+            color: #999999;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 1.2rem;
+            color: #666666;
+        }
+
+        .results-count {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #666666;
+            font-weight: 500;
+        }
+
+        /* Lista compacta */
+        .view-toggle {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .video-list {
+            display: none;
+        }
+
+        .video-list.active {
+            display: block;
+        }
+
+        .video-list-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .video-list-item:hover {
+            background: #f5f5f5;
+            padding-left: 1rem;
+        }
+
+        .video-list-item .video-index {
+            display: inline-block;
+            width: 50px;
+            font-weight: 700;
+        }
+
+        .video-list-item .video-title {
+            display: inline;
+            font-size: 1rem;
+            -webkit-line-clamp: unset;
+        }
+
+        .video-list-item .video-meta {
+            border: none;
+            padding-top: 0.5rem;
+            font-size: 0.85rem;
+            margin-left: 50px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            .search-container,
+            .view-toggle {
+                display: none;
+            }
+
+            .video-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Playlist Geopolítica</h1>
+            <div class="stats" id="stats">Cargando videos...</div>
+        </header>
+
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-box" 
+                id="searchBox" 
+                placeholder="Buscar por título, canal o palabra clave..."
+                autocomplete="off"
+            >
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="short">Cortos (< 10 min)</button>
+                <button class="filter-btn" data-filter="medium">Medios (10-30 min)</button>
+                <button class="filter-btn" data-filter="long">Largos (> 30 min)</button>
+            </div>
+        </div>
+
+        <div class="view-toggle">
+            <button class="filter-btn active" id="gridView">Vista Grid</button>
+            <button class="filter-btn" id="listView">Vista Lista</button>
+        </div>
+
+        <div class="results-count" id="resultsCount"></div>
+
+        <div class="video-grid" id="videoGrid"></div>
+        <div class="video-list" id="videoList"></div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            No se encontraron videos con ese criterio de búsqueda.
+        </div>
+    </div>
+
+    <script>
+        let allVideos = [];
+        let filteredVideos = [];
+        let currentView = 'grid';
+
+        // Cargar datos del JSON
+        fetch('playlist_geopolitica.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                allVideos = data.videos;
+                filteredVideos = allVideos;
+                updateStats(data);
+                renderVideos();
+            })
+            .catch(error => {
+                console.error('Error cargando videos:', error);
+                document.getElementById('stats').innerHTML = `
+                    <div style="color: #cc0000;">
+                        <strong>Error al cargar los videos</strong><br>
+                        <small>Si estás abriendo el archivo localmente, usa un servidor web local (ej: python -m http.server 8000) o abre desde un servidor.</small><br>
+                        <small style="color: #666;">Error: ${error.message}</small>
+                    </div>
+                `;
+            });
+
+        function updateStats(data) {
+            const totalDuration = allVideos.reduce((sum, v) => sum + (v.duration || 0), 0);
+            const hours = Math.floor(totalDuration / 3600);
+            const minutes = Math.floor((totalDuration % 3600) / 60);
+            
+            document.getElementById('stats').innerHTML = `
+                ${data.total_videos} videos • ${hours}h ${minutes}m de contenido total
+            `;
+        }
+
+        function formatViews(views) {
+            if (!views) return 'N/A';
+            if (views >= 1000000) return (views / 1000000).toFixed(1) + 'M';
+            if (views >= 1000) return (views / 1000).toFixed(1) + 'K';
+            return views.toString();
+        }
+
+        function renderVideos() {
+            const gridContainer = document.getElementById('videoGrid');
+            const listContainer = document.getElementById('videoList');
+            const noResults = document.getElementById('noResults');
+            const resultsCount = document.getElementById('resultsCount');
+
+            if (filteredVideos.length === 0) {
+                gridContainer.innerHTML = '';
+                listContainer.innerHTML = '';
+                noResults.style.display = 'block';
+                resultsCount.textContent = '';
+                return;
+            }
+
+            noResults.style.display = 'none';
+            resultsCount.textContent = `Mostrando ${filteredVideos.length} de ${allVideos.length} videos`;
+
+            // Vista Grid
+            gridContainer.innerHTML = filteredVideos.map(video => `
+                <div class="video-card" onclick="window.open('${video.url}', '_blank')">
+                    <div class="video-content">
+                        <div class="video-index">#${video.playlist_index}</div>
+                        <div class="video-title">${video.title}</div>
+                        <div class="video-meta">
+                            <span class="video-duration">${video.duration_string || 'N/A'}</span>
+                            <div>
+                                <div class="video-channel">${video.channel || 'Canal desconocido'}</div>
+                                <div class="video-views">${formatViews(video.view_count)} vistas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Vista Lista
+            listContainer.innerHTML = filteredVideos.map(video => `
+                <div class="video-list-item" onclick="window.open('${video.url}', '_blank')">
+                    <span class="video-index">#${video.playlist_index}</span>
+                    <div class="video-title">${video.title}</div>
+                    <div class="video-meta">
+                        <span class="video-duration">${video.duration_string || 'N/A'}</span>
+                        <span class="video-channel">${video.channel || 'Canal desconocido'}</span>
+                        <span class="video-views">${formatViews(video.view_count)} vistas</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Búsqueda
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            filteredVideos = allVideos.filter(video => 
+                video.title.toLowerCase().includes(query) ||
+                (video.channel && video.channel.toLowerCase().includes(query))
+            );
+            renderVideos();
+        });
+
+        // Filtros por duración
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+
+                const filter = e.target.dataset.filter;
+                const query = document.getElementById('searchBox').value.toLowerCase();
+
+                let videos = allVideos.filter(video => 
+                    video.title.toLowerCase().includes(query) ||
+                    (video.channel && video.channel.toLowerCase().includes(query))
+                );
+
+                if (filter === 'short') {
+                    filteredVideos = videos.filter(v => v.duration && v.duration < 600);
+                } else if (filter === 'medium') {
+                    filteredVideos = videos.filter(v => v.duration && v.duration >= 600 && v.duration < 1800);
+                } else if (filter === 'long') {
+                    filteredVideos = videos.filter(v => v.duration && v.duration >= 1800);
+                } else {
+                    filteredVideos = videos;
+                }
+
+                renderVideos();
+            });
+        });
+
+        // Toggle vista
+        document.getElementById('gridView').addEventListener('click', () => {
+            currentView = 'grid';
+            document.getElementById('videoGrid').style.display = 'grid';
+            document.getElementById('videoList').classList.remove('active');
+            document.getElementById('gridView').classList.add('active');
+            document.getElementById('listView').classList.remove('active');
+        });
+
+        document.getElementById('listView').addEventListener('click', () => {
+            currentView = 'list';
+            document.getElementById('videoGrid').style.display = 'none';
+            document.getElementById('videoList').classList.add('active');
+            document.getElementById('gridView').classList.remove('active');
+            document.getElementById('listView').classList.add('active');
+        });
+    </script>
+</body>
+</html>
