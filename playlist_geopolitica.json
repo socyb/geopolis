@@ -2,7 +2,7 @@
   "playlist_title": "Geopolítica",
   "playlist_id": "PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg",
   "playlist_url": "https://youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg",
-  "total_videos": 341,
+  "total_videos": 342,
   "videos": [
     {
       "id": "zFZ2Zzb2ChQ",
@@ -3413,6 +3413,16 @@
       "channel": "DW News",
       "view_count": 130000,
       "playlist_index": 376
+    },
+    {
+      "id": "DrcCTgwbsjc",
+      "title": "Why was India split into two countries? - Haimanti Roy",
+      "url": "https://www.youtube.com/watch?v=DrcCTgwbsjc",
+      "duration": 349,
+      "duration_string": "5:49",
+      "channel": "TED-Ed",
+      "view_count": 4612526,
+      "playlist_index": 377
     }
   ]
 }
