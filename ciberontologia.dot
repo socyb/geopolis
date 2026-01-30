@@ -1,0 +1,84 @@
+digraph Ciberontologia_VSCode {
+  rankdir=LR;
+  fontsize=12;
+  node [shape=box, style="rounded"];
+
+  subgraph cluster_workspace {
+    label="Workspace: GEOPOLIS (entes/artefactos)";
+    style="rounded";
+
+    Explorer [label="Explorer\n(árbol de archivos)"];
+    HTML [label="HTML pages\nmanhattan_project.html, index.html, etc."];
+    Py [label="Python scripts\nprocess_playlist.py, get_video_metadata.py"];
+    Assets [label="Carpetas/recursos\ndiagrams/, wade/, etc."];
+    README [label="README / notas\n(memoria operativa)"];
+
+    Explorer -> HTML [label="selecciona/abre"];
+    Explorer -> Py [label="selecciona/abre"];
+    Explorer -> Assets [label="navega"];
+    Explorer -> README [label="consulta"];
+  }
+
+  subgraph cluster_editor {
+    label="Inscripción: Editor (texto-código)";
+    style="rounded";
+
+    Editor [label="Editor\n(HTML/CSS)"];
+    CSS [label="Reglas CSS\n:root, dark-mode, componentes"];
+    Content [label="Secciones HTML\n(e.g. esquema + discusión)"];
+
+    HTML -> Editor [label="se edita como texto"];
+    Editor -> CSS [label="modifica estilos"];
+    Editor -> Content [label="inserta estructura"];
+    Editor -> HTML [label="guarda (persistencia)"];
+  }
+
+  subgraph cluster_terminal {
+    label="Ejecución: Terminal";
+    style="rounded";
+
+    Terminal [label="Terminal\n(zsh / Python)"];
+    ScriptRun [label="Ejecución scripts\n(parseo/curaduría)"];
+    Server [label="Servidor local\npython -m http.server :8000"];
+    Logs [label="Logs HTTP\nGET / ... 200"];
+
+    Py -> Terminal [label="se ejecuta"];
+    Terminal -> ScriptRun [label="produce salida"];
+    Terminal -> Server [label="levanta servicio"];
+    Server -> Logs [label="registra requests"];
+  }
+
+  subgraph cluster_browser {
+    label="Publicación: Navegador (mundo renderizado)";
+    style="rounded";
+
+    Browser [label="Navegador\n(render HTML/CSS)"];
+    Render [label="Página renderizada\n(estética + lectura)"];
+
+    Browser -> Render [label="interpreta"];
+  }
+
+  subgraph cluster_ai {
+    label="Observación de segundo orden: Chat/Asistente";
+    style="rounded";
+
+    User [shape=oval, style="solid", label="Tú (intención/decisión)"];
+    Chat [label="Chat panel\n(asistente)"];
+    Suggest [label="Propuestas\n(CSS, secciones, cambios)"];
+
+    User -> Chat [label="solicita/describe intención"];
+    Chat -> Suggest [label="analiza + sugiere"];
+    Suggest -> Editor [label="se integra en el código"];
+  }
+
+  // circulación principal
+  User -> Explorer [label="elige artefacto"];
+  HTML -> Server [label="archivo servido"];
+  Browser -> Server [label="HTTP GET"];
+  Server -> Browser [label="HTTP 200 + contenido"];
+  Render -> User [label="lectura/validación"];
+  User -> Editor [label="ajusta/itera"];
+
+  // bucle de automatización
+  ScriptRun -> HTML [label="alimenta/genera contenido\n(playlist/metadatos)"];
+}

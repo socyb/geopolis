@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Manhattan - Paradigma del Complejo Militar-Industrial</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border-color: #000000;
+            --border-light: #e0e0e0;
+            --card-bg: #ffffff;
+            --hover-bg: #f5f5f5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-tertiary: #808080;
+            --border-color: #ffffff;
+            --border-light: #333333;
+            --card-bg: #2a2a2a;
+            --hover-bg: #333333;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .dark-mode-toggle:hover {
+            background: var(--hover-bg);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .card {
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 4px 4px 0 var(--border-color);
+            transform: translate(-2px, -2px);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .card ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--border-color);
+            border: 3px solid var(--bg-color);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            color: var(--text-secondary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--hover-bg);
+            border: 2px solid var(--border-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .actors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .actor-card {
+            border: 1px solid var(--border-light);
+            padding: 1rem;
+            background: var(--card-bg);
+        }
+
+        .actor-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .actor-card small {
+            color: var(--text-tertiary);
+        }
+
+        .consequences {
+            margin-top: 1rem;
+        }
+
+        .consequence-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--border-color);
+            background: var(--hover-bg);
+        }
+
+        .consequence-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .discussion-section {
+            background: var(--hover-bg);
+            border: 2px solid var(--border-color);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .discussion-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .question {
+            background: var(--card-bg);
+            border-left: 4px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .question strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .schema-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .schema-container img {
+            max-width: 75%;
+            width: auto;
+            height: auto;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            padding: 1rem;
+        }
+
+        .schema-caption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .dark-mode-toggle {
+                position: static;
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+        }
+
+        @media print {
+            .dark-mode-toggle {
+                display: none;
+            }
+            
+            .card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="dark-mode-toggle" id="darkModeToggle">🌙 Modo Nocturno</button>
+            <h1>Proyecto Manhattan</h1>
+            <div class="subtitle">Paradigma del Complejo Militar-Industrial</div>
+            <div style="margin-top: 1rem;">
+                <a href="autodescripcion.html" style="color: var(--text-tertiary); font-size: 0.9rem; text-decoration: none; border-bottom: 1px dotted var(--text-tertiary);">→ Ir al nivel meta (Ciberontología del workspace)</a>
+            </div>
+        </header>
+
+        <!-- Introducción -->
+        <section class="section">
+            <div class="card">
+                <h3>¿Qué fue el Proyecto Manhattan?</h3>
+                <p>Programa de investigación y desarrollo liderado por Estados Unidos durante la Segunda Guerra Mundial (1942-1946) que produjo las primeras armas nucleares. Involucró a más de 130,000 personas y costó aproximadamente $2 mil millones de dólares (equivalente a ~$28 mil millones hoy).</p>
+                <p><strong>Resultado:</strong> Desarrollo exitoso de la bomba atómica, utilizada en Hiroshima y Nagasaki en agosto de 1945.</p>
+            </div>
+        </section>
+
+        <!-- Cronología -->
+        <section class="section">
+            <h2 class="section-title">Cronología del Proyecto</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">1939-1941: Inicios</span>
+                    <div class="timeline-content">
+                        Carta Einstein-Szilárd advierte a Roosevelt sobre el potencial alemán. Investigaciones preliminares en universidades estadounidenses.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1942: Oficialización</span>
+                    <div class="timeline-content">
+                        Creación formal del Proyecto Manhattan bajo el Cuerpo de Ingenieros del Ejército de EE.UU. El General Leslie Groves asume el liderazgo.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1943-1944: Desarrollo</span>
+                    <div class="timeline-content">
+                        Establecimiento de laboratorios en Los Álamos (NM), Oak Ridge (TN), y Hanford (WA). J. Robert Oppenheimer dirige el diseño científico.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">16 julio 1945: Trinity</span>
+                    <div class="timeline-content">
+                        Primera prueba nuclear exitosa en Nuevo México. Confirmación de viabilidad tecnológica.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Agosto 1945: Despliegue</span>
+                    <div class="timeline-content">
+                        Bombas atómicas lanzadas sobre Hiroshima (6 de agosto) y Nagasaki (9 de agosto). Japón se rinde el 15 de agosto.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actores Clave -->
+        <section class="section">
+            <h2 class="section-title">Actores Clave</h2>
+            <div class="actors-grid">
+                <div class="actor-card">
+                    <strong>J. Robert Oppenheimer</strong>
+                    <small>Director científico</small>
+                </div>
+                <div class="actor-card">
+                    <strong>Leslie Groves</strong>
+                    <small>Director militar</small>
+                </div>
+                <div class="actor-card">
+                    <strong>Enrico Fermi</strong>
+                    <small>Física nuclear</small>
+                </div>
+                <div class="actor-card">
+                    <strong>Richard Feynman</strong>
+                    <small>Física teórica</small>
+                </div>
+                <div class="actor-card">
+                    <strong>Edward Teller</strong>
+                    <small>Diseño termonuclear</small>
+                </div>
+                <div class="actor-card">
+                    <strong>Niels Bohr</strong>
+                    <small>Asesor científico</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Paradigma -->
+        <section class="section">
+            <h2 class="section-title">El Proyecto Manhattan como Paradigma</h2>
+            
+            <div class="highlight-box">
+                <strong>¿Por qué es paradigmático del complejo militar-industrial?</strong>
+                <p>El Proyecto Manhattan estableció el modelo de colaboración a gran escala entre gobierno, militares, academia e industria privada para objetivos de seguridad nacional.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Características del Modelo</h3>
+                    <ul>
+                        <li><strong>Financiamiento estatal masivo</strong> para I+D militar</li>
+                        <li><strong>Movilización científica</strong> sin precedentes</li>
+                        <li><strong>Coordinación centralizada</strong> entre múltiples agencias</li>
+                        <li><strong>Secretismo y compartimentalización</strong> de información</li>
+                        <li><strong>Integración industria-defensa</strong> permanente</li>
+                        <li><strong>Infraestructura de investigación</strong> de gran escala</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Instituciones Involucradas</h3>
+                    <ul>
+                        <li><strong>Gobierno federal:</strong> Coordinación y financiamiento</li>
+                        <li><strong>Fuerzas Armadas:</strong> Administración y seguridad</li>
+                        <li><strong>Universidades:</strong> MIT, Berkeley, Chicago, Columbia</li>
+                        <li><strong>Corporaciones:</strong> DuPont, General Electric, Eastman Kodak</li>
+                        <li><strong>Laboratorios nacionales:</strong> Los Álamos, Oak Ridge, Hanford</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Esquema Visual del Complejo Militar-Industrial -->
+        <section class="section">
+            <h2 class="section-title">Esquema del Complejo Militar-Industrial</h2>
+            
+            <div class="schema-container">
+                <img src="manhattan_project.png" alt="Esquema del Complejo Militar-Industrial derivado del Proyecto Manhattan">
+                <p class="schema-caption">Esquema conceptual de las relaciones entre actores en el complejo militar-industrial</p>
+            </div>
+
+            <div class="card">
+                <h3>Explicación del Esquema</h3>
+                <p>El diagrama ilustra la estructura fundamental del complejo militar-industrial que emergió del Proyecto Manhattan, mostrando las relaciones de interdependencia entre cuatro actores principales:</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Nodos del Sistema</h3>
+                    <ul>
+                        <li><strong>Estado/Gobierno:</strong> Provee financiamiento masivo, establece prioridades estratégicas y legitima el proyecto bajo narrativas de seguridad nacional. Es el cliente principal y coordinador del sistema.</li>
+                        <li><strong>Fuerzas Armadas:</strong> Definen necesidades operativas, administran proyectos y eventualmente despliegan las tecnologías desarrolladas. Ejercen control sobre seguridad y clasificación.</li>
+                        <li><strong>Academia/Universidades:</strong> Aportan conocimiento científico fundamental, capital humano altamente calificado e infraestructura de investigación. Los científicos trabajan en proyectos clasificados.</li>
+                        <li><strong>Industria Privada:</strong> Proporciona capacidad de manufactura a gran escala, gestión de proyectos complejos y desarrollo tecnológico aplicado. Se beneficia de contratos gubernamentales lucrativos.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Flujos de Intercambio</h3>
+                    <ul>
+                        <li><strong>Capital financiero:</strong> Del Estado hacia todos los demás actores mediante contratos, subvenciones de investigación y presupuestos de defensa.</li>
+                        <li><strong>Conocimiento científico:</strong> De la academia hacia la industria y las fuerzas armadas. Circulación restringida por clasificación de seguridad.</li>
+                        <li><strong>Tecnología aplicada:</strong> De la industria hacia el Estado y las fuerzas armadas. Posterior "spin-off" hacia aplicaciones civiles.</li>
+                        <li><strong>Personal:</strong> Movimiento de científicos, ingenieros y administradores entre los cuatro sectores ("puerta giratoria").</li>
+                        <li><strong>Legitimidad política:</strong> Narrativas de amenaza externa y supremacía tecnológica que justifican la inversión continua.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Características Sistémicas</strong>
+                <p><strong>Retroalimentación positiva:</strong> El éxito del Proyecto Manhattan (bomba atómica funcional) validó el modelo, incentivando su replicación y expansión hacia otros dominios tecnológicos.</p>
+                <p><strong>Dependencia mutua:</strong> Ningún actor puede funcionar de manera aislada. El Estado necesita expertise científico-técnico; la academia requiere financiamiento; la industria depende de contratos gubernamentales; las fuerzas armadas necesitan innovación tecnológica.</p>
+                <p><strong>Institucionalización:</strong> Lo que comenzó como respuesta emergente a la Segunda Guerra Mundial se convirtió en estructura permanente que trasciende administraciones políticas y continúa hasta el presente.</p>
+                <p><strong>Expansión de alcance:</strong> El modelo se ha extendido más allá de lo nuclear hacia computación, telecomunicaciones, biotecnología, inteligencia artificial y tecnologías espaciales.</p>
+            </div>
+        </section>
+
+        <!-- Consecuencias -->
+        <section class="section">
+            <h2 class="section-title">Consecuencias Duraderas</h2>
+            
+            <div class="consequences">
+                <div class="consequence-item">
+                    <h4>1. Institucionalización de la Ciencia Militar</h4>
+                    <p>Creación de infraestructura permanente para investigación de defensa (NSF, DARPA, laboratorios nacionales). La frontera entre investigación básica y aplicaciones militares se vuelve difusa.</p>
+                </div>
+
+                <div class="consequence-item">
+                    <h4>2. Carrera Armamentista</h4>
+                    <p>Inicio de la competencia nuclear con la URSS. Proliferación de armas nucleares. Desarrollo de la bomba de hidrógeno (1952). Doctrina de Destrucción Mutua Asegurada (MAD).</p>
+                </div>
+
+                <div class="consequence-item">
+                    <h4>3. Formación del Complejo Militar-Industrial</h4>
+                    <p>Eisenhower advierte en 1961 sobre el "complejo militar-industrial". Dependencia económica de regiones enteras en contratos de defensa. Lobby permanente para incrementar presupuesto militar.</p>
+                </div>
+
+                <div class="consequence-item">
+                    <h4>4. Dilemas Éticos</h4>
+                    <p>Debate sobre responsabilidad científica (Oppenheimer vs Teller). Cuestiones sobre uso de armas de destrucción masiva. Tensión entre secretismo nacional y transparencia científica.</p>
+                </div>
+
+                <div class="consequence-item">
+                    <h4>5. Modelo de Innovación "Big Science"</h4>
+                    <p>Proyectos científicos a gran escala con financiamiento estatal. Aceleradores de partículas, exploración espacial, genoma humano. Colaboración internacional en megaproyectos (CERN, ISS).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Datos Cuantitativos -->
+        <section class="section">
+            <h2 class="section-title">Dimensión del Proyecto</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Recursos Humanos</h3>
+                    <ul>
+                        <li>130,000+ empleados en su punto máximo</li>
+                        <li>5 premios Nobel involucrados</li>
+                        <li>~12 científicos refugiados europeos clave</li>
+                        <li>Múltiples especialidades: física, química, ingeniería, metalurgia</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Recursos Materiales</h3>
+                    <ul>
+                        <li>$2 mil millones de dólares (1945)</li>
+                        <li>~$28 mil millones en valor actual</li>
+                        <li>3 sitios principales de producción</li>
+                        <li>Consumo eléctrico equivalente a una ciudad mediana</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discusión -->
+        <section class="discussion-section">
+            <h2>Preguntas para Discusión</h2>
+            
+            <div class="question">
+                <strong>1. Legitimidad del proyecto</strong>
+                <p>¿Estuvo justificado el Proyecto Manhattan dado el contexto de la Segunda Guerra Mundial? ¿Cambiaría su respuesta si Alemania no hubiera estado desarrollando su propia bomba?</p>
+            </div>
+
+            <div class="question">
+                <strong>2. Responsabilidad científica</strong>
+                <p>¿Tienen los científicos responsabilidad moral sobre las aplicaciones de su investigación? ¿Es válida la distinción entre "investigación pura" y "aplicaciones militares"?</p>
+            </div>
+
+            <div class="question">
+                <strong>3. Complejo militar-industrial hoy</strong>
+                <p>¿En qué formas continúa manifestándose el modelo del Proyecto Manhattan? Ejemplos contemporáneos: IA militar, ciberseguridad, tecnología espacial.</p>
+            </div>
+
+            <div class="question">
+                <strong>4. Alternativas institucionales</strong>
+                <p>¿Es posible mantener innovación de vanguardia sin la estrecha integración entre militares, gobierno y sector privado? ¿Qué modelos alternativos existen?</p>
+            </div>
+
+            <div class="question">
+                <strong>5. Secretismo vs. transparencia</strong>
+                <p>¿Cómo equilibrar las necesidades de seguridad nacional con los principios de apertura científica y rendición de cuentas democrática?</p>
+            </div>
+
+            <div class="question">
+                <strong>6. Proliferación nuclear</strong>
+                <p>¿Fue inevitable la proliferación nuclear después del Proyecto Manhattan? ¿Qué mecanismos de control han funcionado o fallado?</p>
+            </div>
+        </section>
+
+        <!-- Referencias -->
+        <section class="section">
+            <h2 class="section-title">Referencias y Recursos</h2>
+            <div class="card">
+                <h3>Lecturas sugeridas</h3>
+                <ul>
+                    <li>Rhodes, R. (1986). <em>The Making of the Atomic Bomb</em>. Simon & Schuster.</li>
+                    <li>Bird, K. & Sherwin, M. J. (2005). <em>American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer</em>. Knopf.</li>
+                    <li>Galison, P. & Hevly, B. (Eds.). (1992). <em>Big Science: The Growth of Large-Scale Research</em>. Stanford University Press.</li>
+                    <li>Leslie, S. W. (1993). <em>The Cold War and American Science: The Military-Industrial-Academic Complex at MIT and Stanford</em>. Columbia University Press.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Verificar preferencia guardada
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️ Modo Claro';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = '☀️ Modo Claro';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeToggle.textContent = '🌙 Modo Nocturno';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-light);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; gap: 2rem; margin-bottom: 2rem;">
+                <div style="flex: 1; min-width: 250px;">
+                    <p style="margin-bottom: 0.5rem; font-weight: 600;">Geopolítica Internacional Aplicada a los Negocios Internacionales</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Curso Intersemestral 2026-1</p>
+                    <p style="color: var(--text-secondary);">Facultad de Contaduría y Administración, UNAM</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; text-align: right;">
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        <small>Última actualización: Enero 2026</small>
+                    </p>
+                    <a href="index.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--hover-bg); border: 1px solid var(--border-light); color: var(--text-color); text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                        ← Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

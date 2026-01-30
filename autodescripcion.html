@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Renderizado - Ciberontología del Workspace</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border-color: #000000;
+            --border-light: #e0e0e0;
+            --card-bg: #ffffff;
+            --hover-bg: #f5f5f5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-tertiary: #808080;
+            --border-color: #ffffff;
+            --border-light: #333333;
+            --card-bg: #2a2a2a;
+            --hover-bg: #333333;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .dark-mode-toggle:hover {
+            background: var(--hover-bg);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .card {
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 4px 4px 0 var(--border-color);
+            transform: translate(-2px, -2px);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .card ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--hover-bg);
+            border: 2px solid var(--border-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .schema-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .schema-container img {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            padding: 1rem;
+        }
+
+        .schema-caption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .layer-item {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--border-color);
+            background: var(--hover-bg);
+        }
+
+        .layer-item h4 {
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .layer-item strong {
+            color: var(--text-color);
+        }
+
+        .flow-diagram {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--hover-bg);
+            border: 2px solid var(--border-color);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .dark-mode-toggle {
+                position: static;
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .dark-mode-toggle {
+                display: none;
+            }
+            
+            .card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="dark-mode-toggle" id="darkModeToggle">🌙 Modo Nocturno</button>
+            <h1>Mundo Renderizado</h1>
+            <div class="subtitle">Una ciberontología del workspace</div>
+            <div style="margin-top: 1rem;">
+                <a href="manhattan_project.html" style="color: var(--text-tertiary); font-size: 0.9rem; text-decoration: none; border-bottom: 1px dotted var(--text-tertiary);">→ Ir al ejemplo paradigmático</a>
+            </div>
+        </header>
+
+        <!-- Introducción -->
+        <section class="section">
+            <div class="card">
+                <h3>¿Qué es esta ciberontología?</h3>
+                <p>Este documento describe la ontología operativa del espacio de trabajo (workspace) en el que hemos estado colaborando. No es solo una descripción técnica del entorno de desarrollo, sino un análisis reflexivo de los distintos planos de existencia, inscripción y circulación que constituyen nuestra práctica de trabajo conjunto.</p>
+                <p>El término <strong>"mundo renderizado"</strong> captura la naturaleza esencialmente mediada de todo lo que aquí acontece: archivos que existen como texto pero se manifiestan como páginas visuales, código que se ejecuta como procesos, y un bucle continuo entre intención humana, sugerencia algorítmica, y materialización digital.</p>
+            </div>
+        </section>
+
+        <!-- Esquema Visual -->
+        <section class="section">
+            <h2 class="section-title">Diagrama de la Ciberontología</h2>
+            
+            <div class="schema-container">
+                <img src="ciberontologia.svg" alt="Diagrama de la ciberontología del workspace">
+                <p class="schema-caption">Representación visual de las capas ontológicas y sus flujos de circulación</p>
+            </div>
+        </section>
+
+        <!-- Capas Ontológicas -->
+        <section class="section">
+            <h2 class="section-title">Capas Ontológicas del Workspace</h2>
+            
+            <div class="layer-item">
+                <h4>1. Workspace: GEOPOLIS (entes/artefactos)</h4>
+                <p><strong>Naturaleza:</strong> Conjunto de archivos y carpetas que constituyen el proyecto. Existen como inscripciones en el sistema de archivos.</p>
+                <p><strong>Componentes clave:</strong></p>
+                <ul>
+                    <li><strong>Explorer:</strong> Interfaz de navegación del árbol de archivos</li>
+                    <li><strong>Archivos HTML:</strong> manhattan_project.html, index.html, playlist_videos.html, etc.</li>
+                    <li><strong>Scripts Python:</strong> process_playlist.py, automatización de tareas</li>
+                    <li><strong>Assets:</strong> Carpetas con recursos (diagrams/, wade/, imágenes)</li>
+                    <li><strong>README:</strong> Documentación, memoria operativa del proyecto</li>
+                </ul>
+                <p><strong>Función:</strong> Capa de persistencia. Los artefactos aquí residen independientemente de si están siendo editados, ejecutados o visualizados.</p>
+            </div>
+
+            <div class="layer-item">
+                <h4>2. Inscripción: Editor (texto-código)</h4>
+                <p><strong>Naturaleza:</strong> Plano donde los archivos se convierten en texto editable. Aquí el código HTML/CSS/Python existe como secuencias de caracteres modificables.</p>
+                <p><strong>Operaciones:</strong></p>
+                <ul>
+                    <li>Selección y apertura de archivos desde Explorer</li>
+                    <li>Edición de contenido (HTML estructural, reglas CSS, lógica Python)</li>
+                    <li>Modificación de estilos (:root, dark-mode, componentes)</li>
+                    <li>Inserción de nuevas secciones y estructuras</li>
+                    <li>Guardado (escritura de cambios al sistema de archivos)</li>
+                </ul>
+                <p><strong>Función:</strong> Mediación entre la intención de cambio y la materialización del cambio. El editor es el sitio de la escritura.</p>
+            </div>
+
+            <div class="layer-item">
+                <h4>3. Ejecución: Terminal</h4>
+                <p><strong>Naturaleza:</strong> Plano donde el código deja de ser texto y se convierte en proceso. Aquí ocurre la computación efectiva.</p>
+                <p><strong>Operaciones:</strong></p>
+                <ul>
+                    <li>Ejecución de scripts Python (parseo de datos, curaduría de contenido)</li>
+                    <li>Levantamiento de servidor local (<code>python -m http.server 8000</code>)</li>
+                    <li>Generación de diagramas (<code>dot -Tsvg</code>, <code>dot -Tpng</code>)</li>
+                    <li>Registro de logs (peticiones HTTP, errores, outputs)</li>
+                </ul>
+                <p><strong>Función:</strong> Transformación y automatización. La terminal es donde el texto-como-programa se activa como proceso-en-ejecución.</p>
+            </div>
+
+            <div class="layer-item">
+                <h4>4. Publicación: Navegador (mundo renderizado)</h4>
+                <p><strong>Naturaleza:</strong> Plano donde el código HTML/CSS se transforma en representación visual. El texto se vuelve página, el CSS se vuelve estética.</p>
+                <p><strong>Operaciones:</strong></p>
+                <ul>
+                    <li>Interpretación de HTML (estructura del DOM)</li>
+                    <li>Aplicación de reglas CSS (layout, colores, tipografía)</li>
+                    <li>Renderizado visual de contenido</li>
+                    <li>Interactividad (modo nocturno, hover effects, navegación)</li>
+                </ul>
+                <p><strong>Función:</strong> Manifestación perceptual. El navegador es donde el proyecto se hace visible y experimentable.</p>
+            </div>
+
+            <div class="layer-item">
+                <h4>5. Observación de Segundo Orden: Chat/Asistente</h4>
+                <p><strong>Naturaleza:</strong> Capa meta-operativa donde se observa, analiza y propone sobre las otras capas. El asistente opera sobre el workspace sin ser parte del workspace.</p>
+                <p><strong>Operaciones:</strong></p>
+                <ul>
+                    <li>Recepción de intenciones del usuario (descripciones en lenguaje natural)</li>
+                    <li>Análisis del estado actual del proyecto (lectura de archivos, contexto)</li>
+                    <li>Generación de propuestas (nuevo código CSS, secciones HTML, scripts)</li>
+                    <li>Ejecución de cambios (edición directa de archivos)</li>
+                    <li>Validación y ajuste iterativo</li>
+                </ul>
+                <p><strong>Función:</strong> Mediación cognitiva. El chat es el espacio donde la intención se traduce en intervención técnica.</p>
+            </div>
+        </section>
+
+        <!-- Flujos de Circulación -->
+        <section class="section">
+            <h2 class="section-title">Flujos de Circulación</h2>
+
+            <div class="card">
+                <h3>Ciclo Principal de Trabajo</h3>
+                <div class="flow-diagram">
+Usuario (intención) → Chat (análisis/propuesta) → Editor (modificación código)
+    ↓
+Archivo guardado → Terminal (ejecución/servidor) → Navegador (render)
+    ↓
+Visualización → Usuario (lectura/validación) → Nueva intención → [ciclo]
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Flujos de Automatización</h3>
+                    <ul>
+                        <li><strong>Scripts → Contenido:</strong> Python genera JSON/datos que alimentan las páginas HTML</li>
+                        <li><strong>Terminal → Archivos:</strong> Comandos dot generan diagramas PNG/SVG</li>
+                        <li><strong>Servidor → Navegador:</strong> HTTP sirve archivos estáticos desde localhost</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Flujos de Persistencia</h3>
+                    <ul>
+                        <li><strong>Editor → Disco:</strong> Guardado de cambios en archivos</li>
+                        <li><strong>Git → Historia:</strong> Versionado de cambios (potencial)</li>
+                        <li><strong>localStorage → Preferencias:</strong> Modo nocturno persiste entre sesiones</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Características del Sistema -->
+        <section class="section">
+            <h2 class="section-title">Características del Sistema</h2>
+
+            <div class="highlight-box">
+                <strong>Recursividad</strong>
+                <p>Este documento es parte del workspace que describe. La página autodescripcion.html existe simultáneamente como artefacto del sistema y como reflexión sobre el sistema. El diagrama ciberontologia.svg representa las relaciones que hacen posible su propia existencia.</p>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Mediación Múltiple</strong>
+                <p>Ningún acceso es directo. Toda intervención pasa por capas de traducción: lenguaje natural → código → texto guardado → proceso ejecutado → visualización renderizada. Cada capa opera con su propia lógica y materialidad.</p>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Colaboración Humano-IA</strong>
+                <p>La distinción entre "lo que hace el usuario" y "lo que hace el asistente" se desdibuja. El usuario provee intención y validación; el asistente provee implementación y sugerencia. Ambos participan en un bucle de especificación progresiva.</p>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Estética como Función</strong>
+                <p>El "estilo sobrio y claro" no es solo decoración. Es parte de la ontología: modo nocturno como adaptación contextual, bordes como delimitación conceptual, hover effects como affordance de interacción. El CSS es tanto código como decisión estética.</p>
+            </div>
+        </section>
+
+        <!-- Reflexión Final -->
+        <section class="section">
+            <h2 class="section-title">Implicaciones</h2>
+
+            <div class="card">
+                <h3>Para la Práctica del Desarrollo</h3>
+                <p>Este análisis revela que "programar" es una actividad distribuida entre múltiples planos ontológicos. No es solo escribir código, sino navegar entre texto, ejecución, visualización y meta-reflexión. El workspace no es un contenedor neutral sino una ecología de prácticas y artefactos.</p>
+            </div>
+
+            <div class="card">
+                <h3>Para el Trabajo con IA</h3>
+                <p>La colaboración con asistentes de IA no es "automatización" sino "externalización de operaciones cognitivas". El asistente no reemplaza al programador sino que redistribuye tareas: el humano especifica intención y evalúa resultados; la IA genera implementaciones y navega complejidad técnica. Esto requiere nuevas competencias: saber qué pedir, cómo validar, cuándo iterar.</p>
+            </div>
+
+            <div class="card">
+                <h3>Para la Geopolítica (el contexto del curso)</h3>
+                <p>Así como esta ciberontología describe las capas de operación de un workspace, la geopolítica describe las capas de operación del sistema internacional: actores estatales, flujos de capital, redes de conocimiento, legitimaciones discursivas. Ambos son sistemas donde ningún nivel opera de forma aislada y donde la "realidad" emerge de circulaciones entre planos heterogéneos.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Verificar preferencia guardada
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️ Modo Claro';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = '☀️ Modo Claro';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeToggle.textContent = '🌙 Modo Nocturno';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-light);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; gap: 2rem; margin-bottom: 2rem;">
+                <div style="flex: 1; min-width: 250px;">
+                    <p style="margin-bottom: 0.5rem; font-weight: 600;">Geopolítica Internacional Aplicada a los Negocios Internacionales</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Curso Intersemestral 2026-1</p>
+                    <p style="color: var(--text-secondary);">Facultad de Contaduría y Administración, UNAM</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; text-align: right;">
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        <small>Última actualización: Enero 2026</small>
+                    </p>
+                    <a href="index.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--hover-bg); border: 1px solid var(--border-light); color: var(--text-color); text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                        ← Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
