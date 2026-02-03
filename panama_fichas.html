@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Canal de Panamá — Fichas de lectura</title>
+  <style>
+    :root{
+      --bg: #ffffff;
+      --fg: #000000;
+      --card: #ffffff;
+      --border: #000000;
+      --muted: #666666;
+    }
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0;
+      padding: 24px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header{
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    h1{
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .subtitle{
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+    .toolbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 2px solid var(--border);
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+    .toolbar-left{
+      font-weight: 600;
+    }
+    .toolbar-right{
+      display: flex;
+      gap: 8px;
+    }
+    .toolbar-btn{
+      background: #000;
+      color: #fff;
+      border: 2px solid #000;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .toolbar-btn:hover{
+      background: #333;
+    }
+    .toolbar-btn:focus-visible{
+      outline: 2px dashed #000;
+      outline-offset: 2px;
+    }
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .card{
+      background: var(--card);
+      border: 2px solid var(--border);
+      padding: 0;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .card.collapsed{
+      grid-column: span 1;
+      max-height: 60px;
+      overflow: hidden;
+    }
+    .card-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+      background: #000;
+      color: #fff;
+      border: 0;
+      width: 100%;
+      text-align: left;
+      gap: 12px;
+      font: inherit;
+      appearance: none;
+    }
+    .card-header:hover{
+      background: #333;
+    }
+    .card-header:focus-visible{
+      outline: 2px dashed #000;
+      outline-offset: 2px;
+    }
+    .card.collapsed .card-header{
+      background: #fff;
+      color: #000;
+      border-bottom: none;
+    }
+    .card.collapsed .card-header:hover{
+      background: #f5f5f5;
+    }
+    .card-title{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .toggle-btn{
+      font-size: 20px;
+      line-height: 1;
+      transition: transform 0.3s;
+    }
+    .card.collapsed .toggle-btn{
+      transform: rotate(180deg);
+    }
+    .card-content{
+      padding: 20px;
+      font-size: 15px;
+      display: block;
+    }
+    .card.collapsed .card-content{
+      display: none;
+    }
+    .card-content ul{
+      margin: 0;
+      padding-left: 20px;
+    }
+    .card-content li{
+      margin: 8px 0;
+    }
+    .card-content ol{
+      margin: 0;
+      padding-left: 20px;
+    }
+    .pills{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .pill{
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      background: #000;
+      border: 1px solid #000;
+      padding: 4px 12px;
+    }
+    .timeline-item{
+      padding: 12px 16px;
+      margin: 12px 0;
+      background: #f9f9f9;
+      border-left: 3px solid #000;
+      font-size: 14px;
+    }
+    .timeline-year{
+      font-weight: 700;
+      color: #000;
+    }
+    .highlight{
+      font-weight: 600;
+      color: var(--fg);
+    }
+    .concept-list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .concept-list li{
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .concept-list li:last-child{
+      border-bottom: none;
+    }
+    .concept-term{
+      font-weight: 600;
+      color: #000;
+    }
+    .question{
+      background: #f5f5f5;
+      border-left: 4px solid #000;
+      padding: 12px 16px;
+      margin: 12px 0;
+      font-size: 15px;
+    }
+    footer{
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 768px){
+      .cards{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Canal de Panamá</h1>
+      <p class="subtitle">Fichas de lectura · Puntos principales</p>
+    </header>
+
+    <div class="toolbar">
+      <div class="toolbar-left">Post-its de lectura</div>
+      <div class="toolbar-right">
+        <button id="open-all" type="button" class="toolbar-btn">Abrir todo</button>
+        <button id="close-all" type="button" class="toolbar-btn">Cerrar todo</button>
+      </div>
+    </div>
+
+    <!-- FILA 1 -->
+    <div class="cards">
+      <!-- Ficha: Idea Central -->
+      <div class="card" data-id="1">
+        <button class="card-header card-toggle" type="button" aria-expanded="true">
+          <h2 class="card-title">💡 Idea Central</h2>
+          <span class="toggle-btn">▼</span>
+        </button>
+        <div class="card-content">
+          <div class="pills">
+            <span class="pill">Infraestructura = poder</span>
+            <span class="pill">Imperio / protectorados</span>
+            <span class="pill">Trabajo + racialización</span>
+            <span class="pill">Soberanía</span>
+          </div>
+          <ul>
+            <li>El canal organiza una <span class="highlight">arquitectura de control</span> militar, comercial y político.</li>
+            <li>La independencia panameña y la "Zona del Canal" son parte de un <span class="highlight">proceso imperial</span>.</li>
+            <li>Construcción y administración producen un <span class="highlight">orden segregado</span> dentro de la Zona.</li>
+            <li>Décadas después, culmina en un <span class="highlight">arreglo negociado</span> (tratados 1977) y transferencia en 1999.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ficha: Camino al Control -->
+      <div class="card" data-id="2">
+        <button class="card-header card-toggle" type="button" aria-expanded="true">
+          <h2 class="card-title">🛤️ Camino al Control</h2>
+          <span class="toggle-btn">▼</span>
+        </button>
+        <div class="card-content">
+          <p><strong>Diplomacia + ruta</strong></p>
+          <ul>
+            <li>Disputa por quién controla un canal interoceánico (Nicaragua vs Panamá).</li>
+            <li>Actores clave: Estado, lobby y finanzas (Hay, Roosevelt, Bunau-Varilla, Cromwell).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ficha: 1903 Secesión -->
+      <div class="card" data-id="3">
+        <button class="card-header card-toggle" type="button" aria-expanded="true">
+          <h2 class="card-title">🏛️ 1903: Secesión y Tratado</h2>
+          <span class="toggle-btn">▼</span>
+        </button>
+        <div class="card-content">
+          <ul>
+            <li>Tras fracaso con Colombia, se apoya la <span class="highlight">secesión panameña</span>.</li>
+            <li>EE. UU. reconoce rápidamente al nuevo Estado.</li>
+            <li>Tratado Hay–Bunau-Varilla concede derechos "como si fuera soberano" sobre la Zona del Canal.</li>
+            <li>Pagos relativamente bajos frente al control obtenido.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILA 2 -->
+    <div class="cards">
+      <!-- Ficha: Construcción -->
+      <div class="card" data-id="4">
+        <button class="card-header card-toggle" type="button" aria-expanded="true">
+          <h2 class="card-title">🏗️ Construcción: Ingeniería + Segregación</h2>
+          <span class="toggle-btn">▼</span>
+        </button>
+        <div class="card-content">
+          <ul>
+            <li>Régimen laboral "<span class="highlight">gold/silver roll</span>": empieza por nacionalidad, deriva en sistema racializado.</li>
+            <li>Se replica en vivienda, escuelas y transporte dentro de la Zona.</li>
+            <li>Administración del Canal Zone: obra pública + gobierno, represión de huelgas, control político.</li>
+            <li>Panamá funciona como <span class="highlight">protectorado</span> durante construcción y administración temprana.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ficha: Renegociación -->
+      <div class="card" data-id="5">
+        <button class="card-header card-toggle" type="button" aria-expanded="true">
+          <h2 class="card-title">🤝 Renegociación y Soberanía</h2>
+          <span class="toggle-btn">▼</span>
+        </button>
+        <div class="card-content">
+          <p><strong>Torrijos → Carter</strong></p>
+          <ul>
+            <li>En los 70, Torrijos reposiciona el tema como <span class="highlight">descolonización</span>.</li>
+            <li>Busca apoyo internacional y redefine identidad política interna.</li>
+            <li>1977: tratados para <span class="highlight">transferencia gradual</span>.</li>
+            <li>Se desmantela el gobierno separado de la Zona, se crea comisión binacional.</li>
+            <li>Control total a Panamá: <span class="highlight">31 de diciembre de 1999</span>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ficha: Conceptos Clave -->
+      <div class="card" data-id="6">
+        <button class="card-header card-toggle" type="button" aria-expanded="true">
+          <h2 class="card-title">📚 Conceptos Clave</h2>
+          <span class="toggle-btn">▼</span>
+        </button>
+        <div class="card-content">
+          <ul class="concept-list">
+            <li><span class="concept-term">Imperialismo informal:</span> Control sin anexión formal (tratados, bases, administración).</li>
+            <li><span class="concept-term">Infraestructura estratégica:</span> Guerra, comercio, proyección naval.</li>
+            <li><span class="concept-term">Racialización del trabajo:</span> Jerarquías laborales → jerarquías sociales.</li>
+            <li><span class="concept-term">Soberanía negociada:</span> Conflicto largo → transición pactada.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILA 3: Línea del tiempo (full width) -->
+    <div class="card" data-id="7">
+      <button class="card-header card-toggle" type="button" aria-expanded="true">
+        <h2 class="card-title">⏱️ Línea del Tiempo</h2>
+        <span class="toggle-btn">▼</span>
+      </button>
+      <div class="card-content">
+        <div class="timeline-item">
+          <span class="timeline-year">1850</span> — Tratado Clayton–Bulwer: control compartido anglo-estadounidense.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1900–1901</span> — Hay–Pauncefote: se reacomoda el marco para que EE. UU. impulse el canal.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1901–1902</span> — Debate Nicaragua vs Panamá; se impone opción Panamá.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">Ene–Mar 1903</span> — Negociación con Colombia (Hay–Herrán) y crisis de ratificación.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">3–4 nov 1903</span> — Secesión panameña + apoyo decisivo: reconocimiento rápido por EE. UU.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">18 nov 1903</span> — Tratado Hay–Bunau-Varilla: Zona del Canal "como si soberana" para EE. UU.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1904–1914</span> — Construcción: disciplina laboral, segregación y consolidación del poder del Canal Zone.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1977</span> — Tratados Carter–Torrijos: transición y neutralidad.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1 oct 1979</span> — Termina el gobierno separado de la Zona; comisión binacional.
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">31 dic 1999</span> — Panamá asume control total del canal.
+        </div>
+      </div>
+    </div>
+
+    <!-- Preguntas -->
+    <div class="card" data-id="8">
+      <button class="card-header card-toggle" type="button" aria-expanded="true">
+        <h2 class="card-title">❓ Preguntas para Reflexionar</h2>
+        <span class="toggle-btn">▼</span>
+      </button>
+      <div class="card-content">
+        <div class="question">
+          <strong>1.</strong> ¿Qué cambia cuando entendemos el canal como <span class="highlight">dispositivo político</span> y no solo como "obra"?
+        </div>
+        <div class="question">
+          <strong>2.</strong> ¿Cómo se traduce la desigualdad (salarios/servicios) en <span class="highlight">orden social</span> dentro de la Zona?
+        </div>
+        <div class="question">
+          <strong>3.</strong> ¿Por qué los años 70 permiten una renegociación que era impensable a inicios del siglo XX?
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Documento de clase: "Canal de Panamá — Fichas de lectura". Diseño minimalista con tarjetas.
+    </footer>
+  </div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card[data-id]'));
+    const toggles = document.querySelectorAll('.card-toggle');
+
+    function setCollapsed(card, collapsed) {
+      card.classList.toggle('collapsed', collapsed);
+      const btn = card.querySelector('.card-toggle');
+      if (btn) {
+        btn.setAttribute('aria-expanded', String(!collapsed));
+      }
+    }
+
+    toggles.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        if (!card) return;
+        setCollapsed(card, !card.classList.contains('collapsed'));
+      });
+    });
+
+    const openAllBtn = document.getElementById('open-all');
+    const closeAllBtn = document.getElementById('close-all');
+
+    if (openAllBtn) {
+      openAllBtn.addEventListener('click', () => {
+        cards.forEach((card) => setCollapsed(card, false));
+      });
+    }
+
+    if (closeAllBtn) {
+      closeAllBtn.addEventListener('click', () => {
+        cards.forEach((card) => setCollapsed(card, true));
+      });
+    }
+  </script>
+</body>
+</html>
