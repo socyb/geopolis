@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presentación de Tarjetas</title>
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --card-bg: #ffffff;
+      --text: #111111;
+      --shadow: rgba(0, 0, 0, 0.25);
+      --frame: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .stage {
+      width: min(1000px, 92vw);
+      height: min(620px, 82vh);
+      display: grid;
+      place-items: center;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      background: var(--card-bg);
+      border: 3px solid var(--frame);
+      box-shadow: 0 18px 40px var(--shadow);
+      padding: 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      position: relative;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .card h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 56px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: clamp(16px, 2.2vw, 26px);
+      line-height: 1.5;
+    }
+
+    .meta {
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hint {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #333;
+      opacity: 0.7;
+      user-select: none;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="card" id="card">
+      <h1 id="card-title">Pregunta 1</h1>
+      <p id="card-body">¿La interdependencia global es hoy más promesa (prosperidad) o más amenaza (vulnerabilidad)? ¿Por qué?</p>
+      <div class="meta" id="card-index">1 / 15</div>
+    </section>
+  </main>
+
+  <div class="hint">← → o clic / barra espaciadora para avanzar</div>
+
+  <script>
+    const cards = [
+      {
+        title: "Pregunta 1",
+        body: "¿La interdependencia global es hoy más promesa (prosperidad) o más amenaza (vulnerabilidad)? ¿Por qué?"
+      },
+      {
+        title: "Pregunta 2",
+        body: "¿Qué te suena más convincente: “globalización” como red de eficiencia o como red de chokepoints (cuellos de botella)?"
+      },
+      {
+        title: "Pregunta 3",
+        body: "¿Qué es un chokepoint en términos prácticos? Den un ejemplo (finanzas, tecnología, minerales críticos, logística)."
+      },
+      {
+        title: "Pregunta 4",
+        body: "¿Por qué los autores comparan la proliferación de armas económicas con la proliferación nuclear? ¿Qué implica esa analogía?"
+      },
+      {
+        title: "Pregunta 5",
+        body: "Según el artículo, ¿qué “intercambio” ocurrió en el acuerdo con China (semiconductores ↔ tierras raras)? ¿Qué nos dice sobre vulnerabilidad?"
+      },
+      {
+        title: "Pregunta 6",
+        body: "¿Qué aprende China de la experiencia de EE. UU. (y cómo “copia” elementos institucionales con su ley de control de exportaciones)?"
+      },
+      {
+        title: "Pregunta 7",
+        body: "Europa: ¿qué tiene (capacidad/poder de mercado) y qué le falta (maquinaria institucional) para actuar como superpotencia geoeconómica?"
+      },
+      {
+        title: "Pregunta 8",
+        body: "¿Las sanciones y controles de exportación son defensa legítima o coerción? ¿Dónde trazas la línea?"
+      },
+      {
+        title: "Pregunta 9",
+        body: "¿Qué sale más caro a largo plazo: no usar estos instrumentos o usarlos “demasiado” y acelerar la fragmentación del sistema?"
+      },
+      {
+        title: "Pregunta 10",
+        body: "¿Un mundo de “weaponized interdependence” empuja a los países a autonomía o a bloques? ¿Cuál es más viable?"
+      },
+      {
+        title: "Pregunta 11",
+        body: "Desde una perspectiva de empresa: ¿cómo cambia la gestión de riesgo cuando el riesgo ya no es solo “mercado”, sino geopolítico-regulatorio?"
+      },
+      {
+        title: "Pregunta 12",
+        body: "¿Qué estrategias corporativas aparecen implícitas aquí? (diversificación de proveedores, friendshoring, cumplimiento, lobby, etc.)"
+      },
+      {
+        title: "Pregunta 13",
+        body: "¿Dónde está México en este tablero? ¿Como socio industrial, como vulnerable a shocks?"
+      },
+      {
+        title: "Pregunta 14",
+        body: "¿Qué sectores nacionales serían más sensibles a chokepoints (automotriz, electrónica, energía, telecom)? ¿Por qué?"
+      },
+      {
+        title: "Pregunta 15",
+        body: "Si el mundo se fragmenta en “stacks”, ¿qué significa para el T-MEC y para la política industrial mexicana?"
+      }
+    ];
+
+    let current = 0;
+    const card = document.getElementById("card");
+    const title = document.getElementById("card-title");
+    const body = document.getElementById("card-body");
+    const index = document.getElementById("card-index");
+
+    function renderCard(nextIndex, direction = 1) {
+      card.classList.add("fade-out");
+
+      setTimeout(() => {
+        const data = cards[nextIndex];
+        title.textContent = data.title;
+        body.textContent = data.body;
+        index.textContent = `${nextIndex + 1} / ${cards.length}`;
+        card.classList.remove("fade-out");
+      }, 180);
+    }
+
+    function nextCard() {
+      current = (current + 1) % cards.length;
+      renderCard(current, 1);
+    }
+
+    function prevCard() {
+      current = (current - 1 + cards.length) % cards.length;
+      renderCard(current, -1);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === " ") {
+        nextCard();
+      }
+      if (event.key === "ArrowLeft") {
+        prevCard();
+      }
+    });
+
+    document.addEventListener("click", () => {
+      nextCard();
+    });
+  </script>
+</body>
+</html>
