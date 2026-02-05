@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma - Geopolítica Internacional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+        
+        header {
+            border-bottom: 2px solid #000000;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .course-code {
+            font-size: 0.7em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .course-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .course-details {
+            font-size: 0.85em;
+            color: #666666;
+            margin-top: 8px;
+        }
+        
+        .course-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .detail-item {
+            font-size: 0.8em;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+        
+        footer {
+            border-top: 1px solid #000000;
+            padding: 30px 20px;
+            margin-top: 60px;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 0.75em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section p,
+        .footer-section ul {
+            font-size: 0.85em;
+            line-height: 1.8;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        
+        .footer-section a:hover {
+            border-bottom-color: #ffffff;
+        }
+        
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 30px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            text-align: center;
+            font-size: 0.8em;
+            color: #999999;
+        }
+        
+        h1 {
+            font-size: 2em;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 1.1em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #666666;
+        }
+        
+        .view-toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+        
+        .view-btn {
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        .view-btn:hover {
+            box-shadow: 2px 2px 0px #000000;
+            transform: translate(-1px, -1px);
+        }
+        
+        .view-btn:active {
+            box-shadow: none;
+            transform: translate(0, 0);
+        }
+        
+        .day-container {
+            margin-bottom: 30px;
+        }
+        
+        .day-header {
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+        
+        .session {
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            padding: 20px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+        
+        .session:hover {
+            box-shadow: 4px 4px 0px #000000;
+            transform: translate(-2px, -2px);
+        }
+        
+        .session.exam {
+            border: 2px solid #000000;
+        }
+        
+        .session.guest {
+            border-style: dashed;
+        }
+        
+        .session.presentation {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .session.presentation:hover {
+            box-shadow: 4px 4px 0px #666666;
+        }
+        
+        .time {
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        .topic {
+            font-size: 1.1em;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        
+        .units {
+            font-size: 0.85em;
+            color: #666666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .session.presentation .units {
+            color: #cccccc;
+        }
+        
+        .break {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #999999;
+            font-style: italic;
+        }
+        
+        .note {
+            font-size: 0.85em;
+            color: #666666;
+            margin-top: 8px;
+        }
+        
+        .info-box {
+            border: 1px solid #000000;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .info-box strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-box li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9em;
+        }
+        
+        .info-box li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .day-container {
+            animation: fadeIn 0.4s ease forwards;
+            opacity: 0;
+        }
+        
+        .day-container:nth-child(1) { animation-delay: 0.1s; }
+        .day-container:nth-child(2) { animation-delay: 0.2s; }
+        .day-container:nth-child(3) { animation-delay: 0.3s; }
+        .day-container:nth-child(4) { animation-delay: 0.4s; }
+        .day-container:nth-child(5) { animation-delay: 0.5s; }
+        .day-container:nth-child(6) { animation-delay: 0.6s; }
+        .day-container:nth-child(7) { animation-delay: 0.7s; }
+        
+        /* Grid View Styles */
+        #schedule-container.grid-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        #schedule-container.grid-view .day-container {
+            margin-bottom: 0;
+        }
+        
+        #schedule-container.grid-view .break {
+            display: none;
+        }
+        
+        #schedule-container.grid-view .session {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+           
+            <h1 class="course-title">Geopolítica Internacional Aplicada a los Negocios Internacionales</h1>
+            <div class="course-details">
+                <div class="course-details-grid">
+                    <div class="detail-item"><span class="detail-label">Profesor:</span>Dr. Jorge Cardiel</div>
+                    <div class="detail-item">Facultad de Contaduría y Administración UNAM</div>
+                    <div class="detail-item">Intersemestral 2026</div>
+                    <div class="detail-item"><span class="detail-label">Horario:</span>11:00 - 15:00</div>
+                    <div class="detail-item">14 sesiones</div>
+                    <div class="detail-item">26 de enero a 13 de febrero 2026</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="view-toggle">
+            <button class="view-btn" onclick="toggleView()" id="viewToggleBtn">Vista Lista</button>
+        </div>
+
+    <div id="schedule-container" class="grid-view">
+    <!-- Jueves 5 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Jueves 5 de Febrero 2026</div>
+        
+        <div class="session">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">8. New Cold War</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">9. Semiconductores</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+    </div>
+
+    <!-- Viernes 6 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Viernes 6 de Febrero 2026</div>
+        
+        <div class="session">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">10. Nordstream</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session exam">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">EXAMEN</div>
+        </div>
+    </div>
+
+    <!-- Lunes 9 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Lunes 9 de Febrero 2026</div>
+        
+        <div class="session">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">11. Apple in China</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">12. Ártico</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+    </div>
+
+    <!-- Martes 10 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Martes 10 de Febrero 2026</div>
+        
+        <div class="session">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">13. OBOR (Belt and Road Initiative)</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session guest">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">Ciberseguridad</div>
+            <div class="note">Expositor: Ing. Juan Esteban Castellanos</div>
+        </div>
+    </div>
+
+    <!-- Miércoles 11 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Miércoles 11 de Febrero 2026</div>
+        
+        <div class="session">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">14. China-América Latina</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">15. Global Commodity Chains and World Systems Theory</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+    </div>
+
+    <!-- Jueves 12 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Jueves 12 de Febrero 2026</div>
+        
+        <div class="session">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">16. Caso Uber y Mercado Libre</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">17. Estructura de la Historia del Mundo</div>
+            <div class="units">45 min lectura + 45 min discusión en grupo</div>
+        </div>
+    </div>
+
+    <!-- Viernes 13 de Febrero -->
+    <div class="day-container">
+        <div class="day-header">Viernes 13 de Febrero 2026</div>
+        
+        <div class="session presentation">
+            <div class="time">11:00 - 12:30</div>
+            <div class="topic">Presentaciones Policy Memos</div>
+            
+        </div>
+        
+        <div class="break">Pausa: 12:30 - 13:00</div>
+        
+        <div class="session presentation">
+            <div class="time">13:00 - 14:30</div>
+            <div class="topic">Presentaciones Policy Memos</div>
+           
+        </div>
+    </div>
+
+    <div class="info-box">
+        <strong>INFORMACIÓN</strong>
+        <ul>
+            <li>Cada sesión: 45 minutos lectura + 45 minutos discusión en grupo</li>
+            <li>Examen del 6 de febrero cubre temas vistos hasta ese momento</li>
+            <li>Policy Memos: presentación final 13 de febrero</li>
+            <li>Conferencia Ciberseguridad: 10 de febrero 13:00</li>
+        </ul>
+    </div>
+    </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Curso</h3>
+                <p>Geopolítica Internacional Aplicada a los Negocios Internacionales</p>
+                <p>Un análisis profundo de las dinámicas geopolíticas globales y su impacto en el comercio internacional.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Profesor</h3>
+                <p><strong>Dr. Jorge Cardiel</strong></p>
+                <p>Facultad de Contaduría y Administración</p>
+                <p>Universidad Nacional Autónoma de México (UNAM)</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li>Evaluación continua</li>
+                    <li>Examen: 6 de febrero</li>
+                    <li>Policy Memos finales</li>
+                    <li>Conferencia especializada</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Dr. Jorge Cardiel • Facultad de Contaduría y Administración UNAM © 2026
+        </div>
+    </footer>
+
+    <script>
+        function toggleView() {
+            const container = document.getElementById('schedule-container');
+            const btn = document.getElementById('viewToggleBtn');
+            
+            if (container.classList.contains('grid-view')) {
+                container.classList.remove('grid-view');
+                btn.textContent = 'Vista Cuadrícula';
+            } else {
+                container.classList.add('grid-view');
+                btn.textContent = 'Vista Lista';
+            }
+        }
+    </script>
+
+</body>
+</html>
