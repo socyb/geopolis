@@ -459,5 +459,222 @@
     </footer>
   </div>
 
+  <!-- Videos Section -->
+  <section class="videos-section">
+    <div class="container">
+      <h2 class="section-title">📹 Recursos Multimedia</h2>
+      <p class="section-subtitle">Documentales y análisis sobre el proyecto Nord Stream 2</p>
+      
+      <div class="videos-grid">
+        <!-- Video 1 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/RFjAqth-EQk?si=R-oIr7ukTFrQ4Ckl" 
+              title="Who blew up the Nord Stream pipelines? | DW Documentary"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">Who blew up the Nord Stream pipelines?</h3>
+            <p class="video-meta">
+              <span class="channel">🎬 DW Documentary</span>
+              <span class="duration">⏱️ 36:52</span>
+              <span class="views">👁️ 602,497 vistas</span>
+            </p>
+            <p class="video-description">
+              More than a year has passed since the clandestine bombing of the Nord Stream natural gas pipelines in the Baltic Sea. Yet what really happened in September of 2022 remains as murky as the waters...
+            </p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/kCNHwH9MxGA?si=zM_2N9gqqIDXXPKK" 
+              title="Russia's Gazprom - Corrupt politicians and the greed of the west | DW Documentary"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">Russia's Gazprom - Corrupt politicians and the greed of the west</h3>
+            <p class="video-meta">
+              <span class="channel">🎬 DW Documentary</span>
+              <span class="duration">⏱️ 50:36</span>
+              <span class="views">👁️ 575,459 vistas</span>
+            </p>
+            <p class="video-description">
+              For decades, European countries have been dependent on Russian gas imports. And they did it to themselves. The biggest culprit? Germany. Only after Russia declared war on Ukraine did the German govern...
+            </p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/ZkgFaC-Jug4?si=J9JOtisf2UyE5dGX" 
+              title="How Putin made Europe go green faster"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">How Putin made Europe go green faster</h3>
+            <p class="video-meta">
+              <span class="channel">🎬 DW Planet A</span>
+              <span class="duration">⏱️ 11:41</span>
+              <span class="views">👁️ 697,208 vistas</span>
+            </p>
+            <p class="video-description">
+              One year after Russia invaded Ukraine, analysts think Putin's aggression may have sped up Europe's energy transition. How's that?
+            </p>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/aBdfBwfeCRo?si=6T4OO4hIrVUhZttc" 
+              title="Excanciller defiende gasoducto Nord Stream 2"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">Excanciller defiende gasoducto Nord Stream 2</h3>
+            <p class="video-meta">
+              <span class="channel">🎬 DW Español</span>
+              <span class="duration">⏱️ 2:43</span>
+              <span class="views">👁️ 19,708 vistas</span>
+            </p>
+            <p class="video-description">
+              El gasoducto Nord Stream 2 transportará gas ruso a Alemania. Gerhard Schröder defiende el controvertido proyecto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .videos-section {
+      background: #f5f7fa;
+      padding: 4rem 2rem;
+      margin-top: 3rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .video-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(204,0,40,0.15);
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .video-info {
+      padding: 1.5rem;
+    }
+    
+    .video-title {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .video-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    
+    .video-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .video-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .videos-section {
+        padding: 2rem 1rem;
+      }
+      
+      .videos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
 </body>
 </html>
