@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nord Stream 2: Análisis Geopolítico - Geopolis</title>
+  <meta name="description" content="Análisis de los actores clave del proyecto Nord Stream 2" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    :root{
+      --bg:#ffffff;
+      --text:#1a1a1a;
+      --text-muted:#555555;
+      --border:#cc0028;
+      --accent:#cc0028;
+      --cell-bg:#f9fafb;
+      --header-bg:#cc0028;
+      --stakeholder-bg:#1e3a5f;
+    }
+
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    /* ── Hero ── */
+    .hero{
+      position:relative;
+      min-height:40vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:3rem 2rem 2rem;
+      overflow:hidden;
+      background:linear-gradient(180deg,#e8f4f8 0%,#ffffff 100%);
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      bottom:0;left:0;right:0;
+      height:100px;
+      background:linear-gradient(0deg,var(--bg),transparent);
+      z-index:2;
+    }
+
+    .pipeline-bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      opacity:.35;
+      overflow:hidden;
+    }
+
+    .pipeline-bg svg{width:100%;height:100%}
+
+    .pipe-line{
+      stroke:#2980b9;
+      stroke-width:3;
+      fill:none;
+      stroke-dasharray:12 6;
+      animation:flowPipe 2s linear infinite;
+    }
+
+    @keyframes flowPipe{to{stroke-dashoffset:-18}}
+
+    .pipe-dot{
+      fill:#c0392b;
+      animation:pulseDot 2s ease-in-out infinite;
+    }
+    .pipe-dot:nth-child(even){animation-delay:1s}
+
+    @keyframes pulseDot{
+      0%,100%{r:4;opacity:.7}
+      50%{r:7;opacity:1}
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:3;
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:clamp(2rem,5.5vw,3.8rem);
+      font-weight:700;
+      letter-spacing:-.02em;
+      line-height:1.15;
+      margin-bottom:.8rem;
+      background:linear-gradient(135deg,#1e3a5f 0%,#cc0028 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    .hero .tagline{
+      font-size:clamp(1rem,2.3vw,1.4rem);
+      color:var(--text-muted);
+      font-style:italic;
+      margin-bottom:1.2rem;
+    }
+
+    .hero .citation{
+      display:inline-block;
+      font-size:.9rem;
+      color:var(--text-muted);
+      border:1px solid var(--border);
+      padding:.4rem 1rem;
+      border-radius:50px;
+      background:rgba(204,0,40,.08);
+    }
+
+    /* ── Back link ── */
+    .back-link{
+      position:fixed;
+      top:1.5rem;
+      left:1.5rem;
+      z-index:100;
+      padding:.6rem 1.2rem;
+      background:#ffffff;
+      border:2px solid var(--border);
+      border-radius:50px;
+      color:var(--text);
+      text-decoration:none;
+      font-size:.9rem;
+      font-weight:600;
+      transition:all .3s ease;
+      box-shadow:0 4px 20px rgba(0,0,0,.15);
+    }
+
+    .back-link:hover{
+      background:var(--accent);
+      color:#fff;
+      transform:translateY(-2px);
+      box-shadow:0 6px 25px rgba(204,0,40,.4);
+    }
+
+    /* ── Main container ── */
+    .main{
+      max-width:1600px;
+      margin:0 auto;
+      padding:2rem;
+    }
+
+    /* ── Table ── */
+    .table-container{
+      overflow-x:auto;
+      background:#ffffff;
+      border:2px solid #e5e7eb;
+      border-radius:16px;
+      padding:1.5rem;
+      box-shadow:0 8px 32px rgba(0,0,0,.08);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:clamp(.85rem,1.3vw,.95rem);
+    }
+
+    thead th{
+      background:var(--header-bg);
+      color:#fff;
+      padding:1rem .8rem;
+      text-align:left;
+      font-weight:700;
+      border:1px solid rgba(0,0,0,.1);
+      position:sticky;
+      top:0;
+      z-index:10;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      font-size:.8rem;
+    }
+
+    tbody tr{
+      transition:background .2s ease;
+    }
+
+    tbody tr:hover{
+      background:rgba(204,0,40,.05);
+    }
+
+    .stakeholder-row td{
+      background:var(--stakeholder-bg);
+      color:#fff;
+      font-weight:700;
+      font-size:1rem;
+      text-align:center;
+      padding:1rem;
+      border:1px solid rgba(0,0,0,.1);
+      text-shadow:0 1px 3px rgba(0,0,0,.3);
+    }
+
+    .category-cell{
+      background:#fef3e7;
+      font-weight:600;
+      font-style:italic;
+      padding:.8rem;
+      border:1px solid #e5e7eb;
+      text-align:center;
+      width:12%;
+      color:#d68910;
+    }
+
+    td{
+      padding:.8rem;
+      border:1px solid #e5e7eb;
+      background:var(--cell-bg);
+      vertical-align:top;
+      line-height:1.55;
+    }
+
+    td:not(.category-cell):not(.stakeholder-row td){
+      background:#ffffff;
+    }
+
+    /* ── Legend ── */
+    .legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      justify-content:center;
+      margin-bottom:1.5rem;
+      padding:1rem;
+      background:#f8f9fa;
+      border:2px solid #e5e7eb;
+      border-radius:12px;
+    }
+
+    .legend-item{
+      display:flex;
+      align-items:center;
+      gap:.4rem;
+      font-size:.85rem;
+      color:var(--text-muted);
+    }
+
+    .legend span{
+      font-size:1.2rem;
+    }
+
+    /* ── Footer ── */
+    footer{
+      text-align:center;
+      padding:2rem;
+      margin-top:2rem;
+      border-top:1px solid var(--border);
+    }
+
+    footer p{
+      font-size:.85rem;
+      color:var(--text-muted);
+      font-style:italic;
+      line-height:1.6;
+    }
+
+    /* ── Responsive ── */
+    @media(max-width:1024px){
+      .main{padding:1rem}
+      .table-container{padding:1rem}
+      table{font-size:.8rem}
+      thead th,td{padding:.6rem .5rem}
+      .back-link{top:1rem;left:1rem;font-size:.85rem;padding:.5rem 1rem}
+    }
+
+    @media(max-width:768px){
+      .hero{min-height:30vh;padding:2rem 1rem}
+      table{font-size:.75rem}
+      thead th,td{padding:.5rem .4rem}
+    }
+
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-track{background:#f1f1f1}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:#a00020}
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link">← Inicio</a>
+
+  <!-- ══════════ HERO ══════════ -->
+  <div class="hero">
+    <div class="pipeline-bg">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+        <g stroke="rgba(30,58,95,.15)" stroke-width="1">
+          <line x1="0" y1="100" x2="1200" y2="100"/>
+          <line x1="0" y1="200" x2="1200" y2="200"/>
+          <line x1="0" y1="300" x2="1200" y2="300"/>
+          <line x1="0" y1="400" x2="1200" y2="400"/>
+          <line x1="200" y1="0" x2="200" y2="500"/>
+          <line x1="400" y1="0" x2="400" y2="500"/>
+          <line x1="600" y1="0" x2="600" y2="500"/>
+          <line x1="800" y1="0" x2="800" y2="500"/>
+          <line x1="1000" y1="0" x2="1000" y2="500"/>
+        </g>
+        <path d="M 350 80 Q 400 60, 480 90 Q 520 100, 560 80 Q 600 60, 650 85 Q 700 110, 720 150 Q 740 190, 700 220 Q 660 250, 680 280 Q 700 310, 660 340 Q 620 370, 580 350 Q 540 330, 500 360 Q 460 390, 420 370 Q 380 350, 360 310 Q 340 270, 350 230 Q 360 190, 340 150 Q 320 110, 350 80Z" fill="rgba(52,152,219,.12)" stroke="rgba(30,58,95,.3)" stroke-width="1.5"/>
+        <path d="M 720 60 Q 800 40, 900 55 Q 1000 70, 1100 50 Q 1180 40, 1200 80 L 1200 300 Q 1100 280, 1000 260 Q 900 240, 800 220 Q 750 200, 720 150Z" fill="rgba(231,76,60,.08)" stroke="rgba(204,0,40,.25)" stroke-width="1.5"/>
+        <path class="pipe-line" d="M 820 140 Q 780 160, 740 170 Q 700 175, 650 165 Q 600 155, 550 160 Q 500 165, 460 175"/>
+        <path class="pipe-line" d="M 830 155 Q 790 180, 750 190 Q 700 195, 640 185 Q 590 180, 540 185 Q 490 190, 450 200" style="stroke:#c0392b;animation-delay:.5s;opacity:.8"/>
+        <circle class="pipe-dot" cx="460" cy="175" r="5"/>
+        <circle class="pipe-dot" cx="820" cy="140" r="5"/>
+        <circle class="pipe-dot" cx="640" cy="165" r="4"/>
+        <circle class="pipe-dot" cx="540" cy="165" r="4"/>
+        <text x="440" y="200" fill="rgba(30,58,95,.6)" font-size="13" font-family="Georgia">Germany</text>
+        <text x="830" y="130" fill="rgba(204,0,40,.65)" font-size="13" font-family="Georgia">Russia</text>
+        <text x="620" y="145" fill="rgba(30,58,95,.4)" font-size="11" font-family="Georgia">Baltic Sea</text>
+        <rect x="30" y="120" width="180" height="200" rx="8" fill="rgba(52,152,219,.06)" stroke="rgba(30,58,95,.2)"/>
+        <text x="80" y="230" fill="rgba(30,58,95,.5)" font-size="13" font-family="Georgia">United States</text>
+        <path d="M 750 240 Q 800 230, 850 250 Q 880 260, 870 290 Q 860 320, 810 310 Q 770 300, 750 270Z" fill="rgba(243,156,18,.08)" stroke="rgba(214,137,16,.3)" stroke-width="1"/>
+        <text x="775" y="280" fill="rgba(214,137,16,.6)" font-size="11" font-family="Georgia">Ukraine</text>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <h1>Nord Stream 2</h1>
+      <p class="tagline">Análisis de actores clave y objetivos geopolíticos</p>
+      <span class="citation">Virág &amp; Tancsa — Politics in Central Europe, 19(1), 2023</span>
+    </div>
+  </div>
+
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
+    
+    <div class="legend">
+      <div class="legend-item"><span>🇩🇪</span> Germany</div>
+      <div class="legend-item"><span>🇷🇺</span> Russia</div>
+      <div class="legend-item"><span>🇺🇸</span> United States</div>
+      <div class="legend-item"><span>🇵🇱</span> Alianza cercana con EE.UU. en la UE</div>
+      <div class="legend-item"><span>🇺🇦</span> Ukraine</div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:8%"></th>
+            <th style="width:8%"></th>
+            <th>Objetivos previos a la guerra en Ucrania y el sabotaje de los gasoductos Nord Stream</th>
+            <th>Objetivos después de la guerra en Ucrania y el sabotaje de los gasoductos Nord Stream</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Germany -->
+          <tr class="stakeholder-row">
+            <td colspan="4">🇩🇪 Germany</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Aim</td>
+            <td>Improving natural gas security of supply</td>
+            <td>Improving natural gas security of supply by reforming national energy policy and energy relations</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Energy strategy</td>
+            <td>Deepening pragmatic energy cooperation with Russia</td>
+            <td>Diversification: decreasing dependency on Russia, strengthening alternative cooperations</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Tactic</td>
+            <td>Supporting and advocating the NS2 pipeline project</td>
+            <td>Halting the certification of the NS2 project, developing LNG infrastructure, finding new gas recourses, imposing sanctions against Russia, including the energy sector</td>
+          </tr>
+
+          <!-- Russia -->
+          <tr class="stakeholder-row">
+            <td colspan="4">🇷🇺 Russia</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Aim</td>
+            <td>Preserving the gas status quo with EU countries and exerting influence over Ukraine</td>
+            <td>Diversify gas markets and keep up the possibility of mending the relationship with Europe and widening its sphere of influence over post-soviet states</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Energy strategic</td>
+            <td>Increasing/keeping energy cooperation in the EU with new alternative pipeline projects, reducing/blocking the alternative gas exports in Europe (especially LNG) and Ukraine's transit role</td>
+            <td>Limiting/blocking energy cooperation in the EU using energy as a tool for intimidation against Ukraine's western supporters and turning towards new markets outside Europe</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Tactic</td>
+            <td>Using the NS2 project and its narrative</td>
+            <td>Developing new pipeline projects outside Europe, declaring that abandoning Russian supplies is more harmful to Europe than to Russia, potentially repairing the damaged Nord Stream pipelines to keep up the possibility of mending the relationship with Europe</td>
+          </tr>
+
+          <!-- United States -->
+          <tr class="stakeholder-row">
+            <td colspan="4">🇺🇸 United States</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Aim</td>
+            <td>Preventing a unified Eurasia's potential rise</td>
+            <td>Follow previous goals</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Energy strategy</td>
+            <td>Cooperating with Europe in the gas sector, preventing it from building close ties with Russia, protecting the interests and transit position of Ukraine against Russia</td>
+            <td>Following previous strategies, utilising the higher price environment to boost LNG sales in Europe</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Tactic</td>
+            <td>Trying to stop the NS2 project with economic measures, implementing regulatory changes to make their LNG exports more competitive, supporting European LNG initiatives</td>
+            <td>Imposing sanctions against Russia, including the energy sector, boosting domestic energy production to prepare for catering to European markets trying to detach from Russian supplies</td>
+          </tr>
+
+          <!-- Closer alliance with the US in the EU -->
+          <tr class="stakeholder-row">
+            <td colspan="4">🇵🇱 Closer alliance with the US in the EU</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Aim</td>
+            <td>Trying to prevent Russia from its aggressive geopolitical pursuits</td>
+            <td>Follow previous goals</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Energy strategy</td>
+            <td>Orienting towards the US, trying to detach from the Russian gas supply system</td>
+            <td>Strengthening energy cooperation in the region and replacing Russian supplies</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Tactic</td>
+            <td>Opposing/using administrative barriers to block the NS2 project, initiating alternatives</td>
+            <td>Realising LNG and pipeline projects (Baltic pipe)</td>
+          </tr>
+
+          <!-- Ukraine -->
+          <tr class="stakeholder-row">
+            <td colspan="4">🇺🇦 Ukraine</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Aim</td>
+            <td>Orienting towards the West to compensate for its vulnerability to the escalating Russian geopolitical pressure</td>
+            <td>Preserving sovereignty, cooperating with the West</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Energy strategy</td>
+            <td>Preserving as much as possible from its advantageous transit role in the European gas market</td>
+            <td>Cooperating with the West, even though this might interfere with its interests regarding its transit role</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="category-cell">Tactic</td>
+            <td>Opposing the Nord Stream 2 pipeline</td>
+            <td>Lobbying for an EU-level, a total boycott of Russian energy supplies</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>
+        Fuente: Attila Virág &amp; Gréta Tancsa, "Turbulent energy transformations in Central Europe"<br>
+        <em>Politics in Central Europe</em>, 19(1), 2023 — Elaboración propia de los autores
+      </p>
+    </footer>
+  </div>
+
+</body>
+</html>
