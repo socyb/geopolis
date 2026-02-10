@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Renovables vs fósiles: cadena de suministro, LCA y relación con LCOE</title>
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#12141b;
+      --text:#e9eef5;
+      --muted:#b9c2cf;
+      --line:#2a2f3a;
+      --accent:#7dd3fc;
+      --accent2:#a7f3d0;
+      --warn:#fbbf24;
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: linear-gradient(180deg, var(--bg), #0f1220 60%, #0b0c10);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{
+      padding: 28px 16px 10px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .kicker{color:var(--muted); font-size: 14px;}
+    h1{font-size: clamp(26px, 4vw, 38px); margin: 10px 0 8px;}
+    .sub{color:var(--muted); max-width: 70ch; margin: 0 0 18px;}
+    main{max-width: 980px; margin: 0 auto; padding: 0 16px 40px;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 860px){
+      .grid{grid-template-columns: 1.2fr 0.8fr;}
+    }
+    .card{
+      background: rgba(18,20,27,0.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    h2{margin: 0 0 10px; font-size: 18px;}
+    h3{margin: 18px 0 8px; font-size: 16px;}
+    p{margin: 10px 0;}
+    ul{margin: 10px 0 0 18px; color: var(--text);}
+    li{margin: 6px 0;}
+    .muted{color:var(--muted);}
+    .pill{
+      display:inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      margin-right: 6px;
+    }
+    .formula{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      background: #0f1118;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      overflow-x:auto;
+      color: #d8e2ef;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    th, td{
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th{color: var(--muted); font-weight: 600; text-align:left;}
+    .note{
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(125,211,252,0.08);
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .warn{
+      border-left: 3px solid var(--warn);
+      background: rgba(251,191,36,0.08);
+    }
+    .tag{
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    a{color: var(--accent); text-decoration: none;}
+    a:hover{text-decoration: underline;}
+    .small{font-size: 13px;}
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 700px){
+      .two-col{grid-template-columns: 1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">Nota rápida (para guardar / compartir)</div>
+    <h1>¿Cómo afirmamos que eólica y solar contaminan menos que fósiles —incluida la cadena completa— y qué tiene que ver con el LCOE?</h1>
+    <p class="sub">
+      La idea clave: comparar <span class="tag">impacto por kWh</span> usando <strong>análisis de ciclo de vida (LCA)</strong>.
+      LCOE mide <span class="tag">costo por kWh</span>. Se pueden combinar para estimar <em>$ por tonelada de CO₂ evitada</em> o “LCOE + externalidades”.
+    </p>
+    <span class="pill">LCA</span>
+    <span class="pill">gCO₂e/kWh</span>
+    <span class="pill">LCOE</span>
+    <span class="pill">$ / tCO₂ evitada</span>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>1) La forma “honesta” de comparar: LCA (Life-Cycle Assessment)</h2>
+      <p>
+        Para decir “X contamina menos” sin ignorar la cadena de suministro, se usa <strong>LCA</strong>:
+        se contabilizan impactos desde <em>extracción → fabricación → transporte → construcción → operación y mantenimiento → fin de vida</em>.
+      </p>
+
+      <h3>Intensidad climática típica (GEI)</h3>
+      <p class="muted">
+        Suele expresarse como <strong>gCO₂e/kWh</strong> (gramos de CO₂ equivalente por kWh) y se calcula como:
+      </p>
+      <div class="formula">
+        Intensidad (ciclo de vida) = (Emisiones embebidas + O&amp;M + combustible/fugas + fin de vida) / (kWh totales generados)
+      </div>
+
+      <div class="two-col">
+        <div class="note">
+          <strong>Por qué fósiles salen altos</strong>
+          <ul>
+            <li>Hay emisiones <strong>continuas</strong>: se quema combustible todo el tiempo.</li>
+            <li>Además: minería/extracción, refino, transporte y (en gas) <strong>fugas de metano</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="note">
+          <strong>Por qué eólica/solar salen bajos</strong>
+          <ul>
+            <li>Gran parte del impacto está <strong>al inicio</strong>: acero, cemento, vidrio, silicio, aluminio, etc.</li>
+            <li>En operación, casi no hay emisiones directas: el “pago” inicial se <strong>amortiza</strong> con décadas de generación.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>¿“Contaminación” solo es CO₂?</h3>
+      <p>
+        No. LCA también puede incluir categorías como material particulado (PM), NO<sub>x</sub>/SO<sub>x</sub>, toxicidad, uso de agua, uso de suelo, etc.
+        En general:
+      </p>
+      <ul>
+        <li><strong>Fósiles</strong>: co-contaminantes por combustión (PM2.5, SO₂, NOx, etc.) de forma <em>continua</em>.</li>
+        <li><strong>Renovables</strong>: impactos más concentrados en <em>minería/manufactura</em> (y mejorables con reciclaje y descarbonización industrial).</li>
+      </ul>
+
+      <div class="note warn">
+        <strong>Detalle importante</strong>
+        <p class="small">
+          Los números exactos dependen de supuestos: mezcla eléctrica usada para fabricar (carbón vs renovables),
+          factor de planta, vida útil, ubicación, logística, tecnología específica y manejo del fin de vida.
+          Por eso se usan rangos y medianas.
+        </p>
+      </div>
+    </section>
+
+    <aside class="card">
+      <h2>2) Números típicos (ciclo de vida)</h2>
+      <p class="muted">Orden de magnitud (medianas reportadas frecuentemente):</p>
+
+      <table aria-label="Intensidad de emisiones de ciclo de vida">
+        <thead>
+          <tr>
+            <th>Tecnología</th>
+            <th>gCO₂e/kWh (aprox.)</th>
+            <th>Qué domina</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carbón</td>
+            <td>~970</td>
+            <td>Combustión + cadena del carbón</td>
+          </tr>
+          <tr>
+            <td>Gas natural</td>
+            <td>~440</td>
+            <td>Combustión + fugas/metano upstream</td>
+          </tr>
+          <tr>
+            <td>Solar FV</td>
+            <td>~50</td>
+            <td>Fabricación (silicio/vidrio/aluminio) + obra</td>
+          </tr>
+          <tr>
+            <td>Eólica</td>
+            <td>~10</td>
+            <td>Materiales (acero/cemento) + instalación</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        <strong>Lectura rápida:</strong> incluso con cadena completa, eólica y solar suelen estar <em>muy</em> por debajo de carbón y gas por kWh.
+      </p>
+
+      <h2 style="margin-top:18px;">3) ¿Qué tiene que ver con LCOE?</h2>
+      <p>
+        <strong>LCOE</strong> = costo nivelado por kWh (CAPEX, OPEX, financiamiento, vida útil, factor de planta, combustible si aplica).
+        <br/>
+        <strong>LCA</strong> = impacto (p. ej., gCO₂e/kWh) por ciclo de vida.
+      </p>
+
+      <h3>Conexiones útiles</h3>
+      <p class="muted"><strong>A) LCOE + externalidades (precio al carbono)</strong></p>
+      <div class="formula">
+        Costo CO₂ por kWh = (gCO₂e/kWh / 1,000,000) × (precio $/tCO₂)
+      </div>
+
+      <p class="muted"><strong>B) Costo por CO₂ evitado ($/tCO₂)</strong></p>
+      <div class="formula">
+        $/tCO₂ evitada = (LCOE_limpio − LCOE_base) / (Emisiones_base − Emisiones_limpio)
+      </div>
+
+      <div class="note">
+        <strong>Intuición:</strong> LCOE te dice “cuánto cuesta”. LCA te dice “qué impacto tiene”.
+        Juntos responden: “¿cuánto me cuesta evitar una tonelada de CO₂?”.
+      </div>
+    </aside>
+
+    <section class="card" style="grid-column: 1 / -1;">
+      <h2>4) Mini-ejemplo (para que se vea cómo se combinan)</h2>
+      <p class="muted">
+        Supongamos que la alternativa “base” es carbón y comparas con eólica. (Valores ilustrativos.)
+      </p>
+
+      <div class="two-col">
+        <div>
+          <h3>Datos (ilustrativos)</h3>
+          <ul>
+            <li>LCOE carbón = 70 $/MWh</li>
+            <li>LCOE eólica = 45 $/MWh</li>
+            <li>Emisiones carbón = 970 gCO₂e/kWh</li>
+            <li>Emisiones eólica = 11 gCO₂e/kWh</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Cálculo</h3>
+          <div class="formula">
+            Diferencia LCOE = 45 − 70 = −25 $/MWh
+            <br/>
+            Diferencia emisiones = (970 − 11) g/kWh = 959 g/kWh
+            <br/>
+            959 g/kWh = 0.959 t/MWh
+            <br/><br/>
+            $/tCO₂ evitada = (−25 $/MWh) / (0.959 t/MWh) ≈ −26 $/tCO₂
+          </div>
+          <p class="note">
+            Resultado negativo = “ahorra dinero y reduce emisiones” (en este ejemplo).
+          </p>
+        </div>
+      </div>
+
+      <div class="note warn">
+        <strong>Ojo:</strong> en la realidad, comparas contra la red local (mix), consideras valor de energía firme, costos de integración,
+        almacenamiento/red, y el LCOE puede no capturar todo (p. ej., perfil horario). Pero como “puente” LCOE↔LCA, este cociente es muy útil.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Si quieres, puedo ajustar esta nota a <strong>México</strong> (comparar contra el mix eléctrico nacional o contra ciclo combinado) y dejar
+      un apartado con <em>rangos</em> y supuestos (vida útil, factor de planta, manufactura con mix fósil vs renovable, etc.).
+    </p>
+    <p class="small muted">
+      Hecho para lectura en celular. Copia este HTML en Textastic / VS Code / cualquier editor y ábrelo en el navegador.
+    </p>
+  </footer>
+</body>
+</html>

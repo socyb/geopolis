@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visualización: Solar y Eólica — Intensidad de Carbono vs % Renovables</title>
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#12141b;
+      --text:#e9eef5;
+      --muted:#b9c2cf;
+      --line:#2a2f3a;
+      --accent:#7dd3fc;
+      --accent2:#a7f3d0;
+      --warn:#fbbf24;
+      --solar:#fbbf24;
+      --wind:#7dd3fc;
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: linear-gradient(180deg, var(--bg), #0f1220 60%, #0b0c10);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{
+      padding: 28px 16px 10px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .kicker{color:var(--muted); font-size: 14px;}
+    h1{font-size: clamp(24px, 3.6vw, 36px); margin: 10px 0 8px;}
+    .sub{color:var(--muted); max-width: 80ch; margin: 0 0 18px;}
+    main{max-width: 1400px; margin: 0 auto; padding: 0 16px 40px;}
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1fr 1fr;}
+    }
+    .card{
+      background: rgba(18,20,27,0.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .card.full{
+      grid-column: 1 / -1;
+    }
+    h2{margin: 0 0 16px; font-size: 18px; color: var(--text);}
+    h3{margin: 16px 0 10px; font-size: 16px; color: var(--accent2);}
+    p{margin: 10px 0; color: var(--muted); font-size: 14px;}
+    .pill{
+      display:inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .note{
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(125,211,252,0.08);
+      border-radius: 10px;
+      margin: 14px 0;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .chart-container{
+      position: relative;
+      height: 400px;
+      margin-top: 10px;
+    }
+    .chart-container.tall{
+      height: 600px;
+    }
+    .legend{
+      display: flex;
+      gap: 20px;
+      margin: 10px 0;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .legend-item{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-color{
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+    footer{
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 16px 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="kicker">Visualizaciones interactivas basadas en datos de OWID/Ember 2024</div>
+    <h1>Solar y Eólica: Comparación visual de intensidad de carbono y penetración renovable</h1>
+    <p class="sub">
+      Gráficas que muestran la relación entre la <strong>intensidad de carbono</strong> (gCO₂e/kWh en ciclo de vida),
+      el <strong>% de penetración</strong> de solar/eólica y el <strong>% de generación baja en carbono</strong>.
+    </p>
+    <span class="pill">Datos 2024</span>
+    <span class="pill">Hover para ver detalles</span>
+    <span class="pill">Países líderes en solar/eólica</span>
+  </header>
+
+  <main>
+    <div class="note">
+      <strong>Interpretación clave:</strong> A mayor % de renovables y baja en carbono, generalmente menor intensidad de carbono.
+      Los países con alta dependencia de fósiles (carbón/gas/petróleo) muestran mayor intensidad, incluso con solar/eólica significativa.
+    </div>
+
+    <div class="grid">
+      <!-- Gráfica 1: Intensidad vs % Solar -->
+      <div class="card">
+        <h2>Intensidad de Carbono vs % Solar</h2>
+        <p>¿Cómo afecta el % de solar a la intensidad de carbono del mix eléctrico?</p>
+        <div class="chart-container">
+          <canvas id="chartSolarIntensity"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfica 2: Intensidad vs % Eólica -->
+      <div class="card">
+        <h2>Intensidad de Carbono vs % Eólica</h2>
+        <p>¿Cómo afecta el % de eólica a la intensidad de carbono del mix eléctrico?</p>
+        <div class="chart-container">
+          <canvas id="chartWindIntensity"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfica 3: Comparación Solar vs Eólica por país -->
+      <div class="card full">
+        <h2>Comparación: Solar vs Eólica (% de generación) — Top países</h2>
+        <p>Penetración combinada de solar y eólica en los países líderes.</p>
+        <div class="chart-container">
+          <canvas id="chartSolarWindComparison"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfica 4: % Baja en carbono vs Intensidad -->
+      <div class="card full">
+        <h2>% Baja en Carbono Total vs Intensidad de Carbono</h2>
+        <p>Relación entre generación baja en carbono total (hidro + nuclear + renovables) e intensidad.</p>
+        <div class="chart-container tall">
+          <canvas id="chartLowCarbonIntensity"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfica 5: Mix energético comparado -->
+      <div class="card full">
+        <h2>Composición del Mix Energético — Países seleccionados</h2>
+        <p>Comparación del balance entre fósiles y bajas en carbono, con México como referencia.</p>
+        <div class="chart-container">
+          <canvas id="chartMixComparison"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <h3>Observaciones clave:</h3>
+      <ul style="margin: 10px 0 0 20px; color: var(--text);">
+        <li><strong>Uruguay</strong> (46 gCO₂e/kWh) y <strong>Suecia</strong> (35 gCO₂e/kWh) tienen las intensidades más bajas con 97.8% y 98.8% de generación baja en carbono.</li>
+        <li><strong>Dinamarca</strong> lidera en eólica (58.4%) con 96 gCO₂e/kWh, demostrando que alta penetración eólica puede lograr baja intensidad.</li>
+        <li><strong>Chipre, Malta y Marruecos</strong> muestran alta intensidad (>500 gCO₂e/kWh) a pesar de tener algo de solar/eólica, por su alta dependencia de fósiles.</li>
+        <li><strong>México</strong> (483 gCO₂e/kWh) está muy por encima de los líderes renovables, con 75.4% de fósiles vs solo 24.6% baja en carbono.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Datos: OWID/Ember 2024. Intensidad = lifecycle carbon intensity (gCO₂e/kWh). Baja en carbono incluye: nuclear, hidro, eólica, solar, geotermia, bioenergía.</p>
+  </footer>
+
+  <script>
+    // Datos de países líderes en SOLAR
+    const solarLeaders = [
+      {country: 'Hungría', intensity: 185, fossils: 26.4, lowCarbon: 73.6, solar: 24.2, wind: 1.8},
+      {country: 'Luxemburgo', intensity: 133, fossils: 9.3, lowCarbon: 90.7, solar: 24.0, wind: 30.0},
+      {country: 'Chile', intensity: 265, fossils: 30.1, lowCarbon: 69.9, solar: 22.3, wind: 11.9},
+      {country: 'España', intensity: 146, fossils: 23.2, lowCarbon: 76.8, solar: 20.7, wind: 22.3},
+      {country: 'Grecia', intensity: 322, fossils: 50.9, lowCarbon: 49.1, solar: 19.8, wind: 21.9},
+      {country: 'Chipre', intensity: 623, fossils: 79.0, lowCarbon: 21.0, solar: 19.5, wind: 0.0},
+      {country: 'Lituania', intensity: 158, fossils: 17.7, lowCarbon: 82.3, solar: 19.2, wind: 45.5},
+      {country: 'El Salvador', intensity: 137, fossils: 22.2, lowCarbon: 77.8, solar: 18.3, wind: 0.0},
+      {country: 'Australia', intensity: 443, fossils: 62.3, lowCarbon: 37.7, solar: 17.4, wind: 12.6},
+      {country: 'Países Bajos', intensity: 298, fossils: 51.0, lowCarbon: 49.0, solar: 17.3, wind: 28.3},
+      {country: 'México', intensity: 483, fossils: 75.4, lowCarbon: 24.6, solar: 7.2, wind: 5.6}
+    ];
+
+    // Datos de países líderes en EÓLICA
+    const windLeaders = [
+      {country: 'Dinamarca', intensity: 96, fossils: 26.1, lowCarbon: 73.9, solar: 10.7, wind: 58.4},
+      {country: 'Lituania', intensity: 158, fossils: 17.7, lowCarbon: 82.3, solar: 19.2, wind: 45.5},
+      {country: 'Irlanda', intensity: 281, fossils: 58.0, lowCarbon: 42.0, solar: 3.5, wind: 36.8},
+      {country: 'Portugal', intensity: 136, fossils: 19.7, lowCarbon: 80.3, solar: 15.0, wind: 30.4},
+      {country: 'Luxemburgo', intensity: 133, fossils: 9.3, lowCarbon: 90.7, solar: 24.0, wind: 30.0},
+      {country: 'Reino Unido', intensity: 176, fossils: 34.2, lowCarbon: 65.8, solar: 5.0, wind: 29.6},
+      {country: 'Alemania', intensity: 338, fossils: 41.6, lowCarbon: 58.4, solar: 14.6, wind: 28.1},
+      {country: 'Uruguay', intensity: 46, fossils: 2.2, lowCarbon: 97.8, solar: 2.1, wind: 27.6},
+      {country: 'Países Bajos', intensity: 298, fossils: 51.0, lowCarbon: 49.0, solar: 17.3, wind: 28.3},
+      {country: 'Finlandia', intensity: 84, fossils: 8.5, lowCarbon: 91.5, solar: 1.8, wind: 27.1},
+      {country: 'Suecia', intensity: 35, fossils: 1.2, lowCarbon: 98.8, solar: 1.0, wind: 23.4},
+      {country: 'México', intensity: 483, fossils: 75.4, lowCarbon: 24.6, solar: 7.2, wind: 5.6}
+    ];
+
+    // Combinar ambos datasets (eliminar duplicados)
+    const allCountries = [...solarLeaders];
+    windLeaders.forEach(w => {
+      if (!allCountries.find(s => s.country === w.country)) {
+        allCountries.push(w);
+      }
+    });
+
+    // Configuración común de Chart.js para tema oscuro
+    Chart.defaults.color = '#b9c2cf';
+    Chart.defaults.borderColor = '#2a2f3a';
+
+    // Gráfica 1: Intensidad vs % Solar (scatter)
+    const ctxSolar = document.getElementById('chartSolarIntensity').getContext('2d');
+    new Chart(ctxSolar, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Países líderes en solar',
+          data: solarLeaders.map(d => ({x: d.solar, y: d.intensity, country: d.country, lowCarbon: d.lowCarbon})),
+          backgroundColor: 'rgba(251, 191, 36, 0.7)',
+          borderColor: 'rgba(251, 191, 36, 1)',
+          borderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {display: true},
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const point = context.raw;
+                return [
+                  `${point.country}`,
+                  `Solar: ${point.x}%`,
+                  `Intensidad: ${point.y} gCO₂e/kWh`,
+                  `Baja en carbono: ${point.lowCarbon}%`
+                ];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {display: true, text: '% Solar en el mix eléctrico', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          },
+          y: {
+            title: {display: true, text: 'Intensidad de Carbono (gCO₂e/kWh)', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          }
+        }
+      }
+    });
+
+    // Gráfica 2: Intensidad vs % Eólica (scatter)
+    const ctxWind = document.getElementById('chartWindIntensity').getContext('2d');
+    new Chart(ctxWind, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Países líderes en eólica',
+          data: windLeaders.map(d => ({x: d.wind, y: d.intensity, country: d.country, lowCarbon: d.lowCarbon})),
+          backgroundColor: 'rgba(125, 211, 252, 0.7)',
+          borderColor: 'rgba(125, 211, 252, 1)',
+          borderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {display: true},
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const point = context.raw;
+                return [
+                  `${point.country}`,
+                  `Eólica: ${point.x}%`,
+                  `Intensidad: ${point.y} gCO₂e/kWh`,
+                  `Baja en carbono: ${point.lowCarbon}%`
+                ];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {display: true, text: '% Eólica en el mix eléctrico', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          },
+          y: {
+            title: {display: true, text: 'Intensidad de Carbono (gCO₂e/kWh)', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          }
+        }
+      }
+    });
+
+    // Gráfica 3: Comparación Solar vs Eólica (barras agrupadas)
+    const topCountries = [
+      'Dinamarca', 'Lituania', 'Luxemburgo', 'España', 'Portugal', 
+      'Países Bajos', 'Uruguay', 'Hungría', 'Chipre', 'México'
+    ];
+    const comparisonData = allCountries.filter(c => topCountries.includes(c.country));
+    
+    const ctxComparison = document.getElementById('chartSolarWindComparison').getContext('2d');
+    new Chart(ctxComparison, {
+      type: 'bar',
+      data: {
+        labels: comparisonData.map(d => d.country),
+        datasets: [
+          {
+            label: 'Solar (%)',
+            data: comparisonData.map(d => d.solar),
+            backgroundColor: 'rgba(251, 191, 36, 0.8)',
+            borderColor: 'rgba(251, 191, 36, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Eólica (%)',
+            data: comparisonData.map(d => d.wind),
+            backgroundColor: 'rgba(125, 211, 252, 0.8)',
+            borderColor: 'rgba(125, 211, 252, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {display: true, position: 'top'},
+          tooltip: {
+            callbacks: {
+              footer: function(tooltipItems) {
+                const idx = tooltipItems[0].dataIndex;
+                const country = comparisonData[idx];
+                return `Intensidad: ${country.intensity} gCO₂e/kWh`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          },
+          y: {
+            title: {display: true, text: '% de generación eléctrica', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          }
+        }
+      }
+    });
+
+    // Gráfica 4: % Baja en carbono vs Intensidad (scatter con colores)
+    const ctxLowCarbon = document.getElementById('chartLowCarbonIntensity').getContext('2d');
+    new Chart(ctxLowCarbon, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Todos los países',
+          data: allCountries.map(d => ({
+            x: d.lowCarbon, 
+            y: d.intensity, 
+            country: d.country,
+            solar: d.solar,
+            wind: d.wind,
+            fossils: d.fossils
+          })),
+          backgroundColor: allCountries.map(d => {
+            // Colorear México de forma distinta
+            if (d.country === 'México') return 'rgba(239, 68, 68, 0.8)';
+            // Colorear según intensidad
+            if (d.intensity < 100) return 'rgba(167, 243, 208, 0.8)';
+            if (d.intensity < 200) return 'rgba(125, 211, 252, 0.8)';
+            if (d.intensity < 350) return 'rgba(251, 191, 36, 0.8)';
+            return 'rgba(248, 113, 113, 0.8)';
+          }),
+          borderColor: allCountries.map(d => {
+            if (d.country === 'México') return 'rgba(239, 68, 68, 1)';
+            if (d.intensity < 100) return 'rgba(167, 243, 208, 1)';
+            if (d.intensity < 200) return 'rgba(125, 211, 252, 1)';
+            if (d.intensity < 350) return 'rgba(251, 191, 36, 1)';
+            return 'rgba(248, 113, 113, 1)';
+          }),
+          borderWidth: 2,
+          pointRadius: 7,
+          pointHoverRadius: 10
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {display: false},
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const point = context.raw;
+                return [
+                  `${point.country}`,
+                  `Baja en carbono: ${point.x}%`,
+                  `Intensidad: ${point.y} gCO₂e/kWh`,
+                  `Solar: ${point.solar}% | Eólica: ${point.wind}%`,
+                  `Fósiles: ${point.fossils}%`
+                ];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {display: true, text: '% Generación Baja en Carbono Total', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'},
+            reverse: false
+          },
+          y: {
+            title: {display: true, text: 'Intensidad de Carbono (gCO₂e/kWh)', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          }
+        }
+      }
+    });
+
+    // Gráfica 5: Composición del mix (barras apiladas)
+    const selectedCountries = [
+      'Uruguay', 'Suecia', 'Dinamarca', 'Luxemburgo', 'El Salvador',
+      'Portugal', 'España', 'Alemania', 'Irlanda', 'México'
+    ];
+    const mixData = allCountries.filter(c => selectedCountries.includes(c.country))
+                                 .sort((a, b) => a.intensity - b.intensity);
+    
+    const ctxMix = document.getElementById('chartMixComparison').getContext('2d');
+    new Chart(ctxMix, {
+      type: 'bar',
+      data: {
+        labels: mixData.map(d => d.country),
+        datasets: [
+          {
+            label: 'Fósiles (%)',
+            data: mixData.map(d => d.fossils),
+            backgroundColor: 'rgba(248, 113, 113, 0.8)',
+            borderColor: 'rgba(248, 113, 113, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Baja en carbono (%)',
+            data: mixData.map(d => d.lowCarbon),
+            backgroundColor: 'rgba(167, 243, 208, 0.8)',
+            borderColor: 'rgba(167, 243, 208, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {display: true, position: 'top'},
+          tooltip: {
+            callbacks: {
+              footer: function(tooltipItems) {
+                const idx = tooltipItems[0].dataIndex;
+                const country = mixData[idx];
+                return [
+                  `Intensidad: ${country.intensity} gCO₂e/kWh`,
+                  `Solar: ${country.solar}% | Eólica: ${country.wind}%`
+                ];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'}
+          },
+          y: {
+            stacked: true,
+            title: {display: true, text: '% del mix eléctrico', color: '#e9eef5'},
+            grid: {color: 'rgba(42, 47, 58, 0.5)'},
+            ticks: {color: '#b9c2cf'},
+            max: 100
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

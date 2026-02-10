@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos – Apple in China</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #666666;
+    --border: #e0e0e0;
+    --china-red: #de2910;
+    --china-gold: #ffde00;
+    --apple-gray: #555555;
+    --card-bg: #fafafa;
+    --hover-shadow: rgba(222, 41, 16, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  header {
+    border-bottom: 3px solid var(--china-red);
+    padding: 2rem 2rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--china-red); }
+
+  header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  header h1 .apple-mark { color: var(--apple-gray); }
+  header h1 .china-mark { color: var(--china-red); }
+
+  header p.subtitle {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .accent-bar {
+    display: flex;
+    gap: 0;
+    margin-top: 1rem;
+    height: 4px;
+    width: 120px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .accent-bar span:nth-child(1) { flex: 1; background: var(--china-red); }
+  .accent-bar span:nth-child(2) { flex: 1; background: var(--china-gold); }
+  .accent-bar span:nth-child(3) { flex: 1; background: var(--apple-gray); }
+  .accent-bar span:nth-child(4) { flex: 1; background: var(--text); }
+
+  /* Main */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Video card */
+  .video-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .video-card:hover {
+    border-color: var(--china-red);
+    box-shadow: 0 4px 24px var(--hover-shadow);
+  }
+
+  .video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+  }
+  .video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-info {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .video-info h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+
+  .video-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .video-meta .channel { color: var(--china-red); font-weight: 500; }
+  .video-meta .sep { color: var(--border); }
+
+  .video-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: var(--china-red);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    vertical-align: middle;
+  }
+
+  /* Footer */
+  footer {
+    max-width: 1100px;
+    margin: 3rem auto 2rem;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  footer a {
+    color: var(--china-red);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .video-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.6rem; }
+    .video-info { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-link">← Volver al curso</a>
+  <h1><span class="apple-mark">Apple</span> in <span class="china-mark">China</span> — Videos</h1>
+  <p class="subtitle">Unidad 3 · Geopolítica Internacional Aplicada a los Negocios Internacionales</p>
+  <div class="accent-bar"><span></span><span></span><span></span><span></span></div>
+</header>
+
+<main>
+  <div class="video-grid">
+
+    <!-- 1 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/XHteRHDI3dU" title="Globalization - How crises change our world (1/2) | DW Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">1</span>Globalization – How crises change our world (1/2)</h2>
+        <div class="video-meta">
+          <span class="channel">DW Documentary</span>
+          <span class="sep">·</span>
+          <span>42:26</span>
+          <span class="sep">·</span>
+          <span>94,670 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/LytEuoS87EA" title="Taiwan's Biggest Company - Foxconn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">2</span>Taiwan's Biggest Company – Foxconn</h2>
+        <div class="video-meta">
+          <span class="channel">Asianometry</span>
+          <span class="sep">·</span>
+          <span>13:16</span>
+          <span class="sep">·</span>
+          <span>46,665 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/dEXH-K1m2kI" title="The billionaire behind all your favorite tech" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">3</span>The billionaire behind all your favorite tech</h2>
+        <div class="video-meta">
+          <span class="channel">TechAltar</span>
+          <span class="sep">·</span>
+          <span>14:55</span>
+          <span class="sep">·</span>
+          <span>225,241 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/9XkX6EGk_CA" title="Inside Apple's iPhone Factory In China" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">4</span>Inside Apple's iPhone Factory In China</h2>
+        <div class="video-meta">
+          <span class="channel">Tech Vision</span>
+          <span class="sep">·</span>
+          <span>7:14</span>
+          <span class="sep">·</span>
+          <span>7,110,651 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/Cw3V2x5u54Y" title="What's In Your Apple iPhone" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">5</span>What's In Your Apple iPhone</h2>
+        <div class="video-meta">
+          <span class="channel">CNBC</span>
+          <span class="sep">·</span>
+          <span>6:50</span>
+          <span class="sep">·</span>
+          <span>290,242 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/FvvJtx8ndG8" title="Why Apple Is Betting Big On Making iPhones In India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">6</span>Why Apple Is Betting Big On Making iPhones In India</h2>
+        <div class="video-meta">
+          <span class="channel">CNBC</span>
+          <span class="sep">·</span>
+          <span>9:49</span>
+          <span class="sep">·</span>
+          <span>283,475 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/NIH6kvYJwK4" title="Inside Apple's and Samsung's Supply Chain Shift Away From China | WSJ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">7</span>Inside Apple's and Samsung's Supply Chain Shift Away From China</h2>
+        <div class="video-meta">
+          <span class="channel">The Wall Street Journal</span>
+          <span class="sep">·</span>
+          <span>6:39</span>
+          <span class="sep">·</span>
+          <span>1,233,695 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/FqDP3hbwErA" title="Apple Makes iPhone 14 in India Amid China Woes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">8</span>Apple Makes iPhone 14 in India Amid China Woes</h2>
+        <div class="video-meta">
+          <span class="channel">ColdFusion</span>
+          <span class="sep">·</span>
+          <span>7:09</span>
+          <span class="sep">·</span>
+          <span>583,481 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/NAj9zB4vaZc" title="Patrick McGee - Apple in China: The Capture of the World's Greatest Company | The Daily Show" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">9</span>Patrick McGee – "Apple in China: The Capture of the World's Greatest Company"</h2>
+        <div class="video-meta">
+          <span class="channel">The Daily Show</span>
+          <span class="sep">·</span>
+          <span>18:56</span>
+          <span class="sep">·</span>
+          <span>3,084,763 views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/-JbIOGGTRTY" title="Why Apple Can't Leave China (yet)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h2><span class="video-number">10</span>Why Apple Can't Leave China (yet)</h2>
+        <div class="video-meta">
+          <span class="channel">PolyMatter</span>
+          <span class="sep">·</span>
+          <span>18:12</span>
+          <span class="sep">·</span>
+          <span>423,806 views</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Geopolítica Internacional Aplicada a los Negocios Internacionales · Unidad 3 · FCA, UNAM<br>
+  Videos incrustados con <a href="https://support.google.com/youtube/answer/171780" target="_blank" rel="noopener">modo de privacidad mejorada</a> (youtube-nocookie.com)
+</footer>
+
+</body>
+</html>

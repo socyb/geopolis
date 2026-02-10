@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mix eléctrico e intensidad de carbono (ciclo de vida) – Comparativo de países</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#111826; --text:#e7eef7; --muted:#a7b4c5;
+      --line:#233044; --accent:#7dd3fc;
+    }
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.45;
+    }
+    header{ padding:22px 16px 10px; max-width:1100px; margin:0 auto; }
+    h1{ margin:0 0 8px; font-size:1.35rem; letter-spacing:.2px;}
+    p{ margin:.5rem 0; color:var(--muted); }
+    .wrap{ max-width:1100px; margin:0 auto; padding:0 16px 28px; }
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:14px;
+      padding:14px; margin:14px 0; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+    }
+    .kpi{
+      display:grid; grid-template-columns:1fr; gap:10px;
+    }
+    @media (min-width: 820px){
+      .kpi{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .pill{
+      display:inline-block; padding:2px 10px; border:1px solid var(--line);
+      border-radius:999px; color:var(--muted); font-size:.85rem;
+    }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .table-wrap{
+      overflow:auto; border-radius:12px; border:1px solid var(--line);
+    }
+    table{ border-collapse:collapse; width:100%; min-width:920px; background:rgba(255,255,255,.02); }
+    th, td{
+      padding:10px 10px; border-bottom:1px solid var(--line);
+      text-align:left; vertical-align:top;
+      font-size:.95rem;
+    }
+    th{ position:sticky; top:0; background:#0f1623; z-index:1; }
+    tr:hover td{ background:rgba(125,211,252,.06); }
+    .note{ font-size:.95rem; color:var(--muted); }
+    .grid2{ display:grid; grid-template-columns:1fr; gap:12px; }
+    @media (min-width: 900px){ .grid2{ grid-template-columns:1fr 1fr; } }
+    ul{ margin:.5rem 0 0 1.1rem; color:var(--muted); }
+    li{ margin:.35rem 0; }
+    code{ background:rgba(125,211,252,.10); padding:.1rem .3rem; border-radius:6px; }
+    footer{ padding:10px 16px 28px; max-width:1100px; margin:0 auto; color:var(--muted); }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mix eléctrico e <em>intensidad de carbono (ciclo de vida)</em> — comparativo por país</h1>
+    <p>
+      <span class="pill">Unidad clave: gCO₂e/kWh</span>
+      <span class="pill">Último año disponible ≤ 2024</span>
+      <span class="pill">Mix = % de generación eléctrica</span>
+    </p>
+  </header>
+
+  <div class="wrap">
+
+    <div class="card kpi">
+      <div>
+        <strong>¿Qué mide “ciclo de vida”?</strong>
+        <p class="note">
+          Emisiones <em>por kWh</em> considerando la cadena completa (materiales, manufactura, construcción, operación y fin de vida),
+          no solo lo que sale “de la chimenea”.
+        </p>
+      </div>
+      <div>
+        <strong>¿Por qué Paraguay / Noruega salen bajísimos?</strong>
+        <p class="note">
+          Porque su electricidad viene casi toda de <strong>hidro</strong> (muy baja intensidad en ciclo de vida).
+        </p>
+      </div>
+      <div>
+        <strong>¿Qué tiene que ver con el LCOE?</strong>
+        <p class="note">
+          <strong>LCOE</strong> = costo por MWh. No es una métrica de emisiones. Se conectan si metes un <strong>precio al carbono</strong>
+          o comparas “costo + externalidad”.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 8px; font-size:1.1rem;">Cuadro comparativo (países con mixes “representativos”)</h2>
+      <p class="note" style="margin-top:0;">
+        Campos: <strong>intensidad ciclo de vida</strong> (gCO₂e/kWh), <strong>% fósiles</strong>, <strong>% baja en carbono</strong>, y <strong>top 3 fuentes</strong>.
+      </p>
+
+      <div class="table-wrap">
+        <table class="dataframe data">
+          <thead>
+            <tr style="text-align: right;">
+              <th>País</th>
+              <th>Año (último disponible ≤2024)</th>
+              <th>Intensidad (gCO₂e/kWh)</th>
+              <th>Fósiles (% de generación)</th>
+              <th>Baja en carbono (% de generación)</th>
+              <th>Top 3 fuentes (participación)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>México</td><td>2024</td><td>483</td><td>75.4</td><td>24.6</td><td>gas 62.4%, oil 9.5%, solar 7.2%</td>
+            </tr>
+            <tr>
+              <td>Paraguay</td><td>2023</td><td>25</td><td>0.0</td><td>100.0</td><td>hydro 99.5%, bioenergy 0.5%, other_renewables 0.5%</td>
+            </tr>
+            <tr>
+              <td>Costa Rica</td><td>2024</td><td>63</td><td>6.0</td><td>94.0</td><td>hydro 70.1%, other_renewables 13.1%, wind 10.2%</td>
+            </tr>
+            <tr>
+              <td>China</td><td>2024</td><td>555</td><td>61.8</td><td>38.2</td><td>coal 57.8%, hydro 13.4%, wind 9.9%</td>
+            </tr>
+            <tr>
+              <td>Uzbekistán</td><td>2023</td><td>1121</td><td>90.8</td><td>9.2</td><td>gas 81.3%, hydro 8.7%, coal 7.5%</td>
+            </tr>
+            <tr>
+              <td>Francia</td><td>2024</td><td>41</td><td>5.1</td><td>94.9</td><td>nuclear 67.9%, hydro 12.7%, wind 7.7%</td>
+            </tr>
+            <tr>
+              <td>Alemania</td><td>2024</td><td>338</td><td>41.6</td><td>58.4</td><td>wind 28.1%, coal 21.6%, gas 15.9%</td>
+            </tr>
+            <tr>
+              <td>Noruega</td><td>2024</td><td>31</td><td>1.6</td><td>98.4</td><td>hydro 88.7%, wind 9.3%, gas 1.1%</td>
+            </tr>
+            <tr>
+              <td>Suecia</td><td>2024</td><td>35</td><td>1.2</td><td>98.8</td><td>hydro 37.6%, nuclear 29.5%, wind 23.4%</td>
+            </tr>
+            <tr>
+              <td>Polonia</td><td>2024</td><td>612</td><td>69.3</td><td>30.7</td><td>coal 54.7%, wind 14.5%, gas 12.0%</td>
+            </tr>
+            <tr>
+              <td>Estados Unidos</td><td>2024</td><td>384</td><td>58.1</td><td>41.9</td><td>gas 42.6%, nuclear 17.8%, coal 14.9%</td>
+            </tr>
+            <tr>
+              <td>Canadá</td><td>2024</td><td>185</td><td>22.3</td><td>77.7</td><td>hydro 53.9%, gas 17.2%, nuclear 13.4%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note" style="margin-top:10px;">
+        Nota: “other_renewables” suele agrupar cosas como <strong>geotermia</strong>, <strong>biomasa</strong> y otras renovables no-eólica/no-solar/no-hidro.
+      </p>
+    </div>
+
+    <div class="card grid2">
+      <div>
+        <h2 style="margin:0 0 8px; font-size:1.1rem;">Lectura rápida: ¿por qué salen tan bajos?</h2>
+        <ul>
+          <li><strong>Paraguay (~25)</strong>: casi todo <strong>hidro</strong> → ciclo de vida muy bajo.</li>
+          <li><strong>Costa Rica (~63)</strong>: <strong>hidro</strong> + “other renewables” (típicamente <strong>geotermia</strong>) + <strong>eólica</strong>. Poco fósil.</li>
+          <li><strong>Francia (~41)</strong>: mix dominado por <strong>nuclear</strong> (baja intensidad de ciclo de vida) + hidro/eólica.</li>
+          <li><strong>Noruega (~31)</strong>: <strong>hidro</strong> dominante + algo de eólica; fósiles casi nada.</li>
+          <li><strong>Suecia (~35)</strong>: combinación <strong>hidro + nuclear + eólica</strong> (tres “bajas en carbono”).</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="margin:0 0 8px; font-size:1.1rem;">Lectura rápida: ¿por qué salen tan altos?</h2>
+        <ul>
+          <li><strong>Uzbekistán (~1121)</strong>: electricidad mayormente <strong>gas</strong> (y algo de carbón); baja penetración de bajas en carbono.</li>
+          <li><strong>Polonia (~612)</strong>: peso grande de <strong>carbón</strong>.</li>
+          <li><strong>China (~555)</strong>: todavía muy alto el <strong>carbón</strong> en el mix (aunque con hidro/eólica/solar relevantes).</li>
+          <li><strong>México (~483)</strong>: predominio de <strong>gas</strong> y presencia de <strong>fuel oil</strong> (más intensivo) además de renovables crecientes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 8px; font-size:1.1rem;">¿Cómo conectarlo con LCOE (sin confundirlo)?</h2>
+      <p class="note">
+        <strong>LCOE</strong> (Levelized Cost of Energy) es una métrica de <strong>costo</strong> (USD/MWh) para comparar tecnologías,
+        y depende de CAPEX, OPEX, factor de planta, costo de financiamiento, etc.
+      </p>
+      <ul>
+        <li>
+          La <strong>intensidad (gCO₂e/kWh)</strong> te dice “cuánto carbono por kWh” (ciclo de vida).
+          El LCOE te dice “cuánto dinero por MWh”.
+        </li>
+        <li>
+          Se conectan si añades un <strong>precio al carbono</strong>:
+          <code>costo_CO2 ≈ intensidad × precio_CO2</code>
+          (cuidando unidades: gCO₂e/kWh → tCO₂e/MWh).
+        </li>
+        <li>
+          Ojo: ni el LCOE ni el “ciclo de vida” capturan perfectamente <strong>costos del sistema</strong> (red, respaldo, almacenamiento)
+          sin hacer un análisis adicional (p.ej. “system LCOE”, “LCOE + integración”, etc.).
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 8px; font-size:1.1rem;">Links clave (bien puestos)</h2>
+      <ul>
+        <li>
+          OWID (gráfica): <a href="https://ourworldindata.org/grapher/carbon-intensity-electricity" target="_blank" rel="noopener">
+            Lifecycle carbon intensity of electricity
+          </a>
+        </li>
+        <li>
+          Dataset “Energy” (OWID): <a href="https://github.com/owid/energy-data" target="_blank" rel="noopener">repo + descargas</a>
+        </li>
+        <li>
+          Codebook (columnas/definiciones): <a href="https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-codebook.csv" target="_blank" rel="noopener">
+            owid-energy-codebook.csv
+          </a>
+        </li>
+        <li>
+          Fuente base (Ember, “Yearly Electricity Data”): <a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">
+            ember-energy.org/data/yearly-electricity-data
+          </a>
+        </li>
+      </ul>
+      <p class="note">
+        Si quieres, en la siguiente iteración puedo agregarte una columna “<strong>tipo dominante de renovables</strong>”
+        (hidro / eólica / solar / geotermia) y una mini-interpretación por país en una sola línea tipo “diagnóstico”.
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="note">
+      Hecho para lectura móvil. Datos: OWID Energy dataset (con indicadores de intensidad y shares basados en Ember).  
+    </div>
+  </footer>
+</body>
+</html>
