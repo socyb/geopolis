@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mix Energético y Emisiones — Índice</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      padding: 8px 20px;
+      background: #ffffff;
+      border: 2px solid #cc0028;
+      border-radius: 50px;
+      color: #000000;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .back-link:hover {
+      background: #cc0028;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(204,0,40,0.3);
+    }
+
+    header {
+      width: 100%;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8e 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding: 3rem 2rem;
+    }
+
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.75rem 2rem;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-left: 5px solid #cc0028;
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 6px 20px rgba(204,0,40,0.12);
+      border-left-color: #1e3a5f;
+    }
+
+    .card-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #cc0028;
+      line-height: 1;
+      min-width: 2.5rem;
+      text-align: center;
+    }
+
+    .card:hover .card-number {
+      color: #1e3a5f;
+    }
+
+    .card-content h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #1a1a1a;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      border-radius: 20px;
+      background: #f0f4f8;
+      color: #1e3a5f;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      .card { flex-direction: column; gap: 0.75rem; padding: 1.25rem; }
+      .card-number { font-size: 1.5rem; }
+      main { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link">← Inicio</a>
+
+  <header>
+    <h1>⚡ Mix Energético y Emisiones</h1>
+    <p>Análisis comparativo de fuentes de energía, intensidad de carbono y ciclo de vida</p>
+  </header>
+
+  <main>
+    <div class="card-list">
+
+      <a href="mixesEnergy/GEI.html" class="card">
+        <span class="card-number">1</span>
+        <div class="card-content">
+          <h2>Renovables vs Fósiles: Cadena de Suministro, LCA y LCOE</h2>
+          <p>Análisis de la cadena de suministro de energías renovables frente a fósiles, evaluación del ciclo de vida (LCA) y su relación con el costo nivelado de energía.</p>
+          <span class="tag">LCA</span> <span class="tag">LCOE</span> <span class="tag">Renovables</span>
+        </div>
+      </a>
+
+      <a href="mixesEnergy/ejemplos_GEI_LCA.html" class="card">
+        <span class="card-number">2</span>
+        <div class="card-content">
+          <h2>Mix Eléctrico e Intensidad de Carbono (Ciclo de Vida)</h2>
+          <p>Notas rápidas sobre el mix eléctrico y la intensidad de carbono por ciclo de vida, basadas en datos de OWID y Ember.</p>
+          <span class="tag">OWID</span> <span class="tag">Ember</span> <span class="tag">Intensidad de carbono</span>
+        </div>
+      </a>
+
+      <a href="mixesEnergy/solar_nuclear.html" class="card">
+        <span class="card-number">3</span>
+        <div class="card-content">
+          <h2>Líderes en Solar y Eólica — Mix e Intensidad de Carbono</h2>
+          <p>Países líderes en energía solar y eólica: su mix energético e intensidad de carbono por ciclo de vida, con datos de OWID y Ember.</p>
+          <span class="tag">Solar</span> <span class="tag">Eólica</span> <span class="tag">Países líderes</span>
+        </div>
+      </a>
+
+      <a href="mixesEnergy/solar_nuclear_graficas.html" class="card">
+        <span class="card-number">4</span>
+        <div class="card-content">
+          <h2>Visualización: Solar y Eólica — Intensidad de Carbono vs % Renovables</h2>
+          <p>Gráficas interactivas que comparan la intensidad de carbono frente al porcentaje de renovables en distintos países.</p>
+          <span class="tag">Gráficas</span> <span class="tag">Visualización</span> <span class="tag">Interactivo</span>
+        </div>
+      </a>
+
+      <a href="mixesEnergy/tabla_LCA_GEI.html" class="card">
+        <span class="card-number">5</span>
+        <div class="card-content">
+          <h2>Comparativo de Países: Mix Eléctrico e Intensidad de Carbono</h2>
+          <p>Tabla comparativa entre países con datos de mix eléctrico e intensidad de carbono por ciclo de vida.</p>
+          <span class="tag">Tabla</span> <span class="tag">Comparativo</span> <span class="tag">Países</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+</body>
+</html>
