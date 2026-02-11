@@ -1,0 +1,604 @@
+<!-- =========================================
+File: taller-policy-memo-estudiantes.html
+Taller: Policy Memo Sprint (Geopolítica aplicada)
+========================================== -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Policy Memo Sprint — Geopolítica aplicada</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0f1115;
+      --muted:#5b6270;
+      --line:#e7e9ee;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --shadow2: 0 16px 40px rgba(0,0,0,.14);
+      --accent:#2f6fed; /* detalle color */
+      --accent2:#111827;
+      --radius: 14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--fg);
+      background: var(--bg);
+      line-height:1.45;
+    }
+    a{color:var(--accent); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    header{
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #fff 60%, #fbfcff);
+    }
+    .wrap{
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 22px 18px;
+    }
+    .top{
+      display:flex; gap:18px; align-items:flex-start; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .title{
+      display:flex; flex-direction:column; gap:8px; min-width:260px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:99px;background:var(--accent);
+      box-shadow: 0 0 0 4px rgba(47,111,237,.10);
+      margin-top:3px;
+    }
+    h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+    .meta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:8px 10px;
+      font-size: 12px;
+      color: var(--muted);
+      display:inline-flex; align-items:center; gap:8px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+    }
+    .pill b{color:var(--fg); font-weight:600;}
+    main{padding: 22px 0 50px;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+    }
+    @media (max-width: 960px){
+      .grid{grid-template-columns:1fr;}
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: rgba(47,111,237,.35);
+    }
+    .card h2{
+      margin:0 0 8px 0;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      display:flex; align-items:center; gap:10px;
+    }
+    .bar{
+      width:12px;height:12px;border-radius:4px;background:rgba(47,111,237,.16);
+      border: 1px solid rgba(47,111,237,.35);
+    }
+    .small{color:var(--muted); font-size: 13px; margin:0;}
+    .list{margin:10px 0 0 0; padding-left: 16px;}
+    .list li{margin:7px 0;}
+    .section{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .time{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      border:1px dashed rgba(47,111,237,.45);
+      background: rgba(47,111,237,.06);
+      padding:6px 10px;
+      border-radius: 999px;
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius: 12px;
+      background:#fff;
+      padding: 10px 12px;
+    }
+    details:hover{border-color: rgba(47,111,237,.35);}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight: 600;
+    }
+    summary::-webkit-details-marker{display:none;}
+    .chev{
+      width:26px;height:26px;border-radius: 10px;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      color: var(--muted);
+      flex: 0 0 auto;
+    }
+    details[open] .chev{border-color: rgba(47,111,237,.35); color: var(--accent);}
+    .kbd{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 2px 6px;
+      border:1px solid var(--line);
+      border-bottom-width:2px;
+      border-radius: 8px;
+      background: #fbfbfe;
+      color: var(--muted);
+    }
+    .template{
+      font-family: var(--mono);
+      font-size: 12.5px;
+      white-space: pre-wrap;
+      background: #0f1115;
+      color:#f4f6fb;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #0f1115;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
+    .note{
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(47,111,237,.05);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .hr{
+      height:1px; background: var(--line); margin: 16px 0;
+    }
+    .footer{
+      border-top:1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color: var(--muted);
+    }
+    .badge strong{color:var(--fg);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div class="title">
+          <div class="kicker"><span class="dot"></span><span>Geopolítica Internacional Aplicada a los Negocios Internacionales</span></div>
+          <h1>Policy Memo Sprint</h1>
+          <p class="subtitle">
+            Taller guiado para convertir un tema de geopolítica en un <b>Policy Memo</b> breve, claro y accionable,
+            con <b>mapeo de actores</b>, <b>chokepoints</b>, opciones y recomendación.
+          </p>
+        </div>
+        <div class="meta">
+          <div class="pill"><b>Duración</b> 3h</div>
+          <div class="pill"><b>Formato</b> Individual (Intersemestral)</div>
+          <div class="pill"><b>Entrega</b> Memo 2–4 páginas</div>
+          <div class="pill"><b>Enfoque</b> Decisión + evidencia</div>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="badge"><strong>Idea central:</strong> no es ensayo. Es un documento para que alguien decida <span class="kbd">qué hacer ahora</span>.</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="grid">
+        <!-- Columna izquierda -->
+        <div class="stack" style="display:flex; flex-direction:column; gap:14px;">
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Pre-work (opcional, recomendado)</h2>
+              <span class="time">20–30 min antes de clase</span>
+            </div>
+            <ol class="list">
+              <li><b>Elige un “cliente”</b> (audiencia realista): CEO exportador, Dirección de Riesgos, Secretaría de Economía, Cámara industrial, etc.</li>
+              <li><b>Trae 3 fuentes rápidas</b> (1–2 páginas o notas):
+                <ul class="list">
+                  <li>1 nota/brief serio</li>
+                  <li>1 dato (indicador o tabla)</li>
+                  <li>1 documento “policy-ish” (comunicado, estrategia, sanción, decreto, marco)</li>
+                </ul>
+              </li>
+            </ol>
+            <p class="note">Si no traes pre-work: no pasa nada. En clase haremos una versión exprés para compensar.</p>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Preguntas detonadoras (las usarás todo el taller)</h2>
+              <span class="time">Se responden en bullets</span>
+            </div>
+            <ul class="list">
+              <li>¿Cuáles son los principales actores? (Organizaciones, empresas, etc.)</li>
+              <li>¿Qué actores concentran poder y cuáles están excluidos de la toma de decisiones?</li>
+              <li>¿Qué mecanismos se usan para coordinar actores?</li>
+              <li>¿Qué intereses geopolíticos tienen los actores?</li>
+              <li>¿Dónde están los cuellos de botella/puntos críticos (chokepoints)?</li>
+              <li>¿Los chokepoints son técnicos, políticos u organizacionales?</li>
+            </ul>
+            <p class="note">Estas respuestas alimentan: <b>Contexto</b>, <b>Opciones</b>, <b>Riesgos</b>.</p>
+          </div>
+
+          <details>
+            <summary>
+              <span>Ruta del taller (vista rápida)</span>
+              <span class="chev">⌄</span>
+            </summary>
+            <div style="margin-top:10px;">
+              <ol class="list">
+                <li>Arranque + anatomía del memo (0:00–0:15)</li>
+                <li>Tarjeta de decisión: cliente + decisión + criterios (0:15–0:40)</li>
+                <li><b>Mapa de actores</b> + coordinación + chokepoints (0:40–1:05)</li>
+                <li>Matriz de opciones (A/B/C + status quo) (1:05–1:35)</li>
+                <li>Recomendación + implementación (3 pasos) (1:35–2:05)</li>
+                <li>Riesgos + mitigación (2:05–2:25)</li>
+                <li>Métricas/umbrales (2:25–2:45)</li>
+                <li>Edición final (2:45–3:00)</li>
+              </ol>
+            </div>
+          </details>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 1 — Tarjeta de decisión</h2>
+              <span class="time">0:15–0:40</span>
+            </div>
+            <p class="small">Objetivo: pasar de “tema” a una <b>pregunta decidible</b> para un cliente específico, con criterios de éxito.</p>
+            <div class="template">
+TARJETA DE DECISIÓN (rellena en bullets)
+
+Cliente (quién decide):
+Decisión que debe tomar en X semanas (verbo + objeto):
+Restricciones (tiempo, presupuesto, legal, reputación, capacidad):
+Intereses del cliente (qué quiere evitar / lograr):
+Criterios de éxito (2–4 criterios evaluables):
+            </div>
+            <p class="note"><b>Tip:</b> Si tu frase no incluye una decisión concreta, aún no es policy memo.</p>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 2 — Mapa de actores, coordinación y chokepoints</h2>
+              <span class="time">0:40–1:05</span>
+            </div>
+            <p class="small">Objetivo: hacer visible quién manda, quién habilita/bloquea y dónde se rompe el sistema.</p>
+
+            <details>
+              <summary><span>2.1 Lista de actores (8–12 bullets)</span><span class="chev">⌄</span></summary>
+              <ul class="list">
+                <li>Estados/coaliciones relevantes</li>
+                <li>Reguladores (comercio, finanzas, energía, telecom, etc.)</li>
+                <li>Empresas clave (lead firms, proveedores críticos)</li>
+                <li>Intermediarios (logística, puertos, aseguradoras, plataformas)</li>
+                <li>Actores “silenciosos” (trabajadores, SMEs, comunidades, consumidores)</li>
+              </ul>
+            </details>
+
+            <details style="margin-top:10px;">
+              <summary><span>2.2 Poder vs exclusión</span><span class="chev">⌄</span></summary>
+              <div class="template">
+PODER (quién decide / quién tiene veto / quién controla estándares o infraestructura):
+- ...
+- ...
+
+EXCLUIDOS (quién absorbe costos sin voz / quién queda periférico):
+- ...
+- ...
+              </div>
+            </details>
+
+            <details style="margin-top:10px;">
+              <summary><span>2.3 Mecanismos de coordinación (elige 2–3)</span><span class="chev">⌄</span></summary>
+              <ul class="list">
+                <li>Contratos / compliance / auditorías</li>
+                <li>Estándares técnicos</li>
+                <li>Tratados / foros / alianzas</li>
+                <li>Coerción (sanciones, aranceles, licencias)</li>
+                <li>Plataformas (marketplaces, cloud, pagos)</li>
+                <li>Jerarquía corporativa (lead firm) vs redes</li>
+              </ul>
+            </details>
+
+            <details style="margin-top:10px;">
+              <summary><span>2.4 Intereses geopolíticos por actor</span><span class="chev">⌄</span></summary>
+              <div class="template">
+Formato (1–2 líneas por actor):
+
+Actor X busca (seguridad / acceso / liderazgo tech / resiliencia / influencia / legitimidad)
+y teme (dependencia / sanciones / pérdida de capacidades / bloqueo logístico).
+              </div>
+            </details>
+
+            <details style="margin-top:10px;">
+              <summary><span>2.5 Chokepoints (3–5) + tipo</span><span class="chev">⌄</span></summary>
+              <div class="template">
+Lista de chokepoints (puntos críticos) y etiqueta:
+
+1) Chokepoint: ________   Tipo: [Técnico] [Político] [Organizacional]
+2) Chokepoint: ________   Tipo: [Técnico] [Político] [Organizacional]
+3) Chokepoint: ________   Tipo: [Técnico] [Político] [Organizacional]
+              </div>
+              <p class="note">Los chokepoints te sirven para escribir <b>riesgos</b> y para filtrar <b>opciones realistas</b>.</p>
+            </details>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 3 — Matriz de opciones (A/B/C + status quo)</h2>
+              <span class="time">1:05–1:35</span>
+            </div>
+            <p class="small">Objetivo: comparar opciones <b>implementables</b> y ver ganadores/perdedores.</p>
+
+            <div class="template">
+MATRIZ DE OPCIONES (resumen en bullets)
+
+Opción A:
+- Beneficios:
+- Costos/riesgos:
+- Factibilidad:
+- Reacción de actores:
+- Tiempo de impacto:
+- Quién habilita / quién bloquea:
+- Qué chokepoint toca (y tipo):
+
+Opción B:
+...
+
+Opción C:
+...
+
+Status quo (si no se hace nada):
+- Qué pasa / qué empeora / qué se mantiene:
+            </div>
+
+            <p class="note"><b>Regla:</b> cada opción debe decir (1) quién la habilita/bloquea y (2) qué chokepoint toca.</p>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 4 — Recomendación + implementación (3 pasos)</h2>
+              <span class="time">1:35–2:05</span>
+            </div>
+            <p class="small">Objetivo: escribir una recomendación clara (una principal) y un plan breve y ejecutable.</p>
+
+            <div class="template">
+RECOMENDACIÓN (1 frase)
+"Recomiendo ________ porque (1) ________, (2) ________, (3) ________,
+aceptando el trade-off ________."
+
+IMPLEMENTACIÓN (3 pasos)
+Paso 1 (0–30 días): ________  Responsable: ________  Coordinación vía: ________
+Paso 2 (30–90 días): ________ Responsable: ________  Coordinación vía: ________
+Paso 3 (90–180 días): ________ Responsable: ________ Coordinación vía: ________
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 5 — Riesgos + mitigación</h2>
+              <span class="time">2:05–2:25</span>
+            </div>
+            <p class="small">Objetivo: anticipar preguntas duras del decisor y proponer mitigaciones concretas.</p>
+
+            <div class="template">
+RIESGOS (elige 3) + MITIGACIÓN
+
+Riesgo 1 (qué puede salir mal): ________
+- Chokepoint relacionado (tipo): ________
+- Actor con incentivo a bloquear: ________
+Mitigación: ________
+
+Riesgo 2: ________
+Mitigación: ________
+
+Riesgo 3: ________
+Mitigación: ________
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 6 — Indicadores y umbrales</h2>
+              <span class="time">2:25–2:45</span>
+            </div>
+            <p class="small">Objetivo: definir cómo sabremos si la recomendación funciona (métricas + umbrales).</p>
+
+            <div class="template">
+INDICADORES (2–4) + UMBRALES
+
+Indicador 1: ________   Meta / Umbral: ________
+Indicador 2: ________   Meta / Umbral: ________
+Indicador 3: ________   Meta / Umbral: ________
+Indicador 4: ________   Meta / Umbral: ________
+
+(ideal: 1 indicador por chokepoint)
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Paso 7 — Redacción del Policy Memo (1–2 páginas)</h2>
+              <span class="time">2:45–3:00</span>
+            </div>
+            <p class="small">Objetivo: ensamblar todo en el esqueleto final. Estilo: frases cortas, bullets, verbos.</p>
+
+            <div class="template">
+ESQUELETO DEL MEMO (1–2 páginas)
+
+Para:
+De:
+Fecha:
+Asunto:
+
+Resumen ejecutivo (6–10 líneas):
+- Problema:
+- Recomendación:
+- Por qué ahora:
+- Principales trade-offs:
+
+Problema y contexto (10–15 líneas):
+- Actores clave + poder/exclusión:
+- Intereses geopolíticos:
+- Chokepoints:
+
+Opciones (A/B/C + status quo):
+- A:
+- B:
+- C:
+- Status quo:
+
+Recomendación:
+- Qué:
+- Por qué:
+
+Implementación:
+- Paso 1:
+- Paso 2:
+- Paso 3:
+
+Riesgos y mitigación:
+- R1 + mitigación
+- R2 + mitigación
+- R3 + mitigación
+
+Indicadores:
+- I1, I2, I3 (y umbrales)
+            </div>
+
+            <p class="note"><b>Entrega:</b> 2–4 páginas. Si tienes más, recorta. Si tienes menos, refuerza recomendación/opciones.</p>
+          </div>
+
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="stack" style="display:flex; flex-direction:column; gap:14px;">
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Checklist de calidad (antes de entregar)</h2>
+              <span class="time">2 min</span>
+            </div>
+            <ul class="list">
+              <li>¿Se entiende <b>quién decide</b> y <b>qué decisión</b> está sobre la mesa?</li>
+              <li>¿Hay una <b>recomendación explícita</b> (una frase)?</li>
+              <li>¿Las opciones son <b>realmente distintas</b> y comparables?</li>
+              <li>¿Mencionas <b>actores</b> (poder/exclusión) y <b>mecanismos de coordinación</b>?</li>
+              <li>¿Identificas <b>chokepoints</b> y su tipo (técnico/político/organizacional)?</li>
+              <li>¿Riesgos con mitigación concreta?</li>
+              <li>¿Métricas con umbrales?</li>
+              <li>¿Cabe en 1–2 páginas, escaneable en 60 segundos?</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Lenguaje recomendado</h2>
+              <span class="time">Estilo memo</span>
+            </div>
+            <ul class="list">
+              <li>Verbos de acción: <b>priorizar, negociar, diversificar, restringir, asegurar, monitorear</b></li>
+              <li>Evita: “En el presente trabajo…” / “Desde tiempos inmemoriales…”</li>
+              <li>Usa bullets y títulos claros: el lector tiene prisa.</li>
+            </ul>
+            <p class="note">Si dudas entre “elegante” y “claro”, gana <b>claro</b>.</p>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Canales de impacto (geopolítica → negocios)</h2>
+              <span class="time">Úsalos en contexto</span>
+            </div>
+            <ul class="list">
+              <li>Comercio: aranceles, reglas de origen, sanciones</li>
+              <li>Tecnología: controles de exportación, estándares</li>
+              <li>Logística: rutas, seguros, cuellos de botella</li>
+              <li>Finanzas: tipo de cambio, acceso a capital, riesgo país</li>
+              <li>Reputación/compliance: ESG, DDHH, anticorrupción</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section">
+              <h2><span class="bar"></span>Entrega</h2>
+              <span class="time">Final de la sesión</span>
+            </div>
+            <p class="small">
+              Entrega un PDF o documento con tu <b>Policy Memo</b> (2–4 páginas) y, si aplica, una nota al final con tus 3 fuentes base.
+            </p>
+            <div class="template">
+Formato sugerido de fuentes (rápido):
+- Fuente 1 (nota/brief):
+- Fuente 2 (dato):
+- Fuente 3 (documento policy-ish):
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
+        <span>Policy Memo Sprint — Taller guiado</span>
+        <span>Diseño minimalista B/N + acento <span style="color:var(--accent); font-weight:700;">●</span></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
