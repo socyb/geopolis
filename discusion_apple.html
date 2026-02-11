@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarjetas de discusión — Cadena de suministro de Apple</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0a0a0a;
+      --muted:#5a5a5a;
+      --line:#111;
+      --soft:#e8e8e8;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --shadow2: 0 18px 50px rgba(0,0,0,.12);
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.35;
+      letter-spacing: .1px;
+    }
+
+    /* Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: linear-gradient(to bottom, rgba(255,255,255,.96), rgba(255,255,255,.72));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--soft);
+    }
+    .wrap{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 16px;
+    }
+    .title{
+      display:flex;
+      gap:12px;
+      align-items:baseline;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    h1{
+      margin:0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing:.2px;
+      text-transform: uppercase;
+    }
+    .sub{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Controls */
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .search{
+      flex: 1 1 280px;
+      display:flex;
+      align-items:center;
+      border:1px solid var(--soft);
+      border-radius: 999px;
+      padding: 10px 12px;
+      gap:10px;
+      background:#fff;
+    }
+    .search input{
+      border:0;
+      outline:none;
+      width:100%;
+      font-size: 14px;
+      color: var(--fg);
+      background:transparent;
+    }
+    .pill{
+      border:1px solid var(--soft);
+      background:#fff;
+      border-radius:999px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      display:flex;
+      gap:8px;
+      align-items:center;
+      user-select:none;
+    }
+    .pill input{accent-color: #000}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 11px;
+      border:1px solid var(--soft);
+      border-bottom-color:#cfcfcf;
+      padding: 1px 6px;
+      border-radius: 7px;
+      color:#111;
+      background:#fff;
+    }
+
+    /* Grid */
+    main{
+      padding: 18px 16px 40px;
+    }
+    .grid{
+      max-width: 1200px;
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    /* Card */
+    .card{
+      grid-column: span 4;
+      border: 1px solid var(--soft);
+      border-radius: var(--radius);
+      background:#fff;
+      padding: 14px 14px 12px;
+      position: relative;
+      overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color:#cfcfcf;
+    }
+    .card:focus-within{
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom: 10px;
+    }
+    .tag{
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #111;
+    }
+    .num{
+      font-size: 11px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .q{
+      margin:0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hint{
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      display:none;
+    }
+    body.showHints .hint{display:block}
+
+    .actions{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .btn{
+      border:1px solid var(--soft);
+      background:#fff;
+      color:#111;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 12px;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color:#cfcfcf;
+      box-shadow: 0 8px 18px rgba(0,0,0,.06);
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 1100px){
+      .card{grid-column: span 6;}
+    }
+    @media (max-width: 680px){
+      header .wrap{padding: 14px 14px;}
+      main{padding: 14px 14px 34px;}
+      .grid{gap: 12px;}
+      .card{grid-column: span 12;}
+      .q{font-size: 15px;}
+    }
+
+    /* Print-friendly */
+    @media print{
+      header{position:static; border-bottom: 1px solid #000; backdrop-filter:none}
+      .controls, .actions, .hint {display:none !important;}
+      .card{box-shadow:none !important; transform:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="title">
+        <h1>Cadena de suministro de Apple — tarjetas de discusión</h1>
+        <p class="sub">Blanco y negro • Hover suave • Búsqueda rápida • <span class="kbd">/</span> para buscar</p>
+      </div>
+
+      <div class="controls">
+        <div class="search" role="search" aria-label="Buscar preguntas">
+          <span aria-hidden="true">⌕</span>
+          <input id="qSearch" type="search" placeholder="Buscar por palabra clave (p. ej., ‘India’, ‘valor’, ‘China’, ‘apps’)…" autocomplete="off" />
+        </div>
+
+        <label class="pill" title="Muestra una pequeña guía debajo de cada tarjeta">
+          <input id="toggleHints" type="checkbox" />
+          Mostrar “pistas”
+        </label>
+
+        <span class="pill" title="Atajo de teclado">
+          Atajo: <span class="kbd">/</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" id="grid" aria-label="Tarjetas de preguntas">
+      <!-- Cards injected by JS -->
+    </section>
+  </main>
+
+  <script>
+    const CARDS = [
+      {
+        tag: "Valor y ganancia",
+        q: "¿Qué diferencia práctica hay entre analizar ubicación de fábricas vs país de sede de las firmas (headquarters) para hablar de “quién gana”?",
+        hint: "Pista: separar empleo local / impuestos / spillovers vs captura de renta (IP, diseño, branding, servicios)."
+      },
+      {
+        tag: "Evidencia y medición",
+        q: "El informe sugiere que la diversificación existe, pero es “más limitada de lo que dicen los titulares”. ¿Qué evidencia usan para sostener esa afirmación y qué evidencia faltaría (por ejemplo, valores en dólares vs número de plantas)?",
+        hint: "Pista: plantas ≠ volumen; ensamble ≠ componentes; añade datos de valor, peso, proveedores tier-1/tier-2, lead times."
+      },
+      {
+        tag: "División internacional del trabajo",
+        q: "¿Qué te dice la frase “Designed in California, assembled in China” sobre la división internacional del trabajo en alta tecnología hoy?",
+        hint: "Pista: jerarquía de tareas; alto margen (I+D, software) vs baja remuneración relativa (ensamble), y dependencia logística."
+      },
+      {
+        tag: "Capacidades y spillovers",
+        q: "¿Cómo interpretas el argumento de que Apple ayudó a construir capacidades manufactureras chinas (incluyendo compra de equipo para fábricas)? ¿Qué “efectos de largo plazo” tiene eso?",
+        hint: "Pista: upgrading industrial, aprendizaje organizacional, estándares, clusters, y eventualmente competidores más capaces."
+      },
+      {
+        tag: "Movilidad productiva",
+        q: "¿Por qué parece más “movible” el ensamble final (electronics manufacturing) que otras partes de la cadena (p. ej., PCBs o precision manufacturing)?",
+        hint: "Pista: barreras de entrada distintas; ecosistemas locales; capex; proveedores cercanos; tolerancias y know-how."
+      },
+      {
+        tag: "China+1",
+        q: "Si se muda el ensamble a India pero “las entrañas” siguen viniendo de China, ¿qué cambia y qué no cambia en términos de poder, riesgos y empleo?",
+        hint: "Pista: cambia la foto política y algo de empleo; persiste la dependencia de insumos, tooling, componentes y logística."
+      },
+      {
+        tag: "Narrativas y complejidad",
+        q: "La lectura plantea que firmas chinas han avanzado más en segmentos “lower-tech/lower-margin”, mientras que en muchos componentes de mayor complejidad siguen dominando firmas taiwanesas, japonesas o estadounidenses incluso operando en China. ¿Qué implica esto para la narrativa de “China ya domina todo”?",
+        hint: "Pista: dominio por capas; distinguir ‘ubicación’ de ‘propiedad/know-how’; mirar nodos críticos (chips, óptica, materiales)."
+      },
+      {
+        tag: "Modelo de negocio",
+        q: "¿Qué significa, estratégicamente, que Apple sea descrita como “el mayor fabricante sin fábricas” (una empresa que orquesta más que produce)?",
+        hint: "Pista: poder de diseño/estándares, negociación, control de la demanda; riesgos: dependencia de contratistas y geopolitización."
+      },
+      {
+        tag: "Transferencia de conocimiento",
+        q: "La idea del “Apple Squeeze” (Apple entrena ingenieros, estandariza procesos, transfiere capacidades para cumplir especificaciones) sugiere una transferencia masiva de conocimiento productivo. ¿Eso es inevitable para fabricar a escala… o fue una decisión estratégica con costos geopolíticos?",
+        hint: "Pista: inevitabilidad operativa vs alternativa (diversificar antes, modularizar, dual sourcing) y sus costos."
+      },
+      {
+        tag: "Poder y dependencia",
+        q: "¿Cómo cambia la relación de poder cuando el contratista acepta márgenes mínimos “por el prestigio” y por aprender? ¿Qué tipo de dependencia crea eso en ambos sentidos?",
+        hint: "Pista: dependencia por volumen/cliente ancla vs dependencia por capacidades/ejecución; lock-in mutuo."
+      },
+      {
+        tag: "Límites morales-políticos",
+        q: "¿Dónde pondrías la frontera entre “colaboración industrial” y “apoyo involuntario a una política industrial” (tipo Made in China 2025)?",
+        hint: "Pista: intención vs efecto; contratos/transferencia tecnológica; externalidades; presión estatal; gobernanza corporativa."
+      },
+      {
+        tag: "Soberanía digital",
+        q: "¿Qué tensiones aparecen cuando Apple retira apps (VPNs, medios) por presión política? ¿Eso es “gobernanza privada” alineada con un Estado?",
+        hint: "Pista: mercado vs valores; compliance regulatorio; reputación; ‘platform power’; ciudadanía digital."
+      },
+      {
+        tag: "Tesis provocadora",
+        q: "“China no sería China sin Apple” (tesis provocadora). ¿Qué parte te parece sólida y cuál te parece exageración?",
+        hint: "Pista: Apple como catalizador de capacidades/cluster vs sobredeterminación (muchos otros motores)."
+      },
+      {
+        tag: "Estrategia país (India/Vietnam/México)",
+        q: "Si fueras India/Vietnam/México: ¿qué segmento de la cadena intentarías capturar primero (ensamble, cables, baterías, PCBs, empaques, precisión) y por qué?",
+        hint: "Pista: elige por barreras de entrada, empleo, learning curve, infraestructura, acceso a insumos, y escalamiento."
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+    const search = document.getElementById("qSearch");
+    const toggleHints = document.getElementById("toggleHints");
+
+    function render(list){
+      grid.innerHTML = "";
+      list.forEach((c, i) => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.dataset.tag = c.tag.toLowerCase();
+        card.dataset.text = (c.tag + " " + c.q + " " + c.hint).toLowerCase();
+        card.innerHTML = `
+          <div class="meta">
+            <div class="tag">${escapeHtml(c.tag)}</div>
+            <div class="num">#${String(i+1).padStart(2,"0")}</div>
+          </div>
+          <p class="q">${escapeHtml(c.q)}</p>
+          <p class="hint">${escapeHtml(c.hint)}</p>
+          <div class="actions">
+            <button class="btn" type="button" data-copy="${i}">Copiar</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function applyFilter(){
+      const q = search.value.trim().toLowerCase();
+      const cards = Array.from(grid.querySelectorAll(".card"));
+      cards.forEach(card => {
+        const hay = card.dataset.text || "";
+        card.style.display = (q === "" || hay.includes(q)) ? "" : "none";
+      });
+    }
+
+    // Copy handler
+    grid.addEventListener("click", async (e) => {
+      const btn = e.target.closest("button[data-copy]");
+      if(!btn) return;
+      const idx = Number(btn.dataset.copy);
+      const text = `${CARDS[idx].tag}\n\n${CARDS[idx].q}\n\n${CARDS[idx].hint}`;
+      try{
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = "Copiado ✓";
+        setTimeout(()=>btn.textContent = old, 900);
+      }catch(err){
+        // Fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        const old = btn.textContent;
+        btn.textContent = "Copiado ✓";
+        setTimeout(()=>btn.textContent = old, 900);
+      }
+    });
+
+    // Search
+    search.addEventListener("input", applyFilter);
+
+    // Hints toggle
+    toggleHints.addEventListener("change", () => {
+      document.body.classList.toggle("showHints", toggleHints.checked);
+    });
+
+    // Keyboard shortcut: "/" focuses search
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== search) {
+        e.preventDefault();
+        search.focus();
+      }
+      if (e.key === "Escape") {
+        search.value = "";
+        applyFilter();
+        search.blur();
+      }
+    });
+
+    // Initial render
+    render(CARDS);
+  </script>
+</body>
+</html>

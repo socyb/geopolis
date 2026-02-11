@@ -328,9 +328,36 @@
         #schedule-container.grid-view .session {
             margin-bottom: 8px;
         }
+        
+        /* Back link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            padding: 8px 20px;
+            background: #ffffff;
+            border: 2px solid #cc0028;
+            border-radius: 50px;
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .back-link:hover {
+            background: #cc0028;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(204,0,40,0.3);
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-link">← Inicio</a>
+    
     <header>
         <div class="header-content">
            

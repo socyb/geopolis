@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mix eléctrico y lifecycle carbon intensity (OWID/Ember) — notas rápidas</title>
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#12141b;
+      --text:#e9eef5;
+      --muted:#b9c2cf;
+      --line:#2a2f3a;
+      --accent:#7dd3fc;
+      --accent2:#a7f3d0;
+      --warn:#fbbf24;
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: linear-gradient(180deg, var(--bg), #0f1220 60%, #0b0c10);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{
+      padding: 28px 16px 10px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .kicker{color:var(--muted); font-size: 14px;}
+    h1{font-size: clamp(26px, 4vw, 38px); margin: 10px 0 8px;}
+    .sub{color:var(--muted); max-width: 70ch; margin: 0 0 18px;}
+    main{max-width: 980px; margin: 0 auto; padding: 0 16px 40px;}
+    .card{
+      background: rgba(18,20,27,0.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      margin-bottom: 14px;
+    }
+    h2{margin: 0 0 10px; font-size: 18px;}
+    h3{margin: 18px 0 8px; font-size: 16px;}
+    p{margin: 10px 0;}
+    ul{margin: 10px 0 0 18px; color: var(--text);}
+    li{margin: 6px 0;}
+    .muted{color:var(--muted);}
+    .pill{
+      display:inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      margin-right: 6px;
+    }
+    .note{
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(125,211,252,0.08);
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .tag{
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    a{color: var(--accent); text-decoration: none;}
+    a:hover{text-decoration: underline;}
+    .small{font-size: 13px;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">Nota rápida (para guardar / compartir)</div>
+    <h1>Mix eléctrico y <em>lifecycle carbon intensity</em> (gCO₂e/kWh)</h1>
+    <p class="sub">
+      Ejemplos de cómo el mix eléctrico de cada país determina su intensidad de carbono en ciclo de vida.
+      Comparación entre países con alta penetración de <span class="tag">renovables</span> y <span class="tag">nuclear</span> vs países dependientes de <span class="tag">fósiles</span>.
+    </p>
+    <span class="pill">LCA</span>
+    <span class="pill">gCO₂e/kWh</span>
+    <span class="pill">Mix eléctrico</span>
+    <span class="pill">OWID/Ember</span>
+  </header>
+
+  <main>
+
+    <section class="card">
+      <h2>Link clave (Our World in Data)</h2>
+      <ul>
+        <li><a href="https://ourworldindata.org/grapher/carbon-intensity-electricity" target="_blank" rel="noopener">Lifecycle carbon intensity of electricity (mapa/serie por país)</a></li>
+      </ul>
+      <div class="note">
+        <p><strong>Tip:</strong> en la gráfica puedes cambiar el año (hasta 2024) y seleccionar países.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Cómo leer el cruce "mapa de intensidad" + "mix"</h2>
+      <p>
+        En general: <strong>más carbón/gas/petróleo ⇒ más intensidad</strong>;
+        <strong>más hidro/nuclear/eólica/solar/geotermia ⇒ menos intensidad</strong>.
+        "Lifecycle" intenta incluir fabricación, construcción, combustible/extracción, operación y fin de vida (promedios por tecnología).
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Casos que mencionas</h2>
+
+      <h3>Paraguay</h3>
+      <p><strong>Clave:</strong> casi todo es <strong>hidroelectricidad</strong> (grandes presas como Itaipú/Yacyretá/Acaray). Eso empuja el indicador a valores muy bajos.</p>
+      <ul>
+        <li>IEA — Paraguay (electricity): <a href="https://www.iea.org/countries/paraguay/electricity" target="_blank" rel="noopener">https://www.iea.org/countries/paraguay/electricity</a></li>
+        <li>IRENA (Renewable Readiness Assessment Paraguay): <a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2021/Sep/IRENA_RRA_Paraguay_2021.pdf" target="_blank" rel="noopener">PDF</a></li>
+      </ul>
+
+          <h3>Costa Rica</h3>
+      <p><strong>Clave:</strong> <strong>hidro</strong> dominante + una fracción importante de <strong>geotermia</strong> y <strong>viento</strong>; algo de térmico fósil como respaldo (sube en años secos).</p>
+      <ul>
+        <li>IEA — Costa Rica (energy mix): <a href="https://www.iea.org/countries/costa-rica/energy-mix" target="_blank" rel="noopener">https://www.iea.org/countries/costa-rica/energy-mix</a></li>
+        <li>Climate Action Tracker — Costa Rica (mix de electricidad 2023): <a href="https://climateactiontracker.org/countries/costa-rica/policies-action/" target="_blank" rel="noopener">https://climateactiontracker.org/countries/costa-rica/policies-action/</a></li>
+        <li>IRENA Statistical Profile — Costa Rica: <a href="https://www.irena.org/-/media/Files/IRENA/Agency/Statistics/Statistical_Profiles/Central-America-and-the-Caribbean/Costa-Rica_Central-America-and-the-Caribbean_RE_SP.pdf" target="_blank" rel="noopener">PDF</a></li>
+      </ul>
+
+          <h3>Francia</h3>
+      <p><strong>Clave:</strong> <strong>nuclear</strong> dominante (baja huella por kWh en ciclo de vida) + hidro y otras renovables.</p>
+      <ul>
+        <li>IEA — France (electricity): <a href="https://www.iea.org/countries/france/electricity" target="_blank" rel="noopener">https://www.iea.org/countries/france/electricity</a></li>
+        <li>Ember — France: <a href="https://ember-energy.org/countries-and-regions/france/" target="_blank" rel="noopener">https://ember-energy.org/countries-and-regions/france/</a></li>
+        <li>OWID insight (nuclear en Francia): <a href="https://ourworldindata.org/data-insights/frances-nuclear-fleet-gives-it-one-of-the-worlds-lowest-carbon-electricity-grids" target="_blank" rel="noopener">https://ourworldindata.org/data-insights/...</a></li>
+      </ul>
+
+          <h3>Uzbekistán</h3>
+      <p><strong>Clave:</strong> no es "puro carbón"; el sistema está <strong>muy cargado a gas natural</strong> (fósil), por eso su intensidad es alta.</p>
+      <ul>
+        <li>IEA — Uzbekistan (electricity): <a href="https://www.iea.org/countries/uzbekistan/electricity" target="_blank" rel="noopener">https://www.iea.org/countries/uzbekistan/electricity</a></li>
+        <li>OWID — Uzbekistan (energy profile): <a href="https://ourworldindata.org/profile/energy/uzbekistan" target="_blank" rel="noopener">https://ourworldindata.org/profile/energy/uzbekistan</a></li>
+      </ul>
+
+      <h3>Suecia</h3>
+      <p><strong>Clave:</strong> <strong>hidro + nuclear</strong> como base, y <strong>viento</strong> creciendo fuerte. Eso la deja bajísima en lifecycle intensity.</p>
+      <ul>
+        <li>IEA — Sweden (energy mix): <a href="https://www.iea.org/countries/sweden/energy-mix" target="_blank" rel="noopener">https://www.iea.org/countries/sweden/energy-mix</a></li>
+        <li>Ember — Sweden: <a href="https://ember-energy.org/countries-and-regions/sweden/" target="_blank" rel="noopener">https://ember-energy.org/countries-and-regions/sweden/</a></li>
+      </ul>
+
+          <h3>Noruega</h3>
+      <p><strong>Clave:</strong> <strong>hidro</strong> abrumadoramente dominante + algo de viento. No tiene nuclear; y offshore wind existe pero no es lo que "explica" el low-carbon del país.</p>
+      <ul>
+        <li>Ember — Norway: <a href="https://ember-energy.org/countries-and-regions/norway/" target="_blank" rel="noopener">https://ember-energy.org/countries-and-regions/norway/</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Para replicar el "cruce" con tus ejemplos</h2>
+      <ol>
+        <li>Abre el mapa OWID de <em>lifecycle carbon intensity</em>.</li>
+        <li>Para cada país, abre su página IEA/Ember y mira <strong>qué % es fósil</strong> vs <strong>low-carbon</strong>.</li>
+        <li>Si quieres afinar: identifica si el low-carbon es <strong>hidro</strong> o <strong>nuclear</strong> (muy estables) vs <strong>eólica/solar</strong> (variables), y si hay <strong>térmico de respaldo</strong> en años secos.</li>
+      </ol>
+    </section>
+
+  </main>
+
+</body>
+</html>

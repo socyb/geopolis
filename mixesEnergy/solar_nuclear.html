@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Líderes en solar y eólica — mix e intensidad (ciclo de vida) | OWID/Ember</title>
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#12141b;
+      --text:#e9eef5;
+      --muted:#b9c2cf;
+      --line:#2a2f3a;
+      --accent:#7dd3fc;
+      --warn:#fbbf24;
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: linear-gradient(180deg, var(--bg), #0f1220 60%, #0b0c10);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{
+      padding: 28px 16px 10px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .kicker{color:var(--muted); font-size: 14px;}
+    h1{font-size: clamp(24px, 3.6vw, 36px); margin: 10px 0 8px;}
+    .sub{color:var(--muted); max-width: 80ch; margin: 0 0 18px;}
+    main{max-width: 1100px; margin: 0 auto; padding: 0 16px 40px;}
+    .card{
+      background: rgba(18,20,27,0.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      margin: 14px 0;
+    }
+    h2{margin: 0 0 10px; font-size: 18px;}
+    p{margin: 10px 0; color: var(--muted);}
+    .pill{
+      display:inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .note{
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(125,211,252,0.08);
+      border-radius: 10px;
+      margin-top: 10px;
+      color: var(--text);
+    }
+    .warn{border-left-color: var(--warn); background: rgba(251,191,36,0.08);}
+    .table-wrap{
+      overflow:auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 980px;
+      background: rgba(255,255,255,0.02);
+    }
+    th, td{
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+      color: var(--text);
+    }
+    th{
+      position: sticky;
+      top: 0;
+      background: #0f1118;
+      z-index: 1;
+      color: var(--muted);
+      font-weight: 600;
+      text-align: left;
+    }
+    tr:hover td{ background: rgba(125,211,252,0.06); }
+    a{color: var(--accent); text-decoration: none;}
+    a:hover{text-decoration: underline;}
+    footer{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .small{font-size: 13px;}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="kicker">Tablas (mismo formato: intensidad + mix + top fuentes)</div>
+    <h1>Países líderes en energía solar y eólica (por % de generación eléctrica) — 2024</h1>
+    <p class="sub">
+      Ranking por <strong>% de generación eléctrica</strong> proveniente de <strong>solar</strong> y de <strong>eólica</strong> (año 2024).
+      Incluye: <em>lifecycle carbon intensity</em> (gCO₂e/kWh), % fósiles, % baja en carbono y las 3 fuentes dominantes.
+    </p>
+    <span class="pill">Definición de “líder”: top por % (no por capacidad)</span>
+    <span class="pill">“Lifecycle” = ciclo de vida por kWh</span>
+    <span class="pill">Países pequeños pueden “subir” por su tamaño</span>
+    <span class="pill">México incluido como referencia</span>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Cómo leer estas tablas</h2>
+      <p>
+        <strong>Solar (%)</strong> y <strong>Eólica (%)</strong> son participaciones en el mix de generación.
+        La columna <strong>Intensidad</strong> (gCO₂e/kWh) es “ciclo de vida”, y suele bajar cuando domina
+        hidro/nuclear/eólico/solar, y subir cuando domina carbón/gas/petróleo.
+      </p>
+      <div class="note warn small">
+        Si quieres otra noción de “líder” (por ejemplo, <strong>mayor generación absoluta</strong> en TWh o <strong>mayor capacidad instalada</strong>),
+        lo armamos igual: cambia el criterio de ranking.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Países líderes en SOLAR (por % de generación eléctrica solar, 2024)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>País</th><th>Año</th><th>Intensidad (gCO₂e/kWh)</th><th>Fósiles (%)</th><th>Baja en carbono (%)</th><th>Solar (%)</th><th>Eólica (%)</th><th>Top 3 fuentes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hungría</td><td>2024</td><td>185</td><td>26.4</td><td>73.6</td><td>24.2</td><td>1.8</td><td>nuclear 42.2%, solar 24.2%, gas 18.8%</td></tr>
+            <tr><td>Luxemburgo</td><td>2024</td><td>133</td><td>9.3</td><td>90.7</td><td>24.0</td><td>30.0</td><td>eólica 30.0%, bioenergía 29.3%, otras renovables 29.3%</td></tr>
+            <tr><td>Chile</td><td>2024</td><td>265</td><td>30.1</td><td>69.9</td><td>22.3</td><td>11.9</td><td>hidro 29.6%, solar 22.3%, carbón 15.8%</td></tr>
+            <tr><td>España</td><td>2024</td><td>146</td><td>23.2</td><td>76.8</td><td>20.7</td><td>22.3</td><td>eólica 22.3%, solar 20.7%, nuclear 19.4%</td></tr>
+            <tr><td>Grecia</td><td>2024</td><td>322</td><td>50.9</td><td>49.1</td><td>19.8</td><td>21.9</td><td>gas 37.8%, eólica 21.9%, solar 19.8%</td></tr>
+            <tr><td>Chipre</td><td>2024</td><td>623</td><td>79.0</td><td>21.0</td><td>19.5</td><td>0.0</td><td>petróleo 63.9%, solar 19.5%, gas 15.1%</td></tr>
+            <tr><td>Lituania</td><td>2024</td><td>158</td><td>17.7</td><td>82.3</td><td>19.2</td><td>45.5</td><td>eólica 45.5%, solar 19.2%, otras renovables 11.6%</td></tr>
+            <tr><td>El Salvador</td><td>2024</td><td>137</td><td>22.2</td><td>77.8</td><td>18.3</td><td>0.0</td><td>hidro 32.4%, geotermia 24.4%, solar 18.3%</td></tr>
+            <tr><td>Australia</td><td>2024</td><td>443</td><td>62.3</td><td>37.7</td><td>17.4</td><td>12.6</td><td>carbón 44.5%, solar 17.4%, gas 17.0%</td></tr>
+            <tr><td>Países Bajos</td><td>2024</td><td>298</td><td>51.0</td><td>49.0</td><td>17.3</td><td>28.3</td><td>gas 34.1%, eólica 28.3%, solar 17.3%</td></tr>
+            <tr><td>Malta</td><td>2024</td><td>520</td><td>92.2</td><td>7.8</td><td>15.1</td><td>0.0</td><td>gas 77.1%, petróleo 15.1%, solar 15.1%</td></tr>
+            <tr><td>Alemania</td><td>2024</td><td>338</td><td>41.6</td><td>58.4</td><td>14.6</td><td>28.1</td><td>eólica 28.1%, carbón 21.6%, gas 15.9%</td></tr>
+            <tr><td>Portugal</td><td>2024</td><td>136</td><td>19.7</td><td>80.3</td><td>15.0</td><td>30.4</td><td>eólica 30.4%, hidro 24.8%, solar 15.0%</td></tr>
+            <tr><td>Bulgaria</td><td>2024</td><td>390</td><td>52.3</td><td>47.7</td><td>14.1</td><td>3.1</td><td>carbón 34.9%, nuclear 32.3%, solar 14.1%</td></tr>
+            <tr><td>Estonia</td><td>2024</td><td>410</td><td>44.4</td><td>55.6</td><td>13.6</td><td>24.9</td><td>eólica 24.9%, otras renovables 22.0%, solar 13.6%</td></tr>
+            <tr><td>México (referencia)</td><td>2024</td><td>483</td><td>75.4</td><td>24.6</td><td>7.2</td><td>5.6</td><td>gas 62.4%, petróleo 9.5%, solar 7.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Países líderes en EÓLICA (por % de generación eléctrica eólica, 2024)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>País</th><th>Año</th><th>Intensidad (gCO₂e/kWh)</th><th>Fósiles (%)</th><th>Baja en carbono (%)</th><th>Solar (%)</th><th>Eólica (%)</th><th>Top 3 fuentes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dinamarca</td><td>2024</td><td>96</td><td>26.1</td><td>73.9</td><td>10.7</td><td>58.4</td><td>eólica 58.4%, bioenergía 18.2%, solar 10.7%</td></tr>
+            <tr><td>Lituania</td><td>2024</td><td>158</td><td>17.7</td><td>82.3</td><td>19.2</td><td>45.5</td><td>eólica 45.5%, solar 19.2%, otras renovables 11.6%</td></tr>
+            <tr><td>Irlanda</td><td>2024</td><td>281</td><td>58.0</td><td>42.0</td><td>3.5</td><td>36.8</td><td>gas 45.5%, eólica 36.8%, otras renovables 6.0%</td></tr>
+            <tr><td>Portugal</td><td>2024</td><td>136</td><td>19.7</td><td>80.3</td><td>15.0</td><td>30.4</td><td>eólica 30.4%, hidro 24.8%, solar 15.0%</td></tr>
+            <tr><td>Luxemburgo</td><td>2024</td><td>133</td><td>9.3</td><td>90.7</td><td>24.0</td><td>30.0</td><td>eólica 30.0%, bioenergía 29.3%, otras renovables 29.3%</td></tr>
+            <tr><td>Reino Unido</td><td>2024</td><td>176</td><td>34.2</td><td>65.8</td><td>5.0</td><td>29.6</td><td>gas 29.2%, eólica 29.6%, nuclear 14.7%</td></tr>
+            <tr><td>Alemania</td><td>2024</td><td>338</td><td>41.6</td><td>58.4</td><td>14.6</td><td>28.1</td><td>eólica 28.1%, carbón 21.6%, gas 15.9%</td></tr>
+            <tr><td>Uruguay</td><td>2024</td><td>46</td><td>2.2</td><td>97.8</td><td>2.1</td><td>27.6</td><td>hidro 54.6%, eólica 27.6%, bioenergía 9.7%</td></tr>
+            <tr><td>Países Bajos</td><td>2024</td><td>298</td><td>51.0</td><td>49.0</td><td>17.3</td><td>28.3</td><td>gas 34.1%, eólica 28.3%, solar 17.3%</td></tr>
+            <tr><td>Finlandia</td><td>2024</td><td>84</td><td>8.5</td><td>91.5</td><td>1.8</td><td>27.1</td><td>nuclear 37.9%, eólica 27.1%, hidro 16.4%</td></tr>
+            <tr><td>Suecia</td><td>2024</td><td>35</td><td>1.2</td><td>98.8</td><td>1.0</td><td>23.4</td><td>hidro 37.6%, nuclear 29.5%, eólica 23.4%</td></tr>
+            <tr><td>España</td><td>2024</td><td>146</td><td>23.2</td><td>76.8</td><td>20.7</td><td>22.3</td><td>eólica 22.3%, solar 20.7%, nuclear 19.4%</td></tr>
+            <tr><td>Grecia</td><td>2024</td><td>322</td><td>50.9</td><td>49.1</td><td>19.8</td><td>21.9</td><td>gas 37.8%, eólica 21.9%, solar 19.8%</td></tr>
+            <tr><td>Marruecos</td><td>2024</td><td>612</td><td>88.1</td><td>11.9</td><td>5.4</td><td>21.8</td><td>carbón 62.6%, eólica 21.8%, gas 13.1%</td></tr>
+            <tr><td>Estonia</td><td>2024</td><td>410</td><td>44.4</td><td>55.6</td><td>13.6</td><td>24.9</td><td>eólica 24.9%, otras renovables 22.0%, solar 13.6%</td></tr>
+            <tr><td>México (referencia)</td><td>2024</td><td>483</td><td>75.4</td><td>24.6</td><td>7.2</td><td>5.6</td><td>gas 62.4%, petróleo 9.5%, solar 7.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Links (para cruzar con mapa y series)</h2>
+      <ul>
+        <li><a href="https://ourworldindata.org/grapher/carbon-intensity-electricity" target="_blank" rel="noopener">OWID – Lifecycle carbon intensity of electricity</a></li>
+        <li><a href="https://ourworldindata.org/grapher/share-electricity-solar" target="_blank" rel="noopener">OWID – Share of electricity production from solar</a></li>
+        <li><a href="https://ourworldindata.org/grapher/share-electricity-wind" target="_blank" rel="noopener">OWID – Share of electricity production from wind</a></li>
+        <li><a href="https://github.com/owid/energy-data" target="_blank" rel="noopener">OWID – Energy dataset (repo)</a></li>
+        <li><a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember – Yearly Electricity Data (fuente)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p class="small">
+      Nota: “Top 3 fuentes” se calcula a partir de las participaciones en el mix (carbón, gas, petróleo, nuclear, hidro, eólica, solar, bioenergía y otras renovables).
+    </p>
+  </footer>
+</body>
+</html>
