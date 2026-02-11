@@ -107,6 +107,24 @@
       font-size:14px;
     }
     .qs li{ margin:6px 0; }
+    .card-img{
+      width:100%;
+      height:auto;
+      border-radius:8px;
+      margin:12px 0;
+      border:1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .note{
+      font-size:12px;
+      color:#c76d00;
+      background:#fff9f0;
+      padding:8px 12px;
+      border-radius:6px;
+      border-left:3px solid #ff9800;
+      margin:10px 0;
+      line-height:1.4;
+    }
     footer{
       max-width:1100px;
       margin:0 auto 26px;
@@ -127,11 +145,9 @@
 
 <body>
   <header>
-    <span class="kicker">Lectura guiada • tarjetas rápidas</span>
+    <span class="kicker">Lectura • tarjetas rápidas</span>
     <h1>China–América Latina: ideas clave + preguntas concretas</h1>
-    <p class="sub">
-      Úsalas para discutir en clase o para hacer mini-resúmenes. Cada tarjeta trae una idea simple y 2–3 preguntas para comprobar comprensión.
-    </p>
+    <p class="sub">Un resumen de los puntos más importantes sobre la relación entre China y América Latina, con preguntas para guiar el análisis y discusión.</p>
   </header>
 
   <main class="grid">
@@ -267,13 +283,40 @@
         <li>¿Qué significa “falta de reciprocidad” en acceso a mercados/sectores?</li>
       </ul>
     </section>
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Datos visuales</div>
+      <h2 class="title">13) Estructura de exportaciones por intensidad tecnológica</h2>
+      <p class="idea">Esta gráfica compara la composición tecnológica de las exportaciones latinoamericanas, revelando patrones de especialización y el contraste entre mercados. La concentración en productos primarios y manufacturas basadas en recursos naturales hacia China evidencia la reprimarización mencionada en tarjeta 3.</p>
+      <img src="cla1.png" alt="Estructura de exportaciones de América Latina por intensidad tecnológica" class="card-img">
+      <div class="note">⚠️ <strong>Nota:</strong> La gráfica original tiene un error de etiquetado — ambas columnas dicen "Exports" cuando la columna derecha debería decir "Imports". Al leer, considera la columna izquierda como exportaciones y la derecha como importaciones.</div>
+      <ul class="qs">
+        <li>¿Qué porcentaje representan los productos primarios en las exportaciones a China vs. al mundo?</li>
+        <li>¿Cómo se compara la participación de manufacturas de alta tecnología en ambos destinos?</li>
+        <li>¿Qué revela esta asimetría sobre la "complementariedad" mencionada en la tarjeta 2?</li>
+        <li>¿Qué sectores productivos locales pueden verse afectados por este patrón de comercio?</li>
+      </ul>
+    </section>
 
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Datos visuales</div>
+      <h2 class="title">14) Balanza comercial bilateral por país (2015)</h2>
+      <p class="idea">Esta visualización muestra la situación comercial de cada país latinoamericano con China en 2015. Los superávits se concentran en países con abundancia de recursos naturales (Brasil, Chile, Venezuela), mientras que México registra el mayor déficit, reflejando su integración en cadenas de valor norteamericanas que importan componentes chinos.</p>
+      <img src="cla2.png" alt="Balanza comercial China-América Latina por países, 2015" class="card-img">
+      <ul class="qs">
+        <li>¿Qué países tienen superávit y cuáles déficit? ¿Qué exportan/importan principalmente?</li>
+        <li>¿Por qué México tiene el mayor déficit? ¿Cómo se relaciona con NAFTA/USMCA (tarjeta 4)?</li>
+        <li>¿Qué países sudamericanos muestran equilibrio o superávit? ¿Qué recursos explican esto?</li>
+        <li>¿Cómo ha cambiado este panorama desde 2015? ¿Qué factores (precios de commodities, política comercial) influyen?</li>
+      </ul>
+    </section>
   </main>
 
   <footer>
-    <div class="hint">
-      Sugerencia rápida: pídele a cada equipo que elija <span class="accent">2 tarjetas</span>, responda solo las preguntas y cierre con un ejemplo (un país + un sector).
-    </div>
+    <p class="hint">Estas tarjetas son un resumen de los puntos clave sobre la relación entre China y América Latina, con preguntas para guiar el análisis. Para profundizar, consulta el texto completo y los datos asociados.</p>
+    <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.6;">
+      <strong>Referencia:</strong><br>
+      Fornes, G., & Mendez, A. (2018). China-Latin America: The emerging markets' axis. In G. Fornes & A. Mendez, <em>The China-Latin America axis: Emerging markets and their role in an increasingly globalised world</em> (2nd ed., pp. 53–130). Palgrave Macmillan. https://doi.org/10.1007/978-3-319-66721-8
+    </p>
   </footer>
 </body>
 </html>
