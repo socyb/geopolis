@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarjetas — Ideas y preguntas (China–América Latina)</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0b0b0b;
+      --muted:#5a5a5a;
+      --card:#ffffff;
+      --line:#e8e8e8;
+      --accent:#2b6cff;
+      --shadow: 0 10px 26px rgba(0,0,0,.08);
+      --shadow2: 0 16px 34px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+      line-height:1.35;
+    }
+    header{
+      max-width:1100px;
+      margin:32px auto 10px;
+      padding:0 18px;
+    }
+    .kicker{
+      display:inline-block;
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      background:#fff;
+    }
+    h1{
+      margin:12px 0 6px;
+      font-size:28px;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      max-width:70ch;
+    }
+    .grid{
+      max-width:1100px;
+      margin:18px auto 48px;
+      padding:0 18px;
+      display:grid;
+      grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+      gap:14px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px 14px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      left:0; top:0;
+      width:100%;
+      height:3px;
+      background:linear-gradient(90deg, var(--accent), transparent);
+      opacity:.85;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color:#d9d9d9;
+    }
+    .tag{
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      gap:8px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:99px;background:var(--accent);
+    }
+    .title{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .idea{
+      margin:0 0 10px;
+      color:#1a1a1a;
+      font-size:14px;
+    }
+    .qs{
+      margin:0;
+      padding-left:18px;
+      color:var(--fg);
+      font-size:14px;
+    }
+    .qs li{ margin:6px 0; }
+    footer{
+      max-width:1100px;
+      margin:0 auto 26px;
+      padding:0 18px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .hint{
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
+    .accent{
+      color:var(--accent);
+      font-weight:600;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <span class="kicker">Lectura guiada • tarjetas rápidas</span>
+    <h1>China–América Latina: ideas clave + preguntas concretas</h1>
+    <p class="sub">
+      Úsalas para discutir en clase o para hacer mini-resúmenes. Cada tarjeta trae una idea simple y 2–3 preguntas para comprobar comprensión.
+    </p>
+  </header>
+
+  <main class="grid">
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Comercio</div>
+      <h2 class="title">1) Crecimiento acelerado del intercambio</h2>
+      <p class="idea">El comercio China–AL crece muy rápido (multiplicación en pocos años) y luego se “enfría” en algunos periodos.</p>
+      <ul class="qs">
+        <li>¿Qué factores explican el “boom” (demanda china, materias primas, alimentos)?</li>
+        <li>¿Qué significa que el crecimiento “se enfrió”? ¿Por qué puede pasar?</li>
+        <li>¿Qué datos (años/valores) usarías para mostrar el cambio?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Patrón comercial</div>
+      <h2 class="title">2) Complementariedad… con costo</h2>
+      <p class="idea">Suramérica tiende a vender recursos y comprar manufacturas; eso se ve “complementario”, pero trae costos.</p>
+      <ul class="qs">
+        <li>¿Qué vende más AL a China: primarios o alta tecnología?</li>
+        <li>¿Qué compra más AL a China: manufacturas de qué tipo?</li>
+        <li>¿Cuál es el costo para productores locales cuando entran manufacturas chinas?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Estructura productiva</div>
+      <h2 class="title">3) Reprimarización</h2>
+      <p class="idea">Aunque cambien precios de commodities, persiste (y puede empeorar) la especialización en primarios hacia China.</p>
+      <ul class="qs">
+        <li>¿Qué es “reprimarización” en una frase?</li>
+        <li>¿Por qué es un riesgo depender de exportar primarios?</li>
+        <li>¿Qué indicador (exportaciones por intensidad tecnológica) lo muestra mejor?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Balances</div>
+      <h2 class="title">4) Déficit de México vs. equilibrio en Suramérica</h2>
+      <p class="idea">México suele tener déficits grandes con China; parte se explica por redes de producción (componentes importados, ensamble, exportación a EE.UU.).</p>
+      <ul class="qs">
+        <li>¿Qué papel juegan las cadenas NAFTA/USMCA en ese déficit?</li>
+        <li>¿Por qué el ensamble para exportar a EE.UU. cambia la lectura del déficit?</li>
+        <li>¿Qué países aparecen con superávit y por qué?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Acuerdos</div>
+      <h2 class="title">5) FTAs y “diplomacia económica”</h2>
+      <p class="idea">China firma tratados (Chile, Perú, Costa Rica) y usa visitas de alto nivel para destrabar comercio e inversión.</p>
+      <ul class="qs">
+        <li>¿Qué ventaja política tiene usar “cumbres” y visitas presidenciales?</li>
+        <li>¿Qué cambió cuando algunos países reconocieron a China como “economía de mercado”?</li>
+        <li>¿Qué efecto tiene un FTA sobre sectores sensibles en AL?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Estrategia</div>
+      <h2 class="title">6) “Go Out” + expansión global</h2>
+      <p class="idea">La salida de empresas chinas al exterior se apoya en política estatal para buscar mercados, recursos y aprendizaje.</p>
+      <ul class="qs">
+        <li>¿Qué es “Go Out” (en palabras simples)?</li>
+        <li>¿Qué buscan las empresas: recursos, mercados, tecnología o todo a la vez?</li>
+        <li>¿Cómo cambia la relación cuando ya no es solo comercio, sino inversión?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>FDI</div>
+      <h2 class="title">7) Inversión: concentración sectorial</h2>
+      <p class="idea">Una gran parte de la inversión china se concentra en minería/hidrocarburos; también hay manufactura e infraestructura.</p>
+      <ul class="qs">
+        <li>¿Por qué minería y petróleo atraen tanto capital chino?</li>
+        <li>¿Qué diferencia hay entre “más proyectos” y “más monto” invertido?</li>
+        <li>¿Qué países concentran más inversión y por qué?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Modo de entrada</div>
+      <h2 class="title">8) Joint ventures primero (evitar fricción)</h2>
+      <p class="idea">Para reducir acusaciones de neo-colonialismo y aprender el entorno, se prefiere JV o M&A antes que greenfield.</p>
+      <ul class="qs">
+        <li>¿Por qué un JV puede facilitar “aceptación local”?</li>
+        <li>¿Qué gana una firma china al comprar/aliarse vs. construir desde cero?</li>
+        <li>¿Qué riesgos sociales/ambientales aparecen en extractivas?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Infraestructura</div>
+      <h2 class="title">9) Infra financiada por bancos chinos</h2>
+      <p class="idea">Muchos proyectos vienen con financiamiento chino y condición de que la obra la hagan firmas chinas.</p>
+      <ul class="qs">
+        <li>¿Qué implica “financiamiento atado” para proveedores locales?</li>
+        <li>¿Por qué energía/redes eléctricas aparecen como sector clave?</li>
+        <li>¿Qué ventaja tiene China al combinar préstamo + empresa constructora?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Marco</div>
+      <h2 class="title">10) Fórmula “1+3+6”</h2>
+      <p class="idea">Un plan con tres ejes (comercio, finanzas, inversión) y seis áreas (energía, infra, agricultura, manufactura, innovación, TIC).</p>
+      <ul class="qs">
+        <li>¿Cuáles son los 3 ejes? (menciónalos)</li>
+        <li>¿Cuáles son 2 áreas de las 6 que te parezcan más estratégicas y por qué?</li>
+        <li>¿Cómo conectarías este marco con un ejemplo concreto (p. ej. energía o puertos)?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Finanzas</div>
+      <h2 class="title">11) China como “prestamista clave”</h2>
+      <p class="idea">Los préstamos chinos (policy banks) crecen y en algunos casos sustituyen a otras fuentes; se enfocan en infraestructura y recursos.</p>
+      <ul class="qs">
+        <li>¿Qué tipo de proyectos suelen financiar estos préstamos?</li>
+        <li>¿Qué significa que no pidan “condicionalidad” como FMI/BM?</li>
+        <li>¿Cuándo un préstamo puede volverse palanca de influencia?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="tag"><span class="dot"></span>Riesgos</div>
+      <h2 class="title">12) Dependencia y (no) reciprocidad</h2>
+      <p class="idea">Se mencionan riesgos: ciclos de dependencia, pagos en especie (petróleo), y mercados asimétricos (China más cerrada en sectores clave).</p>
+      <ul class="qs">
+        <li>¿Cómo se crea una “dependencia” si el país no puede pagar en tiempo?</li>
+        <li>¿Qué efecto tiene pagar con petróleo (o commodities) en la política económica?</li>
+        <li>¿Qué significa “falta de reciprocidad” en acceso a mercados/sectores?</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="hint">
+      Sugerencia rápida: pídele a cada equipo que elija <span class="accent">2 tarjetas</span>, responda solo las preguntas y cierre con un ejemplo (un país + un sector).
+    </div>
+  </footer>
+</body>
+</html>
