@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unstable Platforms | Uber Business Model</title>
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --panel: #111;
+      --text: #f3f3f3;
+      --muted: #bdbdbd;
+      --line: #2a2a2a;
+      --accent: #fff;
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .frame {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .topbar,
+    .bottombar {
+      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: #0d0d0d;
+    }
+
+    .bottombar { border-bottom: 0; }
+
+    .slides {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 100%;
+      min-height: calc(100vh - 106px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 18px;
+    }
+
+    .slide.active { display: flex; }
+
+    .card {
+      width: 100%;
+      max-width: var(--maxw);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #101010 0%, #0d0d0d 100%);
+      padding: 28px;
+    }
+
+    h1, h2, h3, p { margin: 0 0 12px; }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      letter-spacing: 0.01em;
+    }
+
+    h2 {
+      font-size: clamp(1.3rem, 2.4vw, 2rem);
+      font-weight: 600;
+    }
+
+    .q {
+      font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .a {
+      margin-top: 12px;
+      padding: 14px;
+      background: #0b0b0b;
+      border-left: 2px solid var(--accent);
+      display: none;
+    }
+
+    .a.visible { display: block; }
+
+    .defs {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .defs strong { color: var(--text); }
+
+    .cite {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #d8d8d8;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    button {
+      border: 1px solid #4a4a4a;
+      background: #151515;
+      color: var(--text);
+      padding: 8px 11px;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1f1f1f; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .small { font-size: 0.88rem; color: var(--muted); }
+
+    .ref {
+      font-size: 0.98rem;
+      background: #0b0b0b;
+      border: 1px solid var(--line);
+      padding: 14px;
+      margin-top: 8px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 720px) {
+      .card { padding: 20px; }
+      .topbar, .bottombar { padding: 10px 12px; }
+      .small { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="topbar">
+      <div><strong>Applied Geopolitics</strong> | Uber as an Unstable Platform</div>
+      <div class="small">Use arrow keys. Ask the question first, then reveal the answer.</div>
+    </div>
+
+    <main class="slides">
+      <section class="slide active">
+        <article class="card">
+          <h1>Unstable Platforms</h1>
+          <h2>How Uber’s business model gains and loses legitimacy</h2>
+          <p>Presentation structure: one guiding question per slide, then evidence-based answers with concept definitions and APA 7 page citations.</p>
+          <p class="defs"><strong>Main translation frame:</strong> legitimacy = <em>legitimidad</em>; business model narrative = <em>narrativa del modelo de negocio</em>.</p>
+          <p class="cite">Core source: Howcroft &amp; Leaver (2025).</p>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">1) What is the core puzzle of the paper?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>The paper asks why Uber looked like an unstoppable innovator, then quickly appeared fragile after legal, social, and market shocks. The authors argue that success depended on a legitimacy narrative that became vulnerable when hidden practices became visible.</p>
+            <p class="defs"><strong>Concept:</strong> <em>Business model as narrative</em> (<em>modelo de negocio como narrativa</em>) means strategic storytelling to align stakeholders.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 369-370)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">2) How do the authors define organisational legitimacy?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>They use Suchman’s classic definition: legitimacy is a socially constructed judgment that an organization’s actions are appropriate within shared norms, values, and beliefs.</p>
+            <p class="defs"><strong>Concept:</strong> <em>Organisational legitimacy</em> = <em>legitimidad organizacional</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, p. 371)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">3) Which types of legitimacy matter most for Uber?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>Three types: pragmatic (does it benefit me economically?), moral (is it socially acceptable?), and cognitive (is it taken for granted as normal?). Uber’s model depended on all three, not only financial metrics.</p>
+            <p class="defs"><strong>Translations:</strong> pragmatic legitimacy = <em>legitimidad pragmática</em>; moral legitimacy = <em>legitimidad moral</em>; cognitive legitimacy = <em>legitimidad cognitiva</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, p. 372)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">4) Why do business model narratives matter for start-ups?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>For start-ups with limited history, narratives reduce uncertainty, attract capital, and justify growth. But narratives are selective: they foreground desirable elements and keep other practices in the background.</p>
+            <p class="defs"><strong>Concepts:</strong> disclosed practices = <em>prácticas divulgadas</em>; undisclosed practices = <em>prácticas no divulgadas</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 373-374)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">5) What did Uber publicly disclose as its positive model?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>Uber framed itself as sharing-economy innovation: driver opportunity, consumer convenience, and efficiency through digital matching. It emphasized cross-subsidies and network effects to scale and dominate.</p>
+            <p class="defs"><strong>Translations:</strong> sharing economy = <em>economía colaborativa</em>; cross-subsidization = <em>subsidio cruzado</em>; network effects = <em>efectos de red</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 378-380)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">6) What were the key undisclosed practices behind growth?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>The authors stress two hidden foundations: dependence on favorable capital conditions to sustain losses, and operation in legal gray areas to accelerate expansion and become “too big to ban.”</p>
+            <p class="defs"><strong>Translations:</strong> legal grey areas = <em>zonas grises legales</em>; too big to ban = <em>demasiado grande para prohibir</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 371, 380-383)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">7) How did labor strategy support scale but weaken moral legitimacy?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>Classifying drivers as self-employed reduced employer obligations and costs. Algorithmic management controlled behavior while keeping labor formally external, increasing flexibility but intensifying legitimacy risks.</p>
+            <p class="defs"><strong>Translations:</strong> self-employed workers = <em>trabajadores autónomos</em>; algorithmic management = <em>gestión algorítmica</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 383-384)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">8) What triggered the legitimacy crisis after 2017?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>Legal rulings, regulatory pressure, and scandals made controversial practices visible. That undermined moral legitimacy and fed financial doubt, producing weaker investor confidence.</p>
+            <p class="defs"><strong>Examples in the paper:</strong> UK worker-status ruling, Greyball controversy, and major trust failures.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, p. 385)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">9) How did moral damage translate into market outcomes?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>As legitimacy eroded, funding became harder to justify: valuation expectations fell, fears of “down rounds” grew, and the IPO underperformed sharply (including a 17.6% drop in the first two trading days).</p>
+            <p class="defs"><strong>Translation:</strong> down round = <em>ronda a la baja</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, p. 386)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">10) What is Uber’s “Catch-22” in the authors’ argument?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>The same undisclosed practices that drive growth and pragmatic legitimacy also generate moral controversy. Once exposed, sanctions and reputational costs weaken investor enthusiasm, which then threatens growth itself.</p>
+            <p class="defs"><strong>Translation:</strong> Catch-22 = <em>dilema sin salida</em>.</p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 387-388)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">11) Why does this matter for Applied Geopolitics?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p>The case shows platform power is territorially contested: labor law, regulatory capacity, political lobbying, and data governance differ across jurisdictions. Platform expansion is therefore a geopolitical process, not only a market process.</p>
+            <p class="defs"><strong>Suggested translation:</strong> platform capitalism = <em>capitalismo de plataformas</em>; regulatory fragmentation = <em>fragmentación regulatoria</em>.</p>
+            <p class="cite">Inference based on the paper’s cross-jurisdiction legal and regulatory analysis (Howcroft &amp; Leaver, 2025, pp. 383-389).</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">12) Which concepts should you keep in Spanish for class discussion?</h2>
+          <button data-reveal>Reveal Answer</button>
+          <div class="a">
+            <p><strong>Recommended glossary (EN → ES):</strong></p>
+            <p>Organisational legitimacy → <em>legitimidad organizacional</em></p>
+            <p>Business model narrative → <em>narrativa del modelo de negocio</em></p>
+            <p>Disclosed / undisclosed practices → <em>prácticas divulgadas / no divulgadas</em></p>
+            <p>Network effects → <em>efectos de red</em></p>
+            <p>Algorithmic management → <em>gestión algorítmica</em></p>
+            <p>Too big to ban → <em>demasiado grande para prohibir</em></p>
+            <p>Catch-22 → <em>dilema sin salida</em></p>
+            <p class="cite">(Howcroft &amp; Leaver, 2025, pp. 371-388)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide">
+        <article class="card">
+          <h2 class="q">Reference (APA 7)</h2>
+          <div class="a visible">
+            <div class="ref">
+              Howcroft, D., &amp; Leaver, A. (2025). Unstable platforms: Uber’s business model and the challenge of organisational legitimacy. <em>Accounting Forum, 49</em>(2), 369-394. https://doi.org/10.1080/01559982.2024.2309018
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div class="bottombar">
+      <div id="progress">Slide 1 / 13</div>
+      <div class="controls">
+        <button id="prevBtn" type="button">Prev</button>
+        <button id="nextBtn" type="button">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const progress = document.getElementById("progress");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let index = 0;
+
+    function update() {
+      slides.forEach((s, i) => s.classList.toggle("active", i === index));
+      progress.textContent = `Slide ${index + 1} / ${slides.length}`;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
+    }
+
+    function next() {
+      if (index < slides.length - 1) {
+        index += 1;
+        update();
+      }
+    }
+
+    function prev() {
+      if (index > 0) {
+        index -= 1;
+        update();
+      }
+    }
+
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("button[data-reveal]");
+      if (!btn) return;
+      const answer = btn.nextElementSibling;
+      if (!answer) return;
+      answer.classList.toggle("visible");
+      btn.textContent = answer.classList.contains("visible") ? "Hide Answer" : "Reveal Answer";
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown") next();
+      if (event.key === "ArrowLeft" || event.key === "PageUp") prev();
+      if (event.key.toLowerCase() === "a") {
+        const active = slides[index];
+        const answer = active.querySelector(".a");
+        const btn = active.querySelector("button[data-reveal]");
+        if (answer && btn) {
+          answer.classList.toggle("visible");
+          btn.textContent = answer.classList.contains("visible") ? "Hide Answer" : "Reveal Answer";
+        }
+      }
+    });
+
+    prevBtn.addEventListener("click", prev);
+    nextBtn.addEventListener("click", next);
+    update();
+  </script>
+</body>
+</html>
