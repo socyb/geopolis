@@ -11,10 +11,31 @@
       --muted:#5a5a5a;
       --card:#ffffff;
       --line:#e8e8e8;
+      --line-strong:#d9d9d9;
       --accent:#2b6cff;
       --shadow: 0 10px 26px rgba(0,0,0,.08);
       --shadow2: 0 16px 34px rgba(0,0,0,.12);
+      --note-fg:#c76d00;
+      --note-bg:#fff9f0;
+      --note-border:#ff9800;
     }
+
+    html[data-theme="night"]{
+      color-scheme: dark;
+      --bg:#0b0f14;
+      --fg:#e6eaf0;
+      --muted:#a9b4c3;
+      --card:#0f1722;
+      --line:#223041;
+      --line-strong:#2e4057;
+      --accent:#7aa2ff;
+      --shadow: 0 10px 26px rgba(0,0,0,.55);
+      --shadow2: 0 16px 34px rgba(0,0,0,.65);
+      --note-fg:#ffcf8a;
+      --note-bg:#1b1410;
+      --note-border:#ffb24a;
+    }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -35,8 +56,30 @@
       border-radius:999px;
       font-size:12px;
       color:var(--muted);
-      background:#fff;
+      background:var(--card);
     }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+    }
+
+    .theme-toggle{
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .theme-toggle:hover{ transform: translateY(-1px); border-color:var(--line-strong); }
+    .theme-toggle:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
     h1{
       margin:12px 0 6px;
       font-size:28px;
@@ -77,7 +120,7 @@
     .card:hover{
       transform: translateY(-3px);
       box-shadow: var(--shadow);
-      border-color:#d9d9d9;
+      border-color:var(--line-strong);
     }
     .tag{
       font-size:12px;
@@ -97,7 +140,7 @@
     }
     .idea{
       margin:0 0 10px;
-      color:#1a1a1a;
+      color:var(--fg);
       font-size:14px;
     }
     .qs{
@@ -108,20 +151,22 @@
     }
     .qs li{ margin:6px 0; }
     .card-img{
+      max-width:400px;
       width:100%;
       height:auto;
       border-radius:8px;
-      margin:12px 0;
+      margin:12px auto;
+      display:block;
       border:1px solid var(--line);
       box-shadow: 0 2px 8px rgba(0,0,0,.04);
     }
     .note{
       font-size:12px;
-      color:#c76d00;
-      background:#fff9f0;
+      color:var(--note-fg);
+      background:var(--note-bg);
       padding:8px 12px;
       border-radius:6px;
-      border-left:3px solid #ff9800;
+      border-left:3px solid var(--note-border);
       margin:10px 0;
       line-height:1.4;
     }
@@ -140,12 +185,79 @@
       color:var(--accent);
       font-weight:600;
     }
+
+    /* ── Flip cards (13 & 14) ── */
+    .flip-wrapper{
+      perspective:1200px;
+      cursor:pointer;
+    }
+    .flip-inner{
+      position:relative;
+      transition: transform .6s ease;
+      transform-style: preserve-3d;
+    }
+    .flip-wrapper.flipped .flip-inner{
+      transform: rotateY(180deg);
+    }
+    .flip-front,
+    .flip-back{
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-front{
+      position:relative;
+    }
+    .flip-back{
+      position:absolute;
+      inset:0;
+      transform: rotateY(180deg);
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px 14px;
+      overflow-y:auto;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+    }
+    .flip-back::before{
+      content:"";
+      position:absolute;
+      left:0; top:0;
+      width:100%;
+      height:3px;
+      background:linear-gradient(90deg, #22c55e, transparent);
+      opacity:.85;
+    }
+    .flip-hint{
+      position:absolute;
+      bottom:8px; right:12px;
+      font-size:11px;
+      color:var(--muted);
+      opacity:.7;
+    }
+    .answer-block{
+      margin-bottom:12px;
+    }
+    .answer-block .a-q{
+      font-size:13px;
+      font-weight:600;
+      color:var(--accent);
+      margin:0 0 3px;
+    }
+    .answer-block .a-text{
+      font-size:13px;
+      color:var(--fg);
+      margin:0;
+      line-height:1.45;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <span class="kicker">Lectura • tarjetas rápidas</span>
+    <div class="topbar">
+      <span class="kicker">Lectura • tarjetas rápidas</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">🌙 Noche</button>
+    </div>
     <h1>China–América Latina: ideas clave + preguntas concretas</h1>
     <p class="sub">Un resumen de los puntos más importantes sobre la relación entre China y América Latina, con preguntas para guiar el análisis y discusión.</p>
   </header>
@@ -283,32 +395,82 @@
         <li>¿Qué significa “falta de reciprocidad” en acceso a mercados/sectores?</li>
       </ul>
     </section>
-    <section class="card">
-      <div class="tag"><span class="dot"></span>Datos visuales</div>
-      <h2 class="title">13) Estructura de exportaciones por intensidad tecnológica</h2>
-      <p class="idea">Esta gráfica compara la composición tecnológica de las exportaciones latinoamericanas, revelando patrones de especialización y el contraste entre mercados. La concentración en productos primarios y manufacturas basadas en recursos naturales hacia China evidencia la reprimarización mencionada en tarjeta 3.</p>
-      <img src="cla1.png" alt="Estructura de exportaciones de América Latina por intensidad tecnológica" class="card-img">
-      <div class="note">⚠️ <strong>Nota:</strong> La gráfica original tiene un error de etiquetado — ambas columnas dicen "Exports" cuando la columna derecha debería decir "Imports". Al leer, considera la columna izquierda como exportaciones y la derecha como importaciones.</div>
-      <ul class="qs">
-        <li>¿Qué porcentaje representan los productos primarios en las exportaciones a China vs. al mundo?</li>
-        <li>¿Cómo se compara la participación de manufacturas de alta tecnología en ambos destinos?</li>
-        <li>¿Qué revela esta asimetría sobre la "complementariedad" mencionada en la tarjeta 2?</li>
-        <li>¿Qué sectores productivos locales pueden verse afectados por este patrón de comercio?</li>
-      </ul>
-    </section>
+    <div class="flip-wrapper" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <section class="card flip-front">
+          <div class="tag"><span class="dot"></span>Datos visuales</div>
+          <h2 class="title">13) Estructura de exportaciones por intensidad tecnológica</h2>
+          <p class="idea">Esta gráfica compara la composición tecnológica de las exportaciones latinoamericanas, revelando patrones de especialización y el contraste entre mercados. La concentración en productos primarios y manufacturas basadas en recursos naturales hacia China evidencia la reprimarización mencionada en tarjeta 3.</p>
+          <img src="cla1.png" alt="Estructura de exportaciones de América Latina por intensidad tecnológica" class="card-img">
+          <div class="note">⚠️ <strong>Nota:</strong> La gráfica original tiene un error de etiquetado — ambas columnas dicen "Exports" cuando la columna derecha debería decir "Imports". Al leer, considera la columna izquierda como exportaciones y la derecha como importaciones.</div>
+          <ul class="qs">
+            <li>¿Qué porcentaje representan los productos primarios en las exportaciones a China vs. al mundo?</li>
+            <li>¿Cómo se compara la participación de manufacturas de alta tecnología en ambos destinos?</li>
+            <li>¿Qué revela esta asimetría sobre la "complementariedad" mencionada en la tarjeta 2?</li>
+            <li>¿Qué sectores productivos locales pueden verse afectados por este patrón de comercio?</li>
+          </ul>
+          <span class="flip-hint">↻ Click para ver respuestas</span>
+        </section>
+        <div class="flip-back">
+          <div class="tag"><span class="dot" style="background:#22c55e"></span>Respuestas — Tarjeta 13</div>
+          <div class="answer-block">
+            <p class="a-q">Productos primarios: China vs. mundo</p>
+            <p class="a-text">Según la Fig. 3.1 (Barcena et al., 2016, en Fornes &amp; Mendez, p. 61), las exportaciones de <strong>productos primarios</strong> a China están "heavily overrepresented" respecto al mundo. La gráfica muestra que la suma de primarios + manufacturas basadas en recursos naturales supera el <strong>70 %</strong> de lo que AL exporta a China, mientras que al mundo esa proporción es mucho menor. Esto refleja la demanda china de soja, mineral de hierro, cobre y petróleo.</p>
+          </div>
+          <div class="answer-block">
+            <p class="a-q">Manufacturas de alta tecnología</p>
+            <p class="a-text">En la misma figura, las manufacturas de <strong>alta tecnología</strong> son una franja mínima en las exportaciones a China, mientras que representan una porción mayor en las exportaciones al resto del mundo. Es decir, China no compra valor agregado latinoamericano. Los autores advierten que "the technology gap looks like widening too" (p. 61).</p>
+          </div>
+          <div class="answer-block">
+            <p class="a-q">La "complementariedad" asimétrica</p>
+            <p class="a-text">Los autores lo dicen claramente: "the fact of their complementarity does not mean that no costs are incurred, particularly for Latin America" (p. 63). AL exporta commodities y materias primas, mientras China exporta productos de baja, mediana y alta tecnología. Cuando caen los precios de commodities, AL debe <strong>financiar con deuda</strong> el consumo de productos chinos. Es una complementariedad que refuerza la dependencia.</p>
+          </div>
+          <div class="answer-block">
+            <p class="a-q">Sectores locales afectados</p>
+            <p class="a-text">"Chinese products also threaten local producers" (p. 63). Las <strong>manufacturas chinas basadas en recursos naturales</strong> ganan mercado en los destinos tradicionales de AL: EE.UU., la propia región y la UE (Lima &amp; Pellandra, 2017). El libro también destaca la competencia con exportaciones del ASEAN. Los sectores más vulnerables son aquellos de <em>baja y mediana tecnología</em>: textiles, calzado, electrónica de consumo y ensamble.</p>
+          </div>
+          <span class="flip-hint">↻ Click para volver</span>
+        </div>
+      </div>
+    </div>
 
-    <section class="card">
-      <div class="tag"><span class="dot"></span>Datos visuales</div>
-      <h2 class="title">14) Balanza comercial bilateral por país (2015)</h2>
-      <p class="idea">Esta visualización muestra la situación comercial de cada país latinoamericano con China en 2015. Los superávits se concentran en países con abundancia de recursos naturales (Brasil, Chile, Venezuela), mientras que México registra el mayor déficit, reflejando su integración en cadenas de valor norteamericanas que importan componentes chinos.</p>
-      <img src="cla2.png" alt="Balanza comercial China-América Latina por países, 2015" class="card-img">
-      <ul class="qs">
-        <li>¿Qué países tienen superávit y cuáles déficit? ¿Qué exportan/importan principalmente?</li>
-        <li>¿Por qué México tiene el mayor déficit? ¿Cómo se relaciona con NAFTA/USMCA (tarjeta 4)?</li>
-        <li>¿Qué países sudamericanos muestran equilibrio o superávit? ¿Qué recursos explican esto?</li>
-        <li>¿Cómo ha cambiado este panorama desde 2015? ¿Qué factores (precios de commodities, política comercial) influyen?</li>
-      </ul>
-    </section>
+    <div class="flip-wrapper" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <section class="card flip-front">
+          <div class="tag"><span class="dot"></span>Datos visuales</div>
+          <h2 class="title">14) Balanza comercial bilateral por país (2015)</h2>
+          <p class="idea">Esta visualización muestra la situación comercial de cada país latinoamericano con China en 2015. Los superávits se concentran en países con abundancia de recursos naturales (Brasil, Chile, Venezuela), mientras que México registra el mayor déficit, reflejando su integración en cadenas de valor norteamericanas que importan componentes chinos.</p>
+          <img src="cla2.png" alt="Balanza comercial China-América Latina por países, 2015" class="card-img">
+          <ul class="qs">
+            <li>¿Qué países tienen superávit y cuáles déficit? ¿Qué exportan/importan principalmente?</li>
+            <li>¿Por qué México tiene el mayor déficit? ¿Cómo se relaciona con NAFTA/USMCA (tarjeta 4)?</li>
+            <li>¿Qué países sudamericanos muestran equilibrio o superávit? ¿Qué recursos explican esto?</li>
+            <li>¿Cómo ha cambiado este panorama desde 2015? ¿Qué factores (precios de commodities, política comercial) influyen?</li>
+          </ul>
+          <span class="flip-hint">↻ Click para ver respuestas</span>
+        </section>
+        <div class="flip-back">
+          <div class="tag"><span class="dot" style="background:#22c55e"></span>Respuestas — Tarjeta 14</div>
+          <div class="answer-block">
+            <p class="a-q">Superávit vs. déficit</p>
+            <p class="a-text">Según la Fig. 3.2 (p. 62), con datos de 2015:<br><strong>Superávit:</strong> Brasil (~US$8,900 M), Chile (~US$7,200 M), Venezuela, Uruguay y El Salvador.<br><strong>Déficit:</strong> México (el mayor, ~US$65,100 M), Colombia (~US$11,500 M), Argentina, Ecuador, Paraguay y Rep. Dominicana. "Even though commodity prices began to decline after 2011, Chile, Brazil, and Venezuela were still in surplus … through the export of primary products" (p. 63).</p>
+          </div>
+          <div class="answer-block">
+            <p class="a-q">El déficit de México y el NAFTA</p>
+            <p class="a-text">"Mexico's deficit can be explained by the NAFTA production networks, which have made Mexico a manufacturing hub. Chinese manufactured components are imported and assembled, then are exported, not back to China but onward to the USA. <strong>Mexico's deficit with China is funded by its surplus with the USA</strong>" (Liu &amp; Zhao, 2017, citado en p. 63).</p>
+          </div>
+          <div class="answer-block">
+            <p class="a-q">Sudamérica: equilibrio y superávit</p>
+            <p class="a-text">"South America is relatively more in balance. The latter sub-region is a complementary trade partner for China: it supplies China with <strong>raw materials, food products, and energy</strong> to fuel its rapid growth" (p. 61). <strong>Brasil</strong> (soja, hierro), <strong>Chile</strong> (cobre) y <strong>Venezuela</strong> (petróleo) superan la media gracias a su dotación de recursos naturales alineada con la demanda industrial china. Perú (cobre, minerales) también se ubica del lado positivo.</p>
+          </div>
+          <div class="answer-block">
+            <p class="a-q">Cambios desde 2015</p>
+            <p class="a-text">El propio texto advierte que los precios de commodities "notably collapsed, yet the unbalanced reprimarisation … has persisted, if not worsened" (p. 61). Después de 2015 influyeron: (1) la <strong>caída de precios</strong> que redujo superávits suramericanos; (2) la desaceleración del crecimiento chino (GDP de 11 % a 8.3 %, Tabla 3.2, p. 60); (3) la <strong>guerra comercial EE.UU.–China</strong> que desvió flujos (más soja brasileña a China); y (4) los autores señalan a Argentina y Colombia como casos a observar tras sus devaluaciones (p. 63).</p>
+          </div>
+          <span class="flip-hint">↻ Click para volver</span>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -318,5 +480,53 @@
       Fornes, G., & Mendez, A. (2018). China-Latin America: The emerging markets' axis. In G. Fornes & A. Mendez, <em>The China-Latin America axis: Emerging markets and their role in an increasingly globalised world</em> (2nd ed., pp. 53–130). Palgrave Macmillan. https://doi.org/10.1007/978-3-319-66721-8
     </p>
   </footer>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = 'geopolis-theme';
+      const root = document.documentElement;
+      const button = document.getElementById('themeToggle');
+
+      const applyTheme = (theme) => {
+        if (theme === 'night') {
+          root.dataset.theme = 'night';
+        } else {
+          delete root.dataset.theme;
+        }
+
+        const isNight = root.dataset.theme === 'night';
+        button.textContent = isNight ? '☀️ Día' : '🌙 Noche';
+        button.setAttribute('aria-pressed', isNight ? 'true' : 'false');
+      };
+
+      const readPreferredTheme = () => {
+        const params = new URLSearchParams(window.location.search);
+        const fromQuery = (params.get('theme') || '').toLowerCase();
+        if (fromQuery === 'night' || fromQuery === 'dark') return 'night';
+        if (fromQuery === 'day' || fromQuery === 'light') return 'day';
+
+        try {
+          const fromStorage = window.localStorage.getItem(STORAGE_KEY);
+          if (fromStorage === 'night' || fromStorage === 'day') return fromStorage;
+        } catch {
+          // ignore
+        }
+
+        return 'day';
+      };
+
+      applyTheme(readPreferredTheme());
+
+      button.addEventListener('click', () => {
+        const next = root.dataset.theme === 'night' ? 'day' : 'night';
+        applyTheme(next);
+        try {
+          window.localStorage.setItem(STORAGE_KEY, next);
+        } catch {
+          // ignore
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
