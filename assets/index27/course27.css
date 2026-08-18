@@ -462,6 +462,7 @@ html[data-theme="dark"] .compass-hub{color:#180510}
 html[data-theme="dark"] .archive-item.is-current .ai-tag{color:#180510}
 
 /* ── Ruta del semestre ──────────────────────────────────────────────────── */
+.route-note{max-width:62ch;margin:1.6rem 0 0;padding:.9rem 1.1rem;border:2px solid var(--edge);border-left:10px solid var(--amber);border-radius:var(--radius-sm);background:var(--tint-amber);font-size:.92rem}
 .route-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.2rem}
 .route-card{
   position:relative;display:flex;flex-direction:column;min-height:210px;
