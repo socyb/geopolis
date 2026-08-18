@@ -41,6 +41,38 @@
     toastTimer = setTimeout(() => toast.classList.remove("is-on"), 2600);
   };
 
+  /* ── Código QR de la página ─────────────────────────────────────────── */
+  const qrModal = $("#qrModal");
+  if (qrModal) {
+    $("#qrBtn")?.addEventListener("click", () => qrModal.showModal());
+
+    // Un clic fuera del recuadro también cierra el marco emergente.
+    qrModal.addEventListener("click", (e) => {
+      const box = qrModal.getBoundingClientRect();
+      const outside =
+        e.clientX < box.left || e.clientX > box.right ||
+        e.clientY < box.top  || e.clientY > box.bottom;
+      if (outside) qrModal.close();
+    });
+
+    // El aviso flotante queda debajo del <dialog>, así que confirmamos en el propio botón.
+    const copyBtn = $("#qrCopyBtn");
+    let copyTimer;
+    copyBtn?.addEventListener("click", async () => {
+      const url = $("#qrUrl")?.textContent.trim() || location.href;
+      let message;
+      try {
+        await navigator.clipboard.writeText(url);
+        message = "Liga copiada ✓";
+      } catch {
+        message = "No se pudo copiar";
+      }
+      copyBtn.textContent = message;
+      clearTimeout(copyTimer);
+      copyTimer = setTimeout(() => { copyBtn.textContent = "Copiar liga"; }, 2000);
+    });
+  }
+
   /* ── Calendario del curso ───────────────────────────────────────────── */
   // Martes en A-004 y jueves en F-101. El 15 de septiembre es de asueto.
   const sessions = [

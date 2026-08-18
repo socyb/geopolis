@@ -42,6 +42,9 @@
       <a href="#recursos">Recursos</a>
     </nav>
     <div class="topbar-actions">
+      <button class="qr-btn" id="qrBtn" type="button" title="Ver el código QR de esta página en grande" aria-label="Ver el código QR de esta página en grande" aria-haspopup="dialog">
+        <img src="assets/index27/qr-index27.svg" alt="Código QR de esta página" width="34" height="34" decoding="async">
+      </button>
       <button class="icon-btn" id="themeToggle" type="button" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
       <button class="icon-btn" id="printBtn" type="button" title="Imprimir esta página" aria-label="Imprimir esta página">🖨</button>
     </div>
@@ -711,6 +714,23 @@
       <a class="to-top" href="#inicio" aria-label="Volver al inicio">↑</a>
     </div>
   </footer>
+
+  <!-- ═══════════════════ MARCO EMERGENTE · CÓDIGO QR ═══════════════════ -->
+  <dialog class="qr-modal" id="qrModal" aria-labelledby="qrModalTitle">
+    <form method="dialog" class="qr-modal-close-form">
+      <button class="qr-modal-close" value="cerrar" aria-label="Cerrar el código QR">×</button>
+    </form>
+    <p class="kicker">Geopolítica · FCA UNAM · 1541 · 2027-1</p>
+    <h2 class="qr-modal-title" id="qrModalTitle">Escanea para abrir esta página</h2>
+    <figure class="qr-frame">
+      <img src="assets/index27/qr-index27.svg" alt="Código QR que abre la página del curso" width="420" height="420" decoding="async">
+    </figure>
+    <p class="qr-url mono" id="qrUrl">https://socyb.github.io/geopolis/index27.html</p>
+    <div class="qr-actions">
+      <button class="btn btn-primary btn-small" id="qrCopyBtn" type="button">Copiar liga</button>
+      <a class="btn btn-ghost btn-small" href="assets/index27/qr-index27.svg" download="qr-geopolitica-1541.svg">Descargar QR</a>
+    </div>
+  </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
