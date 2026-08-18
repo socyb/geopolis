@@ -1,5 +1,8 @@
 .DS_Store
 
+# Material de trabajo local (respaldos, fuentes y páginas no publicadas)
+/LOCAL/
+
 # Python
 __pycache__/
 .venv/
