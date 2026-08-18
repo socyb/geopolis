@@ -1,144 +1,96 @@
-# Código QR de la página del curso (`index27.html`)
+# Geopolítica Internacional Aplicada a los Negocios Internacionales
 
-Este README documenta **solo** el trabajo hecho sobre
-[`index27.html`](index27.html) — la página del curso *Geopolítica Internacional
-Aplicada a los Negocios Internacionales* (FCA · UNAM · Grupo 1541 · Semestre
-2027-1): la incorporación de un **código QR** que abre esa misma página.
+**Página del curso · Semestre 2027-1 · Grupo 1541**
+Licenciatura en Negocios Internacionales
+Facultad de Contaduría y Administración · UNAM
+
+> **Leer el poder. Decidir en la incertidumbre.**
+
+📄 **[`index27.html`](index27.html)** — <https://socyb.github.io/geopolis/index27.html>
 
 ---
 
-## Qué hace
+## De qué se trata
 
-En la **barra superior fija** aparece el QR en pequeño (34 px), a la izquierda de
-los botones de tema (🌙) e impresión (🖨). Como la barra es `sticky`, el código
-queda disponible en todo momento, sin importar dónde esté el lector en la página.
+Página del curso que imparte el **Dr. Jorge Cardiel Herrera** durante el semestre
+2027-1. Reúne en un solo lugar lo que el grupo necesita consultar a lo largo del
+semestre: qué toca en la sesión de hoy, cómo está organizada la ruta completa,
+cómo se califica y dónde están los materiales.
 
-Al hacer clic, el QR se amplía en un **marco emergente** (`<dialog>` nativo) que
-incluye el código en grande, la URL en texto, un botón para copiar la liga y otro
-para descargar el SVG.
+Está pensada para abrirse en el salón desde el celular, tanto como para revisarse
+con calma en casa.
 
-El marco se cierra de tres formas: con **Esc**, con la **×**, o con un clic fuera
-del recuadro.
+**Martes en A-004 · Jueves en F-101 · 09:00—11:00**
+31 sesiones · 6 unidades · 62 horas
 
-## Archivos
+## Qué encontrarás en ella
 
-| Archivo | Qué se agregó |
+**La sesión de hoy.** La página detecta la fecha y muestra al frente la sesión que
+toca: número, salón, tema, cuánto dura la actividad y qué hay que traer. No hay
+que buscar nada en un calendario.
+
+**La ruta del semestre.** Las seis unidades del curso, con fechas, número de
+sesiones y horas:
+
+| | Unidad | Fechas |
+|---|---|---|
+| I | Vocabulario para leer el poder | 18—25 de agosto |
+| II | Hitos que ordenaron el mundo | 27 de agosto — 3 de septiembre |
+| III | El presente global y regional | 8—24 de septiembre |
+| IV | Escenarios complejos, riesgos conectados | 29 de septiembre — 13 de octubre |
+| V | Estrategias para negocios internacionales | 15 de octubre — 12 de noviembre |
+| VI | México en el tablero internacional | 17 de noviembre — 3 de diciembre |
+
+Del vocabulario básico para leer el poder —escalas, actores, marcos— hasta la
+posición concreta de México entre dos potencias: T-MEC, nearshoring y corredores
+logísticos. En medio, la competencia entre Estados Unidos y China, la guerra de
+los chips, la seguridad energética, los minerales críticos y los cuellos de
+botella marítimos.
+
+*Sin clase el martes 15 de septiembre: día de asueto.*
+
+**La brújula geopolítica.** La actividad de la primera sesión vive dentro de la
+página: cada estudiante responde cinco preguntas —qué tema le mueve, qué región
+sigue, de dónde saca lo que sabe del mundo, a dónde quiere llegar— y la página
+arma una tarjeta con sus respuestas. Se guarda en el navegador del propio
+dispositivo, se puede copiar como texto o imprimir.
+
+**Cómo se califica.** El desglose completo, con el criterio a la vista: el 60 % se
+juega en el día a día.
+
+| Peso | Rubro |
 |---|---|
-| [`assets/index27/qr-index27.svg`](assets/index27/qr-index27.svg) | El código QR en vectorial (archivo nuevo) |
-| [`index27.html`](index27.html) | Botón `.qr-btn` en la barra superior (línea 45) y el `<dialog id="qrModal">` (líneas 718–733) |
-| [`assets/index27/course27.css`](assets/index27/course27.css) | Estilos del botón y del marco emergente (líneas 635–684) |
-| [`assets/index27/course27.js`](assets/index27/course27.js) | Apertura, cierre y copiado de la liga (líneas 44–74) |
+| 30 % | Controles de lectura |
+| 30 % | Participación en clase |
+| 20 % | Trabajo final de investigación |
+| 10 % | Exámenes parciales |
+| 10 % | Asistencia |
 
-## Decisiones de diseño
+Para acreditar se necesita 80 % de asistencia, al menos la mitad de las tareas y
+de los parciales, y presentar el trabajo final. Hay hasta **1 punto extra**: medio
+por entregar todos los controles de lectura y medio por superar las 15
+participaciones.
 
-**El QR conserva fondo claro en modo oscuro.** El resto de la página cambia de
-paleta con el tema, pero el código se dibuja siempre en tinta `#16202c` sobre
-papel `#fffcf6`. Invertir un QR hace que algunos lectores fallen; mantener el
-contraste estándar garantiza que escanee en ambos temas.
+**Recursos a la mano.** La playlist del curso en YouTube, Moodle para entregas, el
+portal de la FCA y este repositorio.
 
-**Corrección de errores nivel H.** Es el nivel más alto (recupera hasta ~30 % del
-símbolo dañado). Pensado para proyectarlo en el salón o imprimirlo: tolera
-reflejos, dobleces y fotos a distancia. Sube la densidad a versión 6 (41×41
-módulos), que sigue siendo cómoda de escanear.
+## Detalles de la página
 
-**La confirmación de copiado va en el propio botón, no en el toast.** El elemento
-`<dialog>` se pinta en la *top layer* del navegador, por encima de cualquier
-`z-index`; el aviso flotante `.toast` de la página quedaría oculto tras el modal.
-Por eso "Copiar liga" cambia su propia etiqueta a "Liga copiada ✓" durante dos
-segundos.
+- **Un código QR** en la barra superior, que se amplía al hacerle clic. Sirve para
+  proyectarlo en clase y que el grupo abra la página desde el celular.
+- **Modo claro y oscuro**, con la preferencia guardada en el dispositivo.
+- **Versión para imprimir**, tanto de la página como de la tarjeta de la brújula.
+- **Diseño responsivo**, pensado primero para el celular.
+- Sin dependencias ni framework: HTML, CSS y JavaScript a secas.
 
-**Estilo consistente con el resto de la página.** El botón y el marco reutilizan
-los tokens del lenguaje visual de carta náutica ya existente: borde de tinta de
-2 px, sombra dura (`--shadow`), `::backdrop` con desenfoque y la misma tipografía
-mono para la URL. El marco se oculta al imprimir.
-
-**Accesibilidad.** El botón lleva `aria-label` y `aria-haspopup="dialog"`; el
-marco usa `aria-labelledby`. Al ser un `<dialog>` nativo, el foco queda atrapado
-dentro y Esc cierra sin JavaScript adicional. Ambas imágenes tienen `alt`.
-
-## La URL codificada
-
-```
-https://socyb.github.io/geopolis/index27.html
-```
-
-Es la ruta estándar de GitHub Pages para este repositorio (`socyb/geopolis`). No
-hay archivo `CNAME`, así que **conviene confirmarla** si el sitio se sirve desde
-otro dominio. Si cambia, hay que actualizarla en dos lugares:
-
-1. La constante `URL` del script de regeneración (abajo).
-2. El texto visible en [`index27.html`](index27.html), dentro de
-   `<p class="qr-url mono" id="qrUrl">`.
-
-## Regenerar el QR
-
-El SVG se generó con [segno](https://pypi.org/project/segno/). Para rehacerlo
-—por ejemplo si cambia la URL— desde la raíz del repositorio:
-
-```bash
-pip install segno
-```
-
-```python
-import segno
-
-URL = "https://socyb.github.io/geopolis/index27.html"
-
-q = segno.make(URL, error='h')          # corrección de errores nivel H
-m = q.matrix
-n = len(m)
-BORDER = 4                              # zona de silencio obligatoria (4 módulos)
-size = n + BORDER * 2
-
-# Un solo path: cada corrida horizontal de módulos oscuros es un rectángulo.
-parts = []
-for y, row in enumerate(m):
-    x = 0
-    while x < n:
-        if row[x]:
-            run = 1
-            while x + run < n and row[x + run]:
-                run += 1
-            parts.append(f"M{x+BORDER} {y+BORDER}h{run}v1h-{run}z")
-            x += run
-        else:
-            x += 1
-d = "".join(parts)
-
-svg = (
-    f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}" '
-    f'width="{size*8}" height="{size*8}" shape-rendering="crispEdges" role="img" '
-    f'aria-label="Código QR de la página del curso">\n'
-    f'  <title>Código QR · {URL}</title>\n'
-    f'  <rect width="{size}" height="{size}" fill="#fffcf6"/>\n'
-    f'  <path fill="#16202c" d="{d}"/>\n'
-    f'</svg>\n'
-)
-open("assets/index27/qr-index27.svg", "w").write(svg)
-```
-
-El `shape-rendering="crispEdges"` mantiene los bordes de los módulos nítidos a
-cualquier escala; por eso el CSS no fuerza `image-rendering`.
-
-## Verificación hecha
-
-- **Decodificación real:** el SVG se rasterizó a PNG y se pasó por el detector de
-  QR de CoreImage (macOS Vision). Devuelve la URL esperada.
-- **Fidelidad del trazado:** se reconstruyó la matriz a partir del `path` del SVG
-  y se comparó módulo por módulo con la que produce el codificador. Coinciden, y
-  la zona de silencio quedó limpia.
-- **Sintaxis:** el HTML quedó con las etiquetas balanceadas y el JS parsea sin
-  errores.
-- **Carga en navegador:** servida en local, todos los recursos responden 200
-  (HTML, CSS, JS, SVG y el GIF de la página).
-
-## Ver la página en local
+## Verla en local
 
 ```bash
 python3 -m http.server 8027 --bind 127.0.0.1
 ```
 
-Luego abrir <http://127.0.0.1:8027/index27.html>.
+Y abrir <http://127.0.0.1:8027/index27.html>.
 
-> Ojo: el QR apunta a la URL publicada, no a `localhost`. Si se escanea desde la
-> vista previa local, lleva a la página en GitHub Pages.
+---
+
+**Dr. Jorge Cardiel Herrera** · <semsocan2019@gmail.com> · [socyb.github.io](https://socyb.github.io)
