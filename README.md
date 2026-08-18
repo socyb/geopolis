@@ -83,14 +83,6 @@ portal de la FCA y este repositorio.
 - **Diseño responsivo**, pensado primero para el celular.
 - Sin dependencias ni framework: HTML, CSS y JavaScript a secas.
 
-## Verla en local
-
-```bash
-python3 -m http.server 8027 --bind 127.0.0.1
-```
-
-Y abrir <http://127.0.0.1:8027/index27.html>.
-
 ---
 
 **Dr. Jorge Cardiel Herrera** · <semsocan2019@gmail.com> · [socyb.github.io](https://socyb.github.io)
