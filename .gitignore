@@ -9,3 +9,5 @@ __pycache__/
 
 # PDFs
 *.pdf
+# ...salvo las presentaciones que se publican en la página
+!assets/presentations/*.pdf

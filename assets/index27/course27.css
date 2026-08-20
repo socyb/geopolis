@@ -568,6 +568,37 @@ html[data-theme="dark"] .archive-item.is-current .ai-tag{color:#180510}
 .res-card strong{font-family:var(--display);font-size:1.1rem;font-weight:900;letter-spacing:-.02em}
 .res-card p{margin:0;font-size:.86rem;color:var(--muted)}
 
+/* ── Material de clase ──────────────────────────────────────────────────── */
+.pres-card{
+  display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);
+  gap:1.8rem;align-items:start;
+}
+.pres-cover{
+  display:block;line-height:0;overflow:hidden;
+  border:2px solid var(--edge);border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-sm);transition:transform var(--t),box-shadow var(--t);
+}
+.pres-cover:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow)}
+.pres-cover img{width:100%;height:auto}
+.pres-title{margin:0 0 .5rem;font-size:clamp(1.15rem,2.4vw,1.5rem)}
+.pres-meta{
+  margin:0 0 1rem;font-family:var(--mono);font-size:.76rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.pres-list{padding-left:1.2rem;margin:0 0 1.4rem}
+.pres-list li+li{margin-top:.55rem}
+.pres-card--video{grid-template-columns:minmax(0,520px) minmax(0,1fr)}
+.video-frame{
+  position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ink);
+  border:2px solid var(--edge);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);
+}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+@media (max-width:760px){
+  .pres-card,.pres-card--video{grid-template-columns:1fr;gap:1.3rem}
+  .pres-cover{max-width:420px}
+}
+
 /* ── Pie ────────────────────────────────────────────────────────────────── */
 footer{background:var(--ink);color:var(--paper);border-top:2px solid var(--edge)}
 .foot-grid{
@@ -625,6 +656,7 @@ footer a{color:var(--amber)}
   html.print-card #bcard{visibility:visible;position:absolute;left:0;top:0;width:100%;box-shadow:none;border-width:1.5px}
   html.print-card #bcard *{visibility:visible}
   .topbar,.topbar-actions,.hero-bg,.to-top,.builder-actions,.toast,.cta-row{display:none!important}
+  .video-frame{display:none}
   body{background:#fff;color:#000}
   .card,.qcard,.route-card,.score,.req,.steps li,.frame,.bcard{box-shadow:none;break-inside:avoid}
   .section{padding:1.2rem 0}
