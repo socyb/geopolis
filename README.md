@@ -21,7 +21,7 @@ Está pensada para abrirse en el salón desde el celular, tanto como para revisa
 con calma en casa.
 
 **Martes en A-004 · Jueves en F-101 · 09:00—11:00**
-31 sesiones · 6 unidades · 62 horas
+30 sesiones · 6 unidades · 60 horas
 
 ## Qué encontrarás en ella
 
@@ -34,8 +34,8 @@ sesiones y horas:
 
 | | Unidad | Fechas |
 |---|---|---|
-| I | Vocabulario para leer el poder | 18—25 de agosto |
-| II | Hitos que ordenaron el mundo | 27 de agosto — 3 de septiembre |
+| I | Vocabulario para leer el poder | 18—27 de agosto |
+| II | Hitos que ordenaron el mundo | 1—3 de septiembre |
 | III | El presente global y regional | 8—24 de septiembre |
 | IV | Escenarios complejos, riesgos conectados | 29 de septiembre — 13 de octubre |
 | V | Estrategias para negocios internacionales | 15 de octubre — 12 de noviembre |
@@ -47,7 +47,8 @@ logísticos. En medio, la competencia entre Estados Unidos y China, la guerra de
 los chips, la seguridad energética, los minerales críticos y los cuellos de
 botella marítimos.
 
-*Sin clase el martes 15 de septiembre: día de asueto.*
+*No hubo clase el martes 25 de agosto. Tampoco hay clase el martes 15 de
+septiembre: día de asueto.*
 
 **La brújula geopolítica.** La actividad de la primera sesión vive dentro de la
 página: cada estudiante responde cinco preguntas —qué tema le mueve, qué región

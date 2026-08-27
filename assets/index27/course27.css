@@ -594,6 +594,23 @@ html[data-theme="dark"] .archive-item.is-current .ai-tag{color:#180510}
 }
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
+/* Rejilla de documentales */
+.vid-grid{margin-top:1.6rem;grid-template-columns:repeat(auto-fit,minmax(288px,1fr))}
+.vid-card{display:flex;flex-direction:column;gap:.85rem;padding:clamp(1rem,2.2vw,1.35rem)}
+.vid-card .pres-title{margin:0;font-size:clamp(1.05rem,1.9vw,1.2rem);font-weight:900}
+.vid-card p{margin:0;font-size:.9rem}
+.vid-card .btn{margin-top:auto;align-self:start}
+.vid-meta{
+  margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:.25rem .8rem;padding:.7rem .85rem;
+  border:1.5px solid var(--line);border-radius:var(--radius-sm);background:var(--paper-2);
+}
+.vid-meta dt{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);
+}
+.vid-meta dd{margin:0;font-size:.8rem;color:var(--ink-soft)}
+
 @media (max-width:760px){
   .pres-card,.pres-card--video{grid-template-columns:1fr;gap:1.3rem}
   .pres-cover{max-width:420px}
