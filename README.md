@@ -50,11 +50,16 @@ botella marítimos.
 *No hubo clase el martes 25 de agosto. Tampoco hay clase el martes 15 de
 septiembre: día de asueto.*
 
-**La brújula geopolítica.** La actividad de la primera sesión vive dentro de la
-página: cada estudiante responde cinco preguntas —qué tema le mueve, qué región
-sigue, de dónde saca lo que sabe del mundo, a dónde quiere llegar— y la página
-arma una tarjeta con sus respuestas. Se guarda en el navegador del propio
-dispositivo, se puede copiar como texto o imprimir.
+**Una versión por sesión.** La página cambia cada vez que cambia la clase: al
+frente queda lo esencial del curso y lo que toca hoy. Lo que ya se trabajó no se
+borra, se archiva: cada sesión que modificó la página dejó su propia versión
+fechada en [`sesiones/`](sesiones/), y la bitácora de la portada lleva a todas
+ellas.
+
+**La brújula geopolítica.** La actividad de la primera sesión —cada estudiante
+responde cinco preguntas y la página arma una tarjeta con sus respuestas, que se
+guarda en el navegador del propio dispositivo— vive ahora en la versión archivada
+de la [sesión 01](sesiones/s01-mesa-de-brujulas.html).
 
 **Cómo se califica.** El desglose completo, con el criterio a la vista: el 60 % se
 juega en el día a día.
@@ -80,6 +85,8 @@ portal de la FCA y este repositorio.
 - **Un código QR** en la barra superior, que se amplía al hacerle clic. Sirve para
   proyectarlo en clase y que el grupo abra la página desde el celular.
 - **Modo claro y oscuro**, con la preferencia guardada en el dispositivo.
+- **Presentaciones dentro de la página**, con teclado, pantalla completa y gesto
+  táctil; al imprimir salen todas las diapositivas seguidas.
 - **Versión para imprimir**, tanto de la página como de la tarjeta de la brújula.
 - **Diseño responsivo**, pensado primero para el celular.
 - Sin dependencias ni framework: HTML, CSS y JavaScript a secas.

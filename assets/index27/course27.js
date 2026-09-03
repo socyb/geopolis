@@ -77,11 +77,12 @@
   // Martes en A-004 y jueves en F-101.
   // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
   // El Canal de Panamá dejó de ser sesión propia; se ve el 8 de octubre.
+  // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   const sessions = [
-    [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I"],
-    [ 2,"2026-08-20","F-101","Geopolítica clásica y crítica","Escalas · posición · representación","I"],
-    [ 3,"2026-08-27","F-101","Geopolítica crítica y el poder de los mapas","Marcos · proyecciones · contracartografía","I"],
-    [ 4,"2026-09-01","A-004","La era del imperio","Orden territorial · comercio","II"],
+    [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I","sesiones/s01-mesa-de-brujulas.html"],
+    [ 2,"2026-08-20","F-101","Geopolítica clásica y crítica","Escalas · posición · representación","I","sesiones/s02-geopolitica-critica.html"],
+    [ 3,"2026-08-27","F-101","Geopolítica crítica y el poder de los mapas","Marcos · proyecciones · contracartografía","I","sesiones/s03-poder-de-los-mapas.html"],
+    [ 4,"2026-09-01","A-004","La era del imperio","Hobsbawm · orden territorial · comercio","II","#sesion-actual"],
     [ 5,"2026-09-03","F-101","La época de la guerra total","Movilización · industria · frontera","II"],
     [ 6,"2026-09-08","A-004","Diagnóstico del sistema mundial","Policrisis · escenarios","III"],
     [ 7,"2026-09-10","F-101","Interdependencia armamentizada","Redes · coerción económica","III"],
@@ -108,7 +109,7 @@
     [28,"2026-11-26","F-101","Corredores y posición de México","Istmo · frontera · logística","VI"],
     [29,"2026-12-01","A-004","Integración final","Presentaciones · examen final","VI"],
     [30,"2026-12-03","F-101","Cierre del semestre","Retroalimentación · recuperación","VI"]
-  ].map(([number, date, room, title, subtitle, unit]) => ({ number, date, room, title, subtitle, unit }));
+  ].map(([number, date, room, title, subtitle, unit, href]) => ({ number, date, room, title, subtitle, unit, href }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
                    "07":"jul","08":"ago","09":"sep","10":"oct","11":"nov","12":"dic" };
@@ -134,20 +135,74 @@
   const countEl = $("#sessionCount");
   if (countEl) countEl.textContent = `${pad(unlocked.length)} / ${sessions.length}`;
 
-  const list = $("#archiveList");
-  if (list) {
-    list.replaceChildren(...[...unlocked].reverse().map(s => {
-      const item = document.createElement("article");
-      item.className = "archive-item" + (s.number === current.number ? " is-current" : "");
-      item.innerHTML =
-        `<span class="ai-num">${pad(s.number)}</span>` +
-        `<time datetime="${s.date}">${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]}</time>` +
-        `<span class="ai-body"><strong></strong><small></small></span>` +
-        `<span class="ai-tag">${s.number === current.number ? "Hoy" : "Unidad " + s.unit}</span>`;
-      item.querySelector("strong").textContent = s.title;
-      item.querySelector("small").textContent  = `${s.subtitle} · ${s.room}`;
-      return item;
-    }));
+  /* ── Línea del tiempo de sesiones ───────────────────────────────────── */
+  // Cada sesión que cambia el contenido de la página deja una versión fechada.
+  // Las anteriores viven en sesiones/; la de hoy es esta misma página.
+  const line = $("#timeline");
+  const tlToggle = $("#tlToggle");
+
+  if (line) {
+    const base = location.pathname.includes("/sesiones/") ? "../" : "";
+    let showAll = false;
+
+    const draw = () => {
+      const shown = showAll ? sessions : unlocked;
+      line.replaceChildren(...shown.map(s => {
+        const done = s.date <= cursor;
+        const isToday = s.number === current.number;
+        const item = document.createElement("article");
+        item.className = "tl-item" + (isToday ? " is-today" : "") + (done ? "" : " is-locked");
+
+        const dot = document.createElement("span");
+        dot.className = "tl-dot";
+        dot.textContent = pad(s.number);
+
+        const body = document.createElement("div");
+        body.className = "tl-body";
+        const when = document.createElement("span");
+        when.className = "tl-date";
+        when.textContent = `${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]} · ${s.room}`;
+        const h3 = document.createElement("h3");
+        h3.className = "tl-title";
+        if (s.href && done) {
+          const a = document.createElement("a");
+          a.href = isToday ? s.href : base + s.href;
+          a.textContent = s.title;
+          h3.appendChild(a);
+        } else {
+          h3.textContent = s.title;
+        }
+        const sub = document.createElement("p");
+        sub.className = "tl-sub";
+        sub.textContent = s.subtitle;
+        body.append(when, h3, sub);
+
+        const side = document.createElement("div");
+        side.className = "tl-side";
+        const tag = document.createElement("span");
+        tag.className = "tl-tag";
+        tag.textContent = isToday ? "Versión de hoy" : (done ? "Unidad " + s.unit : "Por venir");
+        side.appendChild(tag);
+        if (s.href && done) {
+          const a = document.createElement("a");
+          a.className = "tl-link";
+          a.href = isToday ? s.href : base + s.href;
+          a.textContent = isToday ? "Ir a la sesión ↓" : "Ver esa versión ↗";
+          side.appendChild(a);
+        }
+
+        item.append(dot, body, side);
+        return item;
+      }));
+    };
+
+    draw();
+    tlToggle?.addEventListener("click", () => {
+      showAll = !showAll;
+      tlToggle.textContent = showAll ? "Ver solo lo que ya vimos" : "Ver el semestre completo";
+      tlToggle.setAttribute("aria-expanded", String(showAll));
+      draw();
+    });
   }
 
   /* ── Brújula interactiva ────────────────────────────────────────────── */
@@ -289,5 +344,74 @@
       say("Brújula en blanco");
       $("#fName")?.focus();
     });
+  }
+  /* ── Diapositivas (citas de Hobsbawm) ───────────────────────────────── */
+  const deck = $("#deck");
+  if (deck) {
+    const slides = $$(".slide", deck);
+    const prev   = $("#deckPrev");
+    const next   = $("#deckNext");
+    const full   = $("#deckFull");
+    const count  = $("#deckCount");
+    const bar    = $("#deckBar");
+    const jump   = $("#deckJump");
+    const total  = slides.length;
+    let at = 0;
+
+    const pips = slides.map((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "deck-pip";
+      b.setAttribute("aria-label", `Ir a la diapositiva ${i + 1} de ${total}`);
+      b.addEventListener("click", () => go(i));
+      jump?.appendChild(b);
+      return b;
+    });
+
+    function go(i) {
+      at = Math.max(0, Math.min(total - 1, i));
+      slides.forEach((s, k) => {
+        s.classList.toggle("is-on", k === at);
+        s.setAttribute("aria-hidden", String(k !== at));
+      });
+      pips.forEach((p, k) => p.classList.toggle("is-on", k === at));
+      if (count) count.textContent = `${pad(at + 1)} / ${pad(total)}`;
+      if (bar) bar.style.width = `${((at + 1) / total) * 100}%`;
+      if (prev) prev.disabled = at === 0;
+      if (next) next.disabled = at === total - 1;
+    }
+
+    prev?.addEventListener("click", () => go(at - 1));
+    next?.addEventListener("click", () => go(at + 1));
+
+    full?.addEventListener("click", () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else deck.requestFullscreen?.().catch(() => say("Tu navegador no dejó abrir pantalla completa"));
+    });
+    document.addEventListener("fullscreenchange", () => {
+      if (full) full.textContent = document.fullscreenElement ? "⤡ Salir" : "⤢ Pantalla completa";
+    });
+
+    // Las flechas solo mueven la presentación cuando el foco está en ella.
+    deck.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); go(at + 1); }
+      else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(at - 1); }
+      else if (e.key === "Home") { e.preventDefault(); go(0); }
+      else if (e.key === "End") { e.preventDefault(); go(total - 1); }
+      else if (e.key.toLowerCase() === "f") { e.preventDefault(); full?.click(); }
+    });
+
+    // Deslizar con el dedo en el celular.
+    let x0 = null;
+    deck.addEventListener("touchstart", (e) => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    deck.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 55) go(dx < 0 ? at + 1 : at - 1);
+      x0 = null;
+    }, { passive: true });
+
+    deck.setAttribute("tabindex", "0");
+    go(0);
   }
 })();

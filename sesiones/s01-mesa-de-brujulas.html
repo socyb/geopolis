@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 01 · Mesa de brújulas · Geopolítica Internacional · FCA UNAM</title>
+<meta name="description" content="Versión de archivo de la página del curso: sesión 01, martes 18 de agosto de 2026. Mesa de brújulas.">
+<meta name="robots" content="noindex, follow">
+<link rel="stylesheet" href="../assets/index27/course27.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <header class="topbar" id="inicio">
+    <a class="brand" href="../index27.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="var(--guinda)"/>
+        <circle cx="16" cy="16" r="10.5" fill="none" stroke="var(--paper)" stroke-width="1.3" opacity=".65"/>
+        <path d="M16 4.5l3.1 11.4L30.5 19l-11.4 3.1L16 33.5 12.9 22.1 1.5 19l11.4-3.1z" fill="var(--paper)"/>
+      </svg>
+      <span class="brand-text">
+        <strong>Geopolítica</strong>
+        <small>FCA · UNAM · 1541</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="../index27.html#sesion-actual">La sesión de hoy</a>
+      <a href="../index27.html#sesiones">Todas las sesiones</a>
+      <a href="../index27.html#evaluacion">Evaluación</a>
+      <a href="../index27.html#profesor">Profesor</a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle" type="button" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
+      <button class="icon-btn" id="printBtn" type="button" title="Imprimir esta página" aria-label="Imprimir esta página">🖨</button>
+    </div>
+  </header>
+
+  <div class="arch-banner">
+    <div class="wrap">
+      <p>📁 <strong>Versión de archivo.</strong> Así se veía la página el martes 18 de agosto de 2026. La versión vigente del curso está en la <a href="../index27.html">portada</a>.</p>
+      <p class="mono muted">Sesión 01 · Unidad I</p>
+    </div>
+  </div>
+
+  <section class="arch-hero">
+    <div class="wrap">
+      <p class="kicker">Sesión 01 · Unidad I · Vocabulario para leer el poder</p>
+      <h1>Mesa de brújulas</h1>
+      <p class="lead">Antes de explicar el mundo, conviene saber desde dónde lo estamos mirando. En la primera sesión nos conocimos: cada quien armó su propia brújula geopolítica —lo que le interesa, lo que sigue, de dónde saca su información y a dónde quiere llegar— y con todas ellas trazamos el mapa del grupo.</p>
+      <ul class="arch-meta">
+        <li>Sesión 01</li>
+        <li>martes 18 de agosto de 2026</li>
+        <li>Salón A-004</li>
+        <li>Unidad I</li>
+      </ul>
+    </div>
+  </section>
+
+  <main id="contenido">
+  
+  <section class="section" id="mesa">
+    <div class="wrap">
+      <div class="section-head">
+        <p style="margin-top:0;display:flex;flex-wrap:wrap;gap:.5rem">
+          <span class="pill">🧭 45—60 min</span>
+          <span class="pill pill-blue">Todo el grupo</span>
+          <span class="pill pill-teal">Sin preparación previa</span>
+        </p>
+      </div>
+
+      <!-- Brújula interactiva -->
+      <div class="compass-wrap">
+        <div class="compass" id="compass">
+          <svg class="compass-svg" viewBox="0 0 400 400" fill="none" stroke="currentColor" aria-hidden="true">
+            <circle cx="200" cy="200" r="192" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="158" stroke-width="1"/>
+            <circle cx="200" cy="200" r="112" stroke-width="1" stroke-dasharray="4 6"/>
+            <path d="M200 8v384M8 200h384" stroke-width="1"/>
+            <path d="M64 64l272 272M336 64L64 336" stroke-width=".8" stroke-dasharray="3 7"/>
+            <path d="M200 46l14 140 140 14-140 14-14 140-14-140-140-14 140-14z" fill="currentColor" stroke="none" opacity=".4"/>
+          </svg>
+
+          <button class="compass-pt pt-n" type="button" data-point="n" aria-pressed="true">
+            <span class="pt-dir">N</span><span class="pt-name">Identidad</span>
+          </button>
+          <button class="compass-pt pt-e" type="button" data-point="e" aria-pressed="false">
+            <span class="pt-dir">E</span><span class="pt-name">Interés</span>
+          </button>
+          <button class="compass-pt pt-s" type="button" data-point="s" aria-pressed="false">
+            <span class="pt-dir">S</span><span class="pt-name">Territorio</span>
+          </button>
+          <button class="compass-pt pt-w" type="button" data-point="w" aria-pressed="false">
+            <span class="pt-dir">O</span><span class="pt-name">Mirada</span>
+          </button>
+          <button class="compass-hub" type="button" data-point="c" aria-pressed="false">
+            <small>Centro</small><strong>Rumbo</strong>
+          </button>
+        </div>
+
+        <div class="compass-detail" id="compassDetail" aria-live="polite">
+          <p class="kicker" id="cdKicker">Norte · Identidad</p>
+          <p class="cd-q" id="cdQuestion">¿Cómo te llamas y qué estudias?</p>
+          <p class="cd-hint" id="cdHint">Tu nombre, tu carrera y el semestre en el que vas. Si ya trabajas o haces prácticas, cuéntalo: eso también orienta tu mirada.</p>
+          <ul class="cd-eg" id="cdExamples"></ul>
+        </div>
+      </div>
+
+      <!-- Las cinco respuestas -->
+      <div class="section-head" style="margin-top:1rem">
+        <p class="kicker k-blue">Lo que vas a decir en voz alta</p>
+        <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Tus cinco respuestas</h2>
+        <p class="lead">Ninguna respuesta es demasiado sencilla. Contesta con lo que de verdad te pasa por la cabeza, no con lo que suene académico.</p>
+      </div>
+
+      <div class="qgrid" style="margin-bottom:3rem">
+        <article class="qcard">
+          <span class="qn">01</span>
+          <h3>¿Cómo te llamas y qué estudias?</h3>
+          <p>Nombre, carrera, semestre. Y si trabajas o haces prácticas, dilo.</p>
+          <span class="eg">Ej. «Soy Ana, Negocios Internacionales, quinto semestre, hago prácticas en logística.»</span>
+        </article>
+        <article class="qcard">
+          <span class="qn">02</span>
+          <h3>¿Qué haces en tu tiempo libre?</h3>
+          <p>Aficiones, series, libros, música, deportes, videojuegos. Sirve para conocernos y para saber por dónde te llega el mundo.</p>
+          <span class="eg">Ej. senderismo · anime · fútbol · cocina · producción musical</span>
+        </article>
+        <article class="qcard">
+          <span class="qn">03</span>
+          <h3>¿Qué tema geopolítico te interesa hoy y por qué?</h3>
+          <p>Un tema, no cinco. Lo que te da curiosidad, coraje o preocupación.</p>
+          <span class="eg">Ej. aranceles · migración · chips · agua · cárteles · IA · minerales críticos</span>
+        </article>
+        <article class="qcard">
+          <span class="qn">04</span>
+          <h3>¿Qué región o país sigues más?</h3>
+          <p>Puede ser por familia, por trabajo, por viaje o por pura fascinación.</p>
+          <span class="eg">Ej. China · Estados Unidos · Unión Europea · Medio Oriente · Sudamérica · el sur de México</span>
+        </article>
+        <article class="qcard">
+          <span class="qn">05</span>
+          <h3>¿Qué te gustaría poder hacer mejor al final del curso?</h3>
+          <p>Una habilidad concreta. Es la que vamos a entrenar contigo durante el semestre.</p>
+          <span class="eg">Ej. argumentar · escribir un memo · leer noticias con criterio · detectar sesgos · sustentar una decisión</span>
+        </article>
+      </div>
+
+      <!-- La noticia que traes -->
+      <div class="grid-2" style="margin-bottom:3rem">
+        <article class="card" style="background:var(--tint-red)">
+          <span class="pill">Segunda ronda</span>
+          <h3 style="margin-top:.9rem">La noticia que traes en la cabeza</h3>
+          <p>No necesitas el enlace ni la fecha exacta. Basta con algo que hayas visto, leído o escuchado y que se te haya quedado pegado. Al contarla, intenta responder cuatro cosas:</p>
+          <ul style="padding-left:1.15rem;margin:0">
+            <li><strong>¿Qué pasó?</strong> En dos o tres frases.</li>
+            <li><strong>¿Quiénes actúan?</strong> Estados, empresas, organismos, redes, movimientos, personas.</li>
+            <li><strong>¿Qué está en juego?</strong> Territorio, recursos, dinero, rutas, datos, seguridad, prestigio, empleos.</li>
+            <li><strong>¿Con qué lente lo mirarías?</strong> Poder, economía, tecnología, discurso, medio ambiente.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="pill pill-plum">Sin miedo</span>
+          <h3 style="margin-top:.9rem">Este es el punto de partida</h3>
+          <p>No se trata de demostrar que ya dominas el tema, sino de mostrar por dónde entras.</p>
+          <p>Una noticia de TikTok cuenta aquí igual que una del <em>Financial Times</em>. Lo que vamos a discutir es precisamente eso: <strong>qué te llega, cómo te llega y qué se queda fuera.</strong></p>
+          <p style="margin-bottom:0">Si de plano no traes ninguna noticia, cuenta la última conversación sobre el mundo que hayas tenido con alguien de tu familia. También sirve.</p>
+        </article>
+      </div>
+
+      <!-- Clásica vs crítica -->
+      <div class="section-head">
+        <p class="kicker k-amber">El primer concepto del curso</p>
+        <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Dos maneras de mirar el mismo hecho</h2>
+        <p class="lead">Conforme vayan saliendo las noticias, vamos a ir clasificándolas. No para etiquetar, sino para que veas que un mismo suceso cambia de forma según el lente que le pongas.</p>
+      </div>
+
+      <div class="contrast" style="margin-bottom:3rem">
+        <article class="is-classic">
+          <span class="pill pill-blue">Lente 1</span>
+          <h3>Geopolítica clásica</h3>
+          <p style="font-size:.95rem;color:var(--ink-soft)">Mira el tablero: quién tiene qué y dónde.</p>
+          <ul>
+            <li>Poder de los Estados y seguridad nacional</li>
+            <li>Territorio, fronteras y rutas</li>
+            <li>Alianzas y bloques estratégicos</li>
+            <li>Recursos naturales y capacidad militar</li>
+          </ul>
+        </article>
+        <article class="is-critical">
+          <span class="pill pill-amber">Lente 2</span>
+          <h3>Geopolítica crítica</h3>
+          <p style="font-size:.95rem;color:var(--ink-soft)">Mira quién cuenta la historia y a quién le conviene.</p>
+          <ul>
+            <li>Discursos, medios y representaciones</li>
+            <li>Cómo se fabrica una «amenaza»</li>
+            <li>Economía política y cadenas de valor</li>
+            <li>Actores no estatales: empresas, redes, movimientos</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Cómo transcurre -->
+      <div class="grid-2" style="align-items:start;margin-bottom:3rem">
+        <div class="sticky-col">
+          <p class="kicker k-teal">Cómo transcurre</p>
+          <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Cuatro momentos</h2>
+          <p class="lead" style="margin-bottom:1.4rem">Nadie pasa al frente ni expone solo. Se habla desde el lugar, en ronda, y cada intervención dura poco.</p>
+          <p style="display:flex;flex-wrap:wrap;gap:.5rem;margin:0">
+            <span class="pill pill-teal">Sin diapositivas</span>
+            <span class="pill pill-blue">Sin equipos</span>
+            <span class="pill pill-plum">Sin entregable</span>
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <div>
+              <h3>El profesor abre</h3>
+              <p>Comparte primero su propia brújula: qué le preocupa hoy, con qué lente trabaja y qué espera de este grupo.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Ronda de brújulas</h3>
+              <p>Cada quien responde las cinco preguntas. Breve: alrededor de un minuto por persona.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Las noticias sobre la mesa</h3>
+              <p>Cuentas la noticia que traes y entre todos identificamos actores, lo que está en juego y qué lente predomina.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>El mapa del grupo</h3>
+              <p>Cerramos agrupando lo que salió: temas dominantes, regiones y lentes. Ese mapa se queda como referencia y volveremos a él durante el semestre.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONSTRUCTOR DE BRÚJULA ═════════════════════════ -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker k-plum">Herramienta</p>
+        <h2>Arma tu brújula</h2>
+        <p class="lead">Escribe aquí tus respuestas y tendrás tu brújula lista para leerla en clase. Se guarda solo en este dispositivo: nadie más la ve, y puedes copiarla o imprimirla cuando quieras.</p>
+      </div>
+
+      <div class="builder">
+        <form class="fields" id="builderForm" autocomplete="off">
+          <div class="field">
+            <label for="fName">Tu nombre <b>·</b> N — Identidad</label>
+            <input id="fName" type="text" maxlength="60" placeholder="Nombre y carrera">
+          </div>
+          <div class="field">
+            <label for="fInterest">E — Interés · ¿Qué tema geopolítico te mueve hoy?</label>
+            <input id="fInterest" type="text" maxlength="120" placeholder="Ej. la guerra de los chips y sus efectos en México">
+          </div>
+          <div class="field">
+            <label for="fRegion">S — Territorio · ¿Qué región o país sigues?</label>
+            <input id="fRegion" type="text" maxlength="120" placeholder="Ej. China y el sudeste asiático">
+          </div>
+          <div class="field">
+            <label for="fLens">O — Mirada · ¿De dónde sacas lo que sabes del mundo?</label>
+            <input id="fLens" type="text" maxlength="120" placeholder="Ej. YouTube, pódcast y lo que comenta mi familia">
+          </div>
+          <div class="field">
+            <label for="fGoal">Centro — Rumbo · ¿Qué quieres poder hacer al terminar el curso?</label>
+            <input id="fGoal" type="text" maxlength="120" placeholder="Ej. sustentar una recomendación con evidencia">
+          </div>
+          <div class="field">
+            <label for="fNews">La noticia que traes en la cabeza</label>
+            <textarea id="fNews" rows="3" maxlength="400" placeholder="Qué pasó, quiénes actúan y qué está en juego."></textarea>
+          </div>
+
+          <div class="builder-actions">
+            <button class="btn btn-primary" id="copyBtn" type="button">Copiar mi brújula</button>
+            <button class="btn btn-small" id="printCardBtn" type="button">Imprimir</button>
+            <button class="btn btn-small" id="clearBtn" type="button">Borrar</button>
+            <p class="builder-note">Lo que escribas se guarda automáticamente en tu navegador.</p>
+          </div>
+        </form>
+
+        <article class="bcard" id="bcard">
+          <div class="bcard-head">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z" fill="currentColor"/>
+            </svg>
+            <strong>Mi brújula geopolítica</strong>
+            <span>2027-1</span>
+          </div>
+          <div class="bcard-body">
+            <p class="bcard-name" id="bcName"></p>
+            <dl class="bcard-grid">
+              <div><dt>E · Interés</dt><dd id="bcInterest"></dd></div>
+              <div><dt>S · Territorio</dt><dd id="bcRegion"></dd></div>
+              <div><dt>O · Mirada</dt><dd id="bcLens"></dd></div>
+              <div><dt>Centro · Rumbo</dt><dd id="bcGoal"></dd></div>
+              <div><dt>Noticia</dt><dd id="bcNews"></dd></div>
+            </dl>
+          </div>
+          <p class="bcard-foot">Geopolítica Internacional · FCA UNAM · Grupo 1541</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ DESPUÉS DE LA SESIÓN ═══════════════════════ -->
+  <section class="section">
+    <div class="wrap">
+      <article class="card" style="margin-bottom:1.8rem;background:var(--tint-blue);border-color:var(--cobalt)">
+        <p class="kicker k-blue">Ya está lista</p>
+        <h3 style="margin:.7rem 0 .6rem;font-size:clamp(1.4rem,3vw,1.9rem)">La carta del grupo</h3>
+        <p>Las brújulas que subieron al foro, puestas una encima de otra: lo que nos mueve, dónde lo miramos, de dónde sacamos lo que sabemos y a dónde queremos llegar. Búscate adentro.</p>
+        <p style="margin-bottom:0">
+          <a class="btn btn-primary" href="../carta_grupo.html" target="_blank" rel="noopener">Abrir la carta del grupo ↗</a>
+        </p>
+      </article>
+
+      <div class="grid-2" style="align-items:start">
+        <article class="card" style="background:var(--tint-amber)">
+          <span class="pill pill-amber">Para el jueves 20 de agosto</span>
+          <h3 style="margin-top:.9rem">Trae una noticia y seis líneas</h3>
+          <p>Elige una noticia internacional reciente y escribe seis líneas, una por punto:</p>
+          <ol style="padding-left:1.2rem;margin:0 0 1rem">
+            <li><strong>Actor principal:</strong> ¿quién actúa?</li>
+            <li><strong>Interés en juego:</strong> ¿qué quiere?</li>
+            <li><strong>Escala:</strong> ¿local, nacional, regional o global?</li>
+            <li><strong>Lente:</strong> ¿seguridad, economía, narrativa, tecnología, ambiente?</li>
+            <li><strong>Tu pregunta:</strong> algo que no entiendas o quieras explorar.</li>
+            <li><strong>Fuente:</strong> enlace o medio donde la leíste.</li>
+          </ol>
+          <p style="margin-bottom:0"><strong>Formato libre:</strong> documento, correo o notas del celular. Lo importante es llegar con eso escrito.</p>
+        </article>
+
+        <div>
+          <p class="kicker k-teal">Al final de la sesión</p>
+          <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Qué nos llevamos</h2>
+          <div class="grid-3" style="margin-top:1.2rem;grid-template-columns:1fr">
+            <article class="card" style="box-shadow:var(--shadow-xs)">
+              <h3 style="font-size:1.05rem">Nos conocemos</h3>
+              <p style="margin:0;font-size:.9rem;color:var(--ink-soft)">Sabemos quién sigue qué, quién viene de dónde y con quién conviene trabajar en las actividades por equipo.</p>
+            </article>
+            <article class="card" style="box-shadow:var(--shadow-xs)">
+              <h3 style="font-size:1.05rem">Un mapa colectivo</h3>
+              <p style="margin:0;font-size:.9rem;color:var(--ink-soft)">Los temas y regiones que salgan hoy se vuelven ejemplos recurrentes durante el semestre.</p>
+            </article>
+            <article class="card" style="box-shadow:var(--shadow-xs)">
+              <h3 style="font-size:1.05rem">Un primer concepto</h3>
+              <p style="margin:0;font-size:.9rem;color:var(--ink-soft)">La distinción entre geopolítica clásica y crítica, aplicada ya a casos reales traídos por el grupo.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ ROMPEHIELOS ════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker k-blue">Por si te trabas</p>
+        <h2>Preguntas para romper el hielo</h2>
+        <p class="lead">Si en la ronda no sabes por dónde empezar, toma cualquiera de estas y responde esa. Todas llevan al mismo lugar.</p>
+      </div>
+
+      <div class="qgrid">
+        <article class="qcard">
+          <span class="qn">?</span>
+          <h3>¿Qué te informa más?</h3>
+          <p>Prensa, TikTok, X, pódcast, YouTube, conversaciones familiares. ¿Cómo crees que eso moldea tu manera de ver el mundo?</p>
+        </article>
+        <article class="qcard">
+          <span class="qn">?</span>
+          <h3>¿Qué palabra asocias con «geopolítica»?</h3>
+          <p>Poder, guerra, petróleo, mapas, China, imperialismo, fronteras, narrativa. La primera que se te venga.</p>
+        </article>
+        <article class="qcard">
+          <span class="qn">?</span>
+          <h3>¿Qué pesa más hoy?</h3>
+          <p>Territorio, finanzas, datos, energía o cultura. Elige uno y defiéndelo en una frase.</p>
+        </article>
+        <article class="qcard">
+          <span class="qn">?</span>
+          <h3>¿Qué región no logras entender?</h3>
+          <p>Algún país o zona que te intriga pero que sientes que se te escapa.</p>
+        </article>
+        <article class="qcard">
+          <span class="qn">?</span>
+          <h3>¿Qué crees que no conoces?</h3>
+          <p>¿Cuál es tu punto ciego?</p>
+        </article>
+        <article class="qcard">
+          <span class="qn">?</span>
+          <h3>Si trabajaras en una empresa global…</h3>
+          <p>¿Qué tipo de análisis geopolítico te gustaría poder poner sobre la mesa en una junta?</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <div class="wrap">
+    <nav class="arch-nav" aria-label="Otras sesiones">
+      <a href="../index27.html#sesiones"><span>← Volver</span><strong>La línea del tiempo del curso</strong></a>
+      <a href="s02-geopolitica-critica.html"><span>Sesión siguiente →</span><strong>Sesión 02 · Geopolítica crítica</strong></a>
+    </nav>
+  </div>
+
+  <footer>
+    <div class="foot-grid">
+      <p>
+        <strong>Geopolítica Internacional Aplicada a los Negocios Internacionales</strong>
+        Licenciatura en Negocios Internacionales · Facultad de Contaduría y Administración · UNAM
+      </p>
+      <p>
+        <strong>Grupo 1541 · Semestre 2027-1</strong>
+        <a href="../index27.html#profesor">Dr. Jorge Cardiel Herrera</a> · Martes A-004 · Jueves F-101 · 09:00—11:00<br>
+        <a href="mailto:semsocan2019@gmail.com">semsocan2019@gmail.com</a> · <a href="https://socyb.github.io" target="_blank" rel="noopener noreferrer">socyb.github.io</a><br>
+        <span class="updated">Página archivada · Última actualización: 1 de septiembre de 2026</span>
+      </p>
+      <a class="to-top" href="#inicio" aria-label="Volver al inicio">↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="../assets/index27/course27.js"></script>
+</body>
+</html>
