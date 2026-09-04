@@ -76,39 +76,41 @@
   /* ── Calendario del curso ───────────────────────────────────────────── */
   // Martes en A-004 y jueves en F-101.
   // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
-  // El Canal de Panamá dejó de ser sesión propia; se ve el 8 de octubre.
+  // «La era del imperio» ocupó dos sesiones (04 y 05), así que la unidad III
+  // se recorre una sesión y las dos últimas del semestre se juntan el 3 de diciembre.
+  // El Canal de Panamá dejó de ser sesión propia; se ve el 13 de octubre.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   const sessions = [
     [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I","sesiones/s01-mesa-de-brujulas.html"],
     [ 2,"2026-08-20","F-101","Geopolítica clásica y crítica","Escalas · posición · representación","I","sesiones/s02-geopolitica-critica.html"],
     [ 3,"2026-08-27","F-101","Geopolítica crítica y el poder de los mapas","Marcos · proyecciones · contracartografía","I","sesiones/s03-poder-de-los-mapas.html"],
-    [ 4,"2026-09-01","A-004","La era del imperio","Hobsbawm · orden territorial · comercio","II","#sesion-actual"],
-    [ 5,"2026-09-03","F-101","La época de la guerra total","Movilización · industria · frontera","II"],
-    [ 6,"2026-09-08","A-004","Diagnóstico del sistema mundial","Policrisis · escenarios","III"],
-    [ 7,"2026-09-10","F-101","Interdependencia armamentizada","Redes · coerción económica","III"],
-    [ 8,"2026-09-17","F-101","Estados Unidos y China","Competencia · desacoplamiento","III"],
-    [ 9,"2026-09-22","A-004","La guerra de los chips","Tecnología · cuellos de botella","III"],
-    [10,"2026-09-24","F-101","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
-    [11,"2026-09-29","A-004","Mapa regional y primer parcial","Integración · síntesis","IV"],
-    [12,"2026-10-01","F-101","Nord Stream y seguridad energética","Infraestructura · dependencia","IV"],
-    [13,"2026-10-06","A-004","Minerales críticos","Transición energética · negociación","IV"],
-    [14,"2026-10-08","F-101","Cuellos de botella marítimos","Panamá · Suez · Mar Rojo","IV"],
-    [15,"2026-10-13","A-004","Apple, China y poder estructural","Cadenas globales de valor","IV"],
-    [16,"2026-10-15","F-101","IA y cadenas de suministro","Datos · trabajo · infraestructura","V"],
-    [17,"2026-10-20","A-004","Pregunta de investigación","Equipos · problema · evidencia","V"],
-    [18,"2026-10-22","F-101","El policy memo","Argumento · audiencia · decisión","V"],
-    [19,"2026-10-27","A-004","Nearshoring en México","Localización · productividad","V"],
-    [20,"2026-10-29","F-101","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
-    [21,"2026-11-03","A-004","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
-    [22,"2026-11-05","F-101","Sala de consejo","Simulación · decisión bajo presión","V"],
-    [23,"2026-11-10","A-004","La Franja y la Ruta","Infraestructura · financiamiento","V"],
-    [24,"2026-11-12","F-101","China y América Latina","Comercio · dependencia · agencia","V"],
-    [25,"2026-11-17","A-004","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
-    [26,"2026-11-19","F-101","México en América del Norte","T-MEC · autonomía · vulnerabilidad","VI"],
-    [27,"2026-11-24","A-004","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
-    [28,"2026-11-26","F-101","Corredores y posición de México","Istmo · frontera · logística","VI"],
-    [29,"2026-12-01","A-004","Integración final","Presentaciones · examen final","VI"],
-    [30,"2026-12-03","F-101","Cierre del semestre","Retroalimentación · recuperación","VI"]
+    [ 4,"2026-09-01","A-004","La era del imperio","Hobsbawm · orden territorial · comercio","II","sesiones/s04-la-era-del-imperio.html"],
+    [ 5,"2026-09-03","F-101","La era del imperio (II)","Documental · conquista formal e imperio informal","II","#sesion-actual"],
+    [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II"],
+    [ 7,"2026-09-10","F-101","Diagnóstico del sistema mundial","Policrisis · escenarios","III"],
+    [ 8,"2026-09-17","F-101","Interdependencia armamentizada","Redes · coerción económica","III"],
+    [ 9,"2026-09-22","A-004","Estados Unidos y China","Competencia · desacoplamiento","III"],
+    [10,"2026-09-24","F-101","La guerra de los chips","Tecnología · cuellos de botella","III"],
+    [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
+    [12,"2026-10-01","F-101","Mapa regional y primer parcial","Integración · síntesis","IV"],
+    [13,"2026-10-06","A-004","Nord Stream y seguridad energética","Infraestructura · dependencia","IV"],
+    [14,"2026-10-08","F-101","Minerales críticos","Transición energética · negociación","IV"],
+    [15,"2026-10-13","A-004","Cuellos de botella marítimos","Panamá · Suez · Mar Rojo","IV"],
+    [16,"2026-10-15","F-101","Apple, China y poder estructural","Cadenas globales de valor","IV"],
+    [17,"2026-10-20","A-004","IA y cadenas de suministro","Datos · trabajo · infraestructura","V"],
+    [18,"2026-10-22","F-101","Pregunta de investigación","Equipos · problema · evidencia","V"],
+    [19,"2026-10-27","A-004","El policy memo","Argumento · audiencia · decisión","V"],
+    [20,"2026-10-29","F-101","Nearshoring en México","Localización · productividad","V"],
+    [21,"2026-11-03","A-004","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
+    [22,"2026-11-05","F-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
+    [23,"2026-11-10","A-004","Sala de consejo","Simulación · decisión bajo presión","V"],
+    [24,"2026-11-12","F-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],
+    [25,"2026-11-17","A-004","China y América Latina","Comercio · dependencia · agencia","V"],
+    [26,"2026-11-19","F-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
+    [27,"2026-11-24","A-004","México en América del Norte","T-MEC · autonomía · vulnerabilidad","VI"],
+    [28,"2026-11-26","F-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
+    [29,"2026-12-01","A-004","Corredores y posición de México","Istmo · frontera · logística","VI"],
+    [30,"2026-12-03","F-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
   ].map(([number, date, room, title, subtitle, unit, href]) => ({ number, date, room, title, subtitle, unit, href }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
@@ -138,71 +140,58 @@
   /* ── Línea del tiempo de sesiones ───────────────────────────────────── */
   // Cada sesión que cambia el contenido de la página deja una versión fechada.
   // Las anteriores viven en sesiones/; la de hoy es esta misma página.
+  // Solo se dibujan las sesiones que ya ocurrieron: el calendario que viene no se muestra.
   const line = $("#timeline");
-  const tlToggle = $("#tlToggle");
 
   if (line) {
     const base = location.pathname.includes("/sesiones/") ? "../" : "";
-    let showAll = false;
 
-    const draw = () => {
-      const shown = showAll ? sessions : unlocked;
-      line.replaceChildren(...shown.map(s => {
-        const done = s.date <= cursor;
-        const isToday = s.number === current.number;
-        const item = document.createElement("article");
-        item.className = "tl-item" + (isToday ? " is-today" : "") + (done ? "" : " is-locked");
+    line.replaceChildren(...unlocked.map(s => {
+      const isToday = s.number === current.number;
+      const item = document.createElement("article");
+      item.className = "tl-item" + (isToday ? " is-today" : "");
 
-        const dot = document.createElement("span");
-        dot.className = "tl-dot";
-        dot.textContent = pad(s.number);
+      const dot = document.createElement("span");
+      dot.className = "tl-dot";
+      dot.textContent = pad(s.number);
 
-        const body = document.createElement("div");
-        body.className = "tl-body";
-        const when = document.createElement("span");
-        when.className = "tl-date";
-        when.textContent = `${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]} · ${s.room}`;
-        const h3 = document.createElement("h3");
-        h3.className = "tl-title";
-        if (s.href && done) {
-          const a = document.createElement("a");
-          a.href = isToday ? s.href : base + s.href;
-          a.textContent = s.title;
-          h3.appendChild(a);
-        } else {
-          h3.textContent = s.title;
-        }
-        const sub = document.createElement("p");
-        sub.className = "tl-sub";
-        sub.textContent = s.subtitle;
-        body.append(when, h3, sub);
+      const body = document.createElement("div");
+      body.className = "tl-body";
+      const when = document.createElement("span");
+      when.className = "tl-date";
+      when.textContent = `${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]} · ${s.room}`;
+      const h3 = document.createElement("h3");
+      h3.className = "tl-title";
+      if (s.href) {
+        const a = document.createElement("a");
+        a.href = isToday ? s.href : base + s.href;
+        a.textContent = s.title;
+        h3.appendChild(a);
+      } else {
+        h3.textContent = s.title;
+      }
+      const sub = document.createElement("p");
+      sub.className = "tl-sub";
+      sub.textContent = s.subtitle;
+      body.append(when, h3, sub);
 
-        const side = document.createElement("div");
-        side.className = "tl-side";
-        const tag = document.createElement("span");
-        tag.className = "tl-tag";
-        tag.textContent = isToday ? "Versión de hoy" : (done ? "Unidad " + s.unit : "Por venir");
-        side.appendChild(tag);
-        if (s.href && done) {
-          const a = document.createElement("a");
-          a.className = "tl-link";
-          a.href = isToday ? s.href : base + s.href;
-          a.textContent = isToday ? "Ir a la sesión ↓" : "Ver esa versión ↗";
-          side.appendChild(a);
-        }
+      const side = document.createElement("div");
+      side.className = "tl-side";
+      const tag = document.createElement("span");
+      tag.className = "tl-tag";
+      tag.textContent = isToday ? "Versión de hoy" : "Unidad " + s.unit;
+      side.appendChild(tag);
+      if (s.href) {
+        const a = document.createElement("a");
+        a.className = "tl-link";
+        a.href = isToday ? s.href : base + s.href;
+        a.textContent = isToday ? "Ir a la sesión ↓" : "Ver esa versión ↗";
+        side.appendChild(a);
+      }
 
-        item.append(dot, body, side);
-        return item;
-      }));
-    };
-
-    draw();
-    tlToggle?.addEventListener("click", () => {
-      showAll = !showAll;
-      tlToggle.textContent = showAll ? "Ver solo lo que ya vimos" : "Ver el semestre completo";
-      tlToggle.setAttribute("aria-expanded", String(showAll));
-      draw();
-    });
+      item.append(dot, body, side);
+      return item;
+    }));
   }
 
   /* ── Brújula interactiva ────────────────────────────────────────────── */
