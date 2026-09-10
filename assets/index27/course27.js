@@ -76,8 +76,9 @@
   /* ── Calendario del curso ───────────────────────────────────────────── */
   // Martes en A-004 y jueves en F-101.
   // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
-  // «La era del imperio» ocupó dos sesiones (04 y 05), así que la unidad III
-  // se recorre una sesión y las dos últimas del semestre se juntan el 3 de diciembre.
+  // «La era del imperio» ocupó dos sesiones (04 y 05) y «La época de la guerra
+  // total» otras dos (06 y 07), así que la unidad III empieza el 17 de septiembre
+  // y las dos últimas sesiones del semestre se juntan el 3 de diciembre.
   // El Canal de Panamá dejó de ser sesión propia; se ve el 13 de octubre.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   const sessions = [
@@ -85,10 +86,10 @@
     [ 2,"2026-08-20","F-101","Geopolítica clásica y crítica","Escalas · posición · representación","I","sesiones/s02-geopolitica-critica.html"],
     [ 3,"2026-08-27","F-101","Geopolítica crítica y el poder de los mapas","Marcos · proyecciones · contracartografía","I","sesiones/s03-poder-de-los-mapas.html"],
     [ 4,"2026-09-01","A-004","La era del imperio","Hobsbawm · orden territorial · comercio","II","sesiones/s04-la-era-del-imperio.html"],
-    [ 5,"2026-09-03","F-101","La era del imperio (II)","Documental · conquista formal e imperio informal","II","#sesion-actual"],
+    [ 5,"2026-09-03","F-101","La era del imperio (II)","Documental · conquista formal e imperio informal","II","sesiones/s05-la-era-del-imperio-ii.html"],
     [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II"],
-    [ 7,"2026-09-10","F-101","Diagnóstico del sistema mundial","Policrisis · escenarios","III"],
-    [ 8,"2026-09-17","F-101","Interdependencia armamentizada","Redes · coerción económica","III"],
+    [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","#sesion-actual"],
+    [ 8,"2026-09-17","F-101","Interdependencia armamentizada","Diagnóstico del sistema mundial · redes · coerción","III"],
     [ 9,"2026-09-22","A-004","Estados Unidos y China","Competencia · desacoplamiento","III"],
     [10,"2026-09-24","F-101","La guerra de los chips","Tecnología · cuellos de botella","III"],
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
