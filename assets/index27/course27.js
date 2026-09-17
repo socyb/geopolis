@@ -144,6 +144,62 @@
   const countEl = $("#sessionCount");
   if (countEl) countEl.textContent = `${pad(unlocked.length)} / ${sessions.length}`;
 
+  // Una sesión se abre igual desde la portada que desde una versión archivada:
+  // las archivadas viven en sesiones/ y la vigente es un ancla de la portada.
+  const inArchive = location.pathname.includes("/sesiones/");
+  const hrefFor = s => !s.href ? null
+    : s.href.startsWith("#") ? (inArchive ? "../index27.html" + s.href : s.href)
+    : (inArchive ? "../" : "") + s.href;
+
+  /* ── Riel de sesiones ───────────────────────────────────────────────── */
+  // La tira bajo la portada: la sesión de hoy y todas las que ya pasaron, en orden.
+  // Las que dejaron versión propia llevan liga; las demás se ven, pero no se abren.
+  const track = $("#railTrack");
+
+  if (track) {
+    // En una versión archivada, data-here dice qué sesión se está viendo.
+    const hereNumber = Number(track.dataset.here) || 0;
+
+    track.replaceChildren(...unlocked.map(s => {
+      const isToday = s.number === current.number;
+      const isHere  = s.number === hereNumber;
+      const link    = isHere ? null : hrefFor(s);
+      const node = document.createElement(link ? "a" : "span");
+      node.className = "rail-item"
+        + (isToday ? " is-current" : "")
+        + (isHere ? " is-here" : "")
+        + (!s.href ? " is-off" : "");
+      if (link) {
+        node.href = link;
+        if (isToday) node.setAttribute("aria-current", "true");
+      }
+      if (isHere) node.setAttribute("aria-current", "page");
+
+      const num = document.createElement("span");
+      num.className = "rail-num";
+      num.textContent = pad(s.number);
+      const when = document.createElement("span");
+      when.className = "rail-date";
+      when.textContent = `${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]}`;
+      const name = document.createElement("span");
+      name.className = "rail-title";
+      name.textContent = s.title;
+
+      node.append(num, when, name);
+      if (isHere) {
+        const you = document.createElement("span");
+        you.className = "rail-you";
+        you.textContent = "estás aquí";
+        node.appendChild(you);
+      }
+      return node;
+    }));
+
+    // Deja la sesión de hoy a la vista sin mover el scroll de la página.
+    const focusOn = $(".rail-item.is-here", track) || $(".rail-item.is-current", track);
+    if (focusOn) track.scrollLeft = focusOn.offsetLeft - (track.clientWidth - focusOn.offsetWidth) / 2;
+  }
+
   /* ── Línea del tiempo de sesiones ───────────────────────────────────── */
   // Cada sesión que cambia el contenido de la página deja una versión fechada.
   // Las anteriores viven en sesiones/; la de hoy es esta misma página.
@@ -151,8 +207,6 @@
   const line = $("#timeline");
 
   if (line) {
-    const base = location.pathname.includes("/sesiones/") ? "../" : "";
-
     line.replaceChildren(...unlocked.map(s => {
       const isToday = s.number === current.number;
       const item = document.createElement("article");
@@ -171,7 +225,7 @@
       h3.className = "tl-title";
       if (s.href) {
         const a = document.createElement("a");
-        a.href = isToday ? s.href : base + s.href;
+        a.href = hrefFor(s);
         a.textContent = s.title;
         h3.appendChild(a);
       } else {
@@ -191,7 +245,7 @@
       if (s.href) {
         const a = document.createElement("a");
         a.className = "tl-link";
-        a.href = isToday ? s.href : base + s.href;
+        a.href = hrefFor(s);
         a.textContent = isToday ? "Ir a la sesión ↓" : "Ver esa versión ↗";
         side.appendChild(a);
       }
