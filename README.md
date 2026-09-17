@@ -35,11 +35,11 @@ sesiones y horas:
 | | Unidad | Fechas |
 |---|---|---|
 | I | Vocabulario para leer el poder | 18—27 de agosto |
-| II | Hitos que ordenaron el mundo | 1—3 de septiembre |
-| III | El presente global y regional | 8—24 de septiembre |
-| IV | Escenarios complejos, riesgos conectados | 29 de septiembre — 13 de octubre |
-| V | Estrategias para negocios internacionales | 15 de octubre — 12 de noviembre |
-| VI | México en el tablero internacional | 17 de noviembre — 3 de diciembre |
+| II | Hitos que ordenaron el mundo | 1—17 de septiembre |
+| III | El presente global y regional | 22—29 de septiembre |
+| IV | Escenarios complejos, riesgos conectados | 1—15 de octubre |
+| V | Estrategias para negocios internacionales | 20 de octubre — 17 de noviembre |
+| VI | México en el tablero internacional | 19 de noviembre — 3 de diciembre |
 
 Del vocabulario básico para leer el poder —escalas, actores, marcos— hasta la
 posición concreta de México entre dos potencias: T-MEC, nearshoring y corredores

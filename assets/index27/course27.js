@@ -77,7 +77,8 @@
   // Martes en A-004 y jueves en F-101.
   // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
   // «La era del imperio» ocupó dos sesiones (04 y 05) y «La época de la guerra
-  // total» otras dos (06 y 07), así que la unidad III empieza el 17 de septiembre
+  // total» otras dos (06 y 07), y Dodds cierra la unidad II el 17 de septiembre,
+  // así que la unidad III empieza el 22 con Farrell y Newman
   // y las dos últimas sesiones del semestre se juntan el 3 de diciembre.
   // El Canal de Panamá dejó de ser sesión propia; se ve el 13 de octubre.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
@@ -88,9 +89,9 @@
     [ 4,"2026-09-01","A-004","La era del imperio","Hobsbawm · orden territorial · comercio","II","sesiones/s04-la-era-del-imperio.html"],
     [ 5,"2026-09-03","F-101","La era del imperio (II)","Documental · conquista formal e imperio informal","II","sesiones/s05-la-era-del-imperio-ii.html"],
     [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II"],
-    [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","#sesion-actual"],
-    [ 8,"2026-09-17","F-101","Interdependencia armamentizada","Diagnóstico del sistema mundial · redes · coerción","III"],
-    [ 9,"2026-09-22","A-004","Estados Unidos y China","Competencia · desacoplamiento","III"],
+    [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","sesiones/s07-la-epoca-de-la-guerra-total-ii.html"],
+    [ 8,"2026-09-17","F-101","La globalización del peligro","Dodds · quién dibuja las líneas · quién nombra la amenaza","II","#sesion-actual"],
+    [ 9,"2026-09-22","A-004","Estados Unidos y China","Interdependencia armamentizada · desacoplamiento","III"],
     [10,"2026-09-24","F-101","La guerra de los chips","Tecnología · cuellos de botella","III"],
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
     [12,"2026-10-01","F-101","Mapa regional y primer parcial","Integración · síntesis","IV"],
@@ -124,8 +125,13 @@
   const today = /^\d{4}-\d{2}-\d{2}$/.test(queryDate || "") ? queryDate : localDate;
   const cursor = today < sessions[0].date ? sessions[0].date : today;
 
-  const unlocked = sessions.filter(s => s.date <= cursor);
-  const current  = unlocked[unlocked.length - 1] || sessions[0];
+  // La portada lleva la versión de una sesión concreta, y se publica la víspera:
+  // esa sesión es la vigente aunque su fecha todavía no llegue. Con ?fecha= manda
+  // el calendario, para poder recorrer el semestre día por día.
+  const published = sessions.find(s => s.href === "#sesion-actual");
+  const byDate    = sessions.filter(s => s.date <= cursor);
+  const current   = (!queryDate && published) || byDate[byDate.length - 1] || sessions[0];
+  const unlocked  = sessions.filter(s => s.date <= cursor || s.number === current.number);
   const [y, m, d] = cursor.split("-");
   const pad = n => String(n).padStart(2, "0");
 
@@ -403,5 +409,50 @@
 
     deck.setAttribute("tabindex", "0");
     go(0);
+  }
+
+  /* ── Hilos de la lectura: tarjetas que se voltean ───────────────────────── */
+  const hilos = $$(".flip");
+  if (hilos.length) {
+    const fished = new Set();
+    const counter = $("#hiloCount");
+
+    const tell = () => {
+      if (!counter) return;
+      const left = hilos.length - fished.size;
+      counter.textContent = left === 0
+        ? `Se pescaron los ${hilos.length} hilos`
+        : `${left} de ${hilos.length} hilos sin pescar`;
+    };
+
+    hilos.forEach(card => {
+      card.addEventListener("click", () => {
+        const open = card.classList.toggle("is-flipped");
+        card.setAttribute("aria-pressed", String(open));
+      });
+    });
+
+    $("#hiloPick")?.addEventListener("click", () => {
+      const pool = hilos.filter(c => !fished.has(c));
+      if (!pool.length) { say("Ya se pescaron todos los hilos"); return; }
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      fished.add(pick);
+      hilos.forEach(c => c.classList.remove("is-picked"));
+      pick.classList.add("is-picked");
+      pick.scrollIntoView({ behavior: "smooth", block: "center" });
+      pick.focus({ preventScroll: true });
+      tell();
+    });
+
+    $("#hiloReset")?.addEventListener("click", () => {
+      fished.clear();
+      hilos.forEach(c => {
+        c.classList.remove("is-picked", "is-flipped");
+        c.setAttribute("aria-pressed", "false");
+      });
+      tell();
+    });
+
+    tell();
   }
 })();
