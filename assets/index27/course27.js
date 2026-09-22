@@ -77,8 +77,9 @@
   // Martes en A-004 y jueves en F-101.
   // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
   // «La era del imperio» ocupó dos sesiones (04 y 05) y «La época de la guerra
-  // total» otras dos (06 y 07), y Dodds cierra la unidad II el 17 de septiembre,
-  // así que la unidad III empieza el 22 con Farrell y Newman
+  // total» otras dos (06 y 07), y «La globalización del peligro» (Dodds) otras dos
+  // (08 y 09): la unidad II cierra el 22 de septiembre y la III empieza el 24
+  // con Farrell y Newman
   // y las dos últimas sesiones del semestre se juntan el 3 de diciembre.
   // El Canal de Panamá dejó de ser sesión propia; se ve el 13 de octubre.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
@@ -91,7 +92,7 @@
     [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II"],
     [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","sesiones/s07-la-epoca-de-la-guerra-total-ii.html"],
     [ 8,"2026-09-17","F-101","La globalización del peligro","Dodds · quién dibuja las líneas · quién nombra la amenaza","II","#sesion-actual"],
-    [ 9,"2026-09-22","A-004","Estados Unidos y China","Interdependencia armamentizada · desacoplamiento","III"],
+    [ 9,"2026-09-22","A-004","La globalización del peligro (II)","Carrera nuclear · teoría de juegos · apartheid global","II"],
     [10,"2026-09-24","F-101","La guerra de los chips","Tecnología · cuellos de botella","III"],
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
     [12,"2026-10-01","F-101","Mapa regional y primer parcial","Integración · síntesis","IV"],
