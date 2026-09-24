@@ -1172,3 +1172,28 @@ html[data-theme="dark"] .rail-item.is-current .rail-date{color:rgba(20,6,12,.72)
   margin-top:.15rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.11em;
   text-transform:uppercase;color:var(--cobalt);
 }
+
+/* ── Esquemas: lámina blanca con desplazamiento propio ──────────────────── */
+.plate{
+  margin:1.4rem 0 0;padding:.75rem;background:#fff;
+  border:2px solid var(--edge);border-radius:var(--radius-sm);box-shadow:var(--shadow-xs);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+.plate img{display:block;width:100%;height:auto}
+.plate--wide img{min-width:720px}
+.plate--tall img{min-width:560px;max-width:860px;margin:0 auto}
+.figcap{
+  margin:.6rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;
+  color:var(--muted);line-height:1.5;
+}
+.figcap b{color:var(--ink-soft);letter-spacing:0;font-family:var(--sans)}
+
+/* ── Glosario de siglas ─────────────────────────────────────────────────── */
+.siglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:.55rem;margin-top:1.3rem}
+.sigla{
+  display:flex;gap:.6rem;align-items:baseline;padding:.55rem .7rem;
+  background:var(--card);border:1px solid var(--line);border-radius:8px;
+}
+.sigla b{flex:0 0 auto;font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--guinda)}
+.sigla span{font-size:.85rem;line-height:1.4;color:var(--ink-soft)}
+@media print{.plate{box-shadow:none;break-inside:avoid}}

@@ -91,9 +91,9 @@
     [ 5,"2026-09-03","F-101","La era del imperio (II)","Documental · conquista formal e imperio informal","II","sesiones/s05-la-era-del-imperio-ii.html"],
     [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II"],
     [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","sesiones/s07-la-epoca-de-la-guerra-total-ii.html"],
-    [ 8,"2026-09-17","F-101","La globalización del peligro","Dodds · quién dibuja las líneas · quién nombra la amenaza","II","#sesion-actual"],
+    [ 8,"2026-09-17","F-101","La globalización del peligro","Dodds · quién dibuja las líneas · quién nombra la amenaza","II","sesiones/s08-la-globalizacion-del-peligro.html"],
     [ 9,"2026-09-22","A-004","La globalización del peligro (II)","Carrera nuclear · teoría de juegos · apartheid global","II"],
-    [10,"2026-09-24","F-101","La guerra de los chips","Tecnología · cuellos de botella","III"],
+    [10,"2026-09-24","F-101","La economía convertida en arma","Farrell y Newman · cuellos de botella · coerción económica","III","#sesion-actual"],
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
     [12,"2026-10-01","F-101","Mapa regional y primer parcial","Integración · síntesis","IV"],
     [13,"2026-10-06","A-004","Nord Stream y seguridad energética","Infraestructura · dependencia","IV"],
@@ -471,13 +471,15 @@
   if (hilos.length) {
     const fished = new Set();
     const counter = $("#hiloCount");
+    // Cada sesión nombra sus tarjetas: hilos en la sesión 08, frases en la 10.
+    const noun = $(".flipgrid")?.dataset.noun || "hilos";
 
     const tell = () => {
       if (!counter) return;
       const left = hilos.length - fished.size;
       counter.textContent = left === 0
-        ? `Se pescaron los ${hilos.length} hilos`
-        : `${left} de ${hilos.length} hilos sin pescar`;
+        ? `Ya salieron ${hilos.length} de ${hilos.length} ${noun}`
+        : `${left} de ${hilos.length} ${noun} sin salir`;
     };
 
     hilos.forEach(card => {
@@ -489,7 +491,7 @@
 
     $("#hiloPick")?.addEventListener("click", () => {
       const pool = hilos.filter(c => !fished.has(c));
-      if (!pool.length) { say("Ya se pescaron todos los hilos"); return; }
+      if (!pool.length) { say(`Ya no quedan ${noun} por salir`); return; }
       const pick = pool[Math.floor(Math.random() * pool.length)];
       fished.add(pick);
       hilos.forEach(c => c.classList.remove("is-picked"));
