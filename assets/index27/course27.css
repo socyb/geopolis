@@ -1165,6 +1165,7 @@ html[data-theme="dark"] .rail-item.is-current{color:#14060c}
 html[data-theme="dark"] .rail-item.is-current .rail-num,
 html[data-theme="dark"] .rail-item.is-current .rail-date{color:rgba(20,6,12,.72)}
 .rail-item.is-off{background:transparent;border-style:dashed;box-shadow:none;opacity:.7}
+.rail-item.is-current.is-off{background:var(--guinda);opacity:1}
 @media print{.rail{display:none}}
 .rail-item.is-here{border-color:var(--cobalt);background:var(--tint-blue);box-shadow:3px 3px 0 var(--cobalt)}
 .rail-item.is-here .rail-num{color:var(--cobalt)}

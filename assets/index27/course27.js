@@ -85,6 +85,10 @@
   // El 1 de octubre solo hubo primer parcial, y el 6 la unidad III se alarga una
   // sesión con la guerra de los chips (Rodríguez Urbina, actividad 7), en el lugar
   // que tenía Nord Stream: la unidad IV empieza el 8 de octubre.
+  // El 8 de octubre no hay clase en el salón: vamos a la conferencia del COMEXI en
+  // la Semana Académica. Apple, China y poder estructural (actividad 8) pasa al 13 y
+  // minerales críticos al 15; cuellos de botella marítimos queda pendiente, igual que
+  // Nord Stream.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   const sessions = [
     [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I","sesiones/s01-mesa-de-brujulas.html"],
@@ -100,9 +104,9 @@
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
     [12,"2026-10-01","F-101","Primer parcial","Ensayo argumentado · Dodds, Hobsbawm, Farrell y Newman","III"],
     [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","#sesion-actual"],
-    [14,"2026-10-08","F-101","Minerales críticos","Transición energética · negociación","IV"],
-    [15,"2026-10-13","A-004","Cuellos de botella marítimos","Panamá · Suez · Mar Rojo","IV"],
-    [16,"2026-10-15","F-101","Apple, China y poder estructural","Cadenas globales de valor","IV"],
+    [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV"],
+    [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV"],
+    [16,"2026-10-15","F-101","Minerales críticos","Transición energética · negociación","IV"],
     [17,"2026-10-20","A-004","IA y cadenas de suministro","Datos · trabajo · infraestructura","V"],
     [18,"2026-10-22","F-101","Pregunta de investigación","Equipos · problema · evidencia","V"],
     [19,"2026-10-27","A-004","El policy memo","Argumento · audiencia · decisión","V"],
