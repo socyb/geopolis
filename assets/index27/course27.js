@@ -82,6 +82,9 @@
   // con Farrell y Newman
   // y las dos últimas sesiones del semestre se juntan el 3 de diciembre.
   // El Canal de Panamá dejó de ser sesión propia; se ve el 13 de octubre.
+  // El 1 de octubre solo hubo primer parcial, y el 6 la unidad III se alarga una
+  // sesión con la guerra de los chips (Rodríguez Urbina, actividad 7), en el lugar
+  // que tenía Nord Stream: la unidad IV empieza el 8 de octubre.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   const sessions = [
     [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I","sesiones/s01-mesa-de-brujulas.html"],
@@ -93,10 +96,10 @@
     [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","sesiones/s07-la-epoca-de-la-guerra-total-ii.html"],
     [ 8,"2026-09-17","F-101","La globalización del peligro","Dodds · quién dibuja las líneas · quién nombra la amenaza","II","sesiones/s08-la-globalizacion-del-peligro.html"],
     [ 9,"2026-09-22","A-004","La globalización del peligro (II)","Carrera nuclear · teoría de juegos · apartheid global","II"],
-    [10,"2026-09-24","F-101","La economía convertida en arma","Farrell y Newman · cuellos de botella · coerción económica","III","#sesion-actual"],
+    [10,"2026-09-24","F-101","La economía convertida en arma","Farrell y Newman · cuellos de botella · coerción económica","III","sesiones/s10-la-economia-convertida-en-arma.html"],
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
-    [12,"2026-10-01","F-101","Mapa regional y primer parcial","Integración · síntesis","IV"],
-    [13,"2026-10-06","A-004","Nord Stream y seguridad energética","Infraestructura · dependencia","IV"],
+    [12,"2026-10-01","F-101","Primer parcial","Ensayo argumentado · Dodds, Hobsbawm, Farrell y Newman","III"],
+    [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","#sesion-actual"],
     [14,"2026-10-08","F-101","Minerales críticos","Transición energética · negociación","IV"],
     [15,"2026-10-13","A-004","Cuellos de botella marítimos","Panamá · Suez · Mar Rojo","IV"],
     [16,"2026-10-15","F-101","Apple, China y poder estructural","Cadenas globales de valor","IV"],
@@ -512,4 +515,141 @@
 
     tell();
   }
+
+  /* ── Clasificador: cada pieza a su paso de la cadena ────────────────── */
+  // Cada .sort-item lleva data-answer; cada botón, data-pick. Se cuenta lo que
+  // sale bien al primer intento, y la explicación aparece al acertar.
+  $$("[data-sorter]").forEach(sorter => {
+    const items = $$(".sort-item", sorter);
+    const score = $(".sorter-score", sorter);
+    const tally = () => {
+      if (!score) return;
+      const done  = items.filter(i => i.classList.contains("is-done")).length;
+      const first = items.filter(i => i.dataset.first === "1").length;
+      score.textContent = done === items.length
+        ? `Listo: ${first} de ${items.length} al primer intento`
+        : `${done} de ${items.length} colocadas · ${first} al primer intento`;
+    };
+
+    items.forEach(item => {
+      const why = $(".sort-why", item);
+      $$("[data-pick]", item).forEach(btn => btn.addEventListener("click", () => {
+        if (item.classList.contains("is-done")) return;
+        const right = btn.dataset.pick === item.dataset.answer;
+        if (!item.dataset.tries) item.dataset.tries = "0";
+        item.dataset.tries = String(Number(item.dataset.tries) + 1);
+        btn.classList.add(right ? "is-right" : "is-wrong");
+        btn.setAttribute("aria-pressed", "true");
+        if (right) {
+          item.classList.add("is-done");
+          if (item.dataset.tries === "1") item.dataset.first = "1";
+          $$("[data-pick]", item).forEach(b => { b.disabled = b !== btn; });
+          if (why) why.hidden = false;
+        } else {
+          btn.disabled = true;
+        }
+        tally();
+      }));
+    });
+
+    $("[data-sorter-reset]", sorter)?.addEventListener("click", () => {
+      items.forEach(item => {
+        item.classList.remove("is-done");
+        delete item.dataset.tries;
+        delete item.dataset.first;
+        $$("[data-pick]", item).forEach(b => {
+          b.disabled = false;
+          b.classList.remove("is-right", "is-wrong");
+          b.setAttribute("aria-pressed", "false");
+        });
+        const why = $(".sort-why", item);
+        if (why) why.hidden = true;
+      });
+      tally();
+    });
+
+    tally();
+  });
+
+  /* ── Abrir o cerrar de un golpe todos los desplegables de una sección ── */
+  $$("[data-open-all]").forEach(btn => {
+    const scope = $(btn.dataset.openAll);
+    if (!scope) return;
+    // Las tablas de datos de las gráficas se quedan como estén.
+    const boxes = $$("details", scope).filter(d => !d.classList.contains("chart-table"));
+    const label = () => {
+      const allOpen = boxes.every(d => d.open);
+      btn.textContent = allOpen ? "Cerrar todas las respuestas" : "Abrir todas las respuestas";
+    };
+    btn.addEventListener("click", () => {
+      const open = !boxes.every(d => d.open);
+      boxes.forEach(d => { d.open = open; });
+      label();
+    });
+    boxes.forEach(d => d.addEventListener("toggle", label));
+    label();
+  });
+
+  /* ── Capítulos de un video: saltar al minuto en el reproductor ──────── */
+  $$("[data-chapters]").forEach(box => {
+    const frame = $("iframe", box);
+    const base  = frame?.dataset.base;
+    if (!frame || !base) return;
+    const chaps = $$(".chap", box);
+    chaps.forEach(btn => btn.addEventListener("click", () => {
+      frame.src = `${base}?start=${btn.dataset.start}&autoplay=1`;
+      chaps.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    }));
+  });
+
+  /* ── Gráficas: etiqueta flotante al pasar o enfocar un punto ────────── */
+  $$("[data-chart]").forEach(chart => {
+    const tip = $(".chart-tip", chart);
+    if (!tip) return;
+    const show = (pt) => {
+      tip.innerHTML = "";
+      const [head, ...rest] = pt.dataset.tip.split("|");
+      const b = document.createElement("b");
+      b.textContent = head;
+      tip.appendChild(b);
+      rest.forEach(line => {
+        const span = document.createElement("span");
+        span.textContent = line;
+        tip.appendChild(span);
+      });
+      const box = chart.getBoundingClientRect();
+      const dot = pt.getBoundingClientRect();
+      const x = dot.left + dot.width / 2 - box.left;
+      const y = dot.top - box.top;
+      tip.style.left = `${Math.min(Math.max(x, 90), box.width - 90)}px`;
+      tip.style.top  = `${y}px`;
+      tip.classList.add("is-on");
+      $$("[data-tip]", chart).forEach(p => p.classList.toggle("is-hot", p === pt));
+    };
+    const hide = () => {
+      tip.classList.remove("is-on");
+      $$("[data-tip]", chart).forEach(p => p.classList.remove("is-hot"));
+    };
+    $$("[data-tip]", chart).forEach(pt => {
+      pt.addEventListener("pointerenter", () => show(pt));
+      pt.addEventListener("focus", () => show(pt));
+      pt.addEventListener("pointerleave", hide);
+      pt.addEventListener("blur", hide);
+    });
+  });
+
+  /* ── Cronología: ver solo un lado ───────────────────────────────────── */
+  $$("[data-crono]").forEach(crono => {
+    const items = $$(".crono-item", crono);
+    const btns  = $$("[data-filter]", crono);
+    btns.forEach(btn => btn.addEventListener("click", () => {
+      const side = btn.dataset.filter;
+      // data-side puede traer dos lados ("eu cn"); la marca del artículo se queda siempre.
+      items.forEach(it => {
+        const sides = (it.dataset.side || "").split(" ");
+        it.hidden = side !== "todo" && !sides.includes(side) && !it.classList.contains("crono-mark");
+      });
+      btns.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    }));
+  });
 })();
