@@ -20,7 +20,7 @@ cómo se califica y dónde están los materiales.
 Está pensada para abrirse en el salón desde el celular, tanto como para revisarse
 con calma en casa.
 
-**Martes en A-004 · Jueves en F-101 · 09:00—11:00**
+**Martes en A-004 · Jueves en A-101 · 09:00—11:00**
 30 sesiones · 6 unidades · 60 horas
 
 ## Qué encontrarás en ella

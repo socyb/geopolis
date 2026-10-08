@@ -74,7 +74,7 @@
   }
 
   /* ── Calendario del curso ───────────────────────────────────────────── */
-  // Martes en A-004 y jueves en F-101.
+  // Martes en A-004; jueves en F-101 hasta el 1 de octubre y en A-101 desde el 15.
   // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
   // «La era del imperio» ocupó dos sesiones (04 y 05) y «La época de la guerra
   // total» otras dos (06 y 07), y «La globalización del peligro» (Dodds) otras dos
@@ -106,21 +106,21 @@
     [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","#sesion-actual"],
     [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV"],
     [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV"],
-    [16,"2026-10-15","F-101","Minerales críticos","Transición energética · negociación","IV"],
+    [16,"2026-10-15","A-101","Minerales críticos","Transición energética · negociación","IV"],
     [17,"2026-10-20","A-004","IA y cadenas de suministro","Datos · trabajo · infraestructura","V"],
-    [18,"2026-10-22","F-101","Pregunta de investigación","Equipos · problema · evidencia","V"],
+    [18,"2026-10-22","A-101","Pregunta de investigación","Equipos · problema · evidencia","V"],
     [19,"2026-10-27","A-004","El policy memo","Argumento · audiencia · decisión","V"],
-    [20,"2026-10-29","F-101","Nearshoring en México","Localización · productividad","V"],
+    [20,"2026-10-29","A-101","Nearshoring en México","Localización · productividad","V"],
     [21,"2026-11-03","A-004","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
-    [22,"2026-11-05","F-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
+    [22,"2026-11-05","A-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
     [23,"2026-11-10","A-004","Sala de consejo","Simulación · decisión bajo presión","V"],
-    [24,"2026-11-12","F-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],
+    [24,"2026-11-12","A-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],
     [25,"2026-11-17","A-004","China y América Latina","Comercio · dependencia · agencia","V"],
-    [26,"2026-11-19","F-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
+    [26,"2026-11-19","A-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
     [27,"2026-11-24","A-004","México en América del Norte","T-MEC · autonomía · vulnerabilidad","VI"],
-    [28,"2026-11-26","F-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
+    [28,"2026-11-26","A-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
     [29,"2026-12-01","A-004","Corredores y posición de México","Istmo · frontera · logística","VI"],
-    [30,"2026-12-03","F-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
+    [30,"2026-12-03","A-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
   ].map(([number, date, room, title, subtitle, unit, href]) => ({ number, date, room, title, subtitle, unit, href }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
