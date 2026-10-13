@@ -113,6 +113,12 @@ otras zonas horarias, archivos, actividades, guardado local y diseño responsivo
 
 ## Detalles de la página
 
+- **Cómo citar la página en APA 7**, al final del pie común de `index27.html`,
+  con referencia, ejemplos de cita en el texto y fecha real de consulta.
+  Mantener siempre este bloque al final al preparar nuevas sesiones, fuera de
+  los contenedores `.s-version` y sin `data-sesion`, para que siga visible en
+  todas las versiones de la portada. Las vistas previas no cambian la fecha de
+  consulta.
 - **Un código QR** en la barra superior, que se amplía al hacerle clic. Sirve para
   proyectarlo en clase y que el grupo abra la página desde el celular.
 - **Modo claro y oscuro**, con la preferencia guardada en el dispositivo.
@@ -125,3 +131,4 @@ otras zonas horarias, archivos, actividades, guardado local y diseño responsivo
 ---
 
 **Dr. Jorge Cardiel Herrera** · <semsocan2019@gmail.com> · [socyb.github.io](https://socyb.github.io)
+

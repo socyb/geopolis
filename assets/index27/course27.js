@@ -135,6 +135,15 @@
     hour: "2-digit", minute: "2-digit", hourCycle: "h23"
   }).formatToParts(new Date()).map(p => [p.type, p.value]));
   const localNow = `${clockNow.year}-${clockNow.month}-${clockNow.day}T${clockNow.hour}:${clockNow.minute}`;
+
+  // La fecha de consulta usa el día real de Ciudad de México, incluso en una vista previa.
+  const citationAccessDate = $("#citationAccessDate");
+  if (citationAccessDate) {
+    citationAccessDate.dateTime = localNow.slice(0, 10);
+    citationAccessDate.textContent = new Intl.DateTimeFormat("es-MX", {
+      timeZone: "America/Mexico_City", day: "numeric", month: "long", year: "numeric"
+    }).format(new Date(`${localNow}:00-06:00`));
+  }
   const requestedNow = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(queryDate || "") ? queryDate
                      : /^\d{4}-\d{2}-\d{2}$/.test(queryDate || "") ? `${queryDate}T12:00` : null;
   // Ciudad de México usa UTC−06:00 durante este semestre. La vista previa usa
@@ -1191,3 +1200,4 @@
     });
   }
 })();
+
