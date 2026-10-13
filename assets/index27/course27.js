@@ -87,9 +87,11 @@
   // que tenía Nord Stream: la unidad IV empieza el 8 de octubre.
   // El 8 de octubre no hay clase en el salón: vamos a la conferencia del COMEXI en
   // la Semana Académica. Apple, China y poder estructural (actividad 8) pasa al 13 y
-  // minerales críticos al 15; cuellos de botella marítimos queda pendiente, igual que
-  // Nord Stream.
+  // cuellos de botella marítimos queda pendiente, igual que Nord Stream.
+  // El 15 de octubre es el taller que arranca el trabajo final (del tema a la
+  // pregunta de investigación), y minerales críticos pasa al 22.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
+  // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
     [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I","sesiones/s01-mesa-de-brujulas.html"],
     [ 2,"2026-08-20","F-101","Geopolítica clásica y crítica","Escalas · posición · representación","I","sesiones/s02-geopolitica-critica.html"],
@@ -103,12 +105,12 @@
     [10,"2026-09-24","F-101","La economía convertida en arma","Farrell y Newman · cuellos de botella · coerción económica","III","sesiones/s10-la-economia-convertida-en-arma.html"],
     [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
     [12,"2026-10-01","F-101","Primer parcial","Ensayo argumentado · Dodds, Hobsbawm, Farrell y Newman","III"],
-    [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","#sesion-actual"],
+    [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","sesiones/s13-la-armamentizacion-de-los-chips.html"],
     [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV"],
-    [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV"],
-    [16,"2026-10-15","A-101","Minerales críticos","Transición energética · negociación","IV"],
+    [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV","sesiones/s15-apple-china-y-poder-estructural.html"],
+    [16,"2026-10-15","A-101","Del tema a la pregunta","Taller · equipos · pregunta de investigación","IV","#sesion-actual","07:00"],
     [17,"2026-10-20","A-004","IA y cadenas de suministro","Datos · trabajo · infraestructura","V"],
-    [18,"2026-10-22","A-101","Pregunta de investigación","Equipos · problema · evidencia","V"],
+    [18,"2026-10-22","A-101","Minerales críticos","Transición energética · negociación","V"],
     [19,"2026-10-27","A-004","El policy memo","Argumento · audiencia · decisión","V"],
     [20,"2026-10-29","A-101","Nearshoring en México","Localización · productividad","V"],
     [21,"2026-11-03","A-004","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
@@ -121,25 +123,85 @@
     [28,"2026-11-26","A-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
     [29,"2026-12-01","A-004","Corredores y posición de México","Istmo · frontera · logística","VI"],
     [30,"2026-12-03","A-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
-  ].map(([number, date, room, title, subtitle, unit, href]) => ({ number, date, room, title, subtitle, unit, href }));
+  ].map(([number, date, room, title, subtitle, unit, href, opens]) => ({ number, date, room, title, subtitle, unit, href, opens }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
                    "07":"jul","08":"ago","09":"sep","10":"oct","11":"nov","12":"dic" };
 
+  // ?fecha=AAAA-MM-DD fuerza un día (a mediodía); ?fecha=AAAA-MM-DDTHH:MM, también la hora.
   const queryDate = new URLSearchParams(location.search).get("fecha");
-  const localDate = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "America/Mexico_City", year: "numeric", month: "2-digit", day: "2-digit"
-  }).format(new Date());
-  const today = /^\d{4}-\d{2}-\d{2}$/.test(queryDate || "") ? queryDate : localDate;
+  const clockNow = Object.fromEntries(new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Mexico_City", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+  }).formatToParts(new Date()).map(p => [p.type, p.value]));
+  const localNow = `${clockNow.year}-${clockNow.month}-${clockNow.day}T${clockNow.hour}:${clockNow.minute}`;
+  const requestedNow = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(queryDate || "") ? queryDate
+                     : /^\d{4}-\d{2}-\d{2}$/.test(queryDate || "") ? `${queryDate}T12:00` : null;
+  // Ciudad de México usa UTC−06:00 durante este semestre. La vista previa usa
+  // esa misma zona, aunque el dispositivo esté en otro país.
+  const previewTime = requestedNow ? Date.parse(`${requestedNow}:00-06:00`) : NaN;
+  const isPreview = Number.isFinite(previewTime)
+    && new Date(previewTime - 6 * 3600e3).toISOString().slice(0, 16) === requestedNow;
+  const now = isPreview ? requestedNow : localNow;
+  const today = now.slice(0, 10);
   const cursor = today < sessions[0].date ? sessions[0].date : today;
 
   // La portada lleva la versión de una sesión concreta, y se publica la víspera:
   // esa sesión es la vigente aunque su fecha todavía no llegue. Con ?fecha= manda
   // el calendario, para poder recorrer el semestre día por día.
-  const published = sessions.find(s => s.href === "#sesion-actual");
-  const byDate    = sessions.filter(s => s.date <= cursor);
-  const current   = (!queryDate && published) || byDate[byDate.length - 1] || sessions[0];
-  const unlocked  = sessions.filter(s => s.date <= cursor || s.number === current.number);
+  let published = sessions.find(s => s.href === "#sesion-actual");
+
+  // Una versión preparada con anticipación puede llevar hora de apertura (el
+  // octavo campo). Hasta esa hora de su día sigue al frente la versión anterior,
+  // que mientras tanto vuelve a ser el ancla de la portada.
+  if (published?.opens && now < `${published.date}T${published.opens}`) {
+    // Conserva segundos y milisegundos: una pestaña abierta desde el lunes
+    // también cambia a las 07:00 del jueves. Al volver de suspensión se revisa
+    // de nuevo, porque el navegador puede haber detenido sus temporizadores.
+    if (!isPreview) {
+      const opensAt = Date.parse(`${published.date}T${published.opens}:00-06:00`);
+      let releaseTimer;
+      const checkRelease = () => {
+        clearTimeout(releaseTimer);
+        const wait = opensAt - Date.now();
+        if (wait <= 0) { location.reload(); return; }
+        releaseTimer = setTimeout(checkRelease, Math.min(wait, 2147483647));
+      };
+      checkRelease();
+      window.addEventListener("focus", checkRelease);
+      window.addEventListener("pageshow", checkRelease);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) checkRelease();
+      });
+    }
+    const before = sessions.filter(s => s.number < published.number && s.href).pop();
+    if (before) {
+      published.href = undefined;
+      before.href = "#sesion-actual";
+      published = before;
+    }
+  }
+  const byDate = sessions.filter(s => s.date <= cursor && (!s.opens || now >= `${s.date}T${s.opens}`));
+  const current = (!isPreview && published) || byDate[byDate.length - 1] || sessions[0];
+  const unlocked  = sessions.filter(s => (s.date <= cursor || s.number === current.number) && s.number <= current.number);
+
+  /* ── Versiones de la portada ────────────────────────────────────────── */
+  // Mientras una versión espera su hora, la portada lleva dos, cada una en un
+  // .s-version con data-sesion. Se ve la de la sesión actual (o la última antes
+  // de ella), y lo demás marcado con data-sesion —ligas del menú, botón de la
+  // portada, «Trae contigo», fecha del pie— la sigue. El ancla #sesion-actual
+  // pasa a la sección [data-ancla] de la versión que se ve.
+  const tagged = $$("[data-sesion]");
+  if (tagged.length) {
+    const nums  = [...new Set(tagged.map(el => Number(el.dataset.sesion)))].sort((a, b) => a - b);
+    const shown = nums.filter(n => n <= current.number).pop() ?? nums[0];
+    tagged.forEach(el => { el.hidden = Number(el.dataset.sesion) !== shown; });
+    $$(".s-version").forEach(v => {
+      const anchor = $("[data-ancla]", v);
+      if (anchor) anchor.id = Number(v.dataset.sesion) === shown ? "sesion-actual" : `sesion-${v.dataset.sesion}`;
+    });
+    if (location.hash === "#sesion-actual") $("#sesion-actual")?.scrollIntoView();
+  }
   const [y, m, d] = cursor.split("-");
   const pad = n => String(n).padStart(2, "0");
 
@@ -656,4 +718,476 @@
       btns.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
     }));
   });
+
+  /* ── Red de actores: ver un tramo y la ficha de cada actor ──────────── */
+  // Cada nodo y cada conexión traen data-t con los tramos en los que aparecen
+  // (0 el aviso, 1 adiós a las fábricas, 2 del iPod al iPhone, 3 la trampa).
+  $$("[data-net]").forEach(net => {
+    net.classList.add("net--js");
+    const nodes = $$(".nd", net);
+    const edges = $$(".ed", net);
+    const cards = $$(".actor", net);
+    const intro = $(".net-intro", net);
+    const clear = $(".net-clear", net);
+    const cap   = $(".net-cap", net);
+    const btns  = $$("[data-tramo]", net);
+    const byId  = Object.fromEntries(nodes.map(n => [n.dataset.id, n]));
+    let tramo = "todo";
+    let sel = null;
+
+    const inT = el => tramo === "todo" || (el?.dataset.t || "").split(" ").includes(tramo);
+    const touches = e => e.dataset.a === sel || e.dataset.b === sel;
+
+    const paint = () => {
+      const near = new Set(sel ? [sel] : []);
+      edges.forEach(e => {
+        const on = inT(e) && inT(byId[e.dataset.a]) && inT(byId[e.dataset.b]);
+        e.classList.toggle("is-out", !on);
+        e.classList.toggle("is-dim", !!sel && !touches(e));
+        e.classList.toggle("is-hot", !!sel && on && touches(e));
+        if (sel && on && touches(e)) { near.add(e.dataset.a); near.add(e.dataset.b); }
+      });
+      nodes.forEach(n => {
+        const id = n.dataset.id;
+        n.classList.toggle("is-out", !inT(n));
+        n.classList.toggle("is-dim", !!sel && !near.has(id));
+        n.classList.toggle("is-sel", id === sel);
+        n.setAttribute("aria-pressed", String(id === sel));
+      });
+      cards.forEach(c => c.classList.toggle("is-on", c.dataset.id === sel));
+      if (intro) intro.hidden = !!sel;
+      if (clear) clear.hidden = !sel;
+    };
+
+    const pick = (id) => {
+      sel = (id && id !== sel) ? id : null;
+      if (sel && !inT(byId[sel])) {
+        tramo = "todo";
+        btns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.tramo === "todo")));
+        if (cap) cap.textContent = cap.dataset.capTodo;
+      }
+      paint();
+    };
+
+    nodes.forEach(n => {
+      n.addEventListener("click", () => pick(n.dataset.id));
+      n.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(n.dataset.id); }
+      });
+    });
+    $$(".actor-go", net).forEach(b => b.addEventListener("click", () => {
+      pick(b.dataset.go);
+      byId[b.dataset.go]?.focus({ preventScroll: true });
+    }));
+    clear?.addEventListener("click", () => pick(null));
+
+    btns.forEach(btn => btn.addEventListener("click", () => {
+      tramo = btn.dataset.tramo;
+      btns.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+      const key = "cap" + (tramo === "todo" ? "Todo" : tramo);
+      if (cap && cap.dataset[key]) cap.textContent = cap.dataset[key];
+      if (sel && !inT(byId[sel])) sel = null;
+      paint();
+    }));
+
+    paint();
+  });
+
+  /* ── ¿Quién tiene el poder aquí? Clasificar diez episodios ──────────── */
+  // Cada .pz trae la lectura posible en data-tipo y data-estr. No hay respuesta
+  // única: se marca si coincide, y la tarjeta resume lo que escogió cada quien.
+  const poder = $("[data-poder]");
+  if (poder) {
+    const STORE_P = "geopolis27-poder";
+    const items = $$(".pz", poder);
+    const scoreP = $("[data-poder-score]", poder);
+    const LBL = { rel: "relacional", est: "estructural", seg: "seguridad", prod: "producción", fin: "finanzas", con: "conocimiento" };
+    let st = { picks: {}, name: "", dis: "", why: "", actor: "", arg: "" };
+    try { st = Object.assign(st, JSON.parse(localStorage.getItem(STORE_P) || "{}")); } catch { /* sin almacenamiento */ }
+    const keep = () => { try { localStorage.setItem(STORE_P, JSON.stringify(st)); } catch { /* sin almacenamiento */ } };
+
+    const done = n => !!(st.picks[n]?.tipo && st.picks[n]?.estr);
+    const match = (item) => {
+      const p = st.picks[item.dataset.n] || {};
+      return p.tipo === item.dataset.tipo && p.estr === item.dataset.estr;
+    };
+
+    const paintItem = (item) => {
+      const n = item.dataset.n;
+      const p = st.picks[n] || {};
+      const fin = done(n);
+      $$("[data-k]", item).forEach(b => {
+        const on = p[b.dataset.k] === b.dataset.v;
+        const key = item.dataset[b.dataset.k] === b.dataset.v;
+        b.setAttribute("aria-pressed", String(on));
+        b.classList.toggle("is-match", fin && on && key);
+        b.classList.toggle("is-diff", fin && on && !key);
+        b.classList.toggle("is-key", fin && !on && key);
+      });
+      const why = $(".sort-why", item);
+      if (why) why.hidden = !fin;
+      item.classList.toggle("is-done", fin);
+    };
+
+    const fields = {
+      name: $("#pName"), dis: $("#pDisagree"), why: $("#pWhy"), arg: $("#pArg")
+    };
+    const radios = $$('input[name="pActor"]', poder);
+    const set = (id, text) => { const el = $(id); if (el) el.textContent = text; };
+
+    const render = () => {
+      items.forEach(paintItem);
+      const total = items.length;
+      const listos = items.filter(i => done(i.dataset.n));
+      const coinc = listos.filter(match).length;
+      if (scoreP) {
+        scoreP.textContent = listos.length === total
+          ? `Listo: coincides con la lectura posible en ${coinc} de ${total}`
+          : `${listos.length} de ${total} episodios clasificados · coincides en ${coinc}`;
+      }
+      const count = (k, v) => items.filter(i => st.picks[i.dataset.n]?.[k] === v).length;
+      set("#pcName", st.name || "Tu nombre");
+      set("#pcRel", count("tipo", "rel"));
+      set("#pcEst", count("tipo", "est"));
+      set("#pcSeg", count("estr", "seg"));
+      set("#pcProd", count("estr", "prod"));
+      set("#pcFin", count("estr", "fin"));
+      set("#pcCon", count("estr", "con"));
+      set("#pcMatch", listos.length === total
+        ? `Coincido con la lectura posible en ${coinc} de ${total} episodios.`
+        : `Llevo ${listos.length} de ${total} episodios clasificados.`);
+      const opt = fields.dis?.selectedOptions?.[0];
+      set("#pcDis", st.dis
+        ? `No estoy de acuerdo con «${opt ? opt.textContent.replace(/^\d+\.\s*/, "") : ""}»${st.why ? `: ${st.why}` : "."}`
+        : "");
+      set("#pcActor", st.actor || "—");
+      set("#pcArg", st.arg);
+      return { total, listos: listos.length, coinc };
+    };
+
+    items.forEach(item => {
+      $$("[data-k]", item).forEach(btn => btn.addEventListener("click", () => {
+        const n = item.dataset.n;
+        st.picks[n] = Object.assign({}, st.picks[n], { [btn.dataset.k]: btn.dataset.v });
+        keep();
+        render();
+      }));
+    });
+
+    // Cargar lo guardado en el formulario
+    Object.entries(fields).forEach(([k, el]) => { if (el && st[k]) el.value = st[k]; });
+    radios.forEach(r => { r.checked = r.value === st.actor; });
+
+    $("#poderForm")?.addEventListener("input", () => {
+      Object.entries(fields).forEach(([k, el]) => { if (el) st[k] = el.value.trim(); });
+      st.actor = radios.find(r => r.checked)?.value || "";
+      keep();
+      render();
+    });
+    $("#poderForm")?.addEventListener("submit", e => e.preventDefault());
+
+    $("[data-poder-reset]", poder)?.addEventListener("click", () => {
+      st.picks = {};
+      keep();
+      render();
+      say("Episodios en blanco");
+    });
+
+    $("#pClear")?.addEventListener("click", () => {
+      Object.values(fields).forEach(el => { if (el) el.value = ""; });
+      radios.forEach(r => { r.checked = false; });
+      Object.assign(st, { name: "", dis: "", why: "", actor: "", arg: "" });
+      keep();
+      render();
+      say("Tarjeta en blanco");
+    });
+
+    $("#pCopy")?.addEventListener("click", async () => {
+      const r = render();
+      const count = (k, v) => items.filter(i => st.picks[i.dataset.n]?.[k] === v).length;
+      const lines = [
+        "MI MAPA DEL PODER · McGee (2025), Apple in China",
+        "Geopolítica Internacional · FCA UNAM · Grupo 1541 · 13 de octubre de 2026", "",
+        `Nombre: ${st.name || "—"}`,
+        `Episodios clasificados: ${r.listos} de ${r.total} · coincido con la lectura posible en ${r.coinc}`,
+        `Relacional: ${count("tipo", "rel")} · Estructural: ${count("tipo", "est")}`,
+        `Seguridad: ${count("estr", "seg")} · Producción: ${count("estr", "prod")} · Finanzas: ${count("estr", "fin")} · Conocimiento: ${count("estr", "con")}`
+      ];
+      items.forEach(i => {
+        const p = st.picks[i.dataset.n];
+        if (p?.tipo && p?.estr) lines.push(`  ${$(".sort-q b", i)?.textContent}: ${LBL[p.tipo]}, ${LBL[p.estr]}`);
+      });
+      const dis = $("#pcDis")?.textContent;
+      if (dis) lines.push("", dis);
+      lines.push("", `¿Puede Apple ser entendido como un actor geopolítico en sí mismo? ${st.actor || "—"}`);
+      if (st.arg) lines.push(st.arg);
+      const text = lines.join("\n");
+      try {
+        await navigator.clipboard.writeText(text);
+        say("Tarjeta copiada ✓");
+      } catch {
+        const helper = document.createElement("textarea");
+        helper.value = text;
+        helper.setAttribute("readonly", "");
+        helper.style.cssText = "position:fixed;top:-1000px";
+        document.body.appendChild(helper);
+        helper.select();
+        try { document.execCommand("copy"); say("Tarjeta copiada ✓"); }
+        catch { say("No se pudo copiar en este navegador"); }
+        helper.remove();
+      }
+    });
+
+    $("#pPrint")?.addEventListener("click", () => {
+      root.classList.add("print-poder");
+      window.print();
+      setTimeout(() => root.classList.remove("print-poder"), 400);
+    });
+
+    render();
+  }
+
+  /* ── Taller: reloj de estaciones ────────────────────────────────────── */
+  // Un botón por estación con su tiempo; el conteo se calcula contra el reloj
+  // del sistema para no desfasarse si la pestaña se queda en segundo plano.
+  const clock = $("#reloj");
+  if (clock) {
+    const stBtns = $$(".clock-st", clock);
+    const STATIONS = stBtns.map(b => ({
+      name: $("strong", b).textContent.trim(),
+      min: parseInt($("small", b).textContent, 10)
+    }));
+    const tTime  = $("#clockTime");
+    const tName  = $("#clockName");
+    const tLabel = $("#clockLabel");
+    const tBar   = $("#clockBar");
+    const tAlert = $("#clockAlert");
+    const goBtn  = $("#clockGo");
+    const baseTitle = document.title;
+    let station = 0, total = 0, left = 0, endAt = 0, timer = null;
+
+    const fmt = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+    const paint = () => {
+      const secs = Math.max(0, Math.ceil(left));
+      tTime.textContent = fmt(secs);
+      tBar.style.width = `${total ? (1 - left / total) * 100 : 0}%`;
+      document.title = timer ? `${fmt(secs)} · ${STATIONS[station].name}` : baseTitle;
+    };
+    const beep = () => {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        [0, .32, .64].forEach(at => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.frequency.value = 880;
+          gain.gain.setValueAtTime(.0001, ctx.currentTime + at);
+          gain.gain.exponentialRampToValueAtTime(.25, ctx.currentTime + at + .02);
+          gain.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + at + .25);
+          osc.connect(gain).connect(ctx.destination);
+          osc.start(ctx.currentTime + at);
+          osc.stop(ctx.currentTime + at + .27);
+        });
+      } catch { /* sin audio */ }
+    };
+    const stop = () => {
+      clearInterval(timer);
+      timer = null;
+      goBtn.textContent = left > 0 && left < total ? "▶ Seguir" : "▶ Iniciar";
+      paint();
+    };
+    const tick = () => {
+      left = (endAt - Date.now()) / 1000;
+      if (left > 0) { paint(); return; }
+      left = 0;
+      stop();
+      clock.classList.add("is-done");
+      tLabel.textContent = "Tiempo";
+      tAlert.textContent = `Se acabó el tiempo de «${STATIONS[station].name}».`;
+      beep();
+    };
+    const start = () => {
+      if (left <= 0) left = total;
+      clock.classList.remove("is-done");
+      tLabel.textContent = `Estación ${station + 1} de ${STATIONS.length}`;
+      endAt = Date.now() + left * 1000;
+      clearInterval(timer);
+      timer = setInterval(tick, 250);
+      goBtn.textContent = "❚❚ Pausar";
+      paint();
+    };
+    const pick = (i) => {
+      clearInterval(timer);
+      timer = null;
+      station = i;
+      total = left = STATIONS[i].min * 60;
+      clock.classList.remove("is-done");
+      tName.textContent = STATIONS[i].name;
+      tLabel.textContent = `Estación ${i + 1} de ${STATIONS.length}`;
+      stBtns.forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+      goBtn.textContent = "▶ Iniciar";
+      paint();
+    };
+
+    stBtns.forEach((b, i) => b.addEventListener("click", () => pick(i)));
+    goBtn.addEventListener("click", () => (timer ? stop() : start()));
+    $("#clockReset").addEventListener("click", () => pick(station));
+    $("#clockNext").addEventListener("click", () => pick((station + 1) % STATIONS.length));
+    const fullBtn = $("#clockFull");
+    if (!clock.requestFullscreen) fullBtn.hidden = true;
+    fullBtn.addEventListener("click", () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else clock.requestFullscreen().catch(() => say("No se pudo abrir en pantalla completa"));
+    });
+    document.addEventListener("fullscreenchange", () => {
+      fullBtn.textContent = document.fullscreenElement ? "✕ Salir" : "⛶ Pantalla completa";
+    });
+    pick(0);
+  }
+
+  /* ── Taller: tu brújula de la sesión 01 ─────────────────────────────── */
+  // Si en este navegador quedó la brújula de la primera sesión, se recuerda al
+  // armar equipo: el Este parecido, el Oeste distinto.
+  const myCompass = $("#myCompass");
+  if (myCompass) {
+    try {
+      const b = JSON.parse(localStorage.getItem("geopolis27-brujula") || "{}");
+      const show = (id, value) => {
+        if (!value) return false;
+        $(`#${id}Text`).textContent = value;
+        $(`#${id}`).hidden = false;
+        return true;
+      };
+      const any = [show("myCompassE", b.interest), show("myCompassS", b.region), show("myCompassW", b.lens)].some(Boolean);
+      if (any) myCompass.hidden = false;
+    } catch { /* sin brújula guardada */ }
+  }
+
+  /* ── Taller: la ficha del equipo ────────────────────────────────────── */
+  // Se guarda en el navegador, se copia como texto para el foro de Moodle y se
+  // imprime sola. Los territorios la llenan desde su botón «Lo elegimos».
+  const ficha = $("#fichaForm");
+  if (ficha) {
+    const STORE = "geopolis27-ficha-pregunta";
+    const F = {
+      team: "#fTeam", crew: "#fCrew", terr: "#fTerr", actor: "#fActor", place: "#fPlace",
+      when: "#fWhen", tension: "#fTension", decision: "#fDecision", q1: "#fQ1", q2: "#fQ2",
+      lens: "#fLens", sources: "#fSources", unknown: "#fUnknown"
+    };
+    const checks = $$('.checks input[type="checkbox"]', ficha);
+    const val = (k) => ($(F[k]).value || "").trim();
+    const terrCards = $$(".terr");
+
+    const markTerr = (name) => terrCards.forEach(card => {
+      const on = card.dataset.terr === name;
+      card.classList.toggle("is-picked", on);
+      const btn = $(".terr-pick", card);
+      btn.setAttribute("aria-pressed", String(on));
+      btn.textContent = on ? "✓ Elegido" : "Lo elegimos";
+    });
+
+    const render = () => {
+      const data = {};
+      Object.keys(F).forEach(k => { data[k] = val(k); });
+      data.tests = checks.filter(c => c.checked).map(c => c.value);
+      try { localStorage.setItem(STORE, JSON.stringify(data)); } catch { /* sin almacenamiento */ }
+
+      $("#bTeam").textContent = data.team;
+      const bQ = $("#bQ");
+      bQ.textContent = data.q2 || data.q1;
+      bQ.classList.toggle("is-v1", !data.q2 && !!data.q1);
+      $("#bQTag").textContent = data.q2 ? "Pregunta · borrador 2" : data.q1 ? "Pregunta · borrador 1" : "Pregunta · sin escribir";
+      $("#bTerr").textContent = data.terr;
+      $("#bCase").textContent = [data.actor, data.place, data.when].filter(Boolean).join(" · ");
+      $("#bTension").textContent = data.tension;
+      $("#bDecision").textContent = data.decision;
+      $("#bLens").textContent = data.lens;
+      $("#bSources").textContent = data.sources;
+      $("#bUnknown").textContent = data.unknown;
+      $("#bCrew").textContent = data.crew;
+      $("#bTests").replaceChildren(...checks.map(c => {
+        const s = document.createElement("span");
+        s.textContent = (c.checked ? "✓ " : "") + c.value;
+        if (c.checked) s.className = "is-on";
+        return s;
+      }));
+      markTerr(data.terr);
+    };
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE) || "{}");
+      Object.keys(F).forEach(k => { if (saved[k]) $(F[k]).value = saved[k]; });
+      (saved.tests || []).forEach(t => { const c = checks.find(x => x.value === t); if (c) c.checked = true; });
+    } catch { /* ficha vacía */ }
+    render();
+
+    ficha.addEventListener("input", render);
+    ficha.addEventListener("change", render);
+    ficha.addEventListener("submit", e => e.preventDefault());
+
+    terrCards.forEach(card => $(".terr-pick", card).addEventListener("click", () => {
+      $(F.terr).value = card.dataset.terr;
+      render();
+      say(`Territorio: ${card.dataset.terr} ✓`);
+    }));
+
+    const asText = () => {
+      const lines = [
+        "FICHA DEL EQUIPO · PREGUNTA DE INVESTIGACIÓN",
+        "Geopolítica Internacional · FCA UNAM · Grupo 1541 · 2027-1 · 15 de octubre de 2026",
+        ""
+      ];
+      const add = (label, value) => { if (value) lines.push(`${label}: ${value}`); };
+      const list = (label, value) => {
+        if (value) lines.push(`${label}:`, ...value.split("\n").filter(Boolean).map(l => `  · ${l.trim()}`));
+      };
+      add("Equipo", val("team"));
+      list("Integrantes", val("crew"));
+      add("Territorio", val("terr"));
+      add("Caso", [val("actor"), val("place"), val("when")].filter(Boolean).join(" · "));
+      add("Tensión", val("tension"));
+      add("Decisión en juego", val("decision"));
+      add("Pregunta, borrador 1", val("q1"));
+      add("Pregunta, borrador 2", val("q2"));
+      const passed = checks.filter(c => c.checked).map(c => c.value);
+      if (passed.length) lines.push(`Pruebas que pasa: ${passed.length} de 6 (${passed.join(", ")})`);
+      add("Concepto geopolítico", val("lens"));
+      list("Fuentes por buscar", val("sources"));
+      add("Lo que todavía no sabemos", val("unknown"));
+      return lines.length > 3 ? lines.join("\n") : "";
+    };
+
+    $("#fichaCopy").addEventListener("click", async () => {
+      const text = asText();
+      if (!text) { say("Escriban algo primero 🧭"); return; }
+      try {
+        await navigator.clipboard.writeText(text);
+        say("Ficha copiada ✓ Pégala en el foro de Moodle");
+      } catch {
+        const helper = document.createElement("textarea");
+        helper.value = text;
+        helper.setAttribute("readonly", "");
+        helper.style.cssText = "position:fixed;top:-1000px";
+        document.body.appendChild(helper);
+        helper.select();
+        try { document.execCommand("copy"); say("Ficha copiada ✓ Pégala en el foro de Moodle"); }
+        catch { say("No se pudo copiar en este navegador"); }
+        helper.remove();
+      }
+    });
+
+    $("#fichaPrint").addEventListener("click", () => {
+      root.classList.add("print-card");
+      window.print();
+      setTimeout(() => root.classList.remove("print-card"), 400);
+    });
+
+    $("#fichaClear").addEventListener("click", () => {
+      if (!window.confirm("¿Borrar toda la ficha del equipo?")) return;
+      Object.values(F).forEach(sel => { $(sel).value = ""; });
+      checks.forEach(c => { c.checked = false; });
+      try { localStorage.removeItem(STORE); } catch { /* sin almacenamiento */ }
+      render();
+      say("Ficha en blanco");
+    });
+  }
 })();

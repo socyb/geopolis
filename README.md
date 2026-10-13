@@ -80,6 +80,37 @@ participaciones.
 **Recursos a la mano.** La playlist del curso en YouTube, Moodle para entregas, el
 portal de la FCA y este repositorio.
 
+## Sesiones del 13 y 15 de octubre de 2026
+
+La portada contiene las dos versiones. Hasta el jueves 15 a las **07:00, hora de
+Ciudad de México**, muestra la sesión 15: **Apple, China y poder estructural**.
+A partir de esa hora muestra la sesión 16: **Del tema a la pregunta**, el taller
+que inicia el trabajo final. Cambian también el menú, el botón principal,
+«Trae contigo», la fecha de actualización y la bitácora. Una pestaña abierta se
+recarga al llegar la hora; si estaba suspendida, revisa el horario al volver.
+
+La [sesión 15](sesiones/s15-apple-china-y-poder-estructural.html) queda archivada,
+junto con la [sesión 13](sesiones/s13-la-armamentizacion-de-los-chips.html).
+Minerales críticos pasa al jueves 22 de octubre, sesión 18.
+
+Para revisar el cambio antes de publicarlo:
+
+- [Justo antes: 06:59](index27.html?fecha=2026-10-15T06:59#sesion-actual).
+- [Taller abierto: 07:00](index27.html?fecha=2026-10-15T07:00#sesion-actual).
+
+El parámetro `fecha` solo simula la fecha de esa visita; sin él se usa la hora
+real de Ciudad de México. Los archivos deben estar publicados en GitHub Pages
+antes del horario de apertura. No hace falta una tarea programada en el servidor.
+
+La prueba reproducible está en `tests/check_session_release.py`. Requiere Python
+y Playwright: `python3 -m pip install playwright` y
+`python3 -m playwright install chromium`; después se ejecuta con
+`python3 tests/check_session_release.py`. También acepta `--chrome /ruta/a/Chrome`
+para usar un navegador instalado. Comprueba el cambio exacto, las vistas previas,
+otras zonas horarias, archivos, actividades, guardado local y diseño responsivo.
+
+---
+
 ## Detalles de la página
 
 - **Un código QR** en la barra superior, que se amplía al hacerle clic. Sirve para
