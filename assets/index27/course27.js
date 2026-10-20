@@ -90,6 +90,8 @@
   // cuellos de botella marítimos queda pendiente, igual que Nord Stream.
   // El 15 de octubre es el taller que arranca el trabajo final (del tema a la
   // pregunta de investigación), y minerales críticos pasa al 22.
+  // El 20 de octubre llega por fin Nord Stream (Virág y Tancsa, actividad 9), que
+  // cierra la unidad IV; IA y cadenas de suministro sale del calendario.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
@@ -108,8 +110,8 @@
     [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","sesiones/s13-la-armamentizacion-de-los-chips.html"],
     [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV"],
     [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV","sesiones/s15-apple-china-y-poder-estructural.html"],
-    [16,"2026-10-15","A-101","Del tema a la pregunta","Taller · equipos · pregunta de investigación","IV","#sesion-actual","07:00"],
-    [17,"2026-10-20","A-004","IA y cadenas de suministro","Datos · trabajo · infraestructura","V"],
+    [16,"2026-10-15","A-101","Del tema a la pregunta","Taller · equipos · pregunta de investigación","IV","sesiones/s16-del-tema-a-la-pregunta.html"],
+    [17,"2026-10-20","A-004","Nord Stream","Virág y Tancsa · gas · actividad 9","IV","#sesion-actual"],
     [18,"2026-10-22","A-101","Minerales críticos","Transición energética · negociación","V"],
     [19,"2026-10-27","A-004","El policy memo","Argumento · audiencia · decisión","V"],
     [20,"2026-10-29","A-101","Nearshoring en México","Localización · productividad","V"],
@@ -1199,5 +1201,109 @@
       say("Ficha en blanco");
     });
   }
-})();
 
+  /* ── Nord Stream: rutas del gas ─────────────────────────────────────── */
+  // Cada botón y cada trazo del esquema llevan data-route; la ficha, data-for.
+  $$("[data-gasmap]").forEach(box => {
+    const btns   = $$(".gas-bar [data-route]", box);
+    const routes = $$(".rm-route", box);
+    const cards  = $$(".gas-card", box);
+    const show = (route) => {
+      btns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.route === route)));
+      routes.forEach(g => g.classList.toggle("is-dim", route !== "todas" && g.dataset.route !== route));
+      cards.forEach(c => { c.hidden = c.dataset.for !== route; });
+    };
+    btns.forEach(b => b.addEventListener("click", () => show(b.dataset.route)));
+    routes.forEach(g => g.addEventListener("click", () => {
+      const on = btns.find(b => b.getAttribute("aria-pressed") === "true");
+      show(on?.dataset.route === g.dataset.route ? "todas" : g.dataset.route);
+    }));
+  });
+
+  /* ── Nord Stream: cinco actores en pestañas ─────────────────────────── */
+  $$("[data-cast]").forEach(box => {
+    const tabs = $$('[role="tab"]', box);
+    const pick = (tab, focus) => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => pick(tab));
+      tab.addEventListener("keydown", (e) => {
+        const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (step) { e.preventDefault(); pick(tabs[(i + step + tabs.length) % tabs.length], true); }
+        else if (e.key === "Home") { e.preventDefault(); pick(tabs[0], true); }
+        else if (e.key === "End") { e.preventDefault(); pick(tabs[tabs.length - 1], true); }
+      });
+    });
+  });
+
+  /* ── Glosario: buscar y filtrar por grupo ───────────────────────────── */
+  // La búsqueda ignora acentos y mayúsculas: «transito» encuentra «tránsito».
+  const glossGrid = $("#glossGrid");
+  if (glossGrid) {
+    const items = $$(".concept", glossGrid);
+    const q     = $("#glossQ");
+    const chips = $$(".gloss-chips [data-g]");
+    const count = $("#glossCount");
+    const fold  = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const texts = items.map(it => fold(it.textContent));
+    let group = "todo";
+    const apply = () => {
+      const words = fold(q?.value || "").split(/\s+/).filter(Boolean);
+      let shown = 0;
+      items.forEach((it, k) => {
+        const ok = (group === "todo" || it.dataset.g === group) && words.every(w => texts[k].includes(w));
+        it.hidden = !ok;
+        if (ok) shown++;
+      });
+      if (count) count.textContent = shown === items.length
+        ? `${items.length} términos`
+        : shown ? `${shown} de ${items.length} términos` : "Ningún término coincide. Prueba con otra palabra.";
+    };
+    q?.addEventListener("input", apply);
+    chips.forEach(c => c.addEventListener("click", () => {
+      group = c.dataset.g;
+      chips.forEach(b => b.setAttribute("aria-pressed", String(b === c)));
+      apply();
+    }));
+    apply();
+  }
+
+  /* ── Videos del semestre: buscar y ver una sola sesión ──────────────── */
+  const vidQ = $("#vidQ");
+  if (vidQ) {
+    const groups = $$(".vgroup");
+    const chips  = $$(".vchips [data-g]");
+    const count  = $("#vidCount");
+    const fold   = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const cards  = groups.flatMap(g => $$(".vcard", g).map(c => ({ c, g, text: fold(c.textContent) })));
+    let pick = "todo";
+    const apply = () => {
+      const words = fold(vidQ.value).split(/\s+/).filter(Boolean);
+      let shown = 0;
+      cards.forEach(x => {
+        const ok = (pick === "todo" || x.g.dataset.g === pick) && words.every(w => x.text.includes(w));
+        x.c.hidden = !ok;
+        if (ok) shown++;
+      });
+      groups.forEach(g => { g.hidden = !$$(".vcard", g).some(c => !c.hidden); });
+      if (count) count.textContent = shown === cards.length
+        ? `${cards.length} videos`
+        : shown ? `${shown} de ${cards.length} videos` : "Ningún video coincide. Prueba con otra palabra.";
+    };
+    vidQ.addEventListener("input", apply);
+    chips.forEach(c => c.addEventListener("click", () => {
+      pick = c.dataset.g;
+      chips.forEach(b => b.setAttribute("aria-pressed", String(b === c)));
+      apply();
+    }));
+    apply();
+  }
+})();

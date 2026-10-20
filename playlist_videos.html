@@ -362,7 +362,7 @@
             gridContainer.innerHTML = filteredVideos.map(video => `
                 <div class="video-card" onclick="window.open('${video.url}', '_blank')">
                     <div class="video-content">
-                        <div class="video-index">#${video.playlist_index}</div>
+                        <div class="video-index">${video.playlist_index == null ? 'Extra' : `#${video.playlist_index}`}</div>
                         <div class="video-title">${video.title}</div>
                         <div class="video-meta">
                             <span class="video-duration">${video.duration_string || 'N/A'}</span>
@@ -378,7 +378,7 @@
             // Vista Lista
             listContainer.innerHTML = filteredVideos.map(video => `
                 <div class="video-list-item" onclick="window.open('${video.url}', '_blank')">
-                    <span class="video-index">#${video.playlist_index}</span>
+                    <span class="video-index">${video.playlist_index == null ? 'Extra' : `#${video.playlist_index}`}</span>
                     <div class="video-title">${video.title}</div>
                     <div class="video-meta">
                         <span class="video-duration">${video.duration_string || 'N/A'}</span>

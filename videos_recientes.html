@@ -1,284 +1,1146 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-MX">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Videos recientes · Geopolítica</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: #fff; color: #000; line-height: 1.5; padding: 2rem 1rem;
-    }
-    .container { max-width: 1200px; margin: 0 auto; }
-    header { border-bottom: 2px solid #000; padding-bottom: 1.25rem; margin-bottom: 2rem; }
-    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); letter-spacing: -0.02em; }
-    .stats { color: #333; margin-top: .4rem; }
-    .stats a { color: #000; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.75rem; }
-    .card { border: 1px solid #000; background: #fff; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
-    .card:hover { box-shadow: 4px 4px 0 #000; transform: translate(-2px, -2px); }
-    .thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #eee; border-bottom: 1px solid #000; }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .dur { position: absolute; right: .5rem; bottom: .5rem; background: #000; color: #fff; font-size: .8rem; font-weight: 600; padding: .1rem .4rem; }
-    .body { padding: 1.1rem 1.25rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
-    .idx { font-size: .8rem; font-weight: 700; color: #666; letter-spacing: .05em; margin-bottom: .35rem; }
-    h2 { font-size: 1.05rem; font-weight: 600; line-height: 1.35; margin-bottom: 1rem; }
-    h2 a { color: #000; text-decoration: none; }
-    h2 a:hover { text-decoration: underline; }
-    .meta { margin-top: auto; padding-top: .75rem; border-top: 1px solid #e0e0e0; display: flex; justify-content: space-between; gap: .75rem; font-size: .85rem; color: #666; }
-    .meta a { color: #666; text-decoration: none; }
-    .meta a:hover { color: #000; text-decoration: underline; }
-    .meta span { white-space: nowrap; color: #999; }
-    @media (max-width: 600px) { body { padding: 1.25rem 16px; } .grid { grid-template-columns: 1fr; gap: 1.25rem; } }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c1123f">
+  <title>Videos del semestre · Geopolítica Internacional · FCA UNAM</title>
+  <meta name="description" content="Todos los videos que hemos visto en Geopolítica Internacional, grupo 1541, semestre 2027-1. Arriba, los de la sesión de hoy: Nord Stream.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c1123f'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f6f1e6' stroke-width='1.4'/%3E%3Cpath d='M16 5l3 11 11 0-11 3-3 11-3-11-11-3 11 0z' fill='%23f6f1e6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/index27/course27.css">
+  <script defer src="assets/index27/course27.js"></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Videos recientes</h1>
-      <p class="stats">17 videos · 3:38:00 en total · de la playlist <a href="https://www.youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Geopolítica</a> (actualizada el 24 sep 2026)</p>
-    </header>
-    <main class="grid">
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=atE3EuiEgiQ&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/atE3EuiEgiQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">4:48</span>
-        </a>
-        <div class="body">
-          <div class="idx">#01</div>
-          <h2><a href="https://www.youtube.com/watch?v=atE3EuiEgiQ&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Super Fails: Angela Merkel descubre Internet | ARTE.tv Cultura</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvcultura" target="_blank" rel="noopener">ARTE․tv Cultura</a>
-            <span>212 vistas</span>
-          </div>
+  <a class="skip-link" href="#videos">Ir a los videos</a>
+
+  <header class="topbar" id="inicio">
+    <a class="brand" href="index27.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="var(--guinda)"/>
+        <circle cx="16" cy="16" r="10.5" fill="none" stroke="var(--paper)" stroke-width="1.3" opacity=".65"/>
+        <path d="M16 4.5l3.1 11.4L30.5 19l-11.4 3.1L16 33.5 12.9 22.1 1.5 19l11.4-3.1z" fill="var(--paper)"/>
+      </svg>
+      <span class="brand-text">
+        <strong>Geopolítica</strong>
+        <small>FCA · UNAM · 1541</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="#g-hoy">Hoy</a>
+      <a href="index27.html#sesion-actual">La sesión de hoy</a>
+      <a href="https://www.youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Playlist ↗</a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle" type="button" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
+      <button class="icon-btn" id="printBtn" type="button" title="Imprimir esta página" aria-label="Imprimir esta página">🖨</button>
+    </div>
+  </header>
+
+  <section class="arch-hero">
+    <div class="wrap">
+      <p class="kicker">Semestre 2027-1 · Grupo 1541 · Geopolítica Internacional</p>
+      <h1>Los videos <em>del semestre</em></h1>
+      <p class="lead">Todos los que hemos visto en clase y los que acompañan cada sesión, de hoy hacia atrás. Arriba, los de Nord Stream: empieza por los cuatro numerados.</p>
+      <ul class="arch-meta">
+        <li>90 videos</li>
+        <li>23 h 39 min en total</li>
+        <li>11 grupos</li>
+      </ul>
+    </div>
+  </section>
+
+  <main class="section" id="videos" style="padding-top:1.6rem">
+    <div class="wrap">
+      <div class="vtools">
+        <label class="gloss-search">
+          <span class="sr-only">Buscar un video</span>
+          <input type="search" id="vidQ" placeholder="Busca por título o canal: Gazprom, TSMC, ARTE…" autocomplete="off">
+        </label>
+        <div class="crono-bar vchips" role="group" aria-label="Ver una sesión">
+          <button type="button" data-g="todo" aria-pressed="true">Todos</button>
+          <button type="button" data-g="hoy" aria-pressed="false">Hoy · Nord Stream</button>
+          <button type="button" data-g="oct" aria-pressed="false">Octubre</button>
+          <button type="button" data-g="s15" aria-pressed="false">Sesión 15</button>
+          <button type="button" data-g="s13" aria-pressed="false">Sesión 13</button>
+          <button type="button" data-g="sep" aria-pressed="false">Septiembre</button>
+          <button type="button" data-g="s10" aria-pressed="false">Sesión 10</button>
+          <button type="button" data-g="s08" aria-pressed="false">Sesión 08</button>
+          <button type="button" data-g="s07" aria-pressed="false">Sesión 07</button>
+          <button type="button" data-g="s05" aria-pressed="false">Sesión 05</button>
+          <button type="button" data-g="s03" aria-pressed="false">Sesión 03</button>
+          <button type="button" data-g="s02" aria-pressed="false">Sesión 02</button>
         </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=mScpHTIi-kM&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/mScpHTIi-kM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">27:19</span>
-        </a>
-        <div class="body">
-          <div class="idx">#02</div>
-          <h2><a href="https://www.youtube.com/watch?v=mScpHTIi-kM&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">This game theory problem will change the way you see the world</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@veritasium" target="_blank" rel="noopener">Veritasium</a>
-            <span>25 000 000 vistas</span>
-          </div>
+        <p class="hilo-count" id="vidCount" aria-live="polite"></p>
+      </div>
+
+    <section class="vgroup" id="g-hoy" data-g="hoy">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker">Hoy · martes 20 de octubre · sesión 17</p>
+          <h2>Nord Stream</h2>
         </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=zCvUkxBYqyI&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/zCvUkxBYqyI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">1:49</span>
-        </a>
-        <div class="body">
-          <div class="idx">#03</div>
-          <h2><a href="https://www.youtube.com/watch?v=zCvUkxBYqyI&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">What is Thucydides Trap? Thucydides&#x27; Trap Explained</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@SocialScienceSchool" target="_blank" rel="noopener">Social Science School</a>
-            <span>19 000 vistas</span>
+        <p class="vgroup-n">13 videos · 2 h 50 min · <a class="vgroup-link" href="index27.html#sesion-actual">Ir a la sesión de hoy →</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=Um2SMo2DCMo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/Um2SMo2DCMo/hqdefault.jpg" alt="Portada de «Gas y petróleo: ¿las materias primas gobiernan el mundo? | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:00</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=Um2SMo2DCMo" target="_blank" rel="noopener">Gas y petróleo: ¿las materias primas gobiernan el mundo? | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2022</p>
+            <p>Míralo primero: cómo la guerra en Ucrania reacomodó el poder del gas y el petróleo, en plena emergencia climática.</p>
+            <span class="vtag">1 · El tablero</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=vEqyggTqsEQ&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/vEqyggTqsEQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">12:15</span>
-        </a>
-        <div class="body">
-          <div class="idx">#04</div>
-          <h2><a href="https://www.youtube.com/watch?v=vEqyggTqsEQ&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">EEUU versus China | ARTE.tv Documentales</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvdocumentales" target="_blank" rel="noopener">ARTE.tv Documentales</a>
-            <span>4 700 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=utUOJ64X7u0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/utUOJ64X7u0/hqdefault.jpg" alt="Portada de «Why this Russian gas company sponsors soccer teams»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">8:41</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=utUOJ64X7u0" target="_blank" rel="noopener">Why this Russian gas company sponsors soccer teams</a></h4>
+            <p class="vmeta">Vox · 2020</p>
+            <p>Gazprom, el Schalke 04 y Gerhard Schröder: como canciller aprobó el gasoducto y meses después ya estaba al frente del consorcio que lo construía.</p>
+            <span class="vtag">2 · La empresa</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=4kSGpOlEEvU&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/4kSGpOlEEvU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">20:53</span>
-        </a>
-        <div class="body">
-          <div class="idx">#05</div>
-          <h2><a href="https://www.youtube.com/watch?v=4kSGpOlEEvU&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Para México, consecuencias negativas muy duraderas por aranceles y cerrar puerta a China: Dussel</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@julioastillero" target="_blank" rel="noopener">Julio Astillero</a>
-            <span>15 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=8dUQ0CxN8pc" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/8dUQ0CxN8pc/hqdefault.jpg" alt="Portada de «Nord Stream 2, el gasoducto de la discordia entre EE. UU., Rusia y Europa»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">16:28</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=8dUQ0CxN8pc" target="_blank" rel="noopener">Nord Stream 2, el gasoducto de la discordia entre EE. UU., Rusia y Europa</a></h4>
+            <p class="vmeta">FRANCE 24 Español · 2021</p>
+            <p>Grabado en 2021, con el tubo casi terminado y bajo sanciones: el puerto alemán amenazado, Ucrania y su tránsito, y Lubmin, donde el gas sale del mar.</p>
+            <span class="vtag">3 · El gasoducto</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=U_7CGl6VWaQ&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/U_7CGl6VWaQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">20:53</span>
-        </a>
-        <div class="body">
-          <div class="idx">#06</div>
-          <h2><a href="https://www.youtube.com/watch?v=U_7CGl6VWaQ&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">How Cyberwarfare Actually Works</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@Wendoverproductions" target="_blank" rel="noopener">Wendover Productions</a>
-            <span>3 300 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=KqsX3jjQ2_U" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/KqsX3jjQ2_U/hqdefault.jpg" alt="Portada de «Who sabotaged the Nord Stream pipeline? | DW Analysis»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">13:01</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=KqsX3jjQ2_U" target="_blank" rel="noopener">Who sabotaged the Nord Stream pipeline? | DW Analysis</a></h4>
+            <p class="vmeta">DW News · 2023</p>
+            <p>Las pistas contra Rusia, contra Estados Unidos y contra un grupo proucraniano en un velero. Y una paradoja sobre el mercado europeo del gas.</p>
+            <span class="vtag">4 · La explosión</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=fhKNdPVutnw&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/fhKNdPVutnw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">9:02</span>
-        </a>
-        <div class="body">
-          <div class="idx">#07</div>
-          <h2><a href="https://www.youtube.com/watch?v=fhKNdPVutnw&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Desdolarización: así el Yuan digital de China puede romper la hegemonía de EEUU</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@Elconfidencialtv" target="_blank" rel="noopener">El Confidencial</a>
-            <span>45 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=dL7KIScQA9w" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/dL7KIScQA9w/hqdefault.jpg" alt="Portada de «Comienza en Alemania el juicio por la presunta implicación de Ucrania en el ataque a Nord Stream»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">3:54</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=dL7KIScQA9w" target="_blank" rel="noopener">Comienza en Alemania el juicio por la presunta implicación de Ucrania en el ataque a Nord Stream</a></h4>
+            <p class="vmeta">DW Español · oct 2026</p>
+            <p>Hamburgo, 14 de octubre de 2026: empieza el juicio contra el exmilitar ucraniano acusado de participar en el sabotaje.</p>
+            <span class="vtag">Lo más reciente</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=Q8DqcS44AfY&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/Q8DqcS44AfY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">12:13</span>
-        </a>
-        <div class="body">
-          <div class="idx">#08</div>
-          <h2><a href="https://www.youtube.com/watch?v=Q8DqcS44AfY&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Estados Unidos: fracturas de ayer y de hoy | ARTE.TV Documentales</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvdocumentales" target="_blank" rel="noopener">ARTE.tv Documentales</a>
-            <span>7 700 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=N_YofQh-5G8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/N_YofQh-5G8/hqdefault.jpg" alt="Portada de «German prosecutors link Nord Stream blasts to Ukraine | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:50</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=N_YofQh-5G8" target="_blank" rel="noopener">German prosecutors link Nord Stream blasts to Ukraine | DW News</a></h4>
+            <p class="vmeta">DW News · jul 2026</p>
+            <p>Julio de 2026: la fiscalía alemana sostiene que el ataque se ordenó desde Ucrania. El gobierno ucraniano lo niega.</p>
+            <span class="vtag">Lo más reciente</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=cpcqFzQ4rzY&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/cpcqFzQ4rzY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">12:06</span>
-        </a>
-        <div class="body">
-          <div class="idx">#09</div>
-          <h2><a href="https://www.youtube.com/watch?v=cpcqFzQ4rzY&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">El revés de los mapas: Ártico-Antártico: el mundo de los polos | ARTE.tv Documentales</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvdocumentales" target="_blank" rel="noopener">ARTE.tv Documentales</a>
-            <span>6 600 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=VbxDf-Tio3k" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/VbxDf-Tio3k/hqdefault.jpg" alt="Portada de «Orden de detención contra un sospechoso por el sabotaje al gasoducto Nord Stream»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">2:54</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=VbxDf-Tio3k" target="_blank" rel="noopener">Orden de detención contra un sospechoso por el sabotaje al gasoducto Nord Stream</a></h4>
+            <p class="vmeta">DW Español · 2024</p>
+            <p>Agosto de 2024: la primera orden de detención contra un sospechoso ucraniano.</p>
+            <span class="vtag">La investigación</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=ai1074P9yes&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/ai1074P9yes/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">12:17</span>
-        </a>
-        <div class="body">
-          <div class="idx">#10</div>
-          <h2><a href="https://www.youtube.com/watch?v=ai1074P9yes&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">El revés de los mapas: Comercio mundial: crisis y fragmentaciones | ARTE.tv Documentales</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvdocumentales" target="_blank" rel="noopener">ARTE.tv Documentales</a>
-            <span>2 400 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=c9_nJyEPCG0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/c9_nJyEPCG0/hqdefault.jpg" alt="Portada de «El imperio energético ruso: Putin y el auge de Gazprom | DW Documental»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">50:56</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=c9_nJyEPCG0" target="_blank" rel="noopener">El imperio energético ruso: Putin y el auge de Gazprom | DW Documental</a></h4>
+            <p class="vmeta">DW Documental · 2024</p>
+            <p>Cómo Europa, y sobre todo Alemania, se volvió dependiente del gas ruso durante décadas.</p>
+            <span class="vtag">Para ir más lejos</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=d4dR6UO81Lk&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/d4dR6UO81Lk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">12:37</span>
-        </a>
-        <div class="body">
-          <div class="idx">#11</div>
-          <h2><a href="https://www.youtube.com/watch?v=d4dR6UO81Lk&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">US Foreign Policy under Biden and Trump | ARTE.tv Documentary</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvdocumentary" target="_blank" rel="noopener">ARTE.tv Documentary</a>
-            <span>1 700 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=aBdfBwfeCRo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/aBdfBwfeCRo/hqdefault.jpg" alt="Portada de «Excanciller defiende gasoducto Nord Stream 2»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">2:43</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=aBdfBwfeCRo" target="_blank" rel="noopener">Excanciller defiende gasoducto Nord Stream 2</a></h4>
+            <p class="vmeta">DW Español · 2018</p>
+            <p>Gerhard Schröder defiende el proyecto en 2018. ¿Negocio o geopolítica?</p>
+            <span class="vtag">Para ir más lejos</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=FNqLrGGFH7c&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/FNqLrGGFH7c/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">25:00</span>
-        </a>
-        <div class="body">
-          <div class="idx">#12</div>
-          <h2><a href="https://www.youtube.com/watch?v=FNqLrGGFH7c&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">How Silicon Valley giants are turning into war contractors | All Hail</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@aljazeeraenglish" target="_blank" rel="noopener">Al Jazeera English</a>
-            <span>206 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=900mMMc-ld0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/900mMMc-ld0/hqdefault.jpg" alt="Portada de «End of Russia-Ukraine gas deal: Will Germany fall back on Russian gas after the election? | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">7:42</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=900mMMc-ld0" target="_blank" rel="noopener">End of Russia-Ukraine gas deal: Will Germany fall back on Russian gas after the election? | DW News</a></h4>
+            <p class="vmeta">DW News · 2025</p>
+            <p>Enero de 2025: el gas ruso deja de cruzar Ucrania. El riesgo de la p. 134, cumplido.</p>
+            <span class="vtag">Para ir más lejos</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=JvvK4AaPbs8&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/JvvK4AaPbs8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">9:15</span>
-        </a>
-        <div class="body">
-          <div class="idx">#13</div>
-          <h2><a href="https://www.youtube.com/watch?v=JvvK4AaPbs8&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Canada stood up to Trump. What’s Mexico’s plan? | DW News</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@dwnews" target="_blank" rel="noopener">DW News</a>
-            <span>356 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=ZkgFaC-Jug4" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/ZkgFaC-Jug4/hqdefault.jpg" alt="Portada de «How Putin made Europe go green faster»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:41</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=ZkgFaC-Jug4" target="_blank" rel="noopener">How Putin made Europe go green faster</a></h4>
+            <p class="vmeta">DW Planet A · 2023</p>
+            <p>¿La invasión aceleró la transición energética de Europa? Seguridad, competitividad y sostenibilidad no siempre avanzan juntas.</p>
+            <span class="vtag">Para ir más lejos</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=3yyQmDVKOgg&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/3yyQmDVKOgg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">4:25</span>
-        </a>
-        <div class="body">
-          <div class="idx">#14</div>
-          <h2><a href="https://www.youtube.com/watch?v=3yyQmDVKOgg&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">Chinese president Xi Jinping visits US | BBC News</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@BBCNews" target="_blank" rel="noopener">BBC News</a>
-            <span>64 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=cuPhY6QOvFI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/cuPhY6QOvFI/hqdefault.jpg" alt="Portada de «Are Europe&#x27;s undersea cables under attack? | Mapped Out»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:33</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=cuPhY6QOvFI" target="_blank" rel="noopener">Are Europe&#x27;s undersea cables under attack? | Mapped Out</a></h4>
+            <p class="vmeta">DW News · 2025</p>
+            <p>El fondo del Báltico después de Nord Stream: cables cortados y sospechas de guerra híbrida.</p>
+            <span class="vtag">Para ir más lejos</span>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=TdJFaNbHxw8&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/TdJFaNbHxw8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">12:18</span>
-        </a>
-        <div class="body">
-          <div class="idx">#15</div>
-          <h2><a href="https://www.youtube.com/watch?v=TdJFaNbHxw8&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">EE. UU. vs. Canadá: el divorcio | ARTE.tv Documentales</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@artetvdocumentales" target="_blank" rel="noopener">ARTE.tv Documentales</a>
-            <span>80 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=UkXml6HHbHE" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/UkXml6HHbHE/hqdefault.jpg" alt="Portada de «The global energy order after Hormuz | FT Film»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:21</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=UkXml6HHbHE" target="_blank" rel="noopener">The global energy order after Hormuz | FT Film</a></h4>
+            <p class="vmeta">Financial Times · oct 2026</p>
+            <p>El otro cuello de botella de la energía. La misma pregunta, en otro mar: quién controla el paso.</p>
+            <span class="vtag">Para ir más lejos</span>
           </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-oct" data-g="oct">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Octubre · recién agregados a la playlist</p>
+          <h2>Lo nuevo en la playlist</h2>
         </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=gr2g1sUy-H0&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/gr2g1sUy-H0/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">11:35</span>
-        </a>
-        <div class="body">
-          <div class="idx">#16</div>
-          <h2><a href="https://www.youtube.com/watch?v=gr2g1sUy-H0&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">US-Mexico relations: How far can the US push Mexico? | Al Jazeera Explains</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@aljazeeraenglish" target="_blank" rel="noopener">Al Jazeera English</a>
-            <span>152 000 vistas</span>
+        <p class="vgroup-n">4 videos · 51 min</p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=0FunCq6R6mo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/0FunCq6R6mo/hqdefault.jpg" alt="Portada de «De Abascal a Bardella: la extrema derecha en Europa | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">3:53</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=0FunCq6R6mo" target="_blank" rel="noopener">De Abascal a Bardella: la extrema derecha en Europa | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · oct 2026</p>
           </div>
-        </div>
-      </article>
-      <article class="card">
-        <a class="thumb" href="https://www.youtube.com/watch?v=tQ597qooZgI&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">
-          <img src="https://i.ytimg.com/vi/tQ597qooZgI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-          <span class="dur">9:15</span>
-        </a>
-        <div class="body">
-          <div class="idx">#17</div>
-          <h2><a href="https://www.youtube.com/watch?v=tQ597qooZgI&amp;list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener">What BRICS revealed about a shifting global order | DW News</a></h2>
-          <div class="meta">
-            <a href="https://www.youtube.com/@dwnews" target="_blank" rel="noopener">DW News</a>
-            <span>270 000 vistas</span>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=wJRfoWXTU80" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/wJRfoWXTU80/hqdefault.jpg" alt="Portada de «Is TSMC Coming to Texas?»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">13:36</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=wJRfoWXTU80" target="_blank" rel="noopener">Is TSMC Coming to Texas?</a></h4>
+            <p class="vmeta">Asianometry · oct 2026</p>
           </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=KZEKtT7L9Fk" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/KZEKtT7L9Fk/hqdefault.jpg" alt="Portada de «🟣Las demandas estudiantiles en Francia ponen a Macron en aprietos antes de las presidenciales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">19:03</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=KZEKtT7L9Fk" target="_blank" rel="noopener">🟣Las demandas estudiantiles en Francia ponen a Macron en aprietos antes de las presidenciales</a></h4>
+            <p class="vmeta">DW Español · oct 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=K-qll_Yhfms" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/K-qll_Yhfms/hqdefault.jpg" alt="Portada de «The hidden geography of AI»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:48</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=K-qll_Yhfms" target="_blank" rel="noopener">The hidden geography of AI</a></h4>
+            <p class="vmeta">CaspianReport · oct 2026</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s15" data-g="s15">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Martes 13 de octubre · sesión 15</p>
+          <h2>Apple, China y poder estructural</h2>
         </div>
-      </article>
-    </main>
-  </div>
+        <p class="vgroup-n">16 videos · 3 h 44 min · <a class="vgroup-link" href="sesiones/s15-apple-china-y-poder-estructural.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=WHat_LYrpQE" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/WHat_LYrpQE/hqdefault.jpg" alt="Portada de «TSMC’s New Arizona Fab! Apple Will Finally Make Advanced Chips In The U.S.»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">16:25</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=WHat_LYrpQE" target="_blank" rel="noopener">TSMC’s New Arizona Fab! Apple Will Finally Make Advanced Chips In The U.S.</a></h4>
+            <p class="vmeta">CNBC · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=vHp1zyRUV74" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/vHp1zyRUV74/hqdefault.jpg" alt="Portada de «It&#x27;s official: HarmonyOS is going global!»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:39</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=vHp1zyRUV74" target="_blank" rel="noopener">It&#x27;s official: HarmonyOS is going global!</a></h4>
+            <p class="vmeta">The Friday Checkout · oct 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=ErwS24cBZPc" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/ErwS24cBZPc/hqdefault.jpg" alt="Portada de «4K Restoration: 1984 Super Bowl APPLE MACINTOSH Ad by Ridley Scott»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">1:00</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=ErwS24cBZPc" target="_blank" rel="noopener">4K Restoration: 1984 Super Bowl APPLE MACINTOSH Ad by Ridley Scott</a></h4>
+            <p class="vmeta">Retro Recipes x Commodore · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=YYfgj5HuLjo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/YYfgj5HuLjo/hqdefault.jpg" alt="Portada de «1984 - subtitulado Comercial Macintosh»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">1:03</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=YYfgj5HuLjo" target="_blank" rel="noopener">1984 - subtitulado Comercial Macintosh</a></h4>
+            <p class="vmeta">Antonio Cabrera · 2011</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=-JbIOGGTRTY" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/-JbIOGGTRTY/hqdefault.jpg" alt="Portada de «Why Apple Can’t Leave China (yet)»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">18:12</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=-JbIOGGTRTY" target="_blank" rel="noopener">Why Apple Can’t Leave China (yet)</a></h4>
+            <p class="vmeta">PolyMatter · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=LytEuoS87EA" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/LytEuoS87EA/hqdefault.jpg" alt="Portada de «Taiwan&#x27;s Biggest Company - Foxconn»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">13:16</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=LytEuoS87EA" target="_blank" rel="noopener">Taiwan&#x27;s Biggest Company - Foxconn</a></h4>
+            <p class="vmeta">Asianometry · 2020</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=dEXH-K1m2kI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/dEXH-K1m2kI/hqdefault.jpg" alt="Portada de «The billionaire behind all your favorite tech»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:55</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=dEXH-K1m2kI" target="_blank" rel="noopener">The billionaire behind all your favorite tech</a></h4>
+            <p class="vmeta">TechAltar · 2021</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=HExhxPDOewE" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/HExhxPDOewE/hqdefault.jpg" alt="Portada de «Huawei - Caught Between Two Superpowers (Documentary)»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">18:14</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=HExhxPDOewE" target="_blank" rel="noopener">Huawei - Caught Between Two Superpowers (Documentary)</a></h4>
+            <p class="vmeta">ColdFusion · 2020</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=p2dMhFWdlMU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/p2dMhFWdlMU/hqdefault.jpg" alt="Portada de «Xiaomi&#x27;s story is much weirder than you think»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">17:33</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=p2dMhFWdlMU" target="_blank" rel="noopener">Xiaomi&#x27;s story is much weirder than you think</a></h4>
+            <p class="vmeta">TechAltar · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=qmn46KrztJ0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/qmn46KrztJ0/hqdefault.jpg" alt="Portada de «The fight for TSMC is heating up»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">17:29</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=qmn46KrztJ0" target="_blank" rel="noopener">The fight for TSMC is heating up</a></h4>
+            <p class="vmeta">TechAltar · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=JjwHFerSu4M" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/JjwHFerSu4M/hqdefault.jpg" alt="Portada de «Cómo APPLE convirtió a CHINA en una superpotencia y quedó ATRAPADA»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">52:32</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=JjwHFerSu4M" target="_blank" rel="noopener">Cómo APPLE convirtió a CHINA en una superpotencia y quedó ATRAPADA</a></h4>
+            <p class="vmeta">Gustavo Entrala · may 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=NAj9zB4vaZc" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/NAj9zB4vaZc/hqdefault.jpg" alt="Portada de «Patrick McGee - &quot;Apple in China: The Capture of the World&#x27;s Greatest Company&quot; | The Daily Show»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">18:56</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=NAj9zB4vaZc" target="_blank" rel="noopener">Patrick McGee - &quot;Apple in China: The Capture of the World&#x27;s Greatest Company&quot; | The Daily Show</a></h4>
+            <p class="vmeta">The Daily Show · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=43PtL0XQeA8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/43PtL0XQeA8/hqdefault.jpg" alt="Portada de «How Apple trained China to be a world power - Patrick McGee interview»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">8:13</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=43PtL0XQeA8" target="_blank" rel="noopener">How Apple trained China to be a world power - Patrick McGee interview</a></h4>
+            <p class="vmeta">Channel 4 News · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=M6mCtmcbNDU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/M6mCtmcbNDU/hqdefault.jpg" alt="Portada de «Apple Wants to Recreate Its ‘iPhone City’ Supply Chain Outside China | WSJ»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">3:24</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=M6mCtmcbNDU" target="_blank" rel="noopener">Apple Wants to Recreate Its ‘iPhone City’ Supply Chain Outside China | WSJ</a></h4>
+            <p class="vmeta">The Wall Street Journal · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=Jk-xqPKOxl4" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/Jk-xqPKOxl4/hqdefault.jpg" alt="Portada de «Foxconn: An Exclusive Inside Look»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">3:59</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=Jk-xqPKOxl4" target="_blank" rel="noopener">Foxconn: An Exclusive Inside Look</a></h4>
+            <p class="vmeta">ABC News · 2012</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=FvvJtx8ndG8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/FvvJtx8ndG8/hqdefault.jpg" alt="Portada de «Why Apple Is Betting Big On Making iPhones In India»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:49</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=FvvJtx8ndG8" target="_blank" rel="noopener">Why Apple Is Betting Big On Making iPhones In India</a></h4>
+            <p class="vmeta">CNBC · 2023</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s13" data-g="s13">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Martes 6 de octubre · sesión 13</p>
+          <h2>La armamentización de los chips</h2>
+        </div>
+        <p class="vgroup-n">11 videos · 4 h 40 min · <a class="vgroup-link" href="sesiones/s13-la-armamentizacion-de-los-chips.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=XHteRHDI3dU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/XHteRHDI3dU/hqdefault.jpg" alt="Portada de «Globalization - How crises change our world (1/2) | DW Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">42:26</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=XHteRHDI3dU" target="_blank" rel="noopener">Globalization - How crises change our world (1/2) | DW Documentary</a></h4>
+            <p class="vmeta">DW Documentary · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=CFsn1CUyXWs" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/CFsn1CUyXWs/hqdefault.jpg" alt="Portada de «ASML: TSMC&#x27;s Critical Supplier, Explained»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:11</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=CFsn1CUyXWs" target="_blank" rel="noopener">ASML: TSMC&#x27;s Critical Supplier, Explained</a></h4>
+            <p class="vmeta">Asianometry · 2021</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=b88mOUwxyJk" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/b88mOUwxyJk/hqdefault.jpg" alt="Portada de «SMIC: China’s Main Bet Against TSMC and Samsung | WSJ»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">5:49</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=b88mOUwxyJk" target="_blank" rel="noopener">SMIC: China’s Main Bet Against TSMC and Samsung | WSJ</a></h4>
+            <p class="vmeta">The Wall Street Journal · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=kMhle4o0uk0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/kMhle4o0uk0/hqdefault.jpg" alt="Portada de «Why China and the US are so obsessed with Taiwan | Mapped Out»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">16:24</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=kMhle4o0uk0" target="_blank" rel="noopener">Why China and the US are so obsessed with Taiwan | Mapped Out</a></h4>
+            <p class="vmeta">DW News · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=k_bHtx_e-SU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/k_bHtx_e-SU/hqdefault.jpg" alt="Portada de «China’s Next AI Shock Is Hardware»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">40:21</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=k_bHtx_e-SU" target="_blank" rel="noopener">China’s Next AI Shock Is Hardware</a></h4>
+            <p class="vmeta">CNBC · ene 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=6ZEabgxkSgg" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/6ZEabgxkSgg/hqdefault.jpg" alt="Portada de «Trump rolls out the red carpet for Xi. But who holds the leverage? | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">17:31</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=6ZEabgxkSgg" target="_blank" rel="noopener">Trump rolls out the red carpet for Xi. But who holds the leverage? | DW News</a></h4>
+            <p class="vmeta">DW News · sep 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=_TOCRjF9WuE" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/_TOCRjF9WuE/hqdefault.jpg" alt="Portada de «The race for semiconductor supremacy | FT Film»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">28:32</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=_TOCRjF9WuE" target="_blank" rel="noopener">The race for semiconductor supremacy | FT Film</a></h4>
+            <p class="vmeta">Financial Times · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=IISro2ykynY" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/IISro2ykynY/hqdefault.jpg" alt="Portada de «How Trump will FORCE Intel to win»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">16:29</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=IISro2ykynY" target="_blank" rel="noopener">How Trump will FORCE Intel to win</a></h4>
+            <p class="vmeta">TechAltar · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=H2qLoaetLJM" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/H2qLoaetLJM/hqdefault.jpg" alt="Portada de «How the U.S. and China Compete in Planes, EVs, Chips and More | WSJ U.S. vs. China»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">1:08:27</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=H2qLoaetLJM" target="_blank" rel="noopener">How the U.S. and China Compete in Planes, EVs, Chips and More | WSJ U.S. vs. China</a></h4>
+            <p class="vmeta">The Wall Street Journal · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=6ZBViSO5Wjg" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/6ZBViSO5Wjg/hqdefault.jpg" alt="Portada de «AI set to turbocharge Taiwan&#x27;s microchip industry | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">18:34</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=6ZBViSO5Wjg" target="_blank" rel="noopener">AI set to turbocharge Taiwan&#x27;s microchip industry | DW News</a></h4>
+            <p class="vmeta">DW News · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=FxZ56k3Llyc" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/FxZ56k3Llyc/hqdefault.jpg" alt="Portada de «México, en contra del veto de EE.UU. a la tecnología china en vehículos»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:01</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=FxZ56k3Llyc" target="_blank" rel="noopener">México, en contra del veto de EE.UU. a la tecnología china en vehículos</a></h4>
+            <p class="vmeta">DW Español · 2024</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-sep" data-g="sep">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Septiembre · de la playlist</p>
+          <h2>Lo que vimos en septiembre</h2>
+        </div>
+        <p class="vgroup-n">17 videos · 3 h 37 min</p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=atE3EuiEgiQ" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/atE3EuiEgiQ/hqdefault.jpg" alt="Portada de «Super Fails: Angela Merkel descubre Internet | ARTE.tv Cultura»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">4:48</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=atE3EuiEgiQ" target="_blank" rel="noopener">Super Fails: Angela Merkel descubre Internet | ARTE.tv Cultura</a></h4>
+            <p class="vmeta">ARTE.tv Cultura · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=mScpHTIi-kM" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/mScpHTIi-kM/hqdefault.jpg" alt="Portada de «Once you understand game theory, you understand the world.»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">27:18</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=mScpHTIi-kM" target="_blank" rel="noopener">Once you understand game theory, you understand the world.</a></h4>
+            <p class="vmeta">Veritasium · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=zCvUkxBYqyI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/zCvUkxBYqyI/hqdefault.jpg" alt="Portada de «What is Thucydides Trap? Thucydides&#x27; Trap Explained»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">1:49</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=zCvUkxBYqyI" target="_blank" rel="noopener">What is Thucydides Trap? Thucydides&#x27; Trap Explained</a></h4>
+            <p class="vmeta">Social Science School · 2022</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=vEqyggTqsEQ" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/vEqyggTqsEQ/hqdefault.jpg" alt="Portada de «EEUU versus China | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:15</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=vEqyggTqsEQ" target="_blank" rel="noopener">EEUU versus China | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2022</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=4kSGpOlEEvU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/4kSGpOlEEvU/hqdefault.jpg" alt="Portada de «Para México, consecuencias negativas muy duraderas por aranceles y cerrar puerta a China: Dussel»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">20:52</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=4kSGpOlEEvU" target="_blank" rel="noopener">Para México, consecuencias negativas muy duraderas por aranceles y cerrar puerta a China: Dussel</a></h4>
+            <p class="vmeta">Julio Astillero · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=U_7CGl6VWaQ" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/U_7CGl6VWaQ/hqdefault.jpg" alt="Portada de «How Cyberwarfare Actually Works»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">20:52</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=U_7CGl6VWaQ" target="_blank" rel="noopener">How Cyberwarfare Actually Works</a></h4>
+            <p class="vmeta">Wendover Productions · 2022</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=fhKNdPVutnw" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/fhKNdPVutnw/hqdefault.jpg" alt="Portada de «Desdolarización: así el Yuan digital de China puede romper la hegemonía de EEUU»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:01</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=fhKNdPVutnw" target="_blank" rel="noopener">Desdolarización: así el Yuan digital de China puede romper la hegemonía de EEUU</a></h4>
+            <p class="vmeta">El Confidencial · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=Q8DqcS44AfY" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/Q8DqcS44AfY/hqdefault.jpg" alt="Portada de «Estados Unidos: fracturas de ayer y de hoy | ARTE.TV Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:12</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=Q8DqcS44AfY" target="_blank" rel="noopener">Estados Unidos: fracturas de ayer y de hoy | ARTE.TV Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=cpcqFzQ4rzY" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/cpcqFzQ4rzY/hqdefault.jpg" alt="Portada de «El revés de los mapas: Ártico-Antártico: el mundo de los polos | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:05</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=cpcqFzQ4rzY" target="_blank" rel="noopener">El revés de los mapas: Ártico-Antártico: el mundo de los polos | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=ai1074P9yes" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/ai1074P9yes/hqdefault.jpg" alt="Portada de «El revés de los mapas: Comercio mundial: crisis y fragmentaciones | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:17</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=ai1074P9yes" target="_blank" rel="noopener">El revés de los mapas: Comercio mundial: crisis y fragmentaciones | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=d4dR6UO81Lk" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/d4dR6UO81Lk/hqdefault.jpg" alt="Portada de «US Foreign Policy under Biden and Trump | ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:36</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=d4dR6UO81Lk" target="_blank" rel="noopener">US Foreign Policy under Biden and Trump | ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=FNqLrGGFH7c" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/FNqLrGGFH7c/hqdefault.jpg" alt="Portada de «How Silicon Valley giants are turning into war contractors | All Hail»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">25:00</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=FNqLrGGFH7c" target="_blank" rel="noopener">How Silicon Valley giants are turning into war contractors | All Hail</a></h4>
+            <p class="vmeta">Al Jazeera English · sep 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=JvvK4AaPbs8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/JvvK4AaPbs8/hqdefault.jpg" alt="Portada de «Canada stood up to Trump. What’s Mexico’s plan? | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:15</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=JvvK4AaPbs8" target="_blank" rel="noopener">Canada stood up to Trump. What’s Mexico’s plan? | DW News</a></h4>
+            <p class="vmeta">DW News · sep 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=3yyQmDVKOgg" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/3yyQmDVKOgg/hqdefault.jpg" alt="Portada de «Chinese president Xi Jinping visits US | BBC News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">4:25</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=3yyQmDVKOgg" target="_blank" rel="noopener">Chinese president Xi Jinping visits US | BBC News</a></h4>
+            <p class="vmeta">BBC News · sep 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=TdJFaNbHxw8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/TdJFaNbHxw8/hqdefault.jpg" alt="Portada de «EE. UU. vs. Canadá: el divorcio | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:17</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=TdJFaNbHxw8" target="_blank" rel="noopener">EE. UU. vs. Canadá: el divorcio | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · sep 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=gr2g1sUy-H0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/gr2g1sUy-H0/hqdefault.jpg" alt="Portada de «US-Mexico relations: How far can the US push Mexico? | Al Jazeera Explains»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:35</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=gr2g1sUy-H0" target="_blank" rel="noopener">US-Mexico relations: How far can the US push Mexico? | Al Jazeera Explains</a></h4>
+            <p class="vmeta">Al Jazeera English · sep 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=tQ597qooZgI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/tQ597qooZgI/hqdefault.jpg" alt="Portada de «What BRICS revealed about a shifting global order | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:15</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=tQ597qooZgI" target="_blank" rel="noopener">What BRICS revealed about a shifting global order | DW News</a></h4>
+            <p class="vmeta">DW News · sep 2026</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s10" data-g="s10">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Jueves 24 de septiembre · sesión 10</p>
+          <h2>La economía convertida en arma</h2>
+        </div>
+        <p class="vgroup-n">4 videos · 25 min · <a class="vgroup-link" href="sesiones/s10-la-economia-convertida-en-arma.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=1ialXD8itds" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/1ialXD8itds/hqdefault.jpg" alt="Portada de «¿Qué es el sistema SWIFT?»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">1:44</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=1ialXD8itds" target="_blank" rel="noopener">¿Qué es el sistema SWIFT?</a></h4>
+            <p class="vmeta">DW Español · 2022</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=RHqhhAp7gV4" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/RHqhhAp7gV4/hqdefault.jpg" alt="Portada de «Cómo Rusia ha conseguido evadir las sanciones de Occidente | BBC Mundo»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">4:43</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=RHqhhAp7gV4" target="_blank" rel="noopener">Cómo Rusia ha conseguido evadir las sanciones de Occidente | BBC Mundo</a></h4>
+            <p class="vmeta">BBC News Mundo · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=SbQDx3HlNhE" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/SbQDx3HlNhE/hqdefault.jpg" alt="Portada de «BRICS, el brazo económico del nuevo Sur Global frente a Occidente»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:28</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=SbQDx3HlNhE" target="_blank" rel="noopener">BRICS, el brazo económico del nuevo Sur Global frente a Occidente</a></h4>
+            <p class="vmeta">DW Español · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=eFiGzEvdNUs" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/eFiGzEvdNUs/hqdefault.jpg" alt="Portada de «Why Iran&#x27;s control over the Strait of Hormuz is crucial for the world economy | DW News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:48</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=eFiGzEvdNUs" target="_blank" rel="noopener">Why Iran&#x27;s control over the Strait of Hormuz is crucial for the world economy | DW News</a></h4>
+            <p class="vmeta">DW News · 2025</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s08" data-g="s08">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Jueves 17 de septiembre · sesión 08</p>
+          <h2>La globalización del peligro</h2>
+        </div>
+        <p class="vgroup-n">14 videos · 4 h 19 min · <a class="vgroup-link" href="sesiones/s08-la-globalizacion-del-peligro.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=1olyHeEeSh8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/1olyHeEeSh8/hqdefault.jpg" alt="Portada de «El revés de los mapas: Las guerras del siglo XXI | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:30</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=1olyHeEeSh8" target="_blank" rel="noopener">El revés de los mapas: Las guerras del siglo XXI | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=sdlFiFmQ_SM" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/sdlFiFmQ_SM/hqdefault.jpg" alt="Portada de «USA vs China I Mapping the World I ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:15</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=sdlFiFmQ_SM" target="_blank" rel="noopener">USA vs China I Mapping the World I ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2022</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=66lbPGV-AVo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/66lbPGV-AVo/hqdefault.jpg" alt="Portada de «Tracks: Contracartografía: lo que Google Maps no muestra | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">17:47</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=66lbPGV-AVo" target="_blank" rel="noopener">Tracks: Contracartografía: lo que Google Maps no muestra | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=c_LBgSRXPHw" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/c_LBgSRXPHw/hqdefault.jpg" alt="Portada de «Propaganda and War: The Manufacturing of Consent I ARTE Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">6:33</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=c_LBgSRXPHw" target="_blank" rel="noopener">Propaganda and War: The Manufacturing of Consent I ARTE Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2020</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=Vd7fs0LCfJs" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/Vd7fs0LCfJs/hqdefault.jpg" alt="Portada de «Guantanamo: Still Not Closed | ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">24:51</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=Vd7fs0LCfJs" target="_blank" rel="noopener">Guantanamo: Still Not Closed | ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=tny2usCxhc4" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/tny2usCxhc4/hqdefault.jpg" alt="Portada de «Why isn’t the DR Congo the world’s richest country? | Mapped Out»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">15:44</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=tny2usCxhc4" target="_blank" rel="noopener">Why isn’t the DR Congo the world’s richest country? | Mapped Out</a></h4>
+            <p class="vmeta">DW News · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=bEIMXc_6TA0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/bEIMXc_6TA0/hqdefault.jpg" alt="Portada de «South Africa: Elon Musk&#x27;s Revenge | ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">25:35</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=bEIMXc_6TA0" target="_blank" rel="noopener">South Africa: Elon Musk&#x27;s Revenge | ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=G_wvxhEAkGg" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/G_wvxhEAkGg/hqdefault.jpg" alt="Portada de «El revés de los mapas: América Latina: análisis geopolítico | ARTE.tv Documentales»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:25</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=G_wvxhEAkGg" target="_blank" rel="noopener">El revés de los mapas: América Latina: análisis geopolítico | ARTE.tv Documentales</a></h4>
+            <p class="vmeta">ARTE.tv Documentales · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=46dzQ9uzBjk" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/46dzQ9uzBjk/hqdefault.jpg" alt="Portada de «Why the nuclear arms race is on again | Mapped Out»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:41</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=46dzQ9uzBjk" target="_blank" rel="noopener">Why the nuclear arms race is on again | Mapped Out</a></h4>
+            <p class="vmeta">DW News · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=r5Ps1TZXAN8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/r5Ps1TZXAN8/hqdefault.jpg" alt="Portada de «How this border transformed a subcontinent | India &amp; Pakistan»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">17:21</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=r5Ps1TZXAN8" target="_blank" rel="noopener">How this border transformed a subcontinent | India &amp; Pakistan</a></h4>
+            <p class="vmeta">Vox · 2019</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=UmWBIyb6Rxo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/UmWBIyb6Rxo/hqdefault.jpg" alt="Portada de «India’s threat to dry out Pakistan | Mapped Out»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:20</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=UmWBIyb6Rxo" target="_blank" rel="noopener">India’s threat to dry out Pakistan | Mapped Out</a></h4>
+            <p class="vmeta">DW News · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=qTX8N9T1mQI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/qTX8N9T1mQI/hqdefault.jpg" alt="Portada de «Yeonpyeong: Between Two Koreas | ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">24:41</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=qTX8N9T1mQI" target="_blank" rel="noopener">Yeonpyeong: Between Two Koreas | ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=F1x5psFk9io" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/F1x5psFk9io/hqdefault.jpg" alt="Portada de «An endless war: Iran, Israel and the United States (1/2) [Reupload] | DW Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">41:31</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=F1x5psFk9io" target="_blank" rel="noopener">An endless war: Iran, Israel and the United States (1/2) [Reupload] | DW Documentary</a></h4>
+            <p class="vmeta">DW Documentary · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=dobTyPKccMA" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/dobTyPKccMA/hqdefault.jpg" alt="Portada de «The World’s First Cyber Weapon Attack on a Nuclear Plant | Vice News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">22:19</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=dobTyPKccMA" target="_blank" rel="noopener">The World’s First Cyber Weapon Attack on a Nuclear Plant | Vice News</a></h4>
+            <p class="vmeta">VICE News · 2024</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s07" data-g="s07">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Jueves 10 de septiembre · sesión 07</p>
+          <h2>La época de la guerra total (II)</h2>
+        </div>
+        <p class="vgroup-n">4 videos · 1 h 11 min · <a class="vgroup-link" href="sesiones/s07-la-epoca-de-la-guerra-total-ii.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=KAo9_dcVuDo" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/KAo9_dcVuDo/hqdefault.jpg" alt="Portada de «How the USA Proclaimed itself a Global Power»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">33:07</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=KAo9_dcVuDo" target="_blank" rel="noopener">How the USA Proclaimed itself a Global Power</a></h4>
+            <p class="vmeta">DW History and Culture · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=K7uvrd94mrg" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/K7uvrd94mrg/hqdefault.jpg" alt="Portada de «Oppenheimer’s secret city, explained»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">9:06</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=K7uvrd94mrg" target="_blank" rel="noopener">Oppenheimer’s secret city, explained</a></h4>
+            <p class="vmeta">Vox · 2023</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=aXWblvE_oQE" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/aXWblvE_oQE/hqdefault.jpg" alt="Portada de «La Doctrina Monroe y el caso de Venezuela - Bully Magnets»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">8:08</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=aXWblvE_oQE" target="_blank" rel="noopener">La Doctrina Monroe y el caso de Venezuela - Bully Magnets</a></h4>
+            <p class="vmeta">Bully Magnets · ene 2026</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=2IglilzD4vw" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/2IglilzD4vw/hqdefault.jpg" alt="Portada de «Why Care About Wars? | The Economics of War &amp; Peace Episode 1»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">21:13</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=2IglilzD4vw" target="_blank" rel="noopener">Why Care About Wars? | The Economics of War &amp; Peace Episode 1</a></h4>
+            <p class="vmeta">New Economic Thinking · 2024</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s05" data-g="s05">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Jueves 3 de septiembre · sesión 05</p>
+          <h2>La era del imperio (II)</h2>
+        </div>
+        <p class="vgroup-n">4 videos · 1 h 13 min · <a class="vgroup-link" href="sesiones/s05-la-era-del-imperio-ii.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=1rOlPP5zsSU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/1rOlPP5zsSU/hqdefault.jpg" alt="Portada de «How the British Empire enriched itself on Five continents #dwhistoryandculture #dwespanol»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">33:18</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=1rOlPP5zsSU" target="_blank" rel="noopener">How the British Empire enriched itself on Five continents #dwhistoryandculture #dwespanol</a></h4>
+            <p class="vmeta">DW History and Culture · 2025</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=vvj6_Xb1MzQ" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/vvj6_Xb1MzQ/hqdefault.jpg" alt="Portada de «El REPARTO de ÁFRICA | La Conferencia de Berlín de 1884 a 1885 la división de África entre europeos»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">29:16</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=vvj6_Xb1MzQ" target="_blank" rel="noopener">El REPARTO de ÁFRICA | La Conferencia de Berlín de 1884 a 1885 la división de África entre europeos</a></h4>
+            <p class="vmeta">Crónicas de la Historia · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=pDXccMsTlL0" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/pDXccMsTlL0/hqdefault.jpg" alt="Portada de «The company that once owned India is now owned by an Indian | East India Company»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">5:14</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=pDXccMsTlL0" target="_blank" rel="noopener">The company that once owned India is now owned by an Indian | East India Company</a></h4>
+            <p class="vmeta">WION · 2020</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=DrcCTgwbsjc" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/DrcCTgwbsjc/hqdefault.jpg" alt="Portada de «Why was India split into two countries? - Haimanti Roy»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">5:49</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=DrcCTgwbsjc" target="_blank" rel="noopener">Why was India split into two countries? - Haimanti Roy</a></h4>
+            <p class="vmeta">TED-Ed · 2021</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s03" data-g="s03">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Jueves 27 de agosto · sesión 03</p>
+          <h2>Geopolítica crítica y el poder de los mapas</h2>
+        </div>
+        <p class="vgroup-n">2 videos · 41 min · <a class="vgroup-link" href="sesiones/s03-poder-de-los-mapas.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=vETPIdNYEEA" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/vETPIdNYEEA/hqdefault.jpg" alt="Portada de «How Powerful are Maps? | ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">29:27</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=vETPIdNYEEA" target="_blank" rel="noopener">How Powerful are Maps? | ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2024</p>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=WQlfi4mk5Vk" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/WQlfi4mk5Vk/hqdefault.jpg" alt="Portada de «Cartography: How We Represent the World I ARTE.tv Documentary»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:55</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=WQlfi4mk5Vk" target="_blank" rel="noopener">Cartography: How We Represent the World I ARTE.tv Documentary</a></h4>
+            <p class="vmeta">ARTE.tv Documentary · 2022</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="vgroup" id="g-s02" data-g="s02">
+      <div class="vgroup-head">
+        <div>
+          <p class="kicker k-blue">Jueves 20 de agosto · sesión 02</p>
+          <h2>Geopolítica clásica y crítica</h2>
+        </div>
+        <p class="vgroup-n">1 videos · 2 min · <a class="vgroup-link" href="sesiones/s02-geopolitica-critica.html">Ver esa sesión ↗</a></p>
+      </div>
+      <div class="vgrid vgrid--4">
+        <article class="vcard">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=4QYrAqrpshw" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/4QYrAqrpshw/hqdefault.jpg" alt="Portada de «Edward Said - Framed: The Politics of Stereotypes in News»" loading="lazy" width="480" height="360">
+            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">2:30</span>
+          </a>
+          <div class="vbody">
+            <h4><a href="https://www.youtube.com/watch?v=4QYrAqrpshw" target="_blank" rel="noopener">Edward Said - Framed: The Politics of Stereotypes in News</a></h4>
+            <p class="vmeta">Al Jazeera English · 2017</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <p>
+        <strong>Geopolítica Internacional Aplicada a los Negocios Internacionales</strong>
+        Licenciatura en Negocios Internacionales · Facultad de Contaduría y Administración · UNAM
+      </p>
+      <p>
+        <strong>Grupo 1541 · Semestre 2027-1</strong>
+        <a href="index27.html#profesor">Dr. Jorge Cardiel Herrera</a> · Martes A-004 · Jueves A-101 · 09:00—11:00<br>
+        <a href="mailto:semsocan2019@gmail.com">semsocan2019@gmail.com</a> · <a href="https://socyb.github.io" target="_blank" rel="noopener noreferrer">socyb.github.io</a><br>
+        <span class="updated">Última actualización: martes 20 de octubre de 2026 · Sesión 17</span>
+      </p>
+      <a class="to-top" href="#inicio" aria-label="Volver al inicio">↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

@@ -2,7 +2,7 @@
   "playlist_title": "Geopolítica",
   "playlist_id": "PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg",
   "playlist_url": "https://youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg",
-  "total_videos": 342,
+  "total_videos": 343,
   "videos": [
     {
       "id": "zFZ2Zzb2ChQ",
@@ -3423,6 +3423,20 @@
       "channel": "TED-Ed",
       "view_count": 4612526,
       "playlist_index": 377
+    },
+    {
+      "id": "KqsX3jjQ2_U",
+      "title": "Who sabotaged the Nord Stream pipeline? | DW Analysis",
+      "url": "https://www.youtube.com/watch?v=KqsX3jjQ2_U",
+      "duration": 781,
+      "duration_string": "13:01",
+      "channel": "DW News",
+      "view_count": 241454,
+      "playlist_index": null,
+      "source": "user_recommendation",
+      "added_date": "2026-10-14",
+      "upload_date": "2023-07-23",
+      "language": "en"
     }
   ]
 }

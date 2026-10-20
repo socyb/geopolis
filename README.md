@@ -37,8 +37,8 @@ sesiones y horas:
 | I | Vocabulario para leer el poder | 18—27 de agosto |
 | II | Hitos que ordenaron el mundo | 1—17 de septiembre |
 | III | El presente global y regional | 22—29 de septiembre |
-| IV | Escenarios complejos, riesgos conectados | 1—15 de octubre |
-| V | Estrategias para negocios internacionales | 20 de octubre — 17 de noviembre |
+| IV | Escenarios complejos, riesgos conectados | 8—20 de octubre |
+| V | Estrategias para negocios internacionales | 22 de octubre — 17 de noviembre |
 | VI | México en el tablero internacional | 19 de noviembre — 3 de diciembre |
 
 Del vocabulario básico para leer el poder —escalas, actores, marcos— hasta la
@@ -80,34 +80,26 @@ participaciones.
 **Recursos a la mano.** La playlist del curso en YouTube, Moodle para entregas, el
 portal de la FCA y este repositorio.
 
-## Sesiones del 13 y 15 de octubre de 2026
+## Sesión del 20 de octubre de 2026
 
-La portada contiene las dos versiones. Hasta el jueves 15 a las **07:00, hora de
-Ciudad de México**, muestra la sesión 15: **Apple, China y poder estructural**.
-A partir de esa hora muestra la sesión 16: **Del tema a la pregunta**, el taller
-que inicia el trabajo final. Cambian también el menú, el botón principal,
-«Trae contigo», la fecha de actualización y la bitácora. Una pestaña abierta se
-recarga al llegar la hora; si estaba suspendida, revisa el horario al volver.
+La portada muestra la sesión 17: **Nord Stream**, con la lectura de Virág y
+Tancsa (2023) y la actividad 9. Trae un esquema de las rutas del gas, el
+artículo en siete láminas, los cinco actores de la tabla 1 antes y después de
+2022, la secuencia hasta el juicio que empezó en Hamburgo el 14 de octubre, los
+videos, seis ideas para discutir y un glosario de 48 términos con buscador.
 
-La [sesión 15](sesiones/s15-apple-china-y-poder-estructural.html) queda archivada,
-junto con la [sesión 13](sesiones/s13-la-armamentizacion-de-los-chips.html).
-Minerales críticos pasa al jueves 22 de octubre, sesión 18.
+La [sesión 16](sesiones/s16-del-tema-a-la-pregunta.html) queda archivada, junto
+con la [sesión 15](sesiones/s15-apple-china-y-poder-estructural.html).
 
-Para revisar el cambio antes de publicarlo:
+[`videos_recientes.html`](videos_recientes.html) reúne todos los videos del
+semestre, de la sesión de hoy hacia atrás, con buscador y filtro por sesión.
 
-- [Justo antes: 06:59](index27.html?fecha=2026-10-15T06:59#sesion-actual).
-- [Taller abierto: 07:00](index27.html?fecha=2026-10-15T07:00#sesion-actual).
+Para revisar la portada en otra fecha se usa el parámetro `fecha`, por ejemplo
+[`index27.html?fecha=2026-10-20T08:30#sesion-actual`](index27.html?fecha=2026-10-20T08:30#sesion-actual);
+sin él se usa la hora real de Ciudad de México.
 
-El parámetro `fecha` solo simula la fecha de esa visita; sin él se usa la hora
-real de Ciudad de México. Los archivos deben estar publicados en GitHub Pages
-antes del horario de apertura. No hace falta una tarea programada en el servidor.
-
-La prueba reproducible está en `tests/check_session_release.py`. Requiere Python
-y Playwright: `python3 -m pip install playwright` y
-`python3 -m playwright install chromium`; después se ejecuta con
-`python3 tests/check_session_release.py`. También acepta `--chrome /ruta/a/Chrome`
-para usar un navegador instalado. Comprueba el cambio exacto, las vistas previas,
-otras zonas horarias, archivos, actividades, guardado local y diseño responsivo.
+`tests/check_session_release.py` comprobaba la apertura programada del 15 de
+octubre a las 07:00; con la sesión 16 archivada, ya no aplica a la portada actual.
 
 ---
 
