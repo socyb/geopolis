@@ -1,0 +1,1556 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La política del encuadre</title>
+<meta name="description" content="Jorge Cardiel Herrera · La política del encuadre: geopolítica crítica y framing en la transformación del orden internacional · XXXIX Congreso de la AMEI, 2026">
+<style>
+  /* ── Tipos (locales, para que funcione sin red en el salón) ── */
+  @font-face { font-family: "EB Garamond"; src: url(fonts/eb-garamond-latin-400-normal.woff2) format("woff2"); font-weight: 400; }
+  @font-face { font-family: "EB Garamond"; src: url(fonts/eb-garamond-latin-400-italic.woff2) format("woff2"); font-weight: 400; font-style: italic; }
+  @font-face { font-family: "EB Garamond"; src: url(fonts/eb-garamond-latin-500-normal.woff2) format("woff2"); font-weight: 500; }
+  @font-face { font-family: "EB Garamond"; src: url(fonts/eb-garamond-latin-600-normal.woff2) format("woff2"); font-weight: 600; }
+  @font-face { font-family: "EB Garamond"; src: url(fonts/eb-garamond-latin-600-italic.woff2) format("woff2"); font-weight: 600; font-style: italic; }
+  @font-face { font-family: "Cinzel"; src: url(fonts/cinzel-latin-400-normal.woff2) format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Cinzel"; src: url(fonts/cinzel-latin-600-normal.woff2) format("woff2"); font-weight: 600; }
+  @font-face { font-family: "Cormorant SC"; src: url(fonts/cormorant-sc-latin-500-normal.woff2) format("woff2"); font-weight: 500; }
+  @font-face { font-family: "GFS Didot"; src: url(fonts/gfs-didot-greek-400-normal.woff2) format("woff2"); unicode-range: U+0370-03FF, U+1F00-1FFF; }
+
+  :root {
+    --papel: #f2ead8;
+    --tinta: #2b241d;
+    --tinta-suave: #5d5246;
+    --rubrica: #9a2f1f;          /* rojo de capitulares y títulos */
+    --filete: rgba(43, 36, 29, .22);
+    --tela: #1d2d4c;             /* tela azul de la cubierta */
+    --tela-oscura: #121d33;
+    --oro: #c8a35a;
+    --oro-claro: #ead6a0;
+    --oro-oscuro: #8f6d2f;
+    --serif: "EB Garamond", "GFS Didot", Garamond, "Times New Roman", serif;
+    --capitales: "Cinzel", "Trajan Pro", serif;
+    --versalitas: "Cormorant SC", "EB Garamond", serif;
+    --W: 1600px;
+    --H: 900px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: #0c0f16;
+    color: var(--tinta);
+    font-family: var(--serif);
+    overflow: hidden;
+    font-feature-settings: "liga", "onum", "kern";
+  }
+
+  /* ── Escenario 16:9 escalado a la ventana ── */
+  #escenario {
+    position: absolute; left: 50%; top: 50%;
+    width: var(--W); height: var(--H);
+    transform-origin: center center;
+  }
+  .slide { position: absolute; inset: 0; overflow: hidden; }
+  @media screen { .slide:not(.on) { display: none; } }
+  .slide.on { animation: aparece .45s ease both; }
+  @keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ── Papel ── */
+  .papel {
+    background:
+      radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(120, 90, 40, .16) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"),
+      var(--papel);
+  }
+  /* sombra de lomo: verso a la derecha, recto a la izquierda */
+  .papel.recto::before, .papel.verso::before {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 90px; pointer-events: none;
+  }
+  .papel.recto::before { left: 0; background: linear-gradient(90deg, rgba(90, 65, 30, .18), transparent); }
+  .papel.verso::before { right: 0; background: linear-gradient(-90deg, rgba(90, 65, 30, .18), transparent); }
+
+  /* ── Tela de la cubierta ── */
+  .tela {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55 2.4' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23t)'/%3E%3C/svg%3E"),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.018) 0 2px, transparent 2px 5px),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 5px),
+      radial-gradient(ellipse at 50% 40%, var(--tela) 0%, var(--tela-oscura) 100%);
+    color: var(--oro);
+  }
+  .oro {
+    background: linear-gradient(176deg, var(--oro-claro) 0%, var(--oro) 38%, var(--oro-oscuro) 62%, var(--oro) 80%, var(--oro-claro) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,.45));
+  }
+
+  /* ── Elementos tipográficos comunes ── */
+  .versalitas { font-family: var(--versalitas); letter-spacing: .14em; }
+  .fleuron { font-size: 34px; color: var(--rubrica); line-height: 1; }
+  em, i { font-style: italic; }
+  sup { font-size: .6em; line-height: 0; color: var(--rubrica); font-feature-settings: "lnum"; }
+  .lnum { font-feature-settings: "lnum"; }
+
+  /* Cornisa y folio (los pone el JS en las páginas de texto) */
+  .cornisa {
+    position: absolute; top: 46px; left: 150px; right: 150px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--versalitas); font-size: 21px; letter-spacing: .16em; color: var(--tinta-suave);
+    border-bottom: 1px solid rgba(43, 36, 29, .35); padding-bottom: 10px;
+  }
+  .cornisa .folio { font-family: var(--serif); letter-spacing: 0; font-size: 24px; color: var(--tinta); }
+  .pie {
+    position: absolute; bottom: 34px; left: 150px; right: 150px;
+    font-size: 20px; color: var(--tinta-suave); line-height: 1.38;
+    border-top: 1px solid rgba(43, 36, 29, .3); padding-top: 10px;
+  }
+
+  /* Caja de texto de las páginas */
+  .caja { position: absolute; top: 120px; left: 150px; right: 150px; bottom: 110px; }
+  .caja.centrada { display: flex; flex-direction: column; justify-content: center; }
+
+  h2.titulo {
+    font-family: var(--capitales); font-weight: 400; font-size: 42px; letter-spacing: .06em;
+    color: var(--rubrica); text-align: center; line-height: 1.15;
+  }
+  .subtitulo { text-align: center; font-style: italic; font-size: 27px; color: var(--tinta-suave); margin-top: 8px; line-height: 1.3; }
+  .filete { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 20px auto; color: var(--rubrica); }
+  .filete::before, .filete::after { content: ""; height: 1px; width: 160px; background: currentColor; opacity: .6; }
+  .filete.corto { margin: 12px auto; }
+
+  .prosa { font-size: 32px; line-height: 1.5; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .prosa p + p { text-indent: 1.4em; margin-top: 4px; }
+  .capitular::first-letter {
+    float: left; font-family: var(--capitales); color: var(--rubrica);
+    font-size: 118px; line-height: .82; padding: 10px 14px 0 0;
+  }
+
+  /* Glosas al margen */
+  .con-glosas { display: grid; grid-template-columns: 1fr 340px; gap: 56px; }
+  .glosas { font-size: 21px; line-height: 1.4; color: var(--tinta-suave); border-left: 1px solid rgba(154, 47, 31, .4); padding-left: 22px; }
+  .glosas p { margin-bottom: 18px; }
+  .glosas b { font-weight: 500; color: var(--rubrica); font-family: var(--versalitas); letter-spacing: .1em; }
+  .glosas i[lang="en"] { color: var(--tinta); }
+  .glosas.apretadas { font-size: 19.5px; }
+  .glosas.apretadas p { margin-bottom: 13px; }
+
+  /* ── Grecas ── */
+  .greca { height: 26px; }
+  .greca svg { display: block; width: 100%; height: 100%; }
+
+  /* Sello de Jano (máscara sobre la imagen de 1517) */
+  .sello {
+    -webkit-mask: url(img/jano_mask.png) center / contain no-repeat;
+            mask: url(img/jano_mask.png) center / contain no-repeat;
+  }
+  .sello.dorado { background: linear-gradient(150deg, var(--oro-claro), var(--oro) 40%, var(--oro-oscuro) 70%, var(--oro)); }
+  .sello.tinta { background: var(--tinta); }
+  .sello.rojo { background: var(--rubrica); }
+
+  /* Escudos de las instituciones, estampados como el sello */
+  .escudos { display: flex; align-items: center; justify-content: center; gap: 44px; margin-top: 24px; }
+  .escudo { display: block; height: 72px; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; background: var(--tinta); }
+  .escudo.unam { width: 64px; -webkit-mask-image: url(img/logo_unam.png); mask-image: url(img/logo_unam.png); }
+  .escudo.fcpys { width: 72px; -webkit-mask-image: url(img/logo_fcpys.png); mask-image: url(img/logo_fcpys.png); }
+  .escudo.fca { width: 76px; -webkit-mask-image: url(img/logo_fca.png); mask-image: url(img/logo_fca.png); }
+  .escudo.rc51 { width: 184px; height: 49px; -webkit-mask-image: url(img/logo_rc51.png); mask-image: url(img/logo_rc51.png); }
+  .cubierta .escudo { background: linear-gradient(150deg, var(--oro-claro), var(--oro) 40%, var(--oro-oscuro) 70%, var(--oro)); }
+
+  /* ── Cubierta ── */
+  .cubierta .marco {
+    position: absolute; inset: 44px;
+    border: 3px solid var(--oro); outline: 1px solid var(--oro); outline-offset: -14px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.3);
+  }
+  .cubierta .greca { position: absolute; left: 92px; right: 92px; }
+  .cubierta .greca.arriba { top: 92px; }
+  .cubierta .greca.abajo { bottom: 92px; }
+  .cubierta .centro {
+    position: absolute; inset: 140px 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  }
+  .cubierta .coleccion { font-size: 24px; letter-spacing: .4em; }
+  .cubierta h1 { font-family: var(--capitales); font-weight: 600; font-size: 88px; letter-spacing: .06em; line-height: 1.05; margin-top: 20px; }
+  .cubierta .sub { font-style: italic; font-size: 34px; margin-top: 16px; max-width: 1050px; line-height: 1.25; }
+  .cubierta .sello { width: 104px; height: 104px; margin: 22px 0 18px; }
+  .cubierta .autor { font-family: var(--capitales); font-size: 32px; letter-spacing: .22em; }
+  /* Marbete de biblioteca pegado sobre la tela, con el código de la ponencia */
+  .marbete {
+    position: absolute; right: 100px; bottom: 132px; width: 178px; padding: 13px 13px 10px; text-align: center; color: var(--tinta);
+    box-shadow: 0 4px 14px rgba(0,0,0,.5), inset 0 0 0 1px rgba(43,36,29,.5), inset 0 0 0 5px var(--papel), inset 0 0 0 6px rgba(43,36,29,.3);
+  }
+  .marbete img { display: block; width: 150px; height: 150px; margin: 0 auto; }
+  .marbete span { display: block; font-family: var(--versalitas); font-size: 16px; letter-spacing: .14em; line-height: 1.25; margin-top: 4px; }
+
+  /* ── Portadilla ── */
+  .portadilla .caja { display: flex; flex-direction: column; align-items: center; text-align: center; top: 80px; bottom: 64px; }
+  .portadilla .autor { font-family: var(--capitales); font-size: 30px; letter-spacing: .3em; }
+  .portadilla h1 { font-family: var(--capitales); font-weight: 400; font-size: 78px; letter-spacing: .05em; color: var(--rubrica); margin-top: 52px; line-height: 1.05; }
+  .portadilla .sub { font-style: italic; font-size: 34px; margin-top: 16px; color: var(--tinta-suave); max-width: 1000px; line-height: 1.3; }
+  .portadilla .ocasion { font-size: 27px; line-height: 1.45; margin-top: 26px; max-width: 980px; }
+  .portadilla .sello { width: 110px; height: 110px; margin-top: auto; }
+  .portadilla .editorial { font-family: var(--versalitas); font-size: 25px; letter-spacing: .2em; margin-top: 18px; }
+  .portadilla .facultades { font-family: var(--versalitas); font-size: 19px; letter-spacing: .08em; color: var(--tinta-suave); margin-top: 4px; }
+  .portadilla .fecha { font-size: 22px; color: var(--tinta-suave); margin-top: 4px; letter-spacing: .1em; }
+  .portadilla .qr { position: absolute; right: 150px; bottom: 70px; width: 170px; }
+
+  /* ── Códigos QR impresos ── */
+  .qr { text-align: center; }
+  .qr img { display: block; width: 150px; height: 150px; margin: 0 auto; }
+  .qr .leyenda { font-size: 17px; line-height: 1.3; color: var(--tinta-suave); margin-top: 6px; }
+  .qr .leyenda b { display: block; font-family: var(--versalitas); font-weight: 500; letter-spacing: .12em; color: var(--rubrica); font-size: 17px; }
+  .qr.chico img { width: 120px; height: 120px; }
+
+  /* ── Índice ── */
+  .indice ol { list-style: none; max-width: 1060px; margin: 24px auto 0; font-size: 32px; }
+  .indice li { display: flex; align-items: baseline; gap: 18px; padding: 10px 0; }
+  .indice .num { font-family: var(--capitales); color: var(--rubrica); width: 70px; text-align: right; flex: none; }
+  .indice .t { flex: none; max-width: 780px; }
+  .indice .t em { color: var(--tinta-suave); }
+  .indice .puntos { flex: 1; border-bottom: 2px dotted rgba(43,36,29,.45); transform: translateY(-8px); }
+  .indice .pag { width: 40px; text-align: right; }
+  .indice li.menor { font-size: 27px; padding: 6px 0; }
+
+  /* ── Apertura de libro con lámina ── */
+  .apertura { display: grid; grid-template-columns: 820px 1fr; }
+  .apertura .lamina { padding: 70px 30px 56px 80px; display: flex; flex-direction: column; }
+  .lamina figure { flex: 1; display: flex; flex-direction: column; }
+  .lamina .grabado {
+    flex: 1; border: 1px solid rgba(43,36,29,.55); outline: 1px solid rgba(43,36,29,.35); outline-offset: 7px;
+    background-size: cover; background-position: center; mix-blend-mode: multiply; filter: sepia(.35) contrast(1.05);
+  }
+  .lamina .grabado.foto { mix-blend-mode: normal; filter: sepia(.15); }
+  .lamina figcaption { margin-top: 22px; text-align: center; font-size: 21px; color: var(--tinta-suave); line-height: 1.35; }
+  .lamina figcaption .versalitas { color: var(--rubrica); font-size: 21px; display: block; margin-bottom: 4px; }
+  .apertura .texto { padding: 110px 100px 80px 70px; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+  .apertura .libro { font-family: var(--versalitas); font-size: 28px; letter-spacing: .3em; color: var(--tinta-suave); }
+  .apertura .numeral { font-family: var(--capitales); font-size: 130px; color: var(--rubrica); line-height: 1; margin: 6px 0 10px; }
+  .apertura h2 { font-family: var(--capitales); font-weight: 400; font-size: 56px; letter-spacing: .05em; line-height: 1.12; }
+  .apertura .tema { font-style: italic; font-size: 30px; color: var(--tinta-suave); margin-top: 14px; }
+  .epigrafe { margin: 40px auto 0; max-width: 560px; text-align: right; font-size: 25px; line-height: 1.42; }
+  .epigrafe .en { font-style: italic; }
+  .epigrafe .es { font-size: 22px; color: var(--tinta-suave); margin-top: 8px; }
+  .epigrafe cite { display: block; font-style: normal; margin-top: 10px; font-family: var(--versalitas); letter-spacing: .1em; font-size: 21px; color: var(--tinta-suave); }
+
+  /* Apertura sobre tela (Libro V) */
+  .apertura.tela .medallon { display: grid; place-items: center; }
+  .apertura.tela .medallon .sello { width: 520px; height: 520px; }
+  .apertura.tela .libro, .apertura.tela .tema, .apertura.tela .epigrafe .es, .apertura.tela cite { color: var(--oro-claro); opacity: .85; }
+  .apertura.tela .numeral, .apertura.tela h2, .apertura.tela .epigrafe .en { color: var(--oro); }
+  .apertura.tela .filete { color: var(--oro); }
+
+  /* ── Cita bilingüe en páginas enfrentadas ── */
+  .bilingue { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+  .bilingue > div { padding: 110px 100px 120px; position: relative; display: flex; flex-direction: column; justify-content: center; }
+  .bilingue .original { border-right: 1px solid rgba(43,36,29,.18); box-shadow: inset -40px 0 60px -40px rgba(90,65,30,.25); }
+  .bilingue .lengua { font-family: var(--versalitas); font-size: 21px; letter-spacing: .24em; color: var(--tinta-suave); text-align: center; margin-bottom: 28px; }
+  .bilingue blockquote { font-size: 29px; line-height: 1.5; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .bilingue .original blockquote { font-style: italic; color: var(--tinta-suave); }
+  .bilingue .ref { margin-top: 26px; text-align: center; font-size: 22px; color: var(--tinta-suave); }
+  .bilingue .folio-l, .bilingue .folio-r { position: absolute; bottom: 44px; font-size: 24px; }
+  .bilingue .folio-l { left: 100px; } .bilingue .folio-r { right: 100px; }
+
+  /* ── Florilegio: citas breves con su traducción ── */
+  .florilegio { margin-top: 10px; counter-reset: flor; }
+  .flor { display: grid; grid-template-columns: 56px 1fr 1fr; column-gap: 34px; padding: 20px 0 16px; border-bottom: 1px solid var(--filete); counter-increment: flor; }
+  .flor::before { content: counter(flor, upper-roman); font-family: var(--capitales); color: var(--rubrica); font-size: 30px; text-align: right; }
+  .flor:only-child::before { content: "❧"; font-family: var(--serif); }
+  .flor .en { font-style: italic; color: var(--tinta-suave); font-size: 26px; line-height: 1.4; }
+  .flor .es { font-size: 31px; line-height: 1.36; }
+  .flor cite { grid-column: 2 / -1; text-align: right; font-style: normal; font-size: 20px; color: var(--tinta-suave); margin-top: 8px; letter-spacing: .02em; }
+  .florilegio + .remate { margin-top: 26px; }
+  .remate { text-align: center; font-style: italic; font-size: 30px; color: var(--rubrica); line-height: 1.35; }
+  /* Variante apretada para citas largas */
+  .florilegio.compacto .flor { padding: 14px 0 12px; column-gap: 30px; }
+  .florilegio.compacto .en { font-size: 22px; line-height: 1.38; }
+  .florilegio.compacto .es { font-size: 27px; line-height: 1.33; }
+  .florilegio.compacto .flor cite { font-size: 19px; margin-top: 6px; }
+  .florilegio.compacto + .remate { margin-top: 18px; font-size: 27px; }
+  .florilegio.medio .flor { padding: 15px 0 12px; }
+  .florilegio.medio .en { font-size: 24px; line-height: 1.38; }
+  .florilegio.medio .es { font-size: 29px; line-height: 1.34; }
+  .florilegio.medio + .remate { margin-top: 16px; font-size: 28px; }
+
+  /* Cita breve centrada */
+  .breve { max-width: 1120px; margin: 0 auto; text-align: center; }
+  .breve .en { font-style: italic; font-size: 25px; color: var(--tinta-suave); line-height: 1.4; }
+  .breve .es { font-size: 31px; line-height: 1.38; margin-top: 8px; }
+  .breve cite { display: block; font-style: normal; font-size: 21px; color: var(--tinta-suave); margin-top: 8px; }
+
+  /* Cita larga a la izquierda, con su traducción debajo */
+  .larga { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .larga + .larga { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--filete); }
+  .larga .en { font-style: italic; font-size: 22px; line-height: 1.4; color: var(--tinta-suave); }
+  .larga .es { font-size: 27.5px; line-height: 1.38; margin-top: 8px; }
+  .larga cite { display: block; text-align: right; font-style: normal; font-size: 19px; color: var(--tinta-suave); margin-top: 6px; }
+
+  /* ── Rasgos (cuatro pilares) ── */
+  .rasgos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 46px; }
+  .rasgo { border-top: 2px solid var(--tinta); padding-top: 16px; text-align: center; }
+  .rasgo .n { font-family: var(--capitales); color: var(--rubrica); font-size: 34px; }
+  .rasgo h3 { font-family: var(--versalitas); font-weight: 500; font-size: 28px; letter-spacing: .08em; margin: 4px 0 10px; line-height: 1.2; }
+  .rasgo p { font-size: 26px; line-height: 1.36; color: var(--tinta-suave); }
+  .rasgos.tres-sentidos { grid-template-columns: repeat(3, 1fr); margin-top: 14px; gap: 34px; }
+  .rasgos.tres-sentidos .rasgo { padding-top: 10px; }
+  .rasgos.tres-sentidos .rasgo h3 { font-size: 25px; margin: 2px 0 6px; }
+  .rasgos.tres-sentidos .rasgo p { font-size: 22px; line-height: 1.3; }
+  .rasgos.tres-sentidos .rasgo.fuerte { border-top: 4px double var(--rubrica); }
+  .rasgos.tres-sentidos .rasgo.fuerte h3 { color: var(--rubrica); }
+  .rasgos.tres-sentidos .rasgo.fuerte p { color: var(--tinta); }
+
+  /* ── Dos columnas con eje ── */
+  .contraste { display: grid; grid-template-columns: 1fr 70px 1fr; margin-top: 26px; }
+  .contraste .col h3 { font-family: var(--capitales); font-weight: 400; font-size: 34px; text-align: center; letter-spacing: .04em; }
+  .contraste .col .quien { text-align: center; font-style: italic; font-size: 23px; color: var(--tinta-suave); margin: 4px 0 18px; }
+  .contraste .col ul { list-style: none; font-size: 26px; line-height: 1.38; }
+  .contraste .col li { padding-left: 34px; position: relative; margin-bottom: 14px; }
+  .contraste .col li::before { content: "❧"; position: absolute; left: 0; color: var(--rubrica); font-size: 22px; top: 4px; }
+  .contraste .eje { display: flex; flex-direction: column; align-items: center; }
+  .contraste .eje::before, .contraste .eje::after { content: ""; flex: 1; width: 1px; background: rgba(154,47,31,.55); }
+  .contraste .eje span { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--versalitas); letter-spacing: .3em; font-size: 20px; color: var(--rubrica); padding: 14px 0; }
+  .contraste.apretado { grid-template-columns: 1fr 56px 1fr; margin-top: 14px; }
+  .contraste.apretado .col h3 { font-size: 31px; }
+  .contraste.apretado .col .quien { font-size: 21px; margin: 2px 0 12px; }
+  .contraste.apretado .col ul { font-size: 23.5px; line-height: 1.34; }
+  .contraste.apretado .col li { margin-bottom: 10px; padding-left: 30px; }
+
+  /* ── Tabla de marcos (Entman) ── */
+  table.marcos { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 25px; line-height: 1.3; table-layout: fixed; }
+  .marcos col.fila { width: 200px; }
+  .marcos th { font-weight: 400; padding: 8px 16px 12px; vertical-align: bottom; }
+  .marcos thead th { font-family: var(--capitales); font-size: 27px; letter-spacing: .04em; border-bottom: 2px solid var(--tinta); }
+  .marcos thead th small { display: block; font-family: var(--serif); font-style: italic; font-size: 20px; letter-spacing: 0; color: var(--tinta-suave); margin-top: 4px; }
+  .marcos tbody th { text-align: left; font-family: var(--versalitas); font-size: 22px; letter-spacing: .12em; color: var(--rubrica); width: 200px; vertical-align: top; padding-top: 14px; }
+  .marcos td { padding: 12px 16px; vertical-align: top; border-bottom: 1px solid var(--filete); }
+  .marcos td + td { border-left: 1px solid var(--filete); }
+  .marcos tbody tr:last-child td { border-bottom: 2px solid var(--tinta); }
+  .monroe { margin-top: 14px; text-align: center; font-size: 22px; line-height: 1.4; }
+  table.marcos.estrecha { font-size: 23px; margin-top: 12px; }
+  .marcos.estrecha thead th { font-size: 25px; padding-bottom: 8px; }
+  .marcos.estrecha td { padding: 9px 14px; }
+  .marcos.estrecha tbody th { padding-top: 11px; }
+  .monroe b { font-family: var(--versalitas); font-weight: 500; letter-spacing: .1em; color: var(--rubrica); }
+
+  /* ── Lámina a plana completa ── */
+  .plana { padding: 64px 150px 40px; display: flex; flex-direction: column; }
+  .plana figure { flex: 1; display: flex; flex-direction: column; }
+  .plana figcaption { font-size: 24px; margin-top: 18px; }
+
+  /* ── Templo ── */
+  .templo { display: block; margin: 0 auto; width: 1180px; height: 560px; }
+  .con-templo { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; height: calc(100% - 60px); }
+  .con-templo .templo { width: 100%; height: auto; }
+
+  /* ── Escalinata de órdenes de observación ── */
+  .observadores { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 18px; }
+  .observadores .flor { grid-template-columns: 1fr; }
+  .observadores .flor::before { display: none; }
+  .observadores .flor cite { grid-column: 1; }
+  .escalinata { display: flex; flex-direction: column-reverse; gap: 12px; justify-content: flex-end; padding-top: 26px; }
+  .peldano { border: 1px solid var(--tinta); border-left: 6px solid var(--rubrica); padding: 12px 18px; background: rgba(255,255,255,.25); }
+  .peldano:nth-child(2) { margin-left: 60px; }
+  .peldano:nth-child(3) { margin-left: 120px; }
+  .peldano .orden { font-family: var(--versalitas); letter-spacing: .12em; color: var(--rubrica); font-size: 21px; }
+  .peldano p { font-size: 27px; line-height: 1.3; }
+  .programa { display: flex; flex-direction: column; gap: 12px; }
+  .programa .cab-prog { font-family: var(--versalitas); letter-spacing: .12em; color: var(--rubrica); font-size: 21px; line-height: 1.3; }
+  .programa .peldano { margin-left: 0; padding: 10px 14px; }
+  .programa .peldano p { font-size: 21.5px; line-height: 1.32; }
+
+  /* ── Glosario ── */
+  .glosario { display: grid; grid-template-columns: 1fr 1fr; column-gap: 60px; row-gap: 20px; margin-top: 22px; }
+  .glosario .entrada { border-top: 1px solid var(--filete); padding-top: 12px; }
+  .glosario dt { font-size: 30px; }
+  .glosario dt b { font-family: var(--versalitas); font-weight: 500; letter-spacing: .06em; color: var(--rubrica); }
+  .glosario dd { font-size: 24px; line-height: 1.36; color: var(--tinta-suave); margin-top: 4px; }
+  .glosario dd i { color: var(--tinta); }
+
+  /* ── Tres operaciones ── */
+  .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 30px; }
+  .op { text-align: center; padding: 0 6px; }
+  .op .n { font-family: var(--capitales); font-size: 64px; color: var(--rubrica); line-height: 1; }
+  .op h3 { font-family: var(--capitales); font-weight: 400; font-size: 38px; letter-spacing: .06em; margin: 8px 0 6px; }
+  .op .caso { font-style: italic; font-size: 26px; color: var(--tinta-suave); }
+  .op p { font-size: 30px; line-height: 1.36; margin-top: 16px; }
+  .op .autores { font-family: var(--versalitas); letter-spacing: .1em; font-size: 20px; color: var(--tinta-suave); margin-top: 12px; }
+  .tesis { margin: 44px auto 0; max-width: 1160px; text-align: center; font-size: 33px; line-height: 1.42; border-top: 2px solid var(--tinta); border-bottom: 1px solid var(--tinta); padding: 18px 10px; }
+  /* Tres lentes filosóficas */
+  .entrada-marco { font-size: 31px; line-height: 1.45; text-align: center; max-width: 1160px; margin: 4px auto 0; }
+  .entrada-marco b { font-weight: 500; color: var(--rubrica); }
+  .tres.lentes { margin-top: 34px; gap: 46px; }
+  .lentes .op { border-top: 1px solid var(--filete); padding-top: 14px; }
+  .lentes .n { font-family: var(--serif); font-style: italic; font-size: 46px; }
+  .lentes h3 { font-size: 31px; }
+  .lentes p { font-size: 26px; margin-top: 10px; }
+  .tres.lentes + .tesis { margin-top: 34px; font-size: 31px; }
+
+  /* ── Facsímiles de la ponencia de Rabat ── */
+  .facsimil { background: #fff; padding: 8px; box-shadow: 0 6px 18px rgba(60, 40, 10, .3); }
+  .facsimil img { display: block; width: 100%; filter: sepia(.12); }
+  .facsimil.izq { transform: rotate(-1.8deg); }
+  .facsimil.der { transform: rotate(1.4deg); }
+  .rabat { display: grid; grid-template-columns: 440px 1fr; gap: 50px; margin-top: 20px; }
+  .rabat .recortes figcaption, .al-margen figcaption { font-size: 17px; color: var(--tinta-suave); text-align: center; margin-top: 12px; line-height: 1.3; }
+  table.ejemplos { margin-top: 0; font-size: 24px; }
+  .ejemplos col.fila { width: 210px; }
+  .ejemplos tbody th { width: 210px; padding-top: 12px; }
+  .ejemplos td { padding: 10px 14px; }
+  .ejemplos td small { display: block; font-style: italic; font-size: 19px; color: var(--tinta-suave); margin-top: 2px; }
+  .tres-preguntas { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: center; font-size: 24px; line-height: 1.3; font-style: italic; color: var(--rubrica); }
+  .tres-preguntas span { border-top: 1px solid rgba(154,47,31,.5); padding-top: 8px; }
+  .con-facsimil { display: grid; grid-template-columns: 1fr 190px; gap: 48px; align-items: center; }
+
+  /* ── Explicit ── */
+  .explicit .caja { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .explicit .rotulo { font-family: var(--versalitas); letter-spacing: .4em; font-size: 26px; color: var(--rubrica); }
+  .explicit .en { font-style: italic; font-size: 25px; line-height: 1.45; color: var(--tinta-suave); max-width: 1080px; margin-top: 30px; }
+  .explicit .es { font-size: 34px; line-height: 1.42; max-width: 1200px; margin-top: 22px; }
+  .explicit cite { font-style: normal; font-size: 22px; color: var(--tinta-suave); margin-top: 18px; display: block; }
+
+  /* ── Videos ── */
+  .videos .col { text-align: center; }
+  .videos .col .breve .en { font-size: 23px; }
+  .videos .col .breve .es { font-size: 28px; }
+  .videos .qr { margin-top: 22px; }
+  .videos .qr .leyenda { font-size: 18px; }
+
+  /* ── Referencias ── */
+  .referencias { columns: 2; column-gap: 64px; margin-top: 22px; font-size: 21px; line-height: 1.34; }
+  .referencias p { padding-left: 1.6em; text-indent: -1.6em; margin-bottom: 12px; break-inside: avoid; }
+  .referencias.chica { font-size: 19px; }
+  .referencias.chica p { margin-bottom: 10px; }
+
+  /* ── Colofón ── */
+  .colofon .caja { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; left: 380px; right: 380px; }
+  .colofon .texto { max-width: 820px; font-size: 25px; line-height: 1.5; font-style: italic; }
+  .colofon .texto .versalitas { font-style: normal; }
+  .colofon .sello { width: 96px; height: 96px; margin: 0 0 22px; }
+  .colofon .contacto { font-size: 25px; color: var(--tinta-suave); letter-spacing: .04em; line-height: 1.4; }
+  .colofon .correo { font-size: 44px; color: var(--tinta); margin-top: 8px; font-feature-settings: "lnum"; letter-spacing: .01em; }
+  .colofon .qr { position: absolute; top: 50%; transform: translateY(-50%); width: 210px; }
+  .colofon .qr img { width: 180px; height: 180px; }
+  .colofon .qr .leyenda { font-size: 18px; }
+  .colofon .qr.izq { left: 150px; }
+  .colofon .qr.der { right: 150px; }
+
+  /* ── Interfaz del ponente ── */
+  aside.notas { display: none; }
+  #barra { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--oro); transition: width .3s; z-index: 11; }
+  #ayuda {
+    position: fixed; top: 14px; right: 16px; font: 13px/1.4 system-ui, sans-serif; color: rgba(232,225,210,.6);
+    background: rgba(12,15,22,.6); padding: 6px 10px; border-radius: 6px; z-index: 12; transition: opacity .6s;
+  }
+  body.quieto #ayuda { opacity: 0; }
+  #notas {
+    position: fixed; left: 0; right: 0; bottom: 0; max-height: 38vh; overflow: auto;
+    background: rgba(12, 15, 22, .94); color: #e8e1d2; font: 18px/1.5 system-ui, sans-serif;
+    padding: 14px 24px 18px; border-top: 2px solid var(--oro); display: none; z-index: 10;
+  }
+  body.con-notas #notas { display: block; }
+  .cab { color: var(--oro); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; gap: 20px; }
+  .reloj { font-variant-numeric: tabular-nums; }
+  .reloj.ambar { color: #f0b54a; } .reloj.rojo { color: #ff6b5a; }
+  #texto-notas p, #nota-grande p { margin-bottom: .6em; }
+  /* Párrafos que pueden omitirse si el tiempo aprieta */
+  #texto-notas .opc, #nota-grande .opc { opacity: .62; border-left: 3px solid rgba(200,163,90,.6); padding-left: 12px; }
+
+  /* Vista del ponente (?presentador) */
+  #ponente { display: none; }
+  body.presentador #ayuda, body.presentador #notas, body.presentador #barra { display: none !important; }
+  body.presentador #ponente {
+    display: grid; position: fixed; inset: 0; grid-template-columns: 62fr 38fr; grid-template-rows: auto 1fr;
+    color: #e8e1d2; font: 20px/1.5 system-ui, sans-serif; pointer-events: none;
+  }
+  #ponente .barra-sup { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; padding: 14px 24px; border-bottom: 1px solid rgba(200,163,90,.4); pointer-events: auto; }
+  #ponente .barra-sup .reloj { font-size: 44px; font-weight: 600; }
+  #ponente .barra-sup .meta { color: var(--oro); font-size: 16px; letter-spacing: .1em; text-transform: uppercase; }
+  #ponente .barra-sup button { font: inherit; font-size: 15px; background: none; color: var(--oro); border: 1px solid var(--oro); border-radius: 6px; padding: 4px 12px; cursor: pointer; margin-left: 10px; }
+  #ponente .lado { grid-column: 2; padding: 20px 26px; overflow: auto; pointer-events: auto; border-left: 1px solid rgba(200,163,90,.3); }
+  #ponente .siguiente { color: var(--oro); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+  #ponente .siguiente b { color: #e8e1d2; text-transform: none; letter-spacing: 0; font-size: 19px; font-weight: 500; }
+  #ponente #nota-grande { font-size: 23px; line-height: 1.55; }
+  #ponente #nota-grande .marca { color: var(--oro); font-weight: 600; }
+  .notas .marca, #texto-notas .marca { color: var(--oro); font-weight: 600; }
+
+  /* ── Impresión / PDF de respaldo: una diapositiva por página ── */
+  @media print {
+    @page { size: 1600px 900px; margin: 0; }
+    body { background: none; overflow: visible; }
+    #escenario { position: static; transform: none !important; }
+    .slide { position: relative; width: var(--W); height: var(--H); page-break-after: always; break-after: page; animation: none; }
+    #notas, #barra, #ayuda, #ponente { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Piezas SVG reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="meandro-oro" width="24" height="26" patternUnits="userSpaceOnUse">
+      <path d="M0 23 H24 M20 23 V3 H4 V18 H15 V8 H9 V13" fill="none" stroke="#c8a35a" stroke-width="2.2" stroke-linecap="square"/>
+    </pattern>
+    <pattern id="meandro-rojo" width="24" height="26" patternUnits="userSpaceOnUse">
+      <path d="M0 23 H24 M20 23 V3 H4 V18 H15 V8 H9 V13" fill="none" stroke="#9a2f1f" stroke-width="2.2" stroke-linecap="square"/>
+    </pattern>
+  </defs>
+</svg>
+
+<div id="escenario">
+
+  <!-- ═════════ CUBIERTA ═════════ -->
+  <section class="slide tela cubierta" data-tipo="cubierta" data-titulo="Cubierta">
+    <div class="marco"></div>
+    <div class="greca arriba"><svg><rect width="100%" height="100%" fill="url(#meandro-oro)"/></svg></div>
+    <div class="centro">
+      <div class="coleccion oro versalitas">Volumen XXXIX</div>
+      <h1 class="oro">La política<br>del encuadre</h1>
+      <div class="sub oro">Geopolítica crítica y <i>framing</i> en la transformación del orden internacional</div>
+      <div class="sello dorado"></div>
+      <div class="autor oro">Jorge Cardiel Herrera</div>
+      <div class="escudos" role="img" aria-label="Escudos de la UNAM, la Facultad de Ciencias Políticas y Sociales, la Facultad de Contaduría y Administración y el Comité de Investigación 51 de la ISA">
+        <span class="escudo unam"></span><span class="escudo fcpys"></span><span class="escudo fca"></span><span class="escudo rc51"></span>
+      </div>
+    </div>
+    <div class="marbete papel"><img src="img/qr_ponencia.svg" alt="Código QR de esta presentación en línea"><span>Esta ponencia<br>en línea</span></div>
+    <div class="greca abajo"><svg><rect width="100%" height="100%" fill="url(#meandro-oro)"/></svg></div>
+    <aside class="notas"><p><span class="marca">≈ 10 s.</span> Muchas gracias por la presentación. En la etiqueta de la cubierta está el código para abrir esta presentación en su teléfono, con todas las referencias.</p></aside>
+  </section>
+
+  <!-- ═════════ PORTADILLA ═════════ -->
+  <section class="slide papel portadilla" data-tipo="portadilla" data-titulo="Portadilla">
+    <div class="caja">
+      <div class="autor">Jorge Cardiel Herrera</div>
+      <h1>La política del encuadre</h1>
+      <div class="sub">Geopolítica crítica y <i>framing</i> en la transformación del orden internacional</div>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <div class="ocasion">Ponencia presentada en la mesa VE36, <i>Geopolítica, discurso y poder en el reordenamiento internacional</i>, del XXXIX Congreso Anual de la Asociación Mexicana de Estudios Internacionales</div>
+      <div class="sello rojo"></div>
+      <div class="editorial">Universidad Nacional Autónoma de México</div>
+      <div class="facultades">Facultad de Contaduría y Administración · Facultad de Ciencias Políticas y Sociales</div>
+      <div class="fecha">Salón 14 · 23 de octubre de 2026</div>
+    </div>
+    <div class="qr"><img src="img/qr_ponencia.svg" alt="Código QR de esta presentación en línea"><div class="leyenda"><b>Esta ponencia</b>socyb.github.io/geopolis/amei2026</div></div>
+    <aside class="notas">
+      <p><span class="marca">≈ 25 s · marca 00:25.</span> Buenas tardes, y gracias a la mesa. Les propongo leer esta ponencia como un libro breve: cinco libros y un epílogo, cada uno bajo una figura mitológica.</p>
+      <p>Una precisión que vale para todo lo que sigue: cuando digo <i>encuadre</i> traduzco <i>framing</i>, la operación; cuando digo <i>marco</i> traduzco <i>frame</i>, la estructura que resulta de ella.</p>
+    </aside>
+  </section>
+
+  <!-- ═════════ ARGUMENTO ═════════ -->
+  <section class="slide papel" data-tipo="pagina" data-cornisa="Argumento" data-titulo="Argumento: la tesis">
+    <div class="caja centrada">
+      <h2 class="titulo">Argumento</h2>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <div class="con-glosas">
+        <div class="prosa" style="font-size:36px">
+          <p class="capitular">Los encuadres no se limitan a describir la realidad geopolítica: la producen. Quien fija el marco decide qué problema existe, quién lo causó, qué juicio merece y qué remedio resulta pensable. En un mundo policéntrico, esa capacidad es un recurso de poder de primer orden y un observatorio privilegiado de la mutación del orden global.</p>
+        </div>
+        <div class="glosas apretadas">
+          <p><b>Términos.</b> <i>Encuadre</i> traduce <i lang="en">framing</i>, la operación; <i>marco</i> traduce <i lang="en">frame</i>, la estructura que resulta de ella.</p>
+          <p><b>Método.</b> Lectura sistemática de Ó Tuathail (1996), Dalby (1991) y Agnew (2003), cruzada con Goffman (1974/1986) y Entman (1993).</p>
+          <p><b>Corpus.</b> Decretos, designaciones y declaraciones de actores estratégicos, 2025–2026.</p>
+          <p><b>Antecedente.</b> Ponencia presentada en el 5.º Foro de Sociología de la ISA, Rabat, 2025.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notas">
+      <p><span class="marca">≈ 45 s · marca 01:10.</span> Mi tesis es ésta. Los encuadres no se limitan a describir la realidad geopolítica: la producen. Quien fija el marco decide qué problema existe, quién lo causó, qué juicio merece y qué remedio resulta pensable. En un mundo policéntrico, esa capacidad es un recurso de poder de primer orden, y también un observatorio privilegiado para ver cómo muta el orden global.</p>
+      <p>Con las dos palabras del resumen: el encuadre delimita lo decible y lo posible. Para sostenerlo cruzo dos tradiciones que casi no se citan entre sí, la geopolítica crítica y el análisis de marcos.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-cornisa="Argumento" data-titulo="Lo que el marco trae consigo">
+    <div class="caja centrada">
+      <h2 class="titulo">Lo que el marco trae consigo</h2>
+      <div class="filete corto"><span class="fleuron">❧</span></div>
+      <p class="entrada-marco">Un marco nunca llega vacío: trae ya un <b>diagnóstico</b>, un <b>planteamiento del problema</b>, algo equivalente a las <b>hipótesis</b> de una investigación y una <b>forma de preguntar</b>.</p>
+      <div class="tres lentes">
+        <div class="op"><div class="n" lang="de">Entbergen</div><h3>Desocultar</h3><div class="caso">Heidegger · <span lang="grc">ἀλήθεια</span></div><p>Hacer aparecer algo deja otras cosas en lo oculto.</p></div>
+        <div class="op"><div class="n">a priori</div><h3>Histórico</h3><div class="caso">Foucault</div><p>Las condiciones que hacen posible lo que una época puede decir y saber.</p></div>
+        <div class="op"><div class="n" lang="fr">lumière</div><h3>Régimen de luz</h3><div class="caso">Deleuze, sobre el dispositivo</div><p>Cada dispositivo distribuye lo visible y lo invisible.</p></div>
+      </div>
+      <p class="tesis">El marco no sólo responde preguntas: decide cuáles pueden hacerse.</p>
+    </div>
+    <div class="pie">Heidegger (1954), «Die Frage nach der Technik»; Foucault (1966, 1969); Deleuze (1989), «Qu’est-ce qu’un dispositif?».</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 45 s · marca 01:55.</span> Un marco nunca llega vacío. Trae ya un diagnóstico: un planteamiento del problema, algo equivalente a las hipótesis de una investigación, una forma de preguntar. Por eso no basta con discutir las respuestas; hay que mirar la pregunta.</p>
+      <p>Heidegger hablaría de un desocultar, <i>Entbergen</i>, la <i>aletheia</i> de los griegos: hacer aparecer algo deja otras cosas en lo oculto. Foucault, de un <i>a priori</i> histórico: las condiciones que hacen posible lo que una época puede decir y saber. Y Deleuze, leyendo a Foucault, de un régimen de luz: cada dispositivo reparte lo visible y lo invisible.</p>
+    </aside>
+  </section>
+
+  <!-- ═════════ ÍNDICE ═════════ -->
+  <section class="slide papel indice" data-tipo="pagina" data-cornisa="Índice" data-titulo="Índice">
+    <div class="caja">
+      <h2 class="titulo">Índice</h2>
+      <div class="filete corto"><span class="fleuron">❧</span></div>
+      <ol>
+        <li><span class="num">I</span><span class="t">Atlas, <em>o el mundo como algo dado</em></span><span class="puntos"></span><span class="pag" data-pag="libro-1"></span></li>
+        <li><span class="num">II</span><span class="t">Argos, <em>o quién mira el mapa</em></span><span class="puntos"></span><span class="pag" data-pag="libro-2"></span></li>
+        <li><span class="num">III</span><span class="t">Procusto, <em>o la cama del encuadre</em></span><span class="puntos"></span><span class="pag" data-pag="libro-3"></span></li>
+        <li><span class="num">IV</span><span class="t">El juicio de Paris, <em>o los observadores</em></span><span class="puntos"></span><span class="pag" data-pag="libro-4"></span></li>
+        <li><span class="num">V</span><span class="t">Jano, <em>o el orden que se reordena</em></span><span class="puntos"></span><span class="pag" data-pag="libro-5"></span></li>
+        <li class="menor"><span class="num">❧</span><span class="t">Epílogo: criticar y reencuadrar</span><span class="puntos"></span><span class="pag" data-pag="epilogo"></span></li>
+        <li class="menor"><span class="num">❧</span><span class="t">Referencias</span><span class="puntos"></span><span class="pag" data-pag="referencias"></span></li>
+      </ol>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 15 s · marca 02:10.</span> El recorrido va de la geografía que se toma como dada, Atlas, a quien la mira, Argos; luego al marco que la recorta, Procusto; a los observadores de observadores, Paris; y al orden que cambia de cara, Jano.</p></aside>
+  </section>
+
+  <!-- ═════════ LIBRO I · ATLAS ═════════ -->
+  <section class="slide papel recto apertura" id="libro-1" data-tipo="apertura" data-capitulo="Libro I · Atlas" data-titulo="Libro I · Atlas">
+    <div class="lamina">
+      <figure>
+        <div class="grabado" style="background-image:url(img/atlas.jpg); background-size: 128% auto; background-position: 50% 9%;"></div>
+        <figcaption><span class="versalitas">Lámina I</span>Atlas sostiene la esfera. Portada del <i>Atlas minor</i> de Nicolaes Visscher, Ámsterdam, ca. 1689. Rijksmuseum.</figcaption>
+      </figure>
+    </div>
+    <div class="texto">
+      <div class="libro">Libro</div>
+      <div class="numeral">I</div>
+      <h2>Atlas</h2>
+      <div class="tema">o el mundo como algo dado</div>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <blockquote class="epigrafe">
+        <div class="en" lang="en">«…the enhabitants tooke off his head, by cause they would not have their cuntrey discovered».</div>
+        <div class="es">«…los habitantes le cortaron la cabeza, porque no querían que su tierra fuese descubierta».</div>
+        <cite>Sir John Davis, 1609, cit. en Ó Tuathail, 1996, p. 1</cite>
+      </blockquote>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 25 s · marca 02:35.</span> Ó Tuathail abre su libro con esta escena. Hacia 1600, la Corona inglesa envía a un cartógrafo, Bartlett, a levantar el mapa del norte del Ulster. En Tirconnell le cortan la cabeza: no querían que su tierra fuera descubierta. Entendieron algo que la geopolítica clásica olvidó: el mapa no es inocente. Volveré a Bartlett al final.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="La imaginación geopolítica moderna (Agnew)">
+    <div class="caja">
+      <h2 class="titulo">La imaginación geopolítica moderna</h2>
+      <div class="filete corto"><span class="fleuron">❧</span></div>
+      <div class="breve">
+        <div class="en" lang="en">«It is a constructed view of the world, not a simple spontaneous vision that arises from simply looking out at the world with ‘common sense’».</div>
+        <div class="es">«Es una visión construida del mundo, no una simple visión espontánea que surge de mirar el mundo con “sentido común”».</div>
+        <cite>Agnew, 2003, p. 6</cite>
+      </div>
+      <div class="rasgos">
+        <div class="rasgo"><div class="n">I</div><h3>Ver el mundo como un todo</h3><p>El espacio global se vuelve visible y ordenable desde un centro.</p></div>
+        <div class="rasgo"><div class="n">II</div><h3>Convertir el tiempo en espacio</h3><p>Regiones «avanzadas» y «atrasadas» en un mismo mapa.</p></div>
+        <div class="rasgo"><div class="n">III</div><h3>Un mundo de Estados</h3><p>La «trampa territorial»: el poder sólo cabe en bloques de soberanía.</p></div>
+        <div class="rasgo"><div class="n">IV</div><h3>Perseguir la primacía</h3><p>«Unremitting competition for primacy»: competencia sin tregua.</p></div>
+      </div>
+    </div>
+    <div class="pie">Rasgos según los capítulos 2 a 5 de Agnew (2003); «trampa territorial», p. 51; «unremitting competition for primacy», p. 12.</div>
+    <aside class="notas"><p><span class="marca">≈ 40 s · marca 03:15.</span> Atlas no elige su carga: la recibe como un dato. Así trata la geopolítica clásica a la geografía y al poder estatal. John Agnew muestra que esa naturalidad es una imaginación histórica y europea, con cuatro rasgos: ver el mundo como un todo desde un centro; convertir el tiempo en espacio, con regiones avanzadas y atrasadas en un mismo mapa; pensar el poder sólo en bloques de soberanía, la trampa territorial; y competir sin tregua por la primacía. Si esta imaginación es construida, puede ser disputada.</p></aside>
+  </section>
+
+  <!-- ═════════ LIBRO II · ARGOS ═════════ -->
+  <section class="slide papel recto apertura" id="libro-2" data-tipo="apertura" data-capitulo="Libro II · Argos" data-titulo="Libro II · Argos">
+    <div class="lamina">
+      <figure>
+        <div class="grabado" style="background-image:url(img/juno.jpg); background-position: 42% 50%;"></div>
+        <figcaption><span class="versalitas">Lámina II</span>Juno coloca los ojos de Argos en la cola del pavo real. Grabado, ca. 1685–1732. Rijksmuseum.</figcaption>
+      </figure>
+    </div>
+    <div class="texto">
+      <div class="libro">Libro</div>
+      <div class="numeral">II</div>
+      <h2>Argos</h2>
+      <div class="tema">o quién mira el mapa</div>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <blockquote class="epigrafe">
+        <div class="en" lang="en">«How is it seen and scened, and to what end?»</div>
+        <div class="es">«¿Cómo se lo ve y se lo pone en escena, y con qué fin?»</div>
+        <cite>Ó Tuathail, 1996, p. 14</cite>
+      </blockquote>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 20 s · marca 03:35.</span> Argos era el guardián de cien ojos. Cuando muere, Juno pone sus ojos en la cola del pavo real: la mirada sobrevive como adorno. La geopolítica crítica hace lo inverso: le devuelve los ojos al que mira y pregunta cómo se ve y se pone en escena el mundo, y con qué fin.</p></aside>
+  </section>
+
+  <section class="slide papel bilingue-slide" data-tipo="libre" data-titulo="Ó Tuathail: la geografía como verbo">
+    <div class="bilingue">
+      <div class="original">
+        <div class="lengua">Texto original</div>
+        <blockquote lang="en">Geography is about power. […] Geography was not something already possessed by the earth but an active writing of the earth by an expanding, centralizing imperial state. It was not a noun but a verb, a geo-graphing, an earth-writing by ambitious endocolonizing and exocolonizing states who sought to seize space and organize it to fit their own cultural visions and material interests.</blockquote>
+        <div class="ref">Ó Tuathail, 1996, pp. 1–2</div>
+        <span class="folio-l"></span>
+      </div>
+      <div class="traduccion">
+        <div class="lengua">Traducción</div>
+        <blockquote>La geografía tiene que ver con el poder. […] La geografía no era algo que la tierra ya poseyera, sino una escritura activa de la tierra por parte de un Estado imperial que se expandía y se centralizaba. No era un sustantivo sino un verbo, un geo-grafiar, una escritura de la tierra a cargo de ambiciosos Estados endocolonizadores y exocolonizadores que buscaban apoderarse del espacio y organizarlo según sus propias visiones culturales y sus intereses materiales.</blockquote>
+        <div class="ref">Traducción propia</div>
+        <span class="folio-r"></span>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 30 s · marca 04:05.</span> Ó Tuathail lo dice así: la geografía tiene que ver con el poder. No es algo que la tierra ya posea, sino una escritura activa de la tierra a cargo de Estados que se expanden y se centralizan. No es un sustantivo sino un verbo: un geo-grafiar. Y si la geografía se escribe, la pregunta crítica es quién la escribe, desde dónde y para qué.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Florilegio crítico (Dalby, Ó Tuathail)">
+    <div class="caja">
+      <h2 class="titulo">Florilegio crítico</h2>
+      <div class="florilegio medio">
+        <div class="flor">
+          <div class="en" lang="en">«the essential moment of geopolitical discourse is the division of space into ‘our’ place and ‘their’ place»</div>
+          <div class="es">«el momento esencial del discurso geopolítico es la división del espacio en el lugar “nuestro” y el lugar “de ellos”»</div>
+          <cite>Dalby, 1991, p. 274</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«geographs are specifications of political reality that have political effect»</div>
+          <div class="es">«los gráficos o mapas del mundo [<i lang="en">geographs</i>] son especificaciones de la realidad política que tienen efectos políticos»</div>
+          <cite>Dalby, 1991, p. 274</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«[Critical geopolitics] problematizes the ‘is’ of ‘geography’ and ‘geopolitics’, their status as self-evident, natural, foundational, and eminently knowable realities»</div>
+          <div class="es">«[La geopolítica crítica] problematiza el “es” de la “geografía” y de la “geopolítica”: su estatus de realidades evidentes, naturales, fundacionales y eminentemente cognoscibles»</div>
+          <cite>Ó Tuathail, 1996, p. 52</cite>
+        </div>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 35 s · marca 04:40.</span> Tres citas para una sola idea. Para Simon Dalby, el gesto esencial del discurso geopolítico es partir el espacio en un lugar nuestro y un lugar de ellos. Y esos gráficos o mapas del mundo, lo que él llama <i>geographs</i>, especifican la realidad política y tienen efectos políticos. Ó Tuathail añade que lo crítico es problematizar el «es» de la geografía: su aire de realidad evidente, natural, fundacional.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Ningún mapa es neutral (ARTE; ONU)">
+    <div class="caja">
+      <h2 class="titulo">Ningún mapa es neutral</h2>
+      <div class="con-glosas" style="margin-top:6px">
+        <div>
+          <div class="florilegio compacto">
+            <div class="flor">
+              <div class="en" lang="de">«Ein sehr gewaltvolles Element in der Kartografie ist der Rahmen.»</div>
+              <div class="es">«Un elemento muy violento en la cartografía es el marco.»</div>
+              <cite>ARTE, 2024, 06:38</cite>
+            </div>
+            <div class="flor">
+              <div class="en" lang="de">«Jede Weltkarte muss entweder aufgeben, flächentreu oder winkeltreu oder längentreu zu sein.»</div>
+              <div class="es">«Todo mapamundi debe renunciar a ser fiel a la superficie, o fiel al ángulo o a la longitud.»</div>
+              <cite>ARTE, 2024, 02:42</cite>
+            </div>
+            <div class="flor">
+              <div class="en" lang="de">«Karten waren quasi oft die ersten Eroberer.»</div>
+              <div class="es">«Los mapas fueron los primeros conquistadores.»</div>
+              <cite>ARTE, 2024, 14:16</cite>
+            </div>
+          </div>
+          <p class="remate" style="margin-top:20px">Un mapa más justo no es un mapa verdadero: es otra decisión sobre qué conservar.</p>
+        </div>
+        <div class="glosas apretadas">
+          <p><b>ONU, 4 de septiembre de 2026.</b> La resolución A/80/L.104, <i lang="en">Correct the map</i>, impulsada por la Unión Africana, pide usar proyecciones de áreas iguales, en particular Equal Earth, donde importa el tamaño comparado de los continentes. 164 votos a favor, 1 en contra (Estados Unidos), 6 abstenciones.</p>
+          <p><b>Mercator.</b> Groenlandia parece del tamaño de África, que es unas catorce veces mayor.</p>
+          <div class="qr chico"><img src="img/qr_arte.svg" alt="Código QR del documental de ARTE"><div class="leyenda">ARTE, <i>¿Cuánto poder tienen los mapas?</i> (2024)</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pie">Citas del documental de ARTE en su versión original alemana y con los subtítulos en español de ARTE. Asamblea General de las Naciones Unidas (2026), GA/12779.</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 50 s · marca 05:30.</span> Un documental de ARTE, <i>¿Cuánto poder tienen los mapas?</i>, lo dice con una frase que podría servir de lema a esta ponencia: «un elemento muy violento en la cartografía es el marco». Lo que se pone en el centro, y lo que se pone arriba, es una decisión. Y todo mapamundi renuncia a algo: a ser fiel a la superficie, a los ángulos o a las distancias.</p>
+      <p>Por eso hay que leer bien lo que aprobó la Asamblea General de la ONU el 4 de septiembre: una resolución para «corregir el mapa», que pide proyecciones de áreas iguales, como Equal Earth. Escuché en los medios que por fin tendríamos un mapa verdadero. No es así: se da preeminencia al área sobre otros factores. Es un reencuadre, no una revelación.</p>
+      <p class="opc">Estados Unidos fue el único voto en contra. Su representante dijo que el texto no podía separarse de un proyecto ideológico más amplio y más radical.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Tres lugares donde se escribe la geopolítica (Dodds)">
+    <div class="caja">
+      <h2 class="titulo">Tres lugares donde se escribe la geopolítica</h2>
+      <div class="con-templo">
+        <svg class="templo" viewBox="0 0 1180 560" role="img" aria-label="Templo de tres columnas: geopolítica formal, práctica y popular, con sus híbridos entre columnas">
+          <defs><g id="col" stroke="#2b241d" fill="none">
+            <rect x="-70" y="184" width="140" height="18" stroke-width="2.5"/>
+            <path d="M-58 202 Q-70 214 -54 222 H54 Q70 214 58 202" stroke-width="2.5"/>
+            <rect x="-46" y="222" width="92" height="230" stroke-width="2.5"/>
+            <path d="M-30 226 V448 M-15 226 V448 M0 226 V448 M15 226 V448 M30 226 V448" stroke-width="1" opacity=".6"/>
+            <rect x="-62" y="452" width="124" height="16" stroke-width="2.5"/>
+          </g></defs>
+          <path d="M110 150 L590 30 L1070 150 Z" fill="none" stroke="#2b241d" stroke-width="3"/>
+          <path d="M150 140 L590 50 L1030 140 Z" fill="rgba(154,47,31,.06)" stroke="#2b241d" stroke-width="1"/>
+          <text x="590" y="122" text-anchor="middle" font-family="Cinzel" font-size="36" letter-spacing="6" fill="#9a2f1f">GEOPOLÍTICA</text>
+          <rect x="100" y="150" width="980" height="34" fill="none" stroke="#2b241d" stroke-width="3"/>
+          <rect x="106" y="156" width="968" height="22" fill="url(#meandro-rojo)" opacity=".8"/>
+          <use href="#col" x="270"/><use href="#col" x="590"/><use href="#col" x="910"/>
+          <path d="M80 468 H1100 M60 480 H1120" stroke="#2b241d" stroke-width="3"/>
+          <!-- híbridos entre columnas -->
+          <g font-family="EB Garamond" text-anchor="middle" fill="#9a2f1f">
+            <path d="M330 345 H530 M750 345 H850 M650 345 H750" stroke="#9a2f1f" stroke-width="1.2" stroke-dasharray="4 5" opacity=".7"/>
+            <text x="430" y="320" font-size="27" font-style="italic">think tanks</text>
+            <text x="430" y="376" font-size="17" letter-spacing="1" font-family="Cormorant SC">FORMAL · PRÁCTICA</text>
+            <text x="750" y="306" font-size="27" font-style="italic">influencers</text>
+            <text x="750" y="330" font-size="27" font-style="italic">académicos</text>
+            <text x="750" y="376" font-size="17" letter-spacing="1" font-family="Cormorant SC">PRÁCTICA · POPULAR</text>
+          </g>
+          <g font-family="Cinzel" font-size="26" letter-spacing="3" text-anchor="middle" fill="#2b241d">
+            <text x="270" y="516">FORMAL</text><text x="590" y="516">PRÁCTICA</text><text x="910" y="516">POPULAR</text>
+          </g>
+          <g font-family="EB Garamond" font-style="italic" font-size="25" text-anchor="middle" fill="#5d5246">
+            <text x="270" y="548">académicos y comentaristas</text>
+            <text x="590" y="548">gobernantes y estrategas</text>
+            <text x="910" y="548">medios y cultura popular</text>
+          </g>
+        </svg>
+        <div class="glosas apretadas">
+          <p><b>Otros híbridos.</b> Entre lo formal y lo popular, la divulgación: <i>El revés de los mapas</i>, de ARTE. Entre lo práctico y lo popular, los medios estatales y la política hecha en redes.</p>
+          <p><b>Al margen.</b> Kazán, octubre de 2024: la cumbre de los BRICS tuvo una cobertura enorme, y entre sus comentaristas latinoamericanos estuvo Diego Ruzzarin (TRT Español, 24 de octubre).</p>
+          <p><b>Patio trasero.</b> Dodds lo cuenta entre los esquemas geográficos de uso común, junto a «esfera de influencia» y «extranjero cercano» (2019, p. 3).</p>
+        </div>
+      </div>
+    </div>
+    <div class="pie">«Critical geopolitical writers have proposed a threefold division—formal, practical, and popular» (Dodds, 2019, p. 37). «All three forms are interconnected» (p. 37).</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 50 s · marca 06:20.</span> Klaus Dodds distingue tres lugares donde se escribe la geopolítica: la formal, de académicos y comentaristas; la práctica, de gobernantes y estrategas; y la popular, de los medios y la cultura de masas. Las tres columnas sostienen el mismo edificio: comparten encuadres.</p>
+      <p>Y entre columna y columna hay híbridos. Los <i>think tanks</i>, entre lo formal y lo práctico, producen saber a la medida de la decisión. Los <i>influencers</i> que se presentan como académicos se mueven entre lo práctico y lo popular.</p>
+      <p class="opc">La cumbre de los BRICS en Kazán, en 2024, fue escenario de todo a la vez: jefes de Estado, una cobertura mediática enorme y comentaristas latinoamericanos como Diego Ruzzarin.</p>
+      <p>Dodds menciona, además, un esquema geográfico que en México conocemos bien: el patio trasero. Un patio trasero no es un vecino: es parte de la casa. Se vigila, y se entra sin tocar. Volveré a él en un momento.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Caso I: un golfo, dos escrituras">
+    <div class="caja">
+      <h2 class="titulo">Un golfo, dos escrituras</h2>
+      <div class="subtitulo">«Derry» o «Londonderry»: el nombre ya toma partido (Ó Tuathail, 1996, p. 2)</div>
+      <div class="con-glosas" style="gap:44px; margin-top:16px">
+        <div class="contraste apretado">
+          <div class="col">
+            <h3>«Gulf of America»</h3>
+            <div class="quien">Washington, 2025</div>
+            <ul>
+              <li>Orden Ejecutiva 14172, <i lang="en">Restoring Names That Honor American Greatness</i> (20 de enero).</li>
+              <li lang="en"><i>«The area formerly known as the Gulf of Mexico […] has remained an indelible part of America»</i> (p. 8630).</li>
+              <li>Ordena borrar del registro federal «all references to the Gulf of Mexico» (p. 8630).</li>
+            </ul>
+          </div>
+          <div class="eje"><span>frente a</span></div>
+          <div class="col">
+            <h3>«Golfo de México»</h3>
+            <div class="quien">Ciudad de México, 2025</div>
+            <ul>
+              <li>8 de enero: la presidenta Sheinbaum responde con un mapa del siglo XVII y la «América Mexicana» de la Constitución de Apatzingán.</li>
+              <li>El nombre del golfo, recuerda, está reconocido internacionalmente.</li>
+              <li>30 de enero: carta a Google para delimitar dónde vale cada nombre.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="glosas apretadas">
+          <p><b>Según desde dónde.</b> Desde febrero de 2025, Google Maps muestra «Gulf of America» en Estados Unidos, «Golfo de México» en México y ambos nombres en el resto del mundo.</p>
+          <p><b>Crimea.</b> Desde 2019, Apple Maps la presenta como rusa sólo a quienes la consultan desde Rusia.</p>
+          <p><b>Cachemira.</b> En la India, Google traza su frontera con línea continua; fuera de ella, con línea punteada.</p>
+          <p><b>Lévi-Strauss.</b> En una aldea winnebago, cada mitad dibuja un plano distinto de la misma aldea; Žižek lee ahí un antagonismo que nadie describe desde fuera.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pie">Exec. Order No. 14172 (2025); Axios (2025); García Durán (2025); Boston.com (2025); Euronews (2019); Bensinger (2020); ARTE (2024, 16:30); Lévi-Strauss (1958).</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 55 s · marca 07:15.</span> Ó Tuathail creció en la frontera irlandesa, donde decir «Derry» o «Londonderry» era tomar partido. El golfo es nuestro Derry. La orden ejecutiva no describe el mar: lo reescribe, y manda borrar el nombre anterior del registro federal. México respondió con un contramapa del siglo XVII y la ironía de la América Mexicana.</p>
+      <p>Pero el mapa ya no es uno solo. Google Maps muestra «Golfo de América» en Estados Unidos, «Golfo de México» en México y ambos nombres en el resto del mundo. Crimea aparece como rusa si se consulta desde Rusia; la frontera de Cachemira es continua vista desde la India y punteada vista desde Pakistán. La geolocalización dibuja un mapa para cada observador.</p>
+      <p class="opc">Lévi-Strauss estudió una aldea winnebago, en la región de los Grandes Lagos, donde cada mitad de la tribu dibujaba un plano distinto de la misma aldea: unos, un círculo de casas alrededor del templo; otros, dos grupos de casas separados por una frontera invisible. Žižek retoma el ejemplo: lo real no es ninguno de los dos planos, sino el antagonismo que ambos tratan de simbolizar.</p>
+    </aside>
+  </section>
+
+  <!-- ═════════ LIBRO III · PROCUSTO ═════════ -->
+  <section class="slide papel recto apertura" id="libro-3" data-tipo="apertura" data-capitulo="Libro III · Procusto" data-titulo="Libro III · Procusto">
+    <div class="lamina">
+      <figure>
+        <div class="grabado foto" style="background-image:url(img/procusto.jpg); background-position: 50% 45%;"></div>
+        <figcaption><span class="versalitas">Lámina III</span>Teseo da a Procusto la medida de su propia cama. Ánfora ática de figuras rojas, Pintor de Alkimachos, 470–460 a. C. Staatliche Antikensammlungen, Múnich.</figcaption>
+      </figure>
+    </div>
+    <div class="texto">
+      <div class="libro">Libro</div>
+      <div class="numeral">III</div>
+      <h2>Procusto</h2>
+      <div class="tema">o la cama del encuadre</div>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <blockquote class="epigrafe">
+        <div class="en" lang="en">«What is it that’s going on here?»</div>
+        <div class="es">«¿Qué es lo que está pasando aquí?»</div>
+        <cite>Goffman, 1986, p. 8</cite>
+      </blockquote>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 20 s · marca 07:35.</span> Procusto estiraba o mutilaba a sus huéspedes para que cupieran exactamente en su cama. Un marco hace lo mismo con los acontecimientos: lo que sobra se corta, lo que falta se estira. Goffman parte de la pregunta que nos hacemos ante cualquier situación: ¿qué está pasando aquí?</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Goffman y la política de lo micro">
+    <div class="caja">
+      <h2 class="titulo">Una canción de cuna que no lo es</h2>
+      <div class="florilegio compacto">
+        <div class="flor">
+          <div class="en" lang="en">«This book is about the organization of experience—something that an individual actor can take into his mind—and not the organization of society. I make no claim whatsoever to be talking about the core matters of sociology—social organization and social structure»</div>
+          <div class="es">«Este libro trata de la organización de la experiencia —algo que un actor individual puede asimilar en su mente— y no de la organización de la sociedad. No pretendo en absoluto estar hablando de los asuntos centrales de la sociología: la organización social y la estructura social»</div>
+          <cite>Goffman, 1986, p. 13</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«he who would combat false consciousness and awaken people to their true interests has much to do, because the sleep is very deep. And I do not intend here to provide a lullaby but merely to sneak in and watch the way the people snore»</div>
+          <div class="es">«quien quiera combatir la falsa conciencia y despertar a la gente a sus verdaderos intereses tiene mucho que hacer, porque el sueño es muy profundo. Y no pretendo aquí ofrecer una canción de cuna, sino sólo colarme y observar cómo ronca la gente»</div>
+          <cite>Goffman, 1986, p. 14</cite>
+        </div>
+      </div>
+      <p class="remate">Rituales de interacción, estrategias y disputas por la definición de la situación: el poder también se ejerce a escala micro.</p>
+    </div>
+    <aside class="notas">
+      <p><span class="marca">≈ 45 s · marca 08:20.</span> Goffman advierte, en la introducción de <i>Frame Analysis</i>, que no hablará de la sociedad ni de la estructura social, sólo de la organización de la experiencia. Y a quien le reprocha un enfoque conservador le contesta con ironía: no viene a cantar una canción de cuna, sino a colarse y mirar cómo ronca la gente.</p>
+      <p>Pero lo que escudriña es el poder a escala micro: rituales de interacción, estrategias, disputas por la definición de la situación. Entre esas estrategias, el encuadre y su transposición, el <i>keying</i>, son de las más importantes: sirven para mantener un statu quo, como un orden internacional, o para cuestionarlo, de manera estratégica o caótica.</p>
+      <p class="opc">Hay una ironía más: Goffman cierra esa introducción diciendo que escribirla le permite fijar los términos de lo que sigue y reencuadrarlo. Su advertencia de que no hablará de política es, ella misma, un encuadre.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Goffman: el marco organiza la experiencia">
+    <div class="caja">
+      <h2 class="titulo">El marco organiza la experiencia</h2>
+      <div class="florilegio medio">
+        <div class="flor">
+          <div class="en" lang="en">«I assume that definitions of a situation are built up in accordance with principles of organization which govern events—at least social ones—and our subjective involvement in them; frame is the word I use to refer to such of these basic elements as I am able to identify»</div>
+          <div class="es">«Parto de que las definiciones de una situación se construyen de acuerdo con principios de organización que gobiernan los acontecimientos —al menos los sociales— y nuestra implicación subjetiva en ellos; <i>marco</i> es la palabra que uso para referirme a aquellos de estos elementos básicos que soy capaz de identificar»</div>
+          <cite>Goffman, 1986, pp. 10–11</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«a primary framework is one that is seen as rendering what would otherwise be a meaningless aspect of the scene into something that is meaningful»</div>
+          <div class="es">«un marco primario es aquel que se percibe como capaz de convertir lo que de otro modo sería un aspecto sin sentido de la escena en algo que tiene sentido»</div>
+          <cite>Goffman, 1986, p. 21</cite>
+        </div>
+      </div>
+      <p class="remate">El marco primario condensa: permite conectar comunicativamente y reduce complejidad.</p>
+    </div>
+    <aside class="notas">
+      <p><span class="marca">≈ 35 s · marca 08:55.</span> Dos ideas de Goffman. Primera: parto de que las definiciones de una situación se construyen según principios de organización, y marco es el nombre de esos principios. El marco no adorna el mensaje: organiza la experiencia.</p>
+      <p>Segunda: el marco primario convierte lo que sería ruido en algo con sentido. Yo lo leo como una condensación: permite conectar comunicativamente y reduce complejidad. Por eso casi nunca se ve como marco: se ve como «lo que pasa».</p>
+    </aside>
+  </section>
+
+  <section class="slide papel bilingue-slide" data-tipo="libre" data-titulo="Entman: encuadrar es seleccionar">
+    <div class="bilingue">
+      <div class="original">
+        <div class="lengua">Texto original</div>
+        <blockquote lang="en">Framing essentially involves selection and salience. To frame is to select some aspects of a perceived reality and make them more salient in a communicating text, in such a way as to promote a particular problem definition, causal interpretation, moral evaluation, and/or treatment recommendation for the item described.</blockquote>
+        <div class="ref">Entman, 1993, p. 52</div>
+        <span class="folio-l"></span>
+      </div>
+      <div class="traduccion">
+        <div class="lengua">Traducción</div>
+        <blockquote>El encuadre implica, en esencia, selección y relevancia. Encuadrar es seleccionar algunos aspectos de una realidad percibida y hacerlos más relevantes en un texto comunicativo, de modo que se promueva una definición particular del problema, una interpretación causal, una evaluación moral y/o una recomendación de tratamiento para el asunto descrito.</blockquote>
+        <div class="ref">Traducción propia</div>
+        <span class="folio-r"></span>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 25 s · marca 09:20.</span> Robert Entman da la definición más citada del campo: encuadrar es seleccionar algunos aspectos de una realidad percibida y hacerlos más relevantes, para promover una definición del problema, una interpretación causal, una evaluación moral y una recomendación de tratamiento. Problema, causa, juicio y remedio.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Entman: el marco, huella del poder">
+    <div class="caja">
+      <h2 class="titulo">El marco, huella del poder</h2>
+      <div class="florilegio">
+        <div class="flor">
+          <div class="en" lang="en">«Most frames are defined by what they omit as well as include»</div>
+          <div class="es">«La mayoría de los marcos se definen tanto por lo que omiten como por lo que incluyen»</div>
+          <cite>Entman, 1993, p. 54</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«the frame in a news text is really the imprint of power—it registers the identity of actors or interests that competed to dominate the text»</div>
+          <div class="es">«el marco de un texto noticioso es en realidad la huella del poder: registra la identidad de los actores o intereses que compitieron por dominar el texto»</div>
+          <cite>Entman, 1993, p. 55</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«The news frame included only two remedies»</div>
+          <div class="es">«El marco noticioso sólo incluyó dos remedios» (el debate previo a la guerra del Golfo: guerra ya, o sanciones ahora y guerra después)</div>
+          <cite>Entman, 1993, p. 55</cite>
+        </div>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 35 s · marca 09:55.</span> Entman agrega tres cosas. Los marcos se definen tanto por lo que omiten como por lo que incluyen. El marco es la huella del poder: registra quién compitió por dominar el texto. Y en el debate previo a la guerra del Golfo, el marco noticioso dejó sólo dos remedios: guerra ya, o sanciones ahora y guerra después. La negociación ni siquiera apareció. Eso es delimitar lo decible y lo posible.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Por qué importa el encuadre (Rabat, 2025)">
+    <div class="caja">
+      <h2 class="titulo">Por qué importa el encuadre</h2>
+      <div class="subtitulo">De la ponencia de Rabat, 2025</div>
+      <div class="rabat">
+        <figure class="recortes">
+          <div class="facsimil izq" style="width:300px"><img src="img/rabat_08.jpg" alt="Lámina 8 de la ponencia de Rabat: Why framing matters in geopolitics"></div>
+          <div class="facsimil der" style="width:330px; margin:-128px 0 0 106px; position:relative"><img src="img/rabat_16.jpg" alt="Lámina 16 de la ponencia de Rabat: orden ejecutiva Protecting the American People Against Invasion"></div>
+          <figcaption>Láminas 8 y 16 de la ponencia de Rabat</figcaption>
+        </figure>
+        <div>
+          <table class="marcos ejemplos">
+            <colgroup><col class="fila"><col></colgroup>
+            <tbody>
+              <tr><th>Migración</th><td>«crisis humanitaria» o «invasión»<small lang="en">‘humanitarian crisis’ or ‘alien invasion’</small></td></tr>
+              <tr><th>Energía</th><td>«seguridad», «soberanía» o «transición»<small lang="en">‘security’, ‘sovereignty’ or ‘transition’</small></td></tr>
+              <tr><th>Cadenas de suministro</th><td>«desacoplar», «reducir riesgos» o «relocalizar entre aliados»<small lang="en">‘decoupling’, ‘derisking’ or ‘friendshoring’</small></td></tr>
+              <tr><th>Inteligencia artificial</th><td>«el futuro del trabajo» o «una pérdida catastrófica de empleos»<small lang="en">‘future of work’ or ‘catastrophic loss of jobs’</small></td></tr>
+            </tbody>
+          </table>
+          <div class="tres-preguntas"><span>¿Por qué esta palabra?</span><span>¿Qué descripciones alternativas se omiten?</span><span>¿Quién se beneficia con este encuadre?</span></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 40 s · marca 10:35.</span> En Rabat, el año pasado, propuse esta lista. Los marcos dan forma al espacio de posibilidades. La migración es crisis humanitaria o invasión; la energía, seguridad, soberanía o transición; las cadenas de suministro se desacoplan, se «desriesgan» o se relocalizan entre aliados; la inteligencia artificial es el futuro del trabajo o una pérdida catastrófica de empleos. Cuando la Casa Blanca titula una orden ejecutiva «Proteger al pueblo estadounidense contra la invasión», conviene preguntar: ¿por qué esta palabra?, ¿qué descripciones se omiten?, ¿quién se beneficia con este encuadre?</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Caso II: ¿crimen o terrorismo?">
+    <div class="caja">
+      <h2 class="titulo">¿Crimen o terrorismo?</h2>
+      <div class="subtitulo" style="font-size:25px">La designación de cárteles como organizaciones terroristas, leída con las cuatro funciones de Entman</div>
+      <table class="marcos estrecha">
+        <colgroup><col class="fila"><col><col></colgroup>
+        <thead>
+          <tr><th></th><th>«Narcoterrorismo»<small>marco de Washington, 2025–2026</small></th><th>«Cooperación sin subordinación»<small>contramarco de México</small></th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Problema</th><td>Organizaciones terroristas extranjeras que amenazan la seguridad nacional</td><td>Violencia criminal transfronteriza: drogas hacia el norte, armas hacia el sur</td></tr>
+          <tr><th>Causa</th><td>Cárteles y gobiernos que los protegen</td><td>Demanda de drogas y tráfico de armas desde Estados Unidos</td></tr>
+          <tr><th>Juicio moral</th><td>Un enemigo de guerra</td><td>Responsabilidad compartida; la soberanía no se negocia</td></tr>
+          <tr><th>Remedio</th><td>Designación terrorista (20 feb. 2025) · ataques letales a lanchas (desde 2 sep. 2025) · captura de Maduro (3 ene. 2026)</td><td>Cooperación sin subordinación: Estados Unidos actúa «en su territorio»</td></tr>
+        </tbody>
+      </table>
+      <p class="monroe"><b>Patio trasero:</b> Doctrina Monroe (1823) · corolario Roosevelt (1904) · «la era de la Doctrina Monroe ha terminado» (Kerry, 2013) · «patio delantero» (Biden, 2022) · «corolario Trump» (Estrategia de Seguridad Nacional, 2025)</p>
+    </div>
+    <div class="pie">En 2003, Agnew dudaba que <i lang="en">«evil drug barons»</i> pudieran sustituir al enemigo de la Guerra Fría (p. 115). Fuentes: Departamento de Estado (2025); Arista (2025); Adams (2025); USNI News (2026); UPI (2013); Teleamazonas (2022); Casa Blanca (2025b).</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 65 s · marca 11:40.</span> El caso central. Lo que cambia no es el fenómeno sino la categoría, y la categoría trae su remedio. Si es crimen, policía y cooperación. Si es terrorismo, el remedio militar se vuelve decible, y luego posible: la designación de febrero de 2025, los ataques a lanchas desde septiembre, la captura de Maduro en enero. El contramarco mexicano disputa cada fila: cooperación sin subordinación.</p>
+      <p>Aquí el patio trasero deja de ser metáfora. Desde la Doctrina Monroe y el corolario Roosevelt, el hemisferio se piensa como parte de la casa. Kerry declaró ante la OEA, en 2013, que esa era había terminado; Biden quiso ascendernos a patio delantero; y en diciembre de 2025 la Estrategia de Seguridad Nacional proclamó un «corolario Trump» a la Doctrina Monroe.</p>
+      <p>Agnew dudaba en 2003 que los «malvados barones de la droga» pudieran sustituir al enemigo soviético. El marco de 2025 lo intenta.</p>
+      <p class="opc">Edward Said lo resumió en un video de Al Jazeera: en las noticias, los latinoamericanos aparecen como narcos, futbolistas o dictadores. Y pregunta: ¿qué se siente ser fijado, capturado, encuadrado?</p>
+    </aside>
+  </section>
+
+  <!-- ═════════ LIBRO IV · EL JUICIO DE PARIS ═════════ -->
+  <section class="slide papel recto apertura" id="libro-4" data-tipo="apertura" data-capitulo="Libro IV · El juicio de Paris" data-titulo="Libro IV · El juicio de Paris">
+    <div class="lamina">
+      <figure>
+        <div class="grabado" style="background-image:url(img/paris.jpg); background-position: 30% 70%;"></div>
+        <figcaption><span class="versalitas">Lámina IV</span><i>El juicio de Paris.</i> Grabado según Marcantonio Raimondi, a partir de Rafael, ca. 1520–1550. The Metropolitan Museum of Art.</figcaption>
+      </figure>
+    </div>
+    <div class="texto">
+      <div class="libro">Libro</div>
+      <div class="numeral">IV</div>
+      <h2>El juicio de Paris</h2>
+      <div class="tema">o los observadores de observadores</div>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <blockquote class="epigrafe">
+        <div class="en" lang="en">«Whatever we know about our society, or indeed about the world in which we live, we know through the mass media».</div>
+        <div class="es">«Lo que sabemos sobre nuestra sociedad, e incluso sobre el mundo en que vivimos, lo sabemos por los medios de masas».</div>
+        <cite>Luhmann, 2000, p. 1</cite>
+      </blockquote>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 20 s · marca 12:00.</span> Paris debe elegir a la más bella, pero no elige por belleza: elige por lo que cada diosa le promete. Y casi todo lo que sabemos del mundo nos llega ya observado por otros: lo sabemos, dice Luhmann, por los medios de masas.</p></aside>
+  </section>
+
+  <section class="slide papel bilingue-slide" data-tipo="libre" data-titulo="Keynes: el concurso de belleza">
+    <div class="bilingue">
+      <div class="original">
+        <div class="lengua">Texto original</div>
+        <blockquote lang="en">It is not a case of choosing those [faces] which, to the best of one’s judgment, are really the prettiest, nor even those which average opinion genuinely thinks the prettiest. We have reached the third degree where we devote our intelligences to anticipating what average opinion expects the average opinion to be. And there are some, I believe, who practise the fourth, fifth and higher degrees.</blockquote>
+        <div class="ref">Keynes, 1936, p. 156</div>
+        <span class="folio-l"></span>
+      </div>
+      <div class="traduccion">
+        <div class="lengua">Traducción</div>
+        <blockquote>No se trata de elegir aquellos [rostros] que, a juicio propio, son realmente los más bonitos, ni siquiera los que la opinión media considera genuinamente los más bonitos. Hemos llegado al tercer grado, en el que dedicamos nuestra inteligencia a anticipar lo que la opinión media espera que sea la opinión media. Y hay quienes, creo, practican el cuarto, el quinto y grados superiores.</blockquote>
+        <div class="ref">Traducción propia</div>
+        <span class="folio-r"></span>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 25 s · marca 12:25.</span> Keynes habla de la bolsa, pero describe cualquier sistema de expectativas. No gana quien elige el rostro que le parece más bonito, ni quien adivina el gusto de la mayoría, sino quien anticipa lo que la opinión media espera que sea la opinión media. Tercer grado. Y hay quienes practican el cuarto, el quinto y grados superiores.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Luhmann y los órdenes de observación">
+    <div class="caja">
+      <h2 class="titulo">Observar a los observadores</h2>
+      <div class="observadores">
+        <div class="florilegio">
+          <div class="flor">
+            <div class="en" lang="en">«it is necessary to adopt the attitude of a second-order observer, an observer of observers»</div>
+            <div class="es">«es necesario adoptar la actitud de un observador de segundo orden, un observador de observadores»</div>
+            <cite>Luhmann, 2000, p. 4</cite>
+          </div>
+          <div class="flor">
+            <div class="en" lang="en">«it is possible to see how their (other systems’) frames shape their knowledge»</div>
+            <div class="es">«es posible ver cómo sus marcos (los de otros sistemas) moldean su conocimiento»</div>
+            <cite>Luhmann, 2000, p. 5</cite>
+          </div>
+        </div>
+        <div class="escalinata">
+          <div class="peldano"><div class="orden">Primer orden</div><p>Elijo el rostro que me parece más bello.</p></div>
+          <div class="peldano"><div class="orden">Segundo orden</div><p>Elijo el que creo que los demás preferirán.</p></div>
+          <div class="peldano"><div class="orden">Tercer orden</div><p>Anticipo lo que la opinión media espera que sea la opinión media.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="pie">En el tercer peldaño operan los mercados, las alianzas y la disuasión: expectativas de expectativas (Keynes, 1936, p. 156; Cardiel Herrera, 2025).</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 30 s · marca 12:55.</span> Luhmann lo llama observación de segundo orden: observar a los observadores, ver cómo los marcos de otros sistemas moldean su conocimiento. La escalera de Keynes es la que propuse en Rabat. En geopolítica casi todo ocurre en el tercer peldaño: un arancel, una alianza o una amenaza funcionan por lo que cada actor espera que esperen los demás.</p>
+      <p class="opc">Lo vimos con el <i>Liberation Day</i>: la Casa Blanca ofreció el marco de la liberación; economistas y medios, el de un proteccionismo que se vuelve contra quien lo impone; y la opinión pública osciló entre los dos.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Žižek: no hay metalenguaje">
+    <div class="caja">
+      <h2 class="titulo">No hay metalenguaje</h2>
+      <div class="con-glosas" style="margin-top:18px; gap:48px">
+        <div>
+          <div class="larga">
+            <div class="en" lang="en">«class difference is not a symbolic difference but the Real of an antagonism: it is real in the sense that it cannot be fully symbolized since it triggers two mutually exclusive symbolizations. As Lacan would have put it, there is no metalanguage in class struggle, no neutral way to describe it: every description of class struggle is performed from a position within class struggle»</div>
+            <div class="es">«la diferencia de clase no es una diferencia simbólica sino lo Real de un antagonismo: es real en el sentido de que no puede simbolizarse por completo, porque desencadena dos simbolizaciones mutuamente excluyentes. Como habría dicho Lacan, no hay metalenguaje en la lucha de clases, no hay un modo neutral de describirla: toda descripción de la lucha de clases se hace desde una posición dentro de la lucha de clases»</div>
+            <cite>Žižek, 2024, p. 41</cite>
+          </div>
+          <div class="larga">
+            <div class="en" lang="en">«a self-awareness of the subjective position from which one is observing is an essential component of this equation»</div>
+            <div class="es">«la conciencia de la posición subjetiva desde la que se observa es un componente esencial de esta ecuación»</div>
+            <cite>Žižek, 2024, p. 41</cite>
+          </div>
+        </div>
+        <div class="programa">
+          <div class="cab-prog">Hacia una economía política internacional de segundo orden</div>
+          <div class="peldano"><div class="orden">I</div><p>Aplicar el análisis de marcos para pasar de las latencias a las estructuras visibles.</p></div>
+          <div class="peldano"><div class="orden">II</div><p>Observar cómo se estabilizan las cadenas de observaciones, decisiones y expectativas de primer y segundo orden.</p></div>
+          <div class="peldano"><div class="orden">III</div><p>Entender cómo se forman las narrativas.</p></div>
+          <div class="glosas" style="border:0; padding:0; font-size:17px">Programa de la ponencia de Rabat, lámina 19 (Cardiel Herrera, 2025).</div>
+        </div>
+      </div>
+    </div>
+    <aside class="notas">
+      <p><span class="marca">≈ 45 s · marca 13:40.</span> Žižek, en <i>Against Progress</i>, toma una analogía de la relatividad y la lleva a la lucha de clases: no hay metalenguaje; toda descripción del antagonismo se hace desde dentro del antagonismo. Pero no cae en el relativismo: hay un invariante, y se alcanza al incluir en la ecuación la conciencia de la posición desde la que se observa. Eso es observación de segundo orden.</p>
+      <p>Para trabajar con múltiples descripciones y redescripciones de lo real necesitamos herramientas de las ciencias de la complejidad. Por eso sostengo que la perspectiva luhmanniana y sociocibernética puede aportar a la economía política internacional un programa en tres pasos.</p>
+      <p class="opc">Para los de abajo, dice Žižek, la sociedad está partida en dos campos; para los de arriba, es un todo bien organizado que perturban los extremistas de ambos lados.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Miradores del poder: chokepoints de visión">
+    <div class="caja">
+      <h2 class="titulo">Miradores del poder</h2>
+      <div class="subtitulo"><i lang="en">Chokepoints</i> de visión</div>
+      <div class="florilegio">
+        <div class="flor">
+          <div class="en" lang="en">«states can employ the “panopticon effect” to gather strategically valuable information»</div>
+          <div class="es">«los Estados pueden emplear el “efecto panóptico” para reunir información de valor estratégico»</div>
+          <cite>Farrell y Newman, 2019, p. 42</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«they can employ the “chokepoint effect” to deny network access to adversaries»</div>
+          <div class="es">«pueden emplear el “efecto de estrangulamiento” para negar a sus adversarios el acceso a la red»</div>
+          <cite>Farrell y Newman, 2019, p. 42</cite>
+        </div>
+      </div>
+      <div class="contraste apretado" style="margin-top:22px">
+        <div class="col">
+          <h3>Desde el nodo</h3>
+          <ul>
+            <li>Estrechos, cables, sistemas de pago y centros de datos son miradores privilegiados.</li>
+            <li>Más observabilidad: más capacidad de explicar e interpretar.</li>
+          </ul>
+        </div>
+        <div class="eje"><span>frente a</span></div>
+        <div class="col">
+          <h3>Desde fuera</h3>
+          <ul>
+            <li>La dominación opaca el mundo para los demás.</li>
+            <li>El engranaje sociotécnico se vuelve caja negra (Latour, 1999; Pasquale, 2015).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 40 s · marca 14:20.</span> Henry Farrell y Abraham Newman mostraron que las redes económicas globales tienen sus propios <i>chokepoints</i>, como el sistema financiero SWIFT o la infraestructura de internet. Quien controla esos nodos obtiene dos efectos: el panóptico, para reunir información estratégica, y el de estrangulamiento, para negar el acceso a sus adversarios. Me interesa el primero. Los puntos críticos del sistema son miradores privilegiados: dan más observabilidad y, con ella, más capacidad de explicar e interpretar. Hay <i>chokepoints</i> de visión. Y la dominación opera también al revés: opaca el mundo y vuelve caja negra el engranaje sociotécnico.</p></aside>
+  </section>
+
+  <section class="slide papel lamina plana" data-tipo="libre" data-titulo="Lámina V: Mercurio y Argos">
+    <figure>
+      <div class="grabado" style="background-image:url(img/argos.jpg); background-position: center 40%;"></div>
+      <figcaption><span class="versalitas">Lámina V</span><i>Mercurio, el mensajero, adormece con su flauta y sus relatos a Argos, el guardián de los cien ojos, y luego le da muerte.</i> Hendrick Goltzius, s. XVI. The Metropolitan Museum of Art.</figcaption>
+    </figure>
+    <aside class="notas"><p><span class="marca">≈ 15 s · marca 14:35.</span> Una imagen para recordarlo: Mercurio, el mensajero, adormece a Argos con su flauta y sus relatos, y luego lo mata. Los relatos no sólo informan a quien vigila; también pueden dormirlo.</p></aside>
+  </section>
+
+  <!-- ═════════ LIBRO V · JANO ═════════ -->
+  <section class="slide tela apertura" id="libro-5" data-tipo="apertura" data-capitulo="Libro V · Jano" data-titulo="Libro V · Jano">
+    <div class="medallon"><div class="sello dorado"></div></div>
+    <div class="texto">
+      <div class="libro">Libro</div>
+      <div class="numeral">V</div>
+      <h2>Jano</h2>
+      <div class="tema">o el orden que se reordena</div>
+      <div class="filete"><span class="fleuron" style="color:var(--oro)">❧</span></div>
+      <blockquote class="epigrafe">
+        <div class="en" lang="en">«…the geopolitical imagination must once more be reconstituted».</div>
+        <div class="es">«…la imaginación geopolítica debe reconstituirse una vez más».</div>
+        <cite>Agnew, 2003, p. 115</cite>
+      </blockquote>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 20 s · marca 14:55.</span> Jano, dios de las puertas, mira a la vez hacia atrás y hacia adelante: es el emblema de un orden en el umbral. Agnew escribió tras la Guerra Fría que la imaginación geopolítica debía reconstituirse una vez más. Hoy vuelve a ser cierto.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Léxico del reordenamiento">
+    <div class="caja">
+      <h2 class="titulo">Léxico del reordenamiento</h2>
+      <div class="subtitulo">Cada nombre del orden delimita lo decible y lo posible</div>
+      <dl class="glosario">
+        <div class="entrada"><dt><b>Orden basado en reglas</b></dt><dd>Washington y sus aliados nombran el orden por sus normas, no por su jerarquía. <i>Hace pensable: que todo desafío sea una infracción.</i></dd></div>
+        <div class="entrada"><dt><b lang="en">Liberation Day</b></dt><dd>Washington, 2 de abril de 2025: aranceles generalizados presentados como emancipación. <i>Hace pensable: el arancel como acto de soberanía y no como impuesto.</i></dd></div>
+        <div class="entrada"><dt><b>Verdadero multilateralismo</b></dt><dd>Xi Jinping, Iniciativa para la Gobernanza Global, Tianjin, 1 de septiembre de 2025. <i>Hace pensable: que el multilateralismo ajeno sea el falso.</i></dd></div>
+        <div class="entrada"><dt><b lang="en">De-risking, not decoupling</b></dt><dd>Ursula von der Leyen, 30 de marzo de 2023: reducir riesgos frente a China sin romper con ella. <i>Hace pensable: la dependencia como riesgo administrable.</i></dd></div>
+        <div class="entrada"><dt><b>No alineamiento activo</b></dt><dd>Fortín, Heine y Ominami (2021): América Latina decide caso por caso, sin alinearse de forma permanente. <i>Hace pensable: la equidistancia como estrategia, no como indecisión.</i></dd></div>
+        <div class="entrada"><dt><b>Golfo de América</b></dt><dd>El reordenamiento también se escribe en la toponimia. <i>Hace pensable: que el mapa siga a la voluntad política.</i></dd></div>
+      </dl>
+    </div>
+    <div class="pie">Fuentes: Comisión Europea (2023); <i>China Daily</i> (2025); Exec. Order No. 14172 (2025); Fortín et al. (2021); Cardiel Herrera (2025) para «Liberation Day».</div>
+    <aside class="notas"><p><span class="marca">≈ 35 s · marca 15:30.</span> Las nuevas diplomacias no compiten sólo por recursos, sino por el nombre del orden. «Orden basado en reglas»: todo desafío se vuelve infracción. <i>Liberation Day</i>: el arancel como acto de soberanía. «Verdadero multilateralismo»: el ajeno sería el falso. <i>De-risking</i>: la dependencia como riesgo administrable. Y para América Latina, el no alineamiento activo: la equidistancia como estrategia, no como indecisión.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="«Superinteligencia» por decreto">
+    <div class="caja">
+      <h2 class="titulo">«Superinteligencia» por decreto</h2>
+      <div class="breve" style="margin-top:12px">
+        <div class="en" lang="en">«to replace the term “Artificial Intelligence” (“AI”) with “Super Intelligence” (“SI”) in the executive branch»</div>
+        <div class="es">«sustituir el término “inteligencia artificial” (IA) por “superinteligencia” (SI) en el poder ejecutivo»</div>
+        <cite>Orden ejecutiva <i lang="en">Inaugurating the Era of Super Intelligence</i>, 29 de septiembre de 2026 (Casa Blanca, 2026)</cite>
+      </div>
+      <div class="florilegio compacto" style="margin-top:14px">
+        <div class="flor">
+          <div class="en" lang="de">«„Wir haben das Glück erfunden“ — sagen die letzten Menschen und blinzeln.»</div>
+          <div class="es">«“Hemos inventado la felicidad”, dicen los últimos hombres, y parpadean.»</div>
+          <cite>Nietzsche, 1883, Prólogo de Zaratustra, § 5</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="de">«Gieb uns diesen letzten Menschen, oh Zarathustra, — so riefen sie — mache uns zu diesen letzten Menschen! So schenken wir dir den Übermenschen!»</div>
+          <div class="es">«¡Danos a ese último hombre, oh Zaratustra —así gritaban—, haz de nosotros esos últimos hombres! ¡Y te regalamos el superhombre!»</div>
+          <cite>Nietzsche, 1883, Prólogo de Zaratustra, § 5</cite>
+        </div>
+      </div>
+      <p class="remate">¿Una episteme, marco de los marcos? Sin crítica de sus condiciones de posibilidad, la inteligencia y la agencia sólo recorren el camino ya trazado por lo decible y lo posible.</p>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 55 s · marca 16:25.</span> Un caso extremo, de hace menos de un mes. El 29 de septiembre, Trump firmó una orden ejecutiva que obliga a las dependencias de su gobierno a dejar de decir «inteligencia artificial» y decir «superinteligencia»: «artificial», explica la Casa Blanca, sugiere una mera imitación. Es poder de encuadre en estado puro. Me hizo pensar en el prólogo de Zaratustra: el último hombre dice «hemos inventado la felicidad», y parpadea; y la multitud grita: ¡danos a ese último hombre! ¿Opera aquí algo como la episteme de Foucault, un marco de los marcos? La consecuencia es incómoda: aun con toda nuestra inteligencia y nuestra agencia, podemos limitarnos a seguir el camino ya marcado por lo decible y lo posible, si no cuestionamos sus condiciones de posibilidad. Es decir, si no hacemos crítica.</p></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Tres operaciones del poder de encuadre">
+    <div class="caja">
+      <h2 class="titulo">Tres operaciones del poder de encuadre</h2>
+      <div class="tres">
+        <div class="op"><div class="n">I</div><h3>Nombrar</h3><div class="caso">golfo de México / de América</div><p>Quien nombra escribe el mapa.</p><div class="autores">Ó Tuathail · Dalby</div></div>
+        <div class="op"><div class="n">II</div><h3>Clasificar</h3><div class="caso">crimen / terrorismo</div><p>La categoría trae consigo su remedio.</p><div class="autores">Goffman · Entman</div></div>
+        <div class="op"><div class="n">III</div><h3>Anticipar</h3><div class="caso">expectativas de expectativas</div><p>El orden se sostiene en lo que cada actor espera que esperen los demás.</p><div class="autores">Keynes · Luhmann</div></div>
+      </div>
+      <p class="tesis">En un mundo policéntrico ningún actor impone un marco único. El orden muta, y <i>la competencia entre marcos es su forma visible.</i></p>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 25 s · marca 16:50.</span> Recapitulo. Nombrar: quien nombra escribe el mapa. Clasificar: la categoría trae su remedio. Anticipar: el orden se sostiene en lo que cada actor espera que esperen los demás. En un mundo policéntrico ningún actor impone un marco único. El orden muta, y la competencia entre marcos es su forma visible.</p></aside>
+  </section>
+
+  <!-- ═════════ EPÍLOGO ═════════ -->
+  <section class="slide papel" id="epilogo" data-tipo="pagina" data-capitulo="Epílogo" data-titulo="Epílogo: ¿qué es la crítica?">
+    <div class="caja">
+      <h2 class="titulo">Epílogo · ¿Qué es la crítica?</h2>
+      <div class="rasgos tres-sentidos">
+        <div class="rasgo"><h3>Compromiso</h3><p>con los fenómenos sociales</p></div>
+        <div class="rasgo"><h3>Situación</h3><p>un saber que sabe desde dónde mira</p></div>
+        <div class="rasgo fuerte"><h3>Condiciones de posibilidad</h3><p>los presupuestos que sostienen un fenómeno, contrastados con las posibilidades no actualizadas</p></div>
+      </div>
+      <div class="florilegio compacto" style="margin-top:8px">
+        <div class="flor">
+          <div class="en" lang="de">«Unser Zeitalter ist das eigentliche Zeitalter der Kritik, der sich alles unterwerfen muß. Religion durch ihre Heiligkeit und Gesetzgebung durch ihre Majestät wollen sich gemeiniglich derselben entziehen.»</div>
+          <div class="es">«Nuestra época es la época propiamente dicha de la crítica, a la que todo ha de someterse. La religión, por su santidad, y la legislación, por su majestad, pretenden por lo común sustraerse a ella.»</div>
+          <cite>Kant, 1781, A XI, nota</cite>
+        </div>
+        <div class="flor">
+          <div class="en" lang="en">«Cybernetics envisages a set of possibilities much wider than the actual, and then asks why the particular case should conform to its usual particular restriction.»</div>
+          <div class="es">«La cibernética contempla un conjunto de posibilidades mucho más amplio que lo actual, y luego pregunta por qué el caso particular habría de ajustarse a su restricción habitual.»</div>
+          <cite>Ashby, 1956, p. 3</cite>
+        </div>
+      </div>
+    </div>
+    <div class="pie">La cibernética se ocupa del dominio de «all possible machines» (Ashby, 1956, p. 2); y advierte que una estabilidad puede ser indeseable (p. 80). Luhmann practica esta crítica sin llamarla así: observa la distinción con que se observa y las que habrían sido posibles.</div>
+    <aside class="notas">
+      <p><span class="marca">≈ 50 s · marca 17:40.</span> Crítica puede entenderse como compromiso con los fenómenos sociales, o como saber situado; ambas me parecen válidas. Pero la noción radical viene de Kant: examinar las condiciones de posibilidad. Nuestra época, escribió, es la época de la crítica, a la que todo debe someterse, también la legislación, aunque por su majestad quiera sustraerse a ella.</p>
+      <p>Criticar la realidad geopolítica es descubrir los presupuestos que la hacen posible y contrastarla, una y otra vez, con las posibilidades que no se actualizaron. Luhmann lo hace, aunque no lo llame teoría crítica. Y Ross Ashby lo dice como ingeniero: la cibernética contempla un conjunto de posibilidades mucho más amplio que lo actual, y pregunta por qué el caso particular se ajusta a su restricción habitual.</p>
+      <p class="opc">Ashby advierte, además, que la estabilidad no siempre es buena: un sistema puede insistir en volver a un estado indeseable. Pensar otras posibilidades, más deseables, también es parte del método.</p>
+    </aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-titulo="Epílogo: reencuadrar">
+    <div class="caja">
+      <h2 class="titulo">Reencuadrar</h2>
+      <div class="filete corto"><span class="fleuron">❧</span></div>
+      <div class="con-facsimil">
+        <div>
+          <div class="prosa" style="font-size:30px">
+            <p class="capitular">Identificar un marco abre la posibilidad de cambiarlo. Si la inteligencia artificial deja de encuadrarse como carrera armamentista («quien lidere dominará») y se encuadra como riesgo compartido, cambia lo que cuenta como solución. Quizá la disrupción mutua asegurada pueda reencuadrarse como desarrollo mutuo asegurado.</p>
+          </div>
+          <div class="florilegio compacto">
+            <div class="flor">
+              <div class="en" lang="en">«the set of conventions by which a given activity, one already meaningful in terms of some primary framework, is transformed into something patterned on this activity but seen by the participants to be something quite else»</div>
+              <div class="es">«el conjunto de convenciones por las cuales una actividad dada, ya significativa según algún marco primario, se transforma en algo modelado sobre ella pero que los participantes ven como algo muy distinto»</div>
+              <cite><i lang="en">Keying</i> · Goffman, 1986, pp. 43–44</cite>
+            </div>
+          </div>
+        </div>
+        <figure class="al-margen">
+          <div class="facsimil der"><img src="img/rabat_20.jpg" alt="Lámina 20 de la ponencia de Rabat: From Mutual Assured Disruption to Mutual Assured Development?"></div>
+          <figcaption>Rabat, 2025, lámina 20</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="pie">Oscilar entre la observación de primer y de segundo orden evita las trampas del idealismo ingenuo y del realismo cínico (Cardiel Herrera, 2025).</div>
+    <aside class="notas"><p><span class="marca">≈ 35 s · marca 18:15.</span> Identificar un marco abre la posibilidad de cambiarlo. Si la inteligencia artificial deja de encuadrarse como carrera armamentista y se encuadra como riesgo compartido, cambia lo que cuenta como solución: de la disrupción mutua asegurada al desarrollo mutuo asegurado. Goffman llama <i>keying</i> a esa transposición. No es ingenuidad: es saber que todo marco es una cama de Procusto, y que se puede cambiar de cama.</p></aside>
+  </section>
+
+  <section class="slide papel explicit" data-tipo="libre" data-titulo="Explicit: otras geo-grafías">
+    <div class="caja">
+      <div class="rotulo">Explicit</div>
+      <div class="en" lang="en">«Critical geopolitics is one of many cultures of resistance to Geography as imperial truth, state-capitalized knowledge, and military weapon. It is a small part of a much larger rainbow struggle to decolonize our inherited geographical imagination so that other geo-graphings and other worlds might be possible».</div>
+      <div class="es">«La geopolítica crítica es una de muchas culturas de resistencia a la Geografía como verdad imperial, saber capitalizado por el Estado y arma militar. Es una pequeña parte de una lucha arcoíris, mucho mayor, por descolonizar nuestra imaginación geográfica heredada, para que otras geo-grafías y otros mundos sean posibles».</div>
+      <cite>Ó Tuathail, 1996, p. 201</cite>
+      <div class="filete"><span class="fleuron">❧</span></div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 25 s · marca 18:40.</span> Termino con Ó Tuathail: la geopolítica crítica es una pequeña parte de una lucha mucho mayor por descolonizar nuestra imaginación geográfica heredada, para que otras geo-grafías y otros mundos sean posibles. En esa misma página vuelve al desafortunado Bartlett: toda imposición de un orden del espacio ha encontrado resistencia. Muchas gracias.</p></aside>
+  </section>
+
+  <section class="slide papel videos" data-tipo="pagina" data-cornisa="Para seguir mirando" data-titulo="Para seguir mirando: dos videos">
+    <div class="caja">
+      <h2 class="titulo">Para seguir mirando</h2>
+      <div class="contraste">
+        <div class="col">
+          <h3><i lang="en">Framed</i></h3>
+          <div class="quien">Edward Said, por Al Jazeera English · 2017 · 2:30</div>
+          <div class="breve">
+            <div class="en" lang="en">«How does it feel to be fixed, captured, framed?»</div>
+            <div class="es">«¿Qué se siente ser fijado, capturado, encuadrado?»</div>
+          </div>
+          <div class="qr"><img src="img/qr_said.svg" alt="Código QR del video de Edward Said en YouTube"><div class="leyenda">youtu.be/4QYrAqrpshw</div></div>
+        </div>
+        <div class="eje"><span>y</span></div>
+        <div class="col">
+          <h3>¿Cuánto poder tienen los mapas?</h3>
+          <div class="quien">ARTE, <i>42, la respuesta a casi todo</i> · 2024 · 29:07</div>
+          <div class="breve">
+            <div class="en" lang="de">«Es gibt sie nicht, die eine neutrale Karte.»</div>
+            <div class="es">«No existe un mapa único y neutral.»</div>
+          </div>
+          <div class="qr"><img src="img/qr_arte.svg" alt="Código QR del documental en la mediateca de ARTE"><div class="leyenda">arte.tv/es/videos/115510-015-A</div></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notas"><p><span class="marca">≈ 10 s.</span> Les dejo dos videos breves para seguir pensando en esto: Edward Said sobre los estereotipos en las noticias, y el documental de ARTE sobre el poder de los mapas.</p></aside>
+  </section>
+
+  <!-- ═════════ REFERENCIAS ═════════ -->
+  <section class="slide papel" id="referencias" data-tipo="pagina" data-cornisa="Referencias" data-titulo="Referencias (A–F)">
+    <div class="caja">
+      <h2 class="titulo">Referencias</h2>
+      <div class="referencias chica">
+        <p>Agnew, J. (2003). <i>Geopolitics: Re-visioning world politics</i> (2.ª ed.). Routledge.</p>
+        <p>Ashby, W. R. (1956). <i>An introduction to cybernetics</i>. Chapman &amp; Hall.</p>
+        <p>Cardiel Herrera, J. (2025, julio). <i>Critical geopolitics, frame analysis, and second-order observation</i> [Ponencia]. 5th ISA Forum of Sociology, Rabat, Marruecos.</p>
+        <p>Dalby, S. (1991). Critical geopolitics: Discourse, difference, and dissent. <i>Environment and Planning D: Society and Space, 9</i>(3), 261–283. https://doi.org/10.1068/d090261</p>
+        <p>Deleuze, G. (1989). Qu’est-ce qu’un dispositif? En <i>Michel Foucault philosophe: Rencontre internationale, Paris, 9, 10, 11 janvier 1988</i> (pp. 185–195). Seuil.</p>
+        <p>Dodds, K. (2019). <i>Geopolitics: A very short introduction</i> (3.ª ed.). Oxford University Press.</p>
+        <p>Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. <i>Journal of Communication, 43</i>(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x</p>
+        <p>Farrell, H., y Newman, A. L. (2019). Weaponized interdependence: How global economic networks shape state coercion. <i>International Security, 44</i>(1), 42–79. https://doi.org/10.1162/isec_a_00351</p>
+        <p>Fortín, C., Heine, J. y Ominami, C. (Eds.). (2021). <i>El no alineamiento activo y América Latina: Una doctrina para el nuevo siglo</i>. Catalonia.</p>
+        <p>Foucault, M. (1966). <i>Les mots et les choses: Une archéologie des sciences humaines</i>. Gallimard.</p>
+        <p>Foucault, M. (1969). <i>L’archéologie du savoir</i>. Gallimard.</p>
+      </div>
+    </div>
+    <aside class="notas"></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-cornisa="Referencias" data-titulo="Referencias (G–Ž)">
+    <div class="caja">
+      <h2 class="titulo">Referencias</h2>
+      <div class="referencias chica">
+        <p>Goffman, E. (1986). <i>Frame analysis: An essay on the organization of experience</i>. Northeastern University Press. (Obra original publicada en 1974)</p>
+        <p>Heidegger, M. (1954). Die Frage nach der Technik. En <i>Vorträge und Aufsätze</i>. Neske.</p>
+        <p>Kant, I. (1781). <i>Kritik der reinen Vernunft</i>. Hartknoch.</p>
+        <p>Keynes, J. M. (1936). <i>The general theory of employment, interest and money</i>. Macmillan.</p>
+        <p>Latour, B. (1999). <i>Pandora’s hope: Essays on the reality of science studies</i>. Harvard University Press.</p>
+        <p>Lévi-Strauss, C. (1958). Les organisations dualistes existent-elles? En <i>Anthropologie structurale</i>. Plon.</p>
+        <p>Luhmann, N. (2000). <i>The reality of the mass media</i> (K. Cross, Trad.). Stanford University Press. (Obra original publicada en 1996)</p>
+        <p>Nietzsche, F. (1883). <i>Also sprach Zarathustra: Ein Buch für Alle und Keinen</i>. Schmeitzner.</p>
+        <p>Ó Tuathail, G. (1996). <i>Critical geopolitics: The politics of writing global space</i>. Routledge.</p>
+        <p>Pasquale, F. (2015). <i>The black box society: The secret algorithms that control money and information</i>. Harvard University Press.</p>
+        <p>Žižek, S. (2024). <i>Against progress</i>. Bloomsbury.</p>
+      </div>
+    </div>
+    <aside class="notas"></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-cornisa="Fuentes de los casos" data-titulo="Fuentes de los casos (A–E)">
+    <div class="caja">
+      <h2 class="titulo">Fuentes de los casos</h2>
+      <div class="referencias chica">
+        <p>Adams, M. (2025, 2 de septiembre). US military strike on vessel carrying drugs from Venezuela kills 11. <i>Stars and Stripes</i>.</p>
+        <p>Al Jazeera English. (2017, 2 de marzo). <i>Edward Said – Framed: The politics of stereotypes in news</i> [Video]. YouTube. https://youtu.be/4QYrAqrpshw</p>
+        <p>Arista, L. (2025, 21 de enero). Trump puede actuar contra cárteles en EU; se defenderá soberanía, dice Sheinbaum. <i>Expansión Política</i>.</p>
+        <p>ARTE. (2024). <i>¿Cuánto poder tienen los mapas?</i> [Episodio de <i>42, la respuesta a casi todo</i>]. https://www.arte.tv/es/videos/115510-015-A/</p>
+        <p>Asamblea General de las Naciones Unidas. (2026, 4 de septiembre). <i>General Assembly adopts text to ‘Correct the Map’</i> (GA/12779) [Comunicado de prensa].</p>
+        <p>Bensinger, G. (2020, 14 de febrero). Google redraws the borders on maps depending on who’s looking. <i>The Washington Post</i>.</p>
+        <p>Biden dice que Latinoamérica no es el patio trasero de EE. UU. sino el delantero. (2022, enero). <i>Teleamazonas</i>.</p>
+        <p>Casa Blanca. (2025a, 20 de enero). <i>Protecting the American people against invasion</i> [Orden ejecutiva].</p>
+        <p>Casa Blanca. (2025b, diciembre). <i>National security strategy of the United States of America</i>.</p>
+        <p>Casa Blanca. (2026, 29 de septiembre). <i>Fact sheet: President Donald J. Trump inaugurates the era of Super Intelligence</i>.</p>
+        <p>Comisión Europea. (2023, 30 de marzo). <i>Speech by President von der Leyen on EU-China relations to the Mercator Institute for China Studies and the European Policy Centre</i>.</p>
+        <p>Departamento de Estado de los Estados Unidos. (2025). Foreign Terrorist Organization designations of Tren de Aragua, Mara Salvatrucha, Cartel de Sinaloa, Cartel de Jalisco Nueva Generacion, Carteles Unidos, Cartel del Noreste, Cartel del Golfo, and La Nueva Familia Michoacana. <i>Federal Register, 90</i>(33), 10030–10031.</p>
+        <p>Euronews. (2019, 27 de noviembre). <i>Apple Maps shows annexed Crimea as Russian for Russian users</i>.</p>
+        <p>Exec. Order No. 14172, 90 Fed. Reg. 8629 (31 de enero de 2025). Restoring names that honor American greatness.</p>
+      </div>
+    </div>
+    <aside class="notas"></aside>
+  </section>
+
+  <section class="slide papel" data-tipo="pagina" data-cornisa="Fuentes de los casos" data-titulo="Fuentes de los casos (G–X)">
+    <div class="caja">
+      <h2 class="titulo">Fuentes de los casos</h2>
+      <div class="referencias chica">
+        <p>García Durán, C. (2025, 30 de enero). Esto dice la carta de Sheinbaum a Google por el cambio del Golfo de México a ‘América’. <i>Publimetro México</i>.</p>
+        <p>Google Maps now shows ‘Gulf of America’ for U.S. users. (2025, 11 de febrero). <i>Boston.com</i>.</p>
+        <p>Kerry: Era of Monroe Doctrine in Latin America is over. (2013, 19 de noviembre). <i>UPI</i>.</p>
+        <p>Maduro, wife captured by American forces; U.S. to oversee Venezuela ahead of new government, Trump says. (2026, 3 de enero). <i>USNI News</i>.</p>
+        <p>Mexican president says U.S. should be called “América Mexicana” in Trump clapback. (2025, 8 de enero). <i>Axios</i>.</p>
+        <p>TRT Español. (2024, 24 de octubre). <i>Diego Ruzzarin analiza la cumbre de los BRICS 2024 y el papel de Latinoamérica</i> [Video]. YouTube.</p>
+        <p>Xi proposes Global Governance Initiative at largest-ever SCO summit. (2025, 2 de septiembre). <i>China Daily</i>.</p>
+      </div>
+    </div>
+    <aside class="notas"></aside>
+  </section>
+
+  <!-- ═════════ COLOFÓN ═════════ -->
+  <section class="slide papel colofon" data-tipo="libre" data-titulo="Colofón">
+    <div class="qr izq"><img src="img/qr_ponencia.svg" alt="Código QR de esta presentación en línea"><div class="leyenda"><b>Esta ponencia</b>socyb.github.io/geopolis/amei2026</div></div>
+    <div class="caja">
+      <div class="sello tinta"></div>
+      <p class="texto">Esta ponencia se terminó de exponer en el Salón 14 el día 23 de octubre de 2026, durante el XXXIX Congreso Anual de la <span class="versalitas">amei</span>. Se compuso en tipos Garamond y Cinzel. Las láminas reproducen grabados de los siglos XVI al XVIII y un ánfora ática del siglo V a. C., de dominio público; el sello de Jano procede de las <i>Illustrium imagines</i> (1517).</p>
+      <div class="filete"><span class="fleuron">❧</span></div>
+      <p class="contacto">Jorge Cardiel Herrera · Universidad Nacional Autónoma de México</p>
+      <p class="correo">jorgecardiel@comunidad.unam.mx</p>
+    </div>
+    <div class="qr der"><img src="img/qr_curso.svg" alt="Código QR del curso de Geopolítica Internacional 2027-1"><div class="leyenda"><b>Curso de Geopolítica</b>Geopolítica Internacional · FCA · 2027-1</div></div>
+    <aside class="notas"><p>Les dejo mi correo y dos códigos: uno abre esta presentación; el otro, la página de mi curso de Geopolítica Internacional de este semestre en la FCA. Muchas gracias.</p></aside>
+  </section>
+
+</div>
+
+<div id="notas"><div class="cab"><span>Notas del ponente</span><span><span class="reloj" id="reloj-notas">00:00</span> / 20:00 · <span id="cuenta"></span></span></div><div id="texto-notas"></div></div>
+<div id="barra"></div>
+<div id="ayuda">← → avanzar · F pantalla completa · P vista del ponente · N notas aquí · T reiniciar reloj</div>
+
+<div id="ponente">
+  <div class="barra-sup">
+    <span class="reloj" id="reloj-ponente">00:00</span>
+    <span class="meta"><span id="cuenta-ponente"></span> · meta 20:00 <button id="reiniciar" type="button">Reiniciar reloj</button></span>
+  </div>
+  <div class="lado">
+    <div class="siguiente">Siguiente: <b id="siguiente"></b></div>
+    <div id="nota-grande"></div>
+  </div>
+</div>
+
+<script>
+  const escenario = document.getElementById('escenario');
+  const slides = [...document.querySelectorAll('.slide')];
+  const presentador = new URLSearchParams(location.search).has('presentador');
+  const canal = 'BroadcastChannel' in window ? new BroadcastChannel('amei-encuadre-v2') : null;
+  const META = 20 * 60;
+  let actual = 0;
+  let inicio = null;
+
+  if (presentador) document.body.classList.add('presentador');
+
+  // Cornisa y folio, alternando verso/recto como en un libro
+  let capitulo = 'La política del encuadre';
+  slides.forEach((s, k) => {
+    if (s.dataset.capitulo) capitulo = s.dataset.capitulo;
+    // páginas enfrentadas: folios a/b, como en la paginación de las ediciones clásicas
+    s.querySelectorAll('.folio-l, .folio-r').forEach(f => f.textContent = (k + 1) + (f.classList.contains('folio-l') ? 'a' : 'b'));
+    if (s.dataset.tipo !== 'pagina') return;
+    const folio = k + 1;
+    const par = folio % 2 === 0;
+    s.classList.add(par ? 'verso' : 'recto');
+    const titulo = s.dataset.cornisa || capitulo;
+    const c = document.createElement('div');
+    c.className = 'cornisa';
+    c.innerHTML = par
+      ? `<span class="folio">${folio}</span><span>Jorge Cardiel Herrera</span>`
+      : `<span>${titulo}</span><span class="folio">${folio}</span>`;
+    s.prepend(c);
+  });
+
+  // Folios del índice, calculados a partir de la posición real de cada libro
+  document.querySelectorAll('[data-pag]').forEach(el => {
+    const destino = document.getElementById(el.dataset.pag);
+    if (destino) el.textContent = slides.indexOf(destino) + 1;
+  });
+
+  function ajustar() {
+    let ancho = innerWidth, alto = innerHeight, x = innerWidth / 2, y = innerHeight / 2;
+    if (presentador) {
+      const sup = 78;
+      ancho = innerWidth * .62 - 40; alto = innerHeight - sup - 40;
+      x = innerWidth * .31; y = sup + (innerHeight - sup) / 2;
+    }
+    const k = Math.min(ancho / 1600, alto / 900);
+    escenario.style.left = x + 'px';
+    escenario.style.top = y + 'px';
+    escenario.style.transform = `translate(-50%, -50%) scale(${k})`;
+  }
+
+  function nota(i) {
+    const n = slides[i] && slides[i].querySelector('aside.notas');
+    return n ? n.innerHTML : '';
+  }
+
+  function ir(n, difundir = true) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    if (inicio === null && n > 0) inicio = Date.now();
+    actual = n;
+    slides.forEach((s, k) => s.classList.toggle('on', k === actual));
+    history.replaceState(null, '', location.pathname + location.search + '#' + (actual + 1));
+    const cuenta = `${actual + 1} / ${slides.length}`;
+    document.getElementById('texto-notas').innerHTML = nota(actual);
+    document.getElementById('cuenta').textContent = cuenta;
+    document.getElementById('cuenta-ponente').textContent = cuenta;
+    document.getElementById('nota-grande').innerHTML = nota(actual);
+    const sig = slides[actual + 1];
+    document.getElementById('siguiente').textContent = sig ? sig.dataset.titulo || '' : 'fin';
+    document.getElementById('barra').style.width = `${(actual + 1) / slides.length * 100}%`;
+    if (difundir && canal) canal.postMessage({ tipo: 'ir', n: actual, inicio });
+  }
+
+  function reloj() {
+    const s = inicio === null ? 0 : Math.floor((Date.now() - inicio) / 1000);
+    const txt = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+    ['reloj-notas', 'reloj-ponente'].forEach(id => {
+      const el = document.getElementById(id);
+      el.textContent = txt;
+      el.classList.toggle('ambar', s >= META - 2 * 60 && s < META);
+      el.classList.toggle('rojo', s >= META);
+    });
+  }
+
+  function reiniciar(difundir = true) {
+    inicio = actual > 0 ? Date.now() : null;
+    reloj();
+    if (difundir && canal) canal.postMessage({ tipo: 'reloj', inicio });
+  }
+
+  if (canal) canal.onmessage = e => {
+    const m = e.data || {};
+    if (m.tipo === 'ir') { if (m.inicio) inicio = m.inicio; ir(m.n, false); }
+    else if (m.tipo === 'reloj') { inicio = m.inicio; reloj(); }
+    else if (m.tipo === 'hola' && canal) canal.postMessage({ tipo: 'ir', n: actual, inicio });
+  };
+
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); ir(actual + 1); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); ir(actual - 1); }
+    else if (e.key === 'Home') ir(0);
+    else if (e.key === 'End') ir(slides.length - 1);
+    else if (e.key === 'f' || e.key === 'F') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    else if (e.key === 'n' || e.key === 'N') document.body.classList.toggle('con-notas');
+    else if (e.key === 'p' || e.key === 'P') window.open(location.pathname + '?presentador#' + (actual + 1), 'ponente', 'width=1280,height=800');
+    else if (e.key === 't' || e.key === 'T') reiniciar();
+  });
+  addEventListener('click', e => {
+    if (e.target.closest('#notas, #ponente .lado, #ponente .barra-sup')) return;
+    ir(actual + (e.clientX > innerWidth / 3 ? 1 : -1));
+  });
+  document.getElementById('reiniciar').addEventListener('click', () => reiniciar());
+  addEventListener('resize', ajustar);
+  setTimeout(() => document.body.classList.add('quieto'), 4000);
+  setInterval(reloj, 500);
+
+  ajustar();
+  ir((parseInt(location.hash.slice(1), 10) || 1) - 1, false);
+  if (canal) canal.postMessage({ tipo: 'hola' });
+</script>
+</body>
+</html>
