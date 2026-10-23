@@ -43,11 +43,13 @@
     font-family: var(--serif);
     overflow: hidden;
     font-feature-settings: "liga", "onum", "kern";
+    touch-action: manipulation;
   }
 
   /* ── Escenario 16:9 escalado a la ventana ── */
+  /* fixed y no absolute: así los 1600 px del escenario no ensanchan la página en el celular */
   #escenario {
-    position: absolute; left: 50%; top: 50%;
+    position: fixed; left: 50%; top: 50%;
     width: var(--W); height: var(--H);
     transform-origin: center center;
   }
@@ -1539,10 +1541,30 @@
     else if (e.key === 'p' || e.key === 'P') window.open(location.pathname + '?presentador#' + (actual + 1), 'ponente', 'width=1280,height=800');
     else if (e.key === 't' || e.key === 'T') reiniciar();
   });
+  const fueraDelEscenario = el => el.closest('#notas, #ponente .lado, #ponente .barra-sup');
   addEventListener('click', e => {
-    if (e.target.closest('#notas, #ponente .lado, #ponente .barra-sup')) return;
+    if (fueraDelEscenario(e.target)) return;
     ir(actual + (e.clientX > innerWidth / 3 ? 1 : -1));
   });
+  // Safari en iPhone no entrega el click de un toque sobre algo que no es un control,
+  // así que en pantallas táctiles se atienden los toques y el deslizamiento directamente
+  let toque = null;
+  addEventListener('touchstart', e => {
+    toque = e.touches.length === 1 && !fueraDelEscenario(e.target)
+      ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+  }, { passive: true });
+  addEventListener('touchend', e => {
+    if (!toque || e.touches.length) { toque = null; return; }
+    const t = e.changedTouches[0], dx = t.clientX - toque.x, dy = t.clientY - toque.y;
+    const ampliada = window.visualViewport && visualViewport.scale > 1.01;
+    toque = null;
+    if (Math.abs(dx) < 12 && Math.abs(dy) < 12) ir(actual + (t.clientX > innerWidth / 3 ? 1 : -1));
+    else if (!ampliada && Math.abs(dx) > 50 && Math.abs(dx) > 1.5 * Math.abs(dy)) ir(actual + (dx < 0 ? 1 : -1));
+    else return;
+    e.preventDefault();  // sin esto, el click sintético haría avanzar dos veces
+  }, { passive: false });
+  if (matchMedia('(pointer: coarse)').matches)
+    document.getElementById('ayuda').textContent = 'Toca a la derecha o desliza para avanzar · a la izquierda para volver';
   document.getElementById('reiniciar').addEventListener('click', () => reiniciar());
   addEventListener('resize', ajustar);
   setTimeout(() => document.body.classList.add('quieto'), 4000);
