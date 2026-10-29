@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════════════════════════════
+   CAPÍTULO 3 (segunda parte) · DOTACIONES GEOECONÓMICAS (pp. 87–92)
+   Blackwill, R. D., y Harris, J. M. (2016). War by other means:
+   Geoeconomics and statecraft. Belknap Press of Harvard University Press.
+   
+   Arriba: las cuatro dotaciones (verde) y los instrumentos que alimentan.
+   Abajo: las tensiones entre instrumentos (naranja) y la regla para evaluarlos.
+
+   Código de color (el mismo en los tres esquemas):
+     rojo farol ........ idea central
+     amarillo yema ..... los platillos: puntos (cap. 1) e instrumentos (cap. 3)
+     verde formica ..... dotaciones geoeconómicas (lo estructural)
+     café con leche .... casos y ejemplos, con año y página
+     azul azulejo ...... autores con los que discuten
+     blanco con rojo ... citas textuales (traducción propia)
+     gris .............. lo que queda fuera de la geoeconomía
+     naranja ........... preguntas abiertas y tensiones
+     rosa cartulina .... PUENTES: conexiones mías con otros temas (no son del libro)
+
+   Se dibuja con:  dot -Tsvg cap3b_dotaciones_y_tensiones.dot -o cap3b_dotaciones_y_tensiones.svg
+   Fuentes: Oswald, Barlow Condensed, Courier Prime, Permanent Marker
+   (si no están instaladas, Graphviz usa otras y las cajas se descuadran)
+   ═══════════════════════════════════════════════════════════════════ */
+
+digraph cap3b_dotaciones_y_tensiones {
+  graph [ bgcolor="#FBF1DC", pad="0.3", nodesep="0.2", ranksep="0.28",
+          fontname="Oswald Bold", labelloc="t", label=<<FONT FACE="Oswald Bold" POINT-SIZE="28" COLOR="#C8102E">Cap. 3 · La cocina: cuatro dotaciones y sus tensiones</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="15" COLOR="#4A2C1D">Blackwill y Harris (2016), War by Other Means, pp. 87–92 · lo estructural que decide si los instrumentos funcionan</FONT><BR/> >,
+          newrank="true", compound="true" ];
+  node  [ shape="plain" ];
+  edge  [ color="#4A2C1D", penwidth="1.8", arrowsize="0.8" ];
+
+  // ── Centro ────────────────────────────────────────────────────────
+  centro [label=<<TABLE BORDER="4" COLOR="#6E0B16" BGCOLOR="#C8102E" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#C8102E" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="24" COLOR="#FFE08A">DOTACIONES GEOECONÓMICAS</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#FFE08A">  p. 87</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="14" COLOR="#FFFFFF">Así como no todos los Estados proyectan igual la<BR/>fuerza militar, hay rasgos estructurales que<BR/>deciden qué tan eficaz es un país con los<BR/>instrumentos económicos.</FONT></TD></TR></TABLE>>];
+  upd [label=<<TABLE BORDER="3" COLOR="#6B675F" BGCOLOR="#FFFDF6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#FFFDF6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="13.5" COLOR="#3A3833">Ojo: después de 2016 (no está en<BR/>el libro)</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="13" COLOR="#3A3833">El libro dice que nadie ha invocado la<BR/>excepción de seguridad nacional de la<BR/>OMC (p. 89). Después se volvió argumento<BR/>corriente: aranceles 232 de EE. UU.<BR/>(2018), el panel Rusia–Tránsito (2019).<BR/>Y en 2022, bancos rusos fuera de SWIFT y<BR/>reservas congeladas.</FONT></TD></TR></TABLE>>];
+  reg [label=<<TABLE BORDER="3" COLOR="#C2410C" BGCOLOR="#FFB347" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#FFB347" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="14" COLOR="#5A1A00">¿Y el régimen político?</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#5A1A00">  pp. 61, 88</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="13" COLOR="#2E1300">Con menos frenos legales y de<BR/>opinión pública, Rusia, Irán,<BR/>Corea del Norte y China sacan más<BR/>del ciber y de sus empresas<BR/>estatales (el «teléfono rojo» del<BR/>Partido; en Rusia, «blanco»).</FONT></TD></TR></TABLE>>];
+  { rank=same; reg; centro; upd; }
+  reg -> centro [style=invis];
+  centro -> upd [style=invis];
+
+  // ── Las cuatro dotaciones ─────────────────────────────────────────
+  d1 [label=<<TABLE BORDER="3" COLOR="#1F6E54" BGCOLOR="#FFF8E7" CELLBORDER="0" CELLPADDING="5" CELLSPACING="3" STYLE="rounded"><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="16" COLOR="#0E3B2D">① Controlar la inversión<BR/>saliente</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#0E3B2D">  pp. 87–89</FONT></TD></TR><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#11251E">Los canales directos —fondos<BR/>soberanos, bancos estatales,<BR/>empresas estatales— se pueden<BR/>reorientar. Los indirectos<BR/>—TLC, tratados de inversión— no<BR/>se «apagan».</FONT></TD></TR><TR><TD PORT="caso" BGCOLOR="#EAD3B2" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#4A2C1D">El Golfo en Egipto</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="10.5" COLOR="#4A2C1D">  p. 88</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">El dinero saudí y emiratí se<BR/>corta con Mubarak y vuelve, por<BR/>decenas de miles de millones,<BR/>días después de la caída de<BR/>Morsi.</FONT></TD></TR><TR><TD BGCOLOR="#F6C945" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#5A1A0A">Alimenta</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">inversión · ayuda</FONT></TD></TR></TABLE>>];
+  d2 [label=<<TABLE BORDER="3" COLOR="#1F6E54" BGCOLOR="#FFF8E7" CELLBORDER="0" CELLPADDING="5" CELLSPACING="3" STYLE="rounded"><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="16" COLOR="#0E3B2D">② Rasgos del mercado<BR/>interno</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#0E3B2D">  pp. 89–90</FONT></TD></TR><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#11251E">Tamaño, control del acceso,<BR/>capacidad de redirigir<BR/>importaciones, ser «demasiado<BR/>grande para ignorarlo»,<BR/>expectativa de crecimiento.</FONT></TD></TR><TR><TD PORT="caso" BGCOLOR="#FFFFFF" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#C8102E">Yang Jiechi</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="10.5" COLOR="#C8102E">  p. 89</FONT><BR/><FONT FACE="Barlow Condensed Medium Italic" POINT-SIZE="12.5" COLOR="#3B2418">«China es un país grande y los<BR/>otros son países pequeños.»<BR/>Pero el tamaño pesa menos que<BR/>en geopolítica: Singapur<BR/>(Temasek, GIC) y Qatar.</FONT></TD></TR><TR><TD BGCOLOR="#F6C945" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#5A1A0A">Alimenta</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">comercio · inversión ·<BR/>sanciones (p. 90)</FONT></TD></TR></TABLE>>];
+  d3 [label=<<TABLE BORDER="3" COLOR="#1F6E54" BGCOLOR="#FFF8E7" CELLBORDER="0" CELLPADDING="5" CELLSPACING="3" STYLE="rounded"><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="16" COLOR="#0E3B2D">③ Influencia sobre<BR/>energía y materias primas</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#0E3B2D">  p. 90</FONT></TD></TR><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#11251E">Monopolio (la OPEP), monopsonio<BR/>(EE. UU., China) y centralidad<BR/>de tránsito (Suez, Panamá,<BR/>Malaca, Ormuz).</FONT></TD></TR><TR><TD PORT="caso" BGCOLOR="#EAD3B2" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#4A2C1D">Gas Rusia–China, 2014</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="10.5" COLOR="#4A2C1D">  p. 90</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">Contrato a 30 años: tras una<BR/>década de negociación, ganó el<BR/>comprador.</FONT></TD></TR><TR><TD BGCOLOR="#F6C945" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#5A1A0A">Alimenta</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">energía y materias primas</FONT></TD></TR></TABLE>>];
+  d4 [label=<<TABLE BORDER="3" COLOR="#1F6E54" BGCOLOR="#FFF8E7" CELLBORDER="0" CELLPADDING="5" CELLSPACING="3" STYLE="rounded"><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="16" COLOR="#0E3B2D">④ Centralidad en el<BR/>sistema financiero</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#0E3B2D">  pp. 90–91</FONT></TD></TR><TR><TD BGCOLOR="#9FD8C0" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#11251E">Moneda de reserva y sanciones<BR/>financieras: casi todo pasa por<BR/>el sistema de EE. UU. «Pero<BR/>esto está cambiando».</FONT></TD></TR><TR><TD PORT="caso" BGCOLOR="#EAD3B2" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#4A2C1D">Corea del Norte</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="10.5" COLOR="#4A2C1D">  p. 91</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">El aislamiento como escudo:<BR/>ante las nuevas sanciones, el<BR/>Tesoro no tenía poder de menos<BR/>sino «escasez de blancos».</FONT></TD></TR><TR><TD PORT="alim" BGCOLOR="#F6C945" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Medium" POINT-SIZE="12.5" COLOR="#5A1A0A">Alimenta</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#2B1B12">sanciones · finanzas y moneda</FONT></TD></TR></TABLE>>];
+  { rank=same; d1; d2; d3; d4; }
+  d1 -> d2 [style=invis];
+  d2 -> d3 [style=invis];
+  d3 -> d4 [style=invis];
+  centro -> d1 [color="#1F6E54"];
+  centro -> d2 [color="#1F6E54"];
+  centro -> d3 [color="#1F6E54"];
+  centro -> d4 [color="#1F6E54"];
+
+  // ── Tensiones entre instrumentos y la regla para evaluar ──────────
+  t1 [label=<<TABLE BORDER="3" COLOR="#C2410C" BGCOLOR="#FFB347" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#FFB347" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="14" COLOR="#5A1A00">Tensión 1 · El arma se<BR/>gasta</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#5A1A00">  pp. 59, 78</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="13" COLOR="#2E1300">Cada sanción en dólares<BR/>empuja a buscar alternativas<BR/>al dólar: Gazprom ya cobra<BR/>en rublos y yuanes.</FONT></TD></TR></TABLE>>];
+  t2 [label=<<TABLE BORDER="3" COLOR="#C2410C" BGCOLOR="#FFB347" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#FFB347" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="14" COLOR="#5A1A00">Tensión 2 · Un<BR/>renminbi internacional</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#5A1A00">  pp. 78–79</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="13" COLOR="#2E1300">Dificulta las sanciones pero<BR/>ayuda a otros intereses de<BR/>EE. UU. Y no hay precedente<BR/>moderno de una moneda de<BR/>reserva global que<BR/>administre un país no<BR/>democrático.</FONT></TD></TR></TABLE>>];
+  t3 [label=<<TABLE BORDER="3" COLOR="#C2410C" BGCOLOR="#FFB347" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#FFB347" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="14" COLOR="#5A1A00">Tensión 3 · La deuda<BR/>en pocas manos</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#5A1A00">  pp. 83–85</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="13" COLOR="#2E1300">Una venta masiva sería como<BR/>la destrucción mutua<BR/>asegurada, pero un acreedor<BR/>grande puede mover el<BR/>mercado aun sin querer.</FONT></TD></TR></TABLE>>];
+  regla [label=<<TABLE BORDER="3" COLOR="#6E0B16" BGCOLOR="#C8102E" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded"><TR><TD BGCOLOR="#C8102E" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Oswald Bold" POINT-SIZE="16" COLOR="#FFE08A">LA REGLA PARA EVALUAR</FONT><FONT FACE="Courier Prime Bold" POINT-SIZE="11" COLOR="#FFE08A">  pp. 91–92</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="13.5" COLOR="#FFFFFF">No basta el costo-beneficio: hay<BR/>que medir contra la siguiente<BR/>mejor alternativa y distinguir<BR/>metas y blancos primarios,<BR/>secundarios y terciarios<BR/>(Baldwin).</FONT></TD></TR></TABLE>>];
+  { rank=same; t1; t2; t3; regla; }
+  t1 -> t2 [style=invis];
+  t2 -> t3 [style=invis];
+  t3 -> regla [style=invis];
+  d4:alim -> t1 [color="#C2410C", penwidth="2.6"];
+  d4:alim -> t2 [color="#C2410C", penwidth="2.6"];
+  d4:alim -> t3 [color="#C2410C", penwidth="2.6"];
+  d1 -> t1 [style="invis"];
+
+  // ── PUENTES (rosa): conexiones con otros temas, no son del libro ────
+  b_s18 [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">Sesión 18 · La<BR/>Franja y la Ruta</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">Reservas recicladas a la<BR/>Nueva Ruta de la Seda y<BR/>al AIIB (p. 84).</FONT></TD></TR></TABLE>>];
+  b_hir [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">Hirschman, 1945</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">Dependencia asimétrica:<BR/>el poder nace de la<BR/>estructura del comercio<BR/>exterior.</FONT></TD></TR></TABLE>>];
+  b_s15 [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">Sesión 15 ·<BR/>Strange y McGee</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">Consumer Day 2013: el<BR/>mercado chino como<BR/>palanca contra Apple.</FONT></TD></TR></TABLE>>];
+  b_s17 [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">Sesión 17 · Nord<BR/>Stream</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">Monopolio, monopsonio y<BR/>tránsito en un solo<BR/>tubo.</FONT></TD></TR></TABLE>>];
+  b_s10 [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">Sesión 10 ·<BR/>Farrell y Newman</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">Nodos centrales = cuello<BR/>de botella y panóptico.<BR/>Proliferación: usar el<BR/>arma enseña a<BR/>esquivarla.</FONT></TD></TR></TABLE>>];
+  b_s13 [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">Sesión 13 · Los<BR/>chips</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">¿Una quinta dotación? La<BR/>centralidad tecnológica<BR/>(TSMC, ASML) que el<BR/>libro de 2016 no lista.</FONT></TD></TR></TABLE>>];
+  b_mx [label=<<TABLE BORDER="2" COLOR="#C2006B" BGCOLOR="#FF8CC6" CELLBORDER="0" CELLPADDING="5" CELLSPACING="0" STYLE="rounded,dashed"><TR><TD BGCOLOR="#FF8CC6" ALIGN="LEFT" BALIGN="LEFT"><FONT FACE="Permanent Marker" POINT-SIZE="13" COLOR="#4A0030">México · ¿qué<BR/>dotaciones tiene?</FONT><BR/><FONT FACE="Barlow Condensed Medium" POINT-SIZE="12.5" COLOR="#3A0026">Vecino del mercado más<BR/>grande y socio<BR/>integrado: ¿más blanco<BR/>que arma? (sesión 10:<BR/>palancas sobre México).</FONT></TD></TR></TABLE>>];
+  { rank=same; b_s18; b_hir; b_s15; b_s17; b_s10; b_s13; b_mx; }
+  b_s18 -> b_hir [style=invis];
+  b_hir -> b_s15 [style=invis];
+  b_s15 -> b_s17 [style=invis];
+  b_s17 -> b_s10 [style=invis];
+  b_s10 -> b_s13 [style=invis];
+  b_s13 -> b_mx [style=invis];
+  d1:caso -> b_s18 [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+  d2:caso -> b_hir [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+  d2:caso -> b_s15 [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+  d3:caso -> b_s17 [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+  t1 -> b_s10 [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+  regla -> b_s13 [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+  regla -> b_mx [color="#C2006B", style="dashed", penwidth="2", arrowhead="odot"];
+}

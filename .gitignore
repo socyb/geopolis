@@ -12,3 +12,5 @@ __pycache__/
 *.pdf
 # ...salvo las presentaciones que se publican en la página
 !assets/presentations/*.pdf
+# ...y los PDF de los esquemas de lectura
+!lecturas/**/*.pdf

@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café «Por otros medios»</title>
+<meta name="description" content="Esquemas DOT de los capítulos 1 y 3 de Blackwill y Harris (2016), War by Other Means: qué es la geoeconomía, siete instrumentos y cuatro dotaciones, con puentes a otros temas.">
+<style>
+/*%%FUENTES%%*/
+
+:root{
+  --rojo:#C8102E; --rojo-osc:#6E0B16; --oro:#E8B33A; --oro-claro:#FFE08A; --yema:#F6C945;
+  --menta:#9FD8C0; --jade:#1F6E54; --crema:#FBF1DC; --papel:#FFF8E7; --cafe:#4A2C1D; --leche:#EAD3B2;
+  --azulejo:#2C7DA0; --azul-claro:#BFE0EE; --gris:#DEDAD2; --naranja:#FFB347; --rosa:#FF8CC6;
+  --fluor-rosa:#FF6FB5; --fluor-amarillo:#F4F04A; --fluor-verde:#A8EE4A; --fluor-naranja:#FF9F3A;
+  --fieltro:#1E1C1C; --aluminio:linear-gradient(180deg,#F2F4F5,#A7AEB3 45%,#E3E6E8 55%,#8E959A);
+  --tinta:#2B1B12;
+  --t-cuerpo:"Barlow",system-ui,sans-serif;
+  --t-cond:"Barlow Condensed Medium","Barlow",sans-serif;
+  --t-rotulo:"Bebas Neue","Oswald Bold",sans-serif;
+  --t-tit:"Oswald Bold",sans-serif;
+  --t-sub:"Oswald Medium",sans-serif;
+  --t-plumon:"Permanent Marker",cursive;
+  --t-maquina:"Courier Prime",monospace;
+  --t-chino:"Ma Shan Zheng",serif;
+  --greca:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M0 21H24M21 21V3H3V15H15V9H9' fill='none' stroke='%23E8B33A' stroke-width='2.4'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; color:var(--tinta); font-family:var(--t-cuerpo); font-size:17px; line-height:1.45;
+  background-color:#F3EEE3;
+  background-image:
+    linear-gradient(90deg, rgba(160,150,130,.35) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(160,150,130,.35) 1px, transparent 1px);
+  background-size:56px 56px;
+}
+.pagina{max-width:1180px; margin:0 auto; padding:0 16px 48px}
+.ocultar-print{}
+
+/* ── Toldo y rótulo ─────────────────────────────────────────────── */
+.toldo{position:relative; height:44px; margin:0 -16px;
+  background:repeating-linear-gradient(90deg,var(--rojo) 0 44px,var(--papel) 44px 88px);
+  box-shadow:inset 0 -6px 0 rgba(0,0,0,.12)}
+.toldo::after{content:""; position:absolute; left:0; right:0; top:100%; height:22px;
+  background:
+    radial-gradient(circle at 22px 0,var(--rojo) 21px,transparent 22px) 0 0/88px 22px repeat-x,
+    radial-gradient(circle at 66px 0,var(--papel) 21px,transparent 22px) 0 0/88px 22px repeat-x;
+  filter:drop-shadow(0 4px 2px rgba(0,0,0,.18))}
+.rotulo{position:relative; margin:34px 0 0; padding:22px 26px 20px; background:var(--rojo); color:var(--oro-claro);
+  border:6px double var(--oro); border-radius:6px; text-align:center;
+  box-shadow:0 10px 0 -4px var(--rojo-osc),0 14px 28px rgba(0,0,0,.25)}
+.rotulo::before,.rotulo::after{content:""; position:absolute; left:10px; right:10px; height:24px; background:var(--greca) 0 0/24px 24px repeat-x}
+.rotulo::before{top:8px} .rotulo::after{bottom:8px; transform:scaleY(-1)}
+.rotulo .bienvenida{font-family:var(--t-chino); font-size:24px; letter-spacing:.3em; margin-top:22px}
+.rotulo h1{margin:0; font-family:var(--t-rotulo); font-weight:400; font-size:clamp(46px,8vw,96px); line-height:.95; letter-spacing:.02em;
+  color:var(--oro-claro); text-shadow:3px 3px 0 var(--rojo-osc),5px 5px 0 rgba(0,0,0,.25)}
+.rotulo h1 .chino{font-family:var(--t-chino); font-size:.62em; vertical-align:.12em; margin-left:.25em; color:#fff}
+.rotulo .giro{font-family:var(--t-sub); text-transform:uppercase; letter-spacing:.18em; font-size:clamp(13px,1.9vw,18px); color:#fff; margin:8px 0 4px}
+.rotulo .libro{font-family:var(--t-cond); font-size:clamp(16px,2.2vw,21px); color:#FFF3D0; margin:6px auto 22px; max-width:46em}
+.rotulo .libro i{font-family:"Barlow Condensed Medium Italic",var(--t-cond); font-style:normal}
+.farol{position:absolute; top:-30px; width:58px}
+.farol.izq{left:22px} .farol.der{right:22px}
+.desde{position:absolute; right:18px; bottom:-30px; transform:rotate(-4deg); background:var(--fluor-amarillo); color:#222;
+  font-family:var(--t-plumon); font-size:14px; padding:5px 12px; box-shadow:2px 3px 0 rgba(0,0,0,.25)}
+
+/* ── Títulos de sección: letrerito rojo con greca ───────────────── */
+.letrero{display:flex; align-items:center; gap:14px; margin:44px 0 16px}
+.letrero h2{margin:0; background:var(--rojo); color:var(--oro-claro); font-family:var(--t-tit); font-weight:400; text-transform:uppercase;
+  letter-spacing:.06em; font-size:22px; padding:6px 16px 7px; border-radius:4px; border:3px solid var(--oro); box-shadow:3px 3px 0 var(--rojo-osc)}
+.letrero .chino{font-family:var(--t-chino); font-size:26px; color:var(--rojo)}
+.letrero .linea{flex:1; height:24px; background:var(--greca) 0 0/24px 24px repeat-x; filter:hue-rotate(0deg) saturate(1.2); opacity:.9}
+.letrero p{margin:0}
+
+/* ── Portada: la casa recomienda + vitrina ──────────────────────── */
+.recomienda{display:grid; grid-template-columns:1.1fr 1fr; gap:22px; margin-top:52px; align-items:start}
+.formica{background:#EAF6F0; background-image:
+   radial-gradient(rgba(31,110,84,.16) 1px,transparent 1.5px),radial-gradient(rgba(200,16,46,.09) 1px,transparent 1.5px);
+  background-size:9px 9px,13px 13px; background-position:0 0,4px 6px;
+  border-radius:10px; padding:18px 20px; border:6px solid transparent;
+  border-image:var(--aluminio) 1; box-shadow:0 6px 14px rgba(0,0,0,.15)}
+.formica h3{margin:0 0 6px; font-family:var(--t-tit); font-weight:400; color:var(--jade); font-size:21px; text-transform:uppercase; letter-spacing:.04em}
+.formica p{margin:.35em 0}
+.formica ol{margin:.4em 0 0; padding-left:1.3em}
+.formica li{margin:.18em 0}
+.platos{font-family:var(--t-cond); font-size:18px}
+.vitrina{background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(220,240,240,.35)); border:6px solid transparent; border-image:var(--aluminio) 1;
+  padding:14px 16px 16px; box-shadow:inset 0 0 0 2px rgba(255,255,255,.7),0 6px 14px rgba(0,0,0,.15); position:relative}
+.vitrina h3{margin:0 0 10px; font-family:var(--t-tit); font-weight:400; font-size:21px; color:var(--rojo); text-transform:uppercase; letter-spacing:.04em}
+.vitrina .cristal{position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 38%,transparent 46%)}
+.chips{display:grid; grid-template-columns:1fr 1fr; gap:8px 10px}
+.chip{display:flex; gap:9px; align-items:flex-start; background:var(--papel); border-radius:6px; padding:6px 8px; border:1px solid #d8cdb6}
+.chip b{display:block; font-family:var(--t-sub); font-weight:400; font-size:15px; line-height:1.15}
+.chip span{font-family:var(--t-cond); font-size:15px; line-height:1.2; color:#4b3a2e}
+.muestra{flex:none; width:30px; height:30px; border-radius:5px; border:3px solid; margin-top:2px}
+.muestra.dash{border-style:dashed}
+
+/* ── Pizarrón de letras blancas ─────────────────────────────────── */
+.pizarron{background:repeating-linear-gradient(180deg,#252222 0 26px,#141212 26px 29px); color:#F5F1E8;
+  border:14px solid transparent; border-image:var(--aluminio) 1; padding:18px 22px 20px;
+  box-shadow:0 10px 24px rgba(0,0,0,.3); font-family:var(--t-sub); text-transform:uppercase; letter-spacing:.07em}
+.pizarron .cabeza{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; border-bottom:2px solid #F5F1E8; padding-bottom:6px; margin-bottom:10px}
+.pizarron .cabeza b{font-family:var(--t-rotulo); font-weight:400; font-size:38px; letter-spacing:.08em; color:#fff}
+.pizarron .cabeza b .chino{font-family:var(--t-chino); color:var(--oro-claro); font-size:30px; margin-left:10px; letter-spacing:0}
+.pizarron .cabeza span{font-size:13px; color:#d8d2c4}
+.columnas{display:grid; grid-template-columns:1fr 1fr; gap:0 34px}
+.pizarron h4{margin:12px 0 4px; font-family:var(--t-tit); font-weight:400; font-size:19px; color:var(--oro-claro); letter-spacing:.09em}
+.pizarron h4 small{font-family:var(--t-sub); color:#FF8C9E; font-size:13px; margin-left:6px}
+.renglon{display:flex; gap:10px; align-items:baseline; padding:3px 0 2px}
+.renglon .que{flex:1}
+.renglon .que em{display:block; font-style:normal; text-transform:none; letter-spacing:0; font-family:var(--t-cond); font-size:15px; color:#cfc6b3; line-height:1.2; margin-top:1px}
+.renglon .pp{flex:none; color:#FF8C9E; font-family:var(--t-maquina); font-weight:700; letter-spacing:0; font-size:14px}
+.renglon .num{flex:none; color:var(--oro-claro); width:1.4em}
+.pizarron .pie{margin-top:12px; border-top:2px solid #F5F1E8; padding-top:6px; font-size:12px; color:#d8d2c4; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px}
+
+/* ── Láminas de los esquemas ────────────────────────────────────── */
+.lamina{background:var(--crema); border:10px solid var(--rojo); outline:3px solid var(--oro); outline-offset:-16px;
+  border-radius:6px; box-shadow:0 10px 24px rgba(0,0,0,.25); padding:22px 18px 14px; position:relative}
+.lamina .barra{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; margin:0 6px 10px}
+.lamina .barra p{margin:0; font-family:var(--t-cond); font-size:17px; max-width:62em}
+.zoom{display:flex; gap:6px}
+.zoom button{font-family:var(--t-sub); font-size:14px; letter-spacing:.05em; border:2px solid var(--rojo-osc); background:var(--yema); color:var(--rojo-osc);
+  padding:5px 11px; border-radius:5px; cursor:pointer; box-shadow:2px 2px 0 var(--rojo-osc)}
+.zoom button[aria-pressed="true"]{background:var(--rojo); color:var(--oro-claro)}
+.zoom button:focus-visible{outline:3px solid var(--azulejo); outline-offset:2px}
+.lienzo{overflow:auto; -webkit-overflow-scrolling:touch; border-radius:4px; background:#FBF1DC}
+.esquema-svg{display:block; width:var(--ancho,100%); height:auto; max-width:none}
+.etiqueta-hoja{display:none}
+
+/* ── Cartulinas fluorescentes ───────────────────────────────────── */
+.cartulinas{display:grid; grid-template-columns:repeat(4,1fr); gap:22px 18px; padding:8px 4px}
+.cartulina{position:relative; padding:20px 14px 12px; color:#161212; transform:rotate(var(--r,0deg));
+  box-shadow:3px 5px 0 rgba(0,0,0,.18); font-family:"Barlow Condensed SemiBold",var(--t-cond); font-size:18px; line-height:1.22}
+.cartulina::before{content:""; position:absolute; top:-10px; left:50%; width:70px; height:20px; margin-left:-35px;
+  background:rgba(245,236,205,.85); transform:rotate(-3deg); box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.cartulina h3{margin:0 0 6px; font-family:var(--t-plumon); font-weight:400; font-size:19px; line-height:1.1}
+.cartulina p{margin:0}
+.cartulina .pag{display:block; margin-top:8px; font-family:var(--t-plumon); font-size:15px; text-align:right}
+.c-rosa{background:var(--fluor-rosa)} .c-amarillo{background:var(--fluor-amarillo)}
+.c-verde{background:var(--fluor-verde)} .c-naranja{background:var(--fluor-naranja)}
+.no-se-fia{grid-column:1/-1; justify-self:center; text-align:center; background:#fff; border:4px solid var(--rojo); color:var(--rojo);
+  font-family:var(--t-rotulo); font-size:34px; letter-spacing:.06em; padding:4px 26px 2px; transform:rotate(-1deg); box-shadow:3px 4px 0 rgba(0,0,0,.2)}
+.no-se-fia small{display:block; font-family:var(--t-cond); color:#5a4a3e; font-size:15px; letter-spacing:0; margin:-4px 0 6px}
+
+/* ── Puentes ────────────────────────────────────────────────────── */
+.puentes{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.puente{background:var(--papel); border:2px dashed #C2006B; border-radius:8px; padding:10px 12px 11px; position:relative}
+.puente .tag{display:inline-block; background:var(--rosa); color:#4A0030; font-family:var(--t-plumon); font-size:14px; padding:2px 9px; border-radius:3px; transform:rotate(-1.5deg); margin-bottom:5px}
+.puente h3{margin:0 0 4px; font-family:var(--t-tit); font-weight:400; font-size:18px; color:#4A0030; line-height:1.15}
+.puente p{margin:.25em 0; font-family:var(--t-cond); font-size:16px; line-height:1.25}
+.puente p b{font-family:var(--t-sub); font-weight:400; color:var(--rojo-osc)}
+.solo-print{display:none}
+.puente.libre{border-style:dotted; background:repeating-linear-gradient(180deg,var(--papel) 0 25px,#e9d9bb 25px 26px)}
+.puente.libre h3{color:#C2006B}
+code{white-space:nowrap; font-family:var(--t-maquina); font-size:.92em}
+.grupo-puentes{grid-column:1/-1; font-family:var(--t-sub); text-transform:uppercase; letter-spacing:.12em; color:#C2006B; font-size:14px; margin:6px 0 -4px; border-bottom:2px dashed #C2006B}
+
+/* ── Comanda ────────────────────────────────────────────────────── */
+.mesa{display:grid; grid-template-columns:1.35fr 1fr; gap:26px; align-items:start}
+.comanda{position:relative; background:#FFFEF7; padding:16px 18px 18px 54px; font-family:var(--t-maquina); font-size:15.5px; line-height:28px;
+  background-image:linear-gradient(90deg,transparent 40px,#E58A9A 40px 42px,transparent 42px),repeating-linear-gradient(180deg,transparent 0 27px,#A9CBEA 27px 28px);
+  background-position:0 0,0 16px; box-shadow:0 8px 18px rgba(0,0,0,.2); border-top:10px solid #F2EBD6}
+.comanda::before{content:""; position:absolute; left:0; right:0; top:-10px; height:10px;
+  background:radial-gradient(circle at 7px 5px,#F3EEE3 3px,transparent 3.5px) 0 0/14px 10px repeat-x}
+.comanda .enc{display:flex; justify-content:space-between; flex-wrap:wrap; font-weight:700; color:var(--rojo); text-transform:uppercase}
+.comanda ol{margin:0; padding:0; list-style:none; counter-reset:q}
+.comanda li{counter-increment:q; position:relative; margin:0}
+.comanda li::before{content:counter(q) "."; position:absolute; left:-36px; width:26px; text-align:right; font-weight:700; color:var(--rojo)}
+.comanda .lugar{color:#7a6a5a}
+
+/* ── Glosario: carta bilingüe ───────────────────────────────────── */
+.bilingue{background:var(--papel); border:3px solid var(--rojo); border-radius:8px; padding:12px 16px 14px; box-shadow:4px 4px 0 var(--oro)}
+.bilingue h3{margin:0 0 6px; font-family:var(--t-tit); font-weight:400; color:var(--rojo); text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+.bilingue dl{margin:0; display:grid; grid-template-columns:1fr; gap:3px}
+.bilingue .t{display:flex; gap:6px; align-items:baseline; font-family:var(--t-cond); font-size:16px; line-height:1.2}
+.bilingue dt{font-family:var(--t-sub); color:var(--azulejo); flex:none}
+.bilingue .t::after{content:none}
+.bilingue .relleno{flex:1; border-bottom:2px dotted #c9b48f; transform:translateY(-4px); min-width:14px}
+.bilingue dd{margin:0; flex:0 1 auto; text-align:right}
+.bilingue dd small{display:block; color:#6b5a4c; font-size:14px}
+
+/* ── Ticket de caja ─────────────────────────────────────────────── */
+.ticket{position:relative; width:min(100%,400px); margin:10px auto 26px; background:#fff; padding:20px 20px 18px; font-family:var(--t-maquina); font-size:14px; line-height:1.4;
+  box-shadow:0 6px 14px rgba(0,0,0,.18); color:#222}
+.ticket::before,.ticket::after{content:""; position:absolute; left:0; right:0; height:10px;
+  background:linear-gradient(135deg,#fff 5px,transparent 5px) 0 0/10px 10px repeat-x,linear-gradient(225deg,#fff 5px,transparent 5px) 0 0/10px 10px repeat-x}
+.ticket::before{top:-10px; transform:scaleY(-1)}
+.ticket::after{bottom:-10px}
+.ticket .c{text-align:center}
+.ticket .grande{font-weight:700; font-size:17px}
+.ticket hr{border:0; border-top:1px dashed #555; margin:9px 0}
+.ticket .fila{display:flex; justify-content:space-between; gap:10px}
+.ticket .ref{font-size:13.5px}
+.ticket .chino{font-family:var(--t-chino); font-size:20px}
+
+.vuelta{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start}
+.nota-fuente{font-family:var(--t-cond); font-size:15px; color:#5a4a3e; margin:8px 0 0}
+
+/* ── Teléfono ───────────────────────────────────────────────────── */
+@media screen and (max-width:860px){
+  .recomienda,.mesa,.vuelta{grid-template-columns:1fr}
+  .columnas{grid-template-columns:1fr}
+  .cartulinas{grid-template-columns:1fr 1fr}
+  .puentes{grid-template-columns:1fr 1fr}
+}
+@media screen and (max-width:560px){
+  body{font-size:16px}
+  .chips{grid-template-columns:1fr}
+  .cartulinas,.puentes{grid-template-columns:1fr}
+  .farol{width:40px; top:-24px}
+  .desde{font-size:12px; left:12px; right:12px; text-align:center}
+  .farol.izq{left:8px} .farol.der{right:8px}
+  .rotulo{padding:18px 14px}
+  .pizarron{padding:12px 12px 14px; border-width:9px}
+  .pizarron .cabeza b{font-size:30px}
+  .comanda{padding-left:46px}
+  .lamina{padding:16px 8px 10px; border-width:7px; outline-offset:-12px}
+}
+
+/* ── Impresión / PDF ────────────────────────────────────────────── */
+@page{size:11in 8.5in; margin:0.3in}
+@page esquema{size:17in 11in; margin:0.25in}
+@media print{
+  body{font-size:14.5px; background-size:42px 42px; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .pagina{max-width:none; padding:0}
+  .ocultar-print{display:none !important}
+  .hoja{break-before:page; break-inside:avoid; height:7.9in; overflow:hidden; position:relative}
+  .hoja:first-of-type{break-before:auto}
+  .toldo{margin:0; height:34px}
+  .rotulo{margin-top:22px; padding:14px 20px 12px}
+  .rotulo .bienvenida{margin-top:16px; font-size:20px}
+  .rotulo h1{font-size:76px}
+  .rotulo .libro{margin-bottom:16px; font-size:18px}
+  .farol{width:48px; top:-24px}
+  .recomienda{margin-top:30px; gap:16px}
+  .formica,.vitrina{padding:12px 14px}
+  .platos{font-size:15.5px}
+  .chip{padding:4px 7px} .chip b{font-size:13.5px} .chip span{font-size:13px}
+  .letrero{margin:0 0 10px}
+  .letrero h2{font-size:19px}
+  .pizarron{font-size:14.5px; padding:12px 20px 14px; border-width:10px}
+  .pizarron .cabeza b{font-size:32px}
+  .pizarron h4{font-size:18px; margin:10px 0 3px}
+  .renglon{padding:2px 0}
+  .renglon .que em{font-size:14px}
+  .renglon .pp{font-size:13px}
+  .hoja-esquema{page:esquema; height:10.5in; break-before:page; overflow:hidden; position:relative;
+    background:#FBF1DC; border:5px solid var(--rojo); box-shadow:inset 0 0 0 3px var(--oro)}
+  .hoja-esquema .lamina{height:calc(10.5in - 10px); padding:4px; border:0; outline:0; box-shadow:none; border-radius:0; background:transparent}
+  .hoja-esquema .barra{display:none}
+  .hoja-esquema .lienzo{height:100%; overflow:hidden; background:transparent}
+  .hoja-esquema .esquema-svg{width:100% !important; height:100%}
+  .hoja-esquema .letrero{display:none}
+  .etiqueta-hoja{display:block; position:absolute; right:10px; bottom:6px; font-family:var(--t-maquina); font-size:11px; color:#8B5E3C}
+  .cartulinas{gap:30px 20px; padding-top:14px}
+  .cartulina{font-size:17.5px; padding:20px 14px 11px}
+  .cartulina h3{font-size:18.5px}
+  .cartulina .pag{font-size:15px; margin-top:6px}
+  .no-se-fia{font-size:32px; margin-top:8px}
+  .puentes{grid-template-columns:repeat(4,1fr); gap:8px}
+  .grupo-puentes{display:none}
+  .solo-print{display:block}
+  .puente{padding:6px 9px 7px}
+  .puente h3{font-size:14.5px}
+  .puente p{font-size:12.6px; line-height:1.18; margin:.18em 0}
+  .puente .tag{font-size:11.5px; margin-bottom:2px}
+  .comanda{font-size:14.4px; line-height:28px; background-image:linear-gradient(90deg,transparent 40px,#E58A9A 40px 42px,transparent 42px),repeating-linear-gradient(180deg,transparent 0 27px,#A9CBEA 27px 28px)}
+  .bilingue{padding:14px 18px 16px}
+  .bilingue .t{font-size:15.5px}
+  .bilingue dd small{font-size:13px}
+  .ticket{font-size:15.5px; margin-top:12px; width:470px}
+  .vuelta .formica{font-size:17.5px}
+  a{color:inherit; text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+<!-- ═══════════ HOJA 1 · RÓTULO, LA CASA RECOMIENDA, CÓDIGO DE COLOR ═══════════ -->
+<section class="hoja" id="portada">
+  <div class="toldo" aria-hidden="true"></div>
+  <header class="rotulo">
+    <svg class="farol izq" viewBox="0 0 60 100" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="12" stroke="#E8B33A" stroke-width="3"/><rect x="17" y="10" width="26" height="7" rx="2" fill="#E8B33A"/><ellipse cx="30" cy="47" rx="27" ry="31" fill="#C8102E" stroke="#6E0B16" stroke-width="2"/><ellipse cx="30" cy="47" rx="15" ry="31" fill="none" stroke="#8E0A20" stroke-width="2"/><line x1="30" y1="16" x2="30" y2="78" stroke="#8E0A20" stroke-width="2"/><text x="30" y="56" text-anchor="middle" font-family="Ma Shan Zheng" font-size="26" fill="#FFE08A">福</text><rect x="17" y="76" width="26" height="7" rx="2" fill="#E8B33A"/><path d="M22 83v14M26 83v16M30 83v17M34 83v16M38 83v14" stroke="#E8B33A" stroke-width="2"/></svg>
+    <svg class="farol der" viewBox="0 0 60 100" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="12" stroke="#E8B33A" stroke-width="3"/><rect x="17" y="10" width="26" height="7" rx="2" fill="#E8B33A"/><ellipse cx="30" cy="47" rx="27" ry="31" fill="#C8102E" stroke="#6E0B16" stroke-width="2"/><ellipse cx="30" cy="47" rx="15" ry="31" fill="none" stroke="#8E0A20" stroke-width="2"/><line x1="30" y1="16" x2="30" y2="78" stroke="#8E0A20" stroke-width="2"/><text x="30" y="56" text-anchor="middle" font-family="Ma Shan Zheng" font-size="26" fill="#FFE08A">龍</text><rect x="17" y="76" width="26" height="7" rx="2" fill="#E8B33A"/><path d="M22 83v14M26 83v16M30 83v17M34 83v16M38 83v14" stroke="#E8B33A" stroke-width="2"/></svg>
+    <div class="bienvenida">歡迎光臨</div>
+    <h1>Café «Por otros medios»<span class="chino">咖啡</span></h1>
+    <div class="giro">Café · Pan dulce · Lechero · Desayunos · Comida corrida</div>
+    <div class="libro">Esquemas de lectura de Robert D. Blackwill y Jennifer M. Harris (2016), <i>War by Other Means: Geoeconomics and Statecraft</i>. Capítulo 1, «¿Qué es la geoeconomía?», y capítulo 3, «Los principales instrumentos geoeconómicos de hoy».</div>
+    <div class="desde">Abierto desde 1994, el año del tequilazo (p. 82)</div>
+  </header>
+
+  <div class="recomienda">
+    <div class="formica">
+      <h3>La casa recomienda</h3>
+      <p>Tres esquemas hechos en DOT (Graphviz) para recordar la lectura y engancharla con otros temas. Cada tarjeta lleva su página, como si fuera el precio.</p>
+      <ol class="platos">
+        <li><b>Desayuno · capítulo 1.</b> La definición en tres partes y los cinco puntos con que los autores la acotan (pp. 19–32).</li>
+        <li><b>Comida corrida · capítulo 3, la carta.</b> Siete instrumentos, cada uno con sus casos (pp. 49–87).</li>
+        <li><b>Comida corrida · capítulo 3, la cocina.</b> Cuatro dotaciones que deciden si los instrumentos funcionan, las tensiones entre ellos y la regla para evaluarlos (pp. 87–92).</li>
+      </ol>
+      <p>Después vienen el pizarrón con todo de un vistazo, las cartulinas con las frases que hay que recordar, los puentes con otros temas, la comanda de preguntas, la carta bilingüe y el ticket con la referencia.</p>
+    </div>
+    <div class="vitrina">
+      <div class="cristal" aria-hidden="true"></div>
+      <h3>Código de color · la vitrina</h3>
+      <div class="chips">
+        <div class="chip"><i class="muestra" style="background:#C8102E;border-color:#6E0B16"></i><div><b>Rojo farol</b><span>Idea central, tesis, definición</span></div></div>
+        <div class="chip"><i class="muestra" style="background:#F6C945;border-color:#8A5A00"></i><div><b>Amarillo yema</b><span>Los platillos: puntos (cap. 1) e instrumentos (cap. 3)</span></div></div>
+        <div class="chip"><i class="muestra" style="background:#9FD8C0;border-color:#1F6E54"></i><div><b>Verde formica</b><span>Dotaciones: lo estructural</span></div></div>
+        <div class="chip"><i class="muestra" style="background:#EAD3B2;border-color:#8B5E3C"></i><div><b>Café con leche</b><span>Casos y ejemplos, con año</span></div></div>
+        <div class="chip"><i class="muestra" style="background:#BFE0EE;border-color:#2C7DA0"></i><div><b>Azul azulejo</b><span>Autores con los que discuten</span></div></div>
+        <div class="chip"><i class="muestra" style="background:#FFFFFF;border-color:#C8102E"></i><div><b>Blanco con rojo</b><span>Citas textuales (traducción propia)</span></div></div>
+        <div class="chip"><i class="muestra dash" style="background:#DEDAD2;border-color:#8C877D"></i><div><b>Gris</b><span>Lo que queda fuera de la geoeconomía</span></div></div>
+        <div class="chip"><i class="muestra" style="background:#FFB347;border-color:#C2410C"></i><div><b>Naranja</b><span>Preguntas abiertas y tensiones</span></div></div>
+        <div class="chip" style="grid-column:1/-1"><i class="muestra dash" style="background:#FF8CC6;border-color:#C2006B"></i><div><b>Rosa cartulina · puentes</b><span>Conexiones mías con otros temas del curso y de otras lecturas. No vienen en el libro: son para llevar.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOJA 2 · EL PIZARRÓN ═══════════ -->
+<section class="hoja" id="pizarron">
+  <div class="letrero"><h2>La carta en un vistazo</h2><span class="chino">菜單</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="pizarron">
+    <div class="cabeza"><b>Menú del día<span class="chino">菜單</span></b><span>Precios en páginas, no en nuevos pesos · Blackwill y Harris (2016)</span></div>
+    <div class="columnas">
+      <div>
+        <h4>Desayuno · cap. 1 <small>¿Qué es la geoeconomía?</small></h4>
+        <div class="renglon"><span class="num">★</span><span class="que">La definición en tres partes<em>Usar la economía para defender intereses y lograr resultados geopolíticos; y lo que otros nos hacen con la suya.</em></span><span class="pp">p. 20</span></div>
+        <div class="renglon"><span class="num">②</span><span class="que">El foco: resultados geopolíticos<em>Las técnicas económicas del arte de gobernar: muy practicadas, poco pensadas.</em></span><span class="pp">p. 21</span></div>
+        <div class="renglon"><span class="num">1</span><span class="que">Clasifican los medios, no los fines<em>Geopolítica de suma cero con herramientas de suma positiva.</em></span><span class="pp">pp. 23–25</span></div>
+        <div class="renglon"><span class="num">2</span><span class="que">Los medios no dicen los fines<em>Basta un interés geopolítico importante; el diseño delata la intención.</em></span><span class="pp">pp. 26–27</span></div>
+        <div class="renglon"><span class="num">3</span><span class="que">Muchas formas, capacidades desiguales<em>Positiva o coercitiva, corta o larga; y dotaciones que pesan.</em></span><span class="pp">pp. 27–28</span></div>
+        <div class="renglon"><span class="num">4</span><span class="que">Casos borrosos<em>Bloqueo naval y ciberataque a bancos, adentro; bombardear una fábrica, afuera.</em></span><span class="pp">pp. 28–30</span></div>
+        <div class="renglon"><span class="num">5</span><span class="que">Mercantilismo y liberalismo<em>Dos sabores de geoeconomía: difieren en el cómo, no en el si.</em></span><span class="pp">pp. 30–32</span></div>
+        <h4>Postre de la casa <small>la regla</small></h4>
+        <div class="renglon"><span class="num">✓</span><span class="que">Contra la siguiente mejor alternativa<em>No basta el costo-beneficio: ¿qué otra cosa se podía hacer? (Baldwin)</em></span><span class="pp">pp. 91–92</span></div>
+      </div>
+      <div>
+        <h4>Comida corrida · cap. 3 <small>siete instrumentos</small></h4>
+        <div class="renglon"><span class="num">①</span><span class="que">Comercio<em>De las QIZ de Camp David a los vetos sanitarios de Moscú.</em></span><span class="pp">pp. 50–53</span></div>
+        <div class="renglon"><span class="num">②</span><span class="que">Inversión<em>Fondos soberanos y empresas estatales: «la ganancia los moverá, hasta que no».</em></span><span class="pp">pp. 53–58</span></div>
+        <div class="renglon"><span class="num">③</span><span class="que">Sanciones<em>SWIFT, Lloyd's y el dólar: nodos de nicho con peso sistémico.</em></span><span class="pp">pp. 58–59</span></div>
+        <div class="renglon"><span class="num">④</span><span class="que">Ciber<em>Patrocinio estatal + efecto económico. Estonia, Aramco, JPMorgan.</em></span><span class="pp">pp. 59–68</span></div>
+        <div class="renglon"><span class="num">⑤</span><span class="que">Ayuda<em>El Golfo en Egipto; CDB, Banco BRICS, AIIB.</em></span><span class="pp">pp. 68–74</span></div>
+        <div class="renglon"><span class="num">⑥</span><span class="que">Finanzas y moneda<em>Huella de la moneda, deuda barata, deuda ajena. México 1994.</em></span><span class="pp">pp. 74–85</span></div>
+        <div class="renglon"><span class="num">⑦</span><span class="que">Energía y materias primas<em>Gas ruso, tierras raras chinas, el gas qatarí como seguro.</em></span><span class="pp">pp. 85–87</span></div>
+        <h4>Especialidades de la casa <small>cuatro dotaciones</small></h4>
+        <div class="renglon"><span class="num">①</span><span class="que">Controlar la inversión saliente</span><span class="pp">pp. 87–89</span></div>
+        <div class="renglon"><span class="num">②</span><span class="que">Rasgos del mercado interno</span><span class="pp">pp. 89–90</span></div>
+        <div class="renglon"><span class="num">③</span><span class="que">Influencia sobre energía y materias primas</span><span class="pp">p. 90</span></div>
+        <div class="renglon"><span class="num">④</span><span class="que">Centralidad en el sistema financiero</span><span class="pp">pp. 90–91</span></div>
+      </div>
+    </div>
+    <div class="pie"><span>Hoy: lechero, bisquets, conchas y geoeconomía</span><span>Pregunte por nuestros puentes del día</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ HOJAS 3–5 · LOS TRES ESQUEMAS (doble carta al imprimir) ═══════════ -->
+<section class="hoja-esquema" id="esquema-1">
+  <div class="letrero"><h2>Esquema 1 · Desayuno</h2><span class="chino">早餐</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="lamina">
+    <div class="barra">
+      <p>Capítulo 1: la definición arriba, sus tres partes como renglones y, abajo, los cinco puntos que la acotan. Las líneas rosas punteadas salen hacia los puentes.</p>
+      <div class="zoom ocultar-print" role="group" aria-label="Tamaño del esquema 1"><button type="button" data-ancho="100%" aria-pressed="true">Ajustar</button><button type="button" data-ancho="170%">Ampliar</button><button type="button" data-ancho="260%">Lupa</button></div>
+    </div>
+    <div class="lienzo">%%SVG_CAP1%%</div>
+  </div>
+  <span class="etiqueta-hoja">Café «Por otros medios» · esquema 1 de 3 · cap1_que_es_la_geoeconomia.dot</span>
+</section>
+
+<section class="hoja-esquema" id="esquema-2">
+  <div class="letrero"><h2>Esquema 2 · Comida corrida: la carta</h2><span class="chino">午餐</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="lamina">
+    <div class="barra">
+      <p>Capítulo 3, primera parte: los siete instrumentos en fila, cada uno con sus casos y páginas.</p>
+      <div class="zoom ocultar-print" role="group" aria-label="Tamaño del esquema 2"><button type="button" data-ancho="100%" aria-pressed="true">Ajustar</button><button type="button" data-ancho="170%">Ampliar</button><button type="button" data-ancho="260%">Lupa</button></div>
+    </div>
+    <div class="lienzo">%%SVG_CAP3A%%</div>
+  </div>
+  <span class="etiqueta-hoja">Café «Por otros medios» · esquema 2 de 3 · cap3a_siete_instrumentos.dot</span>
+</section>
+
+<section class="hoja-esquema" id="esquema-3">
+  <div class="letrero"><h2>Esquema 3 · Comida corrida: la cocina</h2><span class="chino">點心</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="lamina">
+    <div class="barra">
+      <p>Capítulo 3, segunda parte: las cuatro dotaciones, qué instrumentos alimentan, las tensiones entre instrumentos y la regla para evaluarlos.</p>
+      <div class="zoom ocultar-print" role="group" aria-label="Tamaño del esquema 3"><button type="button" data-ancho="100%" aria-pressed="true">Ajustar</button><button type="button" data-ancho="170%">Ampliar</button><button type="button" data-ancho="260%">Lupa</button></div>
+    </div>
+    <div class="lienzo">%%SVG_CAP3B%%</div>
+  </div>
+  <span class="etiqueta-hoja">Café «Por otros medios» · esquema 3 de 3 · cap3b_dotaciones_y_tensiones.dot</span>
+</section>
+
+<!-- ═══════════ HOJA 6 · CARTULINAS ═══════════ -->
+<section class="hoja" id="cartulinas">
+  <div class="letrero"><h2>Frases para recordar</h2><span class="chino">福</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="cartulinas">
+    <div class="cartulina c-rosa" style="--r:-1.6deg"><h3>Benjamin Constant</h3><p>«La guerra y el comercio no son sino dos medios distintos de llegar al mismo fin: poseer lo que se desea.»</p><span class="pag">p. 19</span></div>
+    <div class="cartulina c-amarillo" style="--r:1.2deg"><h3>La definición</h3><p>Instrumentos económicos para defender intereses nacionales y producir resultados geopolíticos; y los efectos de lo que hacen otros.</p><span class="pag">p. 20</span></div>
+    <div class="cartulina c-verde" style="--r:-0.8deg"><h3>David Baldwin</h3><p>«Bombardear una biblioteca no se llama guerra cultural […] y bombardear fábricas no debería llamarse guerra económica.»</p><span class="pag">p. 23</span></div>
+    <div class="cartulina c-naranja" style="--r:1.6deg"><h3>Mandelbaum, y la réplica</h3><p>«En la economía, a diferencia de la guerra, todos pueden ganar.» Con fines geopolíticos, ya no: suma cero.</p><span class="pag">pp. 24–25</span></div>
+    <div class="cartulina c-amarillo" style="--r:1deg"><h3>Hinsley, sobre Cobden</h3><p>«Trabajó por el libre comercio porque quería la paz, no por la paz porque quería el libre comercio.»</p><span class="pag">p. 32</span></div>
+    <div class="cartulina c-rosa" style="--r:-1.3deg"><h3>Helmut Schmidt</h3><p>«La política monetaria es política exterior.»</p><span class="pag">p. 49</span></div>
+    <div class="cartulina c-naranja" style="--r:0.7deg"><h3>Anna Gelpern</h3><p>Los fondos soberanos son públicos y privados a la vez: «la ganancia los moverá… hasta que no».</p><span class="pag">p. 56</span></div>
+    <div class="cartulina c-verde" style="--r:-1.8deg"><h3>El ultimátum del Tesoro</h3><p>A los bancos del mundo: o hacen negocios en dólares, o hacen negocios con el país sancionado.</p><span class="pag">pp. 58–59</span></div>
+    <div class="cartulina c-verde" style="--r:1.4deg"><h3>Keith Alexander</h3><p>«Si puedes robar los datos —si puedes llegar tan lejos—, puedes hacer cualquier otra cosa.»</p><span class="pag">p. 67</span></div>
+    <div class="cartulina c-amarillo" style="--r:-0.9deg"><h3>Jeremi Suri</h3><p>«El poder nacional es fundamentalmente financiero.»</p><span class="pag">p. 74</span></div>
+    <div class="cartulina c-rosa" style="--r:1.1deg"><h3>Jonathan Kirshner</h3><p>«Las monedas débiles hacen Estados tímidos.»</p><span class="pag">p. 80</span></div>
+    <div class="cartulina c-naranja" style="--r:-1.4deg"><h3>Yang Jiechi</h3><p>«China es un país grande y los otros son países pequeños.»</p><span class="pag">p. 89</span></div>
+    <div class="no-se-fia">Hoy no se fía, mañana sí<small>Canal 3 de la política monetaria: quien te presta, te encarece o te salva (pp. 80–82)</small></div>
+  </div>
+</section>
+
+<!-- ═══════════ HOJA 7 · PUENTES ═══════════ -->
+<section class="hoja" id="puentes">
+  <div class="letrero"><h2>Puentes · para llevar</h2><span class="chino">地緣經濟</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="puentes">
+    <div class="grupo-puentes">Con el curso</div>
+    <div class="puente"><span class="tag">Sesión 02</span><h3>Geopolítica crítica</h3><p><b>En el libro:</b> geopolítica como análisis por variables geográficas (p. 24); el «arte perdido» de EE. UU. (p. 25).</p><p><b>Para conectar:</b> leerlo como geopolítica práctica: el CFR escribe recomendaciones para Washington. ¿Quién es el «nosotros» del texto?</p></div>
+    <div class="puente"><span class="tag">Sesiones 04–05</span><h3>La era del imperio</h3><p><b>En el libro:</b> Smith, Cobden y Keynes: el liberalismo también sirve al Estado (pp. 30–32); Guillermo III y el crédito de Londres (p. 75).</p><p><b>Para conectar:</b> el imperio británico del libre comercio como geoeconomía liberal.</p></div>
+    <div class="puente"><span class="tag">Sesión 07</span><h3>La guerra total</h3><p><b>En el libro:</b> el bloqueo económico con apoyo naval como caso híbrido; falsificar la moneda enemiga (p. 29).</p><p><b>Para conectar:</b> el bloqueo de 1914–18 y la guerra económica total.</p></div>
+    <div class="puente"><span class="tag">Sesión 10</span><h3>Farrell y Newman</h3><p><b>En el libro:</b> SWIFT, Lloyd's y el dólar como cuellos de botella; cada sanción acelera la búsqueda de alternativas (pp. 58–59).</p><p><b>Para conectar:</b> Blackwill y Harris dan la caja de herramientas; Farrell y Newman explican por qué las redes centralizadas la vuelven tan potente: panóptico, estrangulamiento, proliferación.</p></div>
+    <div class="puente"><span class="tag">Sesión 13</span><h3>Los chips</h3><p><b>En el libro:</b> el Proyecto 863 y el ciberespionaje en sectores estratégicos (pp. 61–63); Luttwak y la negación de tecnología (p. 22).</p><p><b>Para conectar:</b> ¿falta una quinta dotación, la centralidad tecnológica (TSMC, ASML, software de diseño)?</p></div>
+    <div class="puente"><span class="tag">Sesión 15</span><h3>Apple, China y poder estructural</h3><p><b>En el libro:</b> Susan Strange (pp. 21–22); el mercado «demasiado grande para ignorarlo» (p. 89); hackeos al entrar a China (p. 63).</p><p><b>Para conectar:</b> el Consumer Day de 2013 contra Apple es la dotación ② en acción.</p></div>
+    <div class="puente"><span class="tag">Sesión 17</span><h3>Nord Stream</h3><p><b>En el libro:</b> más de 50 cortes o amenazas de gas; la carta de Putin de 2014 (pp. 85–87); el gas Rusia–China (p. 90).</p><p><b>Para conectar:</b> monopolio, monopsonio y tránsito en un tubo; la suma cero de la p. 24 jugada como teoría de juegos.</p></div>
+    <div class="puente"><span class="tag">Sesión 18</span><h3>La Franja y la Ruta</h3><p><b>En el libro:</b> CDB, Banco BRICS y AIIB (pp. 73–74); reservas recicladas a la «Nueva Ruta de la Seda» (p. 84).</p><p><b>Para conectar:</b> la BRI como dotación ① (inversión saliente bajo control) servida con el instrumento ⑤.</p></div>
+    <div class="grupo-puentes">Con México</div>
+    <div class="puente"><span class="tag">México · 1994</span><h3>El tequilazo</h3><p><b>En el libro:</b> Clinton usa el Fondo de Estabilización Cambiaria, 20 mil mdd sin el Congreso; «un México estable es esencial» para EE. UU. (p. 82).</p><p><b>Para conectar:</b> geoeconomía positiva: estabilizar al vecino también es proyectar poder.</p></div>
+    <div class="puente"><span class="tag">México · T-MEC</span><h3>¿Un tratado que se puede «apagar»?</h3><p><b>En el libro:</b> el diseño delata la intención (p. 27); los TLC no se «apagan» como un fondo soberano (pp. 88–89).</p><p><b>Para conectar:</b> la revisión conjunta del T-MEC prevista para 2026 y Farrell y Newman (2022), «Nearshoring as statecraft».</p></div>
+    <div class="grupo-puentes">Con otras lecturas</div>
+    <div class="puente"><span class="tag">Hirschman, 1945</span><h3>Dependencia asimétrica</h3><p><b>En el libro:</b> las asimetrías económicas como rasgo del mercado interno (p. 89).</p><p><b>Para conectar:</b> <i>National Power and the Structure of Foreign Trade</i>: el poder nace de quién depende más de quién.</p></div>
+    <div class="puente"><span class="tag">Luhmann</span><h3>Dos códigos, un acoplamiento</h3><p><b>En el libro:</b> «la lógica de la geopolítica con las herramientas de la economía» (p. 24).</p><p><b>Para conectar:</b> pagar/no pagar y tener/no tener poder no se fusionan: la geoeconomía es la política observando a la economía como arma.</p></div>
+    <div class="puente"><span class="tag">Después de 2016</span><h3>Lo que el libro no alcanzó a ver</h3><p><b>En el libro:</b> nadie ha invocado la excepción de seguridad de la OMC (p. 89); el renminbi entrará al DEG (p. 84).</p><p><b>Para conectar:</b> art. XXI invocado (2018–19); renminbi en el DEG (2016); SWIFT y reservas rusas (2022); controles chinos al galio y germanio (2023).</p></div>
+    <div class="puente libre solo-print"><span class="tag">Tu puente</span><h3>&nbsp;</h3></div>
+    <div class="puente libre solo-print"><span class="tag">Tu puente</span><h3>&nbsp;</h3></div>
+    <div class="puente libre solo-print"><span class="tag">Tu puente</span><h3>&nbsp;</h3></div>
+  </div>
+</section>
+
+<!-- ═══════════ HOJA 8 · COMANDA Y CARTA BILINGÜE ═══════════ -->
+<section class="hoja" id="comanda">
+  <div class="letrero"><h2>La comanda · preguntas para repasar</h2><span class="chino">茶</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="mesa">
+    <div class="comanda">
+      <div class="enc"><span>Comanda Nº 0094</span><span>Mesa 3 · para llevar</span></div>
+      <ol>
+        <li>Con la definición de la p. 20: ¿qué parte describe el rescate de México en 1994 (p. 82)? ¿Y cuál lo que vivió Ucrania con el <i>taper talk</i> (p. 21)?</li>
+        <li>Si se clasifica por medios y no por fines (punto 1), ¿un bloqueo naval es geopolítica o geoeconomía? <span class="lugar">→ p. 29</span></li>
+        <li>¿Por qué el libre comercio de Cobden también es geoeconomía? <span class="lugar">→ pp. 31–32</span></li>
+        <li>¿Qué dotación tiene EE. UU. que China no, y al revés? ¿Qué instrumentos favorece cada una? <span class="lugar">→ pp. 87–91</span></li>
+        <li>¿Cómo se gasta el arma de las sanciones en dólares? Conéctalo con la proliferación de Farrell y Newman. <span class="lugar">→ pp. 59, 78</span></li>
+        <li>Aplica los dos criterios del ciber geoeconómico a un caso reciente que conozcas. <span class="lugar">→ p. 60</span></li>
+        <li>¿Qué dotaciones tiene México? ¿Con qué instrumentos podría responder a una presión de EE. UU. o de China?</li>
+        <li>Elige una sanción o un arancel reciente: ¿cuál era la siguiente mejor alternativa? <span class="lugar">→ p. 92</span></li>
+        <li>Lectura crítica: ¿quién es el «nosotros» del libro? ¿Cómo se lee este capítulo desde la Ciudad de México?</li>
+      </ol>
+    </div>
+    <div class="bilingue">
+      <h3>Carta bilingüe · English menu</h3>
+      <dl>
+        <div class="t"><dt>Geoeconomics</dt><span class="relleno"></span><dd>geoeconomía</dd></div>
+        <div class="t"><dt>(Economic) statecraft</dt><span class="relleno"></span><dd>arte de gobernar (con medios económicos)</dd></div>
+        <div class="t"><dt>Geoeconomic endowments</dt><span class="relleno"></span><dd>dotaciones geoeconómicas</dd></div>
+        <div class="t"><dt>Positive inducement</dt><span class="relleno"></span><dd>incentivo positivo</dd></div>
+        <div class="t"><dt>Choke point</dt><span class="relleno"></span><dd>cuello de botella</dd></div>
+        <div class="t"><dt>Sovereign wealth fund (SWF)</dt><span class="relleno"></span><dd>fondo soberano de inversión</dd></div>
+        <div class="t"><dt>State-owned enterprise (SOE)</dt><span class="relleno"></span><dd>empresa estatal</dd></div>
+        <div class="t"><dt>Official development assistance</dt><span class="relleno"></span><dd>ayuda oficial al desarrollo (AOD)</dd></div>
+        <div class="t"><dt>Exchange Stabilization Fund</dt><span class="relleno"></span><dd>Fondo de Estabilización Cambiaria</dd></div>
+        <div class="t"><dt>Reserve currency · SDR</dt><span class="relleno"></span><dd>moneda de reserva · DEG</dd></div>
+        <div class="t"><dt>Taper talk</dt><span class="relleno"></span><dd>anuncio de menos compras de bonos de la Fed</dd></div>
+        <div class="t"><dt>Monopsony</dt><span class="relleno"></span><dd>monopsonio: el poder del comprador</dd></div>
+        <div class="t"><dt>Fungible</dt><span class="relleno"></span><dd>fungible: lo que se ahorra aquí se gasta allá</dd></div>
+        <div class="t"><dt>Zero-sum · positive-sum</dt><span class="relleno"></span><dd>suma cero · suma positiva</dd></div>
+        <div class="t"><dt>CFIUS</dt><span class="relleno"></span><dd>comité que filtra la inversión extranjera en EE. UU.</dd></div>
+        <div class="t"><dt>QIZ</dt><span class="relleno"></span><dd>zonas industriales calificadas (Jordania, Egipto)</dd></div>
+        <div class="t"><dt>DDoS</dt><span class="relleno"></span><dd>ataque de denegación de servicio distribuido</dd></div>
+        <div class="t"><dt>Weaponized interdependence</dt><span class="relleno"></span><dd>interdependencia convertida en arma<small>Farrell y Newman (2019): puente, no está en el libro</small></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOJA 9 · TICKET ═══════════ -->
+<section class="hoja" id="ticket">
+  <div class="letrero"><h2>La cuenta, por favor</h2><span class="chino">謝謝</span><span class="linea" aria-hidden="true"></span></div>
+  <div class="vuelta">
+    <div class="ticket">
+      <div class="c grande">CAFÉ «POR OTROS MEDIOS»</div>
+      <div class="c">Esq. Geopolítica y Economía · Col. Centro</div>
+      <div class="c">Lectura del 29/10/2026</div>
+      <hr>
+      <div class="fila"><span>1 Cap. 1 ¿Qué es la geoeconomía?</span><span>pp. 19–32</span></div>
+      <div class="fila"><span>1 Cap. 3 Siete instrumentos</span><span>pp. 49–87</span></div>
+      <div class="fila"><span>1 Cap. 3 Cuatro dotaciones</span><span>pp. 87–92</span></div>
+      <div class="fila"><span>3 Esquemas DOT</span><span>doble carta</span></div>
+      <div class="fila"><span>13 Puentes para llevar</span><span>rosa</span></div>
+      <hr>
+      <div class="ref"><b>REFERENCIA · APA 7</b><br>Blackwill, R. D., &amp; Harris, J. M. (2016). <i>War by other means: Geoeconomics and statecraft</i>. Belknap Press of Harvard University Press.</div>
+      <hr>
+      <div class="ref"><b>CITA EN EL TEXTO</b><br>(Blackwill &amp; Harris, 2016, p. 20)<br>Blackwill y Harris (2016) definen…</div>
+      <hr>
+      <div class="c"><span class="chino">謝謝光臨</span><br>GRACIAS POR SU PREFERENCIA<br>VUELVA PRONTO</div>
+    </div>
+    <div class="formica">
+      <h3>Cómo se hizo</h3>
+      <p>Los esquemas están escritos en DOT y se dibujan con Graphviz (<code>dot -Tsvg</code>). Los tres SVG van incrustados en este HTML junto con sus fuentes, y el PDF sale del mismo HTML impreso con Chromium: hojas carta para el texto y doble carta para los esquemas.</p>
+      <p>Las páginas son las de la edición de Belknap / Harvard (2016). Las citas son traducción propia. Todo lo rosa son conexiones mías: el libro no las hace.</p>
+      <p>Para cambiar un esquema, edita el <code>.dot</code> y vuelve a correr <code>dot</code>. Fuentes: Oswald, Barlow Condensed, Courier Prime, Permanent Marker, Bebas Neue y Ma Shan Zheng (todas con licencia SIL OFL).</p>
+      <p class="nota-fuente">Se sirve en vaso de vidrio, como el lechero.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+<script>
+document.querySelectorAll('.zoom').forEach(function (grupo) {
+  var lamina = grupo.closest('.lamina');
+  var svg = lamina && lamina.querySelector('.esquema-svg');
+  if (!svg) return;
+  grupo.addEventListener('click', function (ev) {
+    var b = ev.target.closest('button[data-ancho]');
+    if (!b) return;
+    svg.style.setProperty('--ancho', b.dataset.ancho);
+    grupo.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+  });
+});
+</script>
+</body>
+</html>
