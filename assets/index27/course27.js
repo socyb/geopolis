@@ -41,6 +41,28 @@
     toastTimer = setTimeout(() => toast.classList.remove("is-on"), 2600);
   };
 
+  /* ── Imprimir solo una tarjeta ──────────────────────────────────────── */
+  // Se imprime una copia de la tarjeta, sola en la hoja. El resto de la página
+  // sale de la impresión en lugar de solo ocultarse, así no deja hojas en blanco.
+  const printOnly = (card) => {
+    if (!card) return;
+    const sheet = document.createElement("div");
+    sheet.className = "print-sheet";
+    const copy = card.cloneNode(true);
+    [copy, ...copy.querySelectorAll("[id]")].forEach(el => el.removeAttribute("id"));
+    copy.removeAttribute("aria-live");
+    sheet.appendChild(copy);
+    document.body.appendChild(sheet);
+    root.classList.add("print-sheet-on");
+    const clean = () => {
+      root.classList.remove("print-sheet-on");
+      sheet.remove();
+      window.removeEventListener("afterprint", clean);
+    };
+    window.addEventListener("afterprint", clean);
+    window.print();
+  };
+
   /* ── Código QR de la página ─────────────────────────────────────────── */
   const qrModal = $("#qrModal");
   if (qrModal) {
@@ -75,7 +97,7 @@
 
   /* ── Calendario del curso ───────────────────────────────────────────── */
   // Martes en A-004; jueves en F-101 hasta el 1 de octubre y en A-101 desde el 15.
-  // Sin clase el 25 de agosto ni el 15 de septiembre (asueto): 30 sesiones.
+  // Sin clase el 25 de agosto, el 15 de septiembre (asueto) ni el 22 de octubre: 29 sesiones.
   // «La era del imperio» ocupó dos sesiones (04 y 05) y «La época de la guerra
   // total» otras dos (06 y 07), y «La globalización del peligro» (Dodds) otras dos
   // (08 y 09): la unidad II cierra el 22 de septiembre y la III empieza el 24
@@ -92,6 +114,9 @@
   // pregunta de investigación), y minerales críticos pasa al 22.
   // El 20 de octubre llega por fin Nord Stream (Virág y Tancsa, actividad 9), que
   // cierra la unidad IV; IA y cadenas de suministro sale del calendario.
+  // El 22 de octubre no hubo clase: las sesiones siguientes conservan su fecha y se
+  // renumeran. El 27 se leyó la Franja y la Ruta (OBOR/BRI), sin versión propia, y
+  // el 29 es el taller del estado del arte.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
@@ -111,20 +136,19 @@
     [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV"],
     [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV","sesiones/s15-apple-china-y-poder-estructural.html"],
     [16,"2026-10-15","A-101","Del tema a la pregunta","Taller · equipos · pregunta de investigación","IV","sesiones/s16-del-tema-a-la-pregunta.html"],
-    [17,"2026-10-20","A-004","Nord Stream","Virág y Tancsa · gas · actividad 9","IV","#sesion-actual"],
-    [18,"2026-10-22","A-101","Minerales críticos","Transición energética · negociación","V"],
-    [19,"2026-10-27","A-004","El policy memo","Argumento · audiencia · decisión","V"],
-    [20,"2026-10-29","A-101","Nearshoring en México","Localización · productividad","V"],
-    [21,"2026-11-03","A-004","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
-    [22,"2026-11-05","A-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
-    [23,"2026-11-10","A-004","Sala de consejo","Simulación · decisión bajo presión","V"],
-    [24,"2026-11-12","A-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],
-    [25,"2026-11-17","A-004","China y América Latina","Comercio · dependencia · agencia","V"],
-    [26,"2026-11-19","A-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
-    [27,"2026-11-24","A-004","México en América del Norte","T-MEC · autonomía · vulnerabilidad","VI"],
-    [28,"2026-11-26","A-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
-    [29,"2026-12-01","A-004","Corredores y posición de México","Istmo · frontera · logística","VI"],
-    [30,"2026-12-03","A-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
+    [17,"2026-10-20","A-004","Nord Stream","Virág y Tancsa · gas · actividad 9","IV","sesiones/s17-nord-stream.html"],
+    [18,"2026-10-27","A-004","La Franja y la Ruta","Lectura de OBOR/BRI · infraestructura · financiamiento","V"],
+    [19,"2026-10-29","A-101","Taller: el estado del arte","Fuentes · verificación · APA 7, Chicago o MLA","V","#sesion-actual"],
+    [20,"2026-11-03","A-004","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
+    [21,"2026-11-05","A-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
+    [22,"2026-11-10","A-004","Sala de consejo","Simulación · decisión bajo presión","V"],
+    [23,"2026-11-12","A-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],
+    [24,"2026-11-17","A-004","China y América Latina","Comercio · dependencia · agencia","V"],
+    [25,"2026-11-19","A-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
+    [26,"2026-11-24","A-004","México en América del Norte","T-MEC · autonomía · vulnerabilidad","VI"],
+    [27,"2026-11-26","A-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
+    [28,"2026-12-01","A-004","Corredores y posición de México","Istmo · frontera · logística","VI"],
+    [29,"2026-12-03","A-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
   ].map(([number, date, room, title, subtitle, unit, href, opens]) => ({ number, date, room, title, subtitle, unit, href, opens }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
@@ -463,11 +487,7 @@
       }
     });
 
-    $("#printCardBtn")?.addEventListener("click", () => {
-      root.classList.add("print-card");
-      window.print();
-      setTimeout(() => root.classList.remove("print-card"), 400);
-    });
+    $("#printCardBtn")?.addEventListener("click", () => printOnly($("#bcard")));
 
     $("#clearBtn")?.addEventListener("click", () => {
       FIELDS.forEach(f => { const el = $(f.input); if (el) el.value = ""; });
@@ -949,14 +969,28 @@
       }
     });
 
-    $("#pPrint")?.addEventListener("click", () => {
-      root.classList.add("print-poder");
-      window.print();
-      setTimeout(() => root.classList.remove("print-poder"), 400);
-    });
+    $("#pPrint")?.addEventListener("click", () => printOnly($("#pcard")));
 
     render();
   }
+
+  /* ── Aviso sonoro: tres pitidos cuando se acaba el tiempo ───────────── */
+  const beep = () => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      [0, .32, .64].forEach(at => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(.0001, ctx.currentTime + at);
+        gain.gain.exponentialRampToValueAtTime(.25, ctx.currentTime + at + .02);
+        gain.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + at + .25);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(ctx.currentTime + at);
+        osc.stop(ctx.currentTime + at + .27);
+      });
+    } catch { /* sin audio */ }
+  };
 
   /* ── Taller: reloj de estaciones ────────────────────────────────────── */
   // Un botón por estación con su tiempo; el conteo se calcula contra el reloj
@@ -983,22 +1017,6 @@
       tTime.textContent = fmt(secs);
       tBar.style.width = `${total ? (1 - left / total) * 100 : 0}%`;
       document.title = timer ? `${fmt(secs)} · ${STATIONS[station].name}` : baseTitle;
-    };
-    const beep = () => {
-      try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        [0, .32, .64].forEach(at => {
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.frequency.value = 880;
-          gain.gain.setValueAtTime(.0001, ctx.currentTime + at);
-          gain.gain.exponentialRampToValueAtTime(.25, ctx.currentTime + at + .02);
-          gain.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + at + .25);
-          osc.connect(gain).connect(ctx.destination);
-          osc.start(ctx.currentTime + at);
-          osc.stop(ctx.currentTime + at + .27);
-        });
-      } catch { /* sin audio */ }
     };
     const stop = () => {
       clearInterval(timer);
@@ -1186,11 +1204,7 @@
       }
     });
 
-    $("#fichaPrint").addEventListener("click", () => {
-      root.classList.add("print-card");
-      window.print();
-      setTimeout(() => root.classList.remove("print-card"), 400);
-    });
+    $("#fichaPrint").addEventListener("click", () => printOnly($("#bcard")));
 
     $("#fichaClear").addEventListener("click", () => {
       if (!window.confirm("¿Borrar toda la ficha del equipo?")) return;
@@ -1200,6 +1214,911 @@
       render();
       say("Ficha en blanco");
     });
+  }
+
+  /* ── Menú del curso ─────────────────────────────────────────────────── */
+  // Lo de hoy queda a la vista; lo demás del curso vive en desplegables al final
+  // de la página. El menú lleva a ambos, también en el celular.
+  const menuBtn = $("#menuBtn");
+  const menuPanel = $("#menuPanel");
+  if (menuBtn && menuPanel) {
+    const setMenu = (open) => {
+      menuPanel.hidden = !open;
+      menuBtn.setAttribute("aria-expanded", String(open));
+    };
+    menuBtn.addEventListener("click", (e) => { e.stopPropagation(); setMenu(menuPanel.hidden); });
+    menuPanel.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+    document.addEventListener("click", (e) => {
+      if (!menuPanel.hidden && !menuPanel.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !menuPanel.hidden) { setMenu(false); menuBtn.focus(); }
+    });
+  }
+
+  // Un ancla que apunta a un desplegable cerrado, o a algo dentro de él, lo abre.
+  const openTarget = (hash, scroll) => {
+    if (!hash || hash.length < 2) return;
+    let el;
+    try { el = document.getElementById(decodeURIComponent(hash.slice(1))); } catch { return; }
+    let opened = false;
+    for (let d = el?.closest("details"); d; d = d.parentElement?.closest("details")) {
+      if (!d.open) { d.open = true; opened = true; }
+    }
+    if (opened && scroll) requestAnimationFrame(() => el.scrollIntoView());
+  };
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) openTarget(a.getAttribute("href"), false);
+  });
+  window.addEventListener("hashchange", () => openTarget(location.hash, true));
+  openTarget(location.hash, true);
+
+  /* ── Copiar al portapapeles, con cursivas si el navegador lo permite ── */
+  const copyOut = async (text, html) => {
+    try {
+      if (html && window.ClipboardItem && navigator.clipboard?.write) {
+        await navigator.clipboard.write([new ClipboardItem({
+          "text/plain": new Blob([text], { type: "text/plain" }),
+          "text/html": new Blob([html], { type: "text/html" })
+        })]);
+        return true;
+      }
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const helper = document.createElement("textarea");
+      helper.value = text;
+      helper.setAttribute("readonly", "");
+      helper.style.cssText = "position:fixed;top:-1000px";
+      document.body.appendChild(helper);
+      helper.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch { /* sin portapapeles */ }
+      helper.remove();
+      return ok;
+    }
+  };
+
+  // Botones que copian un dato suelto, como el DOI o el título de una referencia.
+  // El botón mismo confirma, porque en el modo presentación el aviso queda detrás.
+  document.addEventListener("click", async (e) => {
+    const btn = e.target.closest("[data-copy]");
+    if (!btn) return;
+    const ok = await copyOut(btn.dataset.copy);
+    say(ok ? (btn.dataset.copied || "Copiado ✓") : "No se pudo copiar en este navegador");
+    if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+    btn.textContent = ok ? "✓ Copiado" : "No se pudo copiar";
+    btn.classList.toggle("is-copied", ok);
+    clearTimeout(Number(btn.dataset.timer));
+    btn.dataset.timer = setTimeout(() => {
+      btn.textContent = btn.dataset.label;
+      btn.classList.remove("is-copied");
+    }, 1600);
+  });
+
+  /* ── Estado del arte: las mismas piezas en tres estilos ─────────────── */
+  // Una referencia es una fila de piezas [texto, papel, cursiva]. El papel
+  // —autor, fecha, título, dónde se publicó, datos, editorial, enlace— colorea
+  // la pieza en la página; al copiar queda el texto y, donde se puede, la cursiva.
+  // Pensado para un trabajo escrito en español: «y» entre autores (en APA, &),
+  // «núm.», «En», «editado por», fechas en español y el punto después de las comillas.
+  const CITE = (() => {
+    const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+                   "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    const QUOTED = ["articulo", "capitulo", "prensa", "web"];
+    const tidy  = s => String(s ?? "").replace(/\s+/g, " ").trim();
+    const range = s => tidy(s).replace(/\s*[-‐-―]+\s*/g, "–");
+    const stop  = s => (/[.?!]$/.test(s) ? "" : ".");
+    const DOI   = /^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)?(10\.\d{4,9}\/\S+)$/i;
+
+    // «Apellido, Nombre» es una persona; una línea sin coma, una institución.
+    const people = text => String(text ?? "").split(/\n|;/).map(tidy).filter(Boolean).map(line => {
+      const i = line.indexOf(",");
+      return i < 0 ? { org: line } : { family: line.slice(0, i).trim(), given: line.slice(i + 1).trim() };
+    });
+    // Iniciales: «Abraham L.» → «A. L.», «Pierre-Olivier» → «P.-O.»; «de», «la» no cuentan.
+    const initials = given => String(given || "").split(" ")
+      .filter(w => w && w.charAt(0) !== w.charAt(0).toLowerCase())
+      .map(w => w.split("-").map(p => p.charAt(0) + ".").join("-"))
+      .join(" ");
+    const inv     = p => p.org || (p.given ? `${p.family}, ${p.given}` : p.family);
+    const full    = p => p.org || [p.given, p.family].filter(Boolean).join(" ");
+    const surname = p => p.org || p.family;
+    const apaName = p => p.org || (p.given ? `${p.family}, ${initials(p.given)}` : p.family);
+    const apaEd   = p => p.org || [initials(p.given), p.family].filter(Boolean).join(" ");
+    const andY    = xs => xs.length < 2 ? (xs[0] || "") : `${xs.slice(0, -1).join(", ")} y ${xs[xs.length - 1]}`;
+    const andAmp  = xs => xs.length < 2 ? (xs[0] || "")
+      : `${xs.slice(0, -1).join(", ")}${xs.length > 2 ? "," : ""} & ${xs[xs.length - 1]}`;
+
+    const authors = {
+      apa: ps => {
+        const xs = ps.map(apaName);
+        if (xs.length < 2) return xs[0] || "";
+        if (xs.length > 20) return `${xs.slice(0, 19).join(", ")}, . . . ${xs[xs.length - 1]}`;
+        return `${xs.slice(0, -1).join(", ")}, & ${xs[xs.length - 1]}`;
+      },
+      chicago: ps => {
+        if (!ps.length) return "";
+        const few = ps.length > 6 ? ps.slice(0, 3) : ps;
+        const xs = [inv(few[0]), ...few.slice(1).map(full)];
+        if (ps.length > 6) return `${xs.join(", ")}, et al.`;
+        // Con dos nombres, la coma cierra el primero, que va invertido.
+        return xs.length === 2 && !few[0].org ? `${xs[0]}, y ${xs[1]}` : andY(xs);
+      },
+      mla: ps => {
+        if (!ps.length) return "";
+        if (ps.length > 2) return `${inv(ps[0])}, et al.`;
+        return ps.length === 2 ? `${inv(ps[0])}${ps[0].org ? "" : ","} y ${full(ps[1])}` : inv(ps[0]);
+      }
+    };
+
+    const norm = raw => {
+      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(raw.date || "");
+      const ln = tidy(raw.link);
+      const doi = DOI.exec(ln);
+      const au = people(raw.authors);
+      return {
+        type: raw.type || "articulo",
+        au, ed: people(raw.editors),
+        org: au.length === 1 && au[0].org ? au[0].org : "",
+        y: m ? m[1] : tidy(raw.year),
+        day: m ? `${Number(m[3])} de ${MESES[Number(m[2]) - 1]}` : "",
+        ti: tidy(raw.title), tc: tidy(raw.tc) || tidy(raw.title),
+        so: tidy(raw.container), soTC: tidy(raw.containerTC) || tidy(raw.container),
+        vol: tidy(raw.volume), iss: tidy(raw.issue), pp: range(raw.pages),
+        pub: tidy(raw.publisher), ser: tidy(raw.series),
+        ln: doi ? `https://doi.org/${doi[1]}` : ln
+      };
+    };
+
+    const builder = () => {
+      const out = [];
+      const add = (t, r = "", it = false) => { if (t) out.push([t, r, it]); };
+      // Lo que falta se ve entre corchetes, para que nadie lo pase por alto.
+      const put = (v, r, label, it = false) => (v ? add(v, r, it) : add(`[${label}]`, "miss"));
+      const done = () => {
+        if (out.length) out[out.length - 1][0] = out[out.length - 1][0].replace(/\s+$/, "");
+        return out;
+      };
+      return { add, put, done };
+    };
+    const pages = pp => `${pp.includes("–") ? "pp." : "p."} ${pp}`;
+
+    const apa = s => {
+      const { add, put, done } = builder();
+      const au = authors.apa(s.au);
+      const date = !s.y ? "s. f." : s.day && (s.type === "prensa" || s.type === "web") ? `${s.y}, ${s.day}` : s.y;
+      const title = () => {
+        put(s.ti, "ti", "título", ["libro", "informe", "web"].includes(s.type));
+        if (s.type === "informe" && s.ser) { add(" "); add(`(${s.ser})`, "nu"); add(". "); }
+        else add(stop(s.ti) + " ");
+      };
+      if (au) { add(au, "au"); add(stop(au) + " "); add(`(${date})`, "yr"); add(". "); title(); }
+      else { title(); add(`(${date})`, "yr"); add(". "); }
+
+      if (s.type === "articulo") {
+        put(s.so, "so", "revista", true);
+        if (s.vol) { add(", ", "", true); add(s.vol, "nu", true); }
+        if (s.iss) add(`(${s.iss})`, "nu");
+        if (s.pp) { add(", "); add(s.pp, "nu"); }
+        add(". ");
+      } else if (s.type === "libro") {
+        put(s.pub, "pu", "editorial"); add(". ");
+      } else if (s.type === "capitulo") {
+        add("En ");
+        if (s.ed.length) add(`${andAmp(s.ed.map(apaEd))} (${s.ed.length > 1 ? "Eds." : "Ed."}), `, "so");
+        put(s.so, "so", "título del libro", true);
+        if (s.pp) { add(" "); add(`(${pages(s.pp)})`, "nu"); }
+        add(". ");
+        put(s.pub, "pu", "editorial"); add(". ");
+      } else if (s.type === "informe") {
+        // Si la institución es autora y editora, APA no la repite.
+        if (s.pub && s.pub !== s.org) { add(s.pub, "pu"); add(". "); }
+        else if (!s.pub && !s.org) { put("", "pu", "institución"); add(". "); }
+      } else if (s.type === "prensa") {
+        put(s.so, "so", "medio", true); add(". ");
+      } else if (s.so && s.so !== s.org) {
+        add(s.so, "so"); add(". ");
+      }
+      if (s.ln) add(s.ln, "ln");
+      return done();
+    };
+
+    const chicago = s => {
+      const { add, put, done } = builder();
+      const au = authors.chicago(s.au);
+      const y = s.y || "s. f.";
+      if (au) { add(au, "au"); add(stop(au) + " "); }
+      if (QUOTED.includes(s.type)) put(s.tc && `“${s.tc}”`, "ti", "título");
+      else put(s.tc, "ti", "título", true);
+      add(stop(s.tc) + " ");
+
+      if (s.type === "articulo") {
+        put(s.so, "so", "revista", true);
+        if (s.vol) { add(" "); add(s.vol, "nu"); }
+        if (s.iss) add(`, núm. ${s.iss}`, "nu");
+        add(" "); add(`(${y})`, "yr");
+        if (s.pp) { add(": "); add(s.pp, "nu"); }
+        add(". ");
+      } else if (s.type === "libro") {
+        put(s.pub, "pu", "editorial"); add(", "); add(y, "yr"); add(". ");
+      } else if (s.type === "capitulo") {
+        add("En "); put(s.soTC, "so", "título del libro", true);
+        if (s.ed.length) add(`, editado por ${andY(s.ed.map(full))}`, "so");
+        if (s.pp) { add(", "); add(s.pp, "nu"); }
+        add(". ");
+        put(s.pub, "pu", "editorial"); add(", "); add(y, "yr"); add(". ");
+      } else if (s.type === "informe") {
+        if (s.ser) { add(s.ser, "nu"); add(". "); }
+        put(s.pub || s.org, "pu", "institución"); add(", "); add(y, "yr"); add(". ");
+      } else if (s.type === "prensa") {
+        put(s.so, "so", "medio", true); add(", ");
+        put(s.day && `${s.day} de ${s.y}`, "yr", "fecha"); add(". ");
+      } else {
+        if (s.so) { add(s.so, "so"); add(s.y ? ", " : ". "); }
+        if (s.y) { add(s.day ? `${s.day} de ${s.y}` : s.y, "yr"); add(". "); }
+      }
+      if (s.ln) { add(s.ln, "ln"); add("."); }
+      return done();
+    };
+
+    const mla = s => {
+      const { add, put, done } = builder();
+      // La institución que es autora y editorial a la vez va solo como editorial.
+      const skipAu = !!s.org && s.org === s.pub;
+      const au = skipAu ? "" : authors.mla(s.au);
+      const long = s.day ? `${s.day} de ${s.y}` : s.y;
+      if (au) { add(au, "au"); add(stop(au) + " "); }
+      if (QUOTED.includes(s.type)) put(s.tc && `“${s.tc}”`, "ti", "título");
+      else put(s.tc, "ti", "título", true);
+      add(stop(s.tc) + " ");
+
+      // Los elementos del contenedor van separados por comas y cierran con punto.
+      const box = [];
+      const el = (v, r, it = false, label = "") => {
+        if (v) box.push([v, r, it]);
+        else if (label) box.push([`[${label}]`, "miss", false]);
+      };
+      if (s.type === "articulo") {
+        el(s.so, "so", true, "revista"); el(s.vol && `vol. ${s.vol}`, "nu"); el(s.iss && `núm. ${s.iss}`, "nu");
+        el(s.y, "yr", false, "año"); el(s.pp && pages(s.pp), "nu");
+      } else if (s.type === "libro") {
+        el(s.pub, "pu", false, "editorial"); el(s.y, "yr", false, "año");
+      } else if (s.type === "capitulo") {
+        el(s.soTC, "so", true, "título del libro");
+        el(s.ed.length && `editado por ${s.ed.length > 2 ? `${full(s.ed[0])} et al.` : andY(s.ed.map(full))}`, "so");
+        el(s.pub, "pu", false, "editorial"); el(s.y, "yr", false, "año"); el(s.pp && pages(s.pp), "nu");
+      } else if (s.type === "informe") {
+        el(s.pub || s.org, "pu", false, "institución"); el(s.y, "yr", false, "año");
+      } else if (s.type === "prensa") {
+        el(s.so, "so", true, "medio"); el(long, "yr", false, "fecha");
+      } else {
+        el(s.so, "so", true); el(long, "yr");
+      }
+      el(s.ln, "ln");
+      box.forEach((p, i) => { if (i) add(", "); add(...p); });
+      if (box.length) add(". ");
+      if (s.type === "informe" && s.ser) { add(s.ser, "nu"); add("."); }
+      return done();
+    };
+
+    // La cita dentro del texto. En Chicago es la nota al pie corta, con título breve.
+    const cite = (s, style, pg = "") => {
+      const { add, done } = builder();
+      const fs = s.au.map(surname);
+      const quoted = QUOTED.includes(s.type);
+      const base = style === "apa" ? s.ti : s.tc;
+      const main = base.split(/[:?!]/)[0].trim();
+      const words = main.split(" ");
+      const brief = words.length > 4 ? words.slice(0, 4).join(" ") : main;
+      const titleBit = () => add(quoted ? `“${brief}”` : brief, "ti", !quoted);
+      if (style === "apa") {
+        add("(");
+        if (fs.length) add(fs.length > 2 ? `${fs[0]} et al.` : fs.join(" & "), "au"); else titleBit();
+        add(", "); add(s.y || "s. f.", "yr");
+        if (pg) add(`, p. ${pg}`, "nu");
+        add(")");
+      } else if (style === "chicago") {
+        if (fs.length) { add(fs.length > 3 ? `${fs[0]} et al.` : andY(fs), "au"); add(", "); }
+        titleBit();
+        if (pg) { add(", "); add(pg, "nu"); }
+        add(".");
+      } else {
+        const skipAu = !!s.org && s.org === s.pub;
+        add("(");
+        if (fs.length && !skipAu) add(fs.length > 2 ? `${fs[0]} et al.` : fs.join(" y "), "au"); else titleBit();
+        if (pg) { add(" "); add(pg, "nu"); }
+        add(")");
+      }
+      return done();
+    };
+
+    const narrative = s => {
+      const fs = s.au.map(surname);
+      const who = fs.length > 2 ? `${fs[0]} et al.` : fs.join(" y ");
+      return who ? [[who, "au", false], [" ", "", false], [`(${s.y || "s. f."})`, "yr", false]] : [];
+    };
+
+    const escape = t => t.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch]);
+    const html = (ps, paint = true) => ps.map(([t, r, it]) => {
+      let h = escape(t);
+      if (it) h = `<i>${h}</i>`;
+      if (r === "miss") return `<span class="rp-miss">${h}</span>`;
+      return paint && r ? `<span class="rp rp-${r}">${h}</span>` : h;
+    }).join("");
+    const text = ps => ps.map(p => p[0]).join("");
+    const STYLES = { apa, chicago, mla };
+
+    return {
+      ref: (raw, style) => STYLES[style](norm(raw)),
+      cite: (raw, style, pg) => cite(norm(raw), style, pg),
+      narrative: raw => narrative(norm(raw)),
+      key: raw => {
+        const s = norm(raw);
+        return (s.au[0] ? surname(s.au[0]) : s.ti) || "~";
+      },
+      html, text, escape
+    };
+  })();
+
+  /* ── Estado del arte: el taller ─────────────────────────────────────── */
+  const STYLE_NAME = { apa: "APA 7", chicago: "Chicago", mla: "MLA 9" };
+  const citeDemo = $("#citeDemo");
+  const fuentesForm = $("#fuentesForm");
+  if (citeDemo || fuentesForm) {
+    const STORE = "geopolis27-fuentes";
+    const blank = () => ({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      type: "articulo", authors: "", year: "", date: "", title: "", container: "",
+      editors: "", volume: "", issue: "", pages: "", publisher: "", series: "", link: "",
+      port: "", layer: "", anchor: [false, false, false, false, false], adds: ""
+    });
+    let state = null;
+    try { state = JSON.parse(localStorage.getItem(STORE) || "null"); } catch { /* sin lista guardada */ }
+    let recovered = false;
+    if (!state || typeof state !== "object") {
+      state = { team: "", crew: "", question: "", words: "", style: "apa", sources: [blank()] };
+      // La ficha de la sesión 16, si quedó en este navegador, adelanta el equipo y la pregunta.
+      try {
+        const f = JSON.parse(localStorage.getItem("geopolis27-ficha-pregunta") || "{}");
+        if (f.team || f.crew || f.q1 || f.q2) {
+          Object.assign(state, { team: f.team || "", crew: f.crew || "", question: f.q2 || f.q1 || "" });
+          recovered = true;
+        }
+      } catch { /* sin ficha */ }
+    }
+    if (!STYLE_NAME[state.style]) state.style = "apa";
+    if (!Array.isArray(state.sources)) state.sources = [];
+    const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch { /* sin almacenamiento */ } };
+
+    /* Los tres estilos y el ejemplo de cada tipo de fuente */
+    const EJEMPLOS = {
+      articulo: { type: "articulo", authors: "Farrell, Henry\nNewman, Abraham L.", year: "2019",
+        title: "Weaponized interdependence: How global economic networks shape state coercion",
+        tc: "Weaponized Interdependence: How Global Economic Networks Shape State Coercion",
+        container: "International Security", volume: "44", issue: "1", pages: "42-79",
+        link: "10.1162/isec_a_00351", pg: "45" },
+      libro: { type: "libro", authors: "Miller, Chris", year: "2022",
+        title: "Chip war: The fight for the world's most critical technology",
+        tc: "Chip War: The Fight for the World's Most Critical Technology",
+        publisher: "Scribner", pg: "120" },
+      capitulo: { type: "capitulo", authors: "Wade, Robert H.", year: "2023",
+        title: "Conflict between great powers is back with vengeance: The new Cold War between the US and China plus Russia",
+        tc: "Conflict between Great Powers Is Back with Vengeance: The New Cold War between the US and China plus Russia",
+        container: "The political economy of emerging markets and alternative development paths",
+        containerTC: "The Political Economy of Emerging Markets and Alternative Development Paths",
+        editors: "Ricz, Judit\nGerőcs, Tamás", pages: "13-35", publisher: "Palgrave Macmillan",
+        link: "10.1007/978-3-031-20702-0_2", pg: "20" },
+      informe: { type: "informe",
+        authors: "Gopinath, Gita\nGourinchas, Pierre-Olivier\nPresbitero, Andrea F.\nTopalova, Petia", year: "2024",
+        title: "Changing global linkages: A new Cold War?", tc: "Changing Global Linkages: A New Cold War?",
+        series: "IMF Working Paper WP/24/76", publisher: "International Monetary Fund",
+        link: "10.5089/9798400272745.001", pg: "12" },
+      prensa: { type: "prensa", authors: "Reséndiz, Adolfo", date: "2025-10-29",
+        title: "Nissan y Mercedes-Benz alertan por nueva crisis de chips: Solo tienen reservas hasta noviembre y temen paros en sus fábricas",
+        tc: "Nissan y Mercedes-Benz alertan por nueva crisis de chips: solo tienen reservas hasta noviembre y temen paros en sus fábricas",
+        container: "Xataka México",
+        link: "https://www.xataka.com.mx/automovil/nissan-mercedes-benz-alertan-nueva-crisis-chips-solo-tienen-reservas-noviembre-temen-paros-sus-fabricas" }
+    };
+    const IN_LABEL = { apa: "En el texto", chicago: "En la nota al pie", mla: "En el texto" };
+    const REF_LABEL = { apa: "Referencias", chicago: "Bibliografía", mla: "Obras citadas" };
+    let demoType = "articulo";
+
+    const paintDemo = () => {
+      if (!citeDemo) return;
+      const ex = EJEMPLOS[demoType];
+      const st = state.style;
+      $("#citeRefLabel").textContent = `En la lista · ${REF_LABEL[st]}`;
+      $("#citeInLabel").textContent = IN_LABEL[st];
+      $("#citeRef").innerHTML = CITE.html(CITE.ref(ex, st));
+      let inText = CITE.html(CITE.cite(ex, st, ex.pg));
+      if (st === "apa") inText += ` <span class="cite-or">o, dentro de la frase:</span> ${CITE.html(CITE.narrative(ex))}`;
+      if (st === "chicago") inText = `<sup>1</sup> ${inText}`;
+      $("#citeIn").innerHTML = inText;
+      $$("[data-ctype]", citeDemo).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.ctype === demoType)));
+    };
+    $$("[data-ctype]", citeDemo || document).forEach(b => b.addEventListener("click", () => {
+      demoType = b.dataset.ctype;
+      paintDemo();
+    }));
+
+    const setStyle = (st) => {
+      if (!STYLE_NAME[st]) return;
+      state.style = st;
+      save();
+      $$("[data-style]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.style === st)));
+      $$('input[name="fStyle"]').forEach(r => { r.checked = r.value === st; });
+      paintDemo();
+      paintCard();
+    };
+    $$("[data-style]").forEach(b => b.addEventListener("click", () => setStyle(b.dataset.style)));
+
+    /* El buscador de los tres puertos y el encargo para el asistente */
+    const launch = $("#qLaunch");
+    if (launch) {
+      const QKEY = "geopolis27-busqueda";
+      try { launch.value = localStorage.getItem(QKEY) || ""; } catch { /* sin búsqueda guardada */ }
+      const links = $$("[data-engine]");
+      const aim = () => {
+        const q = launch.value.trim();
+        links.forEach(a => {
+          a.href = q ? a.dataset.engine + encodeURIComponent(q + (a.dataset.suffix || "")) : a.dataset.home;
+        });
+        try { localStorage.setItem(QKEY, launch.value); } catch { /* sin almacenamiento */ }
+      };
+      launch.addEventListener("input", aim);
+      aim();
+      $("#qCopy")?.addEventListener("click", async () => {
+        const q = launch.value.trim();
+        if (!q) { say("Escribe tu búsqueda primero"); launch.focus(); return; }
+        say(await copyOut(q) ? "Búsqueda copiada ✓ Pégala en el Descubridor de BIDI" : "No se pudo copiar en este navegador");
+      });
+    }
+    $("#promptCopy")?.addEventListener("click", async () => {
+      let t = $("#promptText").textContent.replace(/\s+/g, " ").trim();
+      if (state.question) t = t.replace("[su pregunta]", state.question);
+      say(await copyOut(t) ? "Encargo copiado ✓ Cambia lo que está entre corchetes" : "No se pudo copiar en este navegador");
+    });
+
+    /* La lista de fuentes del equipo */
+    const TYPE_SHORT = { articulo: "Artículo", libro: "Libro", capitulo: "Capítulo", informe: "Informe",
+                         prensa: "Prensa", web: "Página web" };
+    const ACADEMIC = ["articulo", "libro", "capitulo"];
+    const LAYER = { caso: "El caso", concepto: "El concepto", ambas: "Caso y concepto" };
+    const counted = () => state.sources.filter(s => (s.title || "").trim() || (s.authors || "").trim());
+
+    const paintCard = () => {
+      if (!fuentesForm) return;
+      const list = counted();
+      $("#bStyle").textContent = STYLE_NAME[state.style];
+      $("#bTeam").textContent = state.team;
+      $("#bQ").textContent = state.question;
+      $("#bWords").textContent = state.words;
+      $("#bCrew").textContent = state.crew;
+      $("#bRefHead").textContent = REF_LABEL[state.style];
+      $("#bTip").textContent = state.style === "apa"
+        ? "Revisen las mayúsculas: en APA, el título solo al inicio, después de los dos puntos y en nombres propios. La lista no las cambia."
+        : "Revisen las mayúsculas: en los títulos en inglés, cada palabra importante. La lista no las cambia.";
+
+      const n = list.length;
+      const acad = list.filter(s => ACADEMIC.includes(s.type)).length;
+      const caso = list.filter(s => s.layer === "caso" || s.layer === "ambas").length;
+      const conc = list.filter(s => s.layer === "concepto" || s.layer === "ambas").length;
+      const anch = list.filter(s => s.anchor?.every(Boolean)).length;
+      const adds = list.filter(s => (s.adds || "").trim()).length;
+      const checks = [
+        [n >= 4, "Cuatro fuentes o más", `${n} / 4`],
+        [acad >= 3, "Tres académicas o más", `${acad} / 3`],
+        [caso > 0 && conc > 0, "Fuentes del caso y del concepto", `${caso} · ${conc}`],
+        [n > 0 && anch === n, "Todas pasan la prueba del ancla", `${anch} de ${n}`],
+        [n > 0 && adds === n, "Todas dicen qué aportan", `${adds} de ${n}`]
+      ];
+      $("#bCheck").replaceChildren(...checks.map(([ok, label, num]) => {
+        const li = document.createElement("li");
+        li.className = ok ? "is-ok" : "";
+        li.innerHTML = `<span class="fc-mark" aria-hidden="true">${ok ? "✓" : ""}</span><span>${label}</span><b>${num}</b>`;
+        li.setAttribute("aria-label", `${label}: ${ok ? "listo" : "pendiente"}, ${num}`);
+        return li;
+      }));
+
+      const sorted = [...list].sort((a, b) => CITE.key(a).localeCompare(CITE.key(b), "es", { sensitivity: "base" }));
+      const refs = $("#bRefs");
+      if (!sorted.length) {
+        const li = document.createElement("li");
+        li.className = "fref-empty";
+        li.textContent = "Aquí aparecen sus fuentes, en orden alfabético y en el estilo que elijan.";
+        refs.replaceChildren(li);
+      } else {
+        refs.replaceChildren(...sorted.map(s => {
+          const li = document.createElement("li");
+          const ref = document.createElement("p");
+          ref.className = "fref";
+          ref.innerHTML = CITE.html(CITE.ref(s, state.style), false);
+          const meta = document.createElement("p");
+          meta.className = "fref-meta";
+          const k = (s.anchor || []).filter(Boolean).length;
+          meta.textContent = [`⚓ ${k}/5`, LAYER[s.layer], s.port].filter(Boolean).join(" · ");
+          li.append(ref, meta);
+          if ((s.adds || "").trim()) {
+            const why = document.createElement("p");
+            why.className = "fref-adds";
+            why.textContent = s.adds.trim();
+            li.appendChild(why);
+          }
+          return li;
+        }));
+      }
+    };
+
+    if (fuentesForm) {
+      const srcList = $("#srcList");
+      const tpl = $("#srcTpl");
+      const TOP = { team: "#fTeam", crew: "#fCrew", question: "#fQuestion", words: "#fWords" };
+      Object.entries(TOP).forEach(([k, sel]) => { $(sel).value = state[k] || ""; });
+      $$('input[name="fStyle"]').forEach(r => { r.checked = r.value === state.style; });
+      if (recovered) $("#fNotice").hidden = false;
+
+      const labelOf = (s) => {
+        const who = (s.authors || "").split(/\n|;/)[0].split(",")[0].trim();
+        const when = s.date ? s.date.slice(0, 4) : (s.year || "").trim();
+        if (!who && !(s.title || "").trim()) return "Fuente nueva";
+        return `${who || (s.title || "").trim().split(" ").slice(0, 4).join(" ")} (${when || "s. f."}) · ${TYPE_SHORT[s.type]}`;
+      };
+      const showFor = (node, type) => {
+        $$("[data-show]", node).forEach(el => { el.hidden = !el.dataset.show.split(" ").includes(type); });
+        $$("label[data-label-default]", node).forEach(l => {
+          l.innerHTML = l.dataset[`label${type.charAt(0).toUpperCase()}${type.slice(1)}`] || l.dataset.labelDefault;
+        });
+      };
+      const paintHead = (node, s) => {
+        $(".src-label", node).textContent = labelOf(s);
+        const k = (s.anchor || []).filter(Boolean).length;
+        const badge = $(".src-anchor", node);
+        badge.textContent = `⚓ ${k}/5`;
+        badge.classList.toggle("is-ok", k === 5);
+      };
+      const renumber = () => $$(".src", srcList).forEach((node, i) => {
+        $(".src-n", node).textContent = String(i + 1).padStart(2, "0");
+      });
+      const mount = (s, open) => {
+        const node = tpl.content.firstElementChild.cloneNode(true);
+        node.dataset.id = s.id;
+        node.open = open;
+        $$(".field", node).forEach(f => {
+          const ctl = $("[data-k]", f);
+          const lab = $(":scope > label", f);
+          if (!ctl || !lab) return;
+          ctl.id = `src-${s.id}-${ctl.dataset.k}`;
+          lab.htmlFor = ctl.id;
+          if (!lab.dataset.labelDefault && Object.keys(lab.dataset).some(k => k.startsWith("label"))) {
+            lab.dataset.labelDefault = lab.innerHTML;
+          }
+        });
+        $$("[data-k]", node).forEach(ctl => { ctl.value = s[ctl.dataset.k] || ""; });
+        $$("[data-a]", node).forEach(c => { c.checked = !!s.anchor?.[Number(c.dataset.a)]; });
+        showFor(node, s.type);
+        paintHead(node, s);
+        srcList.appendChild(node);
+        return node;
+      };
+      state.sources.forEach((s, i) => mount(s, state.sources.length === 1 || i === state.sources.length - 1));
+      renumber();
+
+      const sourceOf = (el) => {
+        const node = el.closest(".src");
+        return node ? [node, state.sources.find(s => s.id === node.dataset.id)] : [];
+      };
+      const onEdit = (e) => {
+        const t = e.target;
+        if (t.name === "fStyle") { setStyle(t.value); return; }
+        const top = Object.entries(TOP).find(([, sel]) => t.matches(sel));
+        if (top) { state[top[0]] = t.value; save(); paintCard(); return; }
+        const [node, s] = sourceOf(t);
+        if (!s) return;
+        if (t.dataset.k) s[t.dataset.k] = t.value;
+        if (t.dataset.a) {
+          s.anchor = s.anchor || [false, false, false, false, false];
+          s.anchor[Number(t.dataset.a)] = t.checked;
+        }
+        if (t.dataset.k === "type") showFor(node, s.type);
+        paintHead(node, s);
+        save();
+        paintCard();
+      };
+      fuentesForm.addEventListener("input", onEdit);
+      fuentesForm.addEventListener("change", onEdit);
+      fuentesForm.addEventListener("submit", e => e.preventDefault());
+
+      $("#srcAdd").addEventListener("click", () => {
+        $$(".src", srcList).forEach(d => { d.open = false; });
+        const s = blank();
+        state.sources.push(s);
+        save();
+        const node = mount(s, true);
+        renumber();
+        node.scrollIntoView({ behavior: "smooth", block: "start" });
+        $("[data-k='authors']", node).focus({ preventScroll: true });
+      });
+      srcList.addEventListener("click", (e) => {
+        const del = e.target.closest(".src-del");
+        if (!del) return;
+        const [node, s] = sourceOf(del);
+        if (!s) return;
+        const empty = !(s.title || s.authors || s.link || s.adds);
+        if (!empty && !window.confirm(`¿Quitar «${labelOf(s)}» de la lista?`)) return;
+        state.sources = state.sources.filter(x => x !== s);
+        node.remove();
+        renumber();
+        save();
+        paintCard();
+      });
+
+      // Para el foro: texto plano y, para el editor de Moodle, el mismo texto con cursivas.
+      const asText = () => {
+        const list = counted().sort((a, b) => CITE.key(a).localeCompare(CITE.key(b), "es", { sensitivity: "base" }));
+        const acad = list.filter(s => ACADEMIC.includes(s.type)).length;
+        const anch = list.filter(s => s.anchor?.every(Boolean)).length;
+        const items = v => (v || "").split("\n").map(x => x.trim()).filter(Boolean);
+        const head = [
+          "LAS FUENTES DEL EQUIPO · ESTADO DEL ARTE",
+          "Geopolítica Internacional · FCA UNAM · Grupo 1541 · 2027-1 · 29 de octubre de 2026",
+          ""
+        ];
+        if (state.team.trim()) head.push(`Equipo: ${state.team.trim()}`);
+        if (items(state.crew).length) head.push("Integrantes:", ...items(state.crew).map(x => `  · ${x}`));
+        if (state.question.trim()) head.push(`Pregunta: ${state.question.trim()}`);
+        if (items(state.words).length) head.push("Palabras clave:", ...items(state.words).map(x => `  · ${x}`));
+        head.push(`Estilo: ${STYLE_NAME[state.style]}`,
+                  `Resumen: ${list.length} ${list.length === 1 ? "fuente" : "fuentes"} · ${acad} ${acad === 1 ? "académica" : "académicas"} · prueba del ancla completa en ${anch} de ${list.length}`);
+
+        const entries = list.map(s => {
+          const ref = CITE.ref(s, state.style);
+          const notes = [`Prueba del ancla: ${(s.anchor || []).filter(Boolean).length} de 5`,
+                         LAYER[s.layer] && `Capa: ${LAYER[s.layer].toLowerCase()}`,
+                         s.port && `Encontrada en: ${s.port}`].filter(Boolean).join(" · ");
+          return { ref, adds: (s.adds || "").trim(), notes };
+        });
+        const title = REF_LABEL[state.style];
+        const text = [...head, "", title.toUpperCase(), "",
+          ...entries.flatMap(e => [CITE.text(e.ref), ...(e.adds ? [`  Aporta: ${e.adds}`] : []), `  ${e.notes}`, ""])
+        ].join("\n").trim();
+        const html = head.map(l => `<p style="margin:0">${CITE.escape(l) || "&nbsp;"}</p>`).join("")
+          + `<p style="margin:1em 0 .6em"><b>${title}</b></p>`
+          + entries.map(e => `<p style="margin:0;padding-left:2em;text-indent:-2em">${CITE.html(e.ref, false)}</p>`
+            + `<p style="margin:0 0 1em 2em">${e.adds ? `Aporta: ${CITE.escape(e.adds)}<br>` : ""}${CITE.escape(e.notes)}</p>`).join("");
+        return { text, html, n: list.length };
+      };
+
+      $("#fuentesCopy").addEventListener("click", async () => {
+        const out = asText();
+        if (!out.n) { say("Agreguen al menos una fuente primero ⚓"); return; }
+        say(await copyOut(out.text, out.html) ? "Lista copiada ✓ Pégala en el foro de Moodle" : "No se pudo copiar en este navegador");
+      });
+      $("#fuentesPrint").addEventListener("click", () => printOnly($("#bcard")));
+      $("#fuentesClear").addEventListener("click", () => {
+        if (!window.confirm("¿Borrar toda la lista del equipo? No se puede deshacer.")) return;
+        state = { team: "", crew: "", question: "", words: "", style: state.style, sources: [blank()] };
+        Object.values(TOP).forEach(sel => { $(sel).value = ""; });
+        srcList.replaceChildren();
+        mount(state.sources[0], true);
+        renumber();
+        $("#fNotice").hidden = true;
+        save();
+        paintCard();
+        say("Lista en blanco");
+      });
+    }
+
+    setStyle(state.style);
+
+    /* Modo presentación: el taller en láminas para el proyector */
+    // Lienzo fijo de 1600 × 900 que se escala a la pantalla, pasos que se destapan
+    // dentro de cada lámina y un reloj por estación. Avanzan las flechas, la barra
+    // espaciadora y los controles de presentación (Av Pág / Re Pág); Esc sale.
+    const pres = $("#pres");
+    if (pres) {
+      const stage  = $(".pres-stage", pres);
+      const slides = $$(".pslide", pres);
+      const clocks = $$("[data-clock]", pres);
+      const where  = $("#pbWhere");
+      const count  = $("#pbCount");
+      const meter  = $(".pb-progress", pres);
+      const pbTimer = $("#pbTimer");
+      const homeLabel = where.textContent;
+      // Las estaciones y sus minutos salen del reloj del taller.
+      const ST = [null, ...$$(".clock-st").map(b => ({
+        name: $("strong", b).textContent.trim(), min: parseInt($("small", b).textContent, 10)
+      }))];
+      let at = 0, step = 0, back = null;
+
+      // Las láminas «¿Existe?» llevan los mismos botones de copiar que las tarjetas.
+      const cardCopies = $$(".vcheck .vcopy");
+      $$(".p-check .p-copy", pres).forEach((box, i) => {
+        box.replaceChildren(...$$("button", cardCopies[i] || document.createElement("p")).map(b => {
+          const c = b.cloneNode(true);
+          c.textContent = `⧉ ${b.textContent}`;
+          return c;
+        }));
+      });
+
+      $$("[data-cite-ref]", pres).forEach(p => {
+        p.innerHTML = CITE.html(CITE.ref(EJEMPLOS.articulo, p.dataset.citeRef));
+      });
+      $$("[data-cite-in]", pres).forEach(p => {
+        const st = p.dataset.citeIn;
+        let h = CITE.html(CITE.cite(EJEMPLOS.articulo, st, EJEMPLOS.articulo.pg));
+        if (st === "apa") h += ` <span class="p-or">o</span> ${CITE.html(CITE.narrative(EJEMPLOS.articulo))}`;
+        if (st === "chicago") h = `<sup>1</sup> ${h}`;
+        p.innerHTML = h;
+      });
+
+      /* El reloj de la estación */
+      const T = { st: 0, total: 0, left: 0, endAt: 0, id: null, done: false };
+      const mmss = s => `${pad(Math.floor(s / 60))}:${pad(s % 60)}`;
+      clocks.forEach(c => {
+        const st = Number(c.dataset.clock);
+        c.innerHTML = `<span class="pc-label">Estación ${st} · ${ST[st]?.min} min</span>`
+          + `<span class="pc-time">${mmss((ST[st]?.min || 0) * 60)}</span>`
+          + `<span class="pc-ctrl"><button class="pc-go" type="button">▶ Iniciar</button>`
+          + `<button class="pc-reset" type="button" aria-label="Reiniciar el reloj">↺</button></span>`;
+      });
+      const paintTimer = () => {
+        const secs = Math.max(0, Math.ceil(T.left));
+        pbTimer.hidden = !T.st;
+        pbTimer.textContent = `⏱ E${T.st} · ${T.done ? "¡Tiempo!" : mmss(secs)}${T.id || T.done ? "" : " ▶"}`;
+        pbTimer.classList.toggle("is-run", !!T.id);
+        pbTimer.classList.toggle("is-done", T.done);
+        clocks.forEach(c => {
+          const st = Number(c.dataset.clock);
+          const mine = st === T.st;
+          $(".pc-time", c).textContent = !mine ? mmss(ST[st].min * 60) : T.done ? "¡Tiempo!" : mmss(secs);
+          $(".pc-go", c).textContent = mine && T.id ? "❚❚ Pausa"
+            : mine && !T.done && T.left < T.total ? "▶ Seguir" : "▶ Iniciar";
+          c.classList.toggle("is-run", mine && !!T.id);
+          c.classList.toggle("is-done", mine && T.done);
+        });
+      };
+      const setTimer = (st) => {
+        clearInterval(T.id);
+        Object.assign(T, { st, total: ST[st].min * 60, left: ST[st].min * 60, id: null, done: false });
+        paintTimer();
+      };
+      const tick = () => {
+        T.left = (T.endAt - Date.now()) / 1000;
+        if (T.left <= 0) {
+          T.left = 0;
+          clearInterval(T.id);
+          T.id = null;
+          T.done = true;
+          beep();
+        }
+        paintTimer();
+      };
+      const run = () => {
+        if (T.done) { T.left = T.total; T.done = false; }
+        T.endAt = Date.now() + T.left * 1000;
+        clearInterval(T.id);
+        T.id = setInterval(tick, 250);
+        paintTimer();
+      };
+      const toggleTimer = () => {
+        if (!T.st) return;
+        if (T.id) { clearInterval(T.id); T.id = null; paintTimer(); } else run();
+      };
+      clocks.forEach(c => {
+        const st = Number(c.dataset.clock);
+        $(".pc-go", c).addEventListener("click", () => {
+          if (T.st !== st) { setTimer(st); run(); } else toggleTimer();
+        });
+        $(".pc-reset", c).addEventListener("click", () => setTimer(st));
+      });
+      pbTimer.addEventListener("click", toggleTimer);
+
+      /* Láminas y pasos */
+      const fit = () => {
+        stage.style.setProperty("--k", Math.min(innerWidth / 1600, innerHeight / 900));
+      };
+      const stepsOf = (i) => $$("[data-step]", slides[i]);
+      const show = (i, revealAll = false) => {
+        at = Math.max(0, Math.min(slides.length - 1, i));
+        slides.forEach((s, j) => s.classList.toggle("is-on", j === at));
+        const steps = stepsOf(at);
+        step = revealAll ? steps.length : 0;
+        steps.forEach((el, j) => el.classList.toggle("is-shown", j < step));
+        count.textContent = `${pad(at + 1)} / ${pad(slides.length)}`;
+        meter.style.width = `${((at + 1) / slides.length) * 100}%`;
+        const st = Number(slides[at].dataset.station) || 0;
+        where.textContent = st ? `Estación ${st} · ${ST[st].name}` : homeLabel;
+        if (st && !T.id && T.st !== st) setTimer(st);
+        history.replaceState(null, "", `${location.pathname}${location.search}#presentacion-${at + 1}`);
+      };
+      const next = () => {
+        const steps = stepsOf(at);
+        if (step < steps.length) { steps[step++].classList.add("is-shown"); return; }
+        if (at < slides.length - 1) show(at + 1);
+      };
+      const prev = () => {
+        if (step > 0) { stepsOf(at)[--step].classList.remove("is-shown"); return; }
+        if (at > 0) show(at - 1, true);
+      };
+      // Salir de pantalla completa con Esc también cierra la presentación; con el
+      // botón ⛶ solo se sale de pantalla completa.
+      let windowed = false;
+      const toggleFull = () => {
+        if (document.fullscreenElement) { windowed = true; document.exitFullscreen().catch(() => {}); }
+        else pres.requestFullscreen?.().catch(() => {});
+      };
+
+      const open = (i = 0) => {
+        back = document.activeElement;
+        pres.hidden = false;
+        root.classList.add("is-presenting");
+        // Lo demás de la página queda fuera del alcance del teclado y del lector de pantalla.
+        [...document.body.children].forEach(el => { if (el !== pres) el.inert = true; });
+        fit();
+        show(i);
+        stage.focus({ preventScroll: true });
+        if (!document.fullscreenElement) pres.requestFullscreen?.().catch(() => {});
+      };
+      const close = () => {
+        if (pres.hidden) return;
+        if (document.fullscreenElement) { windowed = true; document.exitFullscreen().catch(() => {}); }
+        pres.hidden = true;
+        root.classList.remove("is-presenting");
+        [...document.body.children].forEach(el => { el.inert = false; });
+        history.replaceState(null, "", `${location.pathname}${location.search}#sesion-actual`);
+        back?.focus?.({ preventScroll: true });
+      };
+
+      $$("[data-present]").forEach(b => b.addEventListener("click", (e) => { e.preventDefault(); open(0); }));
+      $("#pbPrev").addEventListener("click", prev);
+      $("#pbNext").addEventListener("click", next);
+      $("#pbFull").addEventListener("click", toggleFull);
+      $("#pbExit").addEventListener("click", close);
+      window.addEventListener("resize", () => { if (!pres.hidden) fit(); });
+      document.addEventListener("fullscreenchange", () => {
+        $("#pbFull").setAttribute("aria-pressed", String(!!document.fullscreenElement));
+        if (!document.fullscreenElement && !windowed && !pres.hidden) close();
+        windowed = false;
+        if (!pres.hidden) fit();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (pres.hidden || e.altKey || e.ctrlKey || e.metaKey) return;
+        const onButton = e.target.closest?.("button");
+        const k = e.key;
+        if (["ArrowRight", "ArrowDown", "PageDown"].includes(k) || (!onButton && (k === " " || k === "Enter"))) { e.preventDefault(); next(); }
+        else if (["ArrowLeft", "ArrowUp", "PageUp", "Backspace"].includes(k)) { e.preventDefault(); prev(); }
+        else if (k === "Home") { e.preventDefault(); show(0); }
+        else if (k === "End") { e.preventDefault(); show(slides.length - 1, true); }
+        else if (k === "Escape") { e.preventDefault(); close(); }
+        else if (k === "t" || k === "T") toggleTimer();
+        else if (k === "f" || k === "F") toggleFull();
+      });
+      // Un clic en la lámina avanza; en el celular o la tableta, deslizar también.
+      let swipeX = null, swiped = false;
+      stage.addEventListener("pointerdown", (e) => { swipeX = e.pointerType === "mouse" ? null : e.clientX; swiped = false; });
+      stage.addEventListener("pointerup", (e) => {
+        if (swipeX === null) return;
+        const dx = e.clientX - swipeX;
+        swipeX = null;
+        if (Math.abs(dx) > 60) { swiped = true; dx < 0 ? next() : prev(); }
+      });
+      stage.addEventListener("click", (e) => {
+        if (swiped || e.target.closest("button, a, .pres-bar, .p-clock")) return;
+        next();
+      });
+
+      // Un enlace a #presentacion-N abre esa lámina, al cargar o con la página abierta.
+      const fromHash = () => {
+        const deep = /^#presentacion(?:-(\d+))?$/.exec(location.hash);
+        if (!deep) return;
+        const i = (Number(deep[1]) || 1) - 1;
+        if (pres.hidden) open(i); else show(i);
+      };
+      window.addEventListener("hashchange", fromHash);
+      fromHash();
+    }
   }
 
   /* ── Nord Stream: rutas del gas ─────────────────────────────────────── */

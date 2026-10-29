@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c1123f">
-  <meta name="description" content="Geopolítica Internacional · FCA UNAM · 2027-1. Martes 20 de octubre: Nord Stream. Un gasoducto bajo el Báltico, cinco actores y la pregunta de quién tenía el arma: Virág y Tancsa (2023), actividad 9.">
+  <meta name="description" content="Geopolítica Internacional · FCA UNAM · 2027-1. Jueves 29 de octubre: taller del estado del arte. Tu equipo sale con sus fuentes verificadas y citadas en APA 7, Chicago o MLA, buscadas en BIDI UNAM, buscadores académicos y con un asistente de IA usado con cuidado.">
   <meta property="og:title" content="Geopolítica Internacional · FCA UNAM · 2027-1">
-  <meta property="og:description" content="Nord Stream: el gas fija relaciones · Sesión 17, martes 20 de octubre de 2026.">
+  <meta property="og:description" content="Fuente sin abrir, rumor bien citado · Taller del estado del arte · Sesión 19, jueves 29 de octubre de 2026.">
   <meta property="og:type" content="website">
   <title>Geopolítica Internacional · 2027-1 · FCA UNAM</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c1123f'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f6f1e6' stroke-width='1.4'/%3E%3Cpath d='M16 5l3 11 11 0-11 3-3 11-3-11-11-3 11 0z' fill='%23f6f1e6'/%3E%3C/svg%3E">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="assets/index27/course27.css">
   <script defer src="assets/index27/course27.js"></script>
 </head>
-<body>
+<body class="has-menu">
   <a class="skip-link" href="#sesion-actual">Ir a la sesión de hoy</a>
 
   <noscript><p class="noscript">Sin JavaScript la bitácora de sesiones no se dibuja, pero puedes llegar a cada sesión anterior desde <a href="sesiones/s01-mesa-de-brujulas.html">el archivo</a>. Todo lo demás se lee sin problema.</p></noscript>
@@ -34,18 +34,43 @@
         <small>FCA · UNAM · 1541</small>
       </span>
     </a>
-    <nav class="topnav" aria-label="Secciones del curso">
+    <nav class="topnav" aria-label="Secciones de hoy">
       <a href="#sesion-actual">Hoy</a>
-      <a href="#mapa" data-sesion="17">Rutas</a>
-      <a href="#articulo" data-sesion="17">Artículo</a>
-      <a href="#actores" data-sesion="17">Actores</a>
-      <a href="#secuencia" data-sesion="17">Secuencia</a>
-      <a href="#videos" data-sesion="17">Videos</a>
-      <a href="#ideas" data-sesion="17">Ideas</a>
-      <a href="#glosario" data-sesion="17">Glosario</a>
-      <a href="#sesiones">Sesiones</a>
+      <a href="#zarpar" data-sesion="19">Antes de zarpar</a>
+      <a href="#puertos" data-sesion="19">Puertos</a>
+      <a href="#ancla" data-sesion="19">Ancla</a>
+      <a href="#citar" data-sesion="19">Citar</a>
+      <a href="#fuentes" data-sesion="19">Sus fuentes</a>
     </nav>
     <div class="topbar-actions">
+      <div class="menu-wrap">
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuPanel" aria-label="Menú: la sesión de hoy y el resto del curso">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <b>Menú</b>
+        </button>
+        <div class="menu-panel" id="menuPanel" hidden>
+          <div class="menu-group" data-sesion="19">
+            <p>Hoy · Sesión 19</p>
+            <a href="#sesion-actual"><span>00</span>Por dónde empezar</a>
+            <a href="#zarpar"><span>01</span>Antes de zarpar <small>8 min</small></a>
+            <a href="#puertos"><span>02</span>Tres puertos <small>20 min</small></a>
+            <a href="#ancla"><span>03</span>La prueba del ancla <small>10 min</small></a>
+            <a href="#citar"><span>04</span>Mismas piezas, tres estilos <small>10 min</small></a>
+            <a href="#fuentes"><span>05</span>Las fuentes del equipo <small>12 min</small></a>
+            <a href="#reloj"><span>⏱</span>El reloj del taller</a>
+            <a href="#presentacion" data-present class="menu-present"><span>▶</span>Modo presentación</a>
+          </div>
+          <div class="menu-group">
+            <p>El curso</p>
+            <a href="#sesiones"><span>🗂</span>Sesiones anteriores</a>
+            <a href="#ruta"><span>🧭</span>La ruta del semestre</a>
+            <a href="#evaluacion"><span>✓</span>Tu evaluación</a>
+            <a href="#profesor"><span>✉</span>Tu profesor</a>
+            <a href="#recursos"><span>🔗</span>Recursos: Moodle, videos, playlist</a>
+            <a href="#como-citar"><span>❝</span>Cómo citar esta página</a>
+          </div>
+        </div>
+      </div>
       <button class="qr-btn" id="qrBtn" type="button" title="Ver el código QR de esta página en grande" aria-label="Ver el código QR de esta página en grande" aria-haspopup="dialog">
         <img src="assets/index27/qr-index27.svg" alt="Código QR de esta página" width="34" height="34" decoding="async">
       </button>
@@ -55,7 +80,7 @@
   </header>
 
   <!-- ══════════════════════════════ PORTADA ═════════════════════════════ -->
-  <section class="hero">
+  <section class="hero hero--slim">
     <div class="hero-bg" aria-hidden="true">
       <svg class="hero-rose" viewBox="0 0 200 200" fill="none" stroke="currentColor">
         <circle cx="100" cy="100" r="96" stroke-width="1"/>
@@ -74,32 +99,29 @@
 
     <div class="hero-inner">
       <div class="hero-copy">
-        <p class="kicker">Semestre 2027-1 · Grupo 1541 · Licenciatura en Negocios Internacionales</p>
-        <h1 class="hero-title">Un tubo une a dos países.<br><em>Y divide a todos los demás.</em></h1>
-        <p class="hero-sub">Geopolítica Internacional Aplicada a los Negocios Internacionales</p>
-        <p class="hero-meta"><a href="#profesor"><b>Dr. Jorge Cardiel Herrera</b></a> · Facultad de Contaduría y Administración, UNAM<br>Martes en A-004 · Jueves en A-101 · 09:00—11:00</p>
-
+        <p class="kicker">Geopolítica Internacional · Grupo 1541 · Taller del trabajo final</p>
+        <h1 class="hero-title">Fuente sin abrir,<br><em>rumor bien citado.</em></h1>
+        <p class="hero-sub" data-sesion="19">El estado del arte: con qué fuentes va a trabajar tu equipo, cómo comprobar que existen y cómo citarlas.</p>
+        <p class="hero-meta"><b>Jueves 29 de octubre · Salón A-101 · 09:00—11:00</b><br><a href="#profesor">Dr. Jorge Cardiel Herrera</a> · Facultad de Contaduría y Administración, UNAM</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#sesion-actual" data-sesion="17">La sesión de hoy: El gas fija relaciones →</a>
-          <a class="btn btn-ghost" href="#sesiones">Ver la bitácora de sesiones</a>
-          <a class="btn btn-ghost" href="videos_recientes.html" target="_blank" rel="noopener">📺 Los videos que estamos viendo ↗</a>
+          <a class="btn btn-primary" href="#sesion-actual" data-sesion="19">Empezar el taller →</a>
+          <a class="btn btn-ghost" href="#fuentes" data-sesion="19">Ir a la lista del equipo</a>
+          <button class="btn btn-present" type="button" data-present data-sesion="19"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 1.5-4 1.5z"/></svg> Modo presentación</button>
         </div>
-
-        <ul class="hero-stats">
-          <li><strong>30</strong><span>sesiones</span></li>
-          <li><strong>6</strong><span>unidades</span></li>
-          <li><strong>09—11</strong><span>martes y jueves</span></li>
-          <li><strong>1541</strong><span>grupo</span></li>
-        </ul>
       </div>
 
-      <figure class="frame">
-        <img src="assets/index27/chess-course-2027.gif" alt="Partida de ajedrez en movimiento, usada como metáfora de posición y estrategia.">
-        <figcaption>
-          <b>01</b>
-          <p><strong>La posición nunca es neutral.</strong> Cada movimiento cambia las opciones de los demás —y las tuyas.</p>
-        </figcaption>
-      </figure>
+      <aside class="take hero-take" data-sesion="19" aria-label="Lo que te llevas hoy">
+        <div class="take-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z" fill="currentColor"/></svg>
+          Sales de esta hora con
+        </div>
+        <ol>
+          <li><b>1</b><div><strong>Las palabras para buscar</strong><span>De cinco a diez palabras clave de tu pregunta, en español y en inglés.</span></div></li>
+          <li><b>2</b><div><strong>Cuatro fuentes o más</strong><span>Abiertas, leídas y con lo que aporta cada una. Al menos tres académicas.</span></div></li>
+          <li><b>3</b><div><strong>Citadas en un estilo</strong><span>APA 7, Chicago o MLA: el que elija tu equipo.</span></div></li>
+        </ol>
+        <p class="take-foot" style="margin:0">Todo cabe en una lista que publican en el foro de Moodle</p>
+      </aside>
     </div>
   </section>
 
@@ -110,268 +132,133 @@
     <div class="nowbar-inner">
       <p class="nowbar-item"><span><i class="live-dot" aria-hidden="true"></i>Hoy</span><strong id="todayDate">—</strong></p>
       <p class="nowbar-item"><span>Sesión</span><strong id="activeSession">—</strong></p>
-      <p class="nowbar-item" data-sesion="17"><span>Trae contigo</span><strong>La tabla 1 del artículo y tu respuesta: ¿negocio o geopolítica?</strong></p>
+      <p class="nowbar-item" data-sesion="19"><span>Trae contigo</span><strong>Laptop o celular, la pregunta de tu equipo y tu acceso a BIDI UNAM</strong></p>
     </div>
   </section>
 
+  <aside class="exam-strip" aria-label="Aviso">
+    <div class="wrap"><p><span class="es-tag">📅 Apunta la fecha</span> <strong>Segundo examen parcial:</strong> jueves 19 de noviembre, en nuestra clase de las 09:00 en el A-101.</p></div>
+  </aside>
 
-  <!-- ═════════════════════ RIEL DE SESIONES ════════════════════════════ -->
-  <nav class="rail" id="rail" aria-label="Sesiones del curso">
-    <div class="wrap">
-      <div class="rail-head">
-        <div>
-          <p class="kicker">Por dónde vamos</p>
-          <p>La sesión de hoy y todas las que ya pasaron. Abre cualquiera para volver a lo que vimos ese día.</p>
-        </div>
-        <a href="#sesiones">Ver la bitácora ↓</a>
-      </div>
-      <div class="rail-track" id="railTrack" tabindex="0"></div>
-    </div>
-  </nav>
-
-
-  <!-- ══════════════════════ SESIÓN 17 · NORD STREAM ═════════════════════ -->
-  <div class="s-version" data-sesion="17">
+  <!-- ══════════════════ SESIÓN 19 · TALLER: EL ESTADO DEL ARTE ═══════════ -->
+  <div class="s-version" data-sesion="19">
 
   <section class="section" id="sesion-actual" data-ancla>
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Martes 20 de octubre · Salón A-004 · Sesión 17</p>
-        <h2>El gas fija <em>relaciones</em></h2>
-        <p class="lead">Un gasoducto bajo el mar Báltico unió a Rusia con Alemania, dividió a Europa, enfrentó a Washington con Berlín y terminó volado en el fondo del mar. Virág y Tancsa lo usan como prueba de tornasol: su ruta, su bloqueo y su ruptura muestran quién coopera con quién, quién depende de quién y quién puede condicionar al otro. Con Farrell y Newman aprendiste a buscar el cuello de botella. Hoy la pregunta es quién tenía el arma: Rusia, que vendía el gas, o Alemania, que tenía que autorizar el tubo.</p>
+        <p class="kicker">Jueves 29 de octubre · Salón A-101 · Sesión 19</p>
+        <h2>El estado <em>del arte</em></h2>
+        <p class="lead">Tu pregunta no es la primera que alguien se hace sobre ese tema. El estado del arte cuenta quién ya la trabajó, qué encontró, en qué no se ponen de acuerdo y qué falta por decir. Hoy tu equipo decide con qué fuentes lo va a escribir, y cada una tiene que poder abrirse, leerse y citarse.</p>
         <p style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem">
-          <span class="pill">📖 Virág y Tancsa (2023)</span>
-          <span class="pill pill-blue">pp. 113—140 · tabla 1</span>
-          <span class="pill pill-teal">Actividad 9 · individual</span>
-          <span class="pill pill-amber">Unidad IV</span>
+          <span class="pill">🧭 Taller · una hora</span>
+          <span class="pill pill-blue">Vale 0.5 de tu calificación final</span>
+          <span class="pill pill-teal">El equipo de la sesión 16</span>
+          <span class="pill pill-amber">Trae laptop o celular</span>
         </p>
       </div>
 
-      <article class="card" style="margin-bottom:2.4rem;background:var(--tint-blue);border-color:var(--cobalt)">
-        <p class="kicker k-blue">La lectura de esta sesión</p>
-        <h3 class="pres-title"><em>Turbulent Energy Transformations in Central Europe: Nord Stream Projects in the Context of Geopolitics</em></h3>
-        <p class="pres-meta">Attila Virág y Gréta Tancsa · Politics in Central Europe, 2023 · 28 páginas · en inglés · acceso abierto</p>
-        <p>Los autores sostienen que Nord Stream 2 es una «prueba de tornasol» de las relaciones entre Estados (p. 116) y lo leen con los geopolíticos clásicos: Mackinder, Mahan, Spykman, Kissinger y Brzezinski. Su frase para subrayar: la energía es demasiado importante para tratarla como un bien económico cualquiera (p. 119). El artículo llega hasta diciembre de 2022; lo que pasó después está en la secuencia y en los videos.</p>
-        <div class="refbox">
-          <p class="hang"><strong>Lectura (APA 7):</strong> Virág, A., &amp; Tancsa, G. (2023). Turbulent energy transformations in Central Europe: Nord Stream projects in the context of geopolitics. <em>Politics in Central Europe, 19</em>(1), 113—144. <a href="https://doi.org/10.2478/pce-2023-0006" target="_blank" rel="noopener">https://doi.org/10.2478/pce-2023-0006</a></p>
-          <p><strong>Cita en el texto:</strong> (Virág &amp; Tancsa, 2023, p.&nbsp;134) · <strong>Narrativa:</strong> Virág y Tancsa (2023) sostienen que… (p.&nbsp;134)</p>
-          <p class="muted" style="font-size:.85rem">Las páginas que aparecen aquí son las de la revista: úsalas en tus citas. El texto ocupa las pp. 113—140; lo demás son referencias.</p>
-        </div>
-      </article>
-
-      <div class="section-head" style="margin-top:3rem">
-        <p class="kicker k-blue">Por dónde entrar</p>
-        <h2 style="font-size:clamp(1.6rem,3.4vw,2.2rem)">Siete entradas al mismo tubo</h2>
-        <p class="lead">Escoge por dónde empiezas. Ten a la mano la tabla 1 del artículo (pp. 136—137): es el mapa de todo lo demás.</p>
+      <div class="facts" style="margin-top:0">
+        <article class="fact">
+          <strong>0.5 puntos</strong>
+          <p>La lista de hoy es la segunda de las cuatro etapas del trabajo final: una cuarta parte de su valor, el 5 % de tu calificación del curso.</p>
+        </article>
+        <article class="fact">
+          <strong>4 fuentes o más</strong>
+          <p>Al menos tres académicas —artículos de revista, libros o capítulos— y fuentes tanto del caso como del concepto.</p>
+        </article>
+        <article class="fact">
+          <strong>Verificadas y citadas</strong>
+          <p>Cada fuente pasa la prueba del ancla y va citada en el estilo que elija el equipo: APA 7, Chicago o MLA.</p>
+        </article>
       </div>
 
-      <div class="board">
-        <a class="board-card" href="#mapa">
-          <span class="bc-top"><span class="bc-num">1</span><span class="bc-time">10 min</span></span>
-          <h3>Por dónde pasa el gas</h3>
-          <p>Cinco rutas en un esquema: el tubo directo, las que esquiva y las que llegan en barco.</p>
-          <span class="bc-go">Ver las rutas →</span>
+      <details class="stages">
+        <summary>Ver las cuatro etapas del trabajo final</summary>
+        <ol class="board" style="list-style:none;padding:0" aria-label="Etapas del trabajo final y su valor">
+          <li class="board-card">
+            <span class="bc-top"><span class="bc-num">1</span><span class="bc-time">5 % · 15 de octubre</span></span>
+            <h3>Pregunta de investigación</h3>
+            <p>La pregunta que guía la investigación, revisada por otro equipo.</p>
+          </li>
+          <li class="board-card is-now">
+            <span class="bc-top"><span class="bc-num">2</span><span class="bc-time">5 % · hoy</span></span>
+            <h3>Estado del arte</h3>
+            <p>Qué se ha investigado sobre tu pregunta, y con qué fuentes lo vas a contar.</p>
+          </li>
+          <li class="board-card">
+            <span class="bc-top"><span class="bc-num">3</span><span class="bc-time">5 % del curso</span></span>
+            <h3>Entrega del trabajo final</h3>
+            <p>El trabajo de investigación completo.</p>
+          </li>
+          <li class="board-card">
+            <span class="bc-top"><span class="bc-num">4</span><span class="bc-time">5 % del curso</span></span>
+            <h3>Entrevista sobre el trabajo</h3>
+            <p>Una conversación sobre lo que investigaron y lo que encontraron.</p>
+          </li>
+        </ol>
+      </details>
+
+      <div class="stations-head">
+        <h3 class="sub-h">Una hora, cinco estaciones</h3>
+        <button class="btn btn-small btn-present" type="button" data-present><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5l4 1.5-4 1.5z"/></svg> Modo presentación</button>
+      </div>
+      <p class="sub-lead">Avanza en orden: cada estación usa lo que salió de la anterior. La lista del equipo se llena desde la estación 2, conforme encuentren fuentes.</p>
+
+      <div class="board stations">
+        <a class="board-card" href="#zarpar">
+          <span class="bc-top"><span class="bc-num">1</span><span class="bc-time">8 min</span></span>
+          <h3>Antes de zarpar</h3>
+          <p>Qué es un estado del arte y cómo convertir tu pregunta en palabras para buscar.</p>
+          <span class="bc-go">Ver las dos capas →</span>
         </a>
-        <a class="board-card" href="#articulo">
-          <span class="bc-top"><span class="bc-num">2</span><span class="bc-time">15 min</span></span>
-          <h3>El artículo en siete láminas</h3>
-          <p>La tesis y sus seis pasos, del proyecto a la ruptura de 2022, con la página de cada idea.</p>
-          <span class="bc-go">Abrir las láminas →</span>
+        <a class="board-card" href="#puertos">
+          <span class="bc-top"><span class="bc-num">2</span><span class="bc-time">20 min</span></span>
+          <h3>Tres puertos</h3>
+          <p>BIDI UNAM, buscadores y organismos, y un asistente de IA. La meta: 4 fuentes, 3 académicas.</p>
+          <span class="bc-go">Ver los puertos →</span>
         </a>
-        <a class="board-card" href="#actores">
-          <span class="bc-top"><span class="bc-num">3</span><span class="bc-time">20 min</span></span>
-          <h3>Cinco actores, antes y después</h3>
-          <p>La tabla 1, actor por actor: qué quería cada uno, con qué palanca y qué cambió en 2022.</p>
+        <a class="board-card" href="#ancla">
+          <span class="bc-top"><span class="bc-num">3</span><span class="bc-time">10 min</span></span>
+          <h3>La prueba del ancla</h3>
+          <p>Cinco pruebas para cada fuente, y seis referencias: tres existen y tres no.</p>
+          <span class="bc-go">Ver las pruebas →</span>
+        </a>
+        <a class="board-card" href="#citar">
+          <span class="bc-top"><span class="bc-num">4</span><span class="bc-time">10 min</span></span>
+          <h3>Mismas piezas, tres estilos</h3>
+          <p>APA 7, Chicago o MLA: las mismas cinco fuentes, armadas de tres maneras.</p>
           <span class="bc-go">Comparar →</span>
         </a>
-        <a class="board-card" href="#secuencia">
-          <span class="bc-top"><span class="bc-num">4</span><span class="bc-time">a tu ritmo</span></span>
-          <h3>De 2011 a la semana pasada</h3>
-          <p>Lo que cuenta el artículo y lo que vino después. El 14 de octubre empezó el juicio en Hamburgo.</p>
-          <span class="bc-go">Ver la secuencia →</span>
-        </a>
-        <a class="board-card" href="#videos">
-          <span class="bc-top"><span class="bc-num">5</span><span class="bc-time">50 min</span></span>
-          <h3>Cuatro videos, en orden</h3>
-          <p>Del mapa mundial del gas a la madrugada de la explosión. Más el juicio y otros para después de clase.</p>
-          <span class="bc-go">Ver la lista →</span>
-        </a>
-        <a class="board-card" href="#ideas">
-          <span class="bc-top"><span class="bc-num">6</span><span class="bc-time">20 min</span></span>
-          <h3>Seis ideas para discutir</h3>
-          <p>Las conclusiones del artículo en tarjetas. Sacas una, la defiendes y luego le das vuelta.</p>
-          <span class="bc-go">Ver las tarjetas →</span>
-        </a>
-        <a class="board-card" href="#glosario">
-          <span class="bc-top"><span class="bc-num">7</span><span class="bc-time">a tu ritmo</span></span>
-          <h3>48 términos, con su página</h3>
-          <p>Del Heartland a la FSRU, en cuatro grupos y con buscador.</p>
-          <span class="bc-go">Buscar un término →</span>
+        <a class="board-card" href="#fuentes">
+          <span class="bc-top"><span class="bc-num">5</span><span class="bc-time">12 min</span></span>
+          <h3>Las fuentes del equipo</h3>
+          <p>La lista que publican en Moodle, ya ordenada y citada.</p>
+          <span class="bc-go">Abrir la lista →</span>
         </a>
       </div>
-    </div>
-  </section>
 
-  <div class="band" aria-hidden="true"></div>
-
-  <!-- ═════════════════════════ POR DÓNDE PASA EL GAS ═══════════════════════ -->
-  <section class="section section-alt" id="mapa">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker k-teal">El gasoducto</p>
-        <h2>Por dónde pasa <em>el gas</em></h2>
-        <p class="lead">Nord Stream no se entiende solo: también importa por dónde <b>no</b> pasa. Un tubo directo bajo el mar le quita a otros países el cobro por dejar pasar el gas. Elige una ruta y mira quién gana y quién pierde con ella.</p>
-      </div>
-
-      <div class="facts ns-figs">
-        <article class="fact"><strong>2 × 1,230 km</strong><p>Dos tubos bajo el Báltico, del golfo de Finlandia a Lubmin, junto a Greifswald (pp. 113—114).</p></article>
-        <article class="fact"><strong>55 mil millones</strong><p>de metros cúbicos al año. Es capacidad de diseño, no gas entregado: NS2 nunca entró en servicio.</p></article>
-        <article class="fact"><strong>9,500 millones €</strong><p>La mitad la pone Gazprom; la otra mitad, cinco energéticas europeas.</p></article>
-        <article class="fact"><strong>26 sep 2022</strong><p>Cuatro explosiones abren cuatro fugas. Un tubo de NS2 queda intacto (p. 122).</p></article>
-      </div>
-
-      <div class="gasmap" data-gasmap>
-        <div class="gas-bar" role="group" aria-label="Elige una ruta">
-          <button type="button" data-route="todas" aria-pressed="true">Todas</button>
-          <button type="button" data-route="ns" aria-pressed="false"><i class="gsw gsw-ns"></i>Nord Stream</button>
-          <button type="button" data-route="ua" aria-pressed="false"><i class="gsw gsw-ua"></i>Por Ucrania</button>
-          <button type="button" data-route="ya" aria-pressed="false"><i class="gsw gsw-ya"></i>Yamal-Europa</button>
-          <button type="button" data-route="bp" aria-pressed="false"><i class="gsw gsw-bp"></i>Baltic Pipe</button>
-          <button type="button" data-route="gnl" aria-pressed="false"><i class="gsw gsw-gnl"></i>GNL por barco</button>
+      <div class="clock" id="reloj" tabindex="-1">
+        <div class="clock-face">
+          <p class="clock-label" id="clockLabel">Estación 1 de 5</p>
+          <p class="clock-time" id="clockTime" aria-live="off">08:00</p>
+          <p class="clock-name" id="clockName">Antes de zarpar</p>
+          <div class="clock-bar" aria-hidden="true"><i id="clockBar"></i></div>
+          <p class="sr-only" id="clockAlert" aria-live="assertive"></p>
         </div>
-
-        <div class="gas-body">
-          <figure class="gas-map">
-            <svg viewBox="0 0 880 520" role="img" aria-labelledby="routeTitle routeDesc">
-              <title id="routeTitle">Esquema de las rutas del gas hacia Europa</title>
-              <desc id="routeDesc">Nord Stream va directo de Rusia a Alemania bajo el mar Báltico. Por tierra, el gas ruso cruza Ucrania, o Bielorrusia y Polonia. El Baltic Pipe lleva gas noruego a Polonia a través de Dinamarca, y el gas licuado de Estados Unidos llega en barco a terminales de Polonia y Lituania.</desc>
-
-              <g class="rm-land">
-                <text x="105" y="70">NORUEGA</text>
-                <text x="470" y="78">SUECIA</text>
-                <text x="215" y="262">DINAMARCA</text>
-                <text x="215" y="410">ALEMANIA</text>
-                <text x="545" y="418">POLONIA</text>
-                <text x="705" y="246">LITUANIA</text>
-                <text x="700" y="372">BIELORRUSIA</text>
-                <text x="770" y="505">UCRANIA</text>
-                <text x="805" y="190">RUSIA</text>
-              </g>
-              <text class="rm-sea" x="590" y="284">mar Báltico</text>
-
-              <g class="rm-route" data-route="ya">
-                <path class="r-ya" d="M880 296 C 800 304 745 318 690 330 C 600 350 500 362 362 364"/>
-                <path class="r-head r-ya" d="M374 357 L 360 364 L 374 371"/>
-                <text class="rm-tag" x="560" y="384">Yamal-Europa</text>
-              </g>
-
-              <g class="rm-route" data-route="ua">
-                <path class="r-ua" d="M880 392 C 830 414 790 434 740 448 C 680 465 600 474 500 480"/>
-                <path class="r-head r-ua" d="M512 473 L 498 480 L 512 487"/>
-                <text class="rm-tag" x="604" y="502">corredor ucraniano</text>
-                <text class="rm-note" x="492" y="500" text-anchor="end">hacia Eslovaquia y Europa central</text>
-              </g>
-
-              <g class="rm-route" data-route="bp">
-                <path class="r-bp" d="M100 118 C 170 150 228 190 280 212 C 340 240 400 278 452 304"/>
-                <path class="r-head r-bp" d="M438 304 L 452 304 L 444 292"/>
-                <circle class="rm-node" cx="100" cy="118" r="6"/>
-                <circle class="rm-node" cx="280" cy="212" r="5"/>
-                <text class="rm-tag" x="118" y="102">campos noruegos</text>
-                <text class="rm-tag" x="118" y="204">Baltic Pipe</text>
-              </g>
-
-              <g class="rm-route" data-route="gnl">
-                <path class="r-gnl" d="M0 172 C 120 168 200 170 262 186 C 300 196 318 212 330 228 C 360 262 410 290 448 308"/>
-                <path class="r-gnl" d="M330 228 C 370 160 520 150 640 206"/>
-                <path class="r-head r-gnl-h" d="M626 199 L 640 206 L 626 213"/>
-                <text class="rm-tag" x="10" y="160">GNL desde EE. UU.</text>
-                <circle class="rm-node rm-node--gnl" cx="640" cy="206" r="6"/>
-                <text class="rm-tag" x="652" y="210">Klaipėda · FSRU</text>
-              </g>
-
-              <g class="rm-route" data-route="ns">
-                <path class="r-ns" d="M770 48 C 700 66 640 94 590 128 C 540 162 474 198 442 226 C 420 246 386 266 352 290"/>
-                <path class="r-ns" d="M752 92 C 690 104 640 122 596 142 C 548 172 480 208 452 234 C 428 256 392 278 360 298"/>
-                <circle class="rm-node" cx="770" cy="48" r="6"/>
-                <circle class="rm-node" cx="752" cy="92" r="6"/>
-                <text class="rm-tag" x="784" y="53">Víborg · NS1</text>
-                <text class="rm-tag" x="766" y="97">Ust-Luga · NS2</text>
-                <text class="rm-tag rm-tag--ns" x="470" y="132" text-anchor="middle">Nord Stream 1 y 2</text>
-                <g class="rm-blast">
-                  <path d="M436 216 l12 12 M448 216 l-12 12"/>
-                  <path d="M442 242 l12 12 M454 242 l-12 12"/>
-                </g>
-                <text class="rm-note rm-note--ns" x="466" y="262">26 sep 2022</text>
-              </g>
-
-              <ellipse class="rm-island" cx="398" cy="226" rx="15" ry="8"/>
-              <text class="rm-place" x="392" y="210" text-anchor="middle">Bornholm</text>
-
-              <circle class="rm-node rm-node--end" cx="352" cy="294" r="7"/>
-              <text class="rm-place" x="340" y="318" text-anchor="end">Lubmin</text>
-              <circle class="rm-node rm-node--end" cx="452" cy="308" r="7"/>
-              <text class="rm-place" x="466" y="326">costa polaca</text>
-            </svg>
-            <figcaption>Esquema, no a escala. Las rutas terrestres siguen el trazo general, no el tubo exacto.</figcaption>
-          </figure>
-
-          <div class="gas-info" aria-live="polite">
-            <article class="gas-card" data-for="todas">
-              <p class="kicker">Cinco rutas, un mismo mercado</p>
-              <h3>Tubos contra barcos</h3>
-              <p>Los autores leen el caso con los clásicos: Rusia, la potencia terrestre del Heartland, vende su gas por tubo; Estados Unidos, la potencia marítima, llega a Europa en barco con gas licuado (p. 128). Cada ruta reparte de otro modo quién cobra, quién depende y quién puede cerrar la llave.</p>
-              <p class="gas-pg">pp. 119—128</p>
-            </article>
-            <article class="gas-card" data-for="ns" hidden>
-              <p class="kicker">Nord Stream 1 y 2 · bajo el mar</p>
-              <h3>Sin nadie en medio</h3>
-              <p>NS1 opera desde 2011. NS2 se terminó en 2021, pero nunca recibió la certificación alemana. Su ventaja es la que molesta a todos los demás: no cruza ningún otro país.</p>
-              <ul class="gas-who">
-                <li><b>Ganan</b> Rusia y Alemania: gas sin intermediarios, y Alemania como distribuidora de Europa.</li>
-                <li><b>Pierden</b> Ucrania y Polonia: rentas y peso como países de tránsito.</li>
-              </ul>
-              <p>El 26 de septiembre de 2022, cuatro fugas cerca de Bornholm, en las zonas económicas exclusivas de Dinamarca y de Suecia.</p>
-              <p class="gas-pg">pp. 113—114, 120—126</p>
-            </article>
-            <article class="gas-card" data-for="ua" hidden>
-              <p class="kicker k-amber">Corredor ucraniano · por tierra</p>
-              <h3>Cobrar por dejar pasar</h3>
-              <p>La red heredada de la Unión Soviética cruza Ucrania (Brotherhood, Soyuz, Progress). El contrato de tránsito de 2019—2024 sumaba unos 7,000 millones de dólares <b>en total</b>, no por año.</p>
-              <ul class="gas-who">
-                <li><b>Lo que arriesga Ucrania:</b> cada metro cúbico que se va por el Báltico es renta que deja de cobrar, y los costos fijos de la red se reparten entre menos gas.</li>
-              </ul>
-              <p>Los autores ponían el riesgo en 2024, al vencer el contrato. El 1 de enero de 2025 el gas ruso dejó de cruzar Ucrania hacia Europa.</p>
-              <p class="gas-pg">p. 119, nota 12; pp. 134—135</p>
-            </article>
-            <article class="gas-card" data-for="ya" hidden>
-              <p class="kicker k-plum">Yamal-Europa · por Bielorrusia y Polonia</p>
-              <h3>La otra ruta terrestre</h3>
-              <p>Le da a Polonia ingresos y peso como país de tránsito. Una ruta directa por el mar le quita las dos cosas: por eso Varsovia se opuso a NS2 y apostó por alternativas.</p>
-              <ul class="gas-who">
-                <li><b>La lección:</b> esquivar un territorio reduce el riesgo para el que vende y el que compra, y debilita al que quedó fuera.</li>
-              </ul>
-              <p class="gas-pg">p. 119, nota 12; pp. 131—132</p>
-            </article>
-            <article class="gas-card" data-for="bp" hidden>
-              <p class="kicker k-teal">Baltic Pipe · gas noruego</p>
-              <h3>Diversificar, con números</h3>
-              <p>Lleva gas noruego a Polonia a través de Dinamarca, con capacidad de 10 mil millones de m³ al año. A fines de 2022 es la alternativa regional al gas ruso.</p>
-              <ul class="gas-who">
-                <li><b>Fíjate en la escala:</b> es menos de una quinta parte de lo que movería NS2. Diversificar exige capacidad, no solo voluntad.</li>
-              </ul>
-              <p class="gas-pg">pp. 132—133</p>
-            </article>
-            <article class="gas-card" data-for="gnl" hidden>
-              <p class="kicker k-blue">Gas natural licuado · por barco</p>
-              <h3>La potencia marítima entra por mar</h3>
-              <p>Con el gas de lutitas, Estados Unidos se volvió exportador neto de gas en 2017. El gas licuado llega en barco a terminales como la unidad flotante de regasificación (FSRU) de Lituania.</p>
-              <ul class="gas-who">
-                <li><b>La ventaja:</b> más proveedores y más poder para negociar.</li>
-                <li><b>El costo:</b> terminales, barcos, contratos y oferta suficiente. Nada de eso se arma de un día para otro.</li>
-              </ul>
-              <p class="gas-pg">pp. 128—129, 133</p>
-            </article>
+        <div class="clock-side">
+          <p class="kicker">El reloj del taller</p>
+          <div class="clock-stations" id="clockStations" role="group" aria-label="Elige una estación">
+            <button class="clock-st" type="button" data-st="0" aria-pressed="true"><span>1</span><strong>Antes de zarpar</strong><small>8 min</small></button>
+            <button class="clock-st" type="button" data-st="1" aria-pressed="false"><span>2</span><strong>Tres puertos</strong><small>20 min</small></button>
+            <button class="clock-st" type="button" data-st="2" aria-pressed="false"><span>3</span><strong>La prueba del ancla</strong><small>10 min</small></button>
+            <button class="clock-st" type="button" data-st="3" aria-pressed="false"><span>4</span><strong>Mismas piezas, tres estilos</strong><small>10 min</small></button>
+            <button class="clock-st" type="button" data-st="4" aria-pressed="false"><span>5</span><strong>Las fuentes del equipo</strong><small>12 min</small></button>
+          </div>
+          <div class="clock-ctrl">
+            <button class="btn btn-primary btn-small" id="clockGo" type="button">▶ Iniciar</button>
+            <button class="btn btn-small" id="clockReset" type="button">↺ Reiniciar</button>
+            <button class="btn btn-small" id="clockNext" type="button">Siguiente →</button>
+            <button class="btn btn-small btn-ghost" id="clockFull" type="button">⛶ Pantalla completa</button>
           </div>
         </div>
       </div>
@@ -380,922 +267,634 @@
 
   <div class="band" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════ EL ARTÍCULO EN SIETE LÁMINAS ══════════════════ -->
-  <section class="section" id="articulo">
+  <!-- ════════════ ESTACIÓN 1 · ANTES DE ZARPAR ═══════════════════════════════════════ -->
+  <section class="section section-alt" id="zarpar">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">El argumento</p>
-        <h2>El artículo <em>en siete láminas</em></h2>
-        <p class="lead">La tesis y los seis pasos que la sostienen, del proyecto a la ruptura de 2022. Cada lámina trae las páginas para que vuelvas al texto.</p>
+        <p class="kicker">Estación 1 · 8 minutos</p>
+        <h2>Antes de <em>zarpar</em></h2>
+        <p class="lead">Un estado del arte es la carta náutica de tu pregunta: quién ya navegó por ahí, qué encontró, dónde chocan las corrientes y qué parte del mapa sigue en blanco. Esa parte en blanco es donde entra tu trabajo.</p>
       </div>
 
-      <div class="deck" id="deck" role="group" aria-roledescription="presentación" aria-label="Virág y Tancsa (2023) en siete láminas">
-        <div class="deck-progress"><i id="deckBar"></i></div>
-        <div class="deck-stage">
-
-          <article class="slide slide--cover">
-            <p class="slide-kicker">Virág y Tancsa (2023) · la tesis</p>
-            <h3>Una infraestructura comercial también organiza el poder</h3>
-            <p class="slide-gloss">Para los autores, Nord Stream 2 es una prueba de las orientaciones geopolíticas de Europa: su ruta, su bloqueo y su ruptura revelan <b>quién coopera con quién, quién depende de quién y quién puede condicionar al otro</b>.</p>
-            <span class="slide-cite">pp. 113—116</span>
-          </article>
-
-          <article class="slide">
-            <p class="slide-kicker">01 · El proyecto</p>
-            <h3>Dos tubos que nunca entraron en servicio</h3>
-            <ul class="slide-list">
-              <li>Conecta <b>Rusia y Alemania</b> bajo el Báltico: dos tubos de unos 1,230 km, con 55 mil millones de m³ al año de capacidad conjunta.</li>
-              <li>Inversión: <b>9,500 millones de euros</b>. Gazprom financia la mitad y cinco energéticas europeas el resto.</li>
-              <li>Se construye entre 2018 y 2021, pero <b>no entra en servicio</b>.</li>
-            </ul>
-            <span class="slide-cite">Introducción · pp. 113—114</span>
-          </article>
-
-          <article class="slide slide--q">
-            <p class="slide-kicker">02 · La lente del artículo</p>
-            <h3>Geopolítica clásica, con los Estados al centro</h3>
-            <ul class="slide-list">
-              <li><b>Mackinder:</b> el Heartland, el núcleo continental de Eurasia.</li>
-              <li><b>Mahan:</b> el poder marítimo.</li>
-              <li><b>Spykman:</b> el Rimland y la contención.</li>
-              <li><b>Kissinger:</b> el equilibrio y el vínculo atlántico.</li>
-              <li><b>Brzezinski:</b> impedir una potencia dominante en Eurasia.</li>
-            </ul>
-            <p class="slide-note"><b>Lo que deja fuera</b>Los autores reconocen que no usan la geopolítica crítica (p. 118). Dodds te preguntaría quién dibuja el mapa de amenazas y a quién le conviene.</p>
-            <span class="slide-cite">Marco y conceptos · pp. 115—118, 127—128</span>
-          </article>
-
-          <article class="slide">
-            <p class="slide-kicker">03 · El gas fija relaciones</p>
-            <h3>No es un bien cualquiera</h3>
-            <ul class="slide-list">
-              <li>La energía sostiene la economía y la seguridad.</li>
-              <li>La producción de gas de la UE <b>cae más de la mitad</b> entre 2010 y 2020; Rusia aporta <b>más del 40 %</b> de sus importaciones en 2020.</li>
-              <li>Tubos, contratos e inversiones hacen <b>lenta y costosa</b> la sustitución.</li>
-            </ul>
-            <span class="slide-cite">Geopolítica y gas · pp. 118—120, 139</span>
-          </article>
-
-          <article class="slide">
-            <p class="slide-kicker">04 · Una ruta directa</p>
-            <h3>Menos riesgo de tránsito, más dependencia</h3>
-            <ul class="slide-list">
-              <li><b>Rusia</b> busca conservar su mercado europeo y esquivar el tránsito por Ucrania.</li>
-              <li><b>Alemania</b> espera gas competitivo, continuidad del suministro y un lugar central como distribuidora.</li>
-            </ul>
-            <p class="slide-note"><b>La paradoja</b>Reducir el riesgo de tránsito puede aumentar la dependencia del mismo proveedor.</p>
-            <span class="slide-cite">Alemania y Rusia · pp. 120—126</span>
-          </article>
-
-          <article class="slide">
-            <p class="slide-kicker">05 · Redistribuye ventajas</p>
-            <h3>Certificar, sancionar y financiar también son poder</h3>
-            <ul class="slide-list">
-              <li><b>Ucrania y Polonia</b> arriesgan rentas y relevancia como países de tránsito.</li>
-              <li><b>Estados Unidos</b> rechaza el acercamiento ruso-alemán y compite con su gas licuado.</li>
-              <li><b>Dinamarca</b> retrasa los permisos; <b>Polonia y los bálticos</b> buscan alternativas.</li>
-            </ul>
-            <span class="slide-cite">Actores y herramientas · pp. 129—135</span>
-          </article>
-
-          <article class="slide slide--end">
-            <p class="slide-kicker">06 · La ruptura de 2022</p>
-            <h3>Se rompe la confianza, no la interdependencia</h3>
-            <ul class="slide-list">
-              <li>Alemania suspende la certificación; Rusia invade Ucrania; luego ocurre el sabotaje.</li>
-              <li>Europa acelera la diversificación.</li>
-              <li>Pero la infraestructura heredada <b>impide salir de la interdependencia de inmediato</b>.</li>
-            </ul>
-            <span class="slide-cite">Guerra y conclusión · pp. 114, 136—140</span>
-          </article>
-
+      <div class="starters" style="margin-top:0">
+        <div class="starter is-open">
+          <h3>Lo que sí es</h3>
+          <p>Un mapa de lo que ya se sabe sobre tu pregunta.</p>
+          <ul>
+            <li>Quién la ha estudiado</li>
+            <li>Qué encontró</li>
+            <li>En qué coinciden</li>
+            <li>En qué discuten</li>
+            <li>Qué falta</li>
+          </ul>
         </div>
-        <div class="deck-bar">
-          <div class="deck-btns">
-            <button class="deck-btn" id="deckPrev" type="button" aria-label="Lámina anterior">←</button>
-            <button class="deck-btn" id="deckNext" type="button" aria-label="Lámina siguiente">→</button>
-            <span class="deck-count" id="deckCount" aria-live="polite">01 / 07</span>
-          </div>
-          <div class="deck-jump" id="deckJump" aria-label="Ir a una lámina"></div>
-          <button class="deck-btn" id="deckFull" type="button">⤢ Pantalla completa</button>
+        <div class="starter is-shut">
+          <h3>Lo que no es</h3>
+          <p>Si tu texto se parece a esto, todavía no es un estado del arte.</p>
+          <ul>
+            <li>Un resumen tras otro</li>
+            <li>La historia del tema</li>
+            <li>Lo que dice Wikipedia</li>
+            <li>Lo que contestó el chat</li>
+            <li>Una lista de ligas</li>
+          </ul>
         </div>
       </div>
-      <p class="deck-hint">Haz clic en el visor y muévete con <kbd>←</kbd> <kbd>→</kbd>. <kbd>F</kbd> abre pantalla completa. En el celular, desliza con el dedo.</p>
+
+      <h3 class="sub-h" style="margin-top:3rem">Dos capas</h3>
+      <p class="sub-lead">Toda pregunta del trabajo final tiene dos capas, y tu lista necesita fuentes de las dos.</p>
+      <div class="layers">
+        <article class="layer">
+          <p class="kicker">Capa 1</p>
+          <h3>El caso</h3>
+          <p>Lo que pasó: actores, fechas, cifras, decisiones. Si tu caso es de 2025 o 2026, casi todo estará en prensa, informes y datos oficiales: la investigación académica todavía no llega hasta ahí.</p>
+          <span class="eg">Nexperia y las armadoras del Bajío, octubre de 2025</span>
+        </article>
+        <article class="layer">
+          <p class="kicker">Capa 2</p>
+          <h3>El concepto</h3>
+          <p>La idea que explica el caso: interdependencia armada, cadenas globales de valor, poder estructural. Ahí sí hay años de investigación académica, y la mayor parte está en inglés.</p>
+          <span class="eg">Interdependencia armada · Farrell y Newman (2019)</span>
+        </article>
+      </div>
+
+      <h3 class="sub-h" style="margin-top:3rem">Las palabras para buscar</h3>
+      <p class="sub-lead">Antes de abrir un buscador, convierte tu pregunta en conceptos. Así quedaría la pregunta de ejemplo de la sesión 16:</p>
+      <p class="askq">¿Qué tan expuestas quedaron las armadoras del Bajío al corte de chips de Nexperia en 2025, y qué estrategias de abastecimiento les reducirían ese riesgo?</p>
+
+      <div class="tablebox">
+        <table class="dtable">
+          <caption>De la pregunta a las palabras de búsqueda</caption>
+          <thead><tr><th>Pieza</th><th>En español</th><th>En inglés</th><th>Capa</th></tr></thead>
+          <tbody>
+            <tr><td><b>El caso</b></td><td>Nexperia</td><td>Nexperia</td><td class="layer-tag is-caso">caso</td></tr>
+            <tr><td><b>El actor</b></td><td>industria automotriz, armadoras</td><td>automotive industry, automakers</td><td class="layer-tag is-caso">caso</td></tr>
+            <tr><td><b>El fenómeno</b></td><td>escasez de chips, controles de exportación</td><td>chip shortage, export controls</td><td class="layer-tag is-ambas">las dos</td></tr>
+            <tr><td><b>El concepto</b></td><td>interdependencia armada</td><td>weaponized interdependence</td><td class="layer-tag is-concepto">concepto</td></tr>
+            <tr><td><b>La decisión</b></td><td>resiliencia de la cadena de suministro</td><td>supply chain resilience</td><td class="layer-tag is-concepto">concepto</td></tr>
+            <tr><td><b>El lugar</b></td><td>México, Bajío</td><td>Mexico</td><td class="layer-tag is-caso">caso</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tnote">Con esas palabras ya tienes búsquedas: <code>"weaponized interdependence" semiconductors</code> para el concepto y <code>Nexperia Mexico automotive</code> para el caso.</p>
+
+      <ul class="tricks" aria-label="Trucos para buscar">
+        <li><code>"supply chain resilience"</code>Las comillas buscan la frase exacta.</li>
+        <li><code>chips OR semiconductors</code>OR, en mayúsculas, junta sinónimos.</li>
+        <li><code>nearshoring -turismo</code>El guion quita lo que no quieres.</li>
+        <li><code>filetype:pdf</code>En Google, solo documentos en PDF.</li>
+        <li><code>site:cepal.org</code>Busca dentro de un solo sitio.</li>
+      </ul>
+
+      <div class="callout"><strong>Ahora ustedes.</strong> Escriban de cinco a diez palabras clave de su pregunta, en español y en inglés, en el campo «Palabras clave» de la <a href="#fuentes">lista del equipo</a>.</div>
     </div>
   </section>
 
   <div class="band" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════ CINCO ACTORES, ANTES Y DESPUÉS ════════════════ -->
-  <section class="section section-alt" id="actores">
+  <!-- ════════════ ESTACIÓN 2 · TRES PUERTOS ══════════════════════════════════════════ -->
+  <section class="section" id="puertos">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker k-plum">La tabla 1, actor por actor</p>
-        <h2>Cinco actores, <em>antes y después</em></h2>
-        <p class="lead">Qué quería cada uno antes de la guerra y el sabotaje, y qué cambió en 2022. En cada columna, primero lo que dice el artículo y debajo los tres renglones de la tabla 1: objetivo, estrategia energética y táctica.</p>
+        <p class="kicker k-blue">Estación 2 · 20 minutos</p>
+        <h2>Tres <em>puertos</em></h2>
+        <p class="lead">Cada puerto guarda fuentes distintas. Repártanse: que cada quien busque en uno y anote lo que encuentre directo en la lista del equipo, sin esperar al final.</p>
       </div>
 
-      <div class="cast" data-cast>
-        <div class="cast-tabs" role="tablist" aria-label="Elige un actor">
-          <button type="button" role="tab" id="tab-de" aria-controls="act-de" aria-selected="true"><span>🇩🇪</span> Alemania <small>bisagra europea</small></button>
-          <button type="button" role="tab" id="tab-ru" aria-controls="act-ru" aria-selected="false" tabindex="-1"><span>🇷🇺</span> Rusia <small>potencia terrestre</small></button>
-          <button type="button" role="tab" id="tab-us" aria-controls="act-us" aria-selected="false" tabindex="-1"><span>🇺🇸</span> Estados Unidos <small>potencia marítima</small></button>
-          <button type="button" role="tab" id="tab-pl" aria-controls="act-pl" aria-selected="false" tabindex="-1"><span>🇵🇱</span> Dinamarca, Polonia y bálticos <small>seguridad regional</small></button>
-          <button type="button" role="tab" id="tab-ua" aria-controls="act-ua" aria-selected="false" tabindex="-1"><span>🇺🇦</span> Ucrania <small>tránsito y soberanía</small></button>
-        </div>
+      <div class="goal" role="note">
+        <p class="kicker">La meta de esta estación</p>
+        <p><strong>Al menos 4 fuentes</strong>, y de ellas, <strong>al menos 3 académicas</strong>: artículos de revista, libros o capítulos de libro. Las demás pueden ser informes, datos o prensa del caso.</p>
+      </div>
 
-        <article class="cast-panel" id="act-de" role="tabpanel" aria-labelledby="tab-de" tabindex="0">
-          <header class="cast-head">
-            <h3>Alemania</h3>
-            <p class="cast-lever"><b>Su palanca:</b> la certificación. El tubo estaba terminado, pero sin el permiso alemán no podía operar.</p>
+      <div class="launch">
+        <label for="qLaunch">Tu búsqueda</label>
+        <input id="qLaunch" type="search" placeholder='"weaponized interdependence" semiconductors' autocomplete="off" spellcheck="false">
+        <div class="launch-go">
+          <a class="btn" data-engine="https://scholar.google.com/scholar?hl=es&amp;q=" data-home="https://scholar.google.com/?hl=es" href="https://scholar.google.com/?hl=es" target="_blank" rel="noopener noreferrer">Google Académico ↗</a>
+          <a class="btn" data-engine="https://www.redalyc.org/busquedaArticuloFiltros.oa?q=" data-home="https://www.redalyc.org/" href="https://www.redalyc.org/" target="_blank" rel="noopener noreferrer">Redalyc ↗</a>
+          <a class="btn" data-engine="https://search.scielo.org/?lang=es&amp;q=" data-home="https://scielo.org/es/" href="https://scielo.org/es/" target="_blank" rel="noopener noreferrer">SciELO ↗</a>
+          <a class="btn" data-engine="https://dialnet.unirioja.es/buscar/documentos?querysDismax.DOCUMENTAL_TODO=" data-home="https://dialnet.unirioja.es/" href="https://dialnet.unirioja.es/" target="_blank" rel="noopener noreferrer">Dialnet ↗</a>
+          <a class="btn" data-engine="https://www.semanticscholar.org/search?q=" data-home="https://www.semanticscholar.org/" href="https://www.semanticscholar.org/" target="_blank" rel="noopener noreferrer">Semantic Scholar ↗</a>
+          <a class="btn" data-engine="https://www.google.com/search?q=" data-suffix=" filetype:pdf" data-home="https://www.google.com/" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google · solo PDF ↗</a>
+          <button class="btn btn-primary" id="qCopy" type="button">Copiar para BIDI</button>
+        </div>
+        <p class="launch-note">Escríbela una vez y ábrela en cada buscador. En BIDI, entra al Descubridor de Información y pégala ahí.</p>
+      </div>
+
+      <div class="ports">
+        <article class="port">
+          <header class="port-head">
+            <p class="kicker">Puerto 1</p>
+            <h3>BIDI UNAM</h3>
+            <p>La Biblioteca Digital de la UNAM: revistas, libros y bases de datos que la universidad paga por ti. Muchos artículos que en Google te piden pagar, aquí los abres sin costo.</p>
           </header>
-          <div class="cast-cols">
-            <div class="cast-col">
-              <p class="kicker">Antes de la guerra y el sabotaje</p>
-              <p>Busca suministro seguro, menores costos y un lugar central en el gas europeo; Rusia aporta cerca del 55 % de sus importaciones de gas. Apoya NS2 y la cooperación pragmática con Moscú.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Mejorar la seguridad del suministro de gas natural.</dd>
-                <dt>Estrategia</dt><dd>Profundizar la cooperación energética pragmática con Rusia.</dd>
-                <dt>Táctica</dt><dd>Apoyar y defender el proyecto NS2.</dd>
-              </dl>
-            </div>
-            <div class="cast-col is-after">
-              <p class="kicker">Después: 2022</p>
-              <p>Frena la certificación el 22 de febrero; busca proveedores, gas licuado y renovables. Su palanca tiene costos: inversión, energía cara y riesgo para su competitividad.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Mejorar la seguridad del suministro reformando su política energética y sus relaciones energéticas.</dd>
-                <dt>Estrategia</dt><dd>Diversificar: depender menos de Rusia y fortalecer cooperaciones alternativas.</dd>
-                <dt>Táctica</dt><dd>Detener la certificación de NS2, construir infraestructura de GNL, buscar nuevas fuentes de gas e imponer sanciones a Rusia, incluido el sector energético.</dd>
-              </dl>
-            </div>
-          </div>
-          <p class="cast-pg">pp. 120—123 · tabla 1, p. 136</p>
+          <ul>
+            <li><b>Desde casa o con datos del celular</b> necesitas el acceso remoto. En <b>bidi.unam.mx</b>, entra a «Acceso remoto», elige «Alumnos UNAM» y regístrate con tu número de cuenta, plantel, carrera y correo; la clave te llega por correo en unos minutos (revisa también el spam). Si no lo has hecho, hazlo antes de la clase.</li>
+            <li><b>Empieza por el Descubridor de Información:</b> busca a la vez en libros, revistas y bases de datos.</li>
+            <li><b>Para tu área:</b> en Bases de datos, la sección de Ciencias Sociales; en eLIBRUNAM, los libros digitales.</li>
+            <li><b>Un truco:</b> en TESIUNAM, que también está en BIDI, busca una tesis sobre tu tema. Su capítulo de antecedentes es un estado del arte ya hecho, y su bibliografía te dice por dónde seguir. Las fuentes que saques de ahí, ábrelas tú antes de citarlas.</li>
+          </ul>
+          <p class="port-links">
+            <a href="https://bidi.unam.mx/" target="_blank" rel="noopener noreferrer">bidi.unam.mx ↗</a>
+          </p>
         </article>
 
-        <article class="cast-panel" id="act-ru" role="tabpanel" aria-labelledby="tab-ru" tabindex="0" hidden>
-          <header class="cast-head">
-            <h3>Rusia</h3>
-            <p class="cast-lever"><b>Su palanca:</b> el gas y Gazprom. Pero sus campos y gasoductos no se redirigen con facilidad hacia otros clientes.</p>
+        <article class="port c-blue">
+          <header class="port-head">
+            <p class="kicker">Puerto 2</p>
+            <h3>Buscadores y organismos</h3>
+            <p>Lo que está abierto para todos: buscadores académicos, informes de organismos internacionales y datos oficiales.</p>
           </header>
-          <div class="cast-cols">
-            <div class="cast-col">
-              <p class="kicker">Antes de la guerra y el sabotaje</p>
-              <p>Usa a Gazprom y nuevas rutas para conservar el mercado europeo, marginar a Ucrania y dificultar la competencia del gas licuado. Los autores dudan de que el proyecto se justifique solo con números (p. 124).</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Preservar el statu quo del gas con los países de la UE y ejercer influencia sobre Ucrania.</dd>
-                <dt>Estrategia</dt><dd>Mantener o aumentar la cooperación energética con la UE mediante nuevos gasoductos, y frenar las exportaciones alternativas a Europa, sobre todo de GNL, y el papel de Ucrania como país de tránsito.</dd>
-                <dt>Táctica</dt><dd>Usar el proyecto NS2 y su narrativa.</dd>
-              </dl>
-            </div>
-            <div class="cast-col is-after">
-              <p class="kicker">Después: 2022</p>
-              <p>Restringe la cooperación energética y busca otros mercados, sin cerrar la opción europea. Pierde confianza, socios y margen de maniobra.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Diversificar sus mercados de gas, dejar abierta la posibilidad de recomponer la relación con Europa y ampliar su esfera de influencia sobre los Estados postsoviéticos.</dd>
-                <dt>Estrategia</dt><dd>Limitar la cooperación energética con la UE, usar la energía para intimidar a quienes apoyan a Ucrania y voltear hacia mercados fuera de Europa.</dd>
-                <dt>Táctica</dt><dd>Construir gasoductos fuera de Europa, repetir que abandonar el gas ruso le cuesta más a Europa que a Rusia y, quizá, reparar los tubos dañados para no cerrar la puerta.</dd>
-              </dl>
-            </div>
-          </div>
-          <p class="cast-pg">pp. 123—126 · tabla 1, p. 136</p>
+          <ul>
+            <li><b>Google Académico:</b> «Citado por» te lleva a lo que se escribió después; «Versiones», a un PDF abierto; el filtro de años, a lo más reciente.</li>
+            <li><b>En español y desde América Latina:</b> Redalyc, SciELO y Dialnet.</li>
+            <li><b>Organismos y datos:</b> CEPAL, OCDE, Banco Mundial, FMI, OMC y UNCTAD; en México, INEGI, Banxico y la Secretaría de Economía.</li>
+            <li><b>Centros de análisis:</b> COMEXI, IMCO, Wilson Center, CSIS, Brookings, Chatham House, CIDOB y Real Instituto Elcano.</li>
+            <li><b>Prensa:</b> sirve para el caso, no para el concepto. Reuters, Financial Times, El País, El Financiero, Expansión.</li>
+          </ul>
+          <p class="port-links">
+            <a href="https://scholar.google.com/?hl=es" target="_blank" rel="noopener noreferrer">Google Académico ↗</a>
+            <a href="https://www.redalyc.org/" target="_blank" rel="noopener noreferrer">Redalyc ↗</a>
+            <a href="https://scielo.org/es/" target="_blank" rel="noopener noreferrer">SciELO ↗</a>
+            <a href="https://repositorio.cepal.org/" target="_blank" rel="noopener noreferrer">Repositorio CEPAL ↗</a>
+          </p>
         </article>
 
-        <article class="cast-panel" id="act-us" role="tabpanel" aria-labelledby="tab-us" tabindex="0" hidden>
-          <header class="cast-head">
-            <h3>Estados Unidos</h3>
-            <p class="cast-lever"><b>Su palanca:</b> las sanciones a las constructoras del tubo y el gas licuado que llega en barco.</p>
+        <article class="port c-amber">
+          <header class="port-head">
+            <p class="kicker">Puerto 3</p>
+            <h3>Un asistente de IA</h3>
+            <p>ChatGPT, Gemini, Claude, Copilot o Perplexity. Úsalo como brújula, no como puerto: te orienta, pero no es una fuente.</p>
           </header>
-          <div class="cast-cols">
-            <div class="cast-col">
-              <p class="kicker">Antes de la guerra y el sabotaje</p>
-              <p>Según los autores, busca impedir un bloque ruso-europeo: el principio viene de Spykman (p. 127). Sanciona a empresas constructoras, respalda el tránsito ucraniano y promueve su GNL. En 2021 pacta con Berlín.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Impedir el posible surgimiento de una Eurasia unificada.</dd>
-                <dt>Estrategia</dt><dd>Cooperar con Europa en el gas, impedir que estreche lazos con Rusia y proteger los intereses y el papel de tránsito de Ucrania.</dd>
-                <dt>Táctica</dt><dd>Frenar NS2 con medidas económicas, cambiar sus reglas para volver más competitivo su GNL y apoyar las iniciativas europeas de gas licuado.</dd>
-              </dl>
-            </div>
-            <div class="cast-col is-after">
-              <p class="kicker">Después: 2022</p>
-              <p>Mantiene sus fines: sanciones, cohesión atlántica y más ventas de GNL. Los precios altos lo favorecen, pero debe evitar una escalada y una alianza más estrecha entre Rusia y China.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Los mismos de antes.</dd>
-                <dt>Estrategia</dt><dd>Seguir la estrategia previa y aprovechar los precios altos para vender más GNL en Europa.</dd>
-                <dt>Táctica</dt><dd>Sancionar a Rusia, incluido el sector energético, y producir más energía en casa para abastecer a una Europa que se separa del gas ruso.</dd>
-              </dl>
-            </div>
+          <ul>
+            <li><b>Úsalo para</b> encontrar palabras clave en inglés, sinónimos y nombres de autores; para entender un párrafo difícil de una fuente que ya abriste; para ver cómo agrupar tus fuentes por debates.</li>
+            <li><b>No lo uses para</b> sacar referencias que no vas a abrir, citarlo como fuente de un dato ni escribir el estado del arte.</li>
+            <li><b>Cuidado:</b> inventa referencias que suenan reales: autores que existen, revistas que existen y títulos que nadie escribió. Toda referencia que te dé pasa por la prueba del ancla.</li>
+          </ul>
+          <div class="prompt-box">
+            <p class="kicker">Un buen encargo</p>
+            <p class="prompt" id="promptText">Estoy investigando esta pregunta: [su pregunta]. Dame diez palabras clave en español y en inglés para buscarla, y los nombres de cinco autores que hayan estudiado [su concepto]. No me des referencias: las voy a buscar yo.</p>
+            <button class="btn btn-small" id="promptCopy" type="button">Copiar el encargo</button>
           </div>
-          <p class="cast-pg">pp. 126—131 · tabla 1, p. 137</p>
-        </article>
-
-        <article class="cast-panel" id="act-pl" role="tabpanel" aria-labelledby="tab-pl" tabindex="0" hidden>
-          <header class="cast-head">
-            <h3>Dinamarca, Polonia y bálticos</h3>
-            <p class="cast-lever"><b>Su palanca:</b> los trámites y las alternativas. Dinamarca demora permisos; Polonia y los bálticos construyen terminales y el Baltic Pipe. En la tabla 1 aparecen como los aliados más cercanos de Estados Unidos en la UE.</p>
-          </header>
-          <div class="cast-cols">
-            <div class="cast-col">
-              <p class="kicker">Antes de la guerra y el sabotaje</p>
-              <p>Temen el poder ruso y la asociación entre Berlín y Moscú. Dinamarca demora permisos; Polonia protege su tránsito y desarrolla GNL; los bálticos diversifican y se acercan a Estados Unidos.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Frenar las pretensiones geopolíticas agresivas de Rusia.</dd>
-                <dt>Estrategia</dt><dd>Orientarse hacia Estados Unidos y desprenderse del sistema ruso de suministro de gas.</dd>
-                <dt>Táctica</dt><dd>Oponerse a NS2, frenarlo con barreras administrativas e iniciar alternativas.</dd>
-              </dl>
-            </div>
-            <div class="cast-col is-after">
-              <p class="kicker">Después: 2022</p>
-              <p>Se refuerza la estrategia que ya tenían: sustituir el gas ruso y cooperar en la región. Su diagnóstico gana apoyo en Europa.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Los mismos de antes.</dd>
-                <dt>Estrategia</dt><dd>Fortalecer la cooperación energética regional y sustituir el suministro ruso.</dd>
-                <dt>Táctica</dt><dd>Concretar proyectos de GNL y de gasoductos, como el Baltic Pipe.</dd>
-              </dl>
-            </div>
-          </div>
-          <p class="cast-pg">pp. 131—133 · tabla 1, p. 137</p>
-        </article>
-
-        <article class="cast-panel" id="act-ua" role="tabpanel" aria-labelledby="tab-ua" tabindex="0" hidden>
-          <header class="cast-head">
-            <h3>Ucrania</h3>
-            <p class="cast-lever"><b>Su palanca:</b> el tránsito. Cobra por dejar pasar el gas, pero no tiene veto sobre una ruta que la esquiva. Para los autores, es la mayor víctima del proyecto (p. 134).</p>
-          </header>
-          <div class="cast-cols">
-            <div class="cast-col">
-              <p class="kicker">Antes de la guerra y el sabotaje</p>
-              <p>Busca conservar ingresos, red de tránsito y relevancia estratégica. Se opone a NS2, pero no tiene cómo vetarlo. Profundiza su vínculo con Occidente.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Orientarse hacia Occidente para compensar su vulnerabilidad ante la creciente presión rusa.</dd>
-                <dt>Estrategia</dt><dd>Conservar lo más posible de su ventajoso papel de tránsito en el mercado europeo del gas.</dd>
-                <dt>Táctica</dt><dd>Oponerse a Nord Stream 2.</dd>
-              </dl>
-            </div>
-            <div class="cast-col is-after">
-              <p class="kicker">Después: 2022</p>
-              <p>La soberanía es lo primero: pide sanciones y un boicot europeo a la energía rusa, aunque le cueste sus rentas de tránsito. Conservar el paso del gas no bastó para prevenir la guerra.</p>
-              <dl class="cast-dl">
-                <dt>Objetivo</dt><dd>Preservar su soberanía y cooperar con Occidente.</dd>
-                <dt>Estrategia</dt><dd>Cooperar con Occidente, aunque choque con sus intereses como país de tránsito.</dd>
-                <dt>Táctica</dt><dd>Presionar por un boicot total de la UE a la energía rusa.</dd>
-              </dl>
-            </div>
-          </div>
-          <p class="cast-pg">pp. 133—135 · tabla 1, p. 137</p>
         </article>
       </div>
-      <p class="tnote">La tabla 1 es elaboración de los autores (pp. 136—137); aquí está traducida. Las lecturas de los objetivos de Rusia y de Estados Unidos son interpretaciones de Virág y Tancsa: discútelas.</p>
+
+      <h3 class="sub-h" style="margin-top:3rem">Quién busca dónde</h3>
+      <p class="sub-lead">Con los roles de la sesión 16. Si vas solo, recorre los tres puertos en orden: BIDI, buscadores y, al final, el asistente.</p>
+      <ul class="crew-map">
+        <li><b>Archivista</b>BIDI UNAM, y cuida que cada hallazgo llegue a la lista.</li>
+        <li><b>Cartógrafo o cartógrafa</b>Organismos y datos: las cifras del caso.</li>
+        <li><b>Vigía</b>El asistente de IA, con lupa, y lo que contradiga la idea del equipo.</li>
+        <li><b>Relator o relatora</b>Prensa del caso, y lo que aporta cada fuente.</li>
+        <li><b>Capitán o capitana</b>Google Académico, y el reloj.</li>
+      </ul>
     </div>
   </section>
 
   <div class="band" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════════ LA SECUENCIA ══════════════════════════════ -->
-  <section class="section" id="secuencia">
+  <!-- ════════════ ESTACIÓN 3 · LA PRUEBA DEL ANCLA ════════════════════════════════════ -->
+  <section class="section section-alt" id="ancla">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker k-amber">La secuencia</p>
-        <h2>De 2011 <em>a la semana pasada</em></h2>
-        <p class="lead">El artículo cierra en diciembre de 2022. Desde entonces la pregunta cambió: ya no es solo quién ganaba con el tubo, sino quién lo voló. El 14 de octubre empezó en Hamburgo el primer juicio.</p>
+        <p class="kicker k-amber">Estación 3 · 10 minutos</p>
+        <h2>La prueba <em>del ancla</em></h2>
+        <p class="lead">Una fuente sin verificar es un barco sin ancla: se la lleva la primera corriente. Antes de que entre a su lista, cada fuente pasa cinco pruebas. Si falla una, no entra.</p>
       </div>
 
-      <div class="crono ns-crono" data-crono>
-        <div class="crono-bar" role="group" aria-label="Filtrar la secuencia">
-          <button type="button" data-filter="todo" aria-pressed="true">Todo</button>
-          <button type="button" data-filter="art" aria-pressed="false">En el artículo</button>
-          <button type="button" data-filter="post" aria-pressed="false">Después del artículo</button>
+      <div class="tests">
+        <article class="test">
+          <div class="test-top"><h3>Existe</h3></div>
+          <p>La encontraste en su sitio original: la revista, la editorial, el organismo. No basta con que aparezca citada en otro texto o en un chat.</p>
+          <span class="ask">«¿Dónde está publicada? Ábrela ahí.»</span>
+        </article>
+        <article class="test">
+          <div class="test-top"><h3>La abriste</h3></div>
+          <p>Tienes el texto completo: el PDF, la página de BIDI o el libro en la mano. El resumen solo no cuenta.</p>
+          <span class="ask">«¿Puedes ir a la página 12 ahora mismo?»</span>
+        </article>
+        <article class="test">
+          <div class="test-top"><h3>Dice lo que crees</h3></div>
+          <p>Leíste al menos el resumen, la introducción, las conclusiones y la parte que vas a usar.</p>
+          <span class="ask">«¿Qué dice, con tus palabras?»</span>
+        </article>
+        <article class="test">
+          <div class="test-top"><h3>Sabes quién habla</h3></div>
+          <p>Autor, institución y medio. ¿Una revista con revisión por pares, un organismo, una empresa que vende algo? ¿Quién la financia?</p>
+          <span class="ask">«¿Por qué le creerías?»</span>
+        </article>
+        <article class="test">
+          <div class="test-top"><h3>Le sirve a tu pregunta</h3></div>
+          <p>Puedes decir en una frase qué aporta: un dato, un concepto, un argumento o un debate.</p>
+          <span class="ask">«Si la quitas, ¿qué le falta al trabajo?»</span>
+        </article>
+      </div>
+
+      <h3 class="sub-h" style="margin-top:3rem">¿Existe o la inventaron?</h3>
+      <p class="sub-lead">Seis referencias como las que te puede devolver un asistente de IA. Tres existen y tres no. Con tu equipo, comprueben cada una —busquen el título entre comillas, abran el DOI— y solo después volteen la tarjeta. Debajo de cada una puedes copiar el título y el DOI.</p>
+
+      <div class="flipgrid vflip">
+        <div class="vcheck">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <span class="flip-num">01 · ¿Existe?</span>
+                <span class="flip-word">Gereffi, G., Humphrey, J., &amp; Sturgeon, T. (2005). The governance of global value chains. <i>Review of International Political Economy, 12</i>(1), 78–104. https://doi.org/10.1080/09692290500049805</span>
+                <span class="flip-tag">Compruébala y voltéala →</span>
+              </span>
+              <span class="flip-face flip-back is-real">
+                <span class="flip-num">01 · Veredicto</span>
+                <span class="verdict">Existe ✓</span>
+                <span class="flip-say">El DOI abre el artículo en la revista. Es uno de los textos más citados sobre cadenas globales de valor.</span>
+              </span>
+            </span>
+          </button>
+          <p class="vcopy" role="group" aria-label="Copiar los datos de la referencia 01">
+            <button type="button" data-copy="&quot;The governance of global value chains&quot;" data-copied="Título copiado ✓ Búscalo en Google Académico">Copiar título</button>
+            <button type="button" data-copy="https://doi.org/10.1080/09692290500049805" data-copied="DOI copiado ✓ Pégalo en la barra del navegador">Copiar DOI</button>
+          </p>
         </div>
-        <ol class="crono-list">
-          <li class="crono-item" data-side="art"><span class="crono-when">2011</span><p class="crono-what"><span class="crono-who">Cooperación</span>Entra en operación <b>Nord Stream 1</b>: Rusia y Alemania ya tienen un tubo directo bajo el Báltico (pp. 114, 122).</p></li>
-          <li class="crono-item" data-side="art"><span class="crono-when">2018—2021</span><p class="crono-what"><span class="crono-who">Construcción</span>Se tiende <b>Nord Stream 2</b>. En 2019 Estados Unidos sanciona a las empresas que lo construyen; en 2021 pacta con Berlín y el tubo se termina (pp. 113—114, 129—131).</p></li>
-          <li class="crono-item" data-side="art"><span class="crono-when">22 feb 2022</span><p class="crono-what"><span class="crono-who">Alemania</span><b>Suspende la certificación</b> de NS2. Estar construido no es lo mismo que poder operar (pp. 114, 121).</p></li>
-          <li class="crono-item" data-side="art"><span class="crono-when">24 feb 2022</span><p class="crono-what"><span class="crono-who">Rusia</span><b>Invade Ucrania</b> (p. 114).</p></li>
-          <li class="crono-item" data-side="art"><span class="crono-when">26 sep 2022</span><p class="crono-what"><span class="crono-who">Sabotaje</span><b>Cuatro fugas</b> en NS1 y NS2, cerca de Bornholm, en las zonas económicas exclusivas de Dinamarca y de Suecia. Un tubo de NS2 queda intacto (pp. 114, 122).</p></li>
-          <li class="crono-item" data-side="art"><span class="crono-when">fin de 2022</span><p class="crono-what"><span class="crono-who">Alternativas</span>Avanzan el <b>gas licuado</b>, las unidades flotantes de regasificación y el <b>Baltic Pipe</b> (pp. 132—133).</p></li>
-          <li class="crono-item crono-mark"><span class="crono-when"></span><p class="crono-what">Hasta aquí llega el artículo · diciembre de 2022</p></li>
-          <li class="crono-item" data-side="post"><span class="crono-when">ago 2024</span><p class="crono-what"><span class="crono-who">Investigación</span>Se conoce una <b>orden de detención</b> alemana contra un ucraniano sospechoso del sabotaje (DW Español, 14 de agosto de 2024).</p></li>
-          <li class="crono-item" data-side="post"><span class="crono-when">1 ene 2025</span><p class="crono-what"><span class="crono-who">Tránsito</span>Vence el contrato y el <b>gas ruso deja de cruzar Ucrania</b> hacia Europa: el riesgo que los autores situaban en 2024 (p. 134).</p></li>
-          <li class="crono-item" data-side="post"><span class="crono-when">ago 2025</span><p class="crono-what"><span class="crono-who">Investigación</span>Italia detiene, a pedido de Alemania, a un ucraniano señalado como <b>uno de los coordinadores</b> del comando (DW Español, 21 de agosto de 2025).</p></li>
-          <li class="crono-item" data-side="post"><span class="crono-when">jul 2026</span><p class="crono-what"><span class="crono-who">Acusación</span>La fiscalía alemana acusa a Serhii K., exoficial del ejército ucraniano, y sostiene que actuó <b>por órdenes de autoridades de Ucrania</b>. El gobierno ucraniano niega haber dirigido el sabotaje (DW News, 2 y 3 de julio de 2026).</p></li>
-          <li class="crono-item" data-side="post"><span class="crono-when">ago 2026</span><p class="crono-what"><span class="crono-who">Investigación</span>Detienen en Croacia a otro ucraniano sospechoso; Alemania pide su extradición (DW News, 20 de agosto de 2026).</p></li>
-          <li class="crono-item" data-side="post"><span class="crono-when">14 oct 2026</span><p class="crono-what"><span class="crono-who">Juicio</span>Empieza en <b>Hamburgo</b> el juicio contra el exmilitar ucraniano acusado de participar en el sabotaje (DW Español, 14 de octubre de 2026).</p></li>
-        </ol>
+        <div class="vcheck">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <span class="flip-num">02 · ¿Existe?</span>
+                <span class="flip-word">Farrell, H., &amp; Newman, A. L. (2022). Nearshoring as statecraft: Mexico in the weaponized supply chain. <i>Journal of Latin American Studies, 54</i>(2), 211–238.</span>
+                <span class="flip-tag">Compruébala y voltéala →</span>
+              </span>
+              <span class="flip-face flip-back is-fake">
+                <span class="flip-num">02 · Veredicto</span>
+                <span class="verdict">No existe ✗</span>
+                <span class="flip-say">Los autores son reales y sí escriben sobre interdependencia armada; la revista también existe. El artículo, no: no aparece en Google Académico ni en el índice de la revista. Y no trae DOI.</span>
+              </span>
+            </span>
+          </button>
+          <p class="vcopy" role="group" aria-label="Copiar los datos de la referencia 02">
+            <button type="button" data-copy="&quot;Nearshoring as statecraft: Mexico in the weaponized supply chain&quot;" data-copied="Título copiado ✓ Búscalo en Google Académico">Copiar título</button>
+          </p>
+        </div>
+        <div class="vcheck">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <span class="flip-num">03 · ¿Existe?</span>
+                <span class="flip-word">Miller, C. (2022). <i>Chip war: The fight for the world's most critical technology</i>. Scribner.</span>
+                <span class="flip-tag">Compruébala y voltéala →</span>
+              </span>
+              <span class="flip-face flip-back is-real">
+                <span class="flip-num">03 · Veredicto</span>
+                <span class="verdict">Existe ✓</span>
+                <span class="flip-say">Es un libro, así que no tiene DOI: se comprueba en el catálogo de la editorial o en una biblioteca. Que no tenga DOI no lo hace sospechoso.</span>
+              </span>
+            </span>
+          </button>
+          <p class="vcopy" role="group" aria-label="Copiar los datos de la referencia 03">
+            <button type="button" data-copy="&quot;Chip war: The fight for the world&#x27;s most critical technology&quot;" data-copied="Título copiado ✓ Búscalo en Google Académico">Copiar título</button>
+          </p>
+        </div>
+        <div class="vcheck">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <span class="flip-num">04 · ¿Existe?</span>
+                <span class="flip-word">Gereffi, G. (2020). The governance of global value chains in the age of nearshoring. <i>Foreign Affairs, 99</i>(4), 45–58. https://doi.org/10.1162/isec_a_00351</span>
+                <span class="flip-tag">Compruébala y voltéala →</span>
+              </span>
+              <span class="flip-face flip-back is-fake">
+                <span class="flip-num">04 · Veredicto</span>
+                <span class="verdict">No existe ✗</span>
+                <span class="flip-say">El DOI abre otro artículo, de otros autores y en otra revista: el de Farrell y Newman en <i>International Security</i>. Gereffi sí estudia cadenas de valor; por eso suena creíble.</span>
+              </span>
+            </span>
+          </button>
+          <p class="vcopy" role="group" aria-label="Copiar los datos de la referencia 04">
+            <button type="button" data-copy="&quot;The governance of global value chains in the age of nearshoring&quot;" data-copied="Título copiado ✓ Búscalo en Google Académico">Copiar título</button>
+            <button type="button" data-copy="https://doi.org/10.1162/isec_a_00351" data-copied="DOI copiado ✓ Pégalo en la barra del navegador">Copiar DOI</button>
+          </p>
+        </div>
+        <div class="vcheck">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <span class="flip-num">05 · ¿Existe?</span>
+                <span class="flip-word">Banco Mundial. (2024). <i>Mexico nearshoring readiness index 2024</i>. https://doi.org/10.1596/978-1-4648-2024-1</span>
+                <span class="flip-tag">Compruébala y voltéala →</span>
+              </span>
+              <span class="flip-face flip-back is-fake">
+                <span class="flip-num">05 · Veredicto</span>
+                <span class="verdict">No existe ✗</span>
+                <span class="flip-say">El DOI no lleva a ningún documento y el título no está en el repositorio del Banco Mundial. Un organismo real con un informe inventado es de las trampas más comunes.</span>
+              </span>
+            </span>
+          </button>
+          <p class="vcopy" role="group" aria-label="Copiar los datos de la referencia 05">
+            <button type="button" data-copy="&quot;Mexico nearshoring readiness index 2024&quot;" data-copied="Título copiado ✓ Búscalo en Google Académico">Copiar título</button>
+            <button type="button" data-copy="https://doi.org/10.1596/978-1-4648-2024-1" data-copied="DOI copiado ✓ Pégalo en la barra del navegador">Copiar DOI</button>
+          </p>
+        </div>
+        <div class="vcheck">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <span class="flip-num">06 · ¿Existe?</span>
+                <span class="flip-word">Farrell, H., &amp; Newman, A. L. (2022). Weak links in finance and supply chains are easily weaponized. <i>Nature, 605</i>(7909), 219–222. https://doi.org/10.1038/d41586-022-01254-5</span>
+                <span class="flip-tag">Compruébala y voltéala →</span>
+              </span>
+              <span class="flip-face flip-back is-real">
+                <span class="flip-num">06 · Veredicto</span>
+                <span class="verdict">Existe ✓</span>
+                <span class="flip-say">Aunque el título parezca de periódico. Es un comentario en <i>Nature</i>, no un artículo de investigación. Saber qué clase de texto tienes en la mano también es parte de la prueba 4.</span>
+              </span>
+            </span>
+          </button>
+          <p class="vcopy" role="group" aria-label="Copiar los datos de la referencia 06">
+            <button type="button" data-copy="&quot;Weak links in finance and supply chains are easily weaponized&quot;" data-copied="Título copiado ✓ Búscalo en Google Académico">Copiar título</button>
+            <button type="button" data-copy="https://doi.org/10.1038/d41586-022-01254-5" data-copied="DOI copiado ✓ Pégalo en la barra del navegador">Copiar DOI</button>
+          </p>
+        </div>
       </div>
-      <p class="tnote">Una acusación no es una sentencia: el juicio apenas empieza. Y saber quién se benefició de la explosión no prueba quién la hizo (pp. 136—140). Si usas algo de esta parte en tu control, cita el reporte y su fecha.</p>
+
+      <div class="callout"><strong>Lo que acaban de hacer es la prueba 1.</strong> Las otras cuatro se hacen leyendo. En la <a href="#fuentes">lista del equipo</a>, marquen en cada fuente las pruebas que ya pasa.</div>
     </div>
   </section>
 
   <div class="band" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════════════ VIDEOS ════════════════════════════════ -->
-  <section class="section section-alt" id="videos">
+  <!-- ════════════ ESTACIÓN 4 · MISMAS PIEZAS, TRES ESTILOS ════════════════════════════ -->
+  <section class="section" id="citar">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker k-plum">De la playlist del curso</p>
-        <h2>Cuatro videos, <em>en orden</em></h2>
-        <p class="lead">Van del mapa mundial del gas a la madrugada en que explotaron los tubos: unos 50 minutos. Mientras los ves, anota quién gana y quién pierde con el gasoducto en cada momento.</p>
+        <p class="kicker k-teal">Estación 4 · 10 minutos</p>
+        <h2>Mismas piezas, <em>tres estilos</em></h2>
+        <p class="lead">Toda referencia se arma con las mismas piezas: quién, cuándo, qué, dónde se publicó y cómo llegar. Los estilos solo cambian el orden y la puntuación. Elijan uno y úsenlo en todo el trabajo.</p>
       </div>
 
-      <div class="vgrid vgrid--4">
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=Um2SMo2DCMo" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/Um2SMo2DCMo/hqdefault.jpg" alt="Portada del video Gas y petróleo: ¿las materias primas gobiernan el mundo?" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">12:00</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=Um2SMo2DCMo" target="_blank" rel="noopener">Gas y petróleo: ¿las materias primas gobiernan el mundo?</a></h4>
-            <p class="vmeta">ARTE.tv Documentales · español · 2022</p>
-            <p>La guerra en Ucrania obligó a muchos países a replantearse su dependencia del gas y el petróleo rusos. Aquí ves cómo eso reacomoda el poder, en plena emergencia climática.</p>
-            <span class="vtag">1 · El tablero</span>
-          </div>
-        </article>
-
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=utUOJ64X7u0" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/utUOJ64X7u0/hqdefault.jpg" alt="Portada del video Why this Russian gas company sponsors soccer teams" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">8:41</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=utUOJ64X7u0" target="_blank" rel="noopener">Why this Russian gas company sponsors soccer teams</a></h4>
-            <p class="vmeta">Vox · inglés, con subtítulos · 2020</p>
-            <p>¿Por qué una empresa que no le vende nada a los aficionados pone su logo en las camisetas? Fíjate en Gerhard Schröder: como canciller aprobó el gasoducto y meses después ya estaba al frente del consorcio que lo construía.</p>
-            <span class="vtag">2 · La empresa</span>
-          </div>
-        </article>
-
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=8dUQ0CxN8pc" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/8dUQ0CxN8pc/hqdefault.jpg" alt="Portada del video Nord Stream 2, el gasoducto de la discordia" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">16:28</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=8dUQ0CxN8pc" target="_blank" rel="noopener">Nord Stream 2, el gasoducto de la discordia entre EE. UU., Rusia y Europa</a></h4>
-            <p class="vmeta">France 24 Español · español · 2021</p>
-            <p>Grabado con el tubo casi terminado y bajo sanciones. Va del puerto alemán amenazado por tres senadores estadounidenses a Ucrania, que cobraba por el tránsito, y a Lubmin, donde el gas sale del mar.</p>
-            <span class="vtag">3 · El gasoducto</span>
-          </div>
-        </article>
-
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=KqsX3jjQ2_U" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/KqsX3jjQ2_U/hqdefault.jpg" alt="Portada del video Who sabotaged the Nord Stream pipeline?" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">13:01</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=KqsX3jjQ2_U" target="_blank" rel="noopener">Who sabotaged the Nord Stream pipeline? | DW Analysis</a></h4>
-            <p class="vmeta">DW News · inglés, con subtítulos · 2023</p>
-            <p>Las pistas contra Rusia, contra Estados Unidos y contra un grupo proucraniano en un velero. Y una paradoja: según un analista, para el mercado europeo del gas la voladura resultó «muy positiva».</p>
-            <span class="vtag">4 · La explosión</span>
-          </div>
-        </article>
+      <div class="styles" role="group" aria-label="Elige un estilo de citación">
+        <button class="style-card" type="button" data-style="apa" aria-pressed="true">
+          <strong>APA 7</strong>
+          <span class="sc-use">Negocios y ciencias sociales</span>
+          <span class="sc-how">El año va justo después del autor y el nombre, en iniciales. En el texto: (Autor, año, p. 45).</span>
+          <span class="sc-pick">Elegir APA 7</span>
+        </button>
+        <button class="style-card" type="button" data-style="chicago" aria-pressed="false">
+          <strong>Chicago</strong>
+          <span class="sc-use">Historia y humanidades · notas y bibliografía</span>
+          <span class="sc-how">Nombre completo y el año casi al final. En el texto, un número volado que lleva a una nota al pie.</span>
+          <span class="sc-pick">Elegir Chicago</span>
+        </button>
+        <button class="style-card" type="button" data-style="mla" aria-pressed="false">
+          <strong>MLA 9</strong>
+          <span class="sc-use">Lengua, literatura y humanidades</span>
+          <span class="sc-how">Nombre completo; desde tres autores, «et al.». En el texto: (Autor 45), sin año ni coma.</span>
+          <span class="sc-pick">Elegir MLA 9</span>
+        </button>
       </div>
 
-      <div class="section-head" style="margin-top:3rem">
-        <p class="kicker">Lo más reciente</p>
-        <h2 style="font-size:clamp(1.5rem,3vw,2rem)">El caso, <em>en 2026</em></h2>
-      </div>
-      <div class="vgrid vgrid--4">
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=dL7KIScQA9w" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/dL7KIScQA9w/hqdefault.jpg" alt="Portada del video sobre el juicio en Alemania por el ataque a Nord Stream" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">3:54</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=dL7KIScQA9w" target="_blank" rel="noopener">Comienza en Alemania el juicio por la presunta implicación de Ucrania en el ataque a Nord Stream</a></h4>
-            <p class="vmeta">DW Español · español · 14 oct 2026</p>
-            <p>Hamburgo, la semana pasada. En cuatro minutos ves cómo el sabotaje que el artículo dejó abierto llegó a un tribunal.</p>
-            <span class="vtag">Para empezar</span>
-          </div>
-        </article>
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=N_YofQh-5G8" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/N_YofQh-5G8/hqdefault.jpg" alt="Portada del video German prosecutors link Nord Stream blasts to Ukraine" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:50</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=N_YofQh-5G8" target="_blank" rel="noopener">German prosecutors link Nord Stream blasts to Ukraine | DW News</a></h4>
-            <p class="vmeta">DW News · inglés, con subtítulos · jul 2026</p>
-            <p>La acusación y lo que puede significar para la relación entre Berlín y Kiev, el aliado al que Alemania apoya en la guerra. Ponlo junto a la tabla 1: ¿cambia algo de lo que ahí se lee?</p>
-            <span class="vtag">La acusación</span>
-          </div>
-        </article>
+      <div class="cite-demo" id="citeDemo">
+        <div class="cite-types" role="group" aria-label="Tipo de fuente">
+          <button type="button" data-ctype="articulo" aria-pressed="true">Artículo</button>
+          <button type="button" data-ctype="libro" aria-pressed="false">Libro</button>
+          <button type="button" data-ctype="capitulo" aria-pressed="false">Capítulo</button>
+          <button type="button" data-ctype="informe" aria-pressed="false">Informe</button>
+          <button type="button" data-ctype="prensa" aria-pressed="false">Prensa</button>
+        </div>
+        <div class="cite-out" aria-live="polite">
+          <p class="kicker" id="citeRefLabel">En la lista · Referencias</p>
+          <p class="cite-ref" id="citeRef">Farrell, H., &amp; Newman, A. L. (2019). Weaponized interdependence: How global economic networks shape state coercion. <i>International Security, 44</i>(1), 42–79. https://doi.org/10.1162/isec_a_00351</p>
+          <p class="kicker k-blue" id="citeInLabel">En el texto</p>
+          <p class="cite-in" id="citeIn">(Farrell &amp; Newman, 2019, p. 45)</p>
+        </div>
+        <ul class="cite-legend" aria-label="Las piezas de una referencia">
+          <li><span class="rp rp-au">Quién</span></li>
+          <li><span class="rp rp-yr">Cuándo</span></li>
+          <li><span class="rp rp-ti">Qué</span></li>
+          <li><span class="rp rp-so">Dónde se publicó</span></li>
+          <li><span class="rp rp-nu">Volumen, número y páginas</span></li>
+          <li><span class="rp rp-pu">Editorial o institución</span></li>
+          <li><span class="rp rp-ln">Cómo llegar: DOI o enlace</span></li>
+        </ul>
       </div>
 
-      <div class="section-head" style="margin-top:3rem">
-        <p class="kicker k-amber">Pendiente de clases atrás</p>
-        <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Teoría de juegos: <em>por qué cooperar</em></h2>
-      </div>
-      <div class="vgrid vgrid--4">
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=mScpHTIi-kM" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/mScpHTIi-kM/hqdefault.jpg" alt="Portada del video Once you understand game theory, you understand the world" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">27:18</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=mScpHTIi-kM" target="_blank" rel="noopener">Once you understand game theory, you understand the world.</a></h4>
-            <p class="vmeta">Veritasium · inglés, con subtítulos · 2023</p>
-            <p>Empieza con la carrera nuclear de la Guerra Fría y sigue con el dilema del prisionero y el torneo de Axelrod, que ganó «toma y daca». Cuando el juego se repite, cooperar conviene. Llévalo a la lámina 06: ¿qué le pasa a ese juego cuando se rompe la confianza, pero la interdependencia sigue?</p>
-            <span class="vtag">El dilema</span>
-          </div>
-        </article>
+      <div class="cite-rules">
+        <div class="rule">
+          <p class="kicker">Escribes en español</p>
+          <p>Entre autores va «y» (en APA, &amp;); «núm.» en lugar de «no.», y «En» y «editado por» en lugar de «In» y «edited by». Los títulos se quedan en su idioma.</p>
+        </div>
+        <div class="rule">
+          <p class="kicker k-blue">Las mayúsculas</p>
+          <p>En APA, el título lleva mayúscula solo al inicio, después de los dos puntos y en los nombres propios. En Chicago y MLA, los títulos en inglés llevan mayúscula en cada palabra importante; los títulos en español se escriben como en el original.</p>
+        </div>
+        <div class="rule">
+          <p class="kicker k-teal">Los atajos se equivocan</p>
+          <p>El botón «Citar» de Google Académico, Zotero o un asistente de IA arman la referencia por ti. Úsalos, pero revisa: fallan seguido en las mayúsculas, los autores y las páginas.</p>
+        </div>
       </div>
 
-      <div class="section-head" style="margin-top:3rem">
-        <p class="kicker k-teal">Si quieres ir más lejos</p>
-        <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Seis más, para después de clase</h2>
-      </div>
-      <div class="vgrid">
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=c9_nJyEPCG0" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/c9_nJyEPCG0/hqdefault.jpg" alt="Portada del video El imperio energético ruso" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">50:56</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=c9_nJyEPCG0" target="_blank" rel="noopener">El imperio energético ruso: Putin y el auge de Gazprom</a></h4>
-            <p class="vmeta">DW Documental · español · 2024</p>
-            <p>Cómo Europa, y sobre todo Alemania, se volvió dependiente del gas ruso durante décadas. Es la versión larga de la tesis de la lámina 04.</p>
-            <span class="vtag">La empresa</span>
-          </div>
-        </article>
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=aBdfBwfeCRo" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/aBdfBwfeCRo/hqdefault.jpg" alt="Portada del video Excanciller defiende gasoducto Nord Stream 2" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">2:43</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=aBdfBwfeCRo" target="_blank" rel="noopener">Excanciller defiende gasoducto Nord Stream 2</a></h4>
-            <p class="vmeta">DW Español · español · 2018</p>
-            <p>Gerhard Schröder defiende el proyecto. Escúchalo con la pregunta de la actividad en mente: ¿negocio o geopolítica?</p>
-            <span class="vtag">Alemania</span>
-          </div>
-        </article>
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=900mMMc-ld0" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/900mMMc-ld0/hqdefault.jpg" alt="Portada del video End of Russia-Ukraine gas deal" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">7:42</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=900mMMc-ld0" target="_blank" rel="noopener">End of Russia-Ukraine gas deal: Will Germany fall back on Russian gas after the election?</a></h4>
-            <p class="vmeta">DW News · inglés · ene 2025</p>
-            <p>El fin del tránsito por Ucrania, días después de que ocurrió. Es el riesgo de la p. 134, cumplido.</p>
-            <span class="vtag">Ucrania</span>
-          </div>
-        </article>
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=ZkgFaC-Jug4" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/ZkgFaC-Jug4/hqdefault.jpg" alt="Portada del video How Putin made Europe go green faster" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">11:41</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=ZkgFaC-Jug4" target="_blank" rel="noopener">How Putin made Europe go green faster</a></h4>
-            <p class="vmeta">DW Planet A · inglés · 2023</p>
-            <p>¿La invasión aceleró la transición energética de Europa? Míralo con la idea 03: seguridad, competitividad y sostenibilidad no siempre avanzan juntas.</p>
-            <span class="vtag">Diversificar</span>
-          </div>
-        </article>
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=cuPhY6QOvFI" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/cuPhY6QOvFI/hqdefault.jpg" alt="Portada del video Are Europe's undersea cables under attack?" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:33</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=cuPhY6QOvFI" target="_blank" rel="noopener">Are Europe's undersea cables under attack? | Mapped Out</a></h4>
-            <p class="vmeta">DW News · inglés · 2025</p>
-            <p>El fondo del Báltico no se calmó después de Nord Stream: cables cortados y sospechas de guerra híbrida en la misma zona.</p>
-            <span class="vtag">El Báltico hoy</span>
-          </div>
-        </article>
-        <article class="vcard">
-          <a class="vthumb" href="https://www.youtube.com/watch?v=UkXml6HHbHE" target="_blank" rel="noopener">
-            <img src="https://i.ytimg.com/vi/UkXml6HHbHE/hqdefault.jpg" alt="Portada del video The global energy order after Hormuz" loading="lazy">
-            <span class="vplay" aria-hidden="true">▶</span><span class="vdur">14:21</span>
-          </a>
-          <div class="vbody">
-            <h4><a href="https://www.youtube.com/watch?v=UkXml6HHbHE" target="_blank" rel="noopener">The global energy order after Hormuz | FT Film</a></h4>
-            <p class="vmeta">Financial Times · inglés · oct 2026</p>
-            <p>El otro cuello de botella de la energía, el que vimos con Farrell y Newman. La misma pregunta de hoy, en otro mar: quién controla el paso.</p>
-            <span class="vtag">Otro estrecho</span>
-          </div>
-        </article>
-      </div>
-      <p style="margin-top:2rem"><a class="btn" href="videos_recientes.html" target="_blank" rel="noopener">📺 Todos los videos del semestre, en una sola página ↗</a></p>
+      <div class="callout"><strong>Ahora ustedes.</strong> Elijan su estilo en la <a href="#fuentes">lista del equipo</a>. Como ahí guardan las piezas de cada fuente, cambiar de estilo no les cuesta nada: la lista se vuelve a armar sola.</div>
     </div>
   </section>
 
   <div class="band" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════════ SEIS IDEAS ════════════════════════════════ -->
-  <section class="section" id="ideas">
+  <!-- ════════════ ESTACIÓN 5 · LAS FUENTES DEL EQUIPO ═════════════════════════════════ -->
+  <section class="section section-alt" id="fuentes">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker k-blue">Las conclusiones</p>
-        <h2>Seis ideas <em>para discutir</em></h2>
-        <p class="lead">Al frente, la idea y una pregunta; atrás, lo que dice el artículo y su página. Saca una al azar, defiéndela o contradícela, y después dale vuelta.</p>
+        <p class="kicker">Estación 5 · 12 minutos</p>
+        <h2>Las fuentes <em>del equipo</em></h2>
+        <p class="lead">Todo lo de hoy en una sola lista. Llénenla en un solo dispositivo y vayan agregando fuentes desde la estación 2. Al terminar, una persona del equipo la copia y la publica en el foro de Moodle a nombre de todos.</p>
       </div>
 
-      <div class="hilo-bar">
-        <button class="btn btn-primary btn-small" id="hiloPick" type="button">🎣 Sacar una idea al azar</button>
-        <button class="btn btn-small" id="hiloReset" type="button">↺ Volver a empezar</button>
-        <span class="hilo-count" id="hiloCount" aria-live="polite"></span>
-      </div>
+      <div class="builder">
+        <form class="fields" id="fuentesForm" autocomplete="off">
+          <p class="notice" id="fNotice" hidden>En este navegador estaba la ficha de su equipo del 15 de octubre: ya pusimos el nombre, los integrantes y la pregunta. Revísenlos.</p>
 
-      <div class="flipgrid" data-noun="ideas">
-        <button class="flip" type="button" aria-pressed="false">
-          <span class="flip-inner">
-            <span class="flip-face flip-front">
-              <span class="flip-num">01</span>
-              <span class="flip-word">Dependencia de doble vía</span>
-              <span class="flip-say">¿Quién depende más: el que compra el gas o el que lo vende?</span>
-              <span class="flip-tag">pp. 125—126, 139—140</span>
-            </span>
-            <span class="flip-face flip-back">
-              <span class="flip-num">Del otro lado</span>
-              <span class="flip-say">Alemania necesita gas; Rusia necesita mercados e ingresos. La relación es asimétrica, pero las dos partes pagan si se rompe. Cortar el suministro puede subir los ingresos rusos a corto plazo, por el alza de precios, y destruir su mercado a mediano y largo plazo.</span>
-              <span class="flip-pg">Virág y Tancsa (2023), pp. 125—126, 139—140</span>
-            </span>
-          </span>
-        </button>
+          <p class="ficha-step">1 · El equipo</p>
+          <div class="field">
+            <label for="fTeam">Nombre del equipo <b>·</b> o el tuyo, si vas solo</label>
+            <input id="fTeam" type="text" maxlength="60" placeholder="Malaca">
+          </div>
+          <div class="field">
+            <label for="fCrew">Integrantes <b>·</b> uno por línea</label>
+            <textarea id="fCrew" rows="4" placeholder="Nombre Apellido Apellido&#10;Nombre Apellido Apellido&#10;…"></textarea>
+          </div>
+          <div class="field">
+            <label for="fQuestion">Su pregunta de investigación</label>
+            <textarea id="fQuestion" rows="3" placeholder="¿…?"></textarea>
+          </div>
 
-        <button class="flip" type="button" aria-pressed="false">
-          <span class="flip-inner">
-            <span class="flip-face flip-front">
-              <span class="flip-num">02</span>
-              <span class="flip-word">Diversificar exige capacidad</span>
-              <span class="flip-say">¿Basta con querer otro proveedor?</span>
-              <span class="flip-tag">pp. 128—129, 132—133</span>
-            </span>
-            <span class="flip-face flip-back">
-              <span class="flip-num">Del otro lado</span>
-              <span class="flip-say">El gas de lutitas convierte a Estados Unidos en exportador neto en 2017. El gas licuado amplía opciones y poder para negociar, pero necesita terminales, barcos y oferta. El Baltic Pipe aporta 10 mil millones de m³ al año: menos de una quinta parte de NS2.</span>
-              <span class="flip-pg">Virág y Tancsa (2023), pp. 128—129, 132—133</span>
-            </span>
-          </span>
-        </button>
+          <p class="ficha-step">2 · Cómo buscaron</p>
+          <div class="field">
+            <label for="fWords">Palabras clave <b>·</b> de cinco a diez, una por línea, en español y en inglés</label>
+            <textarea id="fWords" rows="4" placeholder="interdependencia armada · weaponized interdependence&#10;escasez de chips · chip shortage"></textarea>
+          </div>
 
-        <button class="flip" type="button" aria-pressed="false">
-          <span class="flip-inner">
-            <span class="flip-face flip-front">
-              <span class="flip-num">03</span>
-              <span class="flip-word">Tres objetivos en tensión</span>
-              <span class="flip-say">Seguro, barato y limpio: ¿se puede todo a la vez?</span>
-              <span class="flip-tag">pp. 122—123, 139—140</span>
-            </span>
-            <span class="flip-face flip-back">
-              <span class="flip-num">Del otro lado</span>
-              <span class="flip-say">Seguridad, competitividad y sostenibilidad no avanzan siempre juntas. Sustituir el gas ruso cuesta capital y tiempo: puede encarecer la producción, desplazar inversión limpia y, a corto plazo, subir el uso de carbón. La infraestructura de hoy condiciona el futuro.</span>
-              <span class="flip-pg">Virág y Tancsa (2023), pp. 122—123, 139—140</span>
-            </span>
-          </span>
-        </button>
+          <p class="ficha-step">3 · El estilo</p>
+          <fieldset class="fieldset">
+            <legend>Un solo estilo para todo el trabajo</legend>
+            <div class="radios">
+              <label><input type="radio" name="fStyle" value="apa" checked> APA 7</label>
+              <label><input type="radio" name="fStyle" value="chicago"> Chicago</label>
+              <label><input type="radio" name="fStyle" value="mla"> MLA 9</label>
+            </div>
+          </fieldset>
 
-        <button class="flip" type="button" aria-pressed="false">
-          <span class="flip-inner">
-            <span class="flip-face flip-front">
-              <span class="flip-num">04</span>
-              <span class="flip-word">El dilema ucraniano</span>
-              <span class="flip-say">¿Qué gana Ucrania si el gas deja de pasar por su territorio?</span>
-              <span class="flip-tag">pp. 134—135</span>
-            </span>
-            <span class="flip-face flip-back">
-              <span class="flip-num">Del otro lado</span>
-              <span class="flip-say">El contrato de 2019—2024 sumaba unos 7,000 millones de dólares en total. Menos tránsito es menos ingreso, y los costos fijos de la red se reparten entre menos gas. Los autores veían el riesgo al vencer el contrato; el 1 de enero de 2025 el gas ruso dejó de cruzar Ucrania.</span>
-              <span class="flip-pg">Virág y Tancsa (2023), pp. 134—135</span>
-            </span>
-          </span>
-        </button>
+          <p class="ficha-step">4 · Las fuentes</p>
+          <div class="srcs" id="srcList"></div>
+          <button class="btn btn-small" id="srcAdd" type="button">＋ Agregar una fuente</button>
 
-        <button class="flip" type="button" aria-pressed="false">
-          <span class="flip-inner">
-            <span class="flip-face flip-front">
-              <span class="flip-num">05</span>
-              <span class="flip-word">El equilibrio también limita</span>
-              <span class="flip-say">¿Aislar a Rusia le sale gratis a alguien?</span>
-              <span class="flip-tag">pp. 123, 131, 135, 137, 140</span>
-            </span>
-            <span class="flip-face flip-back">
-              <span class="flip-num">Del otro lado</span>
-              <span class="flip-say">A Estados Unidos, aislar a Rusia le refuerza su posición en Europa, pero puede acercar Moscú a Pekín. A Alemania, frenar NS2 le enfrenta la seguridad con costos internos. A Ucrania, pedir un boicot al gas ruso le choca con su interés de seguir cobrando el tránsito.</span>
-              <span class="flip-pg">Virág y Tancsa (2023), pp. 123, 131, 135, 137, 140</span>
-            </span>
-          </span>
-        </button>
+          <div class="builder-actions">
+            <button class="btn btn-primary" id="fuentesCopy" type="button">Copiar la lista para el foro</button>
+            <button class="btn btn-small" id="fuentesPrint" type="button">Imprimir</button>
+            <button class="btn btn-small" id="fuentesClear" type="button">Borrar</button>
+            <p class="builder-note">Lo que escriban se guarda automáticamente en este navegador.</p>
+          </div>
+        </form>
 
-        <button class="flip" type="button" aria-pressed="false">
-          <span class="flip-inner">
-            <span class="flip-face flip-front">
-              <span class="flip-num">06</span>
-              <span class="flip-word">Cómo leer la conclusión</span>
-              <span class="flip-say">Si alguien ganó con la explosión, ¿eso prueba que la hizo?</span>
-              <span class="flip-tag">pp. 117—118, 122, 136—140</span>
-            </span>
-            <span class="flip-face flip-back">
-              <span class="flip-num">Del otro lado</span>
-              <span class="flip-say">Los autores dicen que el caso confirma la utilidad de la geopolítica clásica. Pero identificar a quién benefició el sabotaje no prueba su autoría, y su mirada centrada en los Estados no agota el caso: deja fuera empresas, discursos y a quien dibuja el mapa de amenazas.</span>
-              <span class="flip-pg">Virág y Tancsa (2023), pp. 117—118, 122, 136—140</span>
-            </span>
-          </span>
-        </button>
-      </div>
-
-      <div class="qbank">
-        <article class="qcard">
-          <span class="qn">A</span>
-          <h3>¿Negocio o arma?</h3>
-          <p>Angela Merkel lo defendía como «un proyecto puramente económico»; desde Ucrania lo llamaban «un arma» (video de DW). ¿Con quién estás, y con qué evidencia del artículo?</p>
-          <span class="eg">pp. 120—126 · video 4</span>
-        </article>
-        <article class="qcard">
-          <span class="qn">B</span>
-          <h3>¿Quién tenía el arma?</h3>
-          <p>Farrell y Newman hablaban de la interdependencia convertida en arma. En Nord Stream, ¿quién la tenía: Rusia, que vendía el gas, o Alemania, que tenía que certificar el tubo?</p>
-          <span class="eg">actividad 5 · pp. 114, 121, 125—126</span>
-        </article>
-        <article class="qcard">
-          <span class="qn">C</span>
-          <h3>¿Y México?</h3>
-          <p>México compra a Estados Unidos, por gasoducto, la mayor parte del gas natural que consume. ¿Qué le enseña Nord Stream: dependencia de doble vía, país de tránsito, diversificar con capacidad?</p>
-          <span class="eg">ideas 01 y 02 · glosario</span>
+        <article class="bcard fcard" id="bcard">
+          <header class="bcard-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M5 12H3a9 9 0 0 0 18 0h-2M8 10h8"/></svg>
+            <strong>Las fuentes del equipo</strong>
+            <span id="bStyle">APA 7</span>
+          </header>
+          <div class="bcard-body">
+            <p class="bcard-name" id="bTeam"></p>
+            <p class="bcard-q" id="bQ"></p>
+            <p class="kicker" style="margin:0 0 .5rem">La lista está completa cuando tiene</p>
+            <ul class="fcheck" id="bCheck"></ul>
+            <p class="kicker k-blue fref-head" id="bRefHead">Referencias</p>
+            <ul class="frefs" id="bRefs"></ul>
+            <p class="fref-tip" id="bTip"></p>
+            <dl class="bcard-grid">
+              <div><dt>Palabras</dt><dd id="bWords"></dd></div>
+              <div><dt>Equipo</dt><dd id="bCrew"></dd></div>
+            </dl>
+          </div>
+          <footer class="bcard-foot">Geopolítica · Grupo 1541 · 29 de octubre de 2026</footer>
         </article>
       </div>
 
-      <div class="closing" style="margin-top:3rem">
-        <blockquote>¿Fue Nord Stream un negocio con consecuencias geopolíticas, o un proyecto geopolítico disfrazado de negocio?</blockquote>
+      <template id="srcTpl">
+        <details class="src">
+          <summary>
+            <span class="src-n">01</span>
+            <span class="src-label">Fuente nueva</span>
+            <span class="src-anchor">⚓ 0/5</span>
+          </summary>
+          <div class="src-body">
+            <div class="field">
+              <label>Tipo de fuente</label>
+              <select data-k="type">
+                <option value="articulo">Artículo de revista académica</option>
+                <option value="libro">Libro</option>
+                <option value="capitulo">Capítulo de un libro</option>
+                <option value="informe">Informe de un organismo o centro de análisis</option>
+                <option value="prensa">Nota de prensa o de revista de divulgación</option>
+                <option value="web">Página web o base de datos</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Autores <b>·</b> Apellido, Nombre · uno por línea</label>
+              <textarea data-k="authors" rows="2" placeholder="Farrell, Henry&#10;Newman, Abraham L."></textarea>
+              <small>Si el autor es una institución, escribe su nombre sin coma: Banco Mundial.</small>
+            </div>
+            <div class="field" data-show="articulo libro capitulo informe">
+              <label>Año</label>
+              <input data-k="year" type="text" inputmode="numeric" maxlength="4" placeholder="2019">
+            </div>
+            <div class="field" data-show="prensa web">
+              <label>Fecha de publicación</label>
+              <input data-k="date" type="date">
+            </div>
+            <div class="field">
+              <label>Título <b>·</b> con el subtítulo, si lo tiene</label>
+              <textarea data-k="title" rows="2"></textarea>
+            </div>
+            <div class="field" data-show="articulo capitulo prensa web">
+              <label data-label-articulo="Revista" data-label-capitulo="Título del libro" data-label-prensa="Medio" data-label-web="Sitio web">Revista</label>
+              <input data-k="container" type="text">
+            </div>
+            <div class="field" data-show="capitulo">
+              <label>Editores del libro <b>·</b> Apellido, Nombre · uno por línea</label>
+              <textarea data-k="editors" rows="2"></textarea>
+            </div>
+            <div class="field-row" data-show="articulo capitulo">
+              <div class="field" data-show="articulo">
+                <label>Volumen</label>
+                <input data-k="volume" type="text" inputmode="numeric">
+              </div>
+              <div class="field" data-show="articulo">
+                <label>Número</label>
+                <input data-k="issue" type="text">
+              </div>
+              <div class="field" data-show="articulo capitulo">
+                <label>Páginas</label>
+                <input data-k="pages" type="text" placeholder="42-79">
+              </div>
+            </div>
+            <div class="field" data-show="libro capitulo informe">
+              <label data-label-informe="Institución que lo publica <b>·</b> si no es la autora">Editorial</label>
+              <input data-k="publisher" type="text">
+            </div>
+            <div class="field" data-show="informe">
+              <label>Serie o número <b>·</b> si lo tiene</label>
+              <input data-k="series" type="text" placeholder="IMF Working Paper WP/24/76">
+            </div>
+            <div class="field">
+              <label>DOI o enlace</label>
+              <input data-k="link" type="text" inputmode="url" placeholder="10.1162/isec_a_00351">
+            </div>
+            <div class="field-row two">
+              <div class="field">
+                <label>Dónde la encontraron</label>
+                <select data-k="port">
+                  <option value="">Elige…</option>
+                  <option>BIDI UNAM</option>
+                  <option>Google Académico u otro buscador académico</option>
+                  <option>Sitio de un organismo o centro de análisis</option>
+                  <option>Prensa</option>
+                  <option>Nos la sugirió un asistente de IA</option>
+                  <option>En la bibliografía de otro texto</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Capa</label>
+                <select data-k="layer">
+                  <option value="">Elige…</option>
+                  <option value="caso">El caso</option>
+                  <option value="concepto">El concepto</option>
+                  <option value="ambas">Las dos</option>
+                </select>
+              </div>
+            </div>
+            <fieldset class="fieldset">
+              <legend>Prueba del ancla <b>·</b> marquen solo lo que ya hicieron</legend>
+              <div class="checks">
+                <label><input type="checkbox" data-a="0"> Existe</label>
+                <label><input type="checkbox" data-a="1"> La abrimos</label>
+                <label><input type="checkbox" data-a="2"> Dice lo que creemos</label>
+                <label><input type="checkbox" data-a="3"> Sabemos quién habla</label>
+                <label><input type="checkbox" data-a="4"> Le sirve a la pregunta</label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label>Qué aporta a su pregunta <b>·</b> una o dos frases</label>
+              <textarea data-k="adds" rows="2" placeholder="Un dato, un concepto, un argumento o un debate."></textarea>
+            </div>
+            <div class="src-actions">
+              <button class="btn btn-small src-del" type="button">Quitar esta fuente</button>
+            </div>
+          </div>
+        </details>
+      </template>
+
+      <div class="closing" style="margin-top:3.4rem">
+        <blockquote>Leer lo que otros ya encontraron no le quita originalidad a tu trabajo: te enseña dónde empieza.</blockquote>
         <div>
-          <p class="kicker k-teal">La pregunta de la actividad 9</p>
-          <p>Elige una respuesta y defiéndela con dos páginas del artículo y un momento de los videos.</p>
-          <p style="margin:0">La próxima vez que leas que una obra de infraestructura es «puramente comercial», pregúntate quién queda fuera de la ruta.</p>
+          <p class="kicker k-teal">Lo que sigue</p>
+          <p>Con esta lista van a escribir el estado del arte dentro del trabajo final. No lo cuenten fuente por fuente: agrupen lo que dicen por coincidencias y desacuerdos, y terminen en lo que todavía nadie ha contestado.</p>
+          <p style="margin:0">Guarden la lista. Cada vez que encuentren algo nuevo, pasa por la prueba del ancla antes de entrar.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="band" aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════ GLOSARIO ══════════════════════════════ -->
-  <section class="section section-alt" id="glosario">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker k-teal">Las palabras de esta sesión</p>
-        <h2>48 términos, <em>con su página</em></h2>
-        <p class="lead">En el sentido en que los usa el artículo, para la discusión de hoy y para tu control de lectura. Son paráfrasis, no citas: si usas uno, ve a la página y cita el texto. Los de borde punteado son precisiones que no vienen así en el artículo. Si quieres sumar participación, sube uno al glosario de Moodle con tus palabras.</p>
-      </div>
-
-      <div class="gloss-tools" data-gloss>
-        <label class="gloss-search">
-          <span class="sr-only">Buscar en el glosario</span>
-          <input type="search" id="glossQ" placeholder="Busca: tránsito, GNL, Rimland…" autocomplete="off">
-        </label>
-        <div class="crono-bar gloss-chips" role="group" aria-label="Filtrar por grupo">
-          <button type="button" data-g="todo" aria-pressed="true">Todos</button>
-          <button type="button" data-g="poder" aria-pressed="false">Poder y estrategia</button>
-          <button type="button" data-g="mercado" aria-pressed="false">Dependencia y mercados</button>
-          <button type="button" data-g="gas" aria-pressed="false">Gas e infraestructura</button>
-          <button type="button" data-g="actores" aria-pressed="false">Actores y lugares</button>
-        </div>
-        <p class="hilo-count" id="glossCount" aria-live="polite"></p>
-      </div>
-
-      <div class="concept-grid gloss-grid" id="glossGrid">
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 116—117</span>
-          <h4>Geopolítica</h4>
-          <p>Relación entre espacio y poder: ubicación, recursos y rutas condicionan decisiones políticas. También puede construir narrativas que legitiman intereses; el propio marco geopolítico tiene una perspectiva.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 117—118</span>
-          <h4>Geopolítica clásica</h4>
-          <p>Enfoque que privilegia Estados, posición geográfica, recursos, equilibrio y rivalidad entre potencias. Es el marco principal del artículo, de tradición anglosajona.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 117—118</span>
-          <h4>Geopolítica crítica</h4>
-          <p>Estudia cómo discursos y representaciones del espacio producen amenazas, identidades e intereses. El artículo reconoce esta corriente, pero no la desarrolla.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 127—128</span>
-          <h4>Geoestrategia</h4>
-          <p>Orientación de objetivos y medios de poder a partir del espacio: qué regiones, alianzas o rutas interesa conservar, controlar o impedir que domine un rival.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 123—124, 127</span>
-          <h4>Heartland / Pivot area</h4>
-          <p>Núcleo continental de Eurasia en Mackinder. Su posición y recursos le otorgan potencial estratégico. En la lectura sirve para pensar el poder terrestre ruso y su esfera de influencia.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">p. 127</span>
-          <h4>Rimland</h4>
-          <p>Franja periférica de Eurasia en Spykman. La alianza entre una potencia del interior y otra de esa franja podría alterar el equilibrio; de ahí la atención a la relación ruso-alemana.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 127—128</span>
-          <h4>Poder marítimo / sea power</h4>
-          <p>Capacidad estratégica vinculada al mar y sus rutas, asociada a Mahan. El artículo presenta a EE. UU. como potencia que entra por mar, mediante GNL, a un mercado conectado por gasoductos.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 123, 127</span>
-          <h4>Potencia terrestre / land power</h4>
-          <p>Poder apoyado en un gran territorio continental, recursos y conexiones por tierra. Rusia encarna esta posición en el marco clásico usado por los autores.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 118, 124, 127</span>
-          <h4>Contención / containment</h4>
-          <p>Estrategia destinada a limitar la expansión o la influencia de una potencia rival mediante alianzas, posiciones estratégicas y herramientas económicas o políticas.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 127—130, 137—138</span>
-          <h4>Equilibrio de poder / hegemonía</h4>
-          <p>El equilibrio impide el predominio de una potencia; hegemonía es una posición de primacía. Los autores leen la política estadounidense como defensa de esa primacía frente a un bloque euroasiático.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 124—126</span>
-          <h4>Esfera de influencia</h4>
-          <p>Espacio en el que un Estado intenta condicionar la orientación política, económica o de seguridad de otros. El artículo vincula la energía rusa con esa aspiración en su vecindad.</p>
-        </article>
-        <article class="concept" data-g="poder">
-          <span class="pg">pp. 127—131, 137—138</span>
-          <h4>Eurasia / vínculo transatlántico</h4>
-          <p>Eurasia reúne Europa y Asia como espacio estratégico. El vínculo transatlántico conecta a Europa con Norteamérica; reforzarlo limita, en la lectura, una convergencia ruso-europea.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 118—122</span>
-          <h4>Seguridad del suministro</h4>
-          <p>Disponibilidad confiable y continua de energía. Importan los proveedores, las rutas, la capacidad física y la vulnerabilidad a interrupciones o presiones políticas.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 120, 125—126, 139</span>
-          <h4>Interdependencia</h4>
-          <p>Relación en la que las decisiones de una parte afectan a la otra: Europa requiere gas ruso y Rusia requiere compradores e ingresos europeos. No elimina el conflicto.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 125—126</span>
-          <h4>Dependencia asimétrica</h4>
-          <p>Interdependencia cuyos costos de salida o posibilidades de sustitución son desiguales. En el caso ruso-alemán, el poder depende de quién puede encontrar alternativas y en cuánto tiempo.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">p. 139</span>
-          <h4>Dependencia de trayectoria / path dependence</h4>
-          <p>Las inversiones y decisiones previas condicionan las opciones futuras. Una red de gasoductos y contratos no se sustituye de inmediato; el cambio exige dinero y tiempo.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 121—122, 132—133, 139</span>
-          <h4>Diversificación</h4>
-          <p>Ampliar proveedores, rutas, tecnologías o fuentes energéticas para reducir exposición. Una ruta nueva desde el mismo proveedor puede reducir riesgo de tránsito sin reducir dependencia de origen.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 132, 134—135</span>
-          <h4>País de tránsito</h4>
-          <p>Estado por cuyo territorio pasa gas destinado a otro mercado. Obtiene ingresos y relevancia estratégica; Ucrania y Polonia podían perder ambas con rutas alternativas.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">p. 134</span>
-          <h4>Rentas de tránsito</h4>
-          <p>Ingresos por transportar gas de terceros. Para Ucrania, el contrato 2019—2024 suponía alrededor de US$7,000 millones en total según el artículo, no por año.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 121, 124—125, 134</span>
-          <h4>Bypass / elusión del tránsito</h4>
-          <p>Ruta que evita un territorio intermediario. Puede reducir interrupciones y costos para proveedor y comprador, mientras debilita ingresos y capacidad de negociación del país evitado.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">p. 134</span>
-          <h4>Costos fijos y subutilización</h4>
-          <p>Gastos que persisten aunque circule menos gas. Si una red transporta poco volumen, esos costos se reparten entre menos unidades, deteriorando su rentabilidad.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 114, 121</span>
-          <h4>Certificación / permiso de operación</h4>
-          <p>Autorización regulatoria para poner en servicio una infraestructura. Alemania controlaba este paso de NS2: estar construido no equivalía a poder operar.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 129—131, 135</span>
-          <h4>Sanciones / boicot energético</h4>
-          <p>Las sanciones restringen actividades o relaciones para ejercer presión. Un boicot a las compras de energía busca cortar ingresos; ambos pueden imponer costos también a quien los aplica.</p>
-        </article>
-        <article class="concept" data-g="mercado">
-          <span class="pg">pp. 115, 122—123, 140</span>
-          <h4>Mix energético / competitividad</h4>
-          <p>El mix es la combinación de fuentes utilizadas. La competitividad alude a la capacidad de producir y competir: precios altos y una sustitución costosa pueden deteriorarla.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">pp. 114, 122</span>
-          <h4>NS1 / Nord Stream 1</h4>
-          <p>Gasoducto antecedente de la cooperación energética ruso-alemana, inaugurado en 2011. El artículo lo distingue de NS2; ambos sistemas sufrieron daños en septiembre de 2022.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">pp. 113—114</span>
-          <h4>NS2 / Nord Stream 2</h4>
-          <p>Sistema de dos tubos bajo el Báltico, terminado en 2021, diseñado para transportar gas ruso a Alemania. La suspensión de su certificación impidió iniciar el servicio.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">pp. 128—129</span>
-          <h4>GNL / LNG</h4>
-          <p>Gas natural licuado; en inglés, liquefied natural gas. La licuefacción permite llevarlo en barcos y la regasificación devolverlo a una red de gas. Requiere infraestructura específica.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">p. 133</span>
-          <h4>FSRU</h4>
-          <p>Floating Storage and Regasification Unit: unidad flotante de almacenamiento y regasificación. Recibe GNL, lo almacena y lo devuelve a estado gaseoso; el artículo destaca la alternativa lituana.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">p. 128</span>
-          <h4>Shale gas / gas de lutitas</h4>
-          <p>Gas no convencional contenido en formaciones de lutitas. Su expansión productiva transforma a EE. UU. de importador neto a exportador neto de gas en 2017.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">p. 128, notas 31—32</span>
-          <h4>Fracking y perforación horizontal</h4>
-          <p>Fracturación hidráulica y perforación lateral empleadas para extraer hidrocarburos no convencionales. La lectura también menciona controversias sobre agua, regulación y sostenibilidad.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">p. 128</span>
-          <h4>Exportador neto</h4>
-          <p>País que exporta más de un producto de lo que importa. No significa que deje de importar ni que todo su excedente pueda enviarse inmediatamente a cualquier destino.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">pp. 126, 128—129</span>
-          <h4>Gas por tubo / gas por barco</h4>
-          <p>El gasoducto vincula puntos físicos de forma rígida; el GNL ofrece otros destinos marítimos, pero está limitado por terminales, barcos, contratos y oferta. Ambos requieren inversiones.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">p. 133</span>
-          <h4>Baltic Pipe</h4>
-          <p>Corredor que lleva gas noruego hacia Polonia a través de Dinamarca. Su capacidad es de 10 mil millones de m³/año; en el cierre de 2022 figura como alternativa regional a Rusia.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">p. 119, nota 12; pp. 132, 134</span>
-          <h4>Yamal-Europe / corredor ucraniano</h4>
-          <p>Rutas terrestres del gas ruso. Yamal-Europe atraviesa Polonia; el corredor ucraniano incluye Brotherhood, Soyuz y Progress. Nuevas rutas pueden disminuir su uso y sus rentas.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">pp. 113—114</span>
-          <h4>bcm / m³/año / capacidad</h4>
-          <p>bcm significa mil millones de metros cúbicos. m³/año expresa volumen anual. NS2: 55 bcm/año entre sus dos tubos; es capacidad de diseño, no gas efectivamente entregado.</p>
-        </article>
-        <article class="concept" data-g="gas">
-          <span class="pg">pp. 113—114, 129</span>
-          <h4>Billion / million</h4>
-          <p>En inglés, billion equivale a mil millones; million, a un millón. €9.5 billion = €9,500 millones. La p. 129 escribe 55 million para NS2, inconsistente con 55 billion en p. 113.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 113—114, 124—125</span>
-          <h4>Gazprom</h4>
-          <p>Empresa gasista vinculada al Estado ruso, propietaria de Nord Stream 2 AG. El artículo la analiza como empresa comercial y vehículo de objetivos estratégicos; sus intereses no son idénticos a los del Estado.</p>
-        </article>
-        <article class="concept concept--absent" data-g="actores">
-          <span class="pg">pp. 113—114, 124</span>
-          <h4>Nord Stream 2 AG / AG</h4>
-          <p>Sociedad encargada del proyecto y propiedad de Gazprom. AG abrevia Aktiengesellschaft, sociedad por acciones. La forma societaria debe distinguirse de sus financiadores y de los Estados implicados.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 113—114</span>
-          <h4>Socios financieros europeos</h4>
-          <p>Wintershall, Uniper, Engie, Royal Dutch Shell y OMV aportan, en conjunto, la mitad de la financiación de NS2. Participar en la financiación no equivale a ser propietario de Nord Stream 2 AG.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 136, 138</span>
-          <h4>Status quo</h4>
-          <p>Configuración de relaciones que un actor intenta conservar. Rusia buscaba mantener su posición en el mercado europeo del gas mientras reducía la relevancia de Ucrania como intermediario.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 119—122, 138—139</span>
-          <h4>UE / EU</h4>
-          <p>Unión Europea / European Union. El artículo subraya que sus miembros no tenían una postura energética uniforme: Alemania y varios países del centro y este de Europa diferían sobre NS2.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 114, 121, nota 17</span>
-          <h4>Competencia compartida</h4>
-          <p>Ámbito en el que intervienen la UE y sus Estados miembros. La energía tiene ese carácter; el artículo resalta el margen de la autoridad alemana en la certificación de NS2.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 124, 135</span>
-          <h4>OTAN / NATO</h4>
-          <p>Organización del Tratado del Atlántico Norte / North Atlantic Treaty Organization. Alianza de seguridad que aparece en el análisis de la orientación occidental de Ucrania y la percepción rusa de contención.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">pp. 131—133</span>
-          <h4>Estados bálticos</h4>
-          <p>Estonia, Letonia y Lituania. Su experiencia histórica y proximidad a Rusia ayudan a explicar la oposición a NS2, la diversificación energética y los vínculos de seguridad con EE. UU.</p>
-        </article>
-        <article class="concept" data-g="actores">
-          <span class="pg">p. 132</span>
-          <h4>Dinamarca / Báltico</h4>
-          <p>Dinamarca ocupa una posición regulatoria relevante por la ruta submarina. Al demorar permisos gana tiempo para otras medidas; los Estados pequeños también pueden influir mediante procedimientos.</p>
-        </article>
-        <article class="concept concept--absent" data-g="actores">
-          <span class="pg">p. 114</span>
-          <h4>ZEE / EEZ</h4>
-          <p>Zona económica exclusiva / Exclusive Economic Zone. Espacio marítimo con derechos específicos del Estado costero; no equivale a territorio soberano. Las fugas se localizaron en las ZEE danesa y sueca.</p>
-        </article>
-        <article class="concept concept--absent" data-g="actores">
-          <span class="pg">pp. 119—120</span>
-          <h4>V4 / Grupo de Visegrado</h4>
-          <p>Agrupación de Polonia, Hungría, Chequia y Eslovaquia. El artículo sólo desarrolla Polonia: no estudia por separado los otros tres, ni a China o al Reino Unido.</p>
-        </article>
-        <article class="concept concept--absent" data-g="actores">
-          <span class="pg">pp. 114, 122, 131, 135</span>
-          <h4>Sabotaje / atribución</h4>
-          <p>Sabotaje es daño deliberado a una infraestructura; atribución es determinar quién lo causó con evidencia. Que un actor obtenga una ventaja del daño no demuestra su responsabilidad.</p>
-        </article>
       </div>
     </div>
   </section>
@@ -1305,277 +904,268 @@
   </div>
 
 
-  <!-- ══════════════════ BITÁCORA · UNA VERSIÓN POR SESIÓN ═══════════════ -->
-  <section class="section" id="sesiones">
+  <!-- ═════════════════ LO DEMÁS DEL CURSO, EN DESPLEGABLES ═════════════ -->
+  <section class="more" id="curso" aria-labelledby="moreTitle">
     <div class="wrap">
-      <div class="head-row">
-        <div class="section-head">
-          <p class="kicker">Bitácora del curso</p>
-          <h2>Una versión por sesión</h2>
-          <p class="lead">Esta página cambia cada vez que cambia la clase: siempre muestra lo esencial del curso y lo que vemos hoy. Lo que ya trabajamos no se borra — se guarda. Cada sesión que modificó la página dejó su propia versión fechada, y desde aquí puedes volver a cualquiera de ellas.</p>
-        </div>
-        <p class="mono muted" style="margin:0" id="sessionCount"></p>
+      <div class="more-head">
+        <h2 id="moreTitle">Lo demás del curso</h2>
+        <p>Ábrelo cuando lo necesites.</p>
       </div>
-
-      <div class="timeline" id="timeline"></div>
-
-      <div class="tl-foot">
-        <p style="margin:0">Cada sesión con liga tiene su propia versión guardada: ábrela y verás la página tal como estaba ese día.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="band" aria-hidden="true"></div>
-
-
-  <!-- ════════════════════════════ RUTA ══════════════════════════════════ -->
-  <section class="section section-alt" id="ruta">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker k-plum">Ruta del semestre</p>
-        <h2>Seis escalas</h2>
-        <p class="lead">Del vocabulario básico para leer el poder hasta la posición concreta de México en el tablero internacional.</p>
-      </div>
-
-      <div class="route-grid">
-        <article class="route-card">
-          <span class="rc-num">I</span>
-          <p class="rc-dates">18—27 agosto</p>
-          <h3>Vocabulario para leer el poder</h3>
-          <p>Qué es la geopolítica, qué mira y qué deja fuera. Escalas, actores y marcos.</p>
-          <p class="rc-hours">6 horas · 3 sesiones</p>
-        </article>
-        <article class="route-card">
-          <span class="rc-num">II</span>
-          <p class="rc-dates">1—22 septiembre</p>
-          <h3>Hitos que ordenaron el mundo</h3>
-          <p>Imperio, guerra total y el peligro que quedó después: el orden territorial y las infraestructuras que todavía condicionan el comercio de hoy.</p>
-          <p class="rc-hours">12 horas · 6 sesiones</p>
-        </article>
-        <article class="route-card">
-          <span class="rc-num">III</span>
-          <p class="rc-dates">24 sep — 6 oct</p>
-          <h3>El presente global y regional</h3>
-          <p>La economía mundial convertida en arsenal: Estados Unidos y China, la guerra de los chips y la fragmentación del comercio. Incluye el primer parcial.</p>
-          <p class="rc-hours">8 horas · 4 sesiones</p>
-        </article>
-        <article class="route-card">
-          <span class="rc-num">IV</span>
-          <p class="rc-dates">8—20 octubre</p>
-          <h3>Escenarios complejos, riesgos conectados</h3>
-          <p>Energía, minerales críticos, cuellos de botella marítimos y cadenas globales de valor.</p>
-          <p class="rc-hours">8 horas · 4 sesiones</p>
-        </article>
-        <article class="route-card">
-          <span class="rc-num">V</span>
-          <p class="rc-dates">22 oct — 17 noviembre</p>
-          <h3>Estrategias para negocios internacionales</h3>
-          <p>Del análisis a la decisión: policy memo, matriz de riesgo y simulación de sala de consejo.</p>
-          <p class="rc-hours">16 horas · 8 sesiones</p>
-        </article>
-        <article class="route-card">
-          <span class="rc-num">VI</span>
-          <p class="rc-dates">19 nov — 3 diciembre</p>
-          <h3>México en el tablero internacional</h3>
-          <p>T-MEC, nearshoring, corredores logísticos y el margen de maniobra entre dos potencias.</p>
-          <p class="rc-hours">10 horas · 5 sesiones</p>
-        </article>
-      </div>
-      <p class="route-note">No hubo clase el <strong>martes 25 de agosto</strong>. Tampoco hay clase el <strong>martes 15 de septiembre</strong>: día de asueto. El <strong>jueves 8 de octubre</strong> la clase es la conferencia de la Semana Académica, en el Auditorio Pérez del Toro.</p>
-    </div>
-  </section>
-
-  <!-- ═════════════════════════ EVALUACIÓN ═══════════════════════════════ -->
-  <section class="section" id="evaluacion">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker k-amber">Cómo se califica</p>
-        <h2>Tu evaluación</h2>
-        <p class="lead">El 60 % de tu calificación se juega en el día a día: en los controles de lectura y en lo que aportas cada clase.</p>
-      </div>
-
-      <div class="score-list">
-        <article class="score" style="--pct:30">
-          <strong>30%</strong>
-          <div>
-            <span class="score-label">Controles de lectura</span>
-            <div class="score-bar"><i></i></div>
+      <div class="more-list">
+        <details class="fold" id="sesiones">
+          <summary>
+            <span class="fold-ico" aria-hidden="true">🗂️</span>
+            <h3 class="fold-title">Sesiones anteriores<small>Lo que vimos cada día, con su versión de la página</small></h3>
+            <span class="fold-count mono" id="sessionCount"></span>
+          </summary>
+          <div class="fold-body">
+            <p class="lead">Abre cualquier sesión con liga para volver a lo que vimos ese día: lecturas, láminas, videos y actividades.</p>
+            <div class="timeline" id="timeline"></div>
           </div>
-        </article>
-        <article class="score" style="--pct:30">
-          <strong>30%</strong>
-          <div>
-            <span class="score-label">Participación en clase</span>
-            <div class="score-bar"><i></i></div>
-          </div>
-        </article>
-        <article class="score" style="--pct:20">
-          <strong>20%</strong>
-          <div>
-            <span class="score-label">Trabajo final de investigación</span>
-            <div class="score-bar"><i></i></div>
-          </div>
-        </article>
-        <article class="score" style="--pct:10">
-          <strong>10%</strong>
-          <div>
-            <span class="score-label">Exámenes parciales</span>
-            <div class="score-bar"><i></i></div>
-          </div>
-        </article>
-        <article class="score" style="--pct:10">
-          <strong>10%</strong>
-          <div>
-            <span class="score-label">Asistencia</span>
-            <div class="score-bar"><i></i></div>
-          </div>
-        </article>
-      </div>
+        </details>
+        <details class="fold" id="ruta">
+          <summary>
+            <span class="fold-ico" aria-hidden="true">🧭</span>
+            <h3 class="fold-title">La ruta del semestre<small>Seis unidades, de agosto a diciembre</small></h3>
+          </summary>
+          <div class="fold-body">
 
-      <div class="req-grid">
-        <div class="req"><span>Para acreditar</span><strong>80% de asistencia</strong></div>
-        <div class="req"><span>Además</span><strong>Al menos la mitad de las tareas y de los parciales</strong></div>
-        <div class="req"><span>Obligatorio</span><strong>Presentar el trabajo final de investigación</strong></div>
-      </div>
+          <div class="route-grid">
+            <article class="route-card">
+              <span class="rc-num">I</span>
+              <p class="rc-dates">18—27 agosto</p>
+              <h3>Vocabulario para leer el poder</h3>
+              <p>Qué es la geopolítica, qué mira y qué deja fuera. Escalas, actores y marcos.</p>
+              <p class="rc-hours">6 horas · 3 sesiones</p>
+            </article>
+            <article class="route-card">
+              <span class="rc-num">II</span>
+              <p class="rc-dates">1—22 septiembre</p>
+              <h3>Hitos que ordenaron el mundo</h3>
+              <p>Imperio, guerra total y el peligro que quedó después: el orden territorial y las infraestructuras que todavía condicionan el comercio de hoy.</p>
+              <p class="rc-hours">12 horas · 6 sesiones</p>
+            </article>
+            <article class="route-card">
+              <span class="rc-num">III</span>
+              <p class="rc-dates">24 sep — 6 oct</p>
+              <h3>El presente global y regional</h3>
+              <p>La economía mundial convertida en arsenal: Estados Unidos y China, la guerra de los chips y la fragmentación del comercio. Incluye el primer parcial.</p>
+              <p class="rc-hours">8 horas · 4 sesiones</p>
+            </article>
+            <article class="route-card">
+              <span class="rc-num">IV</span>
+              <p class="rc-dates">8—20 octubre</p>
+              <h3>Escenarios complejos, riesgos conectados</h3>
+              <p>Energía, minerales críticos, cuellos de botella marítimos y cadenas globales de valor.</p>
+              <p class="rc-hours">8 horas · 4 sesiones</p>
+            </article>
+            <article class="route-card">
+              <span class="rc-num">V</span>
+              <p class="rc-dates">27 oct — 17 noviembre</p>
+              <h3>Estrategias para negocios internacionales</h3>
+              <p>Del análisis a la decisión: policy memo, matriz de riesgo y simulación de sala de consejo.</p>
+              <p class="rc-hours">14 horas · 7 sesiones</p>
+            </article>
+            <article class="route-card">
+              <span class="rc-num">VI</span>
+              <p class="rc-dates">19 nov — 3 diciembre</p>
+              <h3>México en el tablero internacional</h3>
+              <p>T-MEC, nearshoring, corredores logísticos y el margen de maniobra entre dos potencias.</p>
+              <p class="rc-hours">10 horas · 5 sesiones</p>
+            </article>
+          </div>
+          <p class="route-note">No hubo clase el <strong>martes 25 de agosto</strong>. Tampoco hay clase el <strong>martes 15 de septiembre</strong>: día de asueto. El <strong>jueves 8 de octubre</strong> la clase fue la conferencia de la Semana Académica, en el Auditorio Pérez del Toro, y el <strong>jueves 22 de octubre</strong> no hubo clase. El <strong>segundo examen parcial</strong> es el <strong>jueves 19 de noviembre</strong>.</p>
+          </div>
+        </details>
+        <details class="fold" id="evaluacion">
+          <summary>
+            <span class="fold-ico" aria-hidden="true">✅</span>
+            <h3 class="fold-title">Tu evaluación<small>Cómo se califica y qué necesitas para acreditar</small></h3>
+          </summary>
+          <div class="fold-body">
+            <p class="lead">El 60 % de tu calificación se juega en el día a día: en los controles de lectura y en lo que aportas cada clase.</p>
 
-      <div class="bonus">
-        <div class="bonus-head">
-          <span class="pill pill-amber">Puntos extra</span>
-          <h3>Hasta 1 punto adicional</h3>
-          <p>Se suma a tu calificación final. Puedes obtener uno de los dos medios puntos, o los dos.</p>
-        </div>
-        <ul class="bonus-list">
-          <li>
-            <b>+0.5</b>
-            <div>
-              <strong>Todos los controles de lectura</strong>
-              <span>Si entregas la totalidad de los controles del semestre, sin faltar ninguno.</span>
+          <div class="score-list">
+            <article class="score" style="--pct:30">
+              <strong>30%</strong>
+              <div>
+                <span class="score-label">Controles de lectura</span>
+                <div class="score-bar"><i></i></div>
+              </div>
+            </article>
+            <article class="score" style="--pct:30">
+              <strong>30%</strong>
+              <div>
+                <span class="score-label">Participación en clase</span>
+                <div class="score-bar"><i></i></div>
+              </div>
+            </article>
+            <article class="score" style="--pct:20">
+              <strong>20%</strong>
+              <div>
+                <span class="score-label">Trabajo final de investigación</span>
+                <div class="score-bar"><i></i></div>
+              </div>
+            </article>
+            <article class="score" style="--pct:10">
+              <strong>10%</strong>
+              <div>
+                <span class="score-label">Exámenes parciales</span>
+                <div class="score-bar"><i></i></div>
+              </div>
+            </article>
+            <article class="score" style="--pct:10">
+              <strong>10%</strong>
+              <div>
+                <span class="score-label">Asistencia</span>
+                <div class="score-bar"><i></i></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="req-grid">
+            <div class="req"><span>Para acreditar</span><strong>80% de asistencia</strong></div>
+            <div class="req"><span>Además</span><strong>Al menos la mitad de las tareas y de los parciales</strong></div>
+            <div class="req"><span>Obligatorio</span><strong>Presentar el trabajo final de investigación</strong></div>
+          </div>
+
+          <div class="bonus">
+            <div class="bonus-head">
+              <span class="pill pill-amber">Puntos extra</span>
+              <h3>Hasta 1 punto adicional</h3>
+              <p>Se suma a tu calificación final. Puedes obtener uno de los dos medios puntos, o los dos.</p>
             </div>
-          </li>
-          <li>
-            <b>+0.5</b>
-            <div>
-              <strong>Más de 15 participaciones</strong>
-              <span>Si superas las 15 participaciones registradas en clase a lo largo del semestre.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═════════════════════════ PROFESOR ═════════════════════════════════ -->
-  <section class="section" id="profesor">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker k-plum">Quién imparte el curso</p>
-        <h2>Con quién vas a trabajar</h2>
-      </div>
-
-      <article class="prof">
-        <div class="prof-side">
-          <figure class="prof-avatar">
-            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato pixelado del profesor">
-              <rect width="120" height="120" fill="#1e3a5f"/>
-              <rect x="40" y="30" width="40" height="40" fill="#ffdbac"/>
-              <rect x="35" y="25" width="50" height="10" fill="#2c2c2c"/>
-              <rect x="35" y="35" width="10" height="5" fill="#2c2c2c"/>
-              <rect x="75" y="35" width="10" height="5" fill="#2c2c2c"/>
-              <rect x="48" y="45" width="8" height="8" fill="#2c2c2c"/>
-              <rect x="64" y="45" width="8" height="8" fill="#2c2c2c"/>
-              <rect x="50" y="47" width="4" height="4" fill="#ffffff"/>
-              <rect x="66" y="47" width="4" height="4" fill="#ffffff"/>
-              <rect x="45" y="43" width="12" height="12" fill="none" stroke="#4a5568" stroke-width="2"/>
-              <rect x="63" y="43" width="12" height="12" fill="none" stroke="#4a5568" stroke-width="2"/>
-              <line x1="57" y1="49" x2="63" y2="49" stroke="#4a5568" stroke-width="2"/>
-              <rect x="58" y="55" width="4" height="6" fill="#e6b896"/>
-              <rect x="50" y="63" width="4" height="3" fill="#8b4513"/>
-              <rect x="54" y="65" width="4" height="2" fill="#8b4513"/>
-              <rect x="62" y="65" width="4" height="2" fill="#8b4513"/>
-              <rect x="66" y="63" width="4" height="3" fill="#8b4513"/>
-              <rect x="50" y="70" width="20" height="8" fill="#ffdbac"/>
-              <rect x="35" y="78" width="50" height="30" fill="#c1123f"/>
-              <rect x="57" y="78" width="6" height="20" fill="#1e3a5f"/>
-              <polygon points="57,98 63,98 60,105" fill="#1e3a5f"/>
-              <rect x="45" y="88" width="8" height="3" fill="#a30020"/>
-              <rect x="67" y="88" width="8" height="3" fill="#a30020"/>
-              <rect x="35" y="108" width="50" height="12" fill="#16202c" opacity=".3"/>
-            </svg>
-          </figure>
-          <strong>Dr. Jorge Cardiel Herrera</strong>
-          <span>Facultad de Contaduría y Administración · UNAM</span>
-        </div>
-
-        <div class="prof-body">
-          <p>Doctor en Ciencias Políticas y Sociales por la UNAM. Doy clases en la Facultad de Contaduría y Administración y en la Facultad de Ciencias Políticas y Sociales, en cursos sobre geopolítica, globalización, energía y mercados emergentes.</p>
-          <p>Trabajo desde la sociocibernética y la geopolítica crítica. Me interesa menos que memorices mapas y más que entiendas cómo se construyen las explicaciones sobre el mundo: quién las produce, con qué datos y a quién le sirven. Esa es la herramienta que quiero que se lleven de este curso.</p>
-          <p>Fuera del aula soy tesorero del Research Committee 51 (Sociocibernética) de la Asociación Internacional de Sociología y editor del <em>Journal of Sociocybernetics</em>.</p>
-
-          <ul class="prof-tags">
-            <li>Geopolítica crítica</li>
-            <li>Sociocibernética</li>
-            <li>Economía política internacional</li>
-            <li>Ciencia, tecnología y sociedad</li>
-          </ul>
-
-          <div class="prof-links">
-            <a class="btn btn-primary" href="https://socyb.github.io" target="_blank" rel="noopener noreferrer">Mi página · socyb.github.io ↗</a>
-            <a class="btn" href="mailto:semsocan2019@gmail.com">✉ semsocan2019@gmail.com</a>
+            <ul class="bonus-list">
+              <li>
+                <b>+0.5</b>
+                <div>
+                  <strong>Todos los controles de lectura</strong>
+                  <span>Si entregas la totalidad de los controles del semestre, sin faltar ninguno.</span>
+                </div>
+              </li>
+              <li>
+                <b>+0.5</b>
+                <div>
+                  <strong>Más de 15 participaciones</strong>
+                  <span>Si superas las 15 participaciones registradas en clase a lo largo del semestre.</span>
+                </div>
+              </li>
+            </ul>
           </div>
-          <p class="prof-contact">Ese es el correo del curso: úsalo para dudas, entregas y avisos. Escribe desde donde quieras, pero pon tu nombre y el grupo en el asunto.</p>
-        </div>
-      </article>
-    </div>
-  </section>
+          </div>
+        </details>
+        <details class="fold" id="profesor">
+          <summary>
+            <span class="fold-ico" aria-hidden="true">✉️</span>
+            <h3 class="fold-title">Tu profesor<small>Dr. Jorge Cardiel Herrera · correo del curso</small></h3>
+          </summary>
+          <div class="fold-body">
 
-  <!-- ═════════════════════════ RECURSOS ═════════════════════════════════ -->
-  <section class="section section-alt" id="recursos">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker k-teal">Recursos</p>
-        <h2>Para tener a la mano</h2>
-      </div>
-      <div class="res-grid">
-        <a class="res-card" href="#sesiones">
-          <span class="res-icon">🗂️</span>
-          <strong>Bitácora de sesiones</strong>
-          <p>Una versión de esta página por cada clase</p>
-        </a>
-        <a class="res-card" href="carta_grupo.html" target="_blank" rel="noopener">
-          <span class="res-icon">🧭</span>
-          <strong>La carta del grupo</strong>
-          <p>Lo que salió de la mesa de brújulas</p>
-        </a>
-        <a class="res-card" href="assets/presentations/JorgeCardiel_CriticalGeopolitic.pdf" target="_blank" rel="noopener">
-          <span class="res-icon">🖼️</span>
-          <strong>Geopolítica crítica</strong>
-          <p>La presentación de la unidad I, en PDF</p>
-        </a>
-        <a class="res-card" href="https://www.youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener noreferrer">
-          <span class="res-icon">🎥</span>
-          <strong>Playlist del curso</strong>
-          <p>Los videos que vamos viendo, en YouTube</p>
-        </a>
-        <a class="res-card" href="videos_recientes.html" target="_blank" rel="noopener">
-          <span class="res-icon">📺</span>
-          <strong>Videos del semestre</strong>
-          <p>Todos los que hemos visto, los de hoy primero</p>
-        </a>
-        <a class="res-card" href="https://negociosinternacionales.fca.unam.mx" target="_blank" rel="noopener noreferrer">
-          <span class="res-icon">📚</span>
-          <strong>Moodle</strong>
-          <p>Plataforma oficial de entregas</p>
-        </a>
-        <a class="res-card" href="https://www.fca.unam.mx/" target="_blank" rel="noopener noreferrer">
-          <span class="res-icon">🏛️</span>
-          <strong>FCA UNAM</strong>
-          <p>Portal de la Facultad</p>
-        </a>
-        <a class="res-card" href="https://github.com/socyb/geopolis" target="_blank" rel="noopener noreferrer">
-          <span class="res-icon">🔗</span>
-          <strong>Repositorio</strong>
-          <p>Código fuente de esta página</p>
-        </a>
+          <article class="prof">
+            <div class="prof-side">
+              <figure class="prof-avatar">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato pixelado del profesor">
+                  <rect width="120" height="120" fill="#1e3a5f"/>
+                  <rect x="40" y="30" width="40" height="40" fill="#ffdbac"/>
+                  <rect x="35" y="25" width="50" height="10" fill="#2c2c2c"/>
+                  <rect x="35" y="35" width="10" height="5" fill="#2c2c2c"/>
+                  <rect x="75" y="35" width="10" height="5" fill="#2c2c2c"/>
+                  <rect x="48" y="45" width="8" height="8" fill="#2c2c2c"/>
+                  <rect x="64" y="45" width="8" height="8" fill="#2c2c2c"/>
+                  <rect x="50" y="47" width="4" height="4" fill="#ffffff"/>
+                  <rect x="66" y="47" width="4" height="4" fill="#ffffff"/>
+                  <rect x="45" y="43" width="12" height="12" fill="none" stroke="#4a5568" stroke-width="2"/>
+                  <rect x="63" y="43" width="12" height="12" fill="none" stroke="#4a5568" stroke-width="2"/>
+                  <line x1="57" y1="49" x2="63" y2="49" stroke="#4a5568" stroke-width="2"/>
+                  <rect x="58" y="55" width="4" height="6" fill="#e6b896"/>
+                  <rect x="50" y="63" width="4" height="3" fill="#8b4513"/>
+                  <rect x="54" y="65" width="4" height="2" fill="#8b4513"/>
+                  <rect x="62" y="65" width="4" height="2" fill="#8b4513"/>
+                  <rect x="66" y="63" width="4" height="3" fill="#8b4513"/>
+                  <rect x="50" y="70" width="20" height="8" fill="#ffdbac"/>
+                  <rect x="35" y="78" width="50" height="30" fill="#c1123f"/>
+                  <rect x="57" y="78" width="6" height="20" fill="#1e3a5f"/>
+                  <polygon points="57,98 63,98 60,105" fill="#1e3a5f"/>
+                  <rect x="45" y="88" width="8" height="3" fill="#a30020"/>
+                  <rect x="67" y="88" width="8" height="3" fill="#a30020"/>
+                  <rect x="35" y="108" width="50" height="12" fill="#16202c" opacity=".3"/>
+                </svg>
+              </figure>
+              <strong>Dr. Jorge Cardiel Herrera</strong>
+              <span>Facultad de Contaduría y Administración · UNAM</span>
+            </div>
+
+            <div class="prof-body">
+              <p>Doctor en Ciencias Políticas y Sociales por la UNAM. Doy clases en la Facultad de Contaduría y Administración y en la Facultad de Ciencias Políticas y Sociales, en cursos sobre geopolítica, globalización, energía y mercados emergentes.</p>
+              <p>Trabajo desde la sociocibernética y la geopolítica crítica. Me interesa menos que memorices mapas y más que entiendas cómo se construyen las explicaciones sobre el mundo: quién las produce, con qué datos y a quién le sirven. Esa es la herramienta que quiero que se lleven de este curso.</p>
+              <p>Fuera del aula soy tesorero del Research Committee 51 (Sociocibernética) de la Asociación Internacional de Sociología y editor del <em>Journal of Sociocybernetics</em>.</p>
+
+              <ul class="prof-tags">
+                <li>Geopolítica crítica</li>
+                <li>Sociocibernética</li>
+                <li>Economía política internacional</li>
+                <li>Ciencia, tecnología y sociedad</li>
+              </ul>
+
+              <div class="prof-links">
+                <a class="btn btn-primary" href="https://socyb.github.io" target="_blank" rel="noopener noreferrer">Mi página · socyb.github.io ↗</a>
+                <a class="btn" href="mailto:semsocan2019@gmail.com">✉ semsocan2019@gmail.com</a>
+              </div>
+              <p class="prof-contact">Ese es el correo del curso: úsalo para dudas, entregas y avisos. Escribe desde donde quieras, pero pon tu nombre y el grupo en el asunto.</p>
+            </div>
+          </article>
+          </div>
+        </details>
+        <details class="fold" id="recursos">
+          <summary>
+            <span class="fold-ico" aria-hidden="true">🔗</span>
+            <h3 class="fold-title">Recursos<small>Moodle, la playlist, los videos del semestre y más</small></h3>
+          </summary>
+          <div class="fold-body">
+          <div class="res-grid">
+            <a class="res-card" href="#sesiones">
+              <span class="res-icon">🗂️</span>
+              <strong>Bitácora de sesiones</strong>
+              <p>Una versión de esta página por cada clase</p>
+            </a>
+            <a class="res-card" href="carta_grupo.html" target="_blank" rel="noopener">
+              <span class="res-icon">🧭</span>
+              <strong>La carta del grupo</strong>
+              <p>Lo que salió de la mesa de brújulas</p>
+            </a>
+            <a class="res-card" href="assets/presentations/JorgeCardiel_CriticalGeopolitic.pdf" target="_blank" rel="noopener">
+              <span class="res-icon">🖼️</span>
+              <strong>Geopolítica crítica</strong>
+              <p>La presentación de la unidad I, en PDF</p>
+            </a>
+            <a class="res-card" href="https://www.youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg" target="_blank" rel="noopener noreferrer">
+              <span class="res-icon">🎥</span>
+              <strong>Playlist del curso</strong>
+              <p>Los videos que vamos viendo, en YouTube</p>
+            </a>
+            <a class="res-card" href="videos_recientes.html" target="_blank" rel="noopener">
+              <span class="res-icon">📺</span>
+              <strong>Videos del semestre</strong>
+              <p>Todos los que hemos visto, los de hoy primero</p>
+            </a>
+            <a class="res-card" href="https://negociosinternacionales.fca.unam.mx" target="_blank" rel="noopener noreferrer">
+              <span class="res-icon">📚</span>
+              <strong>Moodle</strong>
+              <p>Plataforma oficial de entregas</p>
+            </a>
+            <a class="res-card" href="https://www.fca.unam.mx/" target="_blank" rel="noopener noreferrer">
+              <span class="res-icon">🏛️</span>
+              <strong>FCA UNAM</strong>
+              <p>Portal de la Facultad</p>
+            </a>
+            <a class="res-card" href="https://github.com/socyb/geopolis" target="_blank" rel="noopener noreferrer">
+              <span class="res-icon">🔗</span>
+              <strong>Repositorio</strong>
+              <p>Código fuente de esta página</p>
+            </a>
+          </div>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -1590,19 +1180,299 @@
       <p>
         <strong>Grupo 1541 · Semestre 2027-1</strong>
         <a href="#profesor">Dr. Jorge Cardiel Herrera</a> · Martes A-004 · Jueves A-101 · 09:00—11:00<br><a href="mailto:semsocan2019@gmail.com">semsocan2019@gmail.com</a> · <a href="https://socyb.github.io" target="_blank" rel="noopener noreferrer">socyb.github.io</a><br>
-        <span class="updated" data-sesion="17">Última actualización: martes 20 de octubre de 2026 · Sesión 17</span>
+        <span class="updated" data-sesion="19">Última actualización: miércoles 28 de octubre de 2026 · Sesión 19</span>
       </p>
       <a class="to-top" href="#inicio" aria-label="Volver al inicio">↑</a>
     </div>
     <!-- Mantener esta referencia al final del pie común en todas las sesiones. -->
     <section class="page-citation" id="como-citar" aria-labelledby="citationTitle">
       <h2 id="citationTitle">Cómo citar esta página · APA 7</h2>
-      <p class="citation-reference">Cardiel, J. (2026). <em>Geopolítica internacional aplicada a los negocios internacionales</em>. Geopolis. Recuperado el <time id="citationAccessDate" datetime="2026-10-20">20 de octubre de 2026</time>, de <a href="https://socyb.github.io/geopolis/index27.html">https://socyb.github.io/geopolis/index27.html</a></p>
+      <p class="citation-reference">Cardiel, J. (2026). <em>Geopolítica internacional aplicada a los negocios internacionales</em>. Geopolis. Recuperado el <time id="citationAccessDate" datetime="2026-10-28">28 de octubre de 2026</time>, de <a href="https://socyb.github.io/geopolis/index27.html">https://socyb.github.io/geopolis/index27.html</a></p>
       <p class="citation-examples">Cita parentética: (Cardiel, 2026). Cita narrativa: Cardiel (2026).</p>
-      <p class="citation-note">La portada cambia con cada sesión: conserva la fecha en que la consultaste. Para citar el contenido de una clase concreta, usa su versión guardada en la <a href="#sesiones">bitácora de sesiones</a>.</p>
+      <p class="citation-note">La portada cambia con cada sesión: conserva la fecha en que la consultaste. Para citar el contenido de una clase concreta, usa su versión guardada en <a href="#sesiones">Sesiones anteriores</a>.</p>
     </section>
   </footer>
 
+
+  <!-- ═════════════════ MODO PRESENTACIÓN · SESIÓN 19 ════════════════════ -->
+  <div class="pres" id="pres" role="dialog" aria-modal="true" aria-label="Taller del estado del arte en modo presentación" hidden>
+    <div class="pres-stage" tabindex="-1">
+
+      <section class="pslide p-cover-slide" aria-label="Portada">
+        <svg class="p-rose" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true">
+          <circle cx="100" cy="100" r="96" stroke-width="1"/>
+          <circle cx="100" cy="100" r="72" stroke-width="1"/>
+          <circle cx="100" cy="100" r="46" stroke-width="1"/>
+          <path d="M100 0v200M0 100h200M29 29l142 142M171 29L29 171" stroke-width=".7"/>
+          <path d="M100 12l10 78 78 10-78 10-10 78-10-78-78-10 78-10z" fill="currentColor" stroke="none" opacity=".5"/>
+        </svg>
+        <div class="p-cover">
+          <div>
+            <p class="p-kicker">Geopolítica Internacional · Grupo 1541 · Sesión 19</p>
+            <h1 class="p-hero">Fuente sin abrir,<br><em>rumor bien citado.</em></h1>
+            <p class="p-sub">Taller: el estado del arte</p>
+            <p class="p-meta">Jueves 29 de octubre · A-101 · 09:00—11:00</p>
+          </div>
+          <figure class="p-qr">
+            <img src="assets/index27/qr-index27.svg" alt="Código QR de la página del curso" width="300" height="300">
+            <figcaption>Ábrela en tu celular: ahí está la lista del equipo<code>socyb.github.io/<wbr>geopolis/index27.html</code></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="pslide" aria-label="Lo que te llevas">
+        <p class="p-kicker">Hoy, en una hora</p>
+        <h2 class="p-title">Sales de esta hora <em>con</em></h2>
+        <ol class="p-items">
+          <li><b>1</b><div><strong>Las palabras para buscar</strong><span>De cinco a diez palabras clave de tu pregunta, en español y en inglés.</span></div></li>
+          <li><b>2</b><div><strong>Cuatro fuentes o más</strong><span>Abiertas, leídas y al menos tres académicas.</span></div></li>
+          <li><b>3</b><div><strong>Citadas en un estilo</strong><span>APA 7, Chicago o MLA: el que elija tu equipo.</span></div></li>
+        </ol>
+        <p class="p-callout"><b>Vale 0.5 de tu calificación final.</b> Es la segunda de las cuatro etapas del trabajo final.</p>
+      </section>
+
+      <section class="pslide" aria-label="Las cinco estaciones">
+        <p class="p-kicker">El recorrido</p>
+        <h2 class="p-title">Una hora, <em>cinco estaciones</em></h2>
+        <ol class="p-agenda">
+          <li style="--m:8"><span>1</span><strong>Antes de zarpar</strong><em>8 min</em></li>
+          <li style="--m:20"><span>2</span><strong>Tres puertos</strong><em>20 min</em></li>
+          <li style="--m:10"><span>3</span><strong>La prueba del ancla</strong><em>10 min</em></li>
+          <li style="--m:10"><span>4</span><strong>Mismas piezas, tres estilos</strong><em>10 min</em></li>
+          <li style="--m:12"><span>5</span><strong>Las fuentes del equipo</strong><em>12 min</em></li>
+        </ol>
+        <p class="p-callout"><b>La lista del equipo se llena desde la estación 2,</b> conforme encuentren fuentes.</p>
+      </section>
+
+      <section class="pslide" data-station="1" aria-label="Estación 1: qué es un estado del arte">
+        <p class="p-kicker">Estación 1 · Antes de zarpar · 8 minutos</p>
+        <h2 class="p-title">La carta náutica <em>de tu pregunta</em></h2>
+        <div class="p-two">
+          <div class="p-box is-yes">
+            <h3>Lo que sí es</h3>
+            <ul class="p-pills"><li>Quién la ha estudiado</li><li>Qué encontró</li><li>En qué coinciden</li><li>En qué discuten</li><li>Qué falta</li></ul>
+          </div>
+          <div class="p-box is-no" data-step>
+            <h3>Lo que no es</h3>
+            <ul class="p-pills"><li>Un resumen tras otro</li><li>La historia del tema</li><li>Lo que dice Wikipedia</li><li>Lo que contestó el chat</li><li>Una lista de ligas</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="pslide" data-station="1" aria-label="Estación 1: dos capas">
+        <p class="p-kicker">Estación 1 · Antes de zarpar</p>
+        <h2 class="p-title">Tu lista necesita <em>las dos capas</em></h2>
+        <div class="p-two">
+          <div class="p-box p-layer">
+            <p class="p-tag">Capa 1</p>
+            <h3>El caso</h3>
+            <p>Lo que pasó: actores, fechas, cifras. Si es de 2025 o 2026, está en prensa, informes y datos oficiales.</p>
+            <p class="p-eg">Nexperia y las armadoras del Bajío, 2025</p>
+          </div>
+          <div class="p-box p-layer is-concept" data-step>
+            <p class="p-tag">Capa 2</p>
+            <h3>El concepto</h3>
+            <p>La idea que explica el caso. Ahí hay años de investigación académica, casi toda en inglés.</p>
+            <p class="p-eg">Interdependencia armada · Farrell y Newman (2019)</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="pslide" data-station="1" aria-label="Estación 1: palabras para buscar">
+        <p class="p-kicker">Estación 1 · Antes de zarpar</p>
+        <h2 class="p-title">De la pregunta <em>a las palabras</em></h2>
+        <p class="p-q">¿Qué tan expuestas quedaron las armadoras del Bajío al corte de chips de Nexperia en 2025?</p>
+        <table class="p-table">
+          <thead><tr><th>Pieza</th><th>En español</th><th>En inglés</th></tr></thead>
+          <tbody>
+            <tr><td>El caso</td><td>Nexperia, armadoras</td><td>Nexperia, automakers</td></tr>
+            <tr><td>El fenómeno</td><td>escasez de chips</td><td>chip shortage</td></tr>
+            <tr><td>El concepto</td><td>interdependencia armada</td><td>weaponized interdependence</td></tr>
+            <tr><td>La decisión</td><td>resiliencia de la cadena de suministro</td><td>supply chain resilience</td></tr>
+          </tbody>
+        </table>
+        <div class="p-foot">
+          <p class="p-callout"><b>Ahora ustedes:</b> de cinco a diez palabras clave de su pregunta, en español y en inglés.</p>
+          <div class="p-clock" data-clock="1"></div>
+        </div>
+      </section>
+
+      <section class="pslide" data-station="2" aria-label="Estación 2: tres puertos">
+        <p class="p-kicker">Estación 2 · Tres puertos · 20 minutos</p>
+        <h2 class="p-title">Cada quien busca <em>en un puerto</em></h2>
+        <div class="p-three">
+          <div class="p-box p-port"><p class="p-tag">Puerto 1</p><h3>BIDI UNAM</h3><ul><li>Revistas, libros y bases de datos que la UNAM paga por ti.</li><li>Empieza por el Descubridor de Información.</li></ul></div>
+          <div class="p-box p-port is-2"><p class="p-tag">Puerto 2</p><h3>Buscadores y organismos</h3><ul><li>Google Académico, Redalyc, SciELO, Dialnet.</li><li>CEPAL, OCDE, FMI, Banco Mundial, INEGI.</li></ul></div>
+          <div class="p-box p-port is-3"><p class="p-tag">Puerto 3</p><h3>Un asistente de IA</h3><ul><li>Te orienta, pero no es una fuente.</li><li>Toda referencia que te dé, ábrela tú.</li></ul></div>
+        </div>
+        <p class="p-callout"><b>La meta:</b> al menos 4 fuentes, y de ellas, al menos 3 académicas.</p>
+      </section>
+
+      <section class="pslide" data-station="2" aria-label="Estación 2: acceso remoto a BIDI">
+        <p class="p-kicker">Estación 2 · Puerto 1 · BIDI UNAM</p>
+        <h2 class="p-title">Desde casa o con datos: <em>acceso remoto</em></h2>
+        <ol class="p-items">
+          <li><b>1</b><div><strong>Entra a <code>bidi.unam.mx</code></strong></div></li>
+          <li><b>2</b><div><strong>«Acceso remoto» → «Alumnos UNAM»</strong><span>Número de cuenta, plantel, carrera y correo.</span></div></li>
+          <li><b>3</b><div><strong>La clave te llega por correo</strong><span>En unos minutos. Revisa también el spam.</span></div></li>
+        </ol>
+      </section>
+
+      <section class="pslide" data-station="2" aria-label="Estación 2: el asistente de IA">
+        <p class="p-kicker">Estación 2 · Puerto 3 · Un asistente de IA</p>
+        <h2 class="p-title">Brújula, <em>no puerto</em></h2>
+        <div class="p-two">
+          <div class="p-box is-yes"><h3>Úsalo para</h3><ul class="p-list"><li>Palabras clave en inglés</li><li>Sinónimos y nombres de autores</li><li>Entender un párrafo difícil</li></ul></div>
+          <div class="p-box is-no"><h3>No lo uses para</h3><ul class="p-list"><li>Sacar referencias que no vas a abrir</li><li>Citarlo como fuente de un dato</li><li>Escribir el estado del arte</li></ul></div>
+        </div>
+        <p class="p-callout is-warn" data-step><b>Cuidado:</b> inventa referencias que suenan reales. Autores reales, revistas reales y títulos que nadie escribió.</p>
+      </section>
+
+      <section class="pslide" data-station="2" aria-label="Estación 2: quién busca dónde">
+        <p class="p-kicker">Estación 2 · Tres puertos</p>
+        <h2 class="p-title">Quién busca <em>dónde</em></h2>
+        <ul class="p-roles">
+          <li><b>Archivista</b>BIDI UNAM</li>
+          <li><b>Cartógrafo o cartógrafa</b>Organismos y datos</li>
+          <li><b>Vigía</b>El asistente de IA, con lupa</li>
+          <li><b>Relator o relatora</b>Prensa del caso</li>
+          <li><b>Capitán o capitana</b>Google Académico y el reloj</li>
+        </ul>
+        <div class="p-foot">
+          <p class="p-callout"><b>La meta: 4 fuentes o más, 3 de ellas académicas.</b> Cada una va directo a la lista del equipo.</p>
+          <div class="p-clock" data-clock="2"></div>
+        </div>
+      </section>
+
+      <section class="pslide" data-station="3" aria-label="Estación 3: la prueba del ancla">
+        <p class="p-kicker">Estación 3 · La prueba del ancla · 10 minutos</p>
+        <div class="p-split">
+          <div>
+            <h2 class="p-title">Si falla una, <em>no entra</em></h2>
+            <ol class="p-tests">
+              <li><strong>Existe</strong><span>«¿Dónde está publicada? Ábrela ahí.»</span></li>
+              <li><strong>La abriste</strong><span>«¿Puedes ir a la página 12 ahora?»</span></li>
+              <li><strong>Dice lo que crees</strong><span>«¿Qué dice, con tus palabras?»</span></li>
+              <li><strong>Sabes quién habla</strong><span>«¿Por qué le creerías?»</span></li>
+              <li><strong>Le sirve a tu pregunta</strong><span>«Si la quitas, ¿qué falta?»</span></li>
+            </ol>
+          </div>
+          <div class="p-clock" data-clock="3"></div>
+        </div>
+      </section>
+
+      <section class="pslide p-check" data-station="3" aria-label="¿Existe? Referencia 1 de 6">
+        <p class="p-kicker">Estación 3 · ¿Existe o la inventaron? · 1 de 6</p>
+        <p class="p-ref">Gereffi, G., Humphrey, J., &amp; Sturgeon, T. (2005). The governance of global value chains. <i>Review of International Political Economy, 12</i>(1), 78–104. https://doi.org/10.1080/09692290500049805</p>
+        <p class="p-ask">Busquen el título entre comillas o abran el DOI. <b>¿Existe?</b></p>
+        <p class="p-copy" role="group" aria-label="Copiar los datos de la referencia"></p>
+        <div class="p-verdict is-real" data-step><strong>Existe ✓</strong><span>El DOI abre el artículo en la revista. Es uno de los textos más citados sobre cadenas globales de valor.</span></div>
+      </section>
+
+      <section class="pslide p-check" data-station="3" aria-label="¿Existe? Referencia 2 de 6">
+        <p class="p-kicker">Estación 3 · ¿Existe o la inventaron? · 2 de 6</p>
+        <p class="p-ref">Farrell, H., &amp; Newman, A. L. (2022). Nearshoring as statecraft: Mexico in the weaponized supply chain. <i>Journal of Latin American Studies, 54</i>(2), 211–238.</p>
+        <p class="p-ask">Busquen el título entre comillas. <b>¿Existe?</b></p>
+        <p class="p-copy" role="group" aria-label="Copiar los datos de la referencia"></p>
+        <div class="p-verdict is-fake" data-step><strong>No existe ✗</strong><span>Los autores y la revista son reales; el artículo, no. No aparece en Google Académico ni en el índice de la revista, y no trae DOI.</span></div>
+      </section>
+
+      <section class="pslide p-check" data-station="3" aria-label="¿Existe? Referencia 3 de 6">
+        <p class="p-kicker">Estación 3 · ¿Existe o la inventaron? · 3 de 6</p>
+        <p class="p-ref">Miller, C. (2022). <i>Chip war: The fight for the world's most critical technology</i>. Scribner.</p>
+        <p class="p-ask">No trae DOI. ¿Dónde lo buscarían? <b>¿Existe?</b></p>
+        <p class="p-copy" role="group" aria-label="Copiar los datos de la referencia"></p>
+        <div class="p-verdict is-real" data-step><strong>Existe ✓</strong><span>Es un libro: no tiene DOI. Se comprueba en el catálogo de la editorial o en una biblioteca. Que no tenga DOI no lo hace sospechoso.</span></div>
+      </section>
+
+      <section class="pslide p-check" data-station="3" aria-label="¿Existe? Referencia 4 de 6">
+        <p class="p-kicker">Estación 3 · ¿Existe o la inventaron? · 4 de 6</p>
+        <p class="p-ref">Gereffi, G. (2020). The governance of global value chains in the age of nearshoring. <i>Foreign Affairs, 99</i>(4), 45–58. https://doi.org/10.1162/isec_a_00351</p>
+        <p class="p-ask">Abran el DOI. <b>¿Existe?</b></p>
+        <p class="p-copy" role="group" aria-label="Copiar los datos de la referencia"></p>
+        <div class="p-verdict is-fake" data-step><strong>No existe ✗</strong><span>El DOI abre otro artículo, de otros autores y en otra revista. Gereffi sí estudia cadenas de valor: por eso suena creíble.</span></div>
+      </section>
+
+      <section class="pslide p-check" data-station="3" aria-label="¿Existe? Referencia 5 de 6">
+        <p class="p-kicker">Estación 3 · ¿Existe o la inventaron? · 5 de 6</p>
+        <p class="p-ref">Banco Mundial. (2024). <i>Mexico nearshoring readiness index 2024</i>. https://doi.org/10.1596/978-1-4648-2024-1</p>
+        <p class="p-ask">Abran el DOI. <b>¿Existe?</b></p>
+        <p class="p-copy" role="group" aria-label="Copiar los datos de la referencia"></p>
+        <div class="p-verdict is-fake" data-step><strong>No existe ✗</strong><span>El DOI no lleva a ningún documento. Un organismo real con un informe inventado es de las trampas más comunes.</span></div>
+      </section>
+
+      <section class="pslide p-check" data-station="3" aria-label="¿Existe? Referencia 6 de 6">
+        <p class="p-kicker">Estación 3 · ¿Existe o la inventaron? · 6 de 6</p>
+        <p class="p-ref">Farrell, H., &amp; Newman, A. L. (2022). Weak links in finance and supply chains are easily weaponized. <i>Nature, 605</i>(7909), 219–222. https://doi.org/10.1038/d41586-022-01254-5</p>
+        <p class="p-ask">El título parece de periódico. <b>¿Existe?</b></p>
+        <p class="p-copy" role="group" aria-label="Copiar los datos de la referencia"></p>
+        <div class="p-verdict is-real" data-step><strong>Existe ✓</strong><span>Es un comentario en <i>Nature</i>, no un artículo de investigación. Saber qué clase de texto tienes en la mano también es parte de la prueba.</span></div>
+      </section>
+
+      <section class="pslide" data-station="4" aria-label="Estación 4: tres estilos">
+        <p class="p-kicker">Estación 4 · Mismas piezas, tres estilos · 10 minutos</p>
+        <h2 class="p-title">El mismo artículo, <em>tres estilos</em></h2>
+        <div class="p-styles">
+          <div class="p-style"><b>APA 7</b><p data-cite-ref="apa"></p></div>
+          <div class="p-style" data-step><b>Chicago</b><p data-cite-ref="chicago"></p></div>
+          <div class="p-style" data-step><b>MLA 9</b><p data-cite-ref="mla"></p></div>
+        </div>
+      </section>
+
+      <section class="pslide" data-station="4" aria-label="Estación 4: la cita en el texto">
+        <p class="p-kicker">Estación 4 · Mismas piezas, tres estilos</p>
+        <h2 class="p-title">Y dentro <em>del texto</em></h2>
+        <div class="p-styles is-in">
+          <div class="p-style"><b>APA 7</b><p data-cite-in="apa"></p></div>
+          <div class="p-style"><b>Chicago</b><p data-cite-in="chicago"></p></div>
+          <div class="p-style"><b>MLA 9</b><p data-cite-in="mla"></p></div>
+        </div>
+        <div class="p-foot">
+          <p class="p-callout"><b>Elijan un estilo para todo el trabajo.</b> Escriben en español: «y» entre autores (en APA, &amp;), «núm.», «En» y «editado por».</p>
+          <div class="p-clock" data-clock="4"></div>
+        </div>
+      </section>
+
+      <section class="pslide" data-station="5" aria-label="Estación 5: la lista del equipo">
+        <p class="p-kicker">Estación 5 · Las fuentes del equipo · 12 minutos</p>
+        <div class="p-split">
+          <div>
+            <h2 class="p-title">Una lista <em>completa</em> tiene</h2>
+            <ul class="p-checks">
+              <li>Cuatro fuentes o más</li>
+              <li>Tres académicas o más</li>
+              <li>Fuentes del caso y del concepto</li>
+              <li>Todas pasan la prueba del ancla</li>
+              <li>Todas dicen qué aportan</li>
+            </ul>
+          </div>
+          <div class="p-side">
+            <div class="p-clock" data-clock="5"></div>
+            <figure class="p-qr is-small"><img src="assets/index27/qr-index27.svg" alt="" width="190" height="190"><figcaption>La lista está en la página</figcaption></figure>
+          </div>
+        </div>
+        <p class="p-callout"><b>Al terminar:</b> «Copiar la lista para el foro» y publíquenla en Moodle.</p>
+      </section>
+
+      <section class="pslide p-end" aria-label="Lo que sigue">
+        <p class="p-kicker">Lo que sigue</p>
+        <blockquote class="p-quote">Leer lo que otros ya encontraron no le quita originalidad a tu trabajo: <em>te enseña dónde empieza.</em></blockquote>
+        <p class="p-lead">Con esta lista escriben el estado del arte: agrupen lo que dicen sus fuentes por coincidencias y desacuerdos, no fuente por fuente.</p>
+        <p class="p-exam"><span>Apunta la fecha</span><strong>Segundo examen parcial · jueves 19 de noviembre</strong></p>
+      </section>
+
+      <div class="pres-bar">
+        <i class="pb-progress" aria-hidden="true"></i>
+        <span class="pb-where" id="pbWhere">Sesión 19 · Taller: el estado del arte</span>
+        <span class="pb-count" id="pbCount" aria-live="polite">01 / 21</span>
+        <button class="pb-btn pb-timer" id="pbTimer" type="button" title="Iniciar o pausar el reloj (T)" hidden>⏱ 08:00</button>
+        <button class="pb-btn" id="pbPrev" type="button" aria-label="Paso anterior" title="Anterior (←)">←</button>
+        <button class="pb-btn" id="pbNext" type="button" aria-label="Siguiente paso" title="Siguiente (→ o barra espaciadora)">→</button>
+        <button class="pb-btn" id="pbFull" type="button" aria-label="Pantalla completa" aria-pressed="false" title="Pantalla completa (F)">⛶</button>
+        <button class="pb-btn" id="pbExit" type="button" title="Salir (Esc)">Salir ✕</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════════════ MARCO EMERGENTE · CÓDIGO QR ═══════════════════ -->
   <dialog class="qr-modal" id="qrModal" aria-labelledby="qrModalTitle">
