@@ -116,7 +116,8 @@
   // cierra la unidad IV; IA y cadenas de suministro sale del calendario.
   // El 22 de octubre no hubo clase: las sesiones siguientes conservan su fecha y se
   // renumeran. El 27 se leyó la Franja y la Ruta (OBOR/BRI), sin versión propia, y
-  // el 29 es el taller del estado del arte.
+  // el 29 es el taller del estado del arte. El 3 de noviembre, estrategias de
+  // empresas multinacionales con el caso 7-Eleven (Yahagi y Kar, actividad 11).
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
@@ -138,8 +139,8 @@
     [16,"2026-10-15","A-101","Del tema a la pregunta","Taller · equipos · pregunta de investigación","IV","sesiones/s16-del-tema-a-la-pregunta.html"],
     [17,"2026-10-20","A-004","Nord Stream","Virág y Tancsa · gas · actividad 9","IV","sesiones/s17-nord-stream.html"],
     [18,"2026-10-27","A-004","La Franja y la Ruta","Lectura de OBOR/BRI · infraestructura · financiamiento","V"],
-    [19,"2026-10-29","A-101","Taller: el estado del arte","Fuentes · verificación · APA 7, Chicago o MLA","V","#sesion-actual"],
-    [20,"2026-11-03","A-004","Estrategias de empresas multinacionales","Adaptación · influencia · salida","V"],
+    [19,"2026-10-29","A-101","Taller: el estado del arte","Fuentes · verificación · APA 7, Chicago o MLA","V","sesiones/s19-el-estado-del-arte.html"],
+    [20,"2026-11-03","A-004","7-Eleven: copiar, adaptar o reinventar","Yahagi y Kar · modelo de negocio · actividad 11","V","#sesion-actual"],
     [21,"2026-11-05","A-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
     [22,"2026-11-10","A-004","Sala de consejo","Simulación · decisión bajo presión","V"],
     [23,"2026-11-12","A-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],

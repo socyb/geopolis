@@ -80,35 +80,42 @@ participaciones.
 **Recursos a la mano.** La playlist del curso en YouTube, Moodle para entregas, el
 portal de la FCA y este repositorio.
 
-## Sesión del 29 de octubre de 2026
+## Sesión del 3 de noviembre de 2026
 
-La portada muestra la sesión 19: **Taller: el estado del arte**, la segunda etapa
-del trabajo final (0.5 de la calificación). En una hora y cinco estaciones, cada
-equipo convierte su pregunta en palabras de búsqueda, busca en tres puertos —BIDI
-UNAM, buscadores y organismos, y un asistente de IA usado con cuidado—, pasa cada
-fuente por la «prueba del ancla» (con seis referencias para comprobar: tres
-existen y tres no), elige entre APA 7, Chicago y MLA 9, y arma la lista de fuentes
-del equipo. La lista se guarda en el navegador, se vuelve a citar sola al cambiar
-de estilo y se copia con cursivas para el foro de Moodle.
+La portada muestra la sesión 20: **7-Eleven: copiar, adaptar o reinventar**, la
+actividad 11 de la unidad V. Lleva la lectura con su referencia en APA 7 —Yahagi
+y Kar (2009), *The process of international business model transfer in the
+Seven-Eleven group: US–Japan–China*, pp. 41—57— y tres términos clave
+(adaptación creativa continua, licencia de área y dominio de área). Después, en
+cinco paradas:
 
-El botón **Modo presentación** abre el mismo taller en 21 láminas para el
-proyector de un salón de 60: un lienzo de 1600 × 900 que se escala a cualquier
-pantalla, letra grande y papel claro, pasos que se destapan dentro de cada lámina
-(«¿Existe?» y luego el veredicto) y un reloj por estación que avisa con tres
-pitidos. Avanza con las flechas, la barra espaciadora o un control de
-presentación (Av Pág / Re Pág), `T` inicia o pausa el reloj, `F` pone pantalla
-completa y Esc sale. También se abre con un enlace directo a una lámina:
-[`index27.html#presentacion-12`](index27.html#presentacion-12).
+1. **El video** de Asian Boss, *Why The U.S. Can’t Copy Japanese 7-Eleven*,
+   incrustado para empezar en el 4:23 y terminar en el 37:25, con la tabla 1 del
+   artículo (Japón contra Estados Unidos) y lo que Japón tomó y cambió, en un
+   desplegable para abrir después de discutir.
+2. **Un modelo, tres viajes**: de Estados Unidos a Japón (1973), de regreso
+   (1991) y de Japón a Pekín (2004), con su página.
+3. **Cuatro preguntas para discutir**, cada una con su respuesta desplegable y
+   la página del artículo: los riesgos geopolíticos de la cadena de suministro,
+   las estrategias geopolíticas del modelo, el *gap* y las ventajas competitivas,
+   y teoría de juegos y cooperación (con el video de Veritasium).
+4. **Otros casos, en video**: Starbucks contra Luckin Coffee, la globalización
+   según DW y los puertos de la Franja y la Ruta (*Mapped Out*).
+5. **Al consejo**: copiar el modelo japonés, adaptarlo o vender el negocio.
 
 Bajo la barra de hoy, un aviso recuerda que el **segundo examen parcial es el
 jueves 19 de noviembre**.
 
-En esta versión la portada deja a la vista solo la sesión del día. Las sesiones
-anteriores, la ruta, la evaluación, el profesor y los recursos quedan en
-desplegables al final, y un menú en la barra superior lleva a todo, también en el
-celular.
+La portada deja a la vista solo la sesión del día. Las sesiones anteriores, la
+ruta, la evaluación, el profesor y los recursos quedan en desplegables al final,
+y un menú en la barra superior lleva a todo, también en el celular.
 
-La [sesión 17](sesiones/s17-nord-stream.html) queda archivada, junto con la
+La [sesión 19](sesiones/s19-el-estado-del-arte.html) queda archivada con todo su
+taller: el reloj de estaciones, la lista de fuentes del equipo (que se guarda en
+el navegador) y el **modo presentación** en 21 láminas, que también se abre con
+un enlace directo a una lámina, por ejemplo
+[`sesiones/s19-el-estado-del-arte.html#presentacion-12`](sesiones/s19-el-estado-del-arte.html#presentacion-12).
+Antes quedaron la [sesión 17](sesiones/s17-nord-stream.html) y la
 [sesión 16](sesiones/s16-del-tema-a-la-pregunta.html). La sesión 18 (martes 27
 de octubre, la lectura de la Franja y la Ruta, OBOR/BRI) no dejó versión propia;
 el jueves 22 de octubre no hubo clase.
@@ -117,7 +124,7 @@ el jueves 22 de octubre no hubo clase.
 semestre, de la sesión de hoy hacia atrás, con buscador y filtro por sesión.
 
 Para revisar la portada en otra fecha se usa el parámetro `fecha`, por ejemplo
-[`index27.html?fecha=2026-10-29T08:30#sesion-actual`](index27.html?fecha=2026-10-29T08:30#sesion-actual);
+[`index27.html?fecha=2026-11-03T08:30#sesion-actual`](index27.html?fecha=2026-11-03T08:30#sesion-actual);
 sin él se usa la hora real de Ciudad de México.
 
 `tests/check_session_release.py` comprobaba la apertura programada del 15 de

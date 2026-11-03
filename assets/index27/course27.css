@@ -971,6 +971,7 @@ footer a{color:var(--amber)}
 .refbox p{margin:0;font-size:.92rem}
 .refbox p+p{margin-top:.6rem}
 .refbox .hang{padding-left:2rem;text-indent:-2rem}
+.refbox a{overflow-wrap:anywhere}
 .updated{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
 }
