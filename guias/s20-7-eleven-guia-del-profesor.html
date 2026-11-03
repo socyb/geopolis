@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c1123f">
+<title>Guía del profesor · Sesión 20 · 7-Eleven</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c1123f'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f6f1e6' stroke-width='1.4'/%3E%3Cpath d='M16 5l3 11 11 0-11 3-3 11-3-11-11-3 11 0z' fill='%23f6f1e6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap">
+<style>
+:root{
+  --paper:#f6f1e6;--paper-2:#efe8d9;--card:#fffcf6;--ink:#16202c;--ink-soft:#33415a;--muted:#6a7789;
+  --line:#d9cfba;--edge:#16202c;
+  --guinda:#c1123f;--cobalt:#1a49c9;--teal:#0f7a70;--amber:#c8860a;--plum:#7c3f6d;
+  --tint-red:#fbe3e7;--tint-blue:#e4ecff;--tint-teal:#dcf1ec;--tint-amber:#fbeed2;--tint-plum:#f4e7f1;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:14px;--shadow:4px 4px 0 var(--edge);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1620;--paper-2:#131e2a;--card:#17232f;--ink:#eef3f9;--ink-soft:#c6d3e2;--muted:#8ea0b6;
+    --line:#31435a;--edge:#050b12;
+    --guinda:#ff5573;--cobalt:#83a8ff;--teal:#4fd0bf;--amber:#f2c257;--plum:#d68fc4;
+    --tint-red:#341a23;--tint-blue:#17233f;--tint-teal:#0f2c2a;--tint-amber:#332711;--tint-plum:#2d1c2b;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1620;--paper-2:#131e2a;--card:#17232f;--ink:#eef3f9;--ink-soft:#c6d3e2;--muted:#8ea0b6;
+  --line:#31435a;--edge:#050b12;
+  --guinda:#ff5573;--cobalt:#83a8ff;--teal:#4fd0bf;--amber:#f2c257;--plum:#d68fc4;
+  --tint-red:#341a23;--tint-blue:#17233f;--tint-teal:#0f2c2a;--tint-amber:#332711;--tint-plum:#2d1c2b;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.6}
+a{color:var(--cobalt)}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.1;letter-spacing:-.02em;margin:0 0 .4em}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:900}
+h1 em,h2 em{color:var(--guinda);font-style:italic}
+h2{font-size:clamp(1.45rem,3.2vw,2rem);font-weight:900}
+h3{font-size:1.2rem;font-weight:900}
+p{margin:0 0 .8rem}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.kicker{margin:0 0 .5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--guinda)}
+.k-blue{color:var(--cobalt)}.k-teal{color:var(--teal)}.k-amber{color:var(--amber)}.k-plum{color:var(--plum)}
+.muted{color:var(--muted)}
+.pg{font-family:var(--mono);font-size:.78em;color:var(--guinda);white-space:nowrap}
+
+/* barra */
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--edge)}
+.bar .wrap{display:flex;align-items:center;gap:.8rem;min-height:56px;flex-wrap:wrap;padding-top:.4rem;padding-bottom:.4rem}
+.bar strong{font-family:var(--display);font-weight:900}
+.bar nav{display:flex;gap:.2rem .9rem;flex-wrap:wrap;margin-left:auto;font-size:.86rem}
+.bar nav a{color:var(--ink);text-decoration:none;font-weight:500}
+.bar nav a:hover{color:var(--guinda)}
+.tools{display:flex;gap:.4rem}
+button{font:inherit;cursor:pointer}
+.btn{border:2px solid var(--edge);background:var(--card);color:var(--ink);border-radius:999px;padding:.35rem .85rem;font-size:.82rem;font-weight:700;box-shadow:2px 2px 0 var(--edge)}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--edge)}
+.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+
+/* portada */
+.head{padding:2.4rem 0 1.6rem}
+.private{display:inline-block;margin:0 0 1rem;padding:.3rem .7rem;border:2px dashed var(--guinda);border-radius:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--guinda);background:var(--tint-red)}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 0;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.74rem;padding:.25rem .6rem;border:1.5px solid var(--line);border-radius:999px;background:var(--card)}
+.lead{font-size:1.08rem;color:var(--ink-soft);max-width:62ch}
+
+section{padding:2rem 0;border-top:2px solid var(--edge)}
+section:nth-of-type(even){background:var(--paper-2)}
+.card{background:var(--card);border:2px solid var(--edge);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem 1.3rem;min-width:0}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+
+/* ruta */
+.route{width:100%;border-collapse:collapse;font-size:.92rem;background:var(--card);border:2px solid var(--edge);border-radius:var(--radius)}
+.route th,.route td{padding:.6rem .8rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.route thead th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper-2)}
+.route td:first-child{font-family:var(--mono);font-size:.8rem;white-space:nowrap;color:var(--guinda)}
+.route tr:last-child td{border-bottom:0}
+.tablebox{overflow-x:auto;border-radius:var(--radius)}
+
+/* preguntas */
+.q{margin-top:1.4rem}
+.q-head{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.qn{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;font-family:var(--mono);font-size:.85rem;font-weight:500;border:2px solid var(--guinda);color:var(--guinda);background:var(--tint-red)}
+.q:nth-of-type(2) .qn{border-color:var(--plum);color:var(--plum);background:var(--tint-plum)}
+.q:nth-of-type(3) .qn{border-color:var(--teal);color:var(--teal);background:var(--tint-teal)}
+.q:nth-of-type(4) .qn{border-color:var(--amber);color:var(--amber);background:var(--tint-amber)}
+.q-title{font-size:clamp(1.15rem,2.4vw,1.4rem);margin:.15rem 0 .5rem}
+.ask{margin:0;font-size:.95rem;color:var(--ink-soft)}
+.ask b{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:.35rem}
+details.ans{margin-top:1rem;border:1.5px solid var(--line);border-radius:10px;background:var(--paper)}
+details.ans > summary{list-style:none;cursor:pointer;padding:.6rem .9rem;font-weight:700;display:flex;gap:.5rem;align-items:center}
+details.ans > summary::-webkit-details-marker{display:none}
+details.ans > summary::before{content:"▸";color:var(--guinda);transition:transform .2s}
+details.ans[open] > summary::before{transform:rotate(90deg)}
+details.ans[open] > summary{border-bottom:1.5px solid var(--line)}
+.ans-body{padding:.9rem 1rem 1rem}
+.ans-body ul{margin:0 0 .8rem;padding-left:1.15rem}
+.ans-body li{margin-bottom:.45rem;font-size:.94rem;color:var(--ink-soft)}
+.ans-body li b{color:var(--ink)}
+.quote{margin:.4rem 0 .9rem;padding:.6rem .9rem;border-left:4px solid var(--guinda);background:var(--card);font-family:var(--display);font-style:italic;font-size:.98rem;color:var(--ink-soft)}
+.quote cite{display:block;margin-top:.3rem;font-family:var(--mono);font-style:normal;font-size:.72rem;color:var(--muted)}
+.deeper{margin:0;padding:.6rem .8rem;border-radius:8px;background:var(--tint-blue);font-size:.92rem}
+.deeper b{color:var(--cobalt)}
+.src{margin:.7rem 0 0;font-family:var(--mono);font-size:.7rem;color:var(--muted);line-height:1.5}
+.src a{color:var(--muted)}
+
+/* posiciones */
+.pos h3{font-size:1.3rem;margin:.2rem 0 .5rem}
+.pos ul{margin:0;padding-left:1.1rem;font-size:.92rem;color:var(--ink-soft)}
+.pos li{margin-bottom:.35rem}
+.pos .con{margin-top:.7rem;padding-top:.6rem;border-top:1.5px dashed var(--line)}
+
+/* cifras */
+.facts{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);border:2px solid var(--edge);border-radius:var(--radius)}
+.facts th,.facts td{padding:.45rem .75rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.facts td:first-child{font-family:var(--mono);font-size:.82rem;white-space:nowrap;color:var(--ink);font-weight:500}
+.facts td:last-child{font-family:var(--mono);font-size:.74rem;white-space:nowrap;color:var(--guinda);text-align:right}
+.facts tr:last-child td{border-bottom:0}
+.facts caption{caption-side:top;text-align:left;padding:.4rem 0 .5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+
+footer{padding:1.6rem 0 2.4rem;border-top:2px solid var(--edge);font-size:.82rem;color:var(--muted)}
+
+@media (max-width:620px){
+  .bar nav{display:none}
+  .q-head{grid-template-columns:1fr}
+}
+@media print{
+  .bar,.tools{display:none}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  section{padding:1rem 0;background:none!important;border-top:1px solid #999}
+  .card{box-shadow:none;border:1px solid #999;break-inside:avoid}
+  details.ans{border-color:#bbb}
+  .q{break-inside:avoid-page}
+}
+</style>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="wrap">
+      <strong>Guía del profesor · Sesión 20</strong>
+      <nav aria-label="Secciones de la guía">
+        <a href="#ruta">Ruta</a>
+        <a href="#parada1">Video</a>
+        <a href="#parada3">Preguntas</a>
+        <a href="#parada5">Consejo</a>
+        <a href="#cifras">Cifras</a>
+      </nav>
+      <div class="tools">
+        <button class="btn" id="toggleAns" type="button" aria-pressed="false">Ocultar respuestas</button>
+        <button class="btn" id="themeBtn" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar entre modo claro y oscuro">🌙</button>
+        <button class="btn" id="printBtn" type="button" title="Imprimir la guía">Imprimir</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <div class="head">
+    <div class="wrap">
+      <p class="private">Solo para el profesor · no está ligada a la portada</p>
+      <p class="kicker">Geopolítica Internacional · Grupo 1541 · Unidad V · Actividad 11</p>
+      <h1>7-Eleven: copiar, adaptar <em>o reinventar</em></h1>
+      <p class="lead">Las respuestas de la parada 3 que salieron de la página pública, con su página en el artículo, y lo demás que sirve tener a la mano en la clase. «Ocultar respuestas» deja solo las preguntas, por si proyectas esta guía.</p>
+      <ul class="meta">
+        <li>Martes 3 de noviembre de 2026</li>
+        <li>Salón A-004 · 09:00—11:00</li>
+        <li>Yahagi y Kar (2009), pp. 41—57</li>
+        <li>Asian Boss (2026), del 4:23 al 37:25</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ RUTA ═══════════════════════════════ -->
+  <section id="ruta">
+    <div class="wrap">
+      <p class="kicker">La ruta de la clase</p>
+      <h2>Cinco paradas, <em>como en la portada</em></h2>
+      <div class="tablebox">
+        <table class="route">
+          <thead><tr><th scope="col">Tiempo</th><th scope="col">Parada</th><th scope="col">Qué pedir</th></tr></thead>
+          <tbody>
+            <tr><td>5 min</td><td><b>Arranque</b></td><td>Votación a mano alzada con el punto 4 del control: ¿copiar, adaptar o vender? Anota el resultado para compararlo al final.</td></tr>
+            <tr><td>15 min</td><td><b>1 · El video</b></td><td>Lo vieron para el control. Pide un ejemplo del video de lo que Japón tomó y otro de lo que cambió, con su minuto. Luego contrasta con el artículo.</td></tr>
+            <tr><td>10 min</td><td><b>2 · Tres viajes</b></td><td>EU → Japón (1973), Japón → EU (1991), Japón → Pekín (2004). ¿Por qué cambia la mezcla entre copiar y adaptar en cada viaje?</td></tr>
+            <tr><td>40 min</td><td><b>3 · Cuatro preguntas</b></td><td>Unos 10 minutos por pregunta. Primero el «para empezar», después la evidencia con página y al final el «y después».</td></tr>
+            <tr><td>15 min</td><td><b>5 · Al consejo</b></td><td>Tres esquinas del salón: copiar, adaptar, vender. Cada esquina defiende su posición con una página o un minuto; repite la votación del arranque.</td></tr>
+            <tr><td>—</td><td><b>4 · Otros casos</b></td><td>Para después de clase: Starbucks y Luckin, DW y <i>Mapped Out</i>. Úsalos si sobra tiempo o como puente con la pregunta 1.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PARADA 1 ═══════════════════════════════ -->
+  <section id="parada1">
+    <div class="wrap">
+      <p class="kicker">Parada 1 · Punto 2 del control</p>
+      <h2>Qué tomó Japón <em>y qué cambió</em></h2>
+      <p class="muted" style="font-size:.9rem">Esta parte sigue en la página pública, en un desplegable que dice «Ábrelo después de discutir».</p>
+      <div class="grid">
+        <article class="card">
+          <p class="kicker k-teal">Lo que tomó intacto · p. 44</p>
+          <ul style="margin:0;padding-left:1.1rem;font-size:.94rem">
+            <li>El letrero y la marca.</li>
+            <li>El concepto de tienda de conveniencia. Cubrir una necesidad inmediata: lo que se consume en los 15 minutos siguientes a la compra <span class="pg">p. 46</span>.</li>
+            <li>La contabilidad de franquicia: la matriz y el franquiciatario se reparten la utilidad bruta. Fue clave porque SEJ dependía de franquicias.</li>
+            <li>Además, una estrategia aprendida de Southland: el dominio de área <span class="pg">p. 46</span>.</li>
+          </ul>
+          <p class="src">Las dos primeras eran consecuencia del contrato de licencia de área <span class="pg">p. 44</span>.</p>
+        </article>
+        <article class="card">
+          <p class="kicker k-amber">Lo que cambió · pp. 44—49</p>
+          <ul style="margin:0;padding-left:1.1rem;font-size:.94rem">
+            <li>Comida fresca en lugar de congelados y sándwiches <span class="pg">p. 44</span>.</li>
+            <li>El 98&nbsp;% de las tiendas en manos de franquiciatarios; en EU, casi la mitad eran propias <span class="pg">p. 45</span>.</li>
+            <li>Tiendas 40&nbsp;% más chicas, primero en carreteras y luego en calles comerciales, y sin gasolina <span class="pg">p. 45</span>.</li>
+            <li>Entregas pequeñas y frecuentes, menos proveedores, distribución conjunta por temperatura, pedidos electrónicos y surtido pieza por pieza <span class="pg">p. 46</span>.</li>
+            <li>Mercancía desarrollada con los fabricantes y el 55&nbsp;% de las ventas en productos exclusivos <span class="pg">p. 47</span>.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PARADA 3 ═══════════════════════════════ -->
+  <section id="parada3">
+    <div class="wrap">
+      <p class="kicker">Parada 3 · 40 minutos</p>
+      <h2>Cuatro preguntas: <em>las respuestas</em></h2>
+      <p class="muted" style="font-size:.9rem">En la página pública solo quedan la pregunta, el «para empezar» y el «y después». Las páginas son las de la revista.</p>
+
+      <article class="card q">
+        <div class="q-head">
+          <span class="qn">1</span>
+          <div>
+            <h3 class="q-title">¿Cuáles son los riesgos geopolíticos de esta cadena de suministro?</h3>
+            <p class="ask"><b>Para empezar</b>Una tienda japonesa tiene inventario para 7.4 días, y la comida fresca le llega tres veces al día. ¿Qué la puede vaciar?</p>
+          </div>
+        </div>
+        <details class="ans" open>
+          <summary>Lo que dice la lectura</summary>
+          <div class="ans-body">
+            <ul>
+              <li><b>Poco inventario y mucha frecuencia.</b> 7.4 días de inventario contra 16 en EU <span class="pg">p. 45</span> y comida fresca tres veces al día <span class="pg">p. 52</span>. Lo que la hace eficiente la hace frágil: un sismo, un bloqueo o un cierre de frontera se nota en el anaquel en horas.</li>
+              <li><b>Proveedores atados a una sola cadena.</b> 328 centros de distribución exclusivos en 2005 <span class="pg">pp. 46—47</span> y 55&nbsp;% de las ventas en productos exclusivos <span class="pg">p. 47</span>. Si falla un proveedor, no hay otro listo. La intoxicación que dio origen a la asociación de fabricantes lo mostró <span class="pg">p. 48</span>.</li>
+              <li><b>El Estado anfitrión decide.</b> En Pekín, la contabilidad de franquicia seguía sin permiso de la ciudad <span class="pg">pp. 53—54</span>, y la ciudad frenaba las tiendas que cocinan en edificios registrados como residenciales <span class="pg">pp. 54—55</span>.</li>
+              <li><b>Costos que no controla.</b> Las rentas de Pekín se dispararon con los Juegos Olímpicos de 2008 <span class="pg">p. 54</span>.</li>
+              <li><b>Un socio que es el Estado.</b> La empresa conjunta de Pekín es con un distribuidor controlado por el Estado <span class="pg">p. 49</span>.</li>
+              <li><b>Y la empresa misma, como pieza del tablero.</b> Esto ya no está en el artículo. En 2024, Couche-Tard (Canadá, dueña de Circle K) ofreció comprar Seven &amp; i por unos 46,000 millones de dólares. En julio de 2025 retiró la oferta: dijo que Seven &amp; i no había negociado de manera sincera ni constructiva.</li>
+            </ul>
+            <blockquote class="quote">«It is possible that too much delay in gaining approval for the franchise system from the authorities could derail the store opening plans for SEB».<cite>Yahagi y Kar, 2009, p. 54</cite></blockquote>
+            <p class="deeper"><b>Y después:</b> ¿qué riesgo pesa más, el que viene del mercado o el que viene del Estado? Puente con DW (las crisis y las cadenas) y con <i>Mapped Out</i> (los puertos).</p>
+            <p class="src">Couche-Tard: <a href="https://www.theglobeandmail.com/business/article-couche-tard-withdraws-takeover-bid-seven-i" target="_blank" rel="noopener">The Globe and Mail</a>; <a href="https://www.businessday.co.za/bd/companies/retail-and-consumer/2025-07-17-couche-tard-abandons-46bn-bid-for-seven-i-holdings/" target="_blank" rel="noopener">BusinessDay</a> (17 jul. 2025).</p>
+          </div>
+        </details>
+      </article>
+
+      <article class="card q">
+        <div class="q-head">
+          <span class="qn">2</span>
+          <div>
+            <h3 class="q-title">¿Cuáles son las estrategias geopolíticas que usa este modelo de negocio?</h3>
+            <p class="ask"><b>Para empezar</b>«Licencia de área» y «dominio de área» son palabras de territorio. ¿Qué tienen de geopolítica?</p>
+          </div>
+        </div>
+        <details class="ans" open>
+          <summary>Lo que dice la lectura</summary>
+          <div class="ans-body">
+            <ul>
+              <li><b>Dominar el territorio, zona por zona.</b> Empezó en el distrito de Koto, en Tokio, y avanzó a los barrios vecinos; en Pekín repitió la jugada en Chaoyang <span class="pg">p. 50</span>. Quien domina la zona abarata entregas y publicidad, y le cierra el paso al rival.</li>
+              <li><b>Comprar el derecho a un territorio.</b> La licencia de área: todo Japón, a cambio de 1,200 tiendas para febrero de 1981 <span class="pg">p. 43</span>.</li>
+              <li><b>Aliarse con el Estado sin soltar el mando.</b> En Pekín, socio estatal, pero mayoría de SEJ y 12 directivos enviados por la matriz. Lawson y FamilyMart dejaron el control a sus socios locales y solo pusieron marca y saber hacer <span class="pg">p. 49</span>.</li>
+              <li><b>Echar raíces en la comunidad.</b> En Japón, el 98&nbsp;% de las tiendas son de franquiciatarios, muchos dueños del terreno. Eso le dio credibilidad local, ayuda de las familias y acceso a las licencias para vender alcohol <span class="pg">p. 45</span>.</li>
+              <li><b>Negociar y cabildear.</b> Con el gobierno de Pekín por la contabilidad de franquicia y con los dueños de los edificios para que los registraran como comerciales <span class="pg">pp. 54—55</span>.</li>
+              <li><b>Comprar a quien te enseñó.</b> Hawái en 1989 y el 70&nbsp;% de Southland en 1991 <span class="pg">p. 44</span>.</li>
+            </ul>
+            <blockquote class="quote">«This store opening approach was faithfully replicated in Beijing, too».<cite>Yahagi y Kar, 2009, p. 50</cite></blockquote>
+            <p class="deeper"><b>Y después:</b> ¿cuáles de estas estrategias usaría también un Estado? ¿Cuáles son solo de empresa? Con el video de <i>Mapped Out</i>: ¿son los puertos de China un dominio de área a escala global?</p>
+          </div>
+        </details>
+      </article>
+
+      <article class="card q">
+        <div class="q-head">
+          <span class="qn">3</span>
+          <div>
+            <h3 class="q-title">¿Cuál es el «gap» que identificó y aprovechó 7-Eleven? ¿Cuáles son sus ventajas competitivas?</h3>
+            <p class="ask"><b>Para empezar</b>Un hueco es una necesidad que nadie está atendiendo. ¿Cuál vio 7-Eleven en Japón? ¿Y cuál en Pekín?</p>
+          </div>
+        </div>
+        <details class="ans" open>
+          <summary>Lo que dice la lectura</summary>
+          <div class="ans-body">
+            <ul>
+              <li><b>En Japón: comida fresca, cerca y a toda hora.</b> El manual estadounidense apostaba por congelados y sándwiches; los japoneses preferían lo fresco <span class="pg">p. 44</span>. 7-Eleven llenó el hueco con onigiri, bentō y guarniciones (43.5&nbsp;% de las ventas) y se mudó de las carreteras a las calles comerciales <span class="pg">p. 45</span>.</li>
+              <li><b>En Pekín: la comida caliente del mediodía.</b> Guerra de precios en abarrotes, margen de menos de 20&nbsp;% y familias que preferían comida caliente y recién hecha a la caja fría <span class="pg">p. 50</span>. La respuesta: platillos semicocinados que se terminan en la tienda, cerca de oficinas y del metro. Para 2006, comida rápida y de entrega diaria eran el 50&nbsp;% de las ventas, y el margen bruto subió a 25&nbsp;% en 2005 <span class="pg">p. 51</span>.</li>
+              <li><b>Ventajas competitivas:</b>
+                <ul>
+                  <li>Control de inventario artículo por artículo con datos del punto de venta: hipótesis, acción y verificación <span class="pg">p. 46</span>.</li>
+                  <li>Distribución conjunta por temperatura: de 70 vehículos a 9 <span class="pg">p. 47</span>.</li>
+                  <li>Un surtido que se renueva solo: 100 artículos nuevos por semana y el 70&nbsp;% del surtido cambia cada año <span class="pg">p. 47</span>.</li>
+                  <li>El 55&nbsp;% de las ventas en productos exclusivos de margen alto <span class="pg">p. 47</span>.</li>
+                  <li>Aprovechar y ordenar los recursos de sus proveedores <span class="pg">p. 49</span>.</li>
+                  <li>Dominio de área: costos de distribución más bajos <span class="pg">p. 46</span>.</li>
+                </ul>
+              </li>
+            </ul>
+            <blockquote class="quote">«The ability to tap into the management resources of its suppliers and streamline their operations also proved to be a major competitive advantage for the company».<cite>Yahagi y Kar, 2009, p. 49</cite></blockquote>
+            <p class="deeper"><b>Y después:</b> ¿cuál de esas ventajas se puede copiar y cuál no? La clave para el título del video: las ventajas de SEJ no están en la tienda, sino en la red de proveedores y distribución que se construyó durante décadas <span class="pg">pp. 55—56</span>. Eso no viene en un manual.</p>
+          </div>
+        </details>
+      </article>
+
+      <article class="card q">
+        <div class="q-head">
+          <span class="qn">4</span>
+          <div>
+            <h3 class="q-title">Teoría de juegos: ¿por qué le conviene a 7-Eleven una estrategia de cooperación?</h3>
+            <p class="ask"><b>Para empezar</b>Cinco fabricantes de helado que compiten entre sí aceptaron compartir sus datos de venta. ¿Por qué lo harían?</p>
+          </div>
+        </div>
+        <details class="ans" open>
+          <summary>Lo que dice la lectura</summary>
+          <div class="ans-body">
+            <ul>
+              <li><b>Competidores que comparten datos (dilema del prisionero).</b> En 1994, cinco fabricantes de helado juntaron sus datos del punto de venta para coordinar producción e inventarios, y centralizaron los congeladores que cada uno rentaba por separado. Bajaron sus costos de inventario y las ventas de helado se multiplicaron por seis <span class="pg">p. 49</span>. A cada uno le convendría guardarse sus datos, pero si todos cooperan, todos ganan. SEJ arma el juego y hace que se repita.</li>
+              <li><b>Un pago para que cooperen.</b> El dominio de área pone a competir a las tiendas de la misma cadena (en EU no pasaba porque Southland operaba sus tiendas). SEJ les garantizó un ingreso mínimo a sus franquiciatarios <span class="pg">p. 46</span>.</li>
+              <li><b>Castigar al que falla.</b> Tras una intoxicación, SEJ dejó de comprarle al productor. De ahí nació la Nihon Delica Foods Association, que vigila la producción y la higiene de sus miembros <span class="pg">p. 48</span>. Cuando se escribió el artículo sumaba unas 80 personas de SEJ, más de 800 de los fabricantes y 20 de la asociación <span class="pg">p. 49</span>.</li>
+              <li><b>Los que no quieren jugar.</b> Cerveceras y fabricantes de fideos no entraron al esquema conjunto. Con ellos hubo proyectos uno a uno, como la serie exclusiva con Nissin <span class="pg">pp. 48—49</span>.</li>
+              <li><b>Sin tamaño no hay juego.</b> En China, con pocas tiendas, no hubo masa para una asociación así. Una planta exclusiva necesita entre 100 y 150 tiendas <span class="pg">p. 54</span>.</li>
+            </ul>
+            <blockquote class="quote">«The new system called for the five companies to share their POS data to coordinate their production and inventory investment plans, as well as centralizing commercial freezers that manufacturers had leased separately».<cite>Yahagi y Kar, 2009, p. 49</cite></blockquote>
+            <p class="deeper"><b>Y después:</b> con Veritasium (torneo de Axelrod), ¿juega SEJ «toma y daca»? Coopera mientras el proveedor cumple, castiga la falla y vuelve a cooperar. ¿Y Luckin con Starbucks: cooperación o guerra de precios? En una guerra de precios el juego no se repite en paz.</p>
+          </div>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PARADA 5 ═══════════════════════════════ -->
+  <section id="parada5">
+    <div class="wrap">
+      <p class="kicker">Parada 5 · Punto 4 del control</p>
+      <h2>Al consejo: <em>argumentos para cada esquina</em></h2>
+      <div class="grid">
+        <article class="card pos">
+          <p class="kicker">Posición A</p>
+          <h3>Copiar</h3>
+          <ul>
+            <li>El concepto viaja: la conveniencia en el tiempo es la misma en EU, Japón y China <span class="pg">p. 50</span>.</li>
+            <li>Pekín copió la mitad de las prácticas casi tal cual y le fue bien <span class="pg">p. 51</span>.</li>
+          </ul>
+          <ul class="con">
+            <li>En EU, casi la mitad de las tiendas eran propias y más de la mitad de las ventas no eran comida; una cuarta parte era gasolina <span class="pg">p. 45</span>.</li>
+            <li>Sin densidad urbana no hay dominio de área.</li>
+          </ul>
+        </article>
+        <article class="card pos">
+          <p class="kicker k-blue">Posición B</p>
+          <h3>Adaptar</h3>
+          <ul>
+            <li>La tesis del artículo: la estandarización completa solo se da en casos excepcionales, como las tiendas de lujo <span class="pg">p. 55</span>.</li>
+            <li>SEJ ya le exportó su saber a EU desde 1991 <span class="pg">p. 44</span>.</li>
+          </ul>
+          <ul class="con">
+            <li>La adaptación continua tarda años y necesita volumen. A Pekín no le alcanzó para su asociación de fabricantes <span class="pg">p. 54</span>.</li>
+          </ul>
+        </article>
+        <article class="card pos">
+          <p class="kicker k-teal">Posición C</p>
+          <h3>Vender</h3>
+          <ul>
+            <li>Salir también es estrategia, si el negocio no puede tener las ventajas que lo hicieron fuerte en Japón.</li>
+            <li>Había comprador: la oferta de Couche-Tard (2024—2025).</li>
+          </ul>
+          <ul class="con">
+            <li>¿Qué dirían los gobiernos de Japón y de EU? ¿Quién controla las tiendas de conveniencia del país?</li>
+          </ul>
+        </article>
+      </div>
+      <blockquote class="quote" style="margin-top:1.4rem">«Complete standardization is possible only in exceptional cases such as luxurious brand shops».<cite>Yahagi y Kar, 2009, p. 55 · la frase de cierre de la página pública</cite></blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CIFRAS ═════════════════════════════════ -->
+  <section id="cifras">
+    <div class="wrap">
+      <p class="kicker">Para tener a la mano</p>
+      <h2>Fechas y cifras, <em>con su página</em></h2>
+      <div class="grid" style="align-items:start">
+        <div class="tablebox">
+          <table class="facts">
+            <caption>Estados Unidos y Japón</caption>
+            <tbody>
+              <tr><td>1973 (nov.)</td><td>Nace Seven-Eleven Japón, filial de Ito-Yokado, con licencia de área de Southland</td><td>p. 43</td></tr>
+              <tr><td>4,800</td><td>Tiendas de Southland en EU y Canadá; Ito-Yokado tenía 33 tiendas</td><td>p. 43</td></tr>
+              <tr><td>1,200</td><td>Tiendas exigidas para febrero de 1981 (se cumplió)</td><td>pp. 43—44</td></tr>
+              <tr><td>1983</td><td>La guía estadounidense ya es mínima; Japón se declara independiente</td><td>p. 44</td></tr>
+              <tr><td>1989 · 1991</td><td>SEJ compra Hawái; Ito-Yokado se queda con el 70&nbsp;% de Southland</td><td>p. 44</td></tr>
+              <tr><td>31,625</td><td>Tiendas en el mundo en 2006 (11,525 en Japón), en 18 países y regiones</td><td>p. 44</td></tr>
+              <tr><td>98&nbsp;%</td><td>Tiendas de franquiciatarios en Japón</td><td>p. 45</td></tr>
+              <tr><td>130 m²</td><td>Tienda japonesa con bodega, 40&nbsp;% menos que los 225 m² en EU</td><td>p. 45</td></tr>
+              <tr><td>43.5&nbsp;%</td><td>Ventas de comida rápida y guarniciones en Japón</td><td>p. 45</td></tr>
+              <tr><td>328</td><td>Centros de distribución conjunta por temperatura (2005)</td><td>pp. 46—47</td></tr>
+              <tr><td>70 → 9</td><td>Vehículos de reparto, con la distribución conjunta</td><td>p. 47</td></tr>
+              <tr><td>4,000 · 2,500</td><td>Artículos recomendados; artículos por tienda; 100 nuevos por semana</td><td>p. 47</td></tr>
+              <tr><td>55&nbsp;%</td><td>Ventas en productos exclusivos (feb. 2007)</td><td>p. 47</td></tr>
+              <tr><td>×6</td><td>Ventas de helado con el proyecto conjunto de 1994</td><td>p. 49</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tablebox">
+          <table class="facts">
+            <caption>Pekín</caption>
+            <tbody>
+              <tr><td>2004 (ene.)</td><td>Seven-Eleven Pekín, empresa conjunta con un distribuidor estatal</td><td>p. 49</td></tr>
+              <tr><td>12</td><td>Directivos enviados por SEJ, que tiene la mayoría</td><td>p. 49</td></tr>
+              <tr><td>283 · 105</td><td>Tiendas de Lawson y FamilyMart en China, controladas por socios locales</td><td>p. 49</td></tr>
+              <tr><td>350</td><td>Tiendas que quería abrir para 2008</td><td>p. 49</td></tr>
+              <tr><td>80&nbsp;%</td><td>Clientes que vienen de menos de 350 m</td><td>p. 50</td></tr>
+              <tr><td>&lt; 20 → 25&nbsp;%</td><td>Margen bruto, de los primeros años a 2005 (Japón: 30&nbsp;%)</td><td>p. 51</td></tr>
+              <tr><td>50&nbsp;%</td><td>Ventas de comida rápida y de entrega diaria (2006)</td><td>p. 51</td></tr>
+              <tr><td>1,100 · 11</td><td>Clientes al día y yuanes por ticket</td><td>p. 51</td></tr>
+              <tr><td>12,000</td><td>Yuanes de venta diaria por tienda (jun. 2006)</td><td>p. 51</td></tr>
+              <tr><td>1,300—1,500</td><td>Artículos por tienda (bajó de 2,000—2,100)</td><td>p. 53</td></tr>
+              <tr><td>100—150</td><td>Tiendas necesarias para una planta exclusiva</td><td>p. 54</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0">Yahagi, T. y Kar, M. (2009). The process of international business model transfer in the Seven-Eleven group: US–Japan–China. <i>Asia Pacific Business Review, 15</i>(1), 41–58. https://doi.org/10.1080/13602380802399338</p>
+      <p style="margin:.4rem 0 0">Guía del profesor · Sesión 20 · Geopolítica Internacional, grupo 1541 · FCA UNAM · No enlazada desde la portada del curso.</p>
+    </div>
+  </footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("guia-tema"); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("guia-tema", root.dataset.theme); } catch (e) {}
+  });
+
+  // Ocultar respuestas: deja solo las preguntas, para proyectar la guía.
+  const boxes = [...document.querySelectorAll("details.ans")];
+  const toggle = document.getElementById("toggleAns");
+  const paint = () => {
+    const allOpen = boxes.every(d => d.open);
+    toggle.textContent = allOpen ? "Ocultar respuestas" : "Mostrar respuestas";
+    toggle.setAttribute("aria-pressed", String(!allOpen));
+  };
+  toggle.addEventListener("click", () => {
+    const open = !boxes.every(d => d.open);
+    boxes.forEach(d => { d.open = open; });
+    paint();
+  });
+  boxes.forEach(d => d.addEventListener("toggle", paint));
+
+  // Al imprimir salen todas las respuestas, y luego vuelven como estaban.
+  let before = [];
+  addEventListener("beforeprint", () => { before = boxes.map(d => d.open); boxes.forEach(d => { d.open = true; }); });
+  addEventListener("afterprint", () => { boxes.forEach((d, i) => { d.open = before[i] ?? true; }); paint(); });
+  document.getElementById("printBtn").addEventListener("click", () => print());
+})();
+</script>
+</body>
+</html>

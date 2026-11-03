@@ -95,10 +95,11 @@ cinco paradas:
    desplegable para abrir después de discutir.
 2. **Un modelo, tres viajes**: de Estados Unidos a Japón (1973), de regreso
    (1991) y de Japón a Pekín (2004), con su página.
-3. **Cuatro preguntas para discutir**, cada una con su respuesta desplegable y
-   la página del artículo: los riesgos geopolíticos de la cadena de suministro,
-   las estrategias geopolíticas del modelo, el *gap* y las ventajas competitivas,
-   y teoría de juegos y cooperación (con el video de Veritasium).
+3. **Cuatro preguntas para discutir**, sin respuestas, para que el grupo las
+   piense: los riesgos geopolíticos de la cadena de suministro, las estrategias
+   geopolíticas del modelo, el *gap* y las ventajas competitivas, y teoría de
+   juegos y cooperación (con el video de Veritasium). Cada una trae una pregunta
+   para empezar y otra para profundizar.
 4. **Otros casos, en video**: Starbucks contra Luckin Coffee, la globalización
    según DW y los puertos de la Franja y la Ruta (*Mapped Out*).
 5. **Al consejo**: copiar el modelo japonés, adaptarlo o vender el negocio.
