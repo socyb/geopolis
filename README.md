@@ -112,6 +112,12 @@ Al inicio del módulo, dos tarjetas con las fechas: el trabajo final se entrega 
 **jueves 26 de noviembre** al correo semsocan2019@gmail.com, y las entrevistas con
 cada equipo sobre su entrega son el **martes 1 y el jueves 3 de diciembre**.
 
+El calendario de la bitácora (`course27.js`) lo recoge: la sesión 27 suma la
+entrega del trabajo final; la 28 pasa a ser **Entrevistas sobre el trabajo
+final**, en lugar de «Corredores y posición de México», y la 29, **Entrevistas
+sobre el trabajo final y cierre**, con el examen final y la retroalimentación en
+lugar de las presentaciones.
+
 Está fuera de los contenedores `.s-version`, así que se ve con cualquier versión
 de la portada. En `course27.css` usa clases propias (`.formats-grid` y
 `.formats-note`), porque `.deck` ya es la presentación de la sesión 04.

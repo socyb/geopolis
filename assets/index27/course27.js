@@ -120,6 +120,9 @@
   // empresas multinacionales con el caso 7-Eleven (Yahagi y Kar, actividad 11).
   // El 10 de noviembre se trabaja la actividad 12: capítulos 1 y 2 de Global
   // Value Chains and Geopolitical Uncertainty, como base para decidir ante un riesgo.
+  // El 26 de noviembre se entrega el trabajo final, al correo semsocan2019@gmail.com,
+  // y el 1 y el 3 de diciembre son las entrevistas con cada equipo sobre su entrega:
+  // ocupan el lugar de «Corredores y posición de México» y de las presentaciones.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
@@ -149,9 +152,9 @@
     [24,"2026-11-17","A-004","China y América Latina","Comercio · dependencia · agencia","V"],
     [25,"2026-11-19","A-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
     [26,"2026-11-24","A-004","México en América del Norte","T-MEC · autonomía · vulnerabilidad","VI"],
-    [27,"2026-11-26","A-101","México entre Estados Unidos y China","Automotriz · chips · inversión","VI"],
-    [28,"2026-12-01","A-004","Corredores y posición de México","Istmo · frontera · logística","VI"],
-    [29,"2026-12-03","A-101","Integración final y cierre","Presentaciones · examen final · retroalimentación","VI"]
+    [27,"2026-11-26","A-101","México entre Estados Unidos y China","Automotriz · chips · inversión · entrega del trabajo final","VI"],
+    [28,"2026-12-01","A-004","Entrevistas sobre el trabajo final","Con cada equipo, sobre su entrega","VI"],
+    [29,"2026-12-03","A-101","Entrevistas sobre el trabajo final y cierre","Con cada equipo, sobre su entrega · examen final · retroalimentación","VI"]
   ].map(([number, date, room, title, subtitle, unit, href, opens]) => ({ number, date, room, title, subtitle, unit, href, opens }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
