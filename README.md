@@ -108,6 +108,10 @@ memo, video, podcast, ensayo e informe de investigación— y la nota de que se
 puede proponer otro o combinar varios, tanto en trabajo individual como en
 equipos de hasta 8 personas.
 
+Al inicio del módulo, dos tarjetas con las fechas: el trabajo final se entrega el
+**jueves 26 de noviembre** al correo semsocan2019@gmail.com, y las entrevistas con
+cada equipo sobre su entrega son el **martes 1 y el jueves 3 de diciembre**.
+
 Está fuera de los contenedores `.s-version`, así que se ve con cualquier versión
 de la portada. En `course27.css` usa clases propias (`.formats-grid` y
 `.formats-note`), porque `.deck` ya es la presentación de la sesión 04.

@@ -2733,6 +2733,8 @@ html.is-presenting{overflow:hidden}
 
 /* ── Trabajo final · ¿qué es cada formato? ──────────────────────────────── */
 /* Nombres propios: .deck ya es la presentación de la sesión 04. */
+.formats-dates{margin-bottom:1.6rem}
+.formats-dates .req p{margin:.4rem 0 0;font-size:.9rem;color:var(--ink-soft);overflow-wrap:anywhere}
 .formats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.1rem}
 .formats-grid article{
   background:var(--card);border:2px solid var(--edge);border-radius:var(--radius);
