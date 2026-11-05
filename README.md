@@ -80,6 +80,24 @@ participaciones.
 **Recursos a la mano.** La playlist del curso en YouTube, Moodle para entregas, el
 portal de la FCA y este repositorio.
 
+## Actividad 12 · Lectura para el 10 de noviembre de 2026
+
+La [actividad 12](index27.html#actividad-12) queda disponible en la portada,
+con un aviso y un enlace en el menú. El calendario la integra en la sesión 22:
+**Cadenas globales de valor e incertidumbre geopolítica**, unidad V.
+
+Se leen los capítulos 1 y 2 de *Global Value Chains and Geopolitical Uncertainty:
+Disruption and Transformation* (Routledge, 2026), pp. 1–16 y 17–39. El control
+individual pide una cuartilla, aproximadamente 300 palabras en cuatro párrafos:
+una idea y cita del capítulo 1, un caso del capítulo 2, un riesgo geopolítico y una
+decisión justificada. Conserva la opción de entregar un esquema o mapa conceptual
+propio en PDF. Las referencias de ambos capítulos están al final de la consigna.
+
+El snippet, su vista previa con botón de copia y el PDF recortado de 39 páginas
+están en `LOCAL/ACTIVIDADES MOODLE/control12/`, listos para cargar en Moodle.
+El recorte corresponde a las hojas 16–54 del PDF original y conserva la numeración
+impresa. La fecha de la sesión no configura una fecha límite de entrega en Moodle.
+
 ## Sesión del 3 de noviembre de 2026
 
 La portada muestra la sesión 20: **7-Eleven: copiar, adaptar o reinventar**, la

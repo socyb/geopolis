@@ -118,6 +118,8 @@
   // renumeran. El 27 se leyó la Franja y la Ruta (OBOR/BRI), sin versión propia, y
   // el 29 es el taller del estado del arte. El 3 de noviembre, estrategias de
   // empresas multinacionales con el caso 7-Eleven (Yahagi y Kar, actividad 11).
+  // El 10 de noviembre se trabaja la actividad 12: capítulos 1 y 2 de Global
+  // Value Chains and Geopolitical Uncertainty, como base para decidir ante un riesgo.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
@@ -142,7 +144,7 @@
     [19,"2026-10-29","A-101","Taller: el estado del arte","Fuentes · verificación · APA 7, Chicago o MLA","V","sesiones/s19-el-estado-del-arte.html"],
     [20,"2026-11-03","A-004","7-Eleven: copiar, adaptar o reinventar","Yahagi y Kar · modelo de negocio · actividad 11","V","#sesion-actual"],
     [21,"2026-11-05","A-101","Matriz de riesgo geopolítico","Probabilidad · impacto · respuesta","V"],
-    [22,"2026-11-10","A-004","Sala de consejo","Simulación · decisión bajo presión","V"],
+    [22,"2026-11-10","A-004","Cadenas globales de valor e incertidumbre geopolítica","Capítulos 1 y 2 · riesgos y decisiones · actividad 12","V","#actividad-12"],
     [23,"2026-11-12","A-101","La Franja y la Ruta","Infraestructura · financiamiento","V"],
     [24,"2026-11-17","A-004","China y América Latina","Comercio · dependencia · agencia","V"],
     [25,"2026-11-19","A-101","Clínica de evidencia y segundo parcial","Contraste · revisión entre pares","VI"],
