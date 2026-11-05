@@ -112,6 +112,11 @@ Al inicio del módulo, dos tarjetas con las fechas: el trabajo final se entrega 
 **jueves 26 de noviembre** al correo semsocan2019@gmail.com, y las entrevistas con
 cada equipo sobre su entrega son el **martes 1 y el jueves 3 de diciembre**.
 
+Después, **lo que incluye la entrega**, sea cual sea el formato: 1) el
+planteamiento del problema con sus preguntas de investigación; 2) el estado del
+arte con la identificación del *research gap*, y 3) la lista de referencias
+utilizadas, todas ocupadas en el trabajo como cita o paráfrasis.
+
 El calendario de la bitácora (`course27.js`) lo recoge: la sesión 27 suma la
 entrega del trabajo final; la 28 pasa a ser **Entrevistas sobre el trabajo
 final**, en lugar de «Corredores y posición de México», y la 29, **Entrevistas
