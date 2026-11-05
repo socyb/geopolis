@@ -2730,3 +2730,19 @@ html.is-presenting{overflow:hidden}
 #g-hoy{margin:0 calc(-1 * clamp(.8rem,2vw,1.4rem));padding:1.6rem clamp(.8rem,2vw,1.4rem) 1.8rem;
   background:var(--tint-red);border:2px solid var(--guinda);border-radius:var(--radius);box-shadow:5px 5px 0 var(--guinda)}
 @media print{.vtools{display:none}.vgroup .vcard[hidden],.vgroup[hidden]{display:flex!important}#g-hoy{box-shadow:none}}
+
+/* ── Trabajo final · ¿qué es cada formato? ──────────────────────────────── */
+/* Nombres propios: .deck ya es la presentación de la sesión 04. */
+.formats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.1rem}
+.formats-grid article{
+  background:var(--card);border:2px solid var(--edge);border-radius:var(--radius);
+  padding:1.2rem 1.25rem;box-shadow:var(--shadow-xs);
+}
+.formats-grid h3{font-size:1.04rem;font-weight:900;margin:.5rem 0 .35rem;line-height:1.2}
+.formats-grid p{margin:0;font-size:.9rem;color:var(--ink-soft)}
+.formats-note{
+  max-width:62ch;margin:1.6rem 0 0;padding:.9rem 1.1rem;
+  border:2px solid var(--edge);border-left:10px solid var(--cobalt);
+  border-radius:var(--radius-sm);background:var(--tint-blue);font-size:.92rem;
+}
+@media print{.formats-grid article{box-shadow:none;break-inside:avoid}}

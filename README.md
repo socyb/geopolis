@@ -98,6 +98,20 @@ están en `LOCAL/ACTIVIDADES MOODLE/control12/`, listos para cargar en Moodle.
 El recorte corresponde a las hojas 16–54 del PDF original y conserva la numeración
 impresa. La fecha de la sesión no configura una fecha límite de entrega en Moodle.
 
+## Trabajo final · ¿Qué es cada formato?
+
+La sección [¿Qué es cada formato?](index27.html#formatos) queda en la portada,
+después de la actividad 12, con su enlace en el menú. Es el mismo módulo del
+Seminario de Negocios Internacionales III ([sem3](https://socyb.github.io/sem3/#formatos)):
+seis formatos para comunicar el trabajo final de investigación —wiki, policy
+memo, video, podcast, ensayo e informe de investigación— y la nota de que se
+puede proponer otro o combinar varios, tanto en trabajo individual como en
+equipos de hasta 8 personas.
+
+Está fuera de los contenedores `.s-version`, así que se ve con cualquier versión
+de la portada. En `course27.css` usa clases propias (`.formats-grid` y
+`.formats-note`), porque `.deck` ya es la presentación de la sesión 04.
+
 ## Sesión del 3 de noviembre de 2026
 
 La portada muestra la sesión 20: **7-Eleven: copiar, adaptar o reinventar**, la
