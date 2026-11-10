@@ -176,8 +176,10 @@
       timeZone: "America/Mexico_City", day: "numeric", month: "long", year: "numeric"
     }).format(new Date(`${localNow}:00-06:00`));
   }
+  const queryHour = new URLSearchParams(location.search).get("hora");
+  const validHour = /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(queryHour || "") ? queryHour : "12:00";
   const requestedNow = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(queryDate || "") ? queryDate
-                     : /^\d{4}-\d{2}-\d{2}$/.test(queryDate || "") ? `${queryDate}T12:00` : null;
+                     : /^\d{4}-\d{2}-\d{2}$/.test(queryDate || "") ? `${queryDate}T${validHour}` : null;
   // Ciudad de México usa UTC−06:00 durante este semestre. La vista previa usa
   // esa misma zona, aunque el dispositivo esté en otro país.
   const previewTime = requestedNow ? Date.parse(`${requestedNow}:00-06:00`) : NaN;
@@ -255,115 +257,143 @@
   const countEl = $("#sessionCount");
   if (countEl) countEl.textContent = `${pad(unlocked.length)} / ${sessions.length}`;
 
-  // Una sesión se abre igual desde la portada que desde una versión archivada:
-  // las archivadas viven en sesiones/ y la vigente es un ancla de la portada.
+  // Una sesión se abre igual desde la portada que desde una versión archivada.
+  // Al recorrer una vista previa, se conserva su fecha y hora en las ligas.
   const inArchive = location.pathname.includes("/sesiones/");
-  const hrefFor = s => !s.href ? null
-    : s.href.startsWith("#") ? (inArchive ? "../index27.html" + s.href : s.href)
-    : (inArchive ? "../" : "") + s.href;
+  const withPreview = href => {
+    if (!isPreview || href.startsWith("#")) return href;
+    const url = new URL(href, location.href);
+    url.searchParams.set("fecha", queryDate);
+    const hour = new URLSearchParams(location.search).get("hora");
+    if (hour) url.searchParams.set("hora", hour);
+    const relativePath = href.split(/[?#]/)[0];
+    return relativePath + url.search + url.hash;
+  };
+  const hrefFor = s => !s.href ? null : withPreview(
+    s.href.startsWith("#") ? (inArchive ? "../index27.html" + s.href : s.href)
+    : (inArchive ? "../" : "") + s.href);
 
-  /* ── Riel de sesiones ───────────────────────────────────────────────── */
-  // La tira bajo la portada: la sesión de hoy y todas las que ya pasaron, en orden.
-  // Las que dejaron versión propia llevan liga; las demás se ven, pero no se abren.
-  const track = $("#railTrack");
-
-  if (track) {
-    // En una versión archivada, data-here dice qué sesión se está viendo.
-    const hereNumber = Number(track.dataset.here) || 0;
-
-    track.replaceChildren(...unlocked.map(s => {
-      const isToday = s.number === current.number;
-      const isHere  = s.number === hereNumber;
-      const link    = isHere ? null : hrefFor(s);
-      const node = document.createElement(link ? "a" : "span");
-      node.className = "rail-item"
-        + (isToday ? " is-current" : "")
-        + (isHere ? " is-here" : "")
-        + (!s.href ? " is-off" : "");
-      if (link) {
-        node.href = link;
-        if (isToday) node.setAttribute("aria-current", "true");
-      }
-      if (isHere) node.setAttribute("aria-current", "page");
-
-      const num = document.createElement("span");
-      num.className = "rail-num";
-      num.textContent = pad(s.number);
-      const when = document.createElement("span");
-      when.className = "rail-date";
-      when.textContent = `${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]}`;
-      const name = document.createElement("span");
-      name.className = "rail-title";
-      name.textContent = s.title;
-
-      node.append(num, when, name);
-      if (isHere) {
-        const you = document.createElement("span");
-        you.className = "rail-you";
-        you.textContent = "estás aquí";
-        node.appendChild(you);
-      }
-      return node;
-    }));
-
-    // Deja la sesión de hoy a la vista sin mover el scroll de la página.
-    const focusOn = $(".rail-item.is-here", track) || $(".rail-item.is-current", track);
-    if (focusOn) track.scrollLeft = focusOn.offsetLeft - (track.clientWidth - focusOn.offsetWidth) / 2;
-  }
-
-  /* ── Línea del tiempo de sesiones ───────────────────────────────────── */
-  // Cada sesión que cambia el contenido de la página deja una versión fechada.
-  // Las anteriores viven en sesiones/; la de hoy es esta misma página.
-  // Solo se dibujan las sesiones que ya ocurrieron: el calendario que viene no se muestra.
+  /* ── Bitácora: las paradas del curso, como en sem3 ───────────────────── */
+  // Geopolis conserva una página independiente por sesión. Las paradas son
+  // enlaces de navegación, no pestañas: Enter abre la sesión; las flechas
+  // recorren las ligas sin cambiar de página. Las fechas de apertura se
+  // siguen resolviendo arriba, antes de dibujar las tarjetas.
+  const track = $("#tlTrack");
   const line = $("#timeline");
 
-  if (line) {
-    line.replaceChildren(...unlocked.map(s => {
-      const isToday = s.number === current.number;
-      const item = document.createElement("article");
-      item.className = "tl-item" + (isToday ? " is-today" : "");
+  if (track && line) {
+    const hereNumber = Number(track.dataset.here) || 0;
+    const stops = [];
+    const shortDate = date => `${Number(date.slice(8))} ${MONTHS[date.slice(5, 7)]}`;
 
-      const dot = document.createElement("span");
-      dot.className = "tl-dot";
-      dot.textContent = pad(s.number);
-
-      const body = document.createElement("div");
-      body.className = "tl-body";
-      const when = document.createElement("span");
-      when.className = "tl-date";
-      when.textContent = `${Number(s.date.slice(8))} ${MONTHS[s.date.slice(5, 7)]} · ${s.room}`;
-      const h3 = document.createElement("h3");
-      h3.className = "tl-title";
-      if (s.href) {
-        const a = document.createElement("a");
-        a.href = hrefFor(s);
-        a.textContent = s.title;
-        h3.appendChild(a);
-      } else {
-        h3.textContent = s.title;
+    track.replaceChildren(...unlocked.map(s => {
+      const isCurrent = s.number === current.number;
+      const isHere = s.number === hereNumber;
+      const isSelected = hereNumber ? isHere : isCurrent;
+      const link = isHere ? null : hrefFor(s);
+      const stop = document.createElement(link ? "a" : "span");
+      stop.className = "tl-stop"
+        + (isCurrent ? " is-live" : "")
+        + (isSelected ? " is-selected" : "")
+        + (!s.href && !isHere ? " is-locked" : "");
+      stop.dataset.session = String(s.number);
+      if (link) {
+        stop.href = link;
+        stops.push(stop);
       }
-      const sub = document.createElement("p");
-      sub.className = "tl-sub";
-      sub.textContent = s.subtitle;
-      body.append(when, h3, sub);
+      if (isSelected) stop.setAttribute("aria-current", isHere ? "page" : "true");
+      if (!s.href && !isHere) stop.setAttribute("aria-disabled", "true");
 
-      const side = document.createElement("div");
-      side.className = "tl-side";
+      const mark = document.createElement("span");
+      mark.className = "tl-mark";
+      mark.setAttribute("aria-hidden", "true");
+      const card = document.createElement("span");
+      card.className = "tl-card";
+      const num = document.createElement("span");
+      num.className = "tl-num";
+      num.textContent = `Sesión ${pad(s.number)}`;
+      const when = document.createElement("time");
+      when.dateTime = s.date;
+      when.textContent = `${shortDate(s.date)} · ${s.room}`;
+      const title = document.createElement("strong");
+      title.textContent = s.title;
+      const subtitle = document.createElement("small");
+      subtitle.textContent = s.subtitle;
       const tag = document.createElement("span");
       tag.className = "tl-tag";
-      tag.textContent = isToday ? "Versión de hoy" : "Unidad " + s.unit;
-      side.appendChild(tag);
-      if (s.href) {
-        const a = document.createElement("a");
-        a.className = "tl-link";
-        a.href = hrefFor(s);
-        a.textContent = isToday ? "Ir a la sesión ↓" : "Ver esa versión ↗";
-        side.appendChild(a);
-      }
-
-      item.append(dot, body, side);
-      return item;
+      tag.textContent = isHere ? "Estás aquí" : isCurrent ? "Sesión actual" : `Unidad ${s.unit}`;
+      card.append(num, when, title, subtitle, tag);
+      stop.append(mark, card);
+      return stop;
     }));
+
+    const remaining = sessions.length - unlocked.length;
+    if (remaining > 0) {
+      const rest = document.createElement("span");
+      rest.className = "tl-stop is-locked";
+      const mark = document.createElement("span");
+      mark.className = "tl-mark";
+      mark.setAttribute("aria-hidden", "true");
+      const card = document.createElement("span");
+      card.className = "tl-card";
+      const label = document.createElement("span");
+      label.className = "tl-num";
+      label.textContent = "Por recorrer";
+      const when = document.createElement("time");
+      when.dateTime = sessions[sessions.length - 1].date;
+      when.textContent = `Hasta el ${shortDate(when.dateTime)}`;
+      const title = document.createElement("strong");
+      title.textContent = `${remaining} ${remaining === 1 ? "sesión" : "sesiones"}`;
+      card.append(label, when, title);
+      rest.append(mark, card);
+      track.appendChild(rest);
+    }
+
+    // El centrado solo desplaza el riel; nunca mueve la página verticalmente.
+    const center = stop => {
+      if (!stop) return;
+      const offset = stop.getBoundingClientRect().left - line.getBoundingClientRect().left;
+      line.scrollLeft += offset - (line.clientWidth - stop.offsetWidth) / 2;
+    };
+    const arrows = $$("[data-tl-scroll]");
+    const controls = $(".tl-controls");
+    const updateControls = () => {
+      const max = line.scrollWidth - line.clientWidth;
+      if (controls) controls.hidden = max <= 1;
+      arrows.forEach(button => {
+        button.disabled = Number(button.dataset.tlScroll) < 0
+          ? line.scrollLeft <= 1 : line.scrollLeft >= max - 1;
+      });
+    };
+    arrows.forEach(button => button.addEventListener("click", () => {
+      const amount = Math.max(200, line.clientWidth * .8) * Number(button.dataset.tlScroll);
+      line.scrollBy({ left: amount,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }));
+    line.addEventListener("scroll", updateControls, { passive: true });
+    window.addEventListener("resize", updateControls);
+    const centerSelected = () => { center($(".is-selected", track)); updateControls(); };
+    requestAnimationFrame(centerSelected);
+    document.fonts?.ready.then(centerSelected);
+
+    track.addEventListener("keydown", e => {
+      const index = stops.indexOf(document.activeElement);
+      if (index < 0) return;
+      let next;
+      if (e.key === "ArrowRight") next = Math.min(stops.length - 1, index + 1);
+      if (e.key === "ArrowLeft") next = Math.max(0, index - 1);
+      if (e.key === "Home") next = 0;
+      if (e.key === "End") next = stops.length - 1;
+      if (next === undefined) return;
+      e.preventDefault();
+      stops[next].focus({ preventScroll: true });
+      center(stops[next]);
+      updateControls();
+    });
+    // Los enlaces de regreso desde el archivo también conservan la vista previa.
+    $$('a[href="../index27.html#sesiones"], a[href="../index27.html#sesion-actual"]').forEach(a => {
+      a.setAttribute("href", withPreview(a.getAttribute("href")));
+    });
   }
 
   /* ── Brújula interactiva ────────────────────────────────────────────── */

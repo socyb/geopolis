@@ -54,7 +54,16 @@ asueto) ni el jueves 22 de octubre.*
 frente queda lo esencial del curso y lo que toca hoy. Lo que ya se trabajó no se
 borra, se archiva: cada sesión que modificó la página dejó su propia versión
 fechada en [`sesiones/`](sesiones/), y la bitácora de la portada lleva a todas
-ellas.
+ellas. La bitácora aparece junto al inicio de la clase, con la línea horizontal
+de tarjetas de `sem3`: número, fecha, salón, tema y unidad. La sesión vigente se
+resalta; en cada archivo se señala «Estás aquí». Se puede desplazar con los
+botones, el gesto horizontal o las flechas del teclado, y abrir una sesión con
+Enter. Las sesiones sin página se muestran con borde discontinuo.
+
+La misma bitácora se usa en la portada y en las trece versiones archivadas.
+Las vistas previas conservan `fecha`, `hora` y el ancla al seguir sus enlaces;
+se admiten tanto `?fecha=2026-11-10T09:00` como
+`?fecha=2026-11-10&hora=09:00`.
 
 **La brújula geopolítica.** La actividad de la primera sesión —cada estudiante
 responde cinco preguntas y la página arma una tarjeta con sus respuestas, que se

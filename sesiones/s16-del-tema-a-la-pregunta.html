@@ -65,16 +65,20 @@
     </div>
   </section>
 
-  <nav class="rail" aria-label="Sesiones del curso">
+  <nav class="session-log session-log--archive" aria-label="Bitácora de sesiones" aria-describedby="sessionLogHint">
     <div class="wrap">
-      <div class="rail-head">
-        <div>
-          <p class="kicker">Por dónde vamos</p>
-          <p>Todas las sesiones que ya pasaron y la de hoy. Abre cualquiera para volver a lo que vimos ese día.</p>
-        </div>
-        <a href="../index27.html#sesiones">Ver la bitácora ↗</a>
+      <div class="tl-head">
+        <p class="kicker">Bitácora de sesiones</p>
+        <p class="tl-hint" id="sessionLogHint">Toca una parada para volver a los materiales de esa sesión.</p>
+        <a class="tl-home" href="../index27.html#sesiones">Volver a la portada ↗</a>
       </div>
-      <div class="rail-track" id="railTrack" data-here="16" tabindex="0"></div>
+      <div class="timeline" id="timeline">
+        <div class="tl-track" id="tlTrack" data-here="16"></div>
+      </div>
+      <div class="tl-controls" hidden>
+        <button type="button" class="tl-scroll" data-tl-scroll="-1" aria-label="Ver sesiones anteriores" aria-controls="timeline">←</button>
+        <button type="button" class="tl-scroll" data-tl-scroll="1" aria-label="Ver sesiones siguientes" aria-controls="timeline">→</button>
+      </div>
     </div>
   </nav>
 

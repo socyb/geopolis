@@ -63,7 +63,7 @@
             <p>El curso</p>
             <a href="#actividad-12"><span>12</span>Control de lectura · 10 de noviembre</a>
             <a href="#formatos"><span>✎</span>Trabajo final: qué es cada formato</a>
-            <a href="#sesiones"><span>🗂</span>Sesiones anteriores</a>
+            <a href="#sesiones"><span>🗂</span>Bitácora de sesiones</a>
             <a href="#ruta"><span>🧭</span>La ruta del semestre</a>
             <a href="#evaluacion"><span>✓</span>Tu evaluación</a>
             <a href="#profesor"><span>✉</span>Tu profesor</a>
@@ -133,6 +133,26 @@
       <p class="nowbar-item"><span><i class="live-dot" aria-hidden="true"></i>Hoy</span><strong id="todayDate">—</strong></p>
       <p class="nowbar-item"><span>Sesión</span><strong id="activeSession">—</strong></p>
       <p class="nowbar-item" data-sesion="20"><span>Trae contigo</span><strong>Tu control de lectura de la actividad 11 y tu posición para el consejo</strong></p>
+    </div>
+  </section>
+
+  <!-- ═════════════════ BITÁCORA · LA LÍNEA DEL CURSO ══════════════════ -->
+  <section class="session-log" id="sesiones" aria-labelledby="sessionLogTitle">
+    <div class="wrap">
+      <div class="tl-head">
+        <h2 class="kicker" id="sessionLogTitle">Bitácora de sesiones</h2>
+        <p class="tl-hint" id="sessionLogHint">Toca una parada para volver a los materiales de esa sesión.</p>
+        <p class="mono muted" id="sessionCount"></p>
+      </div>
+      <nav aria-label="Sesiones del curso" aria-describedby="sessionLogHint">
+        <div class="timeline" id="timeline">
+          <div class="tl-track" id="tlTrack"></div>
+        </div>
+        <div class="tl-controls" hidden>
+          <button type="button" class="tl-scroll" data-tl-scroll="-1" aria-label="Ver sesiones anteriores" aria-controls="timeline">←</button>
+          <button type="button" class="tl-scroll" data-tl-scroll="1" aria-label="Ver sesiones siguientes" aria-controls="timeline">→</button>
+        </div>
+      </nav>
     </div>
   </section>
 
@@ -685,17 +705,6 @@
         <p>Ábrelo cuando lo necesites.</p>
       </div>
       <div class="more-list">
-        <details class="fold" id="sesiones">
-          <summary>
-            <span class="fold-ico" aria-hidden="true">🗂️</span>
-            <h3 class="fold-title">Sesiones anteriores<small>Lo que vimos cada día, con su versión de la página</small></h3>
-            <span class="fold-count mono" id="sessionCount"></span>
-          </summary>
-          <div class="fold-body">
-            <p class="lead">Abre cualquier sesión con liga para volver a lo que vimos ese día: lecturas, láminas, videos y actividades.</p>
-            <div class="timeline" id="timeline"></div>
-          </div>
-        </details>
         <details class="fold" id="ruta">
           <summary>
             <span class="fold-ico" aria-hidden="true">🧭</span>
@@ -962,7 +971,7 @@
       <h2 id="citationTitle">Cómo citar esta página · APA 7</h2>
       <p class="citation-reference">Cardiel, J. (2026). <em>Geopolítica internacional aplicada a los negocios internacionales</em>. Geopolis. Recuperado el <time id="citationAccessDate" datetime="2026-11-03">3 de noviembre de 2026</time>, de <a href="https://socyb.github.io/geopolis/index27.html">https://socyb.github.io/geopolis/index27.html</a></p>
       <p class="citation-examples">Cita parentética: (Cardiel, 2026). Cita narrativa: Cardiel (2026).</p>
-      <p class="citation-note">La portada cambia con cada sesión: conserva la fecha en que la consultaste. Para citar el contenido de una clase concreta, usa su versión guardada en <a href="#sesiones">Sesiones anteriores</a>.</p>
+      <p class="citation-note">La portada cambia con cada sesión: conserva la fecha en que la consultaste. Para citar el contenido de una clase concreta, usa su versión guardada en la <a href="#sesiones">Bitácora de sesiones</a>.</p>
     </section>
   </footer>
 
