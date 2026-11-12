@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c1123f">
+<title>Las preguntas de los equipos · Geopolítica Internacional · FCA UNAM</title>
+<meta name="description" content="Trabajo final de Geopolítica Internacional, grupo 1541: las preguntas de investigación de los equipos, por territorio, caso y concepto, con sus integrantes y sus fuentes.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c1123f'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f6f1e6' stroke-width='1.4'/%3E%3Cpath d='M16 5l3 11 11 0-11 3-3 11-3-11-11-3 11 0z' fill='%23f6f1e6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/index27/course27.css">
+<style>
+  /* Propio de esta página: selector de orden, tarjetas de pregunta y vista en grande. */
+  .eq-order{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin:1.6rem 0 0}
+  .eq-order .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .eq-seg{display:inline-flex;border:2px solid var(--edge);border-radius:999px;overflow:hidden;box-shadow:var(--shadow-xs);background:var(--card)}
+  .eq-seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:.95rem;padding:.5rem 1.1rem;cursor:pointer}
+  .eq-seg button + button{border-left:2px solid var(--edge)}
+  .eq-seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .eq-seg button:focus-visible{outline:3px solid var(--cobalt);outline-offset:-3px}
+
+  .eq-group{margin:0 0 2.6rem;scroll-margin-top:90px}
+  .eq-group-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4rem 1rem;
+    border-bottom:2px solid var(--edge);padding-bottom:.5rem;margin-bottom:1.1rem}
+  .eq-group-head h2{margin:0;font-size:clamp(1.35rem,2.6vw,1.9rem)}
+  .eq-group-head h2::before{content:"";display:inline-block;width:.7em;height:.7em;margin-right:.45em;border-radius:3px;
+    background:var(--acc);border:2px solid var(--edge);vertical-align:.02em}
+  .eq-group-head p{margin:0;font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .eq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:1.1rem}
+
+  .eq-card{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:.7rem;cursor:pointer;
+    padding:1.1rem 1.2rem 1rem;border:2px solid var(--edge);border-top:8px solid var(--acc);border-radius:var(--radius);
+    background:var(--card);color:var(--ink);box-shadow:var(--shadow-sm);transition:transform var(--t),box-shadow var(--t)}
+  .eq-card:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow)}
+  .eq-card:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+  .eq-name{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+  .eq-q{font-family:var(--display);font-size:clamp(1.08rem,1.6vw,1.24rem);font-weight:700;line-height:1.32;margin:0}
+  .eq-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto}
+  .eq-tags span{font-size:.74rem;line-height:1.3;padding:.2rem .55rem;border:1.5px solid var(--line);border-radius:999px;color:var(--ink-soft)}
+  .eq-open{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* Vista en grande */
+  .eq-focus{width:min(1120px,94vw);max-height:92vh;padding:0;border:3px solid var(--edge);border-radius:var(--radius);
+    background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+  .eq-focus::backdrop{background:rgba(10,16,24,.62)}
+  .eq-focus-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:.5rem;justify-content:space-between;
+    padding:.7rem 1rem;background:var(--paper);border-bottom:2px solid var(--edge)}
+  .eq-focus-bar .pos{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--muted)}
+  .eq-focus-bar .nav{display:flex;gap:.4rem}
+  .eq-focus-bar button{border:2px solid var(--edge);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-weight:700;
+    min-width:2.6rem;height:2.4rem;padding:0 .8rem;cursor:pointer;box-shadow:var(--shadow-xs)}
+  .eq-focus-body:focus{outline:none}
+  .eq-focus-body{padding:1.4rem clamp(1rem,3vw,2.2rem) 2rem;border-top:8px solid var(--acc)}
+  .eq-focus h2{margin:.2rem 0 .8rem;font-size:clamp(1.5rem,3vw,2.3rem)}
+  .eq-focus .eq-bigq{font-family:var(--display);font-size:clamp(1.3rem,2.5vw,1.9rem);line-height:1.3;font-weight:700;margin:0 0 1.3rem;
+    padding:1rem 1.2rem;border-left:8px solid var(--acc);background:var(--card);border-radius:var(--radius-sm)}
+  .eq-dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:.8rem;margin:0 0 1.6rem}
+  .eq-dims div{border:2px solid var(--edge);border-radius:var(--radius-sm);background:var(--card);padding:.65rem .85rem}
+  .eq-dims dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .eq-dims dd{margin:.2rem 0 0;font-weight:700;line-height:1.35}
+  .eq-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1.6rem;align-items:start}
+  .eq-cols h3{font-size:1.15rem;margin:0 0 .7rem}
+  .eq-crew{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+  .eq-crew li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.2rem .6rem;padding:.5rem .7rem;border:2px solid var(--edge);
+    border-radius:var(--radius-sm);background:var(--card);font-size:.95rem}
+  .eq-crew b{font-weight:800}
+  .eq-crew .role{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);align-self:center}
+  .eq-refs{margin:0;padding-left:1.4rem;display:grid;gap:.85rem}
+  .eq-refs li{padding-left:.2rem}
+  .eq-refs .ref{margin:0;font-size:.93rem;line-height:1.45;overflow-wrap:anywhere}
+  .eq-refs .meta{margin:.25rem 0 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted)}
+  .eq-refs .adds{margin:.3rem 0 0;font-size:.88rem;color:var(--ink-soft)}
+  .eq-keys{list-style:none;margin:1.2rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+  .eq-keys li{font-size:.78rem;padding:.2rem .6rem;border-radius:999px;background:var(--tint-blue);color:var(--ink)}
+  .eq-none{margin:0;color:var(--muted)}
+  @media (max-width:820px){.eq-cols{grid-template-columns:1fr}}
+  @media print{.eq-order,.eq-open{display:none}.eq-card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#preguntas">Ir a las preguntas</a>
+
+  <header class="topbar" id="inicio">
+    <a class="brand" href="../index27.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="var(--guinda)"/>
+        <circle cx="16" cy="16" r="10.5" fill="none" stroke="var(--paper)" stroke-width="1.3" opacity=".65"/>
+        <path d="M16 4.5l3.1 11.4L30.5 19l-11.4 3.1L16 33.5 12.9 22.1 1.5 19l11.4-3.1z" fill="var(--paper)"/>
+      </svg>
+      <span class="brand-text">
+        <strong>Geopolítica</strong>
+        <small>FCA · UNAM · 1541</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="../index27.html#sesion-actual">La sesión de hoy</a>
+      <a href="equipos27.html">Bitácora de los equipos</a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle" type="button" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
+    </div>
+  </header>
+
+  <section class="arch-hero">
+    <div class="wrap">
+      <p class="kicker">Trabajo final · Grupo 1541 · 2027-1</p>
+      <h1>Las preguntas <em>de los equipos</em></h1>
+      <p class="lead">Las preguntas de investigación del grupo, una al lado de otra. Ordénalas por territorio, caso o concepto, y toca una para verla en grande con sus integrantes y las fuentes que ubicaron.</p>
+      <ul class="arch-meta">
+        <li>11 preguntas</li>
+        <li>55 integrantes</li>
+        <li>44 fuentes</li>
+      </ul>
+      <div class="eq-order" role="group" aria-label="Ordenar las preguntas">
+        <span class="lbl">Ordenar por</span>
+        <div class="eq-seg">
+          <button type="button" data-por="territorio" aria-pressed="true">Territorio</button>
+          <button type="button" data-por="caso" aria-pressed="false">Caso</button>
+          <button type="button" data-por="concepto" aria-pressed="false">Concepto</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="section" id="preguntas" style="padding-top:2rem">
+    <div class="wrap" id="eqOut"></div>
+  </main>
+
+  <dialog class="eq-focus" id="eqFocus" aria-labelledby="eqFocusName">
+    <div class="eq-focus-bar">
+      <span class="pos" id="eqPos"></span>
+      <div class="nav">
+        <button type="button" id="eqPrev" aria-label="Equipo anterior">←</button>
+        <button type="button" id="eqNext" aria-label="Equipo siguiente">→</button>
+        <button type="button" id="eqClose" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="eq-focus-body" id="eqFocusBody" tabindex="-1"></div>
+  </dialog>
+
+  <footer>
+    <div class="foot-grid">
+      <p>
+        <strong>Geopolítica Internacional Aplicada a los Negocios Internacionales</strong>
+        Licenciatura en Negocios Internacionales · Facultad de Contaduría y Administración · UNAM
+      </p>
+      <p>
+        <strong>Grupo 1541 · Semestre 2027-1</strong>
+        <a href="../index27.html#profesor">Dr. Jorge Cardiel Herrera</a> · Martes A-004 · Jueves A-101 · 09:00—11:00<br>
+        <a href="equipos27.html">La bitácora completa de los equipos</a>
+      </p>
+      <a class="to-top" href="#inicio" aria-label="Volver al inicio">↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+const TEAMS = [{"id": "comite", "name": "Comité de Protección de los Derechos Internacionales", "solo": false, "q": "¿Cómo el gobierno talibán y sus ideologías están afectando los derechos de las mujeres y las relaciones diplomáticas que podría establecer Afganistán a partir del 2021?", "territorio": "Territorio libre", "caso": "Derechos de mujeres · Afganistán · 2021-2026", "lugar": "Afganistán", "concepto": "Cuellos de botella · Farrell y Newman", "crew": [{"a": "Cárdenas Marmolejo", "n": "María Fernanda", "r": "Relatora"}, {"a": "Flamenco Aguirre", "n": "Raquel Izabella", "r": "Cartógrafo"}, {"a": "Galindo Hernández", "n": "Regina", "r": "Cartógrafo"}, {"a": "Huerta Loredo", "n": "Carolina", "r": "Archivista"}, {"a": "Pantoja González", "n": "Natalia", "r": "Capitana"}, {"a": "Pérez Pineda", "n": "Fernanda Paola", "r": "Capitana"}, {"a": "Remigio Zetina", "n": "Mariana Mariel", "r": "Vice vigía"}, {"a": "Uribe Chávez", "n": "Marcelo", "r": "Vigía"}], "refs": [{"ref": "BENITO ALONSO, Á., & SUÁREZ COLLADO, Á. (2025). Poder e ideología en el movimiento talibán. Revista de Estudios Internacionales Mediterraneos, 39, 186. doi.10.15366/reim2025.39.008", "ancla": 4, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Argumento"}, {"ref": "Gómez, A. (2026). La Protección de la Mujer en el Derecho Internacional de los Derechos Humanos. Derecho Global. Estudios Sobre Derecho Y Justicia, 11(32), 183–217. https://doi.org/10.32870/dgedj.v11i32.692", "ancla": 4, "capa": "El concepto", "donde": "BIDI UNAM", "aporta": "Un concepto"}, {"ref": "Neyra, K. (2023). Los derechos de la mujer afgana en el Régimen Talibán: análisis desde una perspectiva feminista. [revista]. https://tesiunamdocumentos.dgb.unam.mx/ptd2023/octubre/0848669/Index.html", "ancla": 4, "capa": "El caso", "donde": "BIDI UNAM", "aporta": "Un concepto"}, {"ref": "Nieto Mancilla, A., & Avila Villamil, A. (2026). El Derecho de la Mujer a una Vida Libre de Violencia, una Necesidad de Formación en los Jóvenes de las Instituciones Educativas. Ibero Ciencias - Revista Científica Y Académica, 5(1), 3020–3029. https://doi.org/10.63371/ic.v5.n1.a809", "ancla": 4, "capa": "Caso y concepto", "donde": "BIDI UNAM", "aporta": "Un concepto y argumento"}], "keys": ["Ideologías", "alteración", "Gobierno Talibán", "Pérdida", "Derechos", "mujer", "Cuellos de botella", "Cambios", "relaciones", "comerciales", "diplomáticas", "Afganistán"]}, {"id": "geopoliticos", "name": "Geopolíticos", "solo": false, "q": "¿Cómo está transformando Estados Unidos y Rusia la competencia geopolítica por el Ártico y las perspectivas del comercio marítimo internacional?", "territorio": "Guerra y comercio", "caso": "Rusia, Estados Unidos · El Ártico · 2026", "lugar": "El Ártico", "concepto": "Poder estructural · Susan Strange", "crew": [{"a": "Briones Martínez", "n": "Natalia", "r": "Capitana"}, {"a": "Escalera Cruz", "n": "Miguel Ángel", "r": "Archivista"}, {"a": "González Castro", "n": "Arturo", "r": "Archivista"}, {"a": "Reyes López", "n": "Julia Regina", "r": "Cartógrafa"}, {"a": "Rosales González", "n": "Gerardo Manuel", "r": "Vigía"}, {"a": "Zamorano Brito", "n": "Daniel Paul", "r": "Relator"}], "refs": [{"ref": "Arrieta Ruiz, A. (2018). El Ártico: un nuevo espacio en el tablero geopolítico mundial. Grupo de Estudios en Seguridad Internacional (GESI).. https://www.seguridadinternacional.es/?q=es/content/el-%C3%A1rtico-un-nuevo-espacio-en-el-tablero-geopol%C3%ADtico-mundial.", "ancla": 5, "capa": "Caso y concepto", "donde": "Google Académico u otro buscador académico", "aporta": "La fuente aborda la importancia geopolítica del Ártico y los intereses de diferentes potencias en la región."}, {"ref": "Bouffard, T., D'Angelo, G., Gundry, G. F., Pitts, T. R., Price, S. F., & Roberts, A. F. (2025). Russian ambitions to control freedom of navigation and Arctic access: Refined data challenging Moscow's Northern Sea Route claims. Arctic Yearbook. https://arcticyearbook.com/arctic-yearbook/2025/2025-scholarly-papers/554-russian-ambitions-to-control-freedom-of-navigation-and-arctic-access-refined-data-challenging-moscow-s-northern-sea-route-claims", "ancla": 5, "capa": "Caso y concepto", "donde": "Nos la sugirió un asistente de IA", "aporta": "Muestra con datos del hielo que navegar la ruta será cada vez menos riesgoso, así que Rusia tiene menos razón para controlarla."}, {"ref": "Kirkegaard, H. P. (2026). Risk of Influence Warfare in the Arctic: Lessons from Greenland. The Belfer Center For Science And International Affairs.. https://www.belfercenter.org/research-analysis/risk-influence-warfare-arctic-lessons-greenland", "ancla": 5, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Nos ayuda a entender la justificación y naturaleza del conflicto"}, {"ref": "Nageen Ashraf. (2024). Frozen Geopolitical Concern: Arctic Ocean and the Emerging Great Power Competition. BTTN Journal, 3(2), 158–182. https://doi.org/10.61732/bj.v3i2.125", "ancla": 5, "capa": "Caso y concepto", "donde": "BIDI UNAM", "aporta": "Este artículo aporta el marco general de cómo el deshielo convierte al Ártico en un espacio de competencia entre EE. UU., Rusia y China, e incluye a China como actor aunque no sea Estado ártico"}, {"ref": "Nauka-Biznes-Paritet. (2026). Canadian journal of European and Russian studies. 2026, 16(1). https://ojs.library.carleton.ca/index.php/CJERS/index", "ancla": 3, "capa": "El caso", "donde": "BIDI UNAM", "aporta": "Aporta información para saber donde buscar"}, {"ref": "Todorov, A. (2022). Dire straits of the Russian Arctic: Options and challenges for a potential US FONOP in the Northern Sea Route. Marine Policy, 139(105020), 1–8. https://doi.org/10.1016/j.marpol.2022.105020", "ancla": 5, "capa": "El caso", "donde": "Nos la sugirió un asistente de IA", "aporta": "Explica que Estados Unidos no puede desafiar legalmente casi ningún control ruso sobre la ruta, porque las reglas de Rusia no se aplican a buques de guerra."}], "keys": ["Ártico ~ Arctic", "Rutas comerciales ~ Trade routes", "Competencia ~ Competition", "Comercio marítimo ~ Seaborne trade", "Guerra comercial ~ Trade war", "Esferas de influencia ~ Spheres of influence", "Interés estratégico político ~ Strategic political interest"]}, {"id": "geopoloboings", "name": "Geopoloboings", "solo": false, "q": "¿Cómo afectó la guerra Rusia-Ucrania y las sanciones a Rusia a los productores agrícolas de México por el encarecimiento de fertilizantes entre 2022 y 2023, y qué estrategias de abastecimiento y producción nacional reducirían esa exposición?", "territorio": "Cadenas globales de valor", "caso": "Rusia, Ucrania, productores agrícolas mexicanos · México · 2022-2023", "lugar": "México", "concepto": "Interdependencia asimétrica · McGee", "crew": [{"a": "Barrios Arellano", "n": "Paula Iraís", "r": ""}, {"a": "Jaramillo Bolaños", "n": "Ángel Adrián", "r": ""}, {"a": "Lemus Aguilar", "n": "Valentina", "r": ""}, {"a": "Mandujano Sánchez", "n": "Diego Fidel", "r": ""}, {"a": "Mendoza Rojas", "n": "Diego Alejandro", "r": ""}, {"a": "Rivera Jiménez", "n": "Gabriel", "r": ""}, {"a": "Salgado Torres", "n": "Emilio", "r": ""}, {"a": "Viñas Flemate", "n": "Valentina", "r": ""}], "refs": [{"ref": "Charlotte Hebebrand, & Joseph Glauber. (2023, 9 de marzo). The Russia-Ukraine war after a year: Impacts on fertilizer production, prices, and trade flows. International Food Policy Research Institute. https://www.ifpri.org/blog/russia-ukraine-war-after-year-impacts-fertilizer-production-prices-and-trade-flows/", "ancla": 5, "capa": "El caso", "donde": "Nos la sugirió un asistente de IA", "aporta": "Fertilizer continues to be used inefficiently in many regions of the world, with negative impacts on soils, water, and climate change. This problem can be addressed through improved fertilizer application, specialty and biological fertilizers, and other solutions."}, {"ref": "Food and Agriculture Organization of the United Nations. (2022). THE IMPORTANCE OF UKRAINE AND THE RUSSIAN FEDERATION FOR GLOBAL AGRICULTURAL MARKETS AND THE RISKS ASSOCIATED WITH THE WAR IN UKRAINE. https://openknowledge.fao.org/server/api/core/bitstreams/6802f45d-cfae-42b9-8e20-0de039d369b2/content", "ancla": 4, "capa": "El caso", "donde": "Nos la sugirió un asistente de IA", "aporta": "El informe de la FAO aporta el contexto global: Rusia era en 2021 el mayor exportador mundial de fertilizantes nitrogenados y México figura entre los países con alta dependencia de sus importaciones, mientras que la urea llegó a casi cuatro veces su precio de diciembre de 2020 en abril de 2022, impulsada sobre todo por el gas natural, el transporte y las restricciones a la exportación, más que por las sanciones directas."}, {"ref": "García J., L. (2022). El impacto de la Guerra en Ucrania en nuestros bolsillos. Ciencia UNAM. https://ciencia.unam.mx/leer/1284/el-impacto-de-la-guerra-en-ucrania-en-nuestros-bolsillos", "ancla": 5, "capa": "Caso y concepto", "donde": "BIDI UNAM", "aporta": "La guerra en Ucrania no ha sido el único factor que ha provocado el alza en los precios, más bien ésta se suma a una serie de elementos que han venido mermando la economía mundial desde hace varios años, aclara el investigador."}], "keys": ["Guerra", "Sanciones comerciales", "Estrategias de abastecimiento", "Estrategias de producción", "Supply chain", "Fertilizantes", "Russia-Ukraine", "Agricultural production", "Productores mexicanos", "International investment risks"]}, {"id": "hijos", "name": "Los hijos de la Globalización", "solo": false, "q": "¿Cómo logra Estados Unidos financiar y sostener militarmente a Israel mediante la ayuda financiera, la exportación de armas y los acuerdos bilaterales para llevar a cabo su disputa por el territorio de Palestina en el periodo de 2023-2026, y cuáles son las consecuencias legales y geopolíticas de ese apoyo?", "territorio": "Guerra y comercio", "caso": "EE. UU. · Palestina · 2019-2026", "lugar": "Israel y Palestina", "concepto": "Interdependencia armada · Farrell y Newman", "crew": [{"a": "Cazañas López", "n": "Estrella Guadalupe", "r": "Vigía"}, {"a": "Escalante Díaz", "n": "Gala Sofía", "r": "Capitana"}, {"a": "José Olvera", "n": "Renata", "r": "Relatora"}, {"a": "López Patoni Pérez", "n": "Ximena", "r": "Relatora"}, {"a": "Martínez Núñez", "n": "Alejandra", "r": "Cartógrafa"}, {"a": "Ojeda Bautista", "n": "Celia Fernanda", "r": "Cartógrafa"}, {"a": "Vázquez Salas", "n": "Andrés Alejandro", "r": "Archivista"}], "refs": [{"ref": "Beatriz Rebeca Marques de Oliveira São Pedro, Mariana Lameu de Miranda, Raffaella Geraldelli Sala, Thainá dos Santos Lima, & Sergio Dias Teixeira Júnior. (2024). Crisis y oportunidad: La exportación de armas de Estados Unidos a Israel en el actual período de guerra. Advances in Global Innovation & Technology, 3(1), 23. https://revista.fateczl.edu.br/index.php/git/article/view/242/245", "ancla": 5, "capa": "Caso y concepto", "donde": "BIDI UNAM", "aporta": "Brinda un análisis acerca de cómo la alianza entre Israel y Estados Unidos funciona como un motor clave para la industria de defensa estadounidense, especialmente a través de las exportaciones de armas durante el conflicto actual. El texto también presenta el punto en el que las crisis políticas y humanitarias se convierten en oportunidades comerciales para el sector armamentístico de EE. UU. Y plantea una reflexión acerca de lo difícil que es para las potencias equilibrar sus intereses económicos y estratégicos con el respeto a los derechos humanos y la gobernanza internacional."}, {"ref": "Beaumier, G., Newman, A., & Qin, R. (2026). The politics of information in an age of Weaponized interdependence. International studies quarterly, 70(3). https://doi.org/10.1093/isq/sqag061", "ancla": 5, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Analiza la política de la información en la era de la interdependencia armamentizada, examinando cómo los estados (aliados y adversarios de EE. UU.) regulan los flujos de datos transnacionales y adoptan leyes de localización de datos."}, {"ref": "García-Alonso, M. D. C., & Levine, P. (2007). Arms trade and arms races: A strategic analysis. En Todd Sandler y Keith Hartley (Ed.), Handbook of Defense Economics (pp. 941–971). Elsevier B.V. https://doi.org/10.1016/S1574-0013(06)02029-1", "ancla": 5, "capa": "Caso y concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Analiza de forma teórica y estratégica el comercio de armas, las carreras armamentistas y la regulación industrial, examinando cómo la interacción entre gobiernos y empresas afecta la seguridad nacional y la estructura del mercado de defensa."}, {"ref": "George, M., Djokic, K., Hussain, Z., Wazeman, P. D., & Wazeman, S. T. (2026, 1 de marzo). Trends in International Arms Transfers, 2025. https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-international-arms-transfers-2025", "ancla": 5, "capa": "Caso y concepto", "donde": "Nos la sugirió un asistente de IA", "aporta": "Esta fuente permite analizar la dependencia militar de Israel respecto a Estados Unidos, ya que documenta que el 68% de sus importaciones de armamento convencional principal entre 2021 y 2025 provinieron de ese país. También ayuda a entender cómo el suministro de armas forma parte de su relación estratégica y del contexto geopolítico de Medio Oriente."}, {"ref": "Hartung, & William D. (2025). U.S. Military Aid and Arms Transfers to Israel, October 2023 - September 2025. Costs pf War, Watson Institute for International and Public Affairs, Brown University. https://costsofwar.watson.brown.edu/paper/AidToIsrael", "ancla": 5, "capa": "Caso y concepto", "donde": "Sitio de un organismo o centro de análisis", "aporta": "La fuente aporta datos sobre el financiamiento militar estadounidense a Israel y las transferencias de armamento durante el periodo de octubre de 2023 a septiembre de 2025. Permite analizar cómo la ayuda militar funciona como instrumento de influencia geopolítica de Estados Unidos en Medio Oriente y cuáles son sus consecuencias humanitarias."}, {"ref": "Swissinfo. (2026, 16 de septiembre). EEUU prepara un millonario paquete de armas para Israel, según la prensa. Revista SWI. https://www.swissinfo.ch/spa/eeuu-prepara-un-millonario-paquete-de-armas-para-israel%2c-seg%C3%BAn-la-prensa/92068073", "ancla": 5, "capa": "Caso y concepto", "donde": "Prensa", "aporta": "Informa sobre un paquete de armas de $2.800 millones de dólares para Israel aprobado por EE.UU., incluyendo 40.000 bombas. También menciona que se financia con FME."}], "keys": ["Interdependencia armada", "Weaponized interdependence", "Financiamiento de guerra", "War funding", "Israel", "Palestina", "Estados Unidos", "Exportación de armas", "Weapons exports", "Acuerdos bilaterales", "Bilateral agreements"]}, {"id": "l-m", "name": "De la «L» a la «M»", "solo": false, "q": "¿En qué medida la cadena de valor del aguacate y limón en México se ve afectada tras la designación del LNFM como organización terrorista extranjera impuesto por EE.UU en 2025?", "territorio": "Seguridad, crimen organizado y empresa", "caso": "La Nueva Familia Michoacana y los productores de limón y aguacate · Michoacán, México · 2025-2026", "lugar": "México", "concepto": "Quién nombra la amenaza · Dodds", "crew": [{"a": "Muñoz Montalvo", "n": "Camila Rebeca", "r": "Capitana"}, {"a": "Flores Castillo", "n": "Ángel Azael", "r": "Cartógrafo"}, {"a": "Maldonado Martínez", "n": "Ximena Yatzel", "r": "Archivista"}, {"a": "Calzada Fuentes", "n": "Fernanda Daniela", "r": "Vigía"}, {"a": "Ochoa Munguía", "n": "Maura Zoe", "r": "Relatora"}], "refs": [{"ref": "Departamento de Estado de EE. UU. (2025, 20 de febrero). Designación de cárteles internacionales. U.S. Department of State. https://www.state.gov/translations/spanish/designacion-de-carteles-internacionales", "ancla": 4, "capa": "Caso y concepto", "donde": "Sitio de un organismo o centro de análisis", "aporta": "Explica la designación de «cártel» según EE.UU., la formación del cártel LNFM y de los demás cárteles más conocidos."}, {"ref": "Dodds, K. (2005). Global Geopolitics: A Critical Introduction. Pearson Education Limited.", "ancla": 5, "capa": "El concepto", "donde": "En la bibliografía de otro texto", "aporta": "Introduce el concepto «terrorismo» y su relación con la geopolítica."}, {"ref": "Dolan, C. J. (2005). United States' Narco-Terrorism Policy: A Contingency Approach to the Convergence of the Wars on Drugs and Against Terrorism. Review of Policy Research, 451–468. https://research-ebsco-com.pbidi.unam.mx:2443/c/df24kt/viewer/pdf/w4ijz333jv", "ancla": 4, "capa": "El concepto", "donde": "BIDI UNAM", "aporta": ""}, {"ref": "Hunter, T. S., Moeller, N. A., & Bruens, A. (2026). Understanding FDTCO Decision-Making through Observable Activity. University of Nebraska Omaha. https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1175&context=ncitereportsresearch", "ancla": 5, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Explica cómo operan comercialmente los cárteles."}, {"ref": "Morales, J. (2022). La participación de la delincuencia organizada en los procesos electorales durante la década (2008-2018) en el estado de Michoacán. Universidad de Quiroga. http://dspace.uvaq.edu.mx:8080/jspui/bitstream/123456789/1789/1/Texto_completo.pdf", "ancla": 4, "capa": "El concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Explica cómo el cártel LNFM tuvo participación en los procesos electorales, atentando la vida democrática y afectando las decisiones políticas."}, {"ref": "NBC News. (2026, 6 de agosto). U.S. suspends avocado inspections in Mexican states of Michoacán to threat. NBC News. https://www.nbcnews.com/news/us-news/us-suspends-avocado-inspection-mexican-state-michoacan-organized-crime-rcna591107", "ancla": 5, "capa": "Caso y concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Explica por qué EE.UU. suspendió las revisiones en las exportaciones del aguacate."}, {"ref": "Porter, M. E. (1998). The Competitive Advantage: Creating and Sustaining Superior Performance. NY: Free Press.", "ancla": 5, "capa": "El concepto", "donde": "Sitio de un organismo o centro de análisis", "aporta": "Introduce el concepto de cadenas de valor."}, {"ref": "Talal al, N. (2025, 20 de marzo). Los cárteles mexicanos sacan beneficio del boom del aguacate, fruto estrella en EEUU. Global Affairs and Strategic Studies. https://www.unav.edu/web/global-affairs/los-carteles-mexicanos-sacan-beneficio-del-boom-del-aguacate-fruto-estrella-en-eeuu", "ancla": 5, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Explica directamente el caso y su relación con la economía nacional."}], "keys": ["Narcotráfico", "Value chain", "Cobro de cuotas", "Organización terrorista", "Economía nacional", "Estados Unidos", "Cártel LNFM", "Government", "Aguacate", "Terrorism"]}, {"id": "saucedo", "name": "Arturo David Saucedo Salazar", "solo": true, "q": "¿Cuáles serán las repercusiones a futuro en la industria musical provocadas por las posturas geopolíticas de los artistas de la industria?", "territorio": "Territorio libre", "caso": "Artistas musicales · El mundo · 1980-2026", "lugar": "El mundo", "concepto": "Imperio informal · Hobsbawm", "crew": [{"a": "Saucedo Salazar", "n": "Arturo David", "r": "Trabajo individual"}], "refs": [{"ref": "Bravo Gutiérrez, O. E. (2026, 30 de junio). Serj Tankian reacciona al reconocimiento de Israel del genocidio en Armenia. Informador.mx. https://www.informador.mx/amp/entretenimiento/serj-tankian-de-system-of-a-down-reacciona-al-reconocimiento-de-israel-del-genocidio-en-armenia-y-lanza-mensaje-a-netanyahu-20260630-0119.html", "ancla": 5, "capa": "El caso", "donde": "En la bibliografía de otro texto", "aporta": "Serj Tankian cuestiona las motivaciones de Benjamin Netanyahu para reconocer el genocidio en Armenia"}, {"ref": "Dodds, K. (2005). GLOBAL GEOPOLITICS A CRITICAL INTRODUCTION. Pearson Prentice Hall.", "ancla": 5, "capa": "El concepto", "donde": "En la bibliografía de otro texto", "aporta": "Cómo los medios influyen en la percepción de la historia y los conflictos globales."}, {"ref": "Entman, R. M. (1993). Framing: Toward Clarification of a Fractured Paradigm. Journal of Communication, 43(4), 51–58. 0021-9916/93", "ancla": 5, "capa": "El concepto", "donde": "En la bibliografía de otro texto", "aporta": "El concepto de framing para entenderas perspectivas desde que está escrita la historia."}, {"ref": "Hobsbawm, E. (1987). Capítulo 3: La era del imperio. En Grupo Editorial Planeta S.A.I.C. & J. Traducción por Faci Lacasta (Eds.), La era del imperio, 1875-1914 (pp. 65–93). Grupo Editorial Planeta. https://negociosinternacionales.fca.unam.mx/pluginfile.php/764/mod_assign/introattachment/0/Actividad_02_Lectura_02_Hobsbawm_La_era_del_imperio_Capitulo_3_Paginas_65-93_APA7.pdf?forcedownload=1", "ancla": 5, "capa": "El concepto", "donde": "En la bibliografía de otro texto", "aporta": "La nueva forma de dominar a un país sobre otro puede darse a través de la influencia económica y política, sin la necesidad de una intervención militar"}], "keys": ["System of a Down", "Michael Jackson", "Roger Waters", "Nirvana", "Macklemore", "genocidio", "Armenia", "Palestina", "Sionismo", "Líbano", "Sudán del Sur", "República Democrática del Congo"]}, {"id": "agentes", "name": "Los agentes del cambio", "solo": false, "q": "¿En qué medida el despliegue de la infraestructura estratégica en Querétaro impulsado desde 2024 prioriza el crecimiento económico de los centros de datos por encima de las necesidades básicas de la población, generando una crisis social en recortes de agua y luz?", "territorio": "IA, datos e infraestructura digital", "caso": "Gobierno · Querétaro · 2024-2027", "lugar": "México", "concepto": "Imperio informal · Hobsbawm", "crew": [{"a": "Pacheco Hernández", "n": "Fátima", "r": "Capitana y relatora"}, {"a": "Perales Maldonado", "n": "Camila", "r": "Cartógrafa y vigía"}, {"a": "Moncada Salazar", "n": "André Eduardo", "r": "Archivista"}], "refs": [{"ref": "Amórtegui-Rodríguez, L. R. (2022). La seguridad energética y los intereses nacionales en el marco de la transición hacia energías renovables. Estudios de Seguridad y defensa, 17(34), 285–305. https://doi.org/10.25062/1900-8325.346", "ancla": 5, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Esta investigación busca interrelacionar los conceptos de transición energética, seguridad energética e intereses nacionales desde la perspectiva de las ciencias sociales."}, {"ref": "Mar Pecero, M., D.-E. G.-P. (2025). ¿IA para manejo del agua o agua para la IA? Conciencia e información para la toma de decisiones responsables. Red de Agua UNAM, 1(32), 125–130. https://www.agua.unam.mx/assets/pdfs/impluvium/numero32.pdf#page=125", "ancla": 5, "capa": "Caso y concepto", "donde": "BIDI UNAM", "aporta": "Dice lo que decimos con datos concretos y claros."}, {"ref": "McGovern, G. B. S. (2024, 4 de junio). La otra cara de la Inteligencia Artificial: estos podrían ser sus impactos ambientales en América Latina. Bio-Guia. https://www.bioguia.com/ambiente/otra-cara-inteligencia-artificial-estos-podrian-ser-impactos-ambientales-america-latina_125699952.html", "ancla": 5, "capa": "Caso y concepto", "donde": "Prensa", "aporta": "Dice lo que estamos a favor."}, {"ref": "Núñez García, P. M., y Buenfil Rodríguez, M. Ó. (2025). IA y gestión del agua en México: oportunidades y desafíos. Red del agua UNAM, 1(32), 8–16. https://www.agua.unam.mx/assets/pdfs/impluvium/numero32.pdf#page=8", "ancla": 5, "capa": "Caso y concepto", "donde": "BIDI UNAM", "aporta": "Ayuda a proporcionar distintas perspectivas del uso de los servidores de IA."}], "keys": ["Estrés hídrico", "Seguridad energética", "Recursos", "Servidores", "Datos", "Consumo", "Decisión", "Necesidad"]}, {"id": "tantalias", "name": "Tantalias", "solo": false, "q": "¿Cómo influyó la insuficiencia o ineficacia de la seguridad pública en Sudáfrica entre 2020 y 2024 en el aumento de la inversión privada empresarial en seguridad y qué consecuencias económicas y sociales tiene que la protección contra el delito recaiga en la capacidad financiera de cada empresa?", "territorio": "Seguridad, crimen organizado y empresa", "caso": "Estado sudafricano, policía pública, empresas y proveedores de seguridad privada · Sudáfrica · 2020-2024", "lugar": "Sudáfrica", "concepto": "Ensamblajes de seguridad global · Abrahamsen y Williams", "crew": [{"a": "Camacho Reynoso", "n": "Tere Adriana", "r": "Capitana"}, {"a": "Ruiz Méndez", "n": "Valeria", "r": "Vigía"}, {"a": "Salas García", "n": "Emily Grecia", "r": "Relatora"}, {"a": "Vázquez Patiño", "n": "Grecia Elizabeth", "r": "Cartógrafa"}], "refs": [{"ref": "Abrahams, R., & C. WIlliams, M. (2009). Security beyond the state: Global Security assemblages in international politics. International Political Sociology, 3, 1–17. https://doi.org/10.1111/j.1749-5687.2008.00060.x", "ancla": 5, "capa": "El concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Refiere a que la seguridad dejó de ser una tarea exclusiva del estado y se ha convertido en redes complejas de actores públicos y privados."}, {"ref": "Diphoorn, T., & Kyed Maria, H. (2016). Entanglements of private security in community policing in South Africa and Swaziland. African Affairs, 115(461), 710–732. https://doi.org/10.1093/afraf/adw028", "ancla": 5, "capa": "El caso", "donde": "Nos la sugirió un asistente de IA", "aporta": "La seguridad en Africa ha dejado de ser un bien publico que provee el Estado. Relación seguridad pública-privada"}, {"ref": "Roodt, M. (2024). The IRR's Blue Print for Growth 8: Solutions to SA's crime crisis to boost growth. South African Institute of Race Relations. https://irr.org.za/reports/the-irrs-blueprint-for-growth/the-irr-blueprint-for-growth-2024/solutions-to-sas-crime-crisis-to-boost-growth.pdf", "ancla": 5, "capa": "El caso", "donde": "Nos la sugirió un asistente de IA", "aporta": "Cómo daña la privatización a la inversión y el crecimiento económico de Sudáfrica"}], "keys": ["Privatización de la seguridad", "Sudáfrica", "Inversión en seguridad", "Private Security Companies", "Sector empresarial sudáfricano"]}, {"id": "escuadron", "name": "Escuadrón desarme de bombas", "solo": false, "q": "¿En qué medida el interés económico de Estados Unidos por el control del estrecho de Ormuz altera el mercado internacional de energía y repercute en los costos energético-comerciales de México dentro del orden económico internacional durante 2026?", "territorio": "Guerra y comercio", "caso": "EUA · Estrecho de Ormuz · 2026", "lugar": "Estrecho de Ormuz", "concepto": "Interdependencia armada · Farrell y Newman", "crew": [{"a": "Dámaso Paz", "n": "Rosa Itzel", "r": "Capitana"}, {"a": "Anguiano Alquicira", "n": "Luis Arturo", "r": "Archivista"}, {"a": "Tinajero Zambrano", "n": "Fátima", "r": "Vigía"}, {"a": "Dionicio Ocampo", "n": "Juan Pablo Alfonso", "r": "Cartógrafo"}, {"a": "González Agustín", "n": "Emiliano", "r": "Cartógrafo"}, {"a": "Marmolejo Rentería", "n": "Ecker Ricardo", "r": "Relator"}, {"a": "Medina Quiroz", "n": "Emilio", "r": "Cartógrafo"}], "refs": [], "keys": []}, {"id": "dormilones", "name": "Dormilones", "solo": false, "q": "¿Cómo la caída de la URSS y la caída de las Torres Gemelas favorecieron para que Estados Unidos se terminara de posicionar como un país imperialista moderno?", "territorio": "Guerra y comercio", "caso": "Estados Unidos · EUA, Rusia, China · 1991-2001", "lugar": "Estados Unidos", "concepto": "Imperio informal · Hobsbawm", "crew": [{"a": "Coria Rivas", "n": "Perla Athziri", "r": "Vigía"}, {"a": "Mayoral González", "n": "Marisol", "r": "Capitana y relatora"}, {"a": "Muñoz Oliver", "n": "Fátima Alejandra", "r": "Archivista"}, {"a": "Rincón Pérez", "n": "Pedro", "r": "Cartógrafo"}], "refs": [{"ref": "Quintana R., G. (2017, 15 de enero). Las consecuencias del 11-S. Universidad Austral de Chile. https://pmontt.uach.cl/las-consecuencias-del-11-s/", "ancla": 3, "capa": "El caso", "donde": "Google Académico u otro buscador académico", "aporta": "Cómo el evento del 11 de septiembre ayudó a EE. UU. a volverse una hegemonía imperialista."}], "keys": ["Estados Unidos", "URSS", "Hegemonía", "Capitalismo", "Socialismo", "Poder militar", "Neoimperialismo", "Terrorismo", "Xenofobia", "Guerra Fría"]}, {"id": "navegantes", "name": "Navegantes de Ormuz", "solo": false, "q": "¿Cómo moldean los mecanismos de coerción financiera y las sanciones de la interdependencia armada las decisiones de las navieras internacionales frente al riesgo de cierre en el Estrecho de Ormuz?", "territorio": "Guerra y comercio", "caso": "Gigantes navieros y aseguradoras globales de riesgo marítimo · Estrecho de Ormuz, Golfo Pérsico · 2024-2026", "lugar": "Estrecho de Ormuz", "concepto": "Interdependencia armada · Farrell y Newman", "crew": [{"a": "López Cervantes", "n": "Karol Iraís", "r": ""}, {"a": "Osorio Medina", "n": "Daniela", "r": ""}], "refs": [{"ref": "Bueger, C., & Middleton, T. (2020). Maritime Security: An Introduction. Oxford University Press. https://books.google.com/books/about/Understanding_Maritime_Security.html?id=odwFEQAAQBAJ", "ancla": 5, "capa": "Caso y concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Ofrece un marco conceptual integral para analizar las amenazas a la seguridad marítima, el control geopolítico de las rutas de navegación y la protección de infraestructuras críticas en los océanos."}, {"ref": "Drezner, D. W. (2021). Uses and Abuses of Weaponized Interdependence. Brookings Institution Press. https://www.brookings.edu/wp-content/uploads/2020/05/9780815738374_ch1.pdf", "ancla": 5, "capa": "Caso y concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Demuestra cómo los Estados utilizan la interdependencia armada y las redes globales para aplicar sanciones y coerción económica, explicando el impacto estratégico en los flujos comerciales y puntos de estrangulamiento."}, {"ref": "Farrell, H., & Newman, A. L. (2019). Weaponized Interdependence: How Global Economic Networks Shape State Coercion. International Security, 43(1), 42–79. https://doi.org/10.1162/isec_a_00351", "ancla": 5, "capa": "El concepto", "donde": "Google Académico u otro buscador académico", "aporta": "Proporciona el marco teórico de la interdependencia armada para analizar cómo las redes globales de comercio y finanzas se utilizan como herramientas de coerción y control estatal."}, {"ref": "Fiker Institute. (2025). The Strait of Hormuz and Global Energy Security. Fiker Institute Publications. https://www.fikerinstitute.org/publications/the-strait-of-hormuz-global-energy-security", "ancla": 5, "capa": "Caso y concepto", "donde": "Sitio de un organismo o centro de análisis", "aporta": "Explica el impacto financiero de las primas de riesgo de guerra en las navieras y cómo las tensiones afectan directamente las rutas de suministro comercial."}, {"ref": "U.S. Energy Information Administration. (2026). World Oil Transit Chokepoints: Strait of Hormuz. EIA. https://www.eia.gov/international/analysis/special-topics/world_oil_transit_Chokepoints", "ancla": 5, "capa": "El caso", "donde": "Sitio de un organismo o centro de análisis", "aporta": "Proporciona los datos estadísticos y el volumen diario de tránsito petrolero, fundamentando la vulnerabilidad material del Estrecho de Ormuz."}], "keys": ["interdependencia armada · weaponized interdependence", "estrecho de ormuz · strait of hormuz", "coerción económica · economic coercion", "seguridad marítima · maritime security", "primas de riesgo · war risk surcharges"]}];
+  </script>
+  <script>
+(() => {
+  "use strict";
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const linkify = s => esc(s).replace(/(https?:\/\/[^\s<]+?)([.,;)]?)(?=\s|$)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>$2');
+  const ACC = ["var(--guinda)", "var(--cobalt)", "var(--teal)", "var(--amber)", "var(--plum)"];
+  const DIMS = {
+    territorio: { n: "Territorio", key: t => t.territorio },
+    caso: { n: "Caso", key: t => t.lugar },
+    concepto: { n: "Concepto", key: t => t.concepto },
+  };
+  const out = $("#eqOut"), dlg = $("#eqFocus");
+  let por = new URLSearchParams(location.search).get("por");
+  if (!DIMS[por]) por = "territorio";
+  let order = [];          // equipos en el orden en que se ven, para las flechas
+  let current = -1;
+
+  const groupsOf = dim => {
+    const m = new Map();
+    for (const t of TEAMS) {
+      const k = DIMS[dim].key(t);
+      if (!m.has(k)) m.set(k, []);
+      m.get(k).push(t);
+    }
+    // Los grupos con más equipos van primero; empates, en orden alfabético.
+    return [...m.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], "es"))
+      .map(([k, list], i) => ({ k, acc: ACC[i % ACC.length],
+        list: list.sort((a, b) => a.solo - b.solo || a.name.localeCompare(b.name, "es")) }));
+  };
+
+  const tagsFor = t => {
+    if (por === "territorio") return [t.caso, t.concepto];
+    if (por === "caso") return [t.caso.split(" · ").filter(x => x !== t.lugar).join(" · "), t.territorio, t.concepto];
+    return [t.territorio, t.caso];
+  };
+
+  const render = () => {
+    document.querySelectorAll(".eq-seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.por === por)));
+    const groups = groupsOf(por);
+    order = groups.flatMap(g => g.list.map(t => ({ t, g })));
+    out.innerHTML = groups.map(g => `
+      <section class="eq-group" style="--acc:${g.acc}">
+        <div class="eq-group-head">
+          <h2>${esc(g.k)}</h2>
+          <p>${DIMS[por].n} · ${g.list.length} ${g.list.length === 1 ? "pregunta" : "preguntas"}</p>
+        </div>
+        <div class="eq-grid">${g.list.map(t => `
+          <button type="button" class="eq-card" data-id="${esc(t.id)}" aria-label="Ver en grande: ${esc(t.name)}">
+            <span class="eq-name">${esc(t.name)}${t.solo ? " · individual" : ""}</span>
+            <span class="eq-q">${esc(t.q)}</span>
+            <span class="eq-tags">${tagsFor(t).filter(Boolean).map(x => `<span>${esc(x)}</span>`).join("")}</span>
+            <span class="eq-open">Ver integrantes y fuentes →</span>
+          </button>`).join("")}
+        </div>
+      </section>`).join("");
+    const p = new URLSearchParams(location.search);
+    por === "territorio" ? p.delete("por") : p.set("por", por);
+    const s = p.toString();
+    history.replaceState(null, "", location.pathname + (s ? "?" + s : "") + location.hash);
+  };
+
+  const show = i => {
+    current = (i + order.length) % order.length;
+    const { t, g } = order[current];
+    dlg.style.setProperty("--acc", g.acc);
+    $("#eqPos").textContent = `${DIMS[por].n}: ${g.k} · ${current + 1} de ${order.length}`;
+    const crew = t.crew.map(c => `<li><span class="who"><b>${esc(c.a)}</b> ${esc(c.n)}</span>${c.r ? `<span class="role">${esc(c.r)}</span>` : ""}</li>`).join("");
+    const refs = t.refs.length ? `<ol class="eq-refs">${t.refs.map(r => `<li>
+        <p class="ref">${linkify(r.ref)}</p>
+        <p class="meta">⚓ ${esc(r.ancla)}/5 · ${esc(r.capa)} · ${esc(r.donde)}</p>
+        ${r.aporta ? `<p class="adds">${esc(r.aporta)}</p>` : ""}</li>`).join("")}</ol>`
+      : `<p class="eq-none">Su lista de fuentes todavía no está en la bitácora.</p>`;
+    const keys = t.keys.length ? `<ul class="eq-keys" aria-label="Palabras clave">${t.keys.map(k => `<li>${esc(k)}</li>`).join("")}</ul>` : "";
+    $("#eqFocusBody").innerHTML = `
+      <p class="kicker" style="color:var(--acc)">${t.solo ? "Trabajo individual" : `Equipo · ${t.crew.length} integrantes`}</p>
+      <h2 id="eqFocusName">${esc(t.name)}</h2>
+      <p class="eq-bigq">${esc(t.q)}</p>
+      <dl class="eq-dims">
+        <div><dt>Territorio</dt><dd>${esc(t.territorio)}</dd></div>
+        <div><dt>Caso</dt><dd>${esc(t.caso)}</dd></div>
+        <div><dt>Concepto</dt><dd>${esc(t.concepto)}</dd></div>
+      </dl>
+      <div class="eq-cols">
+        <section><h3>${t.solo ? "Autor" : "Integrantes"}</h3><ul class="eq-crew">${crew}</ul></section>
+        <section><h3>Fuentes que ubicaron${t.refs.length ? ` · ${t.refs.length}` : ""}</h3>${refs}${keys}</section>
+      </div>`;
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+    $("#eqFocusBody").focus({ preventScroll: true });
+    history.replaceState(null, "", location.pathname + location.search + "#" + t.id);
+  };
+  const close = () => { if (dlg.open) dlg.close(); };
+  dlg.addEventListener("close", () => {
+    history.replaceState(null, "", location.pathname + location.search);
+    const card = out.querySelector(`[data-id="${CSS.escape(order[current]?.t.id || "")}"]`);
+    card?.focus();
+  });
+
+  document.querySelector(".eq-seg").addEventListener("click", e => {
+    const b = e.target.closest("[data-por]"); if (!b) return;
+    por = b.dataset.por; render();
+  });
+  out.addEventListener("click", e => {
+    const c = e.target.closest(".eq-card"); if (!c) return;
+    show(order.findIndex(o => o.t.id === c.dataset.id));
+  });
+  $("#eqPrev").addEventListener("click", () => show(current - 1));
+  $("#eqNext").addEventListener("click", () => show(current + 1));
+  $("#eqClose").addEventListener("click", close);
+  dlg.addEventListener("click", e => { if (e.target === dlg) close(); });
+  document.addEventListener("keydown", e => {
+    if (!dlg.open) return;
+    if (e.key === "ArrowRight") { e.preventDefault(); show(current + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); show(current - 1); }
+  });
+
+  render();
+  const start = location.hash.slice(1);
+  if (start) { const i = order.findIndex(o => o.t.id === start); if (i >= 0) show(i); }
+})();
+  </script>
+  <script src="../assets/index27/course27.js"></script>
+</body>
+</html>
