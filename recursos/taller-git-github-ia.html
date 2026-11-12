@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Git, GitHub y agentes de IA</title>
+<style>
+:root{
+  --bg:#0e1117; --bg2:#161b24; --fg:#f2f4f8; --muted:#a8b0c0; --line:#2c3444;
+  --acc:#ffb547; --acc2:#5cc8ff; --ok:#6ee7a1; --bad:#ff7a7a; --code:#1d2430;
+  --base: min(2.15vw, 3.9vh);
+}
+:root[data-theme="light"]{
+  --bg:#fbfaf7; --bg2:#efede7; --fg:#15171c; --muted:#555c68; --line:#d6d2c8;
+  --acc:#b85c00; --acc2:#0067a8; --ok:#137a43; --bad:#b42323; --code:#e9e6de;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--fg);overflow:hidden}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:var(--base);line-height:1.35}
+a{color:var(--acc2)}
+code,.mono{font-family:ui-monospace,"Cascadia Code","SF Mono",Consolas,monospace;background:var(--code);padding:.05em .3em;border-radius:.2em;font-size:.92em}
+
+.slide{position:absolute;inset:0;padding:5.5vh 6vw 9vh;display:none;flex-direction:column;justify-content:center;gap:1.1em}
+.slide.active{display:flex;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(1.5vh)}to{opacity:1;transform:none}}
+
+h1{font-size:2.9em;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:2.05em;line-height:1.1;letter-spacing:-.01em}
+h2 .n{color:var(--acc);font-variant-numeric:tabular-nums;margin-right:.35em}
+h3{font-size:1.15em;color:var(--acc)}
+.kicker{color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.75em}
+.lead{font-size:1.25em;color:var(--muted);max-width:40em}
+.big{font-size:1.5em;font-weight:650;line-height:1.2}
+.muted{color:var(--muted)}
+.acc{color:var(--acc)} .acc2{color:var(--acc2)} .ok{color:var(--ok)} .bad{color:var(--bad)}
+ul.pts{list-style:none;display:flex;flex-direction:column;gap:.5em}
+ul.pts li{padding-left:1.2em;position:relative}
+ul.pts li::before{content:"";position:absolute;left:0;top:.5em;width:.5em;height:.5em;border-radius:50%;background:var(--acc)}
+ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:.5em}
+ol.steps li{counter-increment:s;padding-left:2em;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:.05em;width:1.45em;height:1.45em;border-radius:50%;background:var(--acc);color:var(--bg);font-weight:800;display:grid;place-items:center;font-size:.85em}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1.4em 2.2em;align-items:start}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:1em}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:.6em;padding:.8em 1em}
+.card h3{margin-bottom:.3em}
+.card p,.card li{font-size:.9em}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:2em;padding:.05em .6em;font-size:.7em;color:var(--muted);margin-left:.4em;vertical-align:middle}
+
+/* ruta */
+.route{display:flex;align-items:stretch;gap:.4em;flex-wrap:nowrap}
+.route .st{flex:1;background:var(--bg2);border:2px solid var(--line);border-radius:.6em;padding:.6em .5em;text-align:center;display:flex;flex-direction:column;gap:.2em;justify-content:center}
+.route .st b{font-size:1.05em}
+.route .st span{font-size:.7em;color:var(--muted)}
+.route .st .ic{font-size:1.6em;line-height:1}
+.route .ar{align-self:center;color:var(--acc);font-size:1.4em;font-weight:800}
+
+/* diagrama de conexión */
+.diagram{width:100%;max-height:58vh}
+.diagram text{fill:var(--fg);font-family:inherit}
+.diagram .box{fill:var(--bg2);stroke:var(--line);stroke-width:3}
+.diagram .hl{stroke:var(--acc)}
+.diagram .hl2{stroke:var(--acc2)}
+.diagram .arrow{stroke:var(--acc);stroke-width:4;fill:none;marker-end:url(#ah)}
+.diagram .lbl{fill:var(--muted);font-size:20px}
+
+table.t{border-collapse:collapse;width:100%;font-size:.9em}
+table.t td,table.t th{border-bottom:1px solid var(--line);padding:.35em .5em;text-align:left;vertical-align:top}
+table.t th{color:var(--acc);font-weight:700}
+
+.prompt{background:var(--code);border-left:.3em solid var(--acc2);padding:.7em 1em;border-radius:.3em;font-size:.85em;line-height:1.4}
+.prompt.bad{border-left-color:var(--bad)} .prompt.good{border-left-color:var(--ok)}
+
+/* markov */
+.mk-words{display:flex;flex-wrap:wrap;gap:.35em}
+.mk-words button{font:inherit;font-size:.85em;background:var(--bg2);color:var(--fg);border:2px solid var(--line);border-radius:.4em;padding:.1em .55em;cursor:pointer}
+.mk-words button.on{border-color:var(--acc);color:var(--acc)}
+.bar{display:flex;align-items:center;gap:.5em;font-size:.85em;margin:.2em 0}
+.bar .w{width:6.5em;text-align:right}
+.bar .b{height:.9em;background:var(--acc);border-radius:.2em}
+.mk-out{min-height:2.8em;font-size:1.05em}
+.btn{font:inherit;font-size:.8em;background:var(--acc);color:var(--bg);border:0;border-radius:.4em;padding:.3em .8em;cursor:pointer;font-weight:700;white-space:nowrap}
+
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:.8em;width:min(100%,105vh)}
+.vid{display:flex;flex-direction:column;text-decoration:none;color:var(--fg);background:var(--bg2);border:1px solid var(--line);border-radius:.6em;overflow:hidden}
+.vid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000}
+.vid span{padding:.4em .6em;font-size:.72em;line-height:1.25}
+.vid:hover{border-color:var(--acc)}
+
+/* barra inferior */
+#ui{position:fixed;left:0;right:0;bottom:0;height:6vh;display:flex;align-items:center;gap:1em;padding:0 2vw;font-size:.6em;color:var(--muted)}
+#ui button{font:inherit;background:none;border:1px solid var(--line);color:var(--muted);border-radius:.3em;padding:.15em .6em;cursor:pointer}
+#ui .sp{flex:1}
+#prog{position:fixed;left:0;top:0;height:.6vh;background:var(--acc);transition:width .3s}
+#help{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;place-items:center;z-index:9}
+#help.on{display:grid}
+#help .card{font-size:.9em;max-width:30em}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- 1 -->
+<section class="slide">
+  <div class="kicker">Taller · Geopolítica 2027-1</div>
+  <h1>De la idea a la página web</h1>
+  <p class="lead">Git, GitHub, agentes de IA y modelos de lenguaje: qué son, cómo se conectan y cómo pedirles las cosas.</p>
+  <p class="muted" style="font-size:.75em">Usa ← → o el clicker para avanzar · <b>F</b> pantalla completa · <b>T</b> tema claro/oscuro · <b>?</b> ayuda</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <h2><span class="n">01</span>La ruta completa</h2>
+  <div class="route">
+    <div class="st"><div class="ic">💡</div><b>Idea</b><span>qué quiero mostrar</span></div><div class="ar">→</div>
+    <div class="st"><div class="ic">✍️</div><b>Prompt</b><span>se lo pido al agente</span></div><div class="ar">→</div>
+    <div class="st"><div class="ic">🤖</div><b>Claude</b><span>escribe el HTML</span></div><div class="ar">→</div>
+    <div class="st"><div class="ic">📦</div><b>Commit</b><span>Git guarda la versión</span></div><div class="ar">→</div>
+    <div class="st"><div class="ic">☁️</div><b>GitHub</b><span>el repositorio en la nube</span></div><div class="ar">→</div>
+    <div class="st"><div class="ic">🌐</div><b>Pages</b><span>se publica como sitio</span></div>
+  </div>
+  <p class="big">Cada página del curso recorrió exactamente este camino.</p>
+  <p class="muted">El resultado vive en <code>socyb.github.io/geopolis/…</code> — cualquiera con el enlace la abre.</p>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <h2><span class="n">02</span>¿Qué es Git?</h2>
+  <div class="cols">
+    <div>
+      <p class="big">Un programa que guarda la <span class="acc">historia completa</span> de una carpeta.</p>
+      <ul class="pts" style="margin-top:.8em">
+        <li>Cada versión guardada es un <b>commit</b>: una foto de todos los archivos + un mensaje.</li>
+        <li>Puedes volver a cualquier foto anterior.</li>
+        <li>Funciona en tu computadora, sin internet.</li>
+        <li>Lo creó Linus Torvalds (2005) para programar Linux.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Analogía</h3>
+      <p>Es como los "puntos de guardado" de un videojuego, o como el historial de versiones de Google Docs… pero para <b>todo un proyecto</b>, con nombre y fecha en cada cambio.</p>
+      <p style="margin-top:.6em" class="muted">Adiós a <code>tesis_final_FINAL_ahora_sí_v3.docx</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <h2><span class="n">03</span>El vocabulario de Git</h2>
+  <table class="t">
+    <tr><th>Palabra</th><th>Qué significa</th></tr>
+    <tr><td><b>Repositorio</b> (repo)</td><td>La carpeta del proyecto + su historia completa</td></tr>
+    <tr><td><b>Commit</b></td><td>Guardar una versión con un mensaje ("agregué sesión 12")</td></tr>
+    <tr><td><b>Branch</b> (rama)</td><td>Una línea paralela de trabajo, para experimentar sin romper lo principal</td></tr>
+    <tr><td><b>Merge</b></td><td>Unir una rama de vuelta a la principal (<code>main</code>)</td></tr>
+    <tr><td><b>Push / Pull</b></td><td>Subir mis commits a la nube / bajar los de otros</td></tr>
+    <tr><td><b>Clone</b></td><td>Descargar una copia completa de un repo</td></tr>
+  </table>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <h2><span class="n">04</span>¿Qué es GitHub?</h2>
+  <p class="big">Git es la herramienta. <span class="acc">GitHub es el lugar</span> donde se guardan los repositorios en internet.</p>
+  <div class="cols3">
+    <div class="card"><h3>☁️ Respaldo</h3><p>Tu proyecto vive en la nube, con toda su historia.</p></div>
+    <div class="card"><h3>👥 Colaboración</h3><p><b>Pull requests</b>: propuestas de cambio que se revisan antes de unirse.</p></div>
+    <div class="card"><h3>🌐 GitHub Pages</h3><p>Convierte un repo con HTML en un sitio web gratis.</p></div>
+  </div>
+  <p class="muted">Es de Microsoft desde 2018. Alternativas: GitLab, Bitbucket, Codeberg.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <h2><span class="n">05</span>GitHub Pages: de archivo a sitio</h2>
+  <div class="cols">
+    <div>
+      <ul class="pts">
+        <li>Un archivo <code>.html</code> es solo texto con instrucciones de formato.</li>
+        <li>Pages toma el repo y lo sirve tal cual:<br><code>recursos/equipos.html</code> → <code>socyb.github.io/geopolis/recursos/equipos.html</code></li>
+        <li><code>index.html</code> es la "portada" que se abre por defecto.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Página "no vinculada"</h3>
+      <p>Como esta: existe y tiene URL, pero ningún menú apunta a ella. Solo la encuentra quien tiene el enlace.</p>
+      <p style="margin-top:.5em" class="muted">Útil para borradores, presentaciones o material en preparación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <h2><span class="n">06</span>Claude como <span class="acc">agente</span></h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Chatbot</h3>
+      <p>Tú preguntas → responde texto.<br>Tú copias, pegas, guardas, subes.</p>
+    </div>
+    <div class="card" style="border-color:var(--acc)">
+      <h3>Agente</h3>
+      <p>Tú describes la meta → <b>él actúa</b>: lee archivos, ejecuta comandos, edita, prueba y hace commit.</p>
+    </div>
+  </div>
+  <p class="big">El ciclo del agente: <span class="acc2">pensar → usar una herramienta → ver el resultado → repetir</span> hasta terminar.</p>
+  <p class="muted">Claude Code trabaja dentro de una copia del repositorio, igual que lo haría una persona en su computadora.</p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <h2><span class="n">07</span>Cómo se conecta todo</h2>
+  <svg class="diagram" viewBox="0 0 1600 560" role="img" aria-label="Diagrama de conexión entre usuario, Claude, GitHub y Pages">
+    <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--acc)"/></marker></defs>
+    <rect class="box" x="20" y="180" width="300" height="180" rx="18"/>
+    <text x="170" y="250" text-anchor="middle" font-size="38" font-weight="700">Tú</text>
+    <text x="170" y="295" text-anchor="middle" class="lbl">navegador · app · VS Code</text>
+
+    <rect class="box hl" x="470" y="150" width="360" height="240" rx="18"/>
+    <text x="650" y="215" text-anchor="middle" font-size="38" font-weight="700">Claude Code</text>
+    <text x="650" y="260" text-anchor="middle" class="lbl">contenedor en la nube</text>
+    <text x="650" y="300" text-anchor="middle" class="lbl">copia del repo · Git</text>
+    <text x="650" y="340" text-anchor="middle" class="lbl">edita · prueba · commit</text>
+
+    <rect class="box hl2" x="980" y="180" width="280" height="180" rx="18"/>
+    <text x="1120" y="255" text-anchor="middle" font-size="38" font-weight="700">GitHub</text>
+    <text x="1120" y="300" text-anchor="middle" class="lbl">socyb/geopolis</text>
+
+    <rect class="box" x="1340" y="180" width="240" height="180" rx="18"/>
+    <text x="1460" y="255" text-anchor="middle" font-size="38" font-weight="700">Pages</text>
+    <text x="1460" y="300" text-anchor="middle" class="lbl">sitio público</text>
+
+    <path class="arrow" d="M320 240 H462"/><text x="390" y="225" text-anchor="middle" class="lbl">prompt</text>
+    <path class="arrow" d="M462 310 H328"/><text x="395" y="345" text-anchor="middle" class="lbl">respuesta</text>
+    <path class="arrow" d="M830 240 H972"/><text x="900" y="225" text-anchor="middle" class="lbl">push</text>
+    <path class="arrow" d="M972 310 H838"/><text x="905" y="345" text-anchor="middle" class="lbl">clone</text>
+    <path class="arrow" d="M1260 270 H1332"/>
+
+    <text x="800" y="470" text-anchor="middle" font-size="26" class="lbl">El agente trabaja en una <tspan fill="var(--acc)">rama</tspan>; tú revisas y la unes a <tspan fill="var(--acc)">main</tspan> con un pull request → Pages se actualiza.</text>
+  </svg>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <h2><span class="n">08</span>GitHub Pro gratis con tu cuenta UNAM</h2>
+  <ol class="steps">
+    <li>Crea (o usa) tu cuenta en <b>github.com</b> y agrega tu correo institucional: <code>@comunidad.unam.mx</code> (o <code>@alumno.unam.mx</code>, <code>@unam.mx</code>).</li>
+    <li>Entra a <b>education.github.com</b> → <i>Join GitHub Education</i> → elige <b>Student</b> o <b>Teacher</b>.</li>
+    <li>Selecciona "Universidad Nacional Autónoma de México" y verifica el correo.</li>
+    <li>Sube una prueba vigente: credencial UNAM, tira de materias o constancia (foto clara, con fecha).</li>
+    <li>Activa la autenticación en dos pasos y espera la aprobación (de horas a pocos días).</li>
+  </ol>
+  <p><span class="acc">Obtienes:</span> GitHub Pro, <b>Copilot Pro gratis</b> y el <i>Student Developer Pack</i> (dominios, nube, herramientas). <span class="muted">Los beneficios cambian: revisa la página oficial.</span></p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <h2><span class="n">09</span>Trabajar desde una IDE: VS Code</h2>
+  <p class="lead">Una IDE es el "procesador de textos" del código. <b>Visual Studio Code</b> es gratis y la más usada.</p>
+  <div class="cols">
+    <div>
+      <ol class="steps">
+        <li>Instala VS Code y Git.</li>
+        <li>Inicia sesión con GitHub (ícono de cuenta).</li>
+        <li><i>Clone Repository</i> → elige <code>geopolis</code>.</li>
+        <li>Edita y usa el panel <b>Source Control</b> para commit y push sin terminal.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Agentes dentro de VS Code</h3>
+      <ul class="pts">
+        <li><b>Claude Code</b>: extensión oficial (o en la terminal).</li>
+        <li><b>GitHub Copilot</b>: chat y modo agente; deja elegir modelo (Claude, GPT, Gemini…).</li>
+        <li>Extensión <b>Live Preview</b>: ver el HTML mientras editas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <h2><span class="n">10</span>¿Y ChatGPT, Gemini y otros?</h2>
+  <div class="cols3">
+    <div class="card"><h3>OpenAI · ChatGPT</h3>
+      <ul class="pts"><li><b>Codex</b>: el agente de código de OpenAI; se conecta a GitHub y abre pull requests.</li><li>Codex CLI y extensión para VS Code.</li><li>ChatGPT puede leer repos con el conector de GitHub.</li></ul></div>
+    <div class="card"><h3>Google · Gemini</h3>
+      <ul class="pts"><li><b>Gemini CLI</b>: agente en terminal, con nivel gratuito.</li><li><b>Gemini Code Assist</b> para VS Code.</li><li><b>Jules</b>: agente que trabaja sobre tu repo de GitHub.</li></ul></div>
+    <div class="card"><h3>Otros</h3>
+      <ul class="pts"><li><b>Copilot</b> (multimodelo).</li><li><b>Cursor</b>, <b>Windsurf</b>: editores con IA.</li><li><b>Ollama</b>: modelos abiertos (Llama, Qwen, DeepSeek) en tu propia PC.</li></ul></div>
+  </div>
+  <p class="big">La lógica es la misma: <span class="acc">agente + repositorio + Git</span>. Cambia el modelo, no la ruta.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <h2><span class="n">11</span>¿Qué es un LLM?</h2>
+  <p class="big"><span class="acc">Large Language Model</span>: un programa entrenado con enormes cantidades de texto para hacer una sola cosa…</p>
+  <p class="big" style="font-size:2em">predecir la <span class="acc2">siguiente palabra</span>.</p>
+  <p class="lead">Repitiendo esa predicción, palabra tras palabra, escribe ensayos, código o esta presentación. Claude, GPT, Gemini y Llama son LLMs.</p>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <h2><span class="n">12</span>El abuelo: las cadenas de Markov</h2>
+  <div class="cols">
+    <div>
+      <p>Andréi Márkov (1913) contó, en el poema <i>Eugenio Oneguin</i>, con qué frecuencia una letra sigue a otra.</p>
+      <p style="margin-top:.6em"><b>Idea:</b> el siguiente estado depende <span class="acc">solo del actual</span>, con cierta probabilidad.</p>
+      <p style="margin-top:.6em" class="muted">Toca una palabra y mira qué podría venir después, según este mini-corpus:</p>
+      <p class="muted" style="font-size:.7em;margin-top:.3em" id="mk-corpus"></p>
+    </div>
+    <div class="card">
+      <div class="mk-words" id="mk-words"></div>
+      <div id="mk-bars" style="margin-top:.6em;min-height:5em"></div>
+      <div style="margin-top:.6em;display:flex;gap:.6em;align-items:center"><button class="btn" id="mk-gen">Generar frase</button><span class="muted" style="font-size:.7em">elige al azar según las probabilidades</span></div>
+      <div class="mk-out" id="mk-out" style="margin-top:.4em"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <h2><span class="n">13</span>De Markov a los LLMs</h2>
+  <table class="t">
+    <tr><th></th><th>Cadena de Markov</th><th>LLM (Transformer)</th></tr>
+    <tr><td>Mira hacia atrás</td><td>1 o 2 palabras</td><td>Cientos de miles de <b>tokens</b></td></tr>
+    <tr><td>Aprende</td><td>Contando frecuencias</td><td>Ajustando <b>miles de millones de pesos</b></td></tr>
+    <tr><td>Entiende relaciones</td><td>No</td><td>Sí: mecanismo de <b>atención</b></td></tr>
+    <tr><td>Resultado</td><td>Frases raras</td><td>Texto coherente, razonamiento, código</td></tr>
+  </table>
+  <p class="big">En el fondo sigue siendo lo mismo: <span class="acc">probabilidades de lo que sigue</span>. Por eso puede sonar seguro… y equivocarse.</p>
+</section>
+
+<!-- 15 -->
+<section class="slide">
+  <h2><span class="n">14</span>Redes neuronales y pesos</h2>
+  <div class="cols">
+    <div>
+      <ul class="pts">
+        <li>Una <b>neurona artificial</b> multiplica cada entrada por un <span class="acc">peso</span>, suma todo y decide cuánto "se activa".</li>
+        <li>Miles de neuronas en <b>capas</b> forman una red.</li>
+        <li><b>Entrenar</b> = ajustar los pesos poco a poco para equivocarse menos (descenso del gradiente + <i>backpropagation</i>).</li>
+        <li>Los "parámetros" de un LLM son esos pesos: <b>miles de millones</b>.</li>
+      </ul>
+    </div>
+    <svg viewBox="0 0 520 360" style="width:100%" role="img" aria-label="Neurona: entradas por pesos, suma, activación">
+      <g font-size="26" fill="var(--fg)">
+        <circle cx="60" cy="70" r="34" fill="var(--bg2)" stroke="var(--acc2)" stroke-width="3"/><text x="60" y="79" text-anchor="middle">x₁</text>
+        <circle cx="60" cy="180" r="34" fill="var(--bg2)" stroke="var(--acc2)" stroke-width="3"/><text x="60" y="189" text-anchor="middle">x₂</text>
+        <circle cx="60" cy="290" r="34" fill="var(--bg2)" stroke="var(--acc2)" stroke-width="3"/><text x="60" y="299" text-anchor="middle">x₃</text>
+        <line x1="94" y1="75" x2="262" y2="170" stroke="var(--acc)" stroke-width="5"/>
+        <line x1="94" y1="180" x2="260" y2="180" stroke="var(--acc)" stroke-width="2"/>
+        <line x1="94" y1="285" x2="262" y2="190" stroke="var(--acc)" stroke-width="8"/>
+        <text x="165" y="105" fill="var(--acc)">w₁</text><text x="165" y="170" fill="var(--acc)">w₂</text><text x="165" y="275" fill="var(--acc)">w₃</text>
+        <circle cx="310" cy="180" r="50" fill="var(--bg2)" stroke="var(--acc)" stroke-width="4"/><text x="310" y="192" text-anchor="middle" font-size="34">Σ</text>
+        <line x1="360" y1="180" x2="440" y2="180" stroke="var(--fg)" stroke-width="3"/>
+        <text x="470" y="190" text-anchor="middle">y</text>
+        <text x="310" y="270" text-anchor="middle" font-size="20" fill="var(--muted)">suma ponderada</text>
+        <text x="310" y="296" text-anchor="middle" font-size="20" fill="var(--muted)">+ activación</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="slide">
+  <h2><span class="n">15</span>Para ver: Dot CSV</h2>
+  <p class="muted" style="margin-top:-.5em">Carlos Santana explica IA en español, con mucha claridad.</p>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/watch?v=MRIv2IwFTPg" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/MRIv2IwFTPg/mqdefault.jpg" alt=""><span><b>Parte 1:</b> La neurona</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=uwbHOpp9xkc" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/uwbHOpp9xkc/mqdefault.jpg" alt=""><span><b>Parte 2:</b> La red</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=A6FiCDoz8_4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/A6FiCDoz8_4/mqdefault.jpg" alt=""><span><b>Descenso del gradiente</b></span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=eNIqz_noix8" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/eNIqz_noix8/mqdefault.jpg" alt=""><span><b>Parte 3:</b> Backpropagation</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=M5QHwkkHgAA" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/M5QHwkkHgAA/mqdefault.jpg" alt=""><span><b>Parte 3.5:</b> Matemáticas del backprop</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=aL-EmKuB078" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/aL-EmKuB078/mqdefault.jpg" alt=""><span><b>¿Qué es un Transformer?</b></span></a>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide">
+  <h2><span class="n">16</span>Tokens, contexto y alucinaciones</h2>
+  <div class="cols3">
+    <div class="card"><h3>Token</h3><p>El modelo no lee palabras sino trozos: <code>geo</code>·<code>polí</code>·<code>tica</code>. Aproximadamente ¾ de palabra.</p></div>
+    <div class="card"><h3>Contexto</h3><p>Todo lo que el modelo "ve" a la vez: tu prompt, los archivos, la conversación. Lo que no está ahí, <b>no lo sabe</b>.</p></div>
+    <div class="card"><h3>Alucinación</h3><p>Cuando predice algo plausible pero falso: citas, enlaces, fechas. <b>Siempre verifica.</b></p></div>
+  </div>
+  <p class="big">Consecuencia práctica: <span class="acc">la calidad de lo que das determina la calidad de lo que recibes.</span></p>
+</section>
+
+<!-- 17b -->
+<section class="slide">
+  <h2><span class="n">17</span>Programar = <span class="acc">escribir con claridad</span></h2>
+  <div class="cols">
+    <div class="card">
+      <p class="big" style="font-size:1.15em">“El lenguaje de programación más nuevo y de moda es el inglés.”</p>
+      <p class="muted" style="margin-top:.4em">— Andrej Karpathy, 2023 (léase: el español, o cualquier lengua)</p>
+    </div>
+    <div class="card">
+      <p class="big" style="font-size:1.15em">“Sobre la necedad de la programación en lenguaje natural.”</p>
+      <p class="muted" style="margin-top:.4em">— Edsger Dijkstra, 1978: la ambigüedad de la lengua es justo lo que el código formal evitaba.</p>
+    </div>
+  </div>
+  <p class="big" style="font-size:1.3em">Los dos tienen razón: hoy el código se escribe en lengua humana, y por eso <span class="acc2">la precisión pasa del compilador a quien escribe.</span></p>
+  <p class="muted">Las <b>soft skills</b> (redactar, argumentar, explicar, escuchar, delimitar un problema) se volvieron habilidades técnicas.</p>
+</section>
+
+<!-- 17c -->
+<section class="slide">
+  <h2><span class="n">18</span>El lenguaje “natural” no es natural</h2>
+  <div class="cols3">
+    <div class="card"><h3>Saussure</h3><p>El signo es <b>arbitrario</b> y convencional: nada en "mapa" se parece a un mapa. Es un acuerdo social.</p></div>
+    <div class="card"><h3>Wittgenstein</h3><p>El significado es el <b>uso</b> dentro de un "juego de lenguaje". “Los límites de mi lenguaje son los límites de mi mundo.”</p></div>
+    <div class="card"><h3>Bourdieu · Foucault</h3><p>Hablar es una práctica aprendida, atravesada por <b>poder</b>, capital cultural y discursos.</p></div>
+  </div>
+  <p class="big">Lo llamamos “natural” solo porque lo aprendimos de niños. <span class="acc">Es una tecnología cultural</span>, y como toda tecnología se puede usar con más o menos oficio.</p>
+  <p class="muted">Para el agente, tus palabras son literalmente el programa: lo que es ambiguo para una persona también lo es para la máquina.</p>
+</section>
+
+<!-- 18 -->
+<section class="slide">
+  <h2><span class="n">19</span>Cómo pedir las cosas</h2>
+  <p class="lead">El agente no adivina tu intención: <b>completa lo que falta con lo más probable</b>, que suele ser lo más genérico.</p>
+  <div class="cols">
+    <ul class="pts">
+      <li><b>Objetivo:</b> qué quieres y para qué.</li>
+      <li><b>Audiencia y uso:</b> ¿proyector, celular, imprimir?</li>
+      <li><b>Contexto:</b> archivos, ejemplos, datos.</li>
+    </ul>
+    <ul class="pts">
+      <li><b>Restricciones:</b> lo que <i>no</i> debe hacer.</li>
+      <li><b>Formato:</b> dónde guardar, cómo nombrar.</li>
+      <li><b>Criterio de éxito:</b> cómo sabrás que quedó bien.</li>
+    </ul>
+  </div>
+  <p class="muted">Escribe como si se lo explicaras a un asistente brillante que acaba de llegar y no conoce tu proyecto.</p>
+</section>
+
+<!-- 19 -->
+<section class="slide">
+  <h2><span class="n">20</span>Prompt vago vs. prompt claro</h2>
+  <div class="prompt bad"><b class="bad">✗</b> Hazme una página sobre el Ártico.</div>
+  <div class="prompt good"><b class="ok">✓</b> Crea <code>sesiones/s14-artico.html</code> para proyectar en clase (letras grandes, alto contraste). Tema: disputa por las rutas del Ártico. Incluye un mapa con las rutas del Norte y del Noroeste, una línea de tiempo 2007–2026 y una tabla con los 8 países del Consejo Ártico. Usa el mismo estilo que <code>sesiones/s13.html</code>. No la enlaces al índice todavía. Al final haz commit.</div>
+  <p class="big">Dice <span class="acc">qué, dónde, para quién, con qué estilo y qué no hacer.</span></p>
+</section>
+
+<!-- 20 -->
+<section class="slide">
+  <h2><span class="n">21</span>Tips para mejores diseños</h2>
+  <div class="cols">
+    <ul class="pts">
+      <li><b>Da referencias:</b> "como la página de equipos", una captura, un sitio que te guste.</li>
+      <li><b>Nombra el ambiente:</b> sobrio, editorial, periodístico, lúdico…</li>
+      <li><b>Paleta y tipografía</b> si las tienes: "azul UNAM y dorado".</li>
+      <li><b>Di dónde se verá:</b> proyector, celular, impresión.</li>
+    </ul>
+    <ul class="pts">
+      <li><b>Itera en pasos chicos:</b> un cambio por mensaje.</li>
+      <li><b>Señala con precisión:</b> "el título de la diapositiva 4", no "eso de arriba".</li>
+      <li><b>Pide que lo pruebe:</b> "revisa que no se desborde en 1280×720".</li>
+      <li><b>Explica el porqué:</b> "más grande porque se ve desde el fondo del salón".</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 21 -->
+<section class="slide">
+  <h2><span class="n">22</span>Ejemplo real: esta presentación</h2>
+  <p class="muted">Se generó a partir de este prompt (resumido):</p>
+  <div class="prompt">Haz una página <b>no vinculada</b> en <b>modo presentación para proyector, letras grandes</b>, donde voy a explicar la ruta para hacer estas páginas, qué es Git, qué es GitHub, qué es Claude como agente, cómo se conecta todo, cómo se obtiene GitHub Pro con cuenta UNAM, cómo integrar VS Code, ChatGPT, Gemini y otros LLMs. Explica qué es un LLM, <b>incluyendo cadenas de Márkov</b>, vincula los videos de <b>DotCSV</b>… tips para mejores prompts… <b>Haz commit</b> para poder verla en GitHub.</div>
+  <div class="prompt" style="font-size:.75em">Y a mitad del trabajo, un ajuste: «Menciona algo sobre la vigencia del lenguaje natural y las <b>soft skills</b>… que tampoco es natural, como han dicho muchos pensadores.»</div>
+  <p class="big">Formato, audiencia, temas, restricciones y entrega: <span class="acc">todo estaba en el prompt.</span></p>
+</section>
+
+<!-- 22 -->
+<section class="slide">
+  <h2><span class="n">23</span>Flujo de trabajo recomendado</h2>
+  <ol class="steps">
+    <li>Describe la tarea con contexto y restricciones.</li>
+    <li>El agente trabaja en una <b>rama</b> propia, nunca directo en <code>main</code>.</li>
+    <li>Revisa el resultado: ábrelo, pruébalo en el proyector o el celular.</li>
+    <li>Pide ajustes concretos hasta que quede.</li>
+    <li>Commit + <b>pull request</b> → revisas → <b>merge</b> → Pages publica.</li>
+  </ol>
+  <p class="muted">Si algo sale mal, Git guarda la historia: siempre se puede volver atrás.</p>
+</section>
+
+<!-- 23 -->
+<section class="slide">
+  <div class="kicker">En resumen</div>
+  <h1 style="font-size:2.4em">Git guarda. GitHub comparte.<br>El agente <span class="acc">construye</span>.<br>Tú <span class="acc2">decides qué y cómo</span>.</h1>
+  <p class="lead">Un LLM predice lo que sigue; un buen prompt hace que "lo que sigue" sea lo que tú querías.</p>
+</section>
+
+<div id="ui">
+  <button id="prev" aria-label="Anterior">←</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Siguiente">→</button>
+  <span class="sp"></span>
+  <button id="theme">Tema (T)</button>
+  <button id="fs">Pantalla completa (F)</button>
+  <button id="hbtn">?</button>
+</div>
+<div id="help"><div class="card"><h3>Controles</h3><ul class="pts">
+  <li>→ · espacio · Re Pág ↓ / ← · Av Pág ↑ : avanzar / retroceder (sirve con clicker)</li>
+  <li>Inicio / Fin: primera / última</li>
+  <li>F: pantalla completa · T: tema claro/oscuro</li>
+  <li>Deslizar en pantallas táctiles</li></ul>
+  <p class="muted" style="margin-top:.6em">Esc o clic para cerrar</p></div></div>
+
+<script>
+(function(){
+  const S=[...document.querySelectorAll('.slide')], N=S.length;
+  let i=0;
+  const prog=document.getElementById('prog'), count=document.getElementById('count');
+  function go(n){
+    i=Math.max(0,Math.min(N-1,n));
+    S.forEach((s,k)=>s.classList.toggle('active',k===i));
+    prog.style.width=((i+1)/N*100)+'%';
+    count.textContent=(i+1)+' / '+N;
+    history.replaceState(null,'','#'+(i+1));
+  }
+  const h=parseInt(location.hash.slice(1),10); go(isNaN(h)?0:h-1);
+  const help=document.getElementById('help');
+  function fs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
+  function theme(){const r=document.documentElement;r.dataset.theme=r.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('tg-theme',r.dataset.theme)}catch(e){}}
+  try{const t=localStorage.getItem('tg-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+  document.addEventListener('keydown',e=>{
+    if(e.target.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+    const k=e.key;
+    if(['ArrowRight','PageDown',' ','ArrowDown'].includes(k)){e.preventDefault();go(i+1)}
+    else if(['ArrowLeft','PageUp','ArrowUp'].includes(k)){e.preventDefault();go(i-1)}
+    else if(k==='Home')go(0); else if(k==='End')go(N-1);
+    else if(k==='f'||k==='F')fs(); else if(k==='t'||k==='T')theme();
+    else if(k==='?')help.classList.toggle('on'); else if(k==='Escape')help.classList.remove('on');
+  });
+  document.getElementById('prev').onclick=()=>go(i-1);
+  document.getElementById('next').onclick=()=>go(i+1);
+  document.getElementById('fs').onclick=fs;
+  document.getElementById('theme').onclick=theme;
+  document.getElementById('hbtn').onclick=()=>help.classList.add('on');
+  help.onclick=()=>help.classList.remove('on');
+  let tx=null;
+  document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(i+(d<0?1:-1));tx=null});
+
+  /* Cadena de Márkov (bigramas) */
+  const corpus=['el mapa muestra el poder','el poder define el territorio','el territorio define la frontera','la frontera divide el mapa','el estado controla la frontera','el estado define el poder'];
+  document.getElementById('mk-corpus').textContent='Corpus: «'+corpus.join('. ')+'.»';
+  const T={};
+  corpus.forEach(f=>{const w=f.split(' ').concat(['.']);for(let k=0;k<w.length-1;k++){(T[w[k]]=T[w[k]]||{});T[w[k]][w[k+1]]=(T[w[k]][w[k+1]]||0)+1}});
+  const wordsEl=document.getElementById('mk-words'), bars=document.getElementById('mk-bars');
+  Object.keys(T).forEach(w=>{const b=document.createElement('button');b.textContent=w;b.onclick=()=>show(w,b);wordsEl.appendChild(b)});
+  function show(w,btn){
+    wordsEl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===btn));
+    const nx=T[w],tot=Object.values(nx).reduce((a,b)=>a+b,0);
+    bars.innerHTML='<div class="muted" style="font-size:.75em">Después de «'+w+'» viene…</div>'+Object.entries(nx).sort((a,b)=>b[1]-a[1]).map(([k,v])=>{const p=Math.round(v/tot*100);return '<div class="bar"><span class="w">'+(k==='.'?'(fin)':k)+'</span><span class="b" style="width:'+(p*0.12)+'em"></span><span>'+p+'%</span></div>'}).join('');
+  }
+  function pick(o){const tot=Object.values(o).reduce((a,b)=>a+b,0);let r=Math.random()*tot;for(const[k,v]of Object.entries(o)){if((r-=v)<0)return k}}
+  document.getElementById('mk-gen').onclick=()=>{let w='el',out=[w];for(let k=0;k<12;k++){w=pick(T[w]);if(w==='.')break;out.push(w)}document.getElementById('mk-out').textContent='«'+out.join(' ')+'.»'};
+  show('el',wordsEl.querySelector('button'));
+})();
+</script>
+</body>
+</html>
