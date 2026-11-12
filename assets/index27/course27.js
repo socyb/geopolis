@@ -129,6 +129,8 @@
   // Todas las sesiones tienen página propia en sesiones/.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
+  // El noveno, el momento (AAAA-MM-DDTHH:MM, hora de Ciudad de México) desde el que
+  // una sesión ya se muestra como la actual, antes de su fecha: la víspera, por ejemplo.
   const sessions = [
     [ 1,"2026-08-18","A-004","Mesa de brújulas","Nos conocemos · desde dónde miramos el mundo","I","sesiones/s01-mesa-de-brujulas.html"],
     [ 2,"2026-08-20","F-101","Geopolítica clásica y crítica","Escalas · posición · representación","I","sesiones/s02-geopolitica-critica.html"],
@@ -152,14 +154,14 @@
     [20,"2026-11-03","A-004","7-Eleven: copiar, adaptar o reinventar","Yahagi y Kar · modelo de negocio · actividad 11","V","sesiones/s20-7-eleven.html"],
     [21,"2026-11-05","A-101","Teoría de juegos: por qué cooperar","Veritasium · dilema del prisionero · toma y daca","V","sesiones/s21-teoria-de-juegos.html"],
     [22,"2026-11-10","A-004","Cadenas globales de valor e incertidumbre geopolítica","Capítulos 1 y 2 · riesgos y decisiones · actividad 12","V","sesiones/s22-cadenas-globales-de-valor.html"],
-    [23,"2026-11-12","A-101","","","V","sesiones/s23.html"],
+    [23,"2026-11-12","A-101","","","V","sesiones/s23.html",null,"2026-11-11T20:00"],
     [24,"2026-11-17","A-004","China y América Latina","Fornes y Mendez · un país de la región · actividad 13","V","sesiones/s24-china-y-america-latina.html"],
     [25,"2026-11-19","A-101","Segundo examen parcial","","VI","sesiones/s25-segundo-parcial.html"],
     [26,"2026-11-24","A-004","","","VI","sesiones/s26.html"],
     [27,"2026-11-26","A-101","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI","sesiones/s27-entrega-del-trabajo-final.html"],
     [28,"2026-12-01","A-004","","","VI","sesiones/s28.html"],
     [29,"2026-12-03","A-101","","","VI","sesiones/s29.html"]
-  ].map(([number, date, room, title, subtitle, unit, href, opens]) => ({ number, date, room, title, subtitle, unit, href, opens }));
+  ].map(([number, date, room, title, subtitle, unit, href, opens, from]) => ({ number, date, room, title, subtitle, unit, href, opens, from }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
                    "07":"jul","08":"ago","09":"sep","10":"oct","11":"nov","12":"dic" };
@@ -228,9 +230,10 @@
       published = before;
     }
   }
-  const byDate = sessions.filter(s => s.date <= cursor && (!s.opens || now >= `${s.date}T${s.opens}`));
+  const released = s => (s.from && now >= s.from) || (s.date <= cursor && (!s.opens || now >= `${s.date}T${s.opens}`));
+  const byDate = sessions.filter(released);
   const current = (!isPreview && published) || byDate[byDate.length - 1] || sessions[0];
-  const unlocked  = sessions.filter(s => (s.date <= cursor || s.number === current.number) && s.number <= current.number);
+  const unlocked  = sessions.filter(s => (s.date <= cursor || released(s) || s.number === current.number) && s.number <= current.number);
 
   /* ── Versiones de la portada ────────────────────────────────────────── */
   // Mientras una versión espera su hora, la portada lleva dos, cada una en un

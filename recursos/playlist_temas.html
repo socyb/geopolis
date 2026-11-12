@@ -77,7 +77,23 @@
       .pt-tools{position:static}
       .vgroup{scroll-margin-top:80px}
     }
-    @media print{.pt-tools,.pt-index,.pt-more{display:none}}
+    /* Video al azar */
+    .pt-random{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin:1.3rem 0 0}
+    .pt-random-hint{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--muted)}
+    .pt-pick{
+      display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:1.2rem;align-items:start;margin:1.2rem 0 0;padding:1rem;
+      border:2px solid var(--edge);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);
+    }
+    .pt-pick[hidden]{display:none}
+    .pt-pick-frame{aspect-ratio:16/9;border:2px solid var(--edge);border-radius:var(--radius-sm);overflow:hidden;background:#000}
+    .pt-pick-frame iframe{display:block;width:100%;height:100%;border:0}
+    .pt-pick h2{font-size:clamp(1.15rem,2.2vw,1.5rem);margin:.2rem 0 .5rem;line-height:1.2}
+    .pt-pick .kicker{color:var(--acc,var(--guinda))}
+    .pt-pick .vmeta{margin:0 0 1rem}
+    .pt-pick-acts{display:flex;flex-wrap:wrap;gap:.5rem}
+    .pt-pick-note{margin:.8rem 0 0;font-size:.82rem;color:var(--muted)}
+    @media (max-width:720px){.pt-pick{grid-template-columns:1fr}}
+    @media print{.pt-tools,.pt-index,.pt-more,.pt-random,.pt-pick{display:none}}
   </style>
 </head>
 <body>
@@ -110,6 +126,11 @@
       <p class="kicker">Playlist de YouTube · Geopolítica</p>
       <h1>La videoteca, <em>por temas</em></h1>
       <p class="lead">Todos los videos de la playlist del curso, agrupados por tema según su título y su canal. Busca por palabra clave, filtra por idioma o duración, y da clic en cualquier video para abrirlo en YouTube.</p>
+      <div class="pt-random">
+        <button type="button" class="btn btn-primary" id="ptRandom">🎲 Random</button>
+        <span class="pt-random-hint" id="ptRandomHint">Un video al azar de toda la playlist</span>
+      </div>
+      <div class="pt-pick" id="ptPick" hidden aria-live="polite"></div>
       <ul class="arch-meta" id="ptMeta"></ul>
       <ul class="pt-index" id="ptIndex" aria-label="Ir a un tema"></ul>
     </div>
@@ -338,6 +359,46 @@ const PLAYLIST = {"title":"Geopolítica","url":"https://youtube.com/playlist?lis
       </div>
     </article>`;
   };
+
+  /* ── Video al azar ────────────────────────────────────────────────────── */
+  // Saca de una bolsa barajada: no se repite ninguno hasta haber pasado por todos.
+  const bag = [];
+  let last = null;
+  const draw = () => {
+    if (!bag.length) {
+      bag.push(...videos.keys());
+      for (let i = bag.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [bag[i], bag[j]] = [bag[j], bag[i]]; }
+      if (bag.length > 1 && bag[bag.length - 1] === last) [bag[0], bag[bag.length - 1]] = [bag[bag.length - 1], bag[0]];
+    }
+    last = bag.pop();
+    return videos[last];
+  };
+  const pick = $("#ptPick"), rnd = $("#ptRandom");
+  $("#ptRandomHint").textContent = `Un video al azar entre los ${videos.length} de la playlist`;
+  rnd.addEventListener("click", () => {
+    const v = draw();
+    const sec = SEC.get(v.s);
+    const url = `https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}` + (LIST_ID ? `&list=${encodeURIComponent(LIST_ID)}` : "");
+    pick.style.setProperty("--acc", sec ? sec.acc : ACC[0]);
+    pick.innerHTML = `<div class="pt-pick-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?autoplay=1&rel=0" title="${esc(v.t)}"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div>
+        <p class="kicker">Te tocó${sec ? " · " + esc(sec.n) : ""}</p>
+        <h2>${esc(v.t)}</h2>
+        <p class="vmeta">${[v.c, v.ds, LANG[v.l] || v.l].filter(Boolean).map(esc).join(" · ")}</p>
+        <div class="pt-pick-acts">
+          <button type="button" class="btn btn-primary btn-small" data-again>🎲 Otro</button>
+          <a class="btn btn-ghost btn-small" href="${url}" target="_blank" rel="noopener">Abrir en YouTube ↗</a>
+        </div>
+        <p class="pt-pick-note">Si no se reproduce aquí, ábrelo en YouTube.</p>
+      </div>`;
+    pick.hidden = false;
+    rnd.textContent = "🎲 Otro al azar";
+    if (pick.getBoundingClientRect().bottom > innerHeight) pick.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+  pick.addEventListener("click", e => { if (e.target.closest("[data-again]")) rnd.click(); });
 
   /* ── Pintar ───────────────────────────────────────────────────────────── */
   const LIMIT = 24;            // tarjetas visibles por grupo antes de «ver todos»
