@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera los datos de playlist_temas.html a partir de playlist_geopolitica.json.
+"""Genera los datos de recursos/playlist_temas.html a partir de recursos/playlist_geopolitica.json.
 
 Cada video se clasifica por palabras clave de su título y canal:
 la primera sección que coincide (en el orden de SECTIONS) es su sección
@@ -15,8 +15,8 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "playlist_geopolitica.json"
-PAGE = ROOT / "playlist_temas.html"
+SRC = ROOT / "recursos" / "playlist_geopolitica.json"
+PAGE = ROOT / "recursos" / "playlist_temas.html"
 
 
 def fold(s):
