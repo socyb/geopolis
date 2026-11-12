@@ -118,13 +118,15 @@
   // renumeran. El 27 se leyó la Franja y la Ruta (OBOR/BRI), sin versión propia, y
   // el 29 es el taller del estado del arte. El 3 de noviembre, estrategias de
   // empresas multinacionales con el caso 7-Eleven (Yahagi y Kar, actividad 11).
-  // El 5 de noviembre fue el microtaller del estado del arte. El 10 se trabaja la
-  // actividad 12: capítulos 1 y 2 de Global Value Chains and Geopolitical
+  // El 29 de septiembre se leyó a Wade, la nueva guerra fría (dos alumnos presentaron
+  // ahí el primer parcial por adelantado). El 5 de noviembre se vio el video de
+  // Veritasium sobre teoría de juegos. El 10 se trabaja la actividad 12: capítulos 1 y 2 de Global Value Chains and Geopolitical
   // Uncertainty, como base para decidir ante un riesgo.
   // De la 23 a la 29 solo están fijos la lectura del 17 de noviembre (actividad 13,
   // Fornes y Mendez), el segundo parcial del 19 y la entrega del trabajo final del 26,
   // al correo semsocan2019@gmail.com. Lo demás queda sin título hasta que se dé.
   // Las sesiones se siguen por fecha: ninguna versión fija la portada.
+  // Todas las sesiones tienen página propia en sesiones/.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
   // El octavo, la hora a la que se abre una versión preparada con anticipación.
   const sessions = [
@@ -133,30 +135,30 @@
     [ 3,"2026-08-27","F-101","Geopolítica crítica y el poder de los mapas","Marcos · proyecciones · contracartografía","I","sesiones/s03-poder-de-los-mapas.html"],
     [ 4,"2026-09-01","A-004","La era del imperio","Hobsbawm · orden territorial · comercio","II","sesiones/s04-la-era-del-imperio.html"],
     [ 5,"2026-09-03","F-101","La era del imperio (II)","Documental · conquista formal e imperio informal","II","sesiones/s05-la-era-del-imperio-ii.html"],
-    [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II"],
+    [ 6,"2026-09-08","A-004","La época de la guerra total","Movilización · industria · frontera","II","sesiones/s06-la-epoca-de-la-guerra-total.html"],
     [ 7,"2026-09-10","F-101","La época de la guerra total (II)","Documental · de la guerra total a la guerra fría","II","sesiones/s07-la-epoca-de-la-guerra-total-ii.html"],
     [ 8,"2026-09-17","F-101","La globalización del peligro","Dodds · quién dibuja las líneas · quién nombra la amenaza","II","sesiones/s08-la-globalizacion-del-peligro.html"],
-    [ 9,"2026-09-22","A-004","La globalización del peligro (II)","Carrera nuclear · teoría de juegos · apartheid global","II"],
+    [ 9,"2026-09-22","A-004","La globalización del peligro (II)","Carrera nuclear · teoría de juegos · apartheid global","II","sesiones/s09-la-globalizacion-del-peligro-ii.html"],
     [10,"2026-09-24","F-101","La economía convertida en arma","Farrell y Newman · cuellos de botella · coerción económica","III","sesiones/s10-la-economia-convertida-en-arma.html"],
-    [11,"2026-09-29","A-004","Fragmentación geoeconómica","Bloques · comercio · inversión","III"],
-    [12,"2026-10-01","F-101","Primer parcial","Ensayo argumentado · Dodds, Hobsbawm, Farrell y Newman","III"],
+    [11,"2026-09-29","A-004","La nueva guerra fría","Wade · Estados Unidos, China y Rusia · cuatro frentes","III","sesiones/s11-la-nueva-guerra-fria.html"],
+    [12,"2026-10-01","F-101","Primer parcial","Ensayo argumentado · Dodds, Hobsbawm, Farrell y Newman, Wade","III","sesiones/s12-primer-parcial.html"],
     [13,"2026-10-06","A-004","La armamentización de los chips","Rodríguez Urbina · litografía · Taiwán · 2023 contra 2026","III","sesiones/s13-la-armamentizacion-de-los-chips.html"],
-    [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV"],
+    [14,"2026-10-08","Auditorio Pérez del Toro","Semana Académica: conferencia del COMEXI","Vanessa Zárate · Consejo Mexicano de Asuntos Internacionales","IV","sesiones/s14-conferencia-comexi.html"],
     [15,"2026-10-13","A-004","Apple, China y poder estructural","McGee · cadenas globales de valor · actividad 8","IV","sesiones/s15-apple-china-y-poder-estructural.html"],
     [16,"2026-10-15","A-101","Del tema a la pregunta","Taller · equipos · pregunta de investigación","IV","sesiones/s16-del-tema-a-la-pregunta.html"],
     [17,"2026-10-20","A-004","Nord Stream","Virág y Tancsa · gas · actividad 9","IV","sesiones/s17-nord-stream.html"],
-    [18,"2026-10-27","A-004","La Franja y la Ruta","Lectura de OBOR/BRI · infraestructura · financiamiento","V"],
+    [18,"2026-10-27","A-004","La Franja y la Ruta","Lectura de OBOR/BRI · infraestructura · financiamiento","V","sesiones/s18-la-franja-y-la-ruta.html"],
     [19,"2026-10-29","A-101","Taller: el estado del arte","Fuentes · verificación · APA 7, Chicago o MLA","V","sesiones/s19-el-estado-del-arte.html"],
     [20,"2026-11-03","A-004","7-Eleven: copiar, adaptar o reinventar","Yahagi y Kar · modelo de negocio · actividad 11","V","sesiones/s20-7-eleven.html"],
-    [21,"2026-11-05","A-101","Microtaller: el estado del arte","Trabajo final · fuentes y research gap","V"],
-    [22,"2026-11-10","A-004","Cadenas globales de valor e incertidumbre geopolítica","Capítulos 1 y 2 · riesgos y decisiones · actividad 12","V","#actividad-12"],
-    [23,"2026-11-12","A-101","","","V"],
-    [24,"2026-11-17","A-004","China y América Latina","Fornes y Mendez · un país de la región · actividad 13","V"],
-    [25,"2026-11-19","A-101","Segundo examen parcial","","VI"],
-    [26,"2026-11-24","A-004","","","VI"],
-    [27,"2026-11-26","A-101","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI"],
-    [28,"2026-12-01","A-004","","","VI"],
-    [29,"2026-12-03","A-101","","","VI"]
+    [21,"2026-11-05","A-101","Teoría de juegos: por qué cooperar","Veritasium · dilema del prisionero · toma y daca","V","sesiones/s21-teoria-de-juegos.html"],
+    [22,"2026-11-10","A-004","Cadenas globales de valor e incertidumbre geopolítica","Capítulos 1 y 2 · riesgos y decisiones · actividad 12","V","sesiones/s22-cadenas-globales-de-valor.html"],
+    [23,"2026-11-12","A-101","","","V","sesiones/s23.html"],
+    [24,"2026-11-17","A-004","China y América Latina","Fornes y Mendez · un país de la región · actividad 13","V","sesiones/s24-china-y-america-latina.html"],
+    [25,"2026-11-19","A-101","Segundo examen parcial","","VI","sesiones/s25-segundo-parcial.html"],
+    [26,"2026-11-24","A-004","","","VI","sesiones/s26.html"],
+    [27,"2026-11-26","A-101","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI","sesiones/s27-entrega-del-trabajo-final.html"],
+    [28,"2026-12-01","A-004","","","VI","sesiones/s28.html"],
+    [29,"2026-12-03","A-101","","","VI","sesiones/s29.html"]
   ].map(([number, date, room, title, subtitle, unit, href, opens]) => ({ number, date, room, title, subtitle, unit, href, opens }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
