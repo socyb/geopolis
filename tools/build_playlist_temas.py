@@ -111,6 +111,29 @@ PRIORITY = ["medio-oriente", "africa", "polos", "seguridad", "canales", "energia
 
 # Correcciones manuales (id de YouTube -> sección) donde las palabras clave engañan.
 OVERRIDES = {
+    "Xqy5xZ2NIco": "empresas",     # Lidl
+    "u7OrESgjkG0": "empresas",     # Flixbus
+    "dCVRDcf4i8U": "empresas",     # Siemens
+    "uF2VkYenZT8": "empresas",     # Vapiano
+    "vT5-cV4oMY8": "empresas",     # Aldi en Estados Unidos
+    "UH64nPB-tzE": "empresas",     # Uber contra Tesla
+    "DaPnzZi3hoE": "africa",       # Marruecos y el Sahara Occidental
+    "zXD3EP7ZmEA": "seguridad",    # Ciberataques a cadenas de suministro
+    "jBykDoLPZ4I": "seguridad",    # Terrorismo yihadista
+    "P4XYMoSGsBM": "seguridad",    # Armas nucleares
+    "0FunCq6R6mo": "europa",       # Extrema derecha en Europa
+    "KZEKtT7L9Fk": "europa",       # Macron y los estudiantes
+    "nchhbgiloM4": "europa",       # Refugios en Finlandia
+    "cK9GwIRIyzo": "europa",       # Reino Unido
+    "YCE_Som45hE": "europa",       # Reino Unido, independencias
+    "SHN-Qxxm5tk": "europa",       # Polonia y la ultraderecha alemana
+    "vHp1zyRUV74": "tecnologia",   # HarmonyOS de Huawei
+    "l1ZlB3_-5Vk": "latam",        # Estados Unidos y Cuba
+    "ppUSZlntc7M": "eeuu",         # 11-S, DW
+    "bcXyq_sE39M": "eeuu",         # Archivos del 11-S
+    "QWq5o7X8OLI": "historia",     # Imperio británico
+    "P2xvQ41Ifow": "ideas",        # Nuevo mapa de la ONU
+    "q5RDI9Lt4QE": "ideas",        # Nuevo mapa de la ONU, DW
     "fVC8EYd_Z_g": "ideas",       # Edward Said, Orientalismo
     "4crvgU0CVn8": "ideas",       # Ian Bremmer, G-Zero
     "zYbCQnTy98k": "ideas",       # Historias deportivas: el fútbol
@@ -144,7 +167,7 @@ def language(title, channel):
     t = re.sub(r"[|•].*$", "", title)
     if re.search(r"\b(die|der|und|von)\b", t, re.I):
         return "de"
-    if re.search(r"\b(les|des|du)\b|^Chine", t, re.I):
+    if re.search(r"\b(les|des|du)\b|^Chine\b", t, re.I):
         return "fr"
     # Los canales en español a veces muestran el título traducido al inglés:
     # el canal indica mejor el idioma del audio.
