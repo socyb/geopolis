@@ -123,8 +123,10 @@
   // Veritasium sobre teoría de juegos. El 10 se trabaja la actividad 12: capítulos 1 y 2 de Global Value Chains and Geopolitical
   // Uncertainty, como base para decidir ante un riesgo.
   // De la 23 a la 29 solo están fijos la lectura del 17 de noviembre (actividad 13,
-  // Fornes y Mendez), el segundo parcial del 19 y la entrega del trabajo final del 26,
-  // al correo semsocan2019@gmail.com. Lo demás queda sin título hasta que se dé.
+  // Fornes y Mendez), el segundo parcial del 19, el Foro de Vinculación y
+  // Emprendimiento del 24 (en el Centro de Exposiciones y Congresos UNAM, en lugar de
+  // la clase) y la entrega del trabajo final, que pasó del 26 de noviembre al 1 de
+  // diciembre, al correo semsocan2019@gmail.com. Lo demás queda sin título hasta que se dé.
   // Las sesiones se siguen por fecha: ninguna versión fija la portada.
   // Todas las sesiones tienen página propia en sesiones/.
   // El séptimo campo, cuando existe, es la versión de la página que dejó esa sesión.
@@ -157,9 +159,9 @@
     [23,"2026-11-12","A-101","","","V","sesiones/s23.html",null,"2026-11-11T20:00"],
     [24,"2026-11-17","A-004","China y América Latina","Fornes y Mendez · un país de la región · actividad 13","V","sesiones/s24-china-y-america-latina.html"],
     [25,"2026-11-19","A-101","Segundo examen parcial","","VI","sesiones/s25-segundo-parcial.html"],
-    [26,"2026-11-24","A-004","","","VI","sesiones/s26.html"],
-    [27,"2026-11-26","A-101","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI","sesiones/s27-entrega-del-trabajo-final.html"],
-    [28,"2026-12-01","A-004","","","VI","sesiones/s28.html"],
+    [26,"2026-11-24","Centro de Exposiciones y Congresos UNAM","Foro de Vinculación y Emprendimiento","Inauguración · 09:00 · transporte de la Facultad a las 08:30","VI","sesiones/s26-foro-de-vinculacion.html"],
+    [27,"2026-11-26","A-101","","","VI","sesiones/s27.html"],
+    [28,"2026-12-01","A-004","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI","sesiones/s28-entrega-del-trabajo-final.html"],
     [29,"2026-12-03","A-101","","","VI","sesiones/s29.html"]
   ].map(([number, date, room, title, subtitle, unit, href, opens, from]) => ({ number, date, room, title, subtitle, unit, href, opens, from }));
 
