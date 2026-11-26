@@ -84,7 +84,7 @@
       <div class="section-head">
         <p class="kicker k-plum">Cierre del curso · Actividad individual</p>
         <h2 id="regresoTitle">Tu brújula <em>de regreso</em></h2>
-        <p class="lead">En agosto armaste tu brújula para decir desde dónde mirabas el mundo. Ahora contesta las mismas preguntas mirando hacia atrás. Al llenar el formulario se arma tu imagen; después la presentas y comentas lo que quieras de cada punto.</p>
+        <p class="lead">En agosto armaste tu brújula para decir desde dónde mirabas el mundo. Ahora contesta las mismas preguntas mirando hacia atrás. Al llenar el formulario se arma tu imagen; después la presentas y comentas lo que quieras de cada punto. <strong>Súbela al foro: cuenta como participación.</strong></p>
       </div>
 
       <form class="fields regreso-fields" id="regresoForm" autocomplete="off">
@@ -129,7 +129,13 @@
       <div class="builder-actions">
         <button class="btn btn-primary" id="regresoShow" type="button">Mostrar en pantalla completa</button>
         <button class="btn btn-small" id="regresoSave" type="button">Descargar imagen</button>
+        <button class="btn btn-small" id="regresoPdf" type="button">Guardar en PDF</button>
         <button class="btn btn-small" id="regresoClear" type="button">Borrar</button>
+      </div>
+      <p class="card regreso-foro"><strong>Cuenta como participación:</strong> descarga tu imagen y súbela al foro en <a href="https://negociosinternacionales.fca.unam.mx" target="_blank" rel="noopener noreferrer">Moodle</a>.</p>
+      <div class="regreso-stage" id="regresoStage" hidden role="dialog" aria-modal="true" aria-label="Tu brújula de regreso a pantalla llena">
+        <img id="regresoStageImg" alt="Tu brújula de regreso">
+        <button class="btn btn-small" id="regresoStageClose" type="button">Cerrar ✕</button>
       </div>
     </div>
   </section>
@@ -151,8 +157,20 @@
     function store(data) { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* sin almacenamiento */ } }
     function load() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
 
+    // Parte en trozos una palabra sin espacios (un enlace, por ejemplo) más ancha que la caja.
+    function split(word, maxWidth) {
+      var parts = [], part = "";
+      Array.from(word).forEach(function (ch) {
+        if (part && ctx.measureText(part + ch).width > maxWidth) { parts.push(part); part = ch; } else { part += ch; }
+      });
+      if (part) parts.push(part);
+      return parts;
+    }
     function wrap(text, maxWidth) {
-      var words = text.split(/\s+/), lines = [], line = "";
+      var words = [], lines = [], line = "";
+      text.split(/\s+/).filter(Boolean).forEach(function (w) {
+        if (ctx.measureText(w).width > maxWidth) { words = words.concat(split(w, maxWidth)); } else { words.push(w); }
+      });
       words.forEach(function (w) {
         var test = line ? line + " " + w : w;
         if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = w; } else { line = test; }
@@ -221,10 +239,10 @@
       ctx.textAlign = "right"; ctx.fillStyle = C.muted;
       ctx.fillText("GEOPOLÍTICA · FCA UNAM · GRUPO 1541", W - 60, 40);
       ctx.textAlign = "left";
-      ctx.font = "900 58px " + F.display; ctx.fillStyle = d.rName ? C.ink : C.muted;
-      var name = d.rName || "Tu nombre";
-      while (ctx.measureText(name).width > W - 120 && name.length > 3) name = name.slice(0, -2);
-      ctx.fillText(name, 60, 74);
+      var name = d.rName || "Tu nombre", ns = 58;
+      do { ctx.font = "900 " + ns + "px " + F.display; } while (ctx.measureText(name).width > W - 120 && --ns > 30);
+      ctx.fillStyle = d.rName ? C.ink : C.muted;
+      ctx.fillText(name, 60, 74 + (58 - ns) * 0.6);
 
       var cx = W / 2, cy = 528, r = 186;
       box(430, 160, 740, 168, C.guinda, "N · Identidad", d.rN);
@@ -237,10 +255,19 @@
       ctx.textAlign = "left";
       fitText(d.rC || "¿Lograste lo que querías?", cx - 118, cy - 88, 236, 196, 24, 15, d.rC ? C.ink : C.muted, F.sans, "center");
 
-      var foot = "Llegué con " + (d.rIn || "…") + "  ·  me voy con " + (d.rOut || "…");
-      ctx.font = "italic 600 30px " + F.display; ctx.fillStyle = C.guinda; ctx.textAlign = "center"; ctx.textBaseline = "top";
-      while (ctx.measureText(foot).width > W - 120 && foot.length > 10) foot = foot.slice(0, -2);
-      ctx.fillText(foot, cx, 928);
+      var arrived = "Llegué con " + (d.rIn || "…"), leaving = "me voy con " + (d.rOut || "…");
+      var foot = arrived + "  ·  " + leaving, fs = 30, maxW = W - 120;
+      ctx.fillStyle = C.guinda; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      do { ctx.font = "italic 600 " + fs + "px " + F.display; } while (ctx.measureText(foot).width > maxW && --fs > 24);
+      if (ctx.measureText(foot).width <= maxW) {
+        ctx.fillText(foot, cx, 928);
+      } else {
+        fs = 26;
+        do { ctx.font = "italic 600 " + fs + "px " + F.display; }
+        while (Math.max(ctx.measureText(arrived).width, ctx.measureText(leaving).width) > maxW && --fs > 16);
+        ctx.fillText(arrived, cx, 912);
+        ctx.fillText(leaving, cx, 912 + Math.round(fs * 1.3));
+      }
       ctx.textAlign = "left";
       store(d);
     }
@@ -256,9 +283,34 @@
         .map(function (f) { return document.fonts.load(f); })).then(draw, function () {});
     }
 
+    var toastTimer;
+    function say(msg) {
+      var el = document.getElementById("toast"); if (!el) return;
+      el.textContent = msg; el.classList.add("is-on");
+      clearTimeout(toastTimer); toastTimer = setTimeout(function () { el.classList.remove("is-on"); }, 3200);
+    }
+    // Vista propia a pantalla llena: sirve donde el navegador no permite la pantalla completa.
+    var stage = document.getElementById("regresoStage");
+    function openStage() {
+      document.getElementById("regresoStageImg").src = canvas.toDataURL("image/png");
+      stage.hidden = false; document.documentElement.classList.add("regreso-stage-on");
+      document.getElementById("regresoStageClose").focus();
+    }
+    function closeStage() {
+      stage.hidden = true; document.documentElement.classList.remove("regreso-stage-on");
+      document.getElementById("regresoShow").focus();
+    }
+    stage.addEventListener("click", closeStage);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !stage.hidden) closeStage(); });
     document.getElementById("regresoShow").addEventListener("click", function () {
       var fs = canvas.requestFullscreen || canvas.webkitRequestFullscreen;
-      if (fs) { fs.call(canvas); } else { window.open(canvas.toDataURL("image/png"), "_blank"); }
+      if (!fs) { openStage(); return; }
+      try {
+        var r = fs.call(canvas);
+        if (r && typeof r.catch === "function") r.catch(function () {
+          openStage(); say("Tu navegador no permitió la pantalla completa: la imagen se muestra aquí. También puedes descargarla.");
+        });
+      } catch (e) { openStage(); }
     });
     document.getElementById("regresoSave").addEventListener("click", function () {
       var a = document.createElement("a");
@@ -266,6 +318,22 @@
       a.download = "brujula-de-regreso-" + (who || "mi") + ".png";
       a.href = canvas.toDataURL("image/png");
       document.body.appendChild(a); a.click(); a.remove();
+    });
+    document.getElementById("regresoPdf").addEventListener("click", function () {
+      var sheet = document.createElement("div");
+      sheet.className = "regreso-sheet";
+      var img = new Image();
+      img.alt = "Mi brújula de regreso";
+      sheet.appendChild(img);
+      document.body.appendChild(sheet);
+      document.documentElement.classList.add("regreso-print-on");
+      var clean = function () {
+        document.documentElement.classList.remove("regreso-print-on");
+        sheet.remove(); window.removeEventListener("afterprint", clean);
+      };
+      window.addEventListener("afterprint", clean);
+      img.onload = function () { window.print(); };
+      img.src = canvas.toDataURL("image/png");
     });
     document.getElementById("regresoClear").addEventListener("click", function () {
       if (!window.confirm("¿Borrar tus respuestas?")) return;
