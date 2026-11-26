@@ -2,8 +2,238 @@
   "playlist_title": "Geopolítica",
   "playlist_id": "PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg",
   "playlist_url": "https://youtube.com/playlist?list=PLvq3lYVuc4tZ-cj6CBgQJNv9-7oq_E0wg",
-  "total_videos": 401,
+  "total_videos": 412,
   "videos": [
+    {
+      "id": "kLJ2hEw26Vo",
+      "title": "How will the rise of right-wing populism affect Latin America? | Inside Story",
+      "url": "https://www.youtube.com/watch?v=kLJ2hEw26Vo",
+      "duration": 1681,
+      "duration_string": "28:01",
+      "channel": "Al Jazeera English",
+      "view_count": 8200,
+      "playlist_index": 1,
+      "upload_date": "20260705",
+      "added_date": "2026-11-26",
+      "language": "en"
+    },
+    {
+      "id": "LmQS4rEJoh0",
+      "title": "How the US supported military coups in Latin America in the 1960s | Featured Documentary",
+      "url": "https://www.youtube.com/watch?v=LmQS4rEJoh0",
+      "duration": 2825,
+      "duration_string": "47:05",
+      "channel": "Al Jazeera English",
+      "view_count": 166000,
+      "playlist_index": 2,
+      "upload_date": "20260209",
+      "added_date": "2026-11-26",
+      "language": "es"
+    },
+    {
+      "id": "pHZARb_8YMI",
+      "title": "Why Latin America has a massive infrastructure problem | Transforming Business",
+      "url": "https://www.youtube.com/watch?v=pHZARb_8YMI",
+      "duration": 788,
+      "duration_string": "13:08",
+      "channel": "DW News",
+      "view_count": 253000,
+      "playlist_index": 3,
+      "upload_date": "20250711",
+      "added_date": "2026-11-26",
+      "language": "en"
+    },
+    {
+      "id": "-pTH-MOlJFY",
+      "title": "China’s big bet on Mexico’s border region tech industry",
+      "url": "https://www.youtube.com/watch?v=-pTH-MOlJFY",
+      "duration": 982,
+      "duration_string": "16:22",
+      "channel": "CGTN America",
+      "view_count": 265000,
+      "playlist_index": 4,
+      "upload_date": "20261117",
+      "added_date": "2026-11-26",
+      "language": "en"
+    },
+    {
+      "id": "PsZl9GljOJo",
+      "title": "La ciudad con la mayor fábrica de autos chinos de América Latina | BBC Mundo",
+      "url": "https://www.youtube.com/watch?v=PsZl9GljOJo",
+      "duration": 929,
+      "duration_string": "15:29",
+      "channel": "BBC News Mundo",
+      "view_count": 339000,
+      "playlist_index": 5,
+      "upload_date": "20261112",
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "ooNzi4Ez4nM",
+      "title": "Chancay megaport celebrates two years of operation",
+      "url": "https://www.youtube.com/watch?v=ooNzi4Ez4nM",
+      "duration": 198,
+      "duration_string": "3:18",
+      "channel": "CGTN America",
+      "view_count": 598,
+      "playlist_index": 6,
+      "upload_date": "20261119",
+      "added_date": "2026-11-26",
+      "language": "en"
+    },
+    {
+      "id": "C4-e_p8SRZo",
+      "title": "How China’s Export Machine Is Beating Tariffs",
+      "url": "https://www.youtube.com/watch?v=C4-e_p8SRZo",
+      "duration": 617,
+      "duration_string": "10:17",
+      "channel": "Bloomberg Originals",
+      "view_count": 847000,
+      "playlist_index": 7,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "tysvwupu10g",
+      "title": "Why hackers seem more powerful than ever | DW News",
+      "url": "https://www.youtube.com/watch?v=tysvwupu10g",
+      "duration": 701,
+      "duration_string": "11:41",
+      "channel": "DW News",
+      "view_count": 199000,
+      "playlist_index": 8,
+      "upload_date": "20261118",
+      "added_date": "2026-11-26",
+      "language": "en"
+    },
+    {
+      "id": "8w4R1yPSffY",
+      "title": "Wall Street on high alert over Nvidia and the chip war",
+      "url": "https://www.youtube.com/watch?v=8w4R1yPSffY",
+      "duration": 315,
+      "duration_string": "5:15",
+      "channel": "Grupo Fórmula",
+      "view_count": 1800,
+      "playlist_index": 9,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "Jbq4wrZn-DI",
+      "title": "How Huawei Became China’s Nvidia | AB Explained",
+      "url": "https://www.youtube.com/watch?v=Jbq4wrZn-DI",
+      "duration": 2926,
+      "duration_string": "48:46",
+      "channel": "Asian Boss",
+      "view_count": 1200000,
+      "playlist_index": 10,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "GyvGS9P2BKc",
+      "title": "China, Russia and the Enigmatic SCO I ARTE Documentary",
+      "url": "https://www.youtube.com/watch?v=GyvGS9P2BKc",
+      "duration": 728,
+      "duration_string": "12:08",
+      "channel": "ARTE.tv Documentary",
+      "view_count": 2400,
+      "playlist_index": 11
+    },
+    {
+      "id": "ZQqFNtUBYg4",
+      "title": "Angola’s Billion-Dollar Trade Corridor: Who Really Benefits? - Global Eye, BBC World Service",
+      "url": "https://www.youtube.com/watch?v=ZQqFNtUBYg4",
+      "duration": 369,
+      "duration_string": "6:09",
+      "channel": "BBC World Service and BBC News Africa",
+      "view_count": 61000,
+      "playlist_index": 12,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "SIwUXW4eRQo",
+      "title": "Bessent publicly blames Lutnick as Nvidia fallout grows",
+      "url": "https://www.youtube.com/watch?v=SIwUXW4eRQo",
+      "duration": 1108,
+      "duration_string": "18:28",
+      "channel": "CNN",
+      "view_count": 1200000,
+      "playlist_index": 13,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "-9iI_7xN954",
+      "title": "Jensen Huang resigns as Nvidia CEO amid affairs, security concerns",
+      "url": "https://www.youtube.com/watch?v=-9iI_7xN954",
+      "duration": 944,
+      "duration_string": "15:44",
+      "channel": "Al Jazeera English",
+      "view_count": 169000,
+      "playlist_index": 14,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "hx1tEXrYZLE",
+      "title": "Huawei: The Big Picture",
+      "url": "https://www.youtube.com/watch?v=hx1tEXrYZLE",
+      "duration": 740,
+      "duration_string": "12:20",
+      "channel": "PolyMatter",
+      "view_count": 1500000,
+      "playlist_index": 15,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "ZpIZAyobk0Q",
+      "title": "Why everyone suddenly needs Turkey for energy | Mapped Out",
+      "url": "https://www.youtube.com/watch?v=ZpIZAyobk0Q",
+      "duration": 848,
+      "duration_string": "14:08",
+      "channel": "DW News and DW Documentary",
+      "view_count": 827000,
+      "playlist_index": 16,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "pDLEvALCY70",
+      "title": "China's plan to dominate the seas | Mapped Out",
+      "url": "https://www.youtube.com/watch?v=pDLEvALCY70",
+      "duration": 914,
+      "duration_string": "15:14",
+      "channel": "DW News",
+      "view_count": 821000,
+      "playlist_index": 17
+    },
+    {
+      "id": "GlF2B_N1KDE",
+      "title": "The Power of Grain I ARTE.tv Documentary",
+      "url": "https://www.youtube.com/watch?v=GlF2B_N1KDE",
+      "duration": 1584,
+      "duration_string": "26:24",
+      "channel": "ARTE.tv Documentary",
+      "view_count": 2800,
+      "playlist_index": 18
+    },
+    {
+      "id": "aZaTUmYC_Ho",
+      "title": "Square Idea: el poder del trigo | ARTE.tv Documentales",
+      "url": "https://www.youtube.com/watch?v=aZaTUmYC_Ho",
+      "duration": 1584,
+      "duration_string": "26:24",
+      "channel": "ARTE.tv Documentales",
+      "view_count": 5500,
+      "playlist_index": 19,
+      "added_date": "2026-11-26"
+    },
+    {
+      "id": "JW5s9Md4U2U",
+      "title": "The Rise and Reckoning of Jensen Huang | The Circuit with Emily Chang",
+      "url": "https://www.youtube.com/watch?v=JW5s9Md4U2U",
+      "duration": 2708,
+      "duration_string": "45:08",
+      "channel": "Bloomberg Originals",
+      "view_count": 6500000,
+      "playlist_index": 20,
+      "added_date": "2026-11-26"
+    },
     {
       "id": "y-yccr6ZF7E",
       "title": "Wie Nvidia über Nacht zum 2-Billionen-Dollar-Business wurde",
@@ -12,7 +242,7 @@
       "duration_string": "19:29",
       "channel": "Was kostet die Welt?",
       "view_count": 651625,
-      "playlist_index": 1,
+      "playlist_index": 21,
       "upload_date": "20240411",
       "added_date": "2026-11-11",
       "language": "de"
@@ -25,7 +255,7 @@
       "duration_string": "6:03",
       "channel": "The Wall Street Journal",
       "view_count": 4904933,
-      "playlist_index": 2,
+      "playlist_index": 22,
       "upload_date": "20231031",
       "added_date": "2026-11-11"
     },
@@ -37,7 +267,7 @@
       "duration_string": "18:52",
       "channel": "Was kostet die Welt?",
       "view_count": 2103210,
-      "playlist_index": 3,
+      "playlist_index": 23,
       "upload_date": "20240822",
       "added_date": "2026-11-11",
       "language": "de"
@@ -50,7 +280,7 @@
       "duration_string": "16:55",
       "channel": "Was kostet die Welt?",
       "view_count": 468967,
-      "playlist_index": 4,
+      "playlist_index": 24,
       "upload_date": "20241205",
       "added_date": "2026-11-11",
       "language": "de"
@@ -63,7 +293,7 @@
       "duration_string": "7:39",
       "channel": "ZDFheute Nachrichten",
       "view_count": 284999,
-      "playlist_index": 5,
+      "playlist_index": 25,
       "upload_date": "20260725",
       "added_date": "2026-11-11",
       "language": "de"
@@ -76,7 +306,7 @@
       "duration_string": "18:12",
       "channel": "Was kostet die Welt?",
       "view_count": 493375,
-      "playlist_index": 6,
+      "playlist_index": 26,
       "upload_date": "20260723",
       "added_date": "2026-11-11",
       "language": "de"
@@ -89,7 +319,7 @@
       "duration_string": "33:59",
       "channel": "Was kostet die Welt?",
       "view_count": 1838365,
-      "playlist_index": 7,
+      "playlist_index": 27,
       "upload_date": "20251127",
       "added_date": "2026-11-11",
       "language": "de"
@@ -102,7 +332,7 @@
       "duration_string": "8:29",
       "channel": "Mo Bitar",
       "view_count": 110001,
-      "playlist_index": 8,
+      "playlist_index": 28,
       "upload_date": "20261110",
       "added_date": "2026-11-11"
     },
@@ -114,7 +344,7 @@
       "duration_string": "12:19",
       "channel": "ARTE.tv Documentales",
       "view_count": 2700,
-      "playlist_index": 9
+      "playlist_index": 29
     },
     {
       "id": "ku6SAMsyHbo",
@@ -124,7 +354,7 @@
       "duration_string": "10:15",
       "channel": "ColdFusion",
       "view_count": 5300000,
-      "playlist_index": 10
+      "playlist_index": 30
     },
     {
       "id": "6Afpey7Eldo",
@@ -134,7 +364,7 @@
       "duration_string": "11:23",
       "channel": "ColdFusion",
       "view_count": 7900000,
-      "playlist_index": 11
+      "playlist_index": 31
     },
     {
       "id": "p2dMhFWdlMU",
@@ -144,7 +374,7 @@
       "duration_string": "17:33",
       "channel": "TechAltar",
       "view_count": 151000,
-      "playlist_index": 12
+      "playlist_index": 32
     },
     {
       "id": "HExhxPDOewE",
@@ -154,7 +384,7 @@
       "duration_string": "18:14",
       "channel": "ColdFusion",
       "view_count": 450000,
-      "playlist_index": 13
+      "playlist_index": 33
     },
     {
       "id": "pEAi92VmBd4",
@@ -164,7 +394,7 @@
       "duration_string": "42:26",
       "channel": "DW Documentary",
       "view_count": 159000,
-      "playlist_index": 14
+      "playlist_index": 34
     },
     {
       "id": "XHteRHDI3dU",
@@ -174,7 +404,7 @@
       "duration_string": "42:26",
       "channel": "DW Documentary",
       "view_count": 114000,
-      "playlist_index": 15
+      "playlist_index": 35
     },
     {
       "id": "ltf-UAl8Ogw",
@@ -184,7 +414,7 @@
       "duration_string": "15:09",
       "channel": "WIRED",
       "view_count": 801624,
-      "playlist_index": 16,
+      "playlist_index": 36,
       "upload_date": "20261106",
       "added_date": "2026-11-11"
     },
@@ -196,7 +426,7 @@
       "duration_string": "10:12",
       "channel": "The Wall Street Journal",
       "view_count": 2366160,
-      "playlist_index": 17,
+      "playlist_index": 37,
       "upload_date": "20240312",
       "added_date": "2026-11-11"
     },
@@ -208,7 +438,7 @@
       "duration_string": "14:59",
       "channel": "DW News",
       "view_count": 398441,
-      "playlist_index": 18,
+      "playlist_index": 38,
       "upload_date": "20251122",
       "added_date": "2026-11-11"
     },
@@ -220,7 +450,7 @@
       "duration_string": "9:21",
       "channel": "ARTE.tv Documentales",
       "view_count": 4360,
-      "playlist_index": 19,
+      "playlist_index": 39,
       "upload_date": "20261103",
       "added_date": "2026-11-11",
       "language": "es"
@@ -233,7 +463,7 @@
       "duration_string": "4:44",
       "channel": "DW News",
       "view_count": 608409,
-      "playlist_index": 20,
+      "playlist_index": 40,
       "upload_date": "20261102",
       "added_date": "2026-11-11"
     },
@@ -245,7 +475,7 @@
       "duration_string": "8:45",
       "channel": "Aristegui Noticias",
       "view_count": 400377,
-      "playlist_index": 21,
+      "playlist_index": 41,
       "upload_date": "20261103",
       "added_date": "2026-11-11"
     },
@@ -257,7 +487,7 @@
       "duration_string": "46:22",
       "channel": "Adam Neely",
       "view_count": 685038,
-      "playlist_index": 22,
+      "playlist_index": 42,
       "upload_date": "20261102",
       "added_date": "2026-11-11"
     },
@@ -269,7 +499,7 @@
       "duration_string": "12:19",
       "channel": "ARTE.tv Documentales",
       "view_count": 4466,
-      "playlist_index": 23,
+      "playlist_index": 43,
       "upload_date": "20231126",
       "added_date": "2026-11-11",
       "language": "es"
@@ -282,7 +512,7 @@
       "duration_string": "3:53",
       "channel": "ARTE.tv Documentales",
       "view_count": 5419,
-      "playlist_index": 24,
+      "playlist_index": 44,
       "upload_date": "20261019",
       "added_date": "2026-11-11",
       "language": "es"
@@ -295,7 +525,7 @@
       "duration_string": "13:01",
       "channel": "DW News",
       "view_count": 241000,
-      "playlist_index": 25,
+      "playlist_index": 45,
       "source": "user_recommendation",
       "added_date": "2026-10-14",
       "upload_date": "2023-07-23",
@@ -309,7 +539,7 @@
       "duration_string": "9:39",
       "channel": "The Friday Checkout",
       "view_count": 277350,
-      "playlist_index": 26,
+      "playlist_index": 46,
       "upload_date": "20261009",
       "added_date": "2026-11-11"
     },
@@ -321,7 +551,7 @@
       "duration_string": "14:21",
       "channel": "Financial Times",
       "view_count": 596594,
-      "playlist_index": 27,
+      "playlist_index": 47,
       "upload_date": "20261008",
       "added_date": "2026-11-11"
     },
@@ -333,7 +563,7 @@
       "duration_string": "13:36",
       "channel": "Asianometry",
       "view_count": 162303,
-      "playlist_index": 28,
+      "playlist_index": 48,
       "upload_date": "20261008",
       "added_date": "2026-11-11"
     },
@@ -345,7 +575,7 @@
       "duration_string": "19:03",
       "channel": "DW Español",
       "view_count": 158552,
-      "playlist_index": 29,
+      "playlist_index": 49,
       "upload_date": "20261006",
       "added_date": "2026-11-11"
     },
@@ -357,7 +587,7 @@
       "duration_string": "14:48",
       "channel": "CaspianReport",
       "view_count": 307273,
-      "playlist_index": 30,
+      "playlist_index": 50,
       "upload_date": "20261005",
       "added_date": "2026-11-11"
     },
@@ -369,7 +599,7 @@
       "duration_string": "16:25",
       "channel": "CNBC",
       "view_count": 3449077,
-      "playlist_index": 31,
+      "playlist_index": 51,
       "upload_date": "20241213",
       "added_date": "2026-11-11"
     },
@@ -381,7 +611,7 @@
       "duration_string": "17:31",
       "channel": "DW News",
       "view_count": 185192,
-      "playlist_index": 32,
+      "playlist_index": 52,
       "upload_date": "20260924",
       "added_date": "2026-11-11"
     },
@@ -393,7 +623,7 @@
       "duration_string": "4:48",
       "channel": "ARTE․tv Cultura",
       "view_count": 220,
-      "playlist_index": 33
+      "playlist_index": 53
     },
     {
       "id": "mScpHTIi-kM",
@@ -403,7 +633,7 @@
       "duration_string": "27:19",
       "channel": "Veritasium",
       "view_count": 27000000,
-      "playlist_index": 34
+      "playlist_index": 54
     },
     {
       "id": "zCvUkxBYqyI",
@@ -413,7 +643,7 @@
       "duration_string": "1:49",
       "channel": "Social Science School",
       "view_count": 20000,
-      "playlist_index": 35
+      "playlist_index": 55
     },
     {
       "id": "vEqyggTqsEQ",
@@ -423,7 +653,7 @@
       "duration_string": "12:15",
       "channel": "ARTE.tv Documentales",
       "view_count": 4700,
-      "playlist_index": 36
+      "playlist_index": 56
     },
     {
       "id": "4kSGpOlEEvU",
@@ -433,7 +663,7 @@
       "duration_string": "20:53",
       "channel": "Julio Astillero",
       "view_count": 15000,
-      "playlist_index": 37
+      "playlist_index": 57
     },
     {
       "id": "U_7CGl6VWaQ",
@@ -443,7 +673,7 @@
       "duration_string": "20:53",
       "channel": "Wendover Productions",
       "view_count": 3300000,
-      "playlist_index": 38
+      "playlist_index": 58
     },
     {
       "id": "fhKNdPVutnw",
@@ -453,7 +683,7 @@
       "duration_string": "9:01",
       "channel": "El Confidencial",
       "view_count": 45748,
-      "playlist_index": 39,
+      "playlist_index": 59,
       "upload_date": "20230604",
       "added_date": "2026-11-11"
     },
@@ -465,7 +695,7 @@
       "duration_string": "12:13",
       "channel": "ARTE.tv Documentales",
       "view_count": 7700,
-      "playlist_index": 40
+      "playlist_index": 60
     },
     {
       "id": "cpcqFzQ4rzY",
@@ -475,7 +705,7 @@
       "duration_string": "12:06",
       "channel": "ARTE.tv Documentales",
       "view_count": 6600,
-      "playlist_index": 41
+      "playlist_index": 61
     },
     {
       "id": "ai1074P9yes",
@@ -485,7 +715,7 @@
       "duration_string": "12:17",
       "channel": "ARTE.tv Documentales",
       "view_count": 2400,
-      "playlist_index": 42
+      "playlist_index": 62
     },
     {
       "id": "d4dR6UO81Lk",
@@ -495,7 +725,7 @@
       "duration_string": "12:37",
       "channel": "ARTE.tv Documentary",
       "view_count": 1800,
-      "playlist_index": 43
+      "playlist_index": 63
     },
     {
       "id": "FNqLrGGFH7c",
@@ -505,7 +735,7 @@
       "duration_string": "25:00",
       "channel": "Al Jazeera English",
       "view_count": 247357,
-      "playlist_index": 44,
+      "playlist_index": 64,
       "upload_date": "20260908",
       "added_date": "2026-11-11"
     },
@@ -517,7 +747,7 @@
       "duration_string": "9:15",
       "channel": "DW News",
       "view_count": 362317,
-      "playlist_index": 45,
+      "playlist_index": 65,
       "upload_date": "20260904",
       "added_date": "2026-11-11"
     },
@@ -529,7 +759,7 @@
       "duration_string": "4:25",
       "channel": "BBC News",
       "view_count": 207979,
-      "playlist_index": 46,
+      "playlist_index": 66,
       "upload_date": "20260924",
       "added_date": "2026-11-11"
     },
@@ -541,7 +771,7 @@
       "duration_string": "12:17",
       "channel": "ARTE.tv Documentales",
       "view_count": 96873,
-      "playlist_index": 47,
+      "playlist_index": 67,
       "upload_date": "20260920",
       "added_date": "2026-11-11",
       "language": "es"
@@ -554,7 +784,7 @@
       "duration_string": "11:35",
       "channel": "Al Jazeera English",
       "view_count": 165597,
-      "playlist_index": 48,
+      "playlist_index": 68,
       "upload_date": "20260918",
       "added_date": "2026-11-11"
     },
@@ -566,7 +796,7 @@
       "duration_string": "9:15",
       "channel": "DW News",
       "view_count": 277780,
-      "playlist_index": 49,
+      "playlist_index": 69,
       "upload_date": "20260913",
       "added_date": "2026-11-11"
     },
@@ -578,7 +808,7 @@
       "duration_string": "3:41",
       "channel": "DW Español",
       "view_count": 606884,
-      "playlist_index": 50,
+      "playlist_index": 70,
       "upload_date": "20260922",
       "added_date": "2026-11-11"
     },
@@ -590,7 +820,7 @@
       "duration_string": "23:24",
       "channel": "ARTE.tv Documentary",
       "view_count": 19000,
-      "playlist_index": 51
+      "playlist_index": 71
     },
     {
       "id": "NpwHszy7bMk",
@@ -600,7 +830,7 @@
       "duration_string": "27:13",
       "channel": "DW News",
       "view_count": 318000,
-      "playlist_index": 52
+      "playlist_index": 72
     },
     {
       "id": "uch50tmuhpE",
@@ -610,7 +840,7 @@
       "duration_string": "20:31",
       "channel": "ARTE.tv Documentary",
       "view_count": 22000,
-      "playlist_index": 53
+      "playlist_index": 73
     },
     {
       "id": "Vd7fs0LCfJs",
@@ -620,7 +850,7 @@
       "duration_string": "24:51",
       "channel": "ARTE.tv Documentary",
       "view_count": 190000,
-      "playlist_index": 54
+      "playlist_index": 74
     },
     {
       "id": "dobTyPKccMA",
@@ -630,7 +860,7 @@
       "duration_string": "22:20",
       "channel": "VICE News",
       "view_count": 1000000,
-      "playlist_index": 55
+      "playlist_index": 75
     },
     {
       "id": "GMdJxfSnLbE",
@@ -640,7 +870,7 @@
       "duration_string": "12:22",
       "channel": "ARTE.tv Documentales",
       "view_count": 2700,
-      "playlist_index": 56
+      "playlist_index": 76
     },
     {
       "id": "bEIMXc_6TA0",
@@ -650,7 +880,7 @@
       "duration_string": "25:36",
       "channel": "ARTE.tv Documentary",
       "view_count": 39000,
-      "playlist_index": 57
+      "playlist_index": 77
     },
     {
       "id": "bClZFc0O0sY",
@@ -660,7 +890,7 @@
       "duration_string": "12:14",
       "channel": "ARTE.tv Documentales",
       "view_count": 2300,
-      "playlist_index": 58
+      "playlist_index": 78
     },
     {
       "id": "zKMC94Zaghs",
@@ -670,7 +900,7 @@
       "duration_string": "12:05",
       "channel": "ARTE.tv Documentales",
       "view_count": 3500,
-      "playlist_index": 59
+      "playlist_index": 79
     },
     {
       "id": "GeJ9kHTseDQ",
@@ -680,7 +910,7 @@
       "duration_string": "12:39",
       "channel": "ARTE.tv Documentales",
       "view_count": 974,
-      "playlist_index": 60
+      "playlist_index": 80
     },
     {
       "id": "NhwtfSyZ3Rc",
@@ -690,7 +920,7 @@
       "duration_string": "17:55",
       "channel": "DW News",
       "view_count": 247000,
-      "playlist_index": 61
+      "playlist_index": 81
     },
     {
       "id": "1olyHeEeSh8",
@@ -700,7 +930,7 @@
       "duration_string": "12:30",
       "channel": "ARTE.tv Documentales",
       "view_count": 2900,
-      "playlist_index": 62
+      "playlist_index": 82
     },
     {
       "id": "DrcCTgwbsjc",
@@ -710,7 +940,7 @@
       "duration_string": "5:49",
       "channel": "TED-Ed",
       "view_count": 5100000,
-      "playlist_index": 63
+      "playlist_index": 83
     },
     {
       "id": "cuPhY6QOvFI",
@@ -720,7 +950,7 @@
       "duration_string": "14:33",
       "channel": "DW News",
       "view_count": 105000,
-      "playlist_index": 64
+      "playlist_index": 84
     },
     {
       "id": "l1ZlB3_-5Vk",
@@ -730,7 +960,7 @@
       "duration_string": "14:12",
       "channel": "DW News",
       "view_count": 125831,
-      "playlist_index": 65,
+      "playlist_index": 85,
       "upload_date": "20260401",
       "added_date": "2026-11-11"
     },
@@ -742,7 +972,7 @@
       "duration_string": "12:12",
       "channel": "DW News",
       "view_count": 154760,
-      "playlist_index": 66,
+      "playlist_index": 86,
       "upload_date": "20260917",
       "added_date": "2026-11-11"
     },
@@ -754,7 +984,7 @@
       "duration_string": "11:42",
       "channel": "DW News",
       "view_count": 262000,
-      "playlist_index": 67
+      "playlist_index": 87
     },
     {
       "id": "YCE_Som45hE",
@@ -764,7 +994,7 @@
       "duration_string": "7:24",
       "channel": "DW News",
       "view_count": 1015277,
-      "playlist_index": 68,
+      "playlist_index": 88,
       "upload_date": "20260914",
       "added_date": "2026-11-11"
     },
@@ -776,7 +1006,7 @@
       "duration_string": "18:41",
       "channel": "DW Español",
       "view_count": 211260,
-      "playlist_index": 69,
+      "playlist_index": 89,
       "upload_date": "20260910",
       "added_date": "2026-11-11"
     },
@@ -788,7 +1018,7 @@
       "duration_string": "26:05",
       "channel": "DW Español",
       "view_count": 617785,
-      "playlist_index": 70,
+      "playlist_index": 90,
       "upload_date": "20260826",
       "added_date": "2026-11-11"
     },
@@ -800,7 +1030,7 @@
       "duration_string": "18:47",
       "channel": "DW News",
       "view_count": 1363236,
-      "playlist_index": 71,
+      "playlist_index": 91,
       "upload_date": "20260220",
       "added_date": "2026-11-11"
     },
@@ -812,7 +1042,7 @@
       "duration_string": "25:01",
       "channel": "Al Jazeera English",
       "view_count": 126022,
-      "playlist_index": 72,
+      "playlist_index": 92,
       "upload_date": "20251217",
       "added_date": "2026-11-11"
     },
@@ -824,7 +1054,7 @@
       "duration_string": "14:13",
       "channel": "BBC World Service",
       "view_count": 736152,
-      "playlist_index": 73,
+      "playlist_index": 93,
       "upload_date": "20250704",
       "added_date": "2026-11-11"
     },
@@ -836,7 +1066,7 @@
       "duration_string": "42:43",
       "channel": "DW History and Culture",
       "view_count": 83000,
-      "playlist_index": 74
+      "playlist_index": 94
     },
     {
       "id": "KAo9_dcVuDo",
@@ -846,7 +1076,7 @@
       "duration_string": "33:07",
       "channel": "DW History and Culture",
       "view_count": 147000,
-      "playlist_index": 75
+      "playlist_index": 95
     },
     {
       "id": "1gZr7mGJAXI",
@@ -856,7 +1086,7 @@
       "duration_string": "15:04",
       "channel": "DW News",
       "view_count": 442726,
-      "playlist_index": 76,
+      "playlist_index": 96,
       "upload_date": "20260915",
       "added_date": "2026-11-11"
     },
@@ -868,7 +1098,7 @@
       "duration_string": "1:28:53",
       "channel": "ARTE",
       "view_count": 153408,
-      "playlist_index": 77,
+      "playlist_index": 97,
       "upload_date": "20260916",
       "added_date": "2026-11-11",
       "language": "fr"
@@ -881,7 +1111,7 @@
       "duration_string": "1:26:06",
       "channel": "DW Documentary",
       "view_count": 1327976,
-      "playlist_index": 78,
+      "playlist_index": 98,
       "upload_date": "20260910",
       "added_date": "2026-11-11"
     },
@@ -893,7 +1123,7 @@
       "duration_string": "9:30",
       "channel": "The Independent",
       "view_count": 7484625,
-      "playlist_index": 79,
+      "playlist_index": 99,
       "upload_date": "20260908",
       "added_date": "2026-11-11"
     },
@@ -905,7 +1135,7 @@
       "duration_string": "10:40",
       "channel": "DW News",
       "view_count": 149674,
-      "playlist_index": 80,
+      "playlist_index": 100,
       "upload_date": "20260908",
       "added_date": "2026-11-11"
     },
@@ -917,7 +1147,7 @@
       "duration_string": "8:40",
       "channel": "LBC",
       "view_count": 968625,
-      "playlist_index": 81,
+      "playlist_index": 101,
       "upload_date": "20260909",
       "added_date": "2026-11-11"
     },
@@ -929,7 +1159,7 @@
       "duration_string": "10:05",
       "channel": "CNN",
       "view_count": 1725841,
-      "playlist_index": 82,
+      "playlist_index": 102,
       "upload_date": "20260908",
       "added_date": "2026-11-11"
     },
@@ -941,7 +1171,7 @@
       "duration_string": "7:36",
       "channel": "DW News",
       "view_count": 511672,
-      "playlist_index": 83,
+      "playlist_index": 103,
       "upload_date": "20260905",
       "added_date": "2026-11-11"
     },
@@ -953,7 +1183,7 @@
       "duration_string": "1:38",
       "channel": "FRANCE 24 Español",
       "view_count": 2195804,
-      "playlist_index": 84,
+      "playlist_index": 104,
       "upload_date": "20260905",
       "added_date": "2026-11-11"
     },
@@ -965,7 +1195,7 @@
       "duration_string": "19:16",
       "channel": "ARTE",
       "view_count": 43642,
-      "playlist_index": 85,
+      "playlist_index": 105,
       "upload_date": "20260204",
       "added_date": "2026-11-11",
       "language": "fr"
@@ -978,7 +1208,7 @@
       "duration_string": "9:51",
       "channel": "ARTE.tv Documentary",
       "view_count": 8185,
-      "playlist_index": 86,
+      "playlist_index": 106,
       "upload_date": "20260831",
       "added_date": "2026-11-11"
     },
@@ -990,7 +1220,7 @@
       "duration_string": "28:06",
       "channel": "CGTN America",
       "view_count": 1284,
-      "playlist_index": 88,
+      "playlist_index": 108,
       "upload_date": "20260211",
       "added_date": "2026-11-11"
     },
@@ -1002,7 +1232,7 @@
       "duration_string": "14:11",
       "channel": "Asianometry",
       "view_count": 315831,
-      "playlist_index": 89,
+      "playlist_index": 109,
       "upload_date": "20210216",
       "added_date": "2026-11-11"
     },
@@ -1014,7 +1244,7 @@
       "duration_string": "23:21",
       "channel": "El Informe K",
       "view_count": 80713,
-      "playlist_index": 90,
+      "playlist_index": 110,
       "upload_date": "20250720",
       "added_date": "2026-11-11"
     },
@@ -1026,7 +1256,7 @@
       "duration_string": "14:41",
       "channel": "El Informe K",
       "view_count": 28000,
-      "playlist_index": 91
+      "playlist_index": 111
     },
     {
       "id": "_vDZmVXtA7k",
@@ -1036,7 +1266,7 @@
       "duration_string": "6:45",
       "channel": "TED-Ed",
       "view_count": 890753,
-      "playlist_index": 92,
+      "playlist_index": 112,
       "upload_date": "20240725",
       "added_date": "2026-11-11"
     },
@@ -1048,7 +1278,7 @@
       "duration_string": "5:12",
       "channel": "Sé Curioso — TED-Ed",
       "view_count": 150704,
-      "playlist_index": 93,
+      "playlist_index": 113,
       "upload_date": "20250409",
       "added_date": "2026-11-11"
     },
@@ -1060,7 +1290,7 @@
       "duration_string": "6:22",
       "channel": "BBC News Mundo",
       "view_count": 388044,
-      "playlist_index": 94,
+      "playlist_index": 114,
       "upload_date": "20250307",
       "added_date": "2026-11-11"
     },
@@ -1072,7 +1302,7 @@
       "duration_string": "8:47",
       "channel": "Vox",
       "view_count": 1000000,
-      "playlist_index": 95
+      "playlist_index": 115
     },
     {
       "id": "K7uvrd94mrg",
@@ -1082,7 +1312,7 @@
       "duration_string": "9:06",
       "channel": "Vox",
       "view_count": 1300000,
-      "playlist_index": 96
+      "playlist_index": 116
     },
     {
       "id": "vRyoEoyXCEU",
@@ -1092,7 +1322,7 @@
       "duration_string": "7:16",
       "channel": "TED-Ed",
       "view_count": 658133,
-      "playlist_index": 97,
+      "playlist_index": 117,
       "upload_date": "20250506",
       "added_date": "2026-11-11"
     },
@@ -1104,7 +1334,7 @@
       "duration_string": "33:19",
       "channel": "DW History and Culture",
       "view_count": 224000,
-      "playlist_index": 98
+      "playlist_index": 118
     },
     {
       "id": "Ofr4hXodWmU",
@@ -1114,17 +1344,7 @@
       "duration_string": "9:25",
       "channel": "BBC News Mundo",
       "view_count": 124000,
-      "playlist_index": 99
-    },
-    {
-      "id": "nFMsiR3154g",
-      "title": "¿Es cierto que la máquina de vapor desencadenó la Revolución Industrial? | ARTE.tv Documentales",
-      "url": "https://www.youtube.com/watch?v=nFMsiR3154g",
-      "duration": 1427,
-      "duration_string": "23:47",
-      "channel": "ARTE.tv Documentales",
-      "view_count": 873,
-      "playlist_index": 100
+      "playlist_index": 119
     },
     {
       "id": "r5Ps1TZXAN8",
@@ -1134,7 +1354,7 @@
       "duration_string": "17:21",
       "channel": "Vox",
       "view_count": 8700000,
-      "playlist_index": 101
+      "playlist_index": 121
     },
     {
       "id": "Vjsxtj0QwXU",
@@ -1144,7 +1364,7 @@
       "duration_string": "5:31",
       "channel": "Irgendwas mit ARTE und Kultur",
       "view_count": 64000,
-      "playlist_index": 102
+      "playlist_index": 122
     },
     {
       "id": "Du7fOoW_euE",
@@ -1154,7 +1374,7 @@
       "duration_string": "5:49",
       "channel": "60 Minutes",
       "view_count": 1200000,
-      "playlist_index": 103
+      "playlist_index": 123
     },
     {
       "id": "k_bHtx_e-SU",
@@ -1164,7 +1384,7 @@
       "duration_string": "40:22",
       "channel": "CNBC",
       "view_count": 501000,
-      "playlist_index": 104
+      "playlist_index": 124
     },
     {
       "id": "WQlfi4mk5Vk",
@@ -1174,7 +1394,7 @@
       "duration_string": "11:55",
       "channel": "ARTE.tv Documentary",
       "view_count": 3400,
-      "playlist_index": 105
+      "playlist_index": 125
     },
     {
       "id": "vETPIdNYEEA",
@@ -1184,7 +1404,7 @@
       "duration_string": "29:27",
       "channel": "ARTE.tv Documentary",
       "view_count": 3500,
-      "playlist_index": 106
+      "playlist_index": 126
     },
     {
       "id": "8ZHcjEeQI1k",
@@ -1194,7 +1414,7 @@
       "duration_string": "13:27",
       "channel": "TALKING WITH TVP WORLD",
       "view_count": 936,
-      "playlist_index": 107
+      "playlist_index": 127
     },
     {
       "id": "ddEYoD10L8Y",
@@ -1204,7 +1424,7 @@
       "duration_string": "59:43",
       "channel": "Talks at Google",
       "view_count": 97000,
-      "playlist_index": 108
+      "playlist_index": 128
     },
     {
       "id": "1Mh1MZneLac",
@@ -1214,7 +1434,7 @@
       "duration_string": "17:38",
       "channel": "CGTN America",
       "view_count": 486,
-      "playlist_index": 109
+      "playlist_index": 129
     },
     {
       "id": "aXWblvE_oQE",
@@ -1224,7 +1444,7 @@
       "duration_string": "8:09",
       "channel": "Bully Magnets",
       "view_count": 64000,
-      "playlist_index": 110
+      "playlist_index": 130
     },
     {
       "id": "NVuAfuh1e2c",
@@ -1234,7 +1454,7 @@
       "duration_string": "15:06",
       "channel": "CGTN and 2 more",
       "view_count": 72000,
-      "playlist_index": 111
+      "playlist_index": 131
     },
     {
       "id": "aZB7vcVXCVc",
@@ -1244,7 +1464,7 @@
       "duration_string": "18:55",
       "channel": "Money & Macro",
       "view_count": 326000,
-      "playlist_index": 112
+      "playlist_index": 132
     },
     {
       "id": "d_s_n5v5fxw",
@@ -1254,7 +1474,7 @@
       "duration_string": "16:13",
       "channel": "Grupo Fórmula",
       "view_count": 19000,
-      "playlist_index": 113
+      "playlist_index": 133
     },
     {
       "id": "qFdbP24HNyk",
@@ -1264,7 +1484,7 @@
       "duration_string": "10:33",
       "channel": "CNN",
       "view_count": 649000,
-      "playlist_index": 114
+      "playlist_index": 134
     },
     {
       "id": "KM1YdCctNp0",
@@ -1274,7 +1494,7 @@
       "duration_string": "2:00:15",
       "channel": "CISAN UNAM",
       "view_count": 450,
-      "playlist_index": 115
+      "playlist_index": 135
     },
     {
       "id": "HPz36b3ll8M",
@@ -1284,7 +1504,7 @@
       "duration_string": "1:06:21",
       "channel": "Cyrus Janssen",
       "view_count": 144000,
-      "playlist_index": 116
+      "playlist_index": 136
     },
     {
       "id": "NfiIXoWyOLI",
@@ -1294,7 +1514,7 @@
       "duration_string": "10:46",
       "channel": "Bloomberg Originals",
       "view_count": 698000,
-      "playlist_index": 117
+      "playlist_index": 137
     },
     {
       "id": "YUVy-hpWaqk",
@@ -1304,7 +1524,7 @@
       "duration_string": "7:20",
       "channel": "DW News",
       "view_count": 171000,
-      "playlist_index": 118
+      "playlist_index": 138
     },
     {
       "id": "EsPinNE_rdo",
@@ -1314,7 +1534,7 @@
       "duration_string": "13:56",
       "channel": "DW News",
       "view_count": 17000,
-      "playlist_index": 119
+      "playlist_index": 139
     },
     {
       "id": "BaGcbWsLG5E",
@@ -1324,7 +1544,7 @@
       "duration_string": "13:51",
       "channel": "Cyrus Janssen",
       "view_count": 212000,
-      "playlist_index": 120
+      "playlist_index": 140
     },
     {
       "id": "e1Hf-o1SzL4",
@@ -1334,7 +1554,7 @@
       "duration_string": "11:37",
       "channel": "Bloomberg Television",
       "view_count": 1700000,
-      "playlist_index": 121
+      "playlist_index": 141
     },
     {
       "id": "QCng_binisA",
@@ -1344,7 +1564,7 @@
       "duration_string": "1:12:05",
       "channel": "DW News",
       "view_count": 11000,
-      "playlist_index": 122
+      "playlist_index": 142
     },
     {
       "id": "ddmp-IXdcA4",
@@ -1354,7 +1574,7 @@
       "duration_string": "9:14",
       "channel": "CNN",
       "view_count": 576000,
-      "playlist_index": 123
+      "playlist_index": 143
     },
     {
       "id": "qmn46KrztJ0",
@@ -1364,7 +1584,7 @@
       "duration_string": "17:30",
       "channel": "TechAltar",
       "view_count": 321000,
-      "playlist_index": 124
+      "playlist_index": 144
     },
     {
       "id": "6ZBViSO5Wjg",
@@ -1374,7 +1594,7 @@
       "duration_string": "18:34",
       "channel": "DW News",
       "view_count": 27000,
-      "playlist_index": 125
+      "playlist_index": 145
     },
     {
       "id": "Shuv9-MJBEU",
@@ -1384,7 +1604,7 @@
       "duration_string": "6:35",
       "channel": "Newsthink",
       "view_count": 4400000,
-      "playlist_index": 126
+      "playlist_index": 146
     },
     {
       "id": "b88mOUwxyJk",
@@ -1394,7 +1614,7 @@
       "duration_string": "5:49",
       "channel": "The Wall Street Journal",
       "view_count": 595000,
-      "playlist_index": 127
+      "playlist_index": 147
     },
     {
       "id": "_TOCRjF9WuE",
@@ -1404,7 +1624,7 @@
       "duration_string": "28:32",
       "channel": "Financial Times",
       "view_count": 1100000,
-      "playlist_index": 128
+      "playlist_index": 148
     },
     {
       "id": "aq5s7-o2LuI",
@@ -1414,7 +1634,7 @@
       "duration_string": "14:11",
       "channel": "DW News",
       "view_count": 360000,
-      "playlist_index": 129
+      "playlist_index": 149
     },
     {
       "id": "ALjRSf13OX0",
@@ -1424,17 +1644,7 @@
       "duration_string": "18:50",
       "channel": "DW News",
       "view_count": 156000,
-      "playlist_index": 130
-    },
-    {
-      "id": "GyvGS9P2BKc",
-      "title": "China, Russia and the Enigmatic SCO I ARTE Documentary",
-      "url": "https://www.youtube.com/watch?v=GyvGS9P2BKc",
-      "duration": 728,
-      "duration_string": "12:08",
-      "channel": "ARTE.tv Documentary",
-      "view_count": 2400,
-      "playlist_index": 131
+      "playlist_index": 150
     },
     {
       "id": "-JbIOGGTRTY",
@@ -1444,7 +1654,7 @@
       "duration_string": "18:13",
       "channel": "PolyMatter",
       "view_count": 435000,
-      "playlist_index": 132
+      "playlist_index": 151
     },
     {
       "id": "kMhle4o0uk0",
@@ -1454,7 +1664,7 @@
       "duration_string": "16:25",
       "channel": "DW News",
       "view_count": 6500000,
-      "playlist_index": 133
+      "playlist_index": 152
     },
     {
       "id": "Ug83_o2hKEw",
@@ -1464,7 +1674,7 @@
       "duration_string": "10:46",
       "channel": "DW News",
       "view_count": 583000,
-      "playlist_index": 134
+      "playlist_index": 153
     },
     {
       "id": "JlhfC7Vg_Xo",
@@ -1474,7 +1684,7 @@
       "duration_string": "5:01",
       "channel": "The Wall Street Journal",
       "view_count": 372000,
-      "playlist_index": 135
+      "playlist_index": 154
     },
     {
       "id": "L5qcrTD9sBo",
@@ -1484,7 +1694,7 @@
       "duration_string": "2:11",
       "channel": "FRANCE 24 English",
       "view_count": 1300,
-      "playlist_index": 136
+      "playlist_index": 155
     },
     {
       "id": "m02jSvvVwjg",
@@ -1494,7 +1704,7 @@
       "duration_string": "3:58",
       "channel": "FRANCE 24 English",
       "view_count": 8800,
-      "playlist_index": 137
+      "playlist_index": 156
     },
     {
       "id": "04lP9kGsXdQ",
@@ -1504,7 +1714,7 @@
       "duration_string": "15:32",
       "channel": "ARTE.tv Documentary",
       "view_count": 3400,
-      "playlist_index": 138
+      "playlist_index": 157
     },
     {
       "id": "fvt6kXzsxxY",
@@ -1514,7 +1724,7 @@
       "duration_string": "1:38",
       "channel": "FRANCE 24 English",
       "view_count": 986,
-      "playlist_index": 139
+      "playlist_index": 158
     },
     {
       "id": "dbs6nGnjSl0",
@@ -1524,7 +1734,7 @@
       "duration_string": "5:05",
       "channel": "FRANCE 24 English",
       "view_count": 1300,
-      "playlist_index": 140
+      "playlist_index": 159
     },
     {
       "id": "Um2SMo2DCMo",
@@ -1534,7 +1744,7 @@
       "duration_string": "12:00",
       "channel": "ARTE.tv Documentales",
       "view_count": 3600,
-      "playlist_index": 142
+      "playlist_index": 161
     },
     {
       "id": "cqDvnmMswXA",
@@ -1544,7 +1754,7 @@
       "duration_string": "10:41",
       "channel": "CNBC",
       "view_count": 2400000,
-      "playlist_index": 143
+      "playlist_index": 162
     },
     {
       "id": "hd1-CKDyHXE",
@@ -1554,7 +1764,7 @@
       "duration_string": "14:33",
       "channel": "ColdFusion",
       "view_count": 723000,
-      "playlist_index": 144
+      "playlist_index": 163
     },
     {
       "id": "H2qLoaetLJM",
@@ -1564,7 +1774,7 @@
       "duration_string": "1:08:28",
       "channel": "The Wall Street Journal",
       "view_count": 6500000,
-      "playlist_index": 145
+      "playlist_index": 164
     },
     {
       "id": "0zfUSoWC4Eg",
@@ -1574,7 +1784,7 @@
       "duration_string": "28:26",
       "channel": "DW Documentary",
       "view_count": 1000000,
-      "playlist_index": 146
+      "playlist_index": 165
     },
     {
       "id": "VO8Zzxg3brg",
@@ -1584,7 +1794,7 @@
       "duration_string": "12:36",
       "channel": "FRANCE 24 Español",
       "view_count": 12000,
-      "playlist_index": 147
+      "playlist_index": 166
     },
     {
       "id": "ECaqX1hCQ6g",
@@ -1594,7 +1804,7 @@
       "duration_string": "20:15",
       "channel": "DRM News",
       "view_count": 3500000,
-      "playlist_index": 148
+      "playlist_index": 167
     },
     {
       "id": "vvj6_Xb1MzQ",
@@ -1604,7 +1814,7 @@
       "duration_string": "29:16",
       "channel": "Crónicas de la Historia",
       "view_count": 225000,
-      "playlist_index": 149
+      "playlist_index": 168
     },
     {
       "id": "p_aHfxHRjuo",
@@ -1614,7 +1824,7 @@
       "duration_string": "17:32",
       "channel": "DW News",
       "view_count": 134000,
-      "playlist_index": 150
+      "playlist_index": 169
     },
     {
       "id": "VKvLM6MS6WI",
@@ -1624,7 +1834,7 @@
       "duration_string": "16:12",
       "channel": "DW News",
       "view_count": 3300000,
-      "playlist_index": 151
+      "playlist_index": 170
     },
     {
       "id": "iJ5Fzx8_QBo",
@@ -1634,7 +1844,7 @@
       "duration_string": "25:46",
       "channel": "DW REV - Cars & Mobility",
       "view_count": 589000,
-      "playlist_index": 152
+      "playlist_index": 171
     },
     {
       "id": "LFezE7JpXfo",
@@ -1644,7 +1854,7 @@
       "duration_string": "15:38",
       "channel": "DW REV - Cars & Mobility",
       "view_count": 2000000,
-      "playlist_index": 153
+      "playlist_index": 172
     },
     {
       "id": "svktRVVNJO8",
@@ -1654,7 +1864,7 @@
       "duration_string": "8:46",
       "channel": "The Wall Street Journal",
       "view_count": 1300000,
-      "playlist_index": 154
+      "playlist_index": 173
     },
     {
       "id": "jLpUEACVBlE",
@@ -1664,7 +1874,7 @@
       "duration_string": "8:00",
       "channel": "The Wall Street Journal",
       "view_count": 4300000,
-      "playlist_index": 155
+      "playlist_index": 174
     },
     {
       "id": "V8Vtb0bn30M",
@@ -1674,7 +1884,7 @@
       "duration_string": "6:31",
       "channel": "Vox",
       "view_count": 934000,
-      "playlist_index": 156
+      "playlist_index": 175
     },
     {
       "id": "Lo4ITdLW848",
@@ -1684,7 +1894,7 @@
       "duration_string": "28:01",
       "channel": "Al Jazeera English",
       "view_count": 47000,
-      "playlist_index": 157
+      "playlist_index": 176
     },
     {
       "id": "RvGRA43JNKc",
@@ -1694,7 +1904,7 @@
       "duration_string": "2:42",
       "channel": "Al Jazeera English",
       "view_count": 467000,
-      "playlist_index": 158
+      "playlist_index": 177
     },
     {
       "id": "TlibMqj2JUM",
@@ -1704,7 +1914,7 @@
       "duration_string": "20:06",
       "channel": "DRM News",
       "view_count": 1200000,
-      "playlist_index": 159
+      "playlist_index": 178
     },
     {
       "id": "oL0umpPPe-8",
@@ -1714,7 +1924,7 @@
       "duration_string": "21:06",
       "channel": "Wendover Productions",
       "view_count": 7400000,
-      "playlist_index": 160
+      "playlist_index": 179
     },
     {
       "id": "qDw4qzTBaHs",
@@ -1724,7 +1934,7 @@
       "duration_string": "2:31",
       "channel": "ARTE.tv Documentales",
       "view_count": 924,
-      "playlist_index": 161
+      "playlist_index": 180
     },
     {
       "id": "wnHby-wrCDU",
@@ -1734,7 +1944,7 @@
       "duration_string": "43:55",
       "channel": "DW Español",
       "view_count": 232000,
-      "playlist_index": 162
+      "playlist_index": 181
     },
     {
       "id": "4ob8cvZYq2w",
@@ -1744,7 +1954,7 @@
       "duration_string": "14:50",
       "channel": "CNBC",
       "view_count": 210000,
-      "playlist_index": 163
+      "playlist_index": 182
     },
     {
       "id": "9EZevoSxEeA",
@@ -1754,7 +1964,7 @@
       "duration_string": "13:19",
       "channel": "DW News",
       "view_count": 600000,
-      "playlist_index": 164
+      "playlist_index": 183
     },
     {
       "id": "gKOzDU64iPA",
@@ -1764,7 +1974,7 @@
       "duration_string": "9:37",
       "channel": "Al Jazeera English",
       "view_count": 136000,
-      "playlist_index": 165
+      "playlist_index": 184
     },
     {
       "id": "zaFUQIT6AtA",
@@ -1774,7 +1984,7 @@
       "duration_string": "2:11",
       "channel": "DW Español",
       "view_count": 5100,
-      "playlist_index": 166
+      "playlist_index": 185
     },
     {
       "id": "IISro2ykynY",
@@ -1784,7 +1994,7 @@
       "duration_string": "16:30",
       "channel": "TechAltar",
       "view_count": 143000,
-      "playlist_index": 167
+      "playlist_index": 186
     },
     {
       "id": "YiKscZ8GzcM",
@@ -1794,7 +2004,7 @@
       "duration_string": "13:08",
       "channel": "DW News",
       "view_count": 142000,
-      "playlist_index": 168
+      "playlist_index": 187
     },
     {
       "id": "wsnpSb9-VQc",
@@ -1804,7 +2014,7 @@
       "duration_string": "5:52",
       "channel": "CNN",
       "view_count": 1500000,
-      "playlist_index": 169
+      "playlist_index": 188
     },
     {
       "id": "CHLAppNObPI",
@@ -1814,7 +2024,7 @@
       "duration_string": "19:35",
       "channel": "RichardDWolff",
       "view_count": 206000,
-      "playlist_index": 170
+      "playlist_index": 189
     },
     {
       "id": "NMDCKpmc-uo",
@@ -1824,7 +2034,7 @@
       "duration_string": "8:43",
       "channel": "The Wall Street Journal",
       "view_count": 4600000,
-      "playlist_index": 171
+      "playlist_index": 190
     },
     {
       "id": "iVJ94tM7pNA",
@@ -1834,7 +2044,7 @@
       "duration_string": "18:16",
       "channel": "Bloomberg Originals",
       "view_count": 5000000,
-      "playlist_index": 172
+      "playlist_index": 191
     },
     {
       "id": "8d5d_HXGeMA",
@@ -1844,7 +2054,7 @@
       "duration_string": "19:18",
       "channel": "Wendover Productions",
       "view_count": 4800000,
-      "playlist_index": 173
+      "playlist_index": 192
     },
     {
       "id": "UL-vijG5OrU",
@@ -1854,7 +2064,7 @@
       "duration_string": "25:56",
       "channel": "DW Documental",
       "view_count": 110000,
-      "playlist_index": 174
+      "playlist_index": 193
     },
     {
       "id": "M6CNlvXkR7k",
@@ -1864,7 +2074,7 @@
       "duration_string": "4:59",
       "channel": "The Wall Street Journal",
       "view_count": 1100000,
-      "playlist_index": 175
+      "playlist_index": 194
     },
     {
       "id": "-aH6rGs-_Q4",
@@ -1874,7 +2084,7 @@
       "duration_string": "1:59:26",
       "channel": "Associated Press",
       "view_count": 2800000,
-      "playlist_index": 176
+      "playlist_index": 195
     },
     {
       "id": "Ld285PDsHvs",
@@ -1884,7 +2094,7 @@
       "duration_string": "17:59",
       "channel": "CaspianReport",
       "view_count": 685000,
-      "playlist_index": 177
+      "playlist_index": 196
     },
     {
       "id": "KkWJYA_ShiI",
@@ -1894,7 +2104,7 @@
       "duration_string": "10:15",
       "channel": "DW News",
       "view_count": 151000,
-      "playlist_index": 178
+      "playlist_index": 197
     },
     {
       "id": "s2tjUcoYLoE",
@@ -1904,7 +2114,7 @@
       "duration_string": "42:01",
       "channel": "DW Documentary",
       "view_count": 302000,
-      "playlist_index": 179
+      "playlist_index": 198
     },
     {
       "id": "IdHq0TuDdT4",
@@ -1914,7 +2124,7 @@
       "duration_string": "5:52",
       "channel": "BBC News Mundo",
       "view_count": 599000,
-      "playlist_index": 180
+      "playlist_index": 199
     },
     {
       "id": "9NpgzsTrW78",
@@ -1924,7 +2134,7 @@
       "duration_string": "14:41",
       "channel": "Bloomberg Originals",
       "view_count": 1900000,
-      "playlist_index": 181
+      "playlist_index": 200
     },
     {
       "id": "D76Vwi1zs-w",
@@ -1934,7 +2144,7 @@
       "duration_string": "12:08",
       "channel": "ARTE.tv Documentales",
       "view_count": 4400,
-      "playlist_index": 183
+      "playlist_index": 202
     },
     {
       "id": "K4h9v5V82_Y",
@@ -1944,7 +2154,7 @@
       "duration_string": "12:25",
       "channel": "ARTE.tv Documentary",
       "view_count": 11000,
-      "playlist_index": 184
+      "playlist_index": 203
     },
     {
       "id": "db2XxwsaHcw",
@@ -1954,7 +2164,7 @@
       "duration_string": "7:48",
       "channel": "DW Español",
       "view_count": 442000,
-      "playlist_index": 185
+      "playlist_index": 204
     },
     {
       "id": "3yTd9wkDWoE",
@@ -1964,7 +2174,7 @@
       "duration_string": "12:23",
       "channel": "DW Español",
       "view_count": 217000,
-      "playlist_index": 186
+      "playlist_index": 205
     },
     {
       "id": "fh_Lj2Z0Sc0",
@@ -1974,7 +2184,7 @@
       "duration_string": "9:50",
       "channel": "DW Español",
       "view_count": 293000,
-      "playlist_index": 187
+      "playlist_index": 206
     },
     {
       "id": "ziTfy92h4Vg",
@@ -1984,7 +2194,7 @@
       "duration_string": "42:26",
       "channel": "DW Documental",
       "view_count": 1600000,
-      "playlist_index": 188
+      "playlist_index": 207
     },
     {
       "id": "XLt6RI57f7Q",
@@ -1994,7 +2204,7 @@
       "duration_string": "31:31",
       "channel": "DW Español",
       "view_count": 769000,
-      "playlist_index": 189
+      "playlist_index": 208
     },
     {
       "id": "UmWBIyb6Rxo",
@@ -2004,7 +2214,7 @@
       "duration_string": "14:21",
       "channel": "DW News",
       "view_count": 311000,
-      "playlist_index": 190
+      "playlist_index": 209
     },
     {
       "id": "i9p-a8YJO-o",
@@ -2014,7 +2224,7 @@
       "duration_string": "5:22",
       "channel": "TED-Ed",
       "view_count": 1000000,
-      "playlist_index": 191
+      "playlist_index": 210
     },
     {
       "id": "uE_UuHRtXCY",
@@ -2024,7 +2234,7 @@
       "duration_string": "5:36",
       "channel": "TED-Ed",
       "view_count": 1600000,
-      "playlist_index": 192
+      "playlist_index": 211
     },
     {
       "id": "pDXccMsTlL0",
@@ -2034,7 +2244,7 @@
       "duration_string": "5:15",
       "channel": "WION",
       "view_count": 455000,
-      "playlist_index": 193
+      "playlist_index": 212
     },
     {
       "id": "d_3YyH9wsoI",
@@ -2044,7 +2254,7 @@
       "duration_string": "3:54",
       "channel": "ARTE.tv Documentales",
       "view_count": 1800,
-      "playlist_index": 194
+      "playlist_index": 213
     },
     {
       "id": "ovWPiPHJtlM",
@@ -2054,7 +2264,7 @@
       "duration_string": "47:19",
       "channel": "DW Español",
       "view_count": 1200000,
-      "playlist_index": 195
+      "playlist_index": 214
     },
     {
       "id": "Nh09YpzBStQ",
@@ -2064,7 +2274,7 @@
       "duration_string": "10:02",
       "channel": "CNBC International",
       "view_count": 227000,
-      "playlist_index": 196
+      "playlist_index": 215
     },
     {
       "id": "W0wnPnRd1KI",
@@ -2074,17 +2284,7 @@
       "duration_string": "54:47",
       "channel": "Canal Once",
       "view_count": 370000,
-      "playlist_index": 197
-    },
-    {
-      "id": "Cs7FByAuVEs",
-      "title": "How Credible Is The Two-State Solution? | ARTE.tv Documentary",
-      "url": "https://www.youtube.com/watch?v=Cs7FByAuVEs",
-      "duration": 586,
-      "duration_string": "9:46",
-      "channel": "ARTE.tv Documentary",
-      "view_count": 2000,
-      "playlist_index": 198
+      "playlist_index": 216
     },
     {
       "id": "Kc-5hRfbOAA",
@@ -2094,7 +2294,7 @@
       "duration_string": "12:15",
       "channel": "ARTE.tv Documentales",
       "view_count": 6000,
-      "playlist_index": 200
+      "playlist_index": 219
     },
     {
       "id": "5yTmizmZVaM",
@@ -2104,7 +2304,7 @@
       "duration_string": "12:15",
       "channel": "ARTE.tv Documentales",
       "view_count": 14000,
-      "playlist_index": 201
+      "playlist_index": 220
     },
     {
       "id": "x9vUO4RkPOg",
@@ -2114,7 +2314,7 @@
       "duration_string": "12:17",
       "channel": "ARTE.tv Documentales",
       "view_count": 2200,
-      "playlist_index": 202
+      "playlist_index": 221
     },
     {
       "id": "8yQDkJ1MRJs",
@@ -2124,7 +2324,7 @@
       "duration_string": "12:15",
       "channel": "ARTE.tv Documentales",
       "view_count": 2800,
-      "playlist_index": 203
+      "playlist_index": 222
     },
     {
       "id": "AzjVhh1JIjc",
@@ -2134,7 +2334,7 @@
       "duration_string": "15:23",
       "channel": "DW News",
       "view_count": 1000000,
-      "playlist_index": 204
+      "playlist_index": 223
     },
     {
       "id": "dNDEVCIsqLQ",
@@ -2144,7 +2344,7 @@
       "duration_string": "12:13",
       "channel": "ARTE.tv Documentales",
       "view_count": 7700,
-      "playlist_index": 205
+      "playlist_index": 224
     },
     {
       "id": "Tw8oyKxP4y4",
@@ -2154,7 +2354,7 @@
       "duration_string": "5:03",
       "channel": "CNN",
       "view_count": 213000,
-      "playlist_index": 206
+      "playlist_index": 225
     },
     {
       "id": "A4l_wHA8kvk",
@@ -2164,7 +2364,7 @@
       "duration_string": "5:20",
       "channel": "The Wall Street Journal",
       "view_count": 1000000,
-      "playlist_index": 207
+      "playlist_index": 226
     },
     {
       "id": "66lbPGV-AVo",
@@ -2174,7 +2374,7 @@
       "duration_string": "17:47",
       "channel": "ARTE.tv Documentales",
       "view_count": 9600,
-      "playlist_index": 208
+      "playlist_index": 227
     },
     {
       "id": "VmClr-GkH7E",
@@ -2184,7 +2384,7 @@
       "duration_string": "45:46",
       "channel": "ABC News In-depth",
       "view_count": 3000000,
-      "playlist_index": 209
+      "playlist_index": 228
     },
     {
       "id": "A9ZKjfms8CA",
@@ -2194,7 +2394,7 @@
       "duration_string": "7:26",
       "channel": "The Wall Street Journal",
       "view_count": 620000,
-      "playlist_index": 210
+      "playlist_index": 229
     },
     {
       "id": "79IElk5bfpY",
@@ -2204,7 +2404,7 @@
       "duration_string": "2:55",
       "channel": "NBC News",
       "view_count": 200000,
-      "playlist_index": 212
+      "playlist_index": 231
     },
     {
       "id": "o3niiz0uSCA",
@@ -2214,7 +2414,7 @@
       "duration_string": "15:33",
       "channel": "DW News",
       "view_count": 164000,
-      "playlist_index": 213
+      "playlist_index": 232
     },
     {
       "id": "1oh8mk_PJS0",
@@ -2224,7 +2424,7 @@
       "duration_string": "36:18",
       "channel": "WIRED",
       "view_count": 1700000,
-      "playlist_index": 214
+      "playlist_index": 233
     },
     {
       "id": "aIjtpoYdPCM",
@@ -2234,7 +2434,7 @@
       "duration_string": "9:28",
       "channel": "CNN",
       "view_count": 1400000,
-      "playlist_index": 215
+      "playlist_index": 234
     },
     {
       "id": "F1x5psFk9io",
@@ -2244,7 +2444,7 @@
       "duration_string": "41:32",
       "channel": "DW Documentary",
       "view_count": 1300000,
-      "playlist_index": 217
+      "playlist_index": 236
     },
     {
       "id": "p41oz5x0Dok",
@@ -2254,7 +2454,7 @@
       "duration_string": "42:32",
       "channel": "DW Documentary",
       "view_count": 1200000,
-      "playlist_index": 218
+      "playlist_index": 237
     },
     {
       "id": "KU6zfyoSlLo",
@@ -2264,7 +2464,7 @@
       "duration_string": "12:08",
       "channel": "Cyrus Janssen",
       "view_count": 504000,
-      "playlist_index": 220
+      "playlist_index": 239
     },
     {
       "id": "eFiGzEvdNUs",
@@ -2274,7 +2474,7 @@
       "duration_string": "9:48",
       "channel": "DW News",
       "view_count": 87000,
-      "playlist_index": 221
+      "playlist_index": 240
     },
     {
       "id": "vEQEmArQKVw",
@@ -2284,7 +2484,7 @@
       "duration_string": "9:31",
       "channel": "Al Jazeera English",
       "view_count": 12000,
-      "playlist_index": 223
+      "playlist_index": 242
     },
     {
       "id": "OCwDwZdQJDA",
@@ -2294,7 +2494,7 @@
       "duration_string": "5:13",
       "channel": "Global News",
       "view_count": 2200000,
-      "playlist_index": 224
+      "playlist_index": 243
     },
     {
       "id": "xQFij3xBpu0",
@@ -2304,7 +2504,7 @@
       "duration_string": "31:54",
       "channel": "Cyrus Janssen",
       "view_count": 1300000,
-      "playlist_index": 225
+      "playlist_index": 244
     },
     {
       "id": "eNG6mHsoSsM",
@@ -2314,7 +2514,7 @@
       "duration_string": "8:16",
       "channel": "KPIX | CBS NEWS BAY AREA",
       "view_count": 302000,
-      "playlist_index": 226
+      "playlist_index": 245
     },
     {
       "id": "NRNNtyMKa7Y",
@@ -2324,7 +2524,7 @@
       "duration_string": "20:17",
       "channel": "DW News",
       "view_count": 753000,
-      "playlist_index": 227
+      "playlist_index": 246
     },
     {
       "id": "LoLTZR8RNa4",
@@ -2334,7 +2534,7 @@
       "duration_string": "12:13",
       "channel": "ARTE.tv Documentales",
       "view_count": 4900,
-      "playlist_index": 228
+      "playlist_index": 247
     },
     {
       "id": "5w7XT85i7Xg",
@@ -2344,7 +2544,7 @@
       "duration_string": "12:25",
       "channel": "ARTE.tv Documentales",
       "view_count": 4600,
-      "playlist_index": 229
+      "playlist_index": 248
     },
     {
       "id": "AISNPtMRSB0",
@@ -2354,7 +2554,7 @@
       "duration_string": "12:57",
       "channel": "DW Español",
       "view_count": 377000,
-      "playlist_index": 231
+      "playlist_index": 250
     },
     {
       "id": "hw7kVyxaPD0",
@@ -2364,7 +2564,7 @@
       "duration_string": "12:26",
       "channel": "DW Español",
       "view_count": 1300000,
-      "playlist_index": 233
+      "playlist_index": 252
     },
     {
       "id": "GjQapp-orSQ",
@@ -2374,7 +2574,7 @@
       "duration_string": "8:16",
       "channel": "El Colegio de la Frontera Norte - El Colef",
       "view_count": 1100,
-      "playlist_index": 234
+      "playlist_index": 253
     },
     {
       "id": "UxYny8xLOJA",
@@ -2384,7 +2584,7 @@
       "duration_string": "21:36",
       "channel": "DW News",
       "view_count": 86000,
-      "playlist_index": 235
+      "playlist_index": 254
     },
     {
       "id": "hCtEGPKkbmo",
@@ -2394,7 +2594,7 @@
       "duration_string": "5:19",
       "channel": "DW Shift",
       "view_count": 2500,
-      "playlist_index": 236
+      "playlist_index": 255
     },
     {
       "id": "WEBiebbeNCA",
@@ -2404,7 +2604,7 @@
       "duration_string": "40:25",
       "channel": "CNBC",
       "view_count": 5900000,
-      "playlist_index": 237
+      "playlist_index": 256
     },
     {
       "id": "02vRYe2NWSY",
@@ -2414,7 +2614,7 @@
       "duration_string": "5:58",
       "channel": "The Wall Street Journal",
       "view_count": 851000,
-      "playlist_index": 238
+      "playlist_index": 257
     },
     {
       "id": "lMURbZR9JZw",
@@ -2424,7 +2624,7 @@
       "duration_string": "21:57",
       "channel": "DW News",
       "view_count": 60000,
-      "playlist_index": 239
+      "playlist_index": 258
     },
     {
       "id": "yeXzB53Xu08",
@@ -2434,17 +2634,7 @@
       "duration_string": "15:31",
       "channel": "DW News",
       "view_count": 400000,
-      "playlist_index": 241
-    },
-    {
-      "id": "pDLEvALCY70",
-      "title": "China's plan to dominate the seas | Mapped Out",
-      "url": "https://www.youtube.com/watch?v=pDLEvALCY70",
-      "duration": 914,
-      "duration_string": "15:14",
-      "channel": "DW News",
-      "view_count": 821000,
-      "playlist_index": 242
+      "playlist_index": 260
     },
     {
       "id": "-L0QyO8SClY",
@@ -2454,7 +2644,7 @@
       "duration_string": "6:10",
       "channel": "The Wall Street Journal",
       "view_count": 161000,
-      "playlist_index": 243
+      "playlist_index": 261
     },
     {
       "id": "k9xZ3uESyls",
@@ -2464,7 +2654,7 @@
       "duration_string": "11:59",
       "channel": "ARTE.tv Documentales",
       "view_count": 10000,
-      "playlist_index": 244
+      "playlist_index": 262
     },
     {
       "id": "-HAu2-1AvL0",
@@ -2474,7 +2664,7 @@
       "duration_string": "12:08",
       "channel": "ARTE.tv Documentales",
       "view_count": 7500,
-      "playlist_index": 245
+      "playlist_index": 263
     },
     {
       "id": "_2BUnmhx2aU",
@@ -2484,7 +2674,7 @@
       "duration_string": "26:29",
       "channel": "TV UNAM",
       "view_count": 730,
-      "playlist_index": 246
+      "playlist_index": 264
     },
     {
       "id": "1ialXD8itds",
@@ -2494,7 +2684,7 @@
       "duration_string": "1:44",
       "channel": "DW Español",
       "view_count": 40000,
-      "playlist_index": 247
+      "playlist_index": 265
     },
     {
       "id": "qc7g6Uhi1i4",
@@ -2504,7 +2694,7 @@
       "duration_string": "3:37",
       "channel": "TIME",
       "view_count": 182000,
-      "playlist_index": 248
+      "playlist_index": 266
     },
     {
       "id": "62Jp0wsMHvU",
@@ -2514,7 +2704,7 @@
       "duration_string": "3:13",
       "channel": "The Wall Street Journal",
       "view_count": 260000,
-      "playlist_index": 249
+      "playlist_index": 267
     },
     {
       "id": "PzsCQ152FRg",
@@ -2524,7 +2714,7 @@
       "duration_string": "24:51",
       "channel": "ColdFusion",
       "view_count": 939000,
-      "playlist_index": 250
+      "playlist_index": 268
     },
     {
       "id": "cauJdxKvWmQ",
@@ -2534,7 +2724,7 @@
       "duration_string": "18:53",
       "channel": "DW News",
       "view_count": 195000,
-      "playlist_index": 251
+      "playlist_index": 269
     },
     {
       "id": "AuPZTlWG-Ic",
@@ -2544,7 +2734,7 @@
       "duration_string": "7:51",
       "channel": "CNBC",
       "view_count": 2600000,
-      "playlist_index": 252
+      "playlist_index": 270
     },
     {
       "id": "G4-ZC_fd19Y",
@@ -2554,7 +2744,7 @@
       "duration_string": "56:37",
       "channel": "DW News",
       "view_count": 2900000,
-      "playlist_index": 253
+      "playlist_index": 271
     },
     {
       "id": "282vcooA1I4",
@@ -2564,7 +2754,7 @@
       "duration_string": "5:40",
       "channel": "NBC Chicago",
       "view_count": 893000,
-      "playlist_index": 254
+      "playlist_index": 272
     },
     {
       "id": "_-eHOSq3oqI",
@@ -2574,7 +2764,7 @@
       "duration_string": "8:18",
       "channel": "The Wall Street Journal",
       "view_count": 9500000,
-      "playlist_index": 255
+      "playlist_index": 273
     },
     {
       "id": "4crvgU0CVn8",
@@ -2584,7 +2774,7 @@
       "duration_string": "3:26",
       "channel": "GZERO Media",
       "view_count": 36000,
-      "playlist_index": 256
+      "playlist_index": 274
     },
     {
       "id": "h2e6eLyR7Y8",
@@ -2594,7 +2784,7 @@
       "duration_string": "24:31",
       "channel": "ARTE.tv Documentales",
       "view_count": 54000,
-      "playlist_index": 257
+      "playlist_index": 275
     },
     {
       "id": "YJSNOLecKLw",
@@ -2604,7 +2794,7 @@
       "duration_string": "12:15",
       "channel": "ARTE.tv Documentary",
       "view_count": 1500,
-      "playlist_index": 258
+      "playlist_index": 276
     },
     {
       "id": "lU_hodY8O7w",
@@ -2614,7 +2804,7 @@
       "duration_string": "12:59",
       "channel": "DW News",
       "view_count": 193000,
-      "playlist_index": 259
+      "playlist_index": 277
     },
     {
       "id": "tCUuvyVwbJs",
@@ -2624,7 +2814,7 @@
       "duration_string": "16:27",
       "channel": "ColdFusion",
       "view_count": 2100000,
-      "playlist_index": 260
+      "playlist_index": 278
     },
     {
       "id": "UvFvoYw6rZM",
@@ -2634,7 +2824,7 @@
       "duration_string": "33:46",
       "channel": "DW Español",
       "view_count": 4300000,
-      "playlist_index": 261
+      "playlist_index": 279
     },
     {
       "id": "lh3UdQG8M5U",
@@ -2644,7 +2834,7 @@
       "duration_string": "12:13",
       "channel": "ARTE.tv Documentary",
       "view_count": 2800,
-      "playlist_index": 262
+      "playlist_index": 280
     },
     {
       "id": "Azm4yKKIlqE",
@@ -2654,7 +2844,7 @@
       "duration_string": "24:02",
       "channel": "Bloomberg Originals",
       "view_count": 1800000,
-      "playlist_index": 263
+      "playlist_index": 281
     },
     {
       "id": "oQOlz4fGuss",
@@ -2664,7 +2854,7 @@
       "duration_string": "12:07",
       "channel": "Bloomberg en Español",
       "view_count": 2600,
-      "playlist_index": 264
+      "playlist_index": 282
     },
     {
       "id": "SOh2Qidi6KA",
@@ -2674,7 +2864,7 @@
       "duration_string": "17:27",
       "channel": "DW News",
       "view_count": 108000,
-      "playlist_index": 265
+      "playlist_index": 283
     },
     {
       "id": "2tajmC9nX8Y",
@@ -2684,7 +2874,7 @@
       "duration_string": "24:34",
       "channel": "Grupo Fórmula",
       "view_count": 430000,
-      "playlist_index": 266
+      "playlist_index": 284
     },
     {
       "id": "el4FhZrY7yQ",
@@ -2694,7 +2884,7 @@
       "duration_string": "26:27",
       "channel": "ARTE.tv Documentary",
       "view_count": 6600,
-      "playlist_index": 267
+      "playlist_index": 285
     },
     {
       "id": "ryxBWPsik_g",
@@ -2704,7 +2894,7 @@
       "duration_string": "21:05",
       "channel": "Grupo Fórmula",
       "view_count": 249000,
-      "playlist_index": 268
+      "playlist_index": 286
     },
     {
       "id": "djWtcvfftl0",
@@ -2714,7 +2904,7 @@
       "duration_string": "12:28",
       "channel": "ARTE.tv Documentales",
       "view_count": 6000,
-      "playlist_index": 269
+      "playlist_index": 287
     },
     {
       "id": "KUcwD-cGblo",
@@ -2724,17 +2914,7 @@
       "duration_string": "34:27",
       "channel": "DW Español",
       "view_count": 2100000,
-      "playlist_index": 271
-    },
-    {
-      "id": "GlF2B_N1KDE",
-      "title": "The Power of Grain I ARTE.tv Documentary",
-      "url": "https://www.youtube.com/watch?v=GlF2B_N1KDE",
-      "duration": 1584,
-      "duration_string": "26:24",
-      "channel": "ARTE.tv Documentary",
-      "view_count": 2800,
-      "playlist_index": 272
+      "playlist_index": 289
     },
     {
       "id": "0oQm6dnW2Og",
@@ -2744,7 +2924,7 @@
       "duration_string": "8:29",
       "channel": "Bloomberg Originals",
       "view_count": 582000,
-      "playlist_index": 273
+      "playlist_index": 290
     },
     {
       "id": "mgep2d-E6Zk",
@@ -2754,7 +2934,7 @@
       "duration_string": "12:01",
       "channel": "DW Español",
       "view_count": 36000,
-      "playlist_index": 274
+      "playlist_index": 291
     },
     {
       "id": "e6LnyR2fZNU",
@@ -2764,7 +2944,7 @@
       "duration_string": "25:53",
       "channel": "DW Español",
       "view_count": 1300000,
-      "playlist_index": 275
+      "playlist_index": 292
     },
     {
       "id": "SuogBoLTNzc",
@@ -2774,7 +2954,7 @@
       "duration_string": "2:57",
       "channel": "EXCELSIOR",
       "view_count": 115000,
-      "playlist_index": 276
+      "playlist_index": 293
     },
     {
       "id": "58zHJL1dKtw",
@@ -2784,7 +2964,7 @@
       "duration_string": "12:25",
       "channel": "CNBC",
       "view_count": 810000,
-      "playlist_index": 277
+      "playlist_index": 294
     },
     {
       "id": "U331gEawy4o",
@@ -2794,7 +2974,7 @@
       "duration_string": "8:54",
       "channel": "Bloomberg en Español",
       "view_count": 76000,
-      "playlist_index": 278
+      "playlist_index": 295
     },
     {
       "id": "Iman2XTDP2M",
@@ -2804,7 +2984,7 @@
       "duration_string": "12:36",
       "channel": "ARTE.tv Documentales",
       "view_count": 14000,
-      "playlist_index": 279
+      "playlist_index": 296
     },
     {
       "id": "OxeTFB84e2k",
@@ -2814,7 +2994,7 @@
       "duration_string": "5:05",
       "channel": "TED-Ed",
       "view_count": 940000,
-      "playlist_index": 280
+      "playlist_index": 297
     },
     {
       "id": "1Qkef6br108",
@@ -2824,7 +3004,7 @@
       "duration_string": "22:23",
       "channel": "DW Planet A",
       "view_count": 164000,
-      "playlist_index": 281
+      "playlist_index": 298
     },
     {
       "id": "Lw-fXvv9-lA",
@@ -2834,7 +3014,7 @@
       "duration_string": "6:08",
       "channel": "The Wall Street Journal",
       "view_count": 2000000,
-      "playlist_index": 282
+      "playlist_index": 299
     },
     {
       "id": "YHVNWtBuDVk",
@@ -2844,7 +3024,7 @@
       "duration_string": "13:28",
       "channel": "VICE News",
       "view_count": 2900000,
-      "playlist_index": 283
+      "playlist_index": 300
     },
     {
       "id": "uD0bR7JXI6k",
@@ -2854,7 +3034,7 @@
       "duration_string": "9:53",
       "channel": "PolyMatter",
       "view_count": 1100000,
-      "playlist_index": 284
+      "playlist_index": 301
     },
     {
       "id": "Gi80SEy0KL4",
@@ -2864,7 +3044,7 @@
       "duration_string": "10:34",
       "channel": "Business Casual",
       "view_count": 2100000,
-      "playlist_index": 285
+      "playlist_index": 302
     },
     {
       "id": "Keme8oxHHPQ",
@@ -2874,7 +3054,7 @@
       "duration_string": "15:45",
       "channel": "Bloomberg Originals",
       "view_count": 362000,
-      "playlist_index": 286
+      "playlist_index": 303
     },
     {
       "id": "AvZ2BvzNbFo",
@@ -2884,7 +3064,7 @@
       "duration_string": "1:13:14",
       "channel": "Bloomberg Originals",
       "view_count": 245000,
-      "playlist_index": 287
+      "playlist_index": 304
     },
     {
       "id": "7XbT-YQVdsE",
@@ -2894,7 +3074,7 @@
       "duration_string": "5:29",
       "channel": "DW News",
       "view_count": 283000,
-      "playlist_index": 288
+      "playlist_index": 305
     },
     {
       "id": "rkxMdmipYqM",
@@ -2904,7 +3084,7 @@
       "duration_string": "8:37",
       "channel": "Vox",
       "view_count": 3300000,
-      "playlist_index": 289
+      "playlist_index": 306
     },
     {
       "id": "t63UkDpQ2g4",
@@ -2914,7 +3094,7 @@
       "duration_string": "10:01",
       "channel": "ARTE.tv Documentary",
       "view_count": 4200,
-      "playlist_index": 290
+      "playlist_index": 307
     },
     {
       "id": "OfLmVj3-GXU",
@@ -2924,7 +3104,7 @@
       "duration_string": "5:33",
       "channel": "The Daily Show",
       "view_count": 925000,
-      "playlist_index": 292
+      "playlist_index": 309
     },
     {
       "id": "oU4RmBNvC98",
@@ -2934,7 +3114,7 @@
       "duration_string": "6:47",
       "channel": "EXCELSIOR",
       "view_count": 648000,
-      "playlist_index": 293
+      "playlist_index": 310
     },
     {
       "id": "VRpFDranP-A",
@@ -2944,7 +3124,7 @@
       "duration_string": "8:51",
       "channel": "BBC News",
       "view_count": 1400000,
-      "playlist_index": 294
+      "playlist_index": 311
     },
     {
       "id": "900mMMc-ld0",
@@ -2954,7 +3134,7 @@
       "duration_string": "7:42",
       "channel": "DW News",
       "view_count": 74000,
-      "playlist_index": 295
+      "playlist_index": 312
     },
     {
       "id": "kjG-dmfXxdU",
@@ -2964,7 +3144,7 @@
       "duration_string": "5:06",
       "channel": "DW News",
       "view_count": 113000,
-      "playlist_index": 296
+      "playlist_index": 313
     },
     {
       "id": "uNQUuPG4KOY",
@@ -2974,7 +3154,7 @@
       "duration_string": "12:04",
       "channel": "DW Español",
       "view_count": 114000,
-      "playlist_index": 297
+      "playlist_index": 314
     },
     {
       "id": "kB3pWy_mCYw",
@@ -2984,7 +3164,7 @@
       "duration_string": "12:03",
       "channel": "DW Español",
       "view_count": 43000,
-      "playlist_index": 298
+      "playlist_index": 315
     },
     {
       "id": "G_wvxhEAkGg",
@@ -2994,7 +3174,7 @@
       "duration_string": "12:25",
       "channel": "ARTE.tv Documentales",
       "view_count": 16000,
-      "playlist_index": 299
+      "playlist_index": 316
     },
     {
       "id": "BuUUQBH_VlY",
@@ -3004,7 +3184,7 @@
       "duration_string": "8:46",
       "channel": "The Wall Street Journal",
       "view_count": 373000,
-      "playlist_index": 300
+      "playlist_index": 317
     },
     {
       "id": "1mnTz1Hs784",
@@ -3014,7 +3194,7 @@
       "duration_string": "38:19",
       "channel": "BBC World Service",
       "view_count": 643000,
-      "playlist_index": 301
+      "playlist_index": 318
     },
     {
       "id": "RDN2XKGL9GQ",
@@ -3024,7 +3204,7 @@
       "duration_string": "3:16",
       "channel": "La Jornada",
       "view_count": 81000,
-      "playlist_index": 302
+      "playlist_index": 319
     },
     {
       "id": "pKwcubtNZHk",
@@ -3034,7 +3214,7 @@
       "duration_string": "6:24",
       "channel": "FRANCE 24 English",
       "view_count": 5400,
-      "playlist_index": 303
+      "playlist_index": 320
     },
     {
       "id": "Ve810FHZ1CQ",
@@ -3044,7 +3224,7 @@
       "duration_string": "2:59",
       "channel": "Vox",
       "view_count": 3200000,
-      "playlist_index": 304
+      "playlist_index": 321
     },
     {
       "id": "B2ZO9jn_mwo",
@@ -3054,7 +3234,7 @@
       "duration_string": "7:11",
       "channel": "BBC News",
       "view_count": 162000,
-      "playlist_index": 305
+      "playlist_index": 322
     },
     {
       "id": "mkVUHMQF3q0",
@@ -3064,7 +3244,7 @@
       "duration_string": "7:44",
       "channel": "DW News",
       "view_count": 184000,
-      "playlist_index": 306
+      "playlist_index": 323
     },
     {
       "id": "DDKCRmIDCOc",
@@ -3074,7 +3254,7 @@
       "duration_string": "3:45",
       "channel": "DW Español",
       "view_count": 19000,
-      "playlist_index": 307
+      "playlist_index": 324
     },
     {
       "id": "RH987NRm0bA",
@@ -3084,7 +3264,7 @@
       "duration_string": "23:32",
       "channel": "Bloomberg en Español",
       "view_count": 24000,
-      "playlist_index": 308
+      "playlist_index": 325
     },
     {
       "id": "Pn3SIeRiY9I",
@@ -3094,7 +3274,7 @@
       "duration_string": "6:28",
       "channel": "Bloomberg Technology",
       "view_count": 3500,
-      "playlist_index": 309
+      "playlist_index": 326
     },
     {
       "id": "m8hnoU6JMFc",
@@ -3104,7 +3284,7 @@
       "duration_string": "7:07",
       "channel": "Bloomberg Technology",
       "view_count": 2100,
-      "playlist_index": 310
+      "playlist_index": 327
     },
     {
       "id": "t9R_e86zWI4",
@@ -3114,7 +3294,7 @@
       "duration_string": "6:48",
       "channel": "DW News",
       "view_count": 37000,
-      "playlist_index": 311
+      "playlist_index": 328
     },
     {
       "id": "ZQ5dDK2ODso",
@@ -3124,7 +3304,7 @@
       "duration_string": "12:02",
       "channel": "DW Español",
       "view_count": 22000,
-      "playlist_index": 312
+      "playlist_index": 329
     },
     {
       "id": "hvRzWzQW2go",
@@ -3134,7 +3314,7 @@
       "duration_string": "14:00",
       "channel": "DW Planet A",
       "view_count": 1100000,
-      "playlist_index": 313
+      "playlist_index": 330
     },
     {
       "id": "3Xb_YMxpLk0",
@@ -3144,7 +3324,7 @@
       "duration_string": "29:13",
       "channel": "ARTE.tv Documentales",
       "view_count": 492,
-      "playlist_index": 315
+      "playlist_index": 332
     },
     {
       "id": "ZkgFaC-Jug4",
@@ -3154,7 +3334,7 @@
       "duration_string": "11:41",
       "channel": "DW Planet A",
       "view_count": 698000,
-      "playlist_index": 316
+      "playlist_index": 333
     },
     {
       "id": "SQFC6IxO7Xg",
@@ -3164,7 +3344,7 @@
       "duration_string": "4:15",
       "channel": "DW Español",
       "view_count": 491000,
-      "playlist_index": 317
+      "playlist_index": 334
     },
     {
       "id": "hvN7WOkNa5Y",
@@ -3174,7 +3354,7 @@
       "duration_string": "13:45",
       "channel": "El Heraldo de México",
       "view_count": 575000,
-      "playlist_index": 318
+      "playlist_index": 335
     },
     {
       "id": "uQzAjUW2jis",
@@ -3184,7 +3364,7 @@
       "duration_string": "56:25",
       "channel": "DW News",
       "view_count": 4300000,
-      "playlist_index": 319
+      "playlist_index": 336
     },
     {
       "id": "DMC7V-vptjg",
@@ -3194,7 +3374,7 @@
       "duration_string": "13:15",
       "channel": "ARTE.tv Documentales",
       "view_count": 1900,
-      "playlist_index": 320
+      "playlist_index": 337
     },
     {
       "id": "tTyae-RKdhU",
@@ -3204,7 +3384,7 @@
       "duration_string": "12:46",
       "channel": "ARTE.tv Documentary",
       "view_count": 4100,
-      "playlist_index": 321
+      "playlist_index": 338
     },
     {
       "id": "QHh68xx-dZI",
@@ -3214,7 +3394,7 @@
       "duration_string": "17:49",
       "channel": "DW News",
       "view_count": 205000,
-      "playlist_index": 322
+      "playlist_index": 339
     },
     {
       "id": "c9_nJyEPCG0",
@@ -3224,17 +3404,7 @@
       "duration_string": "50:56",
       "channel": "DW Documental",
       "view_count": 2700000,
-      "playlist_index": 324
-    },
-    {
-      "id": "qz3M0WKZP8Y",
-      "title": "Who blew up the Nord Stream pipelines? | DW Documentary",
-      "url": "https://www.youtube.com/watch?v=qz3M0WKZP8Y",
-      "duration": 1706,
-      "duration_string": "28:26",
-      "channel": "DW Documental",
-      "view_count": 260000,
-      "playlist_index": 325
+      "playlist_index": 341
     },
     {
       "id": "gK6MD_8S01o",
@@ -3244,7 +3414,7 @@
       "duration_string": "13:27",
       "channel": "Vox",
       "view_count": 5500000,
-      "playlist_index": 327
+      "playlist_index": 344
     },
     {
       "id": "KmQLhtlHO1o",
@@ -3254,7 +3424,7 @@
       "duration_string": "9:07",
       "channel": "The Wall Street Journal",
       "view_count": 2300000,
-      "playlist_index": 328
+      "playlist_index": 345
     },
     {
       "id": "bKgPzDctPM8",
@@ -3264,7 +3434,7 @@
       "duration_string": "14:38",
       "channel": "DW News",
       "view_count": 269000,
-      "playlist_index": 329
+      "playlist_index": 346
     },
     {
       "id": "FxZ56k3Llyc",
@@ -3274,7 +3444,7 @@
       "duration_string": "12:02",
       "channel": "DW Español",
       "view_count": 74000,
-      "playlist_index": 332
+      "playlist_index": 349
     },
     {
       "id": "7M9vvZq2DHs",
@@ -3284,7 +3454,7 @@
       "duration_string": "26:05",
       "channel": "Carefree Wandering",
       "view_count": 42000,
-      "playlist_index": 333
+      "playlist_index": 350
     },
     {
       "id": "32dAttWJPSI",
@@ -3294,7 +3464,7 @@
       "duration_string": "26:08",
       "channel": "DW News",
       "view_count": 40000,
-      "playlist_index": 334
+      "playlist_index": 351
     },
     {
       "id": "wEX2MMyK6ps",
@@ -3304,7 +3474,7 @@
       "duration_string": "21:21",
       "channel": "CaspianReport",
       "view_count": 777000,
-      "playlist_index": 336
+      "playlist_index": 353
     },
     {
       "id": "tny2usCxhc4",
@@ -3314,7 +3484,7 @@
       "duration_string": "15:45",
       "channel": "DW News",
       "view_count": 622000,
-      "playlist_index": 337
+      "playlist_index": 354
     },
     {
       "id": "_3rE9-rGuJM",
@@ -3324,7 +3494,7 @@
       "duration_string": "12:38",
       "channel": "ARTE.tv Documentary",
       "view_count": 3600,
-      "playlist_index": 338
+      "playlist_index": 355
     },
     {
       "id": "2IglilzD4vw",
@@ -3334,7 +3504,7 @@
       "duration_string": "21:13",
       "channel": "New Economic Thinking",
       "view_count": 50000,
-      "playlist_index": 339
+      "playlist_index": 356
     },
     {
       "id": "vI-uosPUeq8",
@@ -3344,7 +3514,7 @@
       "duration_string": "20:10",
       "channel": "New Economic Thinking",
       "view_count": 20000,
-      "playlist_index": 340
+      "playlist_index": 357
     },
     {
       "id": "jFewUO9gGuM",
@@ -3354,7 +3524,7 @@
       "duration_string": "22:16",
       "channel": "DW News",
       "view_count": 58000,
-      "playlist_index": 341
+      "playlist_index": 358
     },
     {
       "id": "0pOlAaLU7Xc",
@@ -3364,7 +3534,7 @@
       "duration_string": "22:26",
       "channel": "VICE News",
       "view_count": 565000,
-      "playlist_index": 342
+      "playlist_index": 359
     },
     {
       "id": "sdlFiFmQ_SM",
@@ -3374,7 +3544,7 @@
       "duration_string": "12:15",
       "channel": "ARTE.tv Documentary",
       "view_count": 2600,
-      "playlist_index": 346
+      "playlist_index": 363
     },
     {
       "id": "bu6uTWSrR1Y",
@@ -3384,7 +3554,7 @@
       "duration_string": "12:03",
       "channel": "ARTE.tv Documentales",
       "view_count": 6700,
-      "playlist_index": 347
+      "playlist_index": 364
     },
     {
       "id": "-5HJy4NLYzM",
@@ -3394,7 +3564,7 @@
       "duration_string": "10:10",
       "channel": "ARTE.tv Documentales",
       "view_count": 6500,
-      "playlist_index": 348
+      "playlist_index": 365
     },
     {
       "id": "nVtb2vNUOdU",
@@ -3404,7 +3574,7 @@
       "duration_string": "31:49",
       "channel": "ColdFusion",
       "view_count": 951000,
-      "playlist_index": 349
+      "playlist_index": 366
     },
     {
       "id": "SKia5QUiGkE",
@@ -3414,7 +3584,7 @@
       "duration_string": "24:02",
       "channel": "Bloomberg Originals",
       "view_count": 115000,
-      "playlist_index": 350
+      "playlist_index": 367
     },
     {
       "id": "nYmH0AoMsP8",
@@ -3424,7 +3594,7 @@
       "duration_string": "25:04",
       "channel": "DW Español",
       "view_count": 113000,
-      "playlist_index": 351
+      "playlist_index": 368
     },
     {
       "id": "xIq-6G6-IB0",
@@ -3434,7 +3604,7 @@
       "duration_string": "36:21",
       "channel": "ARTE.tv Documentales",
       "view_count": 15000,
-      "playlist_index": 352
+      "playlist_index": 369
     },
     {
       "id": "0gWp7wSiE4k",
@@ -3444,7 +3614,7 @@
       "duration_string": "51:56",
       "channel": "DW Documental",
       "view_count": 2000000,
-      "playlist_index": 353
+      "playlist_index": 370
     },
     {
       "id": "mcMNXNhhBuE",
@@ -3454,7 +3624,7 @@
       "duration_string": "11:03",
       "channel": "CNBC",
       "view_count": 1200000,
-      "playlist_index": 354
+      "playlist_index": 371
     },
     {
       "id": "y09a2gY4DCo",
@@ -3464,7 +3634,7 @@
       "duration_string": "1:24",
       "channel": "Bloomberg Technology",
       "view_count": 74000,
-      "playlist_index": 355
+      "playlist_index": 372
     },
     {
       "id": "RHqhhAp7gV4",
@@ -3474,7 +3644,7 @@
       "duration_string": "4:43",
       "channel": "BBC News Mundo",
       "view_count": 76000,
-      "playlist_index": 356
+      "playlist_index": 373
     },
     {
       "id": "g05qr3H5cwY",
@@ -3484,7 +3654,7 @@
       "duration_string": "13:39",
       "channel": "ARTE.tv Documentales",
       "view_count": 5500,
-      "playlist_index": 358
+      "playlist_index": 375
     },
     {
       "id": "qTX8N9T1mQI",
@@ -3494,7 +3664,7 @@
       "duration_string": "24:41",
       "channel": "ARTE.tv Documentary",
       "view_count": 3300,
-      "playlist_index": 359
+      "playlist_index": 376
     },
     {
       "id": "MkC-qIg-_Bg",
@@ -3504,7 +3674,7 @@
       "duration_string": "9:47",
       "channel": "DW News",
       "view_count": 90000,
-      "playlist_index": 360
+      "playlist_index": 377
     },
     {
       "id": "c1i0vsvwNjo",
@@ -3514,7 +3684,7 @@
       "duration_string": "14:44",
       "channel": "DW News",
       "view_count": 68000,
-      "playlist_index": 361
+      "playlist_index": 378
     },
     {
       "id": "LXKCYpARNu0",
@@ -3524,7 +3694,7 @@
       "duration_string": "20:20",
       "channel": "DW News",
       "view_count": 51000,
-      "playlist_index": 363
+      "playlist_index": 380
     },
     {
       "id": "7kffVZQ-LKQ",
@@ -3534,7 +3704,7 @@
       "duration_string": "8:24",
       "channel": "DW News",
       "view_count": 143000,
-      "playlist_index": 364
+      "playlist_index": 381
     },
     {
       "id": "pw2lO4sxZn8",
@@ -3544,17 +3714,7 @@
       "duration_string": "16:25",
       "channel": "Bloomberg Originals",
       "view_count": 1300000,
-      "playlist_index": 365
-    },
-    {
-      "id": "Q_u4uqcRqWw",
-      "title": "Uigures, un pueblo en peligro | ARTE.tv Documentales",
-      "url": "https://www.youtube.com/watch?v=Q_u4uqcRqWw",
-      "duration": 1488,
-      "duration_string": "24:48",
-      "channel": "ARTE.tv Documentales",
-      "view_count": 8900,
-      "playlist_index": 366
+      "playlist_index": 382
     },
     {
       "id": "092sCdiNd3w",
@@ -3564,17 +3724,7 @@
       "duration_string": "10:59",
       "channel": "ARTE.tv Documentary",
       "view_count": 4000,
-      "playlist_index": 367
-    },
-    {
-      "id": "y091KkVIJ7w",
-      "title": "Strait of Gibraltar: Between Europe and Africa | ARTE.tv Documentary",
-      "url": "https://www.youtube.com/watch?v=y091KkVIJ7w",
-      "duration": 2124,
-      "duration_string": "35:24",
-      "channel": "ARTE.tv Documentary",
-      "view_count": 4600,
-      "playlist_index": 369
+      "playlist_index": 384
     },
     {
       "id": "G921BGwj6oY",
@@ -3584,7 +3734,7 @@
       "duration_string": "8:02",
       "channel": "CBC News",
       "view_count": 89000,
-      "playlist_index": 373
+      "playlist_index": 390
     },
     {
       "id": "eWQOWJ-brVI",
@@ -3594,7 +3744,7 @@
       "duration_string": "13:51",
       "channel": "DW News",
       "view_count": 1600000,
-      "playlist_index": 374
+      "playlist_index": 391
     },
     {
       "id": "Xzv84ZdtlE0",
@@ -3604,7 +3754,7 @@
       "duration_string": "32:52",
       "channel": "Veritasium",
       "view_count": 19000000,
-      "playlist_index": 375
+      "playlist_index": 392
     },
     {
       "id": "z-rT3Q3Heyo",
@@ -3614,7 +3764,7 @@
       "duration_string": "10:48",
       "channel": "ARTE.tv Documentary",
       "view_count": 3000,
-      "playlist_index": 376
+      "playlist_index": 393
     },
     {
       "id": "ZHyZdufTcUI",
@@ -3624,7 +3774,7 @@
       "duration_string": "25:12",
       "channel": "ARTE.tv Documentary",
       "view_count": 48000,
-      "playlist_index": 377
+      "playlist_index": 394
     },
     {
       "id": "XGZXPJDMrvY",
@@ -3634,7 +3784,7 @@
       "duration_string": "7:10",
       "channel": "The Wall Street Journal",
       "view_count": 570000,
-      "playlist_index": 378
+      "playlist_index": 395
     },
     {
       "id": "206xGiC-IYs",
@@ -3644,7 +3794,7 @@
       "duration_string": "12:06",
       "channel": "CNBC",
       "view_count": 1800000,
-      "playlist_index": 379
+      "playlist_index": 396
     },
     {
       "id": "_FGUkxn5kZQ",
@@ -3654,7 +3804,7 @@
       "duration_string": "6:49",
       "channel": "CNBC",
       "view_count": 9700000,
-      "playlist_index": 380
+      "playlist_index": 397
     },
     {
       "id": "f9zTwJB47OY",
@@ -3664,7 +3814,7 @@
       "duration_string": "9:09",
       "channel": "CNBC",
       "view_count": 437000,
-      "playlist_index": 381
+      "playlist_index": 398
     },
     {
       "id": "19ITrZHrPlg",
@@ -3674,7 +3824,7 @@
       "duration_string": "13:22",
       "channel": "CNBC",
       "view_count": 832000,
-      "playlist_index": 382
+      "playlist_index": 399
     },
     {
       "id": "zYbCQnTy98k",
@@ -3684,7 +3834,7 @@
       "duration_string": "10:26",
       "channel": "ARTE.tv Documentales",
       "view_count": 990,
-      "playlist_index": 383
+      "playlist_index": 400
     },
     {
       "id": "fq6jDxJk1LM",
@@ -3694,7 +3844,7 @@
       "duration_string": "1:06:12",
       "channel": "The Wall Street Journal",
       "view_count": 12000000,
-      "playlist_index": 385
+      "playlist_index": 402
     },
     {
       "id": "4QYrAqrpshw",
@@ -3704,7 +3854,7 @@
       "duration_string": "2:30",
       "channel": "Al Jazeera English",
       "view_count": 362000,
-      "playlist_index": 386
+      "playlist_index": 403
     },
     {
       "id": "-SFMxa2IYU0",
@@ -3714,7 +3864,7 @@
       "duration_string": "51:36",
       "channel": "Groupe de recherche Achac",
       "view_count": 17000,
-      "playlist_index": 387
+      "playlist_index": 404
     },
     {
       "id": "6zCpRVP1DgQ",
@@ -3724,7 +3874,7 @@
       "duration_string": "4:57",
       "channel": "TED-Ed",
       "view_count": 1700000,
-      "playlist_index": 388
+      "playlist_index": 405
     },
     {
       "id": "fVC8EYd_Z_g",
@@ -3734,7 +3884,7 @@
       "duration_string": "40:31",
       "channel": "Palestine Diary",
       "view_count": 1300000,
-      "playlist_index": 389
+      "playlist_index": 406
     },
     {
       "id": "oPGVGckn7kQ",
@@ -3744,7 +3894,7 @@
       "duration_string": "4:59",
       "channel": "TED-Ed",
       "view_count": 360000,
-      "playlist_index": 390
+      "playlist_index": 407
     },
     {
       "id": "gIzQxNZfGM4",
@@ -3754,17 +3904,7 @@
       "duration_string": "16:02",
       "channel": "Odd Compass",
       "view_count": 4900000,
-      "playlist_index": 391
-    },
-    {
-      "id": "rpZztZkscFA",
-      "title": "Faces of colonialism: the story of an imperialist propaganda | DW Documentary",
-      "url": "https://www.youtube.com/watch?v=rpZztZkscFA",
-      "duration": 2546,
-      "duration_string": "42:26",
-      "channel": "DW Documentary",
-      "view_count": 602000,
-      "playlist_index": 392
+      "playlist_index": 408
     },
     {
       "id": "nKF3mkgIJE8",
@@ -3774,7 +3914,7 @@
       "duration_string": "10:01",
       "channel": "ARTE.tv Documentales",
       "view_count": 7400,
-      "playlist_index": 393
+      "playlist_index": 410
     },
     {
       "id": "uCGOIwIn6oU",
@@ -3784,7 +3924,7 @@
       "duration_string": "4:50",
       "channel": "ARTE․tv Cultura",
       "view_count": 107,
-      "playlist_index": 394
+      "playlist_index": 411
     },
     {
       "id": "PNEZG0hmz_U",
@@ -3794,7 +3934,7 @@
       "duration_string": "12:17",
       "channel": "ARTE.tv Documentary",
       "view_count": 6200,
-      "playlist_index": 395
+      "playlist_index": 412
     },
     {
       "id": "DSGVlnFtSoo",
@@ -3804,7 +3944,7 @@
       "duration_string": "16:16",
       "channel": "PolyMatter",
       "view_count": 940000,
-      "playlist_index": 397
+      "playlist_index": 414
     },
     {
       "id": "LOgy5j2Z8vw",
@@ -3814,7 +3954,7 @@
       "duration_string": "10:19",
       "channel": "BBC News Mundo",
       "view_count": 1700000,
-      "playlist_index": 398
+      "playlist_index": 415
     },
     {
       "id": "c_LBgSRXPHw",
@@ -3824,7 +3964,7 @@
       "duration_string": "6:34",
       "channel": "ARTE.tv Documentary",
       "view_count": 11000,
-      "playlist_index": 399
+      "playlist_index": 416
     },
     {
       "id": "dcJA5Try-h0",
@@ -3834,7 +3974,7 @@
       "duration_string": "6:10",
       "channel": "ARTE.tv Documentary",
       "view_count": 2000,
-      "playlist_index": 400
+      "playlist_index": 417
     },
     {
       "id": "FEdeaBjOYFs",
@@ -3844,7 +3984,7 @@
       "duration_string": "42:26",
       "channel": "DW Documental",
       "view_count": 9000000,
-      "playlist_index": 401
+      "playlist_index": 418
     },
     {
       "id": "W8y4PM041UQ",
@@ -3854,7 +3994,7 @@
       "duration_string": "12:35",
       "channel": "DW Planet A",
       "view_count": 67000,
-      "playlist_index": 402
+      "playlist_index": 419
     },
     {
       "id": "NBkueW_05PY",
@@ -3864,7 +4004,7 @@
       "duration_string": "24:46",
       "channel": "ARTE.tv Documentary",
       "view_count": 4700,
-      "playlist_index": 403
+      "playlist_index": 420
     },
     {
       "id": "0HQkwFSf7Wg",
@@ -3874,7 +4014,7 @@
       "duration_string": "11:10",
       "channel": "BBC Politics",
       "view_count": 146000,
-      "playlist_index": 405
+      "playlist_index": 422
     },
     {
       "id": "TVkNZckkSJ4",
@@ -3884,7 +4024,7 @@
       "duration_string": "18:44",
       "channel": "Bully Magnets",
       "view_count": 73000,
-      "playlist_index": 406
+      "playlist_index": 423
     },
     {
       "id": "CexSjYXkicE",
@@ -3894,7 +4034,7 @@
       "duration_string": "12:58",
       "channel": "DW News",
       "view_count": 69000,
-      "playlist_index": 408
+      "playlist_index": 425
     },
     {
       "id": "Fe6FB1rqesI",
@@ -3904,7 +4044,7 @@
       "duration_string": "8:47",
       "channel": "DW News",
       "view_count": 61000,
-      "playlist_index": 409
+      "playlist_index": 426
     },
     {
       "id": "mr039xnco-8",
@@ -3914,7 +4054,7 @@
       "duration_string": "10:50",
       "channel": "PolyMatter",
       "view_count": 1200000,
-      "playlist_index": 411
+      "playlist_index": 428
     },
     {
       "id": "y16SZhZJHkI",
@@ -3924,7 +4064,7 @@
       "duration_string": "11:17",
       "channel": "The Wall Street Journal",
       "view_count": 1900000,
-      "playlist_index": 412
+      "playlist_index": 429
     },
     {
       "id": "_C-vGu2mL38",
@@ -3934,7 +4074,7 @@
       "duration_string": "2:05",
       "channel": "Harvard Business Review",
       "view_count": 462000,
-      "playlist_index": 413
+      "playlist_index": 430
     },
     {
       "id": "Nyta8HjvW_U",
@@ -3944,7 +4084,7 @@
       "duration_string": "7:54",
       "channel": "The Wall Street Journal",
       "view_count": 333000,
-      "playlist_index": 414
+      "playlist_index": 431
     },
     {
       "id": "tkfq__rdoD0",
@@ -3954,7 +4094,7 @@
       "duration_string": "5:51",
       "channel": "The Wall Street Journal",
       "view_count": 2000000,
-      "playlist_index": 415
+      "playlist_index": 432
     },
     {
       "id": "kJVj3vp-lho",
@@ -3964,7 +4104,7 @@
       "duration_string": "9:07",
       "channel": "PolyMatter",
       "view_count": 3900000,
-      "playlist_index": 416
+      "playlist_index": 433
     },
     {
       "id": "1-OJX1rwnl8",
@@ -3974,7 +4114,7 @@
       "duration_string": "7:22",
       "channel": "The Wall Street Journal",
       "view_count": 2600000,
-      "playlist_index": 417
+      "playlist_index": 434
     },
     {
       "id": "SbQDx3HlNhE",
@@ -3984,7 +4124,7 @@
       "duration_string": "9:28",
       "channel": "DW Español",
       "view_count": 386000,
-      "playlist_index": 418
+      "playlist_index": 435
     },
     {
       "id": "D-HryCKGG8c",
@@ -3994,7 +4134,7 @@
       "duration_string": "15:08",
       "channel": "Bully Magnets",
       "view_count": 107000,
-      "playlist_index": 419
+      "playlist_index": 436
     },
     {
       "id": "VbxDf-Tio3k",
@@ -4004,7 +4144,7 @@
       "duration_string": "2:54",
       "channel": "DW Español",
       "view_count": 27000,
-      "playlist_index": 420
+      "playlist_index": 437
     },
     {
       "id": "JBfHzKeQ4XA",
@@ -4014,7 +4154,7 @@
       "duration_string": "23:27",
       "channel": "ARTE.tv Documentales",
       "view_count": 53000,
-      "playlist_index": 421
+      "playlist_index": 438
     },
     {
       "id": "pviRja1ug1g",
@@ -4024,7 +4164,7 @@
       "duration_string": "24:26",
       "channel": "ARTE.tv Documentary",
       "view_count": 54000,
-      "playlist_index": 422
+      "playlist_index": 439
     },
     {
       "id": "Cw-qHZemygI",
@@ -4034,7 +4174,7 @@
       "duration_string": "51:57",
       "channel": "DW Documental",
       "view_count": 11000000,
-      "playlist_index": 426
+      "playlist_index": 443
     },
     {
       "id": "EB_WVkRY8xI",
@@ -4044,7 +4184,7 @@
       "duration_string": "17:38",
       "channel": "DW Español",
       "view_count": 17000,
-      "playlist_index": 427
+      "playlist_index": 444
     },
     {
       "id": "wDjytyGAjTc",
@@ -4054,7 +4194,7 @@
       "duration_string": "6:03",
       "channel": "DW News",
       "view_count": 85000,
-      "playlist_index": 428
+      "playlist_index": 445
     },
     {
       "id": "QbwYBv_vARU",
@@ -4064,7 +4204,7 @@
       "duration_string": "26:07",
       "channel": "DW News",
       "view_count": 644000,
-      "playlist_index": 429
+      "playlist_index": 446
     },
     {
       "id": "w3xmaigNVbg",
@@ -4074,7 +4214,7 @@
       "duration_string": "12:26",
       "channel": "DW Español",
       "view_count": 1000000,
-      "playlist_index": 430
+      "playlist_index": 447
     },
     {
       "id": "9vR-ILs-ZZM",
@@ -4084,7 +4224,7 @@
       "duration_string": "8:09",
       "channel": "DW News",
       "view_count": 32000,
-      "playlist_index": 431
+      "playlist_index": 448
     },
     {
       "id": "-PgbM2MhcYQ",
@@ -4094,7 +4234,7 @@
       "duration_string": "49:48",
       "channel": "DW News",
       "view_count": 28000,
-      "playlist_index": 432
+      "playlist_index": 449
     },
     {
       "id": "Q0SUfAX9M4U",
@@ -4104,7 +4244,7 @@
       "duration_string": "49:58",
       "channel": "DW News",
       "view_count": 2100000,
-      "playlist_index": 433
+      "playlist_index": 450
     },
     {
       "id": "_rRkjNuWihQ",
@@ -4114,7 +4254,7 @@
       "duration_string": "13:27",
       "channel": "ARTE",
       "view_count": 154000,
-      "playlist_index": 434
+      "playlist_index": 451
     },
     {
       "id": "VQlPzgNHsdA",
@@ -4124,7 +4264,7 @@
       "duration_string": "15:50",
       "channel": "DW Español",
       "view_count": 1500000,
-      "playlist_index": 435
+      "playlist_index": 452
     },
     {
       "id": "pEhcAHgLs3Q",
@@ -4134,7 +4274,7 @@
       "duration_string": "1:14:33",
       "channel": "DW News",
       "view_count": 46000,
-      "playlist_index": 436
+      "playlist_index": 453
     },
     {
       "id": "Q1iklm_30ec",
@@ -4144,7 +4284,7 @@
       "duration_string": "16:56",
       "channel": "DW News",
       "view_count": 130000,
-      "playlist_index": 437
+      "playlist_index": 454
     }
   ]
 }

@@ -157,6 +157,9 @@ OVERRIDES = {
     "19ITrZHrPlg": "empresas",    # Starbucks en China
     "XGZXPJDMrvY": "empresas",    # Cerveza Modelo
     "DSGVlnFtSoo": "empresas",    # Target en Canadá
+    "pHZARb_8YMI": "latam",       # Infraestructura en América Latina
+    "-pTH-MOlJFY": "latam",       # Inversión china en el norte de México
+    "JW5s9Md4U2U": "tecnologia",  # Jensen Huang, Nvidia
 }
 
 ES_HINTS = re.compile(r"[ñ¿¡áéíóú]|\b(el|la|los|las|del|de|que|y|en|una|cómo|por|qué|para|con)\b", re.I)
