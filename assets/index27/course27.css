@@ -2690,3 +2690,8 @@ html.is-presenting{overflow:hidden}
   border-radius:var(--radius-sm);background:var(--tint-blue);font-size:.92rem;
 }
 @media print{.formats-grid article{box-shadow:none;break-inside:avoid}}
+
+/* ── Entrevistas por equipo: una tabla por día ──────────────────────────── */
+.interviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem;align-items:start}
+.interviews .tablebox{margin-top:0}
+.interviews .dtable{min-width:0}
