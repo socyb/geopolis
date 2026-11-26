@@ -160,7 +160,7 @@
     [24,"2026-11-17","A-004","China y América Latina","Fornes y Mendez · un país de la región · actividad 13","V","sesiones/s24-china-y-america-latina.html"],
     [25,"2026-11-19","A-101","Segundo examen parcial","","VI","sesiones/s25-segundo-parcial.html"],
     [26,"2026-11-24","Centro de Exposiciones y Congresos UNAM","Foro de Vinculación y Emprendimiento","Inauguración · 09:00 · transporte de la Facultad a las 08:30","VI","sesiones/s26-foro-de-vinculacion.html"],
-    [27,"2026-11-26","A-101","Geopolítica de la construcción de poder","Dallanegra Pedraza · integración latinoamericana · actividad 14","VI","sesiones/s27.html"],
+    [27,"2026-11-26","A-101","Geopolítica de la construcción de poder","Dallanegra Pedraza · integración latinoamericana · actividad 14","VI","sesiones/s27.html",null,"2026-11-25T20:00"],
     [28,"2026-12-01","A-004","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI","sesiones/s28-entrega-del-trabajo-final.html"],
     [29,"2026-12-03","A-101","","","VI","sesiones/s29.html"]
   ].map(([number, date, room, title, subtitle, unit, href, opens, from]) => ({ number, date, room, title, subtitle, unit, href, opens, from }));
