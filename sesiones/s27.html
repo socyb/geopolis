@@ -289,15 +289,29 @@
     // página de atrás (el Tab no se escapa) y la cierra con Esc.
     var stage = document.getElementById("regresoStage");
     var stageMsg = document.getElementById("regresoStageMsg");
+    var nativeModal = typeof stage.showModal === "function";
+    // Sin <dialog> nativo (navegadores anteriores a 2022): el foco no sale de la vista
+    // y Esc la cierra, como en la versión nativa.
+    function trapFocus(e) { if (stage.hasAttribute("open") && !stage.contains(e.target)) document.getElementById("regresoStageClose").focus(); }
+    function escClose(e) { if (e.key === "Escape" && stage.hasAttribute("open")) { e.preventDefault(); closeStage(); } }
     function openStage(msg) {
       document.getElementById("regresoStageImg").src = canvas.toDataURL("image/png");
       stageMsg.textContent = msg || ""; stageMsg.hidden = !msg;
       document.documentElement.classList.add("regreso-stage-on");
-      if (typeof stage.showModal === "function") { stage.showModal(); } else { stage.setAttribute("open", ""); }
+      if (nativeModal) { stage.showModal(); } else {
+        stage.setAttribute("open", "");
+        document.addEventListener("focusin", trapFocus);
+        document.addEventListener("keydown", escClose);
+      }
       document.getElementById("regresoStageClose").focus();
     }
     function closeStage() {
-      if (typeof stage.close === "function") { stage.close(); } else { stage.removeAttribute("open"); onClosed(); }
+      if (nativeModal) { stage.close(); } else {
+        stage.removeAttribute("open");
+        document.removeEventListener("focusin", trapFocus);
+        document.removeEventListener("keydown", escClose);
+        onClosed();
+      }
     }
     function onClosed() {
       document.documentElement.classList.remove("regreso-stage-on");
