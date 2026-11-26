@@ -2708,3 +2708,12 @@ html[data-theme="dark"] .tl-go{color:#180510}
 html[data-theme="dark"] a.tl-stop:hover .tl-go{color:var(--paper)}
 @media (prefers-reduced-motion:reduce){.tl-go span{animation:none}}
 @media print{.tl-go{display:none}}
+
+/* ── Brújula de regreso (sesión 27): formulario e imagen ───────────────── */
+.regreso-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.2rem}
+.regreso-wide{grid-column:1 / -1}
+@media (max-width:720px){.regreso-fields{grid-template-columns:minmax(0,1fr)}}
+.regreso-figure{margin:1.8rem 0 0}
+.regreso-figure canvas{display:block;width:100%;height:auto;border:2px solid var(--edge);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);background:#f6f1e6}
+.regreso-figure canvas:fullscreen{border:0;border-radius:0;box-shadow:none;object-fit:contain;background:#f6f1e6}
+.regreso-figure figcaption{margin-top:.6rem}

@@ -78,6 +78,203 @@
 
   <main id="contenido">
 
+  <!-- ═══════════════ CIERRE DEL CURSO · LA BRÚJULA DE REGRESO ═══════════════ -->
+  <section class="section section-alt" id="brujula-de-regreso" aria-labelledby="regresoTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker k-plum">Cierre del curso · Actividad individual</p>
+        <h2 id="regresoTitle">Tu brújula <em>de regreso</em></h2>
+        <p class="lead">En agosto armaste tu brújula para decir desde dónde mirabas el mundo. Ahora contesta las mismas preguntas mirando hacia atrás. Al llenar el formulario se arma tu imagen; después la presentas y comentas lo que quieras de cada punto.</p>
+      </div>
+
+      <form class="fields regreso-fields" id="regresoForm" autocomplete="off">
+        <div class="field regreso-wide">
+          <label for="rName">Tu nombre</label>
+          <input id="rName" type="text" maxlength="60" placeholder="Nombre y apellido">
+        </div>
+        <div class="field">
+          <label for="rN"><b>N</b> · Identidad · ¿Qué papel tuviste en tu equipo? ¿Qué descubriste que haces bien?</label>
+          <textarea id="rN" rows="3" maxlength="160" placeholder="Ej. me tocó buscar las fuentes y descubrí que sé distinguir una buena de una mala"></textarea>
+        </div>
+        <div class="field">
+          <label for="rE"><b>E</b> · Interés · ¿Sigue siendo tu tema? Si cambió, ¿qué lo cambió?</label>
+          <textarea id="rE" rows="3" maxlength="160" placeholder="Ej. llegué con los aranceles y me quedo con los chips, por la sesión de TSMC"></textarea>
+        </div>
+        <div class="field">
+          <label for="rS"><b>S</b> · Territorio · ¿Qué región miras ahora distinto, y por qué?</label>
+          <textarea id="rS" rows="3" maxlength="160" placeholder="Ej. América Latina: ya no la veo solo como mercado sino como tablero"></textarea>
+        </div>
+        <div class="field">
+          <label for="rO"><b>O</b> · Mirada · ¿De dónde sacas hoy lo que sabes? ¿Qué concepto del curso ya no te quitas?</label>
+          <textarea id="rO" rows="3" maxlength="160" placeholder="Ej. sigo en YouTube, pero pregunto quién cuenta la historia; interdependencia asimétrica"></textarea>
+        </div>
+        <div class="field regreso-wide">
+          <label for="rC"><b>Centro</b> · Rumbo · En agosto querías poder hacer algo al terminar el curso. ¿Lo lograste? Da una prueba.</label>
+          <textarea id="rC" rows="2" maxlength="160" placeholder="Ej. quería sostener una opinión con argumentos: lo hice en el control 14 con la p. 39 de Dallanegra"></textarea>
+        </div>
+        <div class="field">
+          <label for="rIn">Llegué con…</label>
+          <input id="rIn" type="text" maxlength="50" placeholder="Ej. curiosidad por la guerra comercial">
+        </div>
+        <div class="field">
+          <label for="rOut">Me voy con…</label>
+          <input id="rOut" type="text" maxlength="50" placeholder="Ej. preguntas mejores y una forma de leer noticias">
+        </div>
+      </form>
+
+      <figure class="regreso-figure">
+        <canvas id="regresoCanvas" width="1600" height="1000" role="img" aria-label="Tu brújula de regreso, armada con tus respuestas"></canvas>
+        <figcaption class="builder-note">La imagen se arma mientras escribes. Lo que escribas se guarda solo en este dispositivo.</figcaption>
+      </figure>
+      <div class="builder-actions">
+        <button class="btn btn-primary" id="regresoShow" type="button">Mostrar en pantalla completa</button>
+        <button class="btn btn-small" id="regresoSave" type="button">Descargar imagen</button>
+        <button class="btn btn-small" id="regresoClear" type="button">Borrar</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    "use strict";
+    var form = document.getElementById("regresoForm");
+    var canvas = document.getElementById("regresoCanvas");
+    if (!form || !canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
+    var KEY = "geopolis27-brujula-regreso";
+    var IDS = ["rName", "rN", "rE", "rS", "rO", "rC", "rIn", "rOut"];
+    var C = { paper: "#f6f1e6", card: "#fffcf6", ink: "#16202c", soft: "#3b4756", muted: "#7a8491",
+              guinda: "#c1123f", cobalt: "#1a49c9", teal: "#0f7a70", amber: "#c8860a", plum: "#7c3f6d", line: "#d9cfbd" };
+    var F = { display: '"Fraunces", Georgia, serif', sans: '"Space Grotesk", system-ui, sans-serif', mono: '"IBM Plex Mono", ui-monospace, monospace' };
+
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+    function store(data) { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* sin almacenamiento */ } }
+    function load() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
+
+    function wrap(text, maxWidth) {
+      var words = text.split(/\s+/), lines = [], line = "";
+      words.forEach(function (w) {
+        var test = line ? line + " " + w : w;
+        if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = w; } else { line = test; }
+      });
+      if (line) lines.push(line);
+      return lines;
+    }
+    // Escribe el texto dentro de una caja; si no cabe, baja la letra hasta un mínimo.
+    function fitText(text, x, y, w, h, size, min, color, family, align) {
+      var lines, lh;
+      for (; size >= min; size -= 1) {
+        ctx.font = "500 " + size + "px " + family;
+        lines = wrap(text, w); lh = Math.round(size * 1.28);
+        if (lines.length * lh <= h) break;
+      }
+      size = Math.max(size, min); ctx.font = "500 " + size + "px " + family; lh = Math.round(size * 1.28);
+      lines = wrap(text, w);
+      var maxLines = Math.max(1, Math.floor(h / lh));
+      if (lines.length > maxLines) { lines = lines.slice(0, maxLines); lines[maxLines - 1] = lines[maxLines - 1].replace(/\s*\S*$/, "") + "…"; }
+      ctx.fillStyle = color; ctx.textAlign = align || "left"; ctx.textBaseline = "top";
+      var top = align === "center" ? y + (h - lines.length * lh) / 2 : y;
+      lines.forEach(function (l, i) { ctx.fillText(l, align === "center" ? x + w / 2 : x, top + i * lh); });
+      ctx.textAlign = "left";
+    }
+    function roundRect(x, y, w, h, r) {
+      ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+    }
+    function box(x, y, w, h, accent, label, text) {
+      ctx.fillStyle = C.ink; roundRect(x + 7, y + 7, w, h, 16); ctx.fill();
+      ctx.fillStyle = C.card; roundRect(x, y, w, h, 16); ctx.fill();
+      ctx.lineWidth = 3; ctx.strokeStyle = C.ink; ctx.stroke();
+      ctx.fillStyle = accent; roundRect(x, y, 12, h, 6); ctx.fill();
+      ctx.font = "500 19px " + F.mono; ctx.fillStyle = accent; ctx.textBaseline = "top";
+      ctx.fillText(label.toUpperCase().split("").join(String.fromCharCode(8202)), x + 34, y + 22);
+      fitText(text || "—", x + 34, y + 56, w - 60, h - 74, 30, 18, text ? C.ink : C.muted, F.sans);
+    }
+    function rose(cx, cy, r) {
+      ctx.save(); ctx.translate(cx, cy);
+      ctx.strokeStyle = C.ink; ctx.lineWidth = 3;
+      ctx.fillStyle = C.card; ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.lineWidth = 1.5; ctx.strokeStyle = C.line; ctx.beginPath(); ctx.arc(0, 0, r - 16, 0, Math.PI * 2); ctx.stroke();
+      [[0, -1, "N", C.guinda], [1, 0, "E", C.cobalt], [0, 1, "S", C.teal], [-1, 0, "O", C.amber]].forEach(function (p) {
+        ctx.fillStyle = p[3]; ctx.beginPath();
+        ctx.moveTo(p[0] * (r + 2), p[1] * (r + 2));
+        ctx.lineTo(p[0] * (r - 30) + p[1] * 14, p[1] * (r - 30) - p[0] * 14);
+        ctx.lineTo(p[0] * (r - 30) - p[1] * 14, p[1] * (r - 30) + p[0] * 14);
+        ctx.closePath(); ctx.fill();
+      });
+      ctx.restore();
+    }
+
+    function draw() {
+      var d = {}; IDS.forEach(function (id) { d[id] = val(id); });
+      var W = canvas.width, H = canvas.height;
+      ctx.fillStyle = C.paper; ctx.fillRect(0, 0, W, H);
+      // retícula suave, como el papel del sitio
+      ctx.strokeStyle = "rgba(22,32,44,.05)"; ctx.lineWidth = 1;
+      for (var gx = 0; gx < W; gx += 40) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke(); }
+      for (var gy = 0; gy < H; gy += 40) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke(); }
+      ctx.fillStyle = C.guinda; ctx.fillRect(0, 0, W, 10);
+
+      ctx.textBaseline = "top";
+      ctx.font = "500 20px " + F.mono; ctx.fillStyle = C.guinda;
+      ctx.fillText("MI BRÚJULA DE REGRESO · AGOSTO → NOVIEMBRE 2026", 60, 40);
+      ctx.textAlign = "right"; ctx.fillStyle = C.muted;
+      ctx.fillText("GEOPOLÍTICA · FCA UNAM · GRUPO 1541", W - 60, 40);
+      ctx.textAlign = "left";
+      ctx.font = "900 58px " + F.display; ctx.fillStyle = d.rName ? C.ink : C.muted;
+      var name = d.rName || "Tu nombre";
+      while (ctx.measureText(name).width > W - 120 && name.length > 3) name = name.slice(0, -2);
+      ctx.fillText(name, 60, 74);
+
+      var cx = W / 2, cy = 528, r = 186;
+      box(430, 160, 740, 168, C.guinda, "N · Identidad", d.rN);
+      box(60, 360, 490, 330, C.amber, "O · Mirada", d.rO);
+      box(1050, 360, 490, 330, C.cobalt, "E · Interés", d.rE);
+      box(430, 728, 740, 168, C.teal, "S · Territorio", d.rS);
+      rose(cx, cy, r);
+      ctx.font = "500 17px " + F.mono; ctx.fillStyle = C.plum; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("CENTRO · RUMBO", cx, cy - 118);
+      ctx.textAlign = "left";
+      fitText(d.rC || "¿Lograste lo que querías?", cx - 118, cy - 88, 236, 196, 24, 15, d.rC ? C.ink : C.muted, F.sans, "center");
+
+      var foot = "Llegué con " + (d.rIn || "…") + "  ·  me voy con " + (d.rOut || "…");
+      ctx.font = "italic 600 30px " + F.display; ctx.fillStyle = C.guinda; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      while (ctx.measureText(foot).width > W - 120 && foot.length > 10) foot = foot.slice(0, -2);
+      ctx.fillText(foot, cx, 928);
+      ctx.textAlign = "left";
+      store(d);
+    }
+
+    var saved = load();
+    IDS.forEach(function (id) { var el = document.getElementById(id); if (el && saved[id]) el.value = saved[id]; });
+    form.addEventListener("input", draw);
+    form.addEventListener("submit", function (e) { e.preventDefault(); });
+    draw();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+    if (document.fonts && document.fonts.load) {
+      Promise.all(['900 58px "Fraunces"', 'italic 600 30px "Fraunces"', '500 30px "Space Grotesk"', '500 20px "IBM Plex Mono"']
+        .map(function (f) { return document.fonts.load(f); })).then(draw, function () {});
+    }
+
+    document.getElementById("regresoShow").addEventListener("click", function () {
+      var fs = canvas.requestFullscreen || canvas.webkitRequestFullscreen;
+      if (fs) { fs.call(canvas); } else { window.open(canvas.toDataURL("image/png"), "_blank"); }
+    });
+    document.getElementById("regresoSave").addEventListener("click", function () {
+      var a = document.createElement("a");
+      var who = (val("rName") || "mi").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      a.download = "brujula-de-regreso-" + (who || "mi") + ".png";
+      a.href = canvas.toDataURL("image/png");
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+    document.getElementById("regresoClear").addEventListener("click", function () {
+      if (!window.confirm("¿Borrar tus respuestas?")) return;
+      IDS.forEach(function (id) { var el = document.getElementById(id); if (el) el.value = ""; });
+      draw(); document.getElementById("rName").focus();
+    });
+  })();
+  </script>
+
   <section class="section">
     <div class="wrap">
       <div class="section-head">
