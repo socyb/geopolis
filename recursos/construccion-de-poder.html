@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c1123f">
+<title>Construcción de poder · Geopolítica · FCA UNAM</title>
+<meta name="description" content="Dallanegra Pedraza (2010): geopolítica de la construcción de poder e integración latinoamericana. Presentación para la sesión del jueves 26 de noviembre de 2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c1123f'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f6f1e6' stroke-width='1.4'/%3E%3Cpath d='M16 5l3 11 11 0-11 3-3 11-3-11-11-3 11 0z' fill='%23f6f1e6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=IBM+Plex+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#f6f1e6; --paper-2:#efe8d9; --card:#fffcf6;
+  --ink:#16202c; --ink-soft:#33415a; --muted:#5d6a7c;
+  --line:#d9cfba; --edge:#16202c; --grid:rgba(22,32,44,.055);
+  --guinda:#c1123f; --cobalt:#1a49c9; --teal:#0f7a70; --amber:#b87a06; --plum:#7c3f6d;
+  --tint-red:#fbe3e7; --tint-blue:#e4ecff; --tint-teal:#dcf1ec; --tint-amber:#fbeed2; --tint-plum:#f4e7f1;
+  --marker:#ffe94a;
+  --shadow:.22em .22em 0 var(--edge); --shadow-sm:.14em .14em 0 var(--edge);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --u:min(1.66vw,2.95vh);
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --paper:#0e1620; --paper-2:#142030; --card:#17263a;
+  --ink:#eef3f9; --ink-soft:#c9d4e3; --muted:#9aa9bd;
+  --line:#2b3c55; --edge:#050b12; --grid:rgba(238,243,249,.05);
+  --guinda:#ff5573; --cobalt:#7aa2ff; --teal:#3fc9b6; --amber:#f2b33d; --plum:#d58cc4;
+  --tint-red:#3a1622; --tint-blue:#162a52; --tint-teal:#0f3633; --tint-amber:#3b2c0c; --tint-plum:#34203a;
+  --marker:#8a7400;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:var(--u);line-height:1.32;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:2.2em 2.2em;
+}
+a{color:var(--cobalt)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:.12em solid var(--cobalt);outline-offset:.12em}
+
+/* ---------- escenario ---------- */
+.slide{position:absolute;inset:0;padding:5.5vh 6vw 10vh;display:none;flex-direction:column;justify-content:center;gap:.8em}
+.slide.active{display:flex;animation:in .3s ease}
+@keyframes in{from{opacity:0;transform:translateY(1vh)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slide.active{animation:none}}
+
+.kicker{font-family:var(--mono);font-size:.62em;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--guinda)}
+h1,h2{font-family:var(--display);font-weight:700;letter-spacing:-.01em;line-height:1.05}
+h1{font-size:3.1em}
+h1 em,h2 em{font-style:italic;font-weight:500;color:var(--guinda)}
+h2{font-size:1.9em}
+h3{font-family:var(--sans);font-size:1.02em;font-weight:700;line-height:1.15}
+p{max-width:44em}
+.lead{font-size:1.15em;color:var(--ink-soft)}
+.small{font-size:.86em}
+.muted{color:var(--muted)}
+.pg{font-family:var(--mono);font-size:.62em;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.mark{background:linear-gradient(transparent 12%,var(--marker) 12%,var(--marker) 88%,transparent 88%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl{color:var(--guinda);font-weight:700}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2em 1.8em;align-items:center}
+.cols.top{align-items:start}
+.cols-6-4{display:grid;grid-template-columns:1.35fr 1fr;gap:1.4em;align-items:center}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.8em}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:.8em}
+.stack{display:flex;flex-direction:column;gap:.6em}
+
+.card{background:var(--card);border:.09em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow-sm);padding:.6em .8em}
+.card p{font-size:.92em}
+.card .tag{margin-bottom:.25em}
+.card.red{background:var(--tint-red)} .card.blue{background:var(--tint-blue)} .card.teal{background:var(--tint-teal)}
+.card.amber{background:var(--tint-amber)} .card.plum{background:var(--tint-plum)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.56em;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:.1em solid currentColor;border-radius:2em;padding:.12em .7em}
+.tag.red{color:var(--guinda)} .tag.blue{color:var(--cobalt)} .tag.teal{color:var(--teal)} .tag.amber{color:var(--amber)} .tag.plum{color:var(--plum)}
+
+/* cita */
+blockquote{font-family:var(--display);font-weight:500;font-size:1.38em;line-height:1.25;max-width:34em;position:relative;padding-left:.9em;border-left:.16em solid var(--guinda)}
+blockquote.xl{font-size:1.7em}
+blockquote.sm{font-size:1.12em}
+blockquote .pg{display:block;margin-top:.5em;font-size:.45em}
+.src{font-family:var(--mono);font-size:.56em;color:var(--muted)}
+
+/* portada y separadores */
+.s-cover{justify-content:center}
+.s-cover h1{max-width:13em}
+.s-cover .meta{display:flex;flex-wrap:wrap;gap:.5em;margin-top:.4em}
+.chip{font-family:var(--mono);font-size:.6em;font-weight:600;background:var(--card);border:.1em solid var(--edge);border-radius:.4em;padding:.25em .7em;box-shadow:var(--shadow-sm)}
+.rose{position:absolute;right:-6vw;bottom:-14vh;width:62vh;height:62vh;opacity:.13;pointer-events:none;color:var(--ink)}
+.s-section{background:var(--ink);color:var(--paper)}
+:root[data-theme="dark"] .s-section{background:#050b12;color:var(--ink)}
+.s-section .num{font-family:var(--display);font-style:italic;font-size:5.2em;line-height:.9;color:var(--guinda)}
+.s-section h2{font-size:2.5em;max-width:14em}
+.s-section .lead{color:inherit;opacity:.8}
+.s-section .pg{color:inherit;opacity:.7}
+
+/* pregunta al grupo */
+.s-ask{background:var(--tint-red)}
+.s-ask .ask-head{display:flex;align-items:center;gap:.6em;flex-wrap:wrap}
+.s-ask .q{font-family:var(--display);font-weight:700;font-size:1.95em;line-height:1.12;max-width:20em}
+.s-ask .q em{color:var(--guinda)}
+.s-ask .hint{font-size:.95em;color:var(--ink-soft);max-width:36em}
+.ctl{font-family:var(--mono);font-size:.6em;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--guinda);color:#fff;border-radius:.35em;padding:.25em .7em}
+.pick{font-family:var(--mono);font-size:.62em;font-weight:600;background:var(--card);border:.1em solid var(--edge);border-radius:.4em;box-shadow:var(--shadow-sm);padding:.3em .8em;cursor:pointer}
+.pick:hover{transform:translate(-.04em,-.04em)}
+
+/* figuras */
+.plate{background:#fffcf6;border:.09em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow);padding:.6em;display:flex;align-items:center;justify-content:center}
+.plate img{display:block;max-width:100%;max-height:58vh;object-fit:contain}
+.plate.tall img{max-height:64vh}
+figure figcaption{margin-top:.55em}
+
+/* tablas */
+table.t{border-collapse:collapse;width:100%;font-size:.86em;background:var(--card);border:.1em solid var(--edge);box-shadow:var(--shadow-sm)}
+table.t th,table.t td{border-bottom:.06em solid var(--line);padding:.32em .55em;text-align:left;vertical-align:top}
+table.t th{font-family:var(--mono);font-size:.72em;letter-spacing:.08em;text-transform:uppercase;color:var(--guinda);background:var(--paper-2)}
+table.t td:first-child{font-weight:700;white-space:nowrap}
+table.t td .y{font-family:var(--mono);font-weight:500;font-size:.8em;color:var(--muted);display:block}
+table.t tr.hot td{background:var(--tint-amber)}
+
+/* etiquetas de palabras */
+.words{display:flex;flex-wrap:wrap;gap:.4em}
+.words span{font-size:.86em;background:var(--card);border:.09em solid var(--line);border-radius:.35em;padding:.15em .55em}
+.words.red span{border-color:var(--guinda);background:var(--tint-red);font-weight:700}
+
+/* tablero */
+.route{display:grid;grid-template-columns:repeat(6,1fr);gap:.55em}
+.route button{background:var(--card);border:.09em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow-sm);padding:.6em .55em;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:.25em;min-height:6.2em}
+.route button:hover{background:var(--tint-blue)}
+.route b{font-family:var(--display);font-style:italic;font-size:1.6em;color:var(--guinda);line-height:1}
+.route span{font-size:.8em;font-weight:600;line-height:1.15}
+.route small{font-family:var(--mono);font-size:.56em;color:var(--muted)}
+
+/* videos */
+.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1em;max-width:min(100%,128vh)}
+.vgrid.one{grid-template-columns:minmax(0,1fr);max-width:min(100%,82vh)}
+.vcard{background:var(--card);border:.09em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column}
+.vthumb{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;border:0;display:block;width:100%;padding:0}
+.vthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.vthumb .dur{position:absolute;right:.4em;bottom:.4em;background:rgba(0,0,0,.82);color:#fff;font-family:var(--mono);font-size:.58em;padding:.1em .45em;border-radius:.25em}
+.vthumb .play{position:absolute;inset:0;margin:auto;width:2.6em;height:2.6em;border-radius:50%;background:var(--guinda);color:#fff;display:grid;place-items:center;font-size:.95em;box-shadow:0 .1em .6em rgba(0,0,0,.4)}
+.vthumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vbody{padding:.45em .7em .6em}
+.vbody h3{font-size:.88em}
+.vmeta{font-family:var(--mono);font-size:.58em;color:var(--muted);margin:.25em 0}
+.vbody p{font-size:.82em;color:var(--ink-soft)}
+.vbody a{font-family:var(--mono);font-size:.55em}
+
+/* foro */
+.news{background:var(--card);border:.09em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow-sm);padding:.55em .75em;display:flex;flex-direction:column;gap:.35em}
+.news .who{font-family:var(--mono);font-size:.6em;font-weight:600;color:var(--cobalt);letter-spacing:.04em}
+.news h3{font-size:.95em}
+.news p{font-size:.86em;color:var(--ink-soft)}
+.news .med{font-family:var(--mono);font-size:.56em;color:var(--muted)}
+.verdict{align-self:flex-start;margin-top:auto;font-family:var(--mono);font-size:.56em;font-weight:600;border:.1em dashed var(--muted);border-radius:.35em;padding:.2em .6em;cursor:pointer;background:transparent}
+.verdict[data-v="1"]{background:var(--tint-teal);border:.1em solid var(--teal);color:var(--teal)}
+.verdict[data-v="2"]{background:var(--tint-red);border:.1em solid var(--guinda);color:var(--guinda)}
+.verdict[data-v="3"]{background:var(--tint-amber);border:.1em solid var(--amber);color:var(--amber)}
+
+/* glosario */
+.gl{border-left:.16em solid var(--teal);padding:.2em 0 .2em .7em}
+.gl h3{color:var(--teal);font-size:.95em}
+.gl p{font-size:.88em;color:var(--ink-soft)}
+.gl .src{display:block;margin-top:.2em;font-size:.56em}
+
+/* conteo de procesos */
+.tally{display:grid;grid-template-columns:repeat(4,1fr);gap:.7em}
+.tally button{background:var(--card);border:.09em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow-sm);padding:.5em .6em;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.4em;font-weight:700;font-size:.95em;user-select:none}
+.tally button b{font-family:var(--display);font-size:1.5em;color:var(--guinda);min-width:1.4em;text-align:right}
+.tally button:active{transform:translate(.05em,.05em);box-shadow:none}
+.reset{font-family:var(--mono);font-size:.55em;background:transparent;border:.1em solid var(--muted);color:var(--muted);border-radius:.3em;padding:.15em .6em;cursor:pointer}
+
+/* escala */
+.scale{display:grid;grid-template-columns:1fr auto 1fr;gap:1em;align-items:center}
+.scale .end{font-family:var(--display);font-weight:700;font-size:1.4em;padding:.6em .8em;border:.1em solid var(--edge);border-radius:.45em;box-shadow:var(--shadow);text-align:center}
+.scale .end.a{background:var(--tint-teal)} .scale .end.b{background:var(--tint-red)}
+.scale .mid{font-family:var(--mono);font-size:.7em;color:var(--muted)}
+
+/* spill */
+.spill svg{width:100%;height:auto;max-height:44vh}
+.spill text{font-family:var(--sans);fill:var(--ink)}
+
+/* barra inferior */
+#ui{position:fixed;left:0;right:0;bottom:0;height:7vh;display:flex;align-items:center;gap:.5em;padding:0 2vw;font-size:.62em;z-index:5}
+#ui button{background:var(--card);border:.1em solid var(--line);border-radius:.35em;padding:.15em .55em;cursor:pointer;color:var(--ink-soft)}
+#ui button:hover{border-color:var(--edge)}
+#ui .sp{flex:1}
+#count{font-family:var(--mono);color:var(--muted)}
+#prog{position:fixed;left:0;top:0;height:.7vh;background:var(--guinda);transition:width .3s;z-index:5}
+
+/* capas */
+.layer{position:fixed;inset:0;background:rgba(14,22,32,.78);display:none;place-items:center;z-index:9}
+.layer.on{display:grid}
+.layer .box{background:var(--paper);color:var(--ink);border:.1em solid var(--edge);border-radius:.6em;box-shadow:var(--shadow);padding:1em 1.3em;max-width:86vw;max-height:86vh;overflow:auto}
+#drawNum{font-family:var(--display);font-weight:700;font-size:9em;line-height:1;color:var(--guinda);text-align:center;min-width:2.2em}
+#drawBox{display:flex;flex-direction:column;align-items:center;gap:.5em}
+#drawBox .row{display:flex;gap:.6em;align-items:center;font-size:.7em}
+#drawBox input{font:inherit;width:3.5em;padding:.1em .3em;border:.1em solid var(--edge);border-radius:.3em;background:var(--card);color:var(--ink)}
+#drawBox button{background:var(--card);border:.1em solid var(--edge);border-radius:.35em;padding:.2em .7em;cursor:pointer;box-shadow:var(--shadow-sm)}
+#ovGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:.4em;font-size:.55em;width:84vw}
+#ovGrid button{text-align:left;background:var(--card);border:.1em solid var(--line);border-radius:.3em;padding:.35em .5em;cursor:pointer;line-height:1.2;min-height:3.4em}
+#ovGrid button.cur{border-color:var(--guinda);background:var(--tint-red)}
+#ovGrid button.sec{background:var(--ink);color:var(--paper)}
+#ovGrid button.ask{background:var(--tint-red)}
+#ovGrid b{font-family:var(--mono);color:var(--guinda);margin-right:.3em}
+
+@media (max-aspect-ratio:1/1){
+  :root{--u:min(3.6vw,2.4vh)}
+  .cols,.cols-6-4,.grid3,.grid2,.vgrid,.route,.tally{grid-template-columns:1fr}
+  .slide{justify-content:flex-start;overflow:auto;padding:4vh 16px 10vh}
+}
+@media print{
+  html,body{overflow:visible;height:auto;background:#fff}
+  .slide{display:flex!important;position:relative;inset:auto;width:100%;height:100vh;page-break-after:always;break-after:page}
+  #ui,#prog,.layer{display:none!important}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<main id="deck">
+
+<!-- ===================== PORTADA ===================== -->
+<section class="slide s-cover" data-title="Portada">
+  <svg class="rose" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="40"/></g><path d="M100 2l10 88 88 10-88 10-10 88-10-88-88-10 88-10z" fill="currentColor"/><path d="M100 30l6 64 64 6-64 6-6 64-6-64-64-6 64-6z" fill="currentColor" transform="rotate(45 100 100)" opacity=".6"/></svg>
+  <p class="kicker">Geopolítica Internacional · Grupo 1541 · Lectura 14</p>
+  <h1>Geopolítica de la <em>construcción de poder</em></h1>
+  <p class="lead">Luis Dallanegra Pedraza (2010). «Teoría y metodología de la geopolítica. Hacia una geopolítica de la “construcción de poder”». <i>Revista Mexicana de Ciencias Políticas y Sociales</i>, 52(210), 15–42.</p>
+  <div class="meta"><span class="chip">Jueves 26 de noviembre de 2026</span><span class="chip">A-101 · 09:00–11:00</span><span class="chip">FCA · UNAM</span></div>
+</section>
+
+<!-- ===================== ARRANQUE ===================== -->
+<section class="slide s-ask" data-title="Tu cita" data-ask>
+  <div class="ask-head"><span class="ctl">Tu control · punto 1</span><button class="pick" type="button" data-draw>🎲 ¿Quién responde?</button></div>
+  <p class="q">Lee en voz alta <em>la frase que copiaste</em>, con su página.</p>
+  <p class="hint">¿Por qué la elegiste? Mientras avanzamos, fíjate en qué parte del artículo cae tu cita: el sistema, los clásicos, la fragmentación, los tipos de integración o la construcción de poder.</p>
+</section>
+
+<section class="slide" data-title="El recorrido">
+  <p class="kicker">El artículo en seis paradas</p>
+  <h2>De la teoría del sistema <em>a una salida para la periferia</em></h2>
+  <div class="route" style="margin-top:.6em">
+    <button type="button" data-go="sec1"><b>I</b><span>El sistema y el poder</span><small>pp. 15–22</small></button>
+    <button type="button" data-go="sec2"><b>II</b><span>Clásicos y latinoamericanos</span><small>pp. 22–28</small></button>
+    <button type="button" data-go="sec3"><b>III</b><span>Una región fragmentada</span><small>pp. 29–31</small></button>
+    <button type="button" data-go="sec4"><b>IV</b><span>Tipos de integración</span><small>p. 32</small></button>
+    <button type="button" data-go="sec5"><b>V</b><span>Construir poder</span><small>pp. 35–40</small></button>
+    <button type="button" data-go="sec6"><b>VI</b><span>Tu noticia, 2026</span><small>p. 31 frente a hoy</small></button>
+  </div>
+</section>
+
+<section class="slide" data-title="La paradoja">
+  <p class="kicker">La paradoja de la que parte todo</p>
+  <blockquote class="xl">«La incapacidad de América Latina no pasa por la falta de recursos, sino por la <span class="hl">ausencia de proyectos</span>».<span class="pg">Dallanegra Pedraza, 2010, p. 39</span></blockquote>
+  <p class="lead">En materia geográfica, dice el autor, es «la región más rica del planeta» (p. 39). Y aun así pesa poco en las decisiones del mundo.</p>
+</section>
+
+<section class="slide" data-title="Video · América Latina en mapas">
+  <p class="kicker">Para mirar · 12 min</p>
+  <div class="cols-6-4">
+    <div class="vgrid one">
+      <article class="vcard">
+        <button class="vthumb" type="button" data-yt="G_wvxhEAkGg" aria-label="Reproducir: El revés de los mapas, América Latina"><img src="https://i.ytimg.com/vi/G_wvxhEAkGg/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">12:25</span></button>
+        <div class="vbody"><h3>El revés de los mapas: América Latina, análisis geopolítico</h3><p class="vmeta">ARTE.tv Documentales · español</p><a href="https://www.youtube.com/watch?v=G_wvxhEAkGg" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+      </article>
+    </div>
+    <div class="stack">
+      <h2>Mientras lo ves, <em>anota</em></h2>
+      <p>Tres recursos de la región que el mundo necesita.</p>
+      <p>Quién decide sobre cada uno: ¿un gobierno latinoamericano, una empresa trasnacional u otra potencia?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== I. EL SISTEMA ===================== -->
+<section class="slide s-section" data-title="I. El sistema y el poder" data-id="sec1" data-sec>
+  <p class="num">I</p>
+  <h2>El sistema y el poder</h2>
+  <p class="lead">Cómo mira el mundo Dallanegra antes de hablar de América Latina.</p>
+  <p class="pg">pp. 15–22</p>
+</section>
+
+<section class="slide" data-title="Las variables del poder">
+  <p class="kicker">Variables significativas · p. 16</p>
+  <h2>Lo que mide cualquier geopolítica…</h2>
+  <div class="words"><span>dominación</span><span>poder</span><span>influencia</span><span>independencia</span><span>soberanía</span><span>interdependencia</span><span>integridad territorial</span><span>estabilidad política y social</span><span>desarrollo</span><span>prestigio</span><span>seguridad</span></div>
+  <h2 style="margin-top:.5em">…y lo que agrega <em>la periferia</em></h2>
+  <p class="lead">«El para qué del poder», que conlleva:</p>
+  <div class="words red"><span>resistencia</span><span>construcción de poder</span><span>autonomía</span><span>reclamos de justicia</span></div>
+</section>
+
+<section class="slide" data-title="Figura 1 · Proceso entrópico">
+  <div class="cols-6-4">
+    <figure><div class="plate"><img src="img/dallanegra/figura1.png" alt="Figura 1, proceso entrópico: caminos que se bifurcan desde una encrucijada hacia un destino probable, con alternativas a seguir."></div><figcaption class="pg">Figura 1 · Proceso entrópico · p. 17</figcaption></figure>
+    <div class="stack">
+      <p class="kicker">Entrópico y heurístico · p. 17</p>
+      <blockquote class="sm">«El objetivo concreto rige el camino concreto».<span class="pg">p. 17</span></blockquote>
+      <p><b>Entrópico:</b> los caminos que se escogen, o se imponen, para ir en una dirección.</p>
+      <p><b>Heurístico:</b> «la forma en que se elige de la manera más adecuada evitando, a su vez, imposiciones».</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Figura 2 · Estructura del sistema">
+  <div class="cols-6-4">
+    <figure><div class="plate"><img src="img/dallanegra/figura2.png" alt="Figura 2, estructura del sistema: pirámide con potencias centrales arriba, potencias intermedias de primer y segundo orden, países en vías de desarrollo y países subdesarrollados en la base; relaciones verticales y horizontales de poder."></div><figcaption class="pg">Figura 2 · Estructura del sistema · p. 18</figcaption></figure>
+    <div class="stack">
+      <blockquote class="sm">«Los niveles superiores “derraman” poder sobre los niveles inferiores que, a su vez, “resisten” dentro de ciertos límites».<span class="pg">Figura 2, p. 18</span></blockquote>
+      <p>En la base, «las conductas impositivas provienen de todos los niveles», y resistir es casi imposible.</p>
+      <p class="card red"><b>Pregunta:</b> ¿en qué piso pones a México? ¿A Brasil? ¿A China?</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Figura 3 · Globalización">
+  <div class="cols-6-4">
+    <figure><div class="plate"><img src="img/dallanegra/figura3.png" alt="Figura 3, proceso de globalización: dos variantes, relacional diferencial (relaciona globalmente, es participativa, admite las diferencias) y uniformal imperial (favorece la dominación, impide la participación, anula las diferencias)."></div><figcaption class="pg">Figura 3 · Proceso de globalización · p. 19</figcaption></figure>
+    <div class="stack">
+      <p class="kicker">Para subrayar · p. 19</p>
+      <blockquote class="sm"><span class="mark">«Ya no son las ideologías sino la tecnología la que crea una nueva y profunda división del mundo en bloques o conglomerados geoeconómicos».</span><span class="pg">p. 19</span></blockquote>
+      <div class="gl"><h3>Del glosario del grupo · Fragmentación económica</h3><p>«La división progresiva de la economía mundial en redes, bloques o sistemas menos conectados».</p><span class="src">Farrell y Newman (2025)</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Figura 4 · De actor a gestor">
+  <figure><div class="plate"><img src="img/dallanegra/figura4.png" alt="Figura 4, sistema mundial, desarrollo histórico: siglo XIX con pocos Estados con capacidad de decisión y gran periferia colonial; sistema bipolar desde la Segunda Guerra Mundial; creciente número de Estados desde mediados del siglo XX; mundo transnacional a fines del XX con Estados que pasan de actor a gestor." style="max-height:46vh"></div><figcaption class="pg">Figura 4 · Sistema mundial: desarrollo histórico · p. 20</figcaption></figure>
+  <blockquote class="sm">«Dentro de este marco, la región opera como una <span class="hl">periferia subordinada</span> en vez de ser un actor dentro del sistema».<span class="pg">p. 20</span></blockquote>
+</section>
+
+<section class="slide" data-title="La cibernética como dominación">
+  <p class="kicker">La cibernética como instrumento de expansión y dominación · pp. 21–22</p>
+  <blockquote>«Hoy, las armas letales no son nucleares sino virtuales». <span class="mark">«En la mayoría de los países, la infraestructura crítica (redes de distribución de agua y electricidad, transportes y telecomunicaciones) está conectada a internet y carece de las funciones de seguridad adecuadas. Ese déficit las coloca en situación de extrema vulnerabilidad».</span><span class="pg">p. 22</span></blockquote>
+  <p class="lead">Sobre la red Echelon, el autor cita un informe del Parlamento Europeo: para Washington, México sería «un libro abierto» (p. 21).</p>
+</section>
+
+<section class="slide" data-title="Foro · Infraestructura crítica">
+  <p class="kicker">Del foro · la p. 22 en 2026</p>
+  <div class="grid2">
+    <article class="news"><span class="who">Natalia Pantoja González · foro</span><h3>Ciberataque a bancos de sangre en Francia</h3><p>El gobierno francés confirmó una ola de ciberataques contra bancos de sangre e instituciones médicas críticas.</p></article>
+    <article class="news"><span class="who">Gala Sofía Escalante Díaz y Ximena López Patoni Pérez · foro</span><h3>Francia y los hackeos</h3><p>Un ciberataque masivo de sabotaje alteró el control de temperatura de infraestructura crítica.</p></article>
+  </div>
+  <div class="gl"><h3>Del glosario del grupo · Vulnerabilidad estratégica</h3><p>«Una debilidad que aparece cuando un país depende de otro actor para acceder a recursos, infraestructura, tecnología o procesos esenciales». «Una vulnerabilidad económica puede convertirse en una fuente de poder para otro Estado».</p><span class="src">Farrell y Newman (2025)</span></div>
+  <p class="lead">¿Quién controla las redes de las que depende México? ¿Y desde dónde?</p>
+</section>
+
+<!-- ===================== II. CLÁSICOS ===================== -->
+<section class="slide s-section" data-title="II. Clásicos y latinoamericanos" data-id="sec2" data-sec>
+  <p class="num">II</p>
+  <h2>De Ratzel a Quagliotti de Bellis</h2>
+  <p class="lead">Los cuadros del autor: la geopolítica clásica, la de la Guerra Fría y la que se pensó desde Sudamérica.</p>
+  <p class="pg">pp. 22–28</p>
+</section>
+
+<section class="slide" data-title="Cuadro · Geopolítica clásica">
+  <p class="kicker">Geopolítica clásica · cuadro de la p. 22</p>
+  <div class="cols-6-4">
+    <table class="t">
+      <thead><tr><th>Autor</th><th>Definición</th></tr></thead>
+      <tbody>
+        <tr><td>Friedrich Ratzel<span class="y">Alemania, 1860</span></td><td>El Estado es un organismo vivo: espacio vital.</td></tr>
+        <tr><td>Alfred T. Mahan<span class="y">EUA, 1890</span></td><td>Dominar los mares para dominar el comercio y el mundo.</td></tr>
+        <tr><td>Halford Mackinder<span class="y">Inglaterra, 1904</span></td><td>La «Isla Mundial»; Heartland y Hinterland; equilibrio de poderes.</td></tr>
+        <tr><td>Rudolf Kjellén<span class="y">1916</span></td><td>Crea el vocablo «geopolítica»; el Estado como organismo geográfico «viviente».</td></tr>
+        <tr><td>Karl Haushofer<span class="y">Alemania, 1928</span></td><td>Lucha de vida o muerte por el espacio vital; reparto del mundo en áreas de influencia.</td></tr>
+      </tbody>
+    </table>
+    <div class="stack">
+      <p>«Las definiciones […] presentan el concepto de <b>dominio</b> como central, y al de <b>Estado-nación</b> como actor principal» (p. 22).</p>
+      <div class="gl"><h3>Del glosario · Heartland</h3><p>Para Mackinder, el «área pivote» del mundo: quien la controla tiene las mejores condiciones para la hegemonía global.</p></div>
+      <div class="gl"><h3>Del glosario · Rimland</h3><p>Spykman: las costas de Eurasia que rodean al Heartland. El autor lo cita en la p. 22.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Cuadro · Kissinger y Brzezinski">
+  <p class="kicker">Geopolítica de la Guerra Fría · cuadro de la p. 23</p>
+  <div class="grid2">
+    <div class="card blue"><span class="tag blue">Henry Kissinger · EUA, 1973</span><h3>«Un mundo restaurado»</h3><p>«La bipolaridad es altamente peligrosa, aunque el máximo peligro consistiría en la unipolaridad». «Multipolarismo sí, pero bajo el control de Estados Unidos».</p></div>
+    <div class="card amber"><span class="tag amber">Zbigniew Brzezinski · EUA, 1979</span><h3><span class="mark">«La era tecnotrónica»</span></h3><p>«Las invenciones tecnológicas provocan cambios culturales y éstos, cambios en la estructura social. La élite que controle estos cambios controlará el mundo».</p></div>
+  </div>
+  <p class="lead">Une esta fila con tu subrayado de la p. 19: <b>la tecnología divide al mundo en bloques</b>. ¿Quién controla hoy esos cambios?</p>
+</section>
+
+<section class="slide" data-title="Ojo · Club de Roma">
+  <p class="kicker">Ojo · una precisión sobre la p. 38</p>
+  <div class="cols top">
+    <div class="stack">
+      <p>El autor escribe que la Comisión Trilateral,</p>
+      <blockquote class="sm">«a través del Club de Roma, planteó un modelo neoliberal de gobierno mundial».<span class="pg">p. 38</span></blockquote>
+    </div>
+    <div class="card red stack">
+      <h3>No es así</h3>
+      <p>El informe del Club de Roma, <i>Los límites del crecimiento</i> (1972), fue una crítica directa al crecimiento económico ilimitado que defendían el capitalismo y el neoliberalismo.</p>
+      <p>Ambos foros nacieron en la misma época y con influencia transnacional, pero sus agendas eran opuestas: la Trilateral impulsaba la globalización y el libre mercado; el Club de Roma advertía del colapso ecológico y pedía límites al desarrollo.</p>
+    </div>
+  </div>
+  <p class="lead">Lección para tus controles: <b>también un autor citado se equivoca.</b> Verifica.</p>
+</section>
+
+<section class="slide" data-title="Cuadro · Fukuyama y Huntington">
+  <p class="kicker">El mundo después de 1991 · cuadro de la p. 25</p>
+  <div class="grid2">
+    <div class="card teal"><span class="tag teal">Francis Fukuyama · 1992</span><h3>El fin de la historia</h3><p>La lucha de ideologías terminó; el mundo se dirige a la democracia liberal, en lo económico y en lo político, «como única opción viable».</p></div>
+    <div class="card plum"><span class="tag plum">Samuel Huntington · 1996</span><h3>El choque de civilizaciones</h3><p>Los conflictos futuros no serán ideológicos ni económicos, «sino más bien culturales».</p></div>
+  </div>
+  <p class="lead">Dallanegra lee a Huntington como heredero de Kennan: «Del Mister “X” […] se pasó al Mister “H” del post bipolarismo» (p. 19).</p>
+</section>
+
+<section class="slide" data-title="Cuadro · Geopolítica latinoamericana">
+  <p class="kicker">Geopolítica en América Latina · cuadro de la p. 27</p>
+  <table class="t" style="font-size:.8em">
+    <thead><tr><th>Autor</th><th>Idea central</th></tr></thead>
+    <tbody>
+      <tr><td>Mario Travassos<span class="y">Brasil, 1933</span></td><td>Proyección continental de Brasil: expansión hacia el Pacífico, varias salidas al mar, dominio de la Cuenca del Plata.</td></tr>
+      <tr><td>Jorge Atencio<span class="y">Argentina, 1965</span></td><td>Influencia de los factores geográficos en la vida de los Estados; guía del estadista y del militar.</td></tr>
+      <tr class="hot"><td>Augusto Pinochet Ugarte<span class="y">Chile, 1965</span></td><td>El Estado como organismo vivo, con una constitución semejante a una «ameba»: «crecerá alimentándose de los vecinos». Mar presencial. <span class="mark">El «Estado ameba»</span> (p. 35).</td></tr>
+      <tr><td>Golbery do Couto e Silva<span class="y">Brasil, 1967</span></td><td>Compartimentación geopolítica de América del Sur en cinco áreas.</td></tr>
+      <tr><td>Juan E. Guglialmelli<span class="y">Argentina, 1967</span></td><td>Cono Sur como punto de partida para la unidad latinoamericana; Brasil, gran competidor.</td></tr>
+      <tr><td>Edgardo Mercado Jarrín<span class="y">Perú, 1976</span></td><td>Introduce la «seguridad económica colectiva».</td></tr>
+      <tr><td>Terezinha de Castro<span class="y">Brasil, 1981</span></td><td>Atlántico Sur como <i>Mare Nostrum</i> lusoamericano; Hispanoamérica «de espaldas al mar».</td></tr>
+      <tr><td>B. Quagliotti de Bellis<span class="y">Uruguay, 1981</span></td><td>La integración es la única alternativa: «nos integramos o nos integran».</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="slide" data-title="Nos integramos o nos integran">
+  <p class="kicker">Bernardo Quagliotti de Bellis · cuadro de la p. 27</p>
+  <blockquote class="xl">«La integración es la única alternativa: <span class="hl">nos integramos o nos integran</span>. Para qué y para quién nos integramos».<span class="pg">p. 27</span></blockquote>
+  <p class="lead">Perón lo dijo así, tomando a Travassos: «el año 2000 nos encontrará <b>unidos o dominados</b>» (nota 17, p. 26).</p>
+</section>
+
+<section class="slide" data-title="Figura 5 · Alianzas maximizadoras">
+  <div class="cols">
+    <figure><div class="plate tall"><img src="img/dallanegra/figura5.png" alt="Figura 5: arriba, A y B se contraponen en equilibrio y ambos dominan a los pequeños; abajo, ante el desequilibrio, B se alía con C para contraponerse a A: alianzas maximizadoras."></div><figcaption class="pg">Figura 5 · p. 28</figcaption></figure>
+    <div class="stack">
+      <p class="kicker">Geopolítica crítica · p. 26</p>
+      <p><b>Foucault:</b> la geopolítica como factor de transformación, «en especial para los que carecían de poder».</p>
+      <blockquote class="sm">Galtung: «Si la alternativa poder contrapoder no funciona para la gran mayoría, hay entonces que generar alianzas ‘maximizadoras’ para sumar poder».<span class="pg">p. 26</span></blockquote>
+      <p class="small">El enfoque heurístico «parte del principio de que el centro nunca modificará su conducta» (p. 28).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide s-ask" data-title="Pregunta · ¿Quién es C?" data-ask>
+  <div class="ask-head"><span class="ctl">Pregunta al grupo</span><button class="pick" type="button" data-draw>🎲 ¿Quién responde?</button></div>
+  <p class="q">En la figura 5, <em>¿quién es C?</em></p>
+  <p class="hint">Ponle nombres de hoy a A, B y C. ¿Qué alianza conoces en la que varios países débiles suman fuerzas frente a uno más fuerte?</p>
+</section>
+
+<!-- ===================== III. FRAGMENTACIÓN ===================== -->
+<section class="slide s-section" data-title="III. Una región fragmentada" data-id="sec3" data-sec>
+  <p class="num">III</p>
+  <h2>Fragmentada desde afuera, <em>autofragmentada</em> desde adentro</h2>
+  <p class="pg">pp. 29–31</p>
+</section>
+
+<section class="slide" data-title="Líneas trazadas desde afuera">
+  <p class="kicker">Fragmentación y autofragmentación · pp. 29–30</p>
+  <blockquote class="sm">«Desde la época de la independencia, ha habido en América Latina un permanente proceso de fragmentación guiado desde afuera».<span class="pg">p. 29</span></blockquote>
+  <div class="grid3">
+    <div class="card"><h3>Monroe contra Bolívar</h3><p>La competencia entre la concepción monroísta y la bolivarista «se decidió a favor» de Estados Unidos; se institucionalizó con el TIAR y la OEA (1947-48).</p><span class="pg">p. 29</span></div>
+    <div class="card amber"><h3>El Corolario sigue vigente</h3><p>Se manifiesta en el TLC, el ALCA, el Consenso de Washington y la lucha contra el narcotráfico o el terrorismo.</p><span class="pg">p. 30</span></div>
+    <div class="card"><h3>Autofragmentación</h3><p>«Chile prefiere firmar un TLC con Estados Unidos que ingresar como miembro total al Mercosur».</p><span class="pg">p. 30</span></div>
+  </div>
+  <div class="gl"><h3>Del glosario · Esfera de influencia</h3><p>«Una zona en la que una potencia ejerce una influencia económica, política o estratégica importante sin necesariamente convertirla formalmente en una colonia».</p><span class="src">Hobsbawm (2009)</span></div>
+</section>
+
+<section class="slide" data-title="Video · Doctrina Monroe">
+  <p class="kicker">Para mirar · 8 min</p>
+  <div class="cols-6-4">
+    <div class="vgrid one">
+      <article class="vcard">
+        <button class="vthumb" type="button" data-yt="aXWblvE_oQE" aria-label="Reproducir: La Doctrina Monroe y el caso de Venezuela"><img src="https://i.ytimg.com/vi/aXWblvE_oQE/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">8:09</span></button>
+        <div class="vbody"><h3>La Doctrina Monroe y el caso de Venezuela</h3><p class="vmeta">Bully Magnets · español</p><a href="https://www.youtube.com/watch?v=aXWblvE_oQE" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+      </article>
+    </div>
+    <div class="stack">
+      <h2>¿Sigue vigente <em>el Corolario</em>?</h2>
+      <p>En 2010 el autor lo veía en el TLC y en la lucha antinarcóticos (p. 30). Busca en el video cómo se aplica hoy.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Spill over / spill around">
+  <p class="kicker">Por qué no avanzamos · p. 31</p>
+  <h2>La UE se <em>desbordó</em>; América Latina se <em>desparramó</em></h2>
+  <div class="cols spill">
+    <div class="card teal">
+      <h3>Spill over · desbordamiento</h3>
+      <svg viewBox="0 0 400 200" role="img" aria-label="Círculos concéntricos que crecen: más miembros y más temas acumulados">
+        <circle cx="200" cy="100" r="22" fill="var(--teal)" opacity=".9"/>
+        <circle cx="200" cy="100" r="48" fill="none" stroke="var(--teal)" stroke-width="5"/>
+        <circle cx="200" cy="100" r="74" fill="none" stroke="var(--teal)" stroke-width="5" opacity=".7"/>
+        <circle cx="200" cy="100" r="96" fill="none" stroke="var(--teal)" stroke-width="5" opacity=".45"/>
+        <text x="20" y="40" font-size="20">+ miembros</text><text x="300" y="185" font-size="20">+ temas</text>
+      </svg>
+      <p>Crecimiento acumulativo en nivel (nuevos miembros) y en alcance (nuevos temas).</p>
+    </div>
+    <div class="card red">
+      <h3>Spill around · desparramo</h3>
+      <svg viewBox="0 0 400 200" role="img" aria-label="Círculos sueltos sin conexión entre sí">
+        <circle cx="70" cy="60" r="30" fill="none" stroke="var(--guinda)" stroke-width="5"/>
+        <circle cx="190" cy="140" r="34" fill="none" stroke="var(--guinda)" stroke-width="5"/>
+        <circle cx="300" cy="55" r="26" fill="none" stroke="var(--guinda)" stroke-width="5"/>
+        <circle cx="350" cy="150" r="22" fill="none" stroke="var(--guinda)" stroke-width="5"/>
+        <circle cx="90" cy="160" r="18" fill="none" stroke="var(--guinda)" stroke-width="5"/>
+        <text x="40" y="66" font-size="16">ALADI</text><text x="160" y="146" font-size="16">Mercosur</text><text x="282" y="61" font-size="16">CAN</text><text x="328" y="156" font-size="16">ALBA</text>
+      </svg>
+      <p>Procesos paralelos «sin conexión entre sí y que no han servido para resolver los propios problemas».</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="No es otra cosa que libre comercio">
+  <p class="kicker">La frase de tu punto 4 · p. 31</p>
+  <blockquote class="xl">«Tómese por ejemplo la tan mencionada integración, que <span class="hl">no es otra cosa que libre comercio</span>».<span class="pg">p. 31</span></blockquote>
+  <p class="lead">En vez de ser un instrumento para la autonomía y el desarrollo de la región, se volvió un fin en sí misma: «No se ha tenido el cuidado de responder seriamente ni el ‘para qué’ ni el ‘para quién’ de la integración» (p. 31).</p>
+</section>
+
+<section class="slide" data-title="Integración ¿para qué?">
+  <p class="kicker">Integración para qué · p. 31</p>
+  <p class="lead">Ningún país de la región tiene, solo, la viabilidad para negociar con los más poderosos. Y el tablero ya tiene reglas:</p>
+  <blockquote><span class="mark">«La división internacional del trabajo o de la economía es una manera integrada, de forma vertical y coercitiva, de establecer decisiones y tareas distintas a cada uno de sus miembros, acorde con sus recursos y capacidades tecnológicas y de poder, y está estructurada alrededor de una serie de reglas claramente definidas, no establecidas, por los países carentes de poder para tomar decisiones».</span><span class="pg">p. 31</span></blockquote>
+</section>
+
+<section class="slide" data-title="Integración ¿para quién?">
+  <p class="kicker">Integración para quién · p. 31</p>
+  <div class="cols top">
+    <blockquote class="sm">«Si la integración es un objetivo en sí mismo […] es probable que se aumente el intercambio comercial, pero también se estará ampliando así el mercado para <span class="hl">los que controlan la región</span>, ya sea de forma directa o a través de subsidiarias de empresas multinacionales o de la banca privada transnacionalizada».<span class="pg">p. 31</span></blockquote>
+    <article class="news"><span class="who">Karol Irais López Cervantes · foro, lectura 14</span><h3>«Vender más no es lo mismo que estar mejor»</h3><p>«Esta cita es súper importante porque nos hace ver que vender más o tener más intercambio comercial no es lo mismo que estar mejor o ser más independientes. Si la integración se queda solo en abrir puertas sin fortalecer lo que producimos y decidimos acá, al final quienes ganan más terreno son las empresas grandes o los actores externos».</p></article>
+  </div>
+</section>
+
+<section class="slide" data-title="Qué es integrarse">
+  <p class="kicker">Definición · pp. 31–32</p>
+  <blockquote>«La integración es un proceso mediante el que dos o más actores forman <span class="hl">un nuevo actor</span> capaz de alcanzar los objetivos que las partes no pueden lograr de manera individual, y a su vez, son reconocidos por el resto de los miembros del sistema global».<span class="pg">p. 31</span></blockquote>
+  <div class="grid3">
+    <div class="card"><h3>Reconocimiento</h3><p>No es diplomático: «se refiere a la capacidad de desempeño» (p. 31).</p></div>
+    <div class="card"><h3>Dominio interno</h3><p>Cuántos actores intervienen y cuántas funciones se integran (p. 32).</p></div>
+    <div class="card"><h3>Dominio externo</h3><p>Cuántos actores reconocen al nuevo actor y cuánto interactúa con ellos (p. 32).</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Video · La mentira del libre comercio">
+  <p class="kicker">Para mirar en casa · 42 min</p>
+  <div class="cols-6-4">
+    <div class="vgrid one">
+      <article class="vcard">
+        <button class="vthumb" type="button" data-yt="FEdeaBjOYFs" aria-label="Reproducir: La mentira del libre comercio"><img src="https://i.ytimg.com/vi/FEdeaBjOYFs/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">42:26</span></button>
+        <div class="vbody"><h3>La mentira del libre comercio</h3><p class="vmeta">DW Documental · español</p><a href="https://www.youtube.com/watch?v=FEdeaBjOYFs" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+      </article>
+    </div>
+    <div class="stack">
+      <h2>¿Abrir mercados <em>para quién</em>?</h2>
+      <p>Ponlo frente a la p. 31: ¿quién amplía su mercado cuando un país periférico firma un acuerdo de libre comercio?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IV. TIPOS ===================== -->
+<section class="slide s-section" data-title="IV. Tipos de integración" data-id="sec4" data-sec>
+  <p class="num">IV</p>
+  <h2>Territorial, organizacional o <em>asociativa</em></h2>
+  <p class="lead">La clave de tu ficha del punto 3.</p>
+  <p class="pg">p. 32</p>
+</section>
+
+<section class="slide" data-title="Tres tipos de integración">
+  <p class="kicker">Tipos de integración · p. 32</p>
+  <div class="grid3">
+    <div class="card teal stack"><span class="tag teal">1 · Territorial</span><h3>Por cercanía geográfica</h3><p>Proximidad o contigüidad, como los proyectos para integrar las cuencas del Orinoco, el Amazonas y el Plata.</p></div>
+    <div class="card amber stack"><span class="tag amber">2 · Organizacional</span><h3>Jerarquizada y desigual</h3><p>«Resulta en una desigualdad en el reparto de ventajas y beneficios». Gran asimetría de poder entre los miembros.</p><p><b>Ejemplos del autor:</b> división internacional del trabajo, ALCA, ALALC/ALADI, Mercosur, NAFTA/TLCAN.</p></div>
+    <div class="card red stack"><span class="tag red">3 · Asociativa</span><h3>Los inconformes se unen</h3><p>Para lograr «capacidad negociadora y autonomía de desempeño». Primer paso: tomar conciencia de la asimetría y la dependencia.</p><p><b>Ejemplos del autor:</b> OPEP, MNOAL, Grupo de los 77, Pacto Andino frente a ALALC, Unasur.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Contraestrategias">
+  <p class="kicker">La reacción del sistema · p. 32</p>
+  <h2>Frente a todo proceso asociativo, <em>contraestrategias</em></h2>
+  <p class="lead">Para mantener intacto el proceso organizacional: la Comisión Trilateral, el Club de París, los planes Baker-Brady.</p>
+  <div class="grid2">
+    <div class="card"><span class="tag blue">Desde afuera</span><h3>Marginación e intervención</h3><p>Destinadas a la <b>fragmentación</b>.</p></div>
+    <div class="card"><span class="tag red">Desde adentro</span><h3>Cooptación de sectores políticos, militares e intelectuales</h3><p>Destinada a la <b>autofragmentación</b>.</p></div>
+  </div>
+</section>
+
+<section class="slide s-ask" data-title="Pregunta · ¿Qué proceso elegiste?" data-ask>
+  <div class="ask-head"><span class="ctl">Tu control · punto 3</span><button class="reset" type="button" data-reset-tally>reiniciar conteo</button></div>
+  <p class="q">¿Qué proceso elegiste <em>para tu ficha</em>?</p>
+  <div class="tally" data-tally="ficha">
+    <button type="button" data-k="mercosur">Mercosur <b>0</b></button>
+    <button type="button" data-k="can">Comunidad Andina <b>0</b></button>
+    <button type="button" data-k="ap">Alianza del Pacífico <b>0</b></button>
+    <button type="button" data-k="alba">ALBA <b>0</b></button>
+    <button type="button" data-k="sica">SICA <b>0</b></button>
+    <button type="button" data-k="celac">CELAC <b>0</b></button>
+    <button type="button" data-k="tmec">T-MEC <b>0</b></button>
+    <button type="button" data-k="otro">Otro <b>0</b></button>
+  </div>
+  <p class="hint small">Levanta la mano cuando escuches el tuyo. Clic suma · Mayús + clic resta.</p>
+</section>
+
+<section class="slide" data-title="Lo que dice el autor, lo que decides tú">
+  <p class="kicker">Tipo de integración · p. 32</p>
+  <div class="cols top">
+    <div class="stack">
+      <h2>Lo que <em>clasifica</em> el autor</h2>
+      <table class="t">
+        <tbody>
+          <tr><td>Mercosur</td><td>Organizacional</td></tr>
+          <tr><td>NAFTA / TLCAN</td><td>Organizacional</td></tr>
+          <tr><td>ALALC / ALADI</td><td>Organizacional</td></tr>
+          <tr><td>Pacto Andino</td><td>Asociativa, respecto de ALALC</td></tr>
+          <tr><td>Unasur</td><td>Asociativa</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <h2>Lo que <em>argumentas</em> tú</h2>
+      <div class="words"><span>Alianza del Pacífico</span><span>ALBA</span><span>SICA</span><span>CELAC</span><span>T-MEC</span></div>
+      <p>El autor no los clasifica. Tú sí: ¿qué tipo es el tuyo y con qué evidencia?</p>
+      <p class="card red"><b>Ojo:</b> el Mercosur de 2010 tenía a Bolivia y Venezuela en ruta de adhesión (p. 30). ¿Quiénes son sus miembros hoy?</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide s-ask" data-title="Pregunta · Para qué y para quién" data-ask>
+  <div class="ask-head"><span class="ctl">Tu control · punto 3</span><button class="pick" type="button" data-draw>🎲 ¿Quién responde?</button></div>
+  <p class="q">Tu proceso: ¿<em>para qué</em> existe y <em>para quién</em> trabaja?</p>
+  <p class="hint">Ponlo a prueba con los requisitos del autor para actuar como subsistema regional (p. 32). ¿Cuántos cumple?</p>
+  <div class="grid2 small">
+    <div class="card">1 · Una identidad internacional percibida de forma similar o conjunta.</div>
+    <div class="card">2 · Coherencia en las decisiones, sin rupturas con cada cambio de gobierno.</div>
+    <div class="card">3 · Que la cooperación supere al conflicto y los intereses estén en la región.</div>
+    <div class="card">4 · Convergencia frente a los mismos desafíos y complementariedad.</div>
+  </div>
+</section>
+
+<section class="slide" data-title="Video · UE–Mercosur">
+  <p class="kicker">Para mirar · 12 min</p>
+  <div class="cols-6-4">
+    <div class="vgrid one">
+      <article class="vcard">
+        <button class="vthumb" type="button" data-yt="ZQ5dDK2ODso" aria-label="Reproducir: El acuerdo entre la UE y Mercosur"><img src="https://i.ytimg.com/vi/ZQ5dDK2ODso/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">12:02</span></button>
+        <div class="vbody"><h3>El acuerdo entre la UE y Mercosur, en la agenda del G20</h3><p class="vmeta">DW Español · español</p><a href="https://www.youtube.com/watch?v=ZQ5dDK2ODso" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+      </article>
+    </div>
+    <div class="stack">
+      <h2>Un bloque negocia <em>con otro bloque</em></h2>
+      <p>¿Mercosur llega como actor asociativo, con capacidad negociadora propia, o como mercado ampliado para los de afuera?</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Foro · T-MEC">
+  <p class="kicker">Del foro · el T-MEC en noviembre de 2026</p>
+  <div class="grid2">
+    <article class="news"><span class="who">Emiliano González Agustín · foro</span><h3>México endurece controles al acero asiático para negociar con Estados Unidos</h3><p>«Aunque estas medidas pueden beneficiar las negociaciones del T-MEC, también reflejan la presión que ejercen las grandes potencias sobre las decisiones económicas de otros países».</p><span class="med">Reuters, 11 de noviembre de 2026</span></article>
+    <article class="news"><span class="who">Karol Irais López Cervantes · foro</span><h3>China y EU buscan aplicar su tregua arancelaria mientras México negocia bajar tarifas al acero y autos</h3><p>México muestra a Washington que vigila sus aduanas para que productos chinos no entren «disfrazados» de mexicanos.</p><span class="med">El Economista, noviembre de 2026</span></article>
+  </div>
+  <p class="lead">¿Organizacional o asociativa? ¿Quién pone las reglas de este bloque?</p>
+</section>
+
+<!-- ===================== V. CONSTRUIR PODER ===================== -->
+<section class="slide s-section" data-title="V. Construir poder" data-id="sec5" data-sec>
+  <p class="num">V</p>
+  <h2>La geopolítica de la <em>construcción de poder</em></h2>
+  <p class="lead">La propuesta del autor: tu punto 2.</p>
+  <p class="pg">pp. 35–40</p>
+</section>
+
+<section class="slide" data-title="Figura 6 · Ley del paralelogramo">
+  <div class="cols-6-4">
+    <figure><div class="plate"><img src="img/dallanegra/figura6.png" alt="Figura 6, ley del paralelogramo: el 97 % de la inversión en investigación y desarrollo es del mundo industrializado y los actores transnacionales; el 3 %, del resto del mundo; la resultante se inclina hacia el primero."></div><figcaption class="pg">Figura 6 · «Ley del Paralelogramo» · p. 36</figcaption></figure>
+    <div class="stack">
+      <blockquote class="sm">«La verdadera competitividad en la región se podrá alcanzar a partir de la resignificación de la investigación científica, que es el <span class="hl">único instrumento real para romper con la dependencia</span>».<span class="pg">p. 36</span></blockquote>
+      <p>América Latina: <b>2 %</b> de la inversión mundial en I+D. Brasil y México suman el <b>80 %</b> de lo que invierte la región (p. 36).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Repartidores supremos">
+  <p class="kicker">Concepción sistémica · pp. 37–38</p>
+  <div class="cols top">
+    <div class="stack">
+      <blockquote class="sm">«En un sistema que no es centralizado, no hay árbitro supremo. Este papel lo cumplen los más poderosos».<span class="pg">p. 37</span></blockquote>
+      <blockquote class="sm">«Las relaciones mundiales globales no se basan en derechos y obligaciones, sino en principios supremos o regímenes de reparto. Los repartos son hechos por los más poderosos: <span class="hl">repartidores supremos</span>».<span class="pg">p. 38</span></blockquote>
+    </div>
+    <article class="news"><span class="who">Daniela Osorio Medina · foro</span><h3>China confirma una reunión entre Trump, Xi Jinping y Putin en la cumbre APEC de Shenzhen</h3><p>«Las potencias hegemónicas optan por el diálogo directo entre líderes para estabilizar zonas de influencia».</p><span class="med">AgroLatam, 16 de noviembre de 2026</span><p><b>¿Tres repartidores supremos en una mesa?</b> ¿Quién falta?</p></article>
+  </div>
+</section>
+
+<section class="slide" data-title="La única alternativa">
+  <p class="kicker">La tesis · p. 38</p>
+  <blockquote class="xl">«Frente a este panorama, la única alternativa es la construcción de poder. Si no resulta posible la alternativa de aumentar autónomamente el poder, está la posibilidad de <span class="hl">agregar el poder de otros al poder propio</span>, es decir, vínculos horizontales».<span class="pg">p. 38</span></blockquote>
+  <p class="lead">Y la alianza, aclara, se hace por «mutua conveniencia y beneficio», sin exponer la independencia de aspiraciones (p. 38).</p>
+</section>
+
+<section class="slide" data-title="Dos vías para construir poder">
+  <p class="kicker">El aprovechamiento de ventajas comparativas · p. 39</p>
+  <div class="grid2">
+    <div class="card blue stack"><span class="tag blue">Vía individual</span><h3>Japón y China</h3><p><b>Japón</b> de la posguerra: una ventaja comparativa lo vuelve «polo» tecnológico de Asia.</p><p><b>China</b> del posbipolarismo: buena parte de las reglas del sistema «pasan por su capacidad industrial y comercial».</p></div>
+    <div class="card red stack"><span class="tag red">Vía conjunta · alianzas horizontales</span><h3>OPEP y Unión Europea</h3><p><b>OPEP</b>, desde 1973: una alianza en torno a un producto vital que «modificó substancialmente las reglas» del sistema.</p><p><b>Unión Europea:</b> no a una tercera guerra, Alemania dentro, recuperar espacio frente a EUA, que el Plan Marshall no se volviera control y responder a la OPEP.</p></div>
+  </div>
+</section>
+
+<section class="slide s-ask" data-title="Pregunta · Tu alianza horizontal" data-ask>
+  <div class="ask-head"><span class="ctl">Tu control · punto 2</span><button class="pick" type="button" data-draw>🎲 ¿Quién responde?</button></div>
+  <p class="q">Explica con tus palabras <em>qué propone</em> el autor. ¿Qué ejemplo de alianza horizontal pusiste?</p>
+  <p class="hint">Y un paso más: ¿existe hoy una alianza horizontal latinoamericana que haya cambiado alguna regla del sistema, como lo hizo la OPEP?</p>
+</section>
+
+<section class="slide" data-title="Foro · Daniela Osorio">
+  <p class="kicker">Del foro · lectura 14</p>
+  <article class="news" style="max-width:46em">
+    <span class="who">Daniela Osorio Medina · 24 de noviembre</span>
+    <h3 style="font-size:1.15em">«Sumar fuerzas de forma horizontal es la única vía seria para tener voz propia»</h3>
+    <p style="font-size:.9em">«A mí me parece que América Latina sigue perdiendo peso en el mundo no por falta de recursos, sino por su fragmentación y por hacer integraciones pensadas más como aperturas comerciales que como proyectos de autonomía. […] Mientras los países de la región actúen por separado o bajo lógicas dependientes, seguirán quedando subordinados a intereses externos».</p>
+  </article>
+  <p class="lead">¿Estás de acuerdo? ¿Qué le responderías?</p>
+</section>
+
+<section class="slide" data-title="Videos · OPEP y BRICS">
+  <p class="kicker">Para mirar · alianzas que suman poder</p>
+  <div class="vgrid">
+    <article class="vcard">
+      <button class="vthumb" type="button" data-yt="Um2SMo2DCMo" aria-label="Reproducir: Gas y petróleo, ¿las materias primas gobiernan el mundo?"><img src="https://i.ytimg.com/vi/Um2SMo2DCMo/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">12:00</span></button>
+      <div class="vbody"><h3>Gas y petróleo: ¿las materias primas gobiernan el mundo?</h3><p class="vmeta">ARTE.tv Documentales · español</p><p>La OPEP de 1973 es el ejemplo del autor de una alianza que cambió las reglas (p. 39).</p></div>
+    </article>
+    <article class="vcard">
+      <button class="vthumb" type="button" data-yt="SbQDx3HlNhE" aria-label="Reproducir: BRICS, el brazo económico del nuevo Sur Global"><img src="https://i.ytimg.com/vi/SbQDx3HlNhE/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">9:28</span></button>
+      <div class="vbody"><h3>BRICS, el brazo económico del nuevo Sur Global frente a Occidente</h3><p class="vmeta">DW Español · español</p><p>¿Una alianza horizontal? Busca qué suman sus miembros y qué los divide.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="slide" data-title="Recursos sin proyecto">
+  <p class="kicker">Control soberano inteligente · p. 39</p>
+  <div class="cols top">
+    <div class="stack">
+      <blockquote class="sm">«Se debería establecer un control soberano inteligente: permitir la participación y explotación por empresas trasnacionales y otros Estados, pero <span class="hl">priorizando el desarrollo propio</span> sobre los recursos naturales».<span class="pg">p. 39</span></blockquote>
+      <div class="gl"><h3>Del glosario · Margen de maniobra</h3><p>Li Xing distingue la «promoción por invitación», una oportunidad que viene de afuera, de la capacidad interna de aprovecharla: «recibir financiamiento, infraestructura o empresas extranjeras es diferente de utilizarlos para fortalecer la economía propia».</p><span class="src">Li (2019, p. 46)</span></div>
+    </div>
+    <div class="vgrid" style="grid-template-columns:1fr">
+      <article class="vcard">
+        <button class="vthumb" type="button" data-yt="Fe6FB1rqesI" aria-label="Reproducir: la disputa por el triángulo del litio"><img src="https://i.ytimg.com/vi/Fe6FB1rqesI/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">8:47</span></button>
+        <div class="vbody"><h3>Behind the secret fight between global powers over the world's largest lithium reserves</h3><p class="vmeta">DW News · inglés · Argentina, Bolivia y Chile</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Talasopolítica">
+  <p class="kicker">Talasopolítica · p. 35</p>
+  <div class="cols top">
+    <div class="stack">
+      <blockquote>«México y Colombia, son dos países bioceánicos pero excesivamente concentrados en sus vínculos con Estados Unidos. <span class="hl">Carecen de políticas marítimas</span> y de presencia activa en el mar».<span class="pg">p. 35</span></blockquote>
+      <p>Hispanoamérica vive «de espaldas al mar»; para Brasil, en cambio, «el Atlántico Sur es el <i>mare nostrum</i>» (p. 35).</p>
+    </div>
+    <div class="stack">
+      <article class="news"><span class="who">Gala Sofía Escalante Díaz y Ximena López Patoni Pérez · foro</span><h3>Sheinbaum en la cumbre APEC de Shenzhen</h3><p>Ante el foro presentó el Plan México: redes eléctricas, carreteras, modernización de puertos y el Corredor Interoceánico. México y China declararon una «nueva era de cooperación para el desarrollo».</p></article>
+      <p class="card red"><b>Pregunta:</b> ¿México empieza a mirar al mar? ¿Con proyecto propio o por invitación?</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Videos · Puertos y corredores">
+  <p class="kicker">Para mirar · el Pacífico latinoamericano</p>
+  <div class="vgrid">
+    <article class="vcard">
+      <button class="vthumb" type="button" data-yt="NMDCKpmc-uo" aria-label="Reproducir: el corredor interoceánico de México"><img src="https://i.ytimg.com/vi/NMDCKpmc-uo/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">8:43</span></button>
+      <div class="vbody"><h3>Mexico’s $7.5B Gamble to Disrupt the Panama Canal</h3><p class="vmeta">The Wall Street Journal · inglés</p><p>El Corredor Interoceánico: ¿México deja de estar «de espaldas al mar» (p. 35)?</p></div>
+    </article>
+    <article class="vcard">
+      <button class="vthumb" type="button" data-yt="IdHq0TuDdT4" aria-label="Reproducir: Chancay, el megapuerto chino en Perú"><img src="https://i.ytimg.com/vi/IdHq0TuDdT4/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">5:52</span></button>
+      <div class="vbody"><h3>Chancay: el megapuerto que China estrena en Perú</h3><p class="vmeta">BBC News Mundo · español</p><p>Un gran puerto del Pacífico con capital chino: integración ¿para quién? (p. 31).</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="slide" data-title="Los desafíos de la región">
+  <p class="kicker">¿En qué áreas debería ser creativa la región? · pp. 39–40</p>
+  <div class="grid3">
+    <div class="card teal"><h3>Geografía</h3><p>Control soberano inteligente, descentralizar las megalópolis y una talasopolítica regional.</p></div>
+    <div class="card amber"><h3>Economía</h3><p>Salir de los modelos basados en explotar recursos naturales con baja industrialización.</p></div>
+    <div class="card blue"><h3>Política</h3><p>Sistemas con alta participación social y control eficiente de los actos de gobierno.</p></div>
+    <div class="card plum"><h3>Historia</h3><p>Aprender del pasado, como pedía Tucídides, y generar vínculos de confianza.</p></div>
+    <div class="card"><h3>Política exterior</h3><p>«El vértice de las relaciones externas […] se encuentra fuera» de la región.</p></div>
+    <div class="card red"><h3>Relaciones internacionales</h3><p>Dejar de ser objeto y volverse «sujeto activo de su propio destino».</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Video · Recursos sin poder">
+  <p class="kicker">Para mirar en casa · fuera de América Latina</p>
+  <div class="cols-6-4">
+    <div class="vgrid one">
+      <article class="vcard">
+        <button class="vthumb" type="button" data-yt="tny2usCxhc4" aria-label="Reproducir: por qué la RD Congo no es el país más rico del mundo"><img src="https://i.ytimg.com/vi/tny2usCxhc4/hqdefault.jpg" alt=""><span class="play">▶</span><span class="dur">15:45</span></button>
+        <div class="vbody"><h3>Why isn’t the DR Congo the world’s richest country? | Mapped Out</h3><p class="vmeta">DW News · inglés</p><a href="https://www.youtube.com/watch?v=tny2usCxhc4" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+      </article>
+    </div>
+    <div class="stack">
+      <h2>La tesis de la p. 39, <em>en otro continente</em></h2>
+      <p>Riqueza en recursos y poca capacidad de decidir sobre ellos. ¿Qué tienen en común el Congo y América Latina? ¿En qué se distinguen?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VI. TU NOTICIA ===================== -->
+<section class="slide s-section" data-title="VI. Tu noticia, 2026" data-id="sec6" data-sec>
+  <p class="num">VI</p>
+  <h2>En 2010: «no es otra cosa que libre comercio». <em>¿Y en 2026?</em></h2>
+  <p class="lead">Tu punto 4: el proceso que elegiste, frente a una noticia reciente.</p>
+  <p class="pg">p. 31 frente a hoy</p>
+</section>
+
+<section class="slide" data-title="Foro · América Latina y China">
+  <p class="kicker">Del foro · ¿construye poder o sigue fragmentada?</p>
+  <div class="grid3">
+    <article class="news"><span class="who">Karol Irais López Cervantes</span><h3>Alianza del Pacífico</h3><p>Busca diálogo y conexión con Asia-Pacífico, «pero el problema es que la región sigue fragmentada y muchas veces se queda más en el libre comercio que en armar una estrategia común».</p><button class="verdict" type="button" data-v="0">¿Veredicto?</button></article>
+    <article class="news"><span class="who">Carolina Huerta Loredo</span><h3>Se agranda el déficit comercial de Colombia con China</h3><p>Colombia exporta materias primas e importa de China bienes industriales y tecnológicos: las importaciones valen 11 veces sus exportaciones.</p><span class="med">El Nuevo Siglo, 16 nov. 2026</span><button class="verdict" type="button" data-v="0">¿Veredicto?</button></article>
+    <article class="news"><span class="who">Pedro Rincón Pérez</span><h3>Surinam y su endeudamiento con China</h3><p>Una deuda de casi 476 millones de dólares, interés chino en la bauxita e inconformidad local por la explotación de minas y zonas protegidas.</p><span class="med">Infobae, 15 sept. 2026</span><button class="verdict" type="button" data-v="0">¿Veredicto?</button></article>
+  </div>
+</section>
+
+<section class="slide" data-title="Foro · México en el tablero">
+  <p class="kicker">Del foro · ¿construye poder o sigue fragmentada?</p>
+  <div class="grid3">
+    <article class="news"><span class="who">Raquel Izabella Flamenco Aguirre</span><h3>Industria y comercio de Querétaro ven potencial en relación con China</h3><p>Inversión, relocalización y alianzas empresariales. ¿Capacidad propia o «promoción por invitación»?</p><span class="med">El Economista, 17 nov. 2026</span><button class="verdict" type="button" data-v="0">¿Veredicto?</button></article>
+    <article class="news"><span class="who">Tere Adriana Camacho Reynoso</span><h3>Sheinbaum pide otro panda a China para Chapultepec</h3><p>«Un panda no es solo un lindo regalo, representa un mensaje político»: <i>soft power</i> chino en la Ciudad de México.</p><span class="med">El Financiero, 17 nov. 2026</span><button class="verdict" type="button" data-v="0">¿Veredicto?</button></article>
+    <article class="news"><span class="who">Juan Pablo Alfonso Dionicio Ocampo</span><h3>Ormuz: la mayor interrupción histórica del comercio de petróleo y gas</h3><p>«Depender demasiado de una sola región para obtener recursos energéticos representa un riesgo». ¿Y quién controla la energía hoy, como la OPEP en 1973?</p><span class="med">Reuters, 19 nov. 2026</span><button class="verdict" type="button" data-v="0">¿Veredicto?</button></article>
+  </div>
+</section>
+
+<section class="slide s-ask" data-title="Pregunta · Tu noticia" data-ask>
+  <div class="ask-head"><span class="ctl">Tu control · punto 4</span><button class="pick" type="button" data-draw>🎲 ¿Quién responde?</button></div>
+  <p class="q">¿Tu noticia muestra una región que <em>construye poder propio</em> o una que <em>sigue fragmentada</em>?</p>
+  <div class="scale">
+    <div class="end a">Construye poder</div>
+    <div class="mid">¿por qué?</div>
+    <div class="end b">Sigue fragmentada</div>
+  </div>
+  <p class="hint">Ponte de un lado del salón según tu respuesta. Defiéndela con tu noticia y con una página del artículo.</p>
+</section>
+
+<section class="slide" data-title="Glosario del grupo">
+  <p class="kicker">Del glosario del grupo · conceptos que dialogan con Dallanegra</p>
+  <div class="grid3">
+    <div class="gl"><h3>Autonomía estratégica</h3><p>«El intento de un país de depender menos de otros en sectores considerados importantes».</p><span class="src">Wade (2023)</span></div>
+    <div class="gl"><h3>Dependencia estratégica</h3><p>«Una dependencia económica puede transformarse en una debilidad estratégica».</p><span class="src">Farrell y Newman (2025)</span></div>
+    <div class="gl"><h3>Hegemonía</h3><p>Qué Estado tiene mayor capacidad «para establecer reglas, controlar espacios estratégicos o influir en las decisiones de otros».</p><span class="src">Hobsbawm (1998)</span></div>
+    <div class="gl"><h3>Minilateralismo</h3><p>Cooperación de grupos pequeños de países que «prioriza los intereses compartidos por encima de los valores o ideología».</p><span class="src">Foro Económico Mundial</span></div>
+    <div class="gl"><h3>Interdependencia asimétrica</h3><p>Las redes globales «no son horizontales ni neutras, sino profundamente centralizadas».</p><span class="src">Farrell y Newman (2019)</span></div>
+    <div class="gl"><h3>Regionalismo</h3><p>Atender al «modo de ser y a las aspiraciones de cada región».</p><span class="src">RAE</span></div>
+  </div>
+  <p class="lead small" style="margin-top:.4em"><b>Todavía no están en el glosario:</b> integración asociativa, autofragmentación, <i>spill around</i>, talasopolítica, repartidores supremos, construcción de poder. ¿Cuál agregas tú?</p>
+</section>
+
+<section class="slide s-cover" data-title="Cierre">
+  <svg class="rose" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="40"/></g><path d="M100 2l10 88 88 10-88 10-10 88-10-88-88-10 88-10z" fill="currentColor"/></svg>
+  <p class="kicker">Las últimas líneas del artículo · p. 40</p>
+  <blockquote class="xl">«Como se ve, América Latina tiene frente de sí un destino que construir. <span class="hl">Ojalá que empiece ya, pues el mundo no la va a esperar</span>».<span class="pg">p. 40</span></blockquote>
+</section>
+
+<section class="slide s-ask" data-title="Para salir" data-ask>
+  <div class="ask-head"><span class="ctl">Para salir</span><button class="pick" type="button" data-draw>🎲 ¿Quién responde?</button></div>
+  <p class="q">En una frase: si negociaras por tu proceso de integración, <em>¿qué alianza horizontal propondrías mañana</em> y con qué ventaja comparativa?</p>
+</section>
+
+<section class="slide" data-title="Referencias">
+  <p class="kicker">Referencias</p>
+  <div class="stack small">
+    <p>Dallanegra Pedraza, L. (2010). Teoría y metodología de la geopolítica: Hacia una geopolítica de la “construcción de poder”. <i>Revista Mexicana de Ciencias Políticas y Sociales</i>, 52(210), 15–42. <a href="https://www.scielo.org.mx/scielo.php?script=sci_arttext&amp;pid=S0185-19182010000300002" target="_blank" rel="noopener">SciELO ↗</a></p>
+    <p>Figuras 1 a 6 y cuadros de las pp. 22, 23, 25 y 27: tomados del artículo («Modelo: Luis Dallanegra Pedraza»).</p>
+    <p>Noticias del foro y definiciones del glosario del grupo 1541, 2027-1, con las fuentes que cita cada quien.</p>
+    <p><b>Videos:</b>
+      <a href="https://www.youtube.com/watch?v=G_wvxhEAkGg" target="_blank" rel="noopener">ARTE · América Latina</a> ·
+      <a href="https://www.youtube.com/watch?v=aXWblvE_oQE" target="_blank" rel="noopener">Bully Magnets · Doctrina Monroe</a> ·
+      <a href="https://www.youtube.com/watch?v=FEdeaBjOYFs" target="_blank" rel="noopener">DW · La mentira del libre comercio</a> ·
+      <a href="https://www.youtube.com/watch?v=ZQ5dDK2ODso" target="_blank" rel="noopener">DW · UE–Mercosur</a> ·
+      <a href="https://www.youtube.com/watch?v=Um2SMo2DCMo" target="_blank" rel="noopener">ARTE · Gas y petróleo</a> ·
+      <a href="https://www.youtube.com/watch?v=SbQDx3HlNhE" target="_blank" rel="noopener">DW · BRICS</a> ·
+      <a href="https://www.youtube.com/watch?v=Fe6FB1rqesI" target="_blank" rel="noopener">DW · Triángulo del litio</a> ·
+      <a href="https://www.youtube.com/watch?v=NMDCKpmc-uo" target="_blank" rel="noopener">WSJ · Corredor Interoceánico</a> ·
+      <a href="https://www.youtube.com/watch?v=IdHq0TuDdT4" target="_blank" rel="noopener">BBC Mundo · Chancay</a> ·
+      <a href="https://www.youtube.com/watch?v=tny2usCxhc4" target="_blank" rel="noopener">DW · RD Congo</a></p>
+  </div>
+</section>
+
+</main>
+
+<nav id="ui" aria-label="Controles de la presentación">
+  <button type="button" id="prev" aria-label="Diapositiva anterior">◀</button>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">▶</button>
+  <span id="count" aria-live="polite"></span>
+  <span class="sp"></span>
+  <button type="button" id="drawBtn" title="Sortear un número de lista (N)" aria-label="Sortear un número de lista">🎲</button>
+  <button type="button" id="ovBtn" title="Índice de diapositivas (O)" aria-label="Índice de diapositivas">▦</button>
+  <button type="button" id="themeBtn" title="Claro u oscuro (T)" aria-label="Cambiar entre claro y oscuro">◐</button>
+  <button type="button" id="fsBtn" title="Pantalla completa (F)" aria-label="Pantalla completa">⛶</button>
+</nav>
+
+<div class="layer" id="drawLayer" role="dialog" aria-modal="true" aria-label="Sorteo de número de lista">
+  <div class="box" id="drawBox">
+    <p class="kicker">Número de lista</p>
+    <div id="drawNum" aria-live="assertive">—</div>
+    <div class="row"><button type="button" id="drawAgain">Otro</button><label>de 1 a <input id="drawMax" type="number" min="2" max="200" value="60"></label><button type="button" id="drawReset">Empezar de nuevo</button><button type="button" id="drawClose">Cerrar</button></div>
+    <p class="small muted" id="drawLeft"></p>
+  </div>
+</div>
+
+<div class="layer" id="ovLayer" role="dialog" aria-modal="true" aria-label="Índice de diapositivas">
+  <div class="box"><div id="ovGrid"></div></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var slides=[].slice.call(document.querySelectorAll(".slide"));
+  var cur=0, prog=document.getElementById("prog"), count=document.getElementById("count");
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+
+  function stopVideos(s){
+    [].forEach.call(s.querySelectorAll(".vthumb iframe"),function(f){
+      var b=f.parentNode; f.remove();
+      [].forEach.call(b.children,function(c){c.style.display="";});
+    });
+  }
+  function show(n,noHash){
+    n=Math.max(0,Math.min(slides.length-1,n));
+    if(slides[cur]) {slides[cur].classList.remove("active"); stopVideos(slides[cur]);}
+    cur=n; slides[cur].classList.add("active");
+    prog.style.width=((cur+1)/slides.length*100)+"%";
+    count.textContent=(cur+1)+" / "+slides.length+" · "+(slides[cur].dataset.title||"");
+    if(!noHash) history.replaceState(null,"","#"+(cur+1));
+  }
+  function byId(id){for(var i=0;i<slides.length;i++) if(slides[i].dataset.id===id) return i; return -1;}
+
+  document.getElementById("prev").onclick=function(){show(cur-1);};
+  document.getElementById("next").onclick=function(){show(cur+1);};
+  [].forEach.call(document.querySelectorAll("[data-go]"),function(b){b.onclick=function(){var i=byId(b.dataset.go); if(i>=0) show(i);};});
+
+  /* tema */
+  var root=document.documentElement;
+  var saved=store("cp-theme");
+  if(saved) root.dataset.theme=saved;
+  document.getElementById("themeBtn").onclick=toggleTheme;
+  function toggleTheme(){var d=root.dataset.theme==="dark"?"light":"dark"; root.dataset.theme=d; store("cp-theme",d);}
+
+  /* pantalla completa */
+  function fs(){ if(!document.fullscreenElement){ (root.requestFullscreen||function(){}).call(root); } else { document.exitFullscreen(); } }
+  document.getElementById("fsBtn").onclick=fs;
+
+  /* videos */
+  [].forEach.call(document.querySelectorAll(".vthumb"),function(b){
+    b.addEventListener("click",function(){
+      if(b.querySelector("iframe")) return;
+      var f=document.createElement("iframe");
+      f.src="https://www.youtube-nocookie.com/embed/"+b.dataset.yt+"?autoplay=1&rel=0";
+      f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
+      f.allowFullscreen=true; f.title=b.getAttribute("aria-label")||"Video";
+      [].forEach.call(b.children,function(c){c.style.display="none";});
+      b.appendChild(f);
+    });
+  });
+
+  [].forEach.call(document.querySelectorAll(".vcard"),function(c){
+    if(c.querySelector(".vbody a")) return;
+    var id=c.querySelector(".vthumb").dataset.yt, l=document.createElement("a");
+    l.href="https://www.youtube.com/watch?v="+id; l.target="_blank"; l.rel="noopener"; l.textContent="Abrir en YouTube ↗";
+    c.querySelector(".vbody").appendChild(l);
+  });
+
+  /* sorteo de número de lista, sin repetir */
+  var layer=document.getElementById("drawLayer"), num=document.getElementById("drawNum"), maxIn=document.getElementById("drawMax"), left=document.getElementById("drawLeft");
+  var used=[]; try{used=JSON.parse(store("cp-used")||"[]");}catch(e){used=[];}
+  var m=parseInt(store("cp-max")||"60",10); if(m>1) maxIn.value=m;
+  function draw(){
+    var max=parseInt(maxIn.value,10)||60; store("cp-max",String(max));
+    var pool=[]; for(var i=1;i<=max;i++) if(used.indexOf(i)<0) pool.push(i);
+    if(!pool.length){used=[]; for(i=1;i<=max;i++) pool.push(i);}
+    var k=pool[Math.floor(Math.random()*pool.length)]; used.push(k); store("cp-used",JSON.stringify(used));
+    var t=0, spin=setInterval(function(){num.textContent=pool[Math.floor(Math.random()*pool.length)]; if(++t>9){clearInterval(spin); num.textContent=k;}},45);
+    left.textContent="Quedan "+(pool.length-1)+" sin pasar";
+  }
+  function openDraw(){layer.classList.add("on"); draw();}
+  function closeLayers(){layer.classList.remove("on"); ov.classList.remove("on");}
+  document.getElementById("drawBtn").onclick=openDraw;
+  [].forEach.call(document.querySelectorAll("[data-draw]"),function(b){b.onclick=openDraw;});
+  document.getElementById("drawAgain").onclick=draw;
+  document.getElementById("drawReset").onclick=function(){used=[]; store("cp-used","[]"); num.textContent="—"; left.textContent="";};
+  document.getElementById("drawClose").onclick=closeLayers;
+  layer.addEventListener("click",function(e){if(e.target===layer) closeLayers();});
+
+  /* índice */
+  var ov=document.getElementById("ovLayer"), grid=document.getElementById("ovGrid");
+  slides.forEach(function(s,i){
+    var b=document.createElement("button"); b.type="button";
+    if(s.hasAttribute("data-sec")) b.className="sec"; else if(s.hasAttribute("data-ask")) b.className="ask";
+    b.innerHTML="<b>"+(i+1)+"</b>"+(s.dataset.title||"");
+    b.onclick=function(){closeLayers(); show(i);};
+    grid.appendChild(b);
+  });
+  function openOv(){[].forEach.call(grid.children,function(b,i){b.classList.toggle("cur",i===cur);}); ov.classList.add("on");}
+  document.getElementById("ovBtn").onclick=openOv;
+  ov.addEventListener("click",function(e){if(e.target===ov) closeLayers();});
+
+  /* conteo de procesos */
+  [].forEach.call(document.querySelectorAll("[data-tally]"),function(box){
+    var key="cp-tally-"+box.dataset.tally, data={}; try{data=JSON.parse(store(key)||"{}");}catch(e){data={};}
+    function paint(){[].forEach.call(box.querySelectorAll("button"),function(b){b.querySelector("b").textContent=data[b.dataset.k]||0;});}
+    [].forEach.call(box.querySelectorAll("button"),function(b){
+      b.addEventListener("click",function(e){var v=(data[b.dataset.k]||0)+(e.shiftKey?-1:1); data[b.dataset.k]=Math.max(0,v); store(key,JSON.stringify(data)); paint();});
+      b.addEventListener("contextmenu",function(e){e.preventDefault(); data[b.dataset.k]=Math.max(0,(data[b.dataset.k]||0)-1); store(key,JSON.stringify(data)); paint();});
+    });
+    var r=box.parentNode.querySelector("[data-reset-tally]"); if(r) r.onclick=function(){data={}; store(key,"{}"); paint();};
+    paint();
+  });
+
+  /* veredictos de noticias */
+  var labels=["¿Veredicto?","Construye poder","Sigue fragmentada","En disputa"];
+  [].forEach.call(document.querySelectorAll(".verdict"),function(b){
+    b.onclick=function(){var v=(parseInt(b.dataset.v,10)+1)%4; b.dataset.v=v; b.textContent=labels[v];};
+  });
+
+  /* teclado y clicker */
+  document.addEventListener("keydown",function(e){
+    if(e.target.tagName==="INPUT") return;
+    var k=e.key;
+    if(layer.classList.contains("on")||ov.classList.contains("on")){
+      if(k==="Escape") closeLayers();
+      else if((k===" "||k==="Enter"||k==="n"||k==="N") && layer.classList.contains("on")){e.preventDefault(); draw();}
+      return;
+    }
+    if(k==="ArrowRight"||k==="PageDown"||k===" "||k==="ArrowDown"){e.preventDefault(); show(cur+1);}
+    else if(k==="ArrowLeft"||k==="PageUp"||k==="ArrowUp"){e.preventDefault(); show(cur-1);}
+    else if(k==="Home") show(0);
+    else if(k==="End") show(slides.length-1);
+    else if(k==="f"||k==="F") fs();
+    else if(k==="t"||k==="T") toggleTheme();
+    else if(k==="n"||k==="N") openDraw();
+    else if(k==="o"||k==="O") openOv();
+  });
+
+  /* deslizamiento táctil */
+  var x0=null;
+  document.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener("touchend",function(e){if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); x0=null;});
+
+  var h=parseInt(location.hash.slice(1),10);
+  show(h>0?h-1:0,true);
+})();
+</script>
+</body>
+</html>
