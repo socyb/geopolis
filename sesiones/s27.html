@@ -133,10 +133,11 @@
         <button class="btn btn-small" id="regresoClear" type="button">Borrar</button>
       </div>
       <p class="card regreso-foro"><strong>Cuenta como participación:</strong> descarga tu imagen y súbela al foro en <a href="https://negociosinternacionales.fca.unam.mx" target="_blank" rel="noopener noreferrer">Moodle</a>.</p>
-      <div class="regreso-stage" id="regresoStage" hidden role="dialog" aria-modal="true" aria-label="Tu brújula de regreso a pantalla llena">
+      <dialog class="regreso-stage" id="regresoStage" aria-label="Tu brújula de regreso a pantalla llena">
         <img id="regresoStageImg" alt="Tu brújula de regreso">
+        <p class="regreso-stage-msg" id="regresoStageMsg" role="status" hidden></p>
         <button class="btn btn-small" id="regresoStageClose" type="button">Cerrar ✕</button>
-      </div>
+      </dialog>
     </div>
   </section>
 
@@ -283,32 +284,34 @@
         .map(function (f) { return document.fonts.load(f); })).then(draw, function () {});
     }
 
-    var toastTimer;
-    function say(msg) {
-      var el = document.getElementById("toast"); if (!el) return;
-      el.textContent = msg; el.classList.add("is-on");
-      clearTimeout(toastTimer); toastTimer = setTimeout(function () { el.classList.remove("is-on"); }, 3200);
-    }
-    // Vista propia a pantalla llena: sirve donde el navegador no permite la pantalla completa.
+    // Vista propia a pantalla llena, en un <dialog> modal: sirve donde el navegador no
+    // permite la pantalla completa. showModal() la pone encima de todo, deja inerte la
+    // página de atrás (el Tab no se escapa) y la cierra con Esc.
     var stage = document.getElementById("regresoStage");
-    function openStage() {
+    var stageMsg = document.getElementById("regresoStageMsg");
+    function openStage(msg) {
       document.getElementById("regresoStageImg").src = canvas.toDataURL("image/png");
-      stage.hidden = false; document.documentElement.classList.add("regreso-stage-on");
+      stageMsg.textContent = msg || ""; stageMsg.hidden = !msg;
+      document.documentElement.classList.add("regreso-stage-on");
+      if (typeof stage.showModal === "function") { stage.showModal(); } else { stage.setAttribute("open", ""); }
       document.getElementById("regresoStageClose").focus();
     }
     function closeStage() {
-      stage.hidden = true; document.documentElement.classList.remove("regreso-stage-on");
+      if (typeof stage.close === "function") { stage.close(); } else { stage.removeAttribute("open"); onClosed(); }
+    }
+    function onClosed() {
+      document.documentElement.classList.remove("regreso-stage-on");
       document.getElementById("regresoShow").focus();
     }
+    stage.addEventListener("close", onClosed);
     stage.addEventListener("click", closeStage);
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !stage.hidden) closeStage(); });
     document.getElementById("regresoShow").addEventListener("click", function () {
       var fs = canvas.requestFullscreen || canvas.webkitRequestFullscreen;
       if (!fs) { openStage(); return; }
       try {
         var r = fs.call(canvas);
         if (r && typeof r.catch === "function") r.catch(function () {
-          openStage(); say("Tu navegador no permitió la pantalla completa: la imagen se muestra aquí. También puedes descargarla.");
+          openStage("Tu navegador no permitió la pantalla completa: la imagen se muestra aquí. También puedes descargarla.");
         });
       } catch (e) { openStage(); }
     });
