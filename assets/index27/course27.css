@@ -2695,3 +2695,16 @@ html.is-presenting{overflow:hidden}
 .interviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem;align-items:start}
 .interviews .tablebox{margin-top:0}
 .interviews .dtable{min-width:0}
+
+/* ── Letrero «Da clic aquí» en la tarjeta de la sesión actual ───────────── */
+.tl-go{display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:auto;padding:.55rem .7rem;
+  background:var(--guinda);color:#fff;border:2px solid var(--edge);border-radius:var(--radius-sm);box-shadow:3px 3px 0 var(--edge);
+  font-weight:700;font-size:.86rem;line-height:1.2;text-align:center}
+.tl-tag + .tl-go{margin-top:.75rem}
+.tl-go span{display:inline-block;animation:tl-nudge 1.4s ease-in-out infinite}
+@keyframes tl-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+a.tl-stop:hover .tl-go{background:var(--ink)}
+html[data-theme="dark"] .tl-go{color:#180510}
+html[data-theme="dark"] a.tl-stop:hover .tl-go{color:var(--paper)}
+@media (prefers-reduced-motion:reduce){.tl-go span{animation:none}}
+@media print{.tl-go{display:none}}
