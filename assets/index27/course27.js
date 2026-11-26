@@ -162,7 +162,7 @@
     [26,"2026-11-24","Centro de Exposiciones y Congresos UNAM","Foro de Vinculación y Emprendimiento","Inauguración · 09:00 · transporte de la Facultad a las 08:30","VI","sesiones/s26-foro-de-vinculacion.html"],
     [27,"2026-11-26","A-101","Geopolítica de la construcción de poder","Dallanegra Pedraza · integración latinoamericana · actividad 14","VI","sesiones/s27.html",null,"2026-11-25T20:00"],
     [28,"2026-12-01","A-004","Entrega del trabajo final","Por correo · un PDF con su planteamiento, pregunta, estado del arte y referencias","VI","sesiones/s28-entrega-del-trabajo-final.html"],
-    [29,"2026-12-03","A-101","","","VI","sesiones/s29.html"]
+    [29,"2026-12-03","A-101","Entrevistas","Cuatro equipos · 15 minutos cada uno · de 09:00 a 10:00","VI","sesiones/s29.html"]
   ].map(([number, date, room, title, subtitle, unit, href, opens, from]) => ({ number, date, room, title, subtitle, unit, href, opens, from }));
 
   const MONTHS = { "01":"ene","02":"feb","03":"mar","04":"abr","05":"may","06":"jun",
