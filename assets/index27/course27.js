@@ -332,6 +332,13 @@
       tag.className = "tl-tag";
       tag.textContent = isHere ? "Estás aquí" : isCurrent ? "Sesión actual" : `Unidad ${s.unit}`;
       card.append(num, when, title, subtitle, tag);
+      // En la tarjeta de la sesión actual, un letrero que diga que se abre con un clic.
+      if (isCurrent && link) {
+        const go = document.createElement("span");
+        go.className = "tl-go";
+        go.innerHTML = 'Da clic aquí para entrar <span aria-hidden="true">→</span>';
+        card.appendChild(go);
+      }
       stop.append(mark, card);
       return stop;
     }));
